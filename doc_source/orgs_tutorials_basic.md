@@ -107,7 +107,7 @@ If you get an exception that indicates that you exceeded your account limits for
 
 In the steps in this section, you create organizational units \(OUs\) and place your member accounts in them\. Your hierarchy looks like the following illustration when you are done\. The master account remains in the root\. One member account is moved to the Production OU and the other member account is moved to the MainApp OU, which is a child of Production\. 
 
-![\[Image NOT FOUND\]](http://alpha-docs-aws.amazon.com/organizations/latest/userguide/images/orgs-lab-structure.jpg)
+![\[Image NOT FOUND\]](http://docs.aws.amazon.com/organizations/latest/userguide/images/orgs-lab-structure.jpg)
 
 **To create and populate the OUs**
 

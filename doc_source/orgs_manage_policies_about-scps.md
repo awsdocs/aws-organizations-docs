@@ -10,7 +10,7 @@ SCPs are available only in organizations that enable all features\. SCPs are not
 
 The following illustration shows how SCPs work\.
 
-![\[Image NOT FOUND\]](http://alpha-docs-aws.amazon.com/organizations/latest/userguide/images/How_SCP_Permissions_Work.jpg)
+![\[Image NOT FOUND\]](http://docs.aws.amazon.com/organizations/latest/userguide/images/How_SCP_Permissions_Work.jpg)
 
 In this illustration, the root has an SCP attached that allows permissions A, B, and C\. An OU in that root has an SCP that allows C, D, and E\. Because the root's OU does not allow D or E, then nothing in the root or any of its children can use them, including the parent OU\. Even though the parent OU explicitly allows them, they end up blocked because they are blocked by the root\. Also, because the OU's SCP does not allow A or B, those permissions are blocked for the parent OU and any of its children\. However, other OUs under the root that are peers to the parent OU could allow A and B\.
 

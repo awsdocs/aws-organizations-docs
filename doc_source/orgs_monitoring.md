@@ -10,27 +10,27 @@ As a best practice, you should monitor your organization to ensure that changes 
 
 AWS Organizations is integrated with AWS CloudTrail, a service that captures AWS Organizations API calls and delivers the log files to an Amazon S3 bucket that you specify\. CloudTrail captures API calls from the AWS Organizations console or from your code\. Using the information collected by CloudTrail, you can determine the request that was made to AWS Organizations, the source IP address from which the request was made, who made the request, when it was made, and so on\. 
 
-To learn more about CloudTrail, including how to configure and enable it, see the [AWS CloudTrail User Guide](http://alpha-docs-aws.amazon.com/awscloudtrail/latest/userguide/)\.
+To learn more about CloudTrail, including how to configure and enable it, see the [AWS CloudTrail User Guide](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/)\.
 
 ### AWS Organizations Information in CloudTrail<a name="service-name-info-in-cloudtrail"></a>
 
 When CloudTrail logging is enabled in your AWS account, API calls made to AWS Organizations actions are tracked in CloudTrail log files, where they are written with other AWS service records\. CloudTrail determines when to create and write to a new file based on a time period and file size\.
 
-All AWS Organizations actions are logged by CloudTrail and are documented in the [AWS Organizations API Reference](http://alpha-docs-aws.amazon.com/organizations/latest/APIReference/)\. For example, calls to the `ListHandshakesForAccount`, `CreatePolicy`, and `InviteAccountToOrganization` operations generate entries in the CloudTrail log files\. 
+All AWS Organizations actions are logged by CloudTrail and are documented in the [AWS Organizations API Reference](http://docs.aws.amazon.com/organizations/latest/APIReference/)\. For example, calls to the `ListHandshakesForAccount`, `CreatePolicy`, and `InviteAccountToOrganization` operations generate entries in the CloudTrail log files\. 
 
 Every log entry contains information about who generated the request\. The user identity information in the log entry helps you determine the following: 
 
 + Whether the request was made with root or IAM user credentials
 
-+ Whether the request was made with temporary security credentials for an [IAM role](http://alpha-docs-aws.amazon.com/IAM/latest/UserGuide/id_roles.html) or a [federated user](http://alpha-docs-aws.amazon.com/IAM/latest/UserGuide/id_roles_providers.html) whose security credentials are validated by an external identity provider instead of directly by AWS
++ Whether the request was made with temporary security credentials for an [IAM role](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) or a [federated user](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers.html) whose security credentials are validated by an external identity provider instead of directly by AWS
 
 + Whether the request was made by another AWS service
 
-For more information, see the [CloudTrail userIdentity Element](http://alpha-docs-aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html)\.
+For more information, see the [CloudTrail userIdentity Element](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html)\.
 
 You can store your log files in your Amazon S3 bucket for as long as you want, but you can also define Amazon S3 lifecycle rules to archive or delete log files automatically\. By default, your log files are encrypted with Amazon S3 server\-side encryption \(SSE\)\.
 
-If you want to be notified upon log file delivery, you can configure CloudTrail to publish Amazon SNS notifications when new log files are delivered\. For more information, see [Configuring Amazon SNS Notifications for CloudTrail](http://alpha-docs-aws.amazon.com/awscloudtrail/latest/userguide/getting_notifications_top_level.html)\.
+If you want to be notified upon log file delivery, you can configure CloudTrail to publish Amazon SNS notifications when new log files are delivered\. For more information, see [Configuring Amazon SNS Notifications for CloudTrail](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/getting_notifications_top_level.html)\.
 
 ### Understanding AWS Organizations Log File Entries<a name="understanding-service-name-entries"></a>
 
@@ -231,4 +231,4 @@ AWS Organizations can work with CloudWatch Events to raise "events" when adminis
 
 For a tutorial that shows how to enable CloudWatch Events to monitor key activity in your organization, see [Tutorial: Monitor Important Changes to Your Organization with CloudWatch Events ](orgs_tutorials_cwe.md)\.
 
-To learn more about CloudWatch Events, inclucing how to configure and enable it, see the [Amazon CloudWatch Events User Guide](http://alpha-docs-aws.amazon.com/AmazonCloudWatch/latest/events/)\.
+To learn more about CloudWatch Events, inclucing how to configure and enable it, see the [Amazon CloudWatch Events User Guide](http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/)\.

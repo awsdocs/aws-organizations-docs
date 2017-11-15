@@ -24,7 +24,7 @@ When you create an account using the following procedure, AWS does not automatic
 
 **To create an AWS account that automatically is part of your organization \(console\)**
 
-1. Sign in to the Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](http://alpha-docs-aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\.
+1. Sign in to the Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](http://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\.
 
 1. On the **Accounts** tab, choose **Add account**\.
 
@@ -51,6 +51,6 @@ By default, the **Accounts** tab hides account creation requests that failed\. T
 **To create an AWS account that is automatically part of your organization \(AWS CLI, AWS API\)**  
 You can use the following command or operation to create an account:
 
-+ AWS CLI: [aws organizations create\-account](http://alpha-docs-aws.amazon.com/cli/latest/reference/organizations/create-account.html)
++ AWS CLI: [aws organizations create\-account](http://docs.aws.amazon.com/cli/latest/reference/organizations/create-account.html)
 
-+ AWS API: [CreateAccount](http://alpha-docs-aws.amazon.com/organizations/latest/APIReference/API_CreateAccount.html)
++ AWS API: [CreateAccount](http://docs.aws.amazon.com/organizations/latest/APIReference/API_CreateAccount.html)

@@ -17,8 +17,8 @@ To access an AWS account from any other account in your organization, you must h
 When you create a new account, Organizations initially assigns a long, complex, random password to the root user\. You cannot retrieve this initial password\. To access the account as the root user for the first time, you must go through the account password recovery process\.
 
 **Notes**  
-We recommend as a [best practice](http://alpha-docs-aws.amazon.com/IAM/latest/UserGuide/best-practices.html#create-iam-users) that you do not use the root user to access your account for anything other than to create other users and roles with more limited permissions\. Then sign in as one of those users or roles\.
-We also recommend that you set [multi\-factor authentication](http://alpha-docs-aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa.html) on the root user\. Reset the password, and then [assign an MFA device to the root user](http://alpha-docs-aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_enable.html)\.
+We recommend as a [best practice](http://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#create-iam-users) that you do not use the root user to access your account for anything other than to create other users and roles with more limited permissions\. Then sign in as one of those users or roles\.
+We also recommend that you set [multi\-factor authentication](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa.html) on the root user\. Reset the password, and then [assign an MFA device to the root user](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_enable.html)\.
 
 **To request a new password for the member account's root user \(Console\)**
 
@@ -38,7 +38,7 @@ However, member accounts that you *invite* to join your organization ***do not**
 
 **To create an AWS Organizations admin role in a member account \(Console\)**
 
-1. Sign in to the Identity and Access Management \(IAM\) console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](http://alpha-docs-aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the member account that has permissions to create IAM roles and policies\.
+1. Sign in to the Identity and Access Management \(IAM\) console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](http://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the member account that has permissions to create IAM roles and policies\.
 
 1. In the IAM console, navigate to **Roles**, **Create New Role**\.
 
@@ -46,7 +46,7 @@ However, member accounts that you *invite* to join your organization ***do not**
 
 1. Choose **Role for Cross\-Account Access**, choose **Select** next to **Provide access between AWS accounts you own**, and then choose **Next Step**\.
 
-1. Type the 12\-digit account ID number of the master account that you want to grant admin access to\. You can optionally choose to require authentication using a multi\-factor authentication \(MFA\) device, if you have MFA enabled and configured\. For more information about MFA, see [Using Multi\-Factor Authentication \(MFA\) in AWS](http://alpha-docs-aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa.html) in the *IAM User Guide*\.
+1. Type the 12\-digit account ID number of the master account that you want to grant admin access to\. You can optionally choose to require authentication using a multi\-factor authentication \(MFA\) device, if you have MFA enabled and configured\. For more information about MFA, see [Using Multi\-Factor Authentication \(MFA\) in AWS](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa.html) in the *IAM User Guide*\.
 
 1. On the **Attach Policy** page, choose the AWS managed policy named `AdministratorAccess`, and then choose **Next Step**\.
 
@@ -134,7 +134,7 @@ When you create a member account using the AWS Organizations console, AWS Organi
 
    The *textToDisplay* is a string that is displayed on the navigation bar in place of the user name\.
 
-For more information about granting permissions to switch roles, see [Granting a User Permissions to Switch Roles](http://alpha-docs-aws.amazon.com/IAM/latest/UserGuide/id_roles_use_permissions-to-switch.html) in the *IAM User Guide*\.
+For more information about granting permissions to switch roles, see [Granting a User Permissions to Switch Roles](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_permissions-to-switch.html) in the *IAM User Guide*\.
 
 **To manually switch to the role for the member account \(Console\)**
 
@@ -152,6 +152,6 @@ If you provide your users with a link formatted as shown in the preceding proced
 
 1. When you are done performing actions that require the permissions of the role, you can switch back to your normal IAM user by choosing the role name in the upper\-right corner \(whatever you specified as the **Display Name**\), and then choosing **Back to *UserName***\.
 
-For more information about using a role that you have been granted permissions to assume, see [Switching to a Role \(AWS Management Console\)](http://alpha-docs-aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-console.html) in the *IAM User Guide*\.
+For more information about using a role that you have been granted permissions to assume, see [Switching to a Role \(AWS Management Console\)](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-console.html) in the *IAM User Guide*\.
 
-For an end\-to\-end tutorial about using roles for cross\-account access, see [Tutorial: Delegate Access Across AWS Accounts Using IAM Roles](http://alpha-docs-aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html) in the *IAM User Guide*\.
+For an end\-to\-end tutorial about using roles for cross\-account access, see [Tutorial: Delegate Access Across AWS Accounts Using IAM Roles](http://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html) in the *IAM User Guide*\.

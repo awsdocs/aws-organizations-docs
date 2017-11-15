@@ -7,7 +7,7 @@ SCPs are available only in an organization that has all features enabled\. SCPs 
 SCPs are similar to IAM permission policies and use almost the exact same syntax\. However, an SCP never grants permissions\. Instead, think of an SCP as a "filter" that enables you to restrict what service and actions can be accessed by users and roles in the accounts that you attach the SCP to\. An SCP that is applied at the root cascades its permissions to the OUs below it\. An OU at the next level down gets the mathematical intersection of the permissions that flow down from the parent root and the SCPs that are attached to the OU\. In other words, any account has only those permissions permitted by ***every*** parent above it\. If a permission is blocked at any level above the account, either implicitly \(by not being included in an "Allow" policy statement\) or explicitly \(by being included in a "Deny" policy statement\) then a user or role in the affected account cannot use that permission, even if the account administrator attaches the **AdministratorAccess** IAM policy with \*/\* permissions to the user\.
 
 **Warning**  
-We strongly recommend that you do not attach SCPs to the root of your organization without thoroughly testing the impact that the policy has on accounts\. Instead, create an OU that you can move your accounts into one at a time, or at least in small numbers, to ensure that you don't inadvertently lock users out of key services\. One way to determine whether a service is used by an account is to examine the [service last accessed data in IAM](http://alpha-docs-aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html)\. Another way is to [use AWS CloudTrail to log service usage at the API level](http://alpha-docs-aws.amazon.com/awscloudtrail/latest/userguide/how-cloudtrail-works.html)\.
+We strongly recommend that you do not attach SCPs to the root of your organization without thoroughly testing the impact that the policy has on accounts\. Instead, create an OU that you can move your accounts into one at a time, or at least in small numbers, to ensure that you don't inadvertently lock users out of key services\. One way to determine whether a service is used by an account is to examine the [service last accessed data in IAM](http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html)\. Another way is to [use AWS CloudTrail to log service usage at the API level](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/how-cloudtrail-works.html)\.
 
 **Considerations**
 
@@ -76,7 +76,7 @@ To create a policy within your organization, you must have the following permiss
 
 **To create a service control policy \(console\)**
 
-1. Sign in to the Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](http://alpha-docs-aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\.
+1. Sign in to the Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](http://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\.
 
 1. On the **Policies** tab, choose **Create Policy**\.
 
@@ -123,9 +123,9 @@ You can use this option to create a new SCP using the editor\. Don't select a po
 **To create a service control policy \(AWS CLI, AWS API\)**  
 You can use the following commands to create an SCP:
 
-+ AWS CLI: [aws organizations create\-policy](http://alpha-docs-aws.amazon.com/cli/latest/reference/organizations/create-account.html)
++ AWS CLI: [aws organizations create\-policy](http://docs.aws.amazon.com/cli/latest/reference/organizations/create-account.html)
 
-+ AWS API: [CreatePolicy](http://alpha-docs-aws.amazon.com/organizations/latest/APIReference/API_CreatePolicy.html)
++ AWS API: [CreatePolicy](http://docs.aws.amazon.com/organizations/latest/APIReference/API_CreatePolicy.html)
 
 ## Updating a Service Control Policy<a name="update_policy"></a>
 
@@ -141,7 +141,7 @@ To update a policy in your AWS organization, you must have the following permiss
 
 **To update a policy \(console\)**
 
-1. Sign in to the Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](http://alpha-docs-aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\.
+1. Sign in to the Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](http://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\.
 
 1. Choose the **Policies** tab\.
 
@@ -158,6 +158,6 @@ To update a policy in your AWS organization, you must have the following permiss
 **To update a policy \(AWS CLI, AWS API\)**  
 You can use the following commands to update a policy: 
 
-+ AWS CLI: [aws organizations update\-policy](http://alpha-docs-aws.amazon.com/cli/latest/reference/organizations/update-policy.html)
++ AWS CLI: [aws organizations update\-policy](http://docs.aws.amazon.com/cli/latest/reference/organizations/update-policy.html)
 
-+ AWS API: [UpdatePolicy](http://alpha-docs-aws.amazon.com/organizations/latest/APIReference/API_UpdatePolicy.html)
++ AWS API: [UpdatePolicy](http://docs.aws.amazon.com/organizations/latest/APIReference/API_UpdatePolicy.html)

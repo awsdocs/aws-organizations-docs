@@ -37,7 +37,7 @@ To invite an AWS account to join your organization, you must have the following 
 
 **To invite another account to join your organization \(console\)**
 
-1. Sign in to the Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](http://alpha-docs-aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\.
+1. Sign in to the Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](http://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\.
 
 1. On the **Accounts** tab, choose **Add account**\.
 
@@ -60,9 +60,9 @@ If you get an exception that indicates that you exceeded your account limits for
 **To invite another account to join your organization \(AWS CLI, AWS API\)**  
 You can use the following command or operation to invite another account to join your organization:
 
-+ AWS CLI: [aws organizations invite\-account\-to\-organization](http://alpha-docs-aws.amazon.com/cli/latest/reference/organizations/invite-account-to-organization.html) 
++ AWS CLI: [aws organizations invite\-account\-to\-organization](http://docs.aws.amazon.com/cli/latest/reference/organizations/invite-account-to-organization.html) 
 
-+ AWS API: [InviteAccountToOrganization](http://alpha-docs-aws.amazon.com/organizations/latest/APIReference/API_InviteAccountToOrganization.html)
++ AWS API: [InviteAccountToOrganization](http://docs.aws.amazon.com/organizations/latest/APIReference/API_InviteAccountToOrganization.html)
 
 ## Managing Pending Invitations for Your Organization<a name="orgs_manage_accounts_manage-invites"></a>
 
@@ -76,7 +76,7 @@ To manage pending invitations for your organization, you must have the following
 
 **To view or cancel invitations that are sent from your organization to other accounts \(console\)**
 
-1. Sign in to the Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](http://alpha-docs-aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\.
+1. Sign in to the Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](http://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\.
 
 1. Choose the **Invitations** tab\. All invitations that are sent from your organization and their current status are listed here\.
 **Note**  
@@ -91,9 +91,9 @@ Accepted, canceled, and declined invitations continue to appear in the list for 
 **To view or cancel invitations sent from your organization to other accounts \(AWS CLI, AWS API\)**  
 You can use the following commands or operations to view or cancel invitations:
 
-+ AWS CLI: [aws organizations list\-handshakes\-for\-organization](http://alpha-docs-aws.amazon.com/cli/latest/reference/organizations/list-handshakes-for-organization.html), [aws organizations cancel\-handshake](http://alpha-docs-aws.amazon.com/cli/latest/reference/organizations/cancel-handshake.html) 
++ AWS CLI: [aws organizations list\-handshakes\-for\-organization](http://docs.aws.amazon.com/cli/latest/reference/organizations/list-handshakes-for-organization.html), [aws organizations cancel\-handshake](http://docs.aws.amazon.com/cli/latest/reference/organizations/cancel-handshake.html) 
 
-+ AWS API: [ListHandshakesForOrganization](http://alpha-docs-aws.amazon.com/organizations/latest/APIReference/API_ListHandshakesForOrganization.html), [CancelHandshake](http://alpha-docs-aws.amazon.com/organizations/latest/APIReference/API_CancelHandshake.html)
++ AWS API: [ListHandshakesForOrganization](http://docs.aws.amazon.com/organizations/latest/APIReference/API_ListHandshakesForOrganization.html), [CancelHandshake](http://docs.aws.amazon.com/organizations/latest/APIReference/API_CancelHandshake.html)
 
 ## Accepting or Declining an Invitation from an Organization<a name="orgs_manage_accounts_accept-decline-invite"></a>
 
@@ -110,7 +110,7 @@ To accept or decline an invitation to join an AWS organization, you must have th
 
 1. An invitation to join an organization is sent to the email address of the account owner\. If you are an account owner and you receive an invitation email, click the link in the email invitation or go to [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/) in your browser, and then choose **Respond to invitations**\.
 
-1. If prompted, sign in to the invited account as an IAM user, assume an IAM role, or sign in as the account's root user \([not recommended](http://alpha-docs-aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\)\.
+1. If prompted, sign in to the invited account as an IAM user, assume an IAM role, or sign in as the account's root user \([not recommended](http://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\)\.
 
 1. On the **Invitations** page in the console, you can see your open invitations to join organizations\. Choose **Accept** or **Decline**, as appropriate\.
 
@@ -133,6 +133,6 @@ Declined invitations continue to appear in the list for 30 days\. After that, th
 **To accept or decline an invitation \(AWS CLI, AWS API\)**  
 You can use the following commands or operations to accept or decline an invitation:
 
-+ AWS CLI: [aws organizations accept\-handshake](http://alpha-docs-aws.amazon.com/cli/latest/reference/organizations/accept-handshake.html), [aws organizations decline\-handshake](http://alpha-docs-aws.amazon.com/cli/latest/reference/organizations/decline-handshake.html) 
++ AWS CLI: [aws organizations accept\-handshake](http://docs.aws.amazon.com/cli/latest/reference/organizations/accept-handshake.html), [aws organizations decline\-handshake](http://docs.aws.amazon.com/cli/latest/reference/organizations/decline-handshake.html) 
 
-+ AWS API: [AcceptHandshake](http://alpha-docs-aws.amazon.com/organizations/latest/APIReference/API_AcceptHandshake.html), [DeclineHandshake](http://alpha-docs-aws.amazon.com/organizations/latest/APIReference/API_DeclineHandshake.html)
++ AWS API: [AcceptHandshake](http://docs.aws.amazon.com/organizations/latest/APIReference/API_AcceptHandshake.html), [DeclineHandshake](http://docs.aws.amazon.com/organizations/latest/APIReference/API_DeclineHandshake.html)

@@ -3,7 +3,7 @@
 All AWS resources, including the roots, organizational units, accounts, and policies in an organization, are owned by an AWS account, and permissions to create or access a resource are governed by permissions policies\. In the case of an organization, all resources are owned by the organization's master account\. An account administrator can control access to AWS resources by attaching permissions policies to IAM identities \(users, groups, and roles\)\.
 
 **Note**  
-An *account administrator* \(or administrator user\) is a user with administrator permissions\. For more information, see [IAM Best Practices](http://alpha-docs-aws.amazon.com/IAM/latest/UserGuide/best-practices.html) in the *IAM User Guide*\.
+An *account administrator* \(or administrator user\) is a user with administrator permissions\. For more information, see [IAM Best Practices](http://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html) in the *IAM User Guide*\.
 
 When granting permissions, you decide who is getting the permissions, the resources they get permissions for, and the specific actions that you want to allow on those resources\.
 
@@ -27,7 +27,7 @@ When you combine both an `Action` and a `Resource` in a single permission policy
 
 ## Understanding Resource Ownership<a name="orgs-access-control-resource-ownership"></a>
 
-The AWS account owns the resources that are created in the account, regardless of who created the resources\. Specifically, the resource owner is the AWS account of the [principal entity](http://alpha-docs-aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html) \(that is, the root account, an IAM user, or an IAM role\) that authenticates the resource creation request\. In the case of an AWS Organization, that is ***always*** the master account\. You cannot call most operations that create or access organization resources from the member accounts\. The following examples illustrate how this works:
+The AWS account owns the resources that are created in the account, regardless of who created the resources\. Specifically, the resource owner is the AWS account of the [principal entity](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html) \(that is, the root account, an IAM user, or an IAM role\) that authenticates the resource creation request\. In the case of an AWS Organization, that is ***always*** the master account\. You cannot call most operations that create or access organization resources from the member accounts\. The following examples illustrate how this works:
 
 + If you use the root account credentials of your master account to create an organizational unit \(OU\), your master account is the owner of the resource \(in AWS Organizations, the resource is the OU\)\.
 
@@ -40,7 +40,7 @@ The AWS account owns the resources that are created in the account, regardless o
 A *permissions policy* describes who has access to what\. The following section explains the available options for creating permissions policies\.
 
 **Note**  
-This section discusses using IAM in the context of AWS Organizations\. It doesn't provide detailed information about the IAM service\. For complete IAM documentation, see the [IAM User Guide](http://alpha-docs-aws.amazon.com/IAM/latest/UserGuide/introduction.html)\. For information about IAM policy syntax and descriptions, see the [AWS IAM Policy Reference](http://alpha-docs-aws.amazon.com/IAM/latest/UserGuide/reference_policies.html) in the *IAM User Guide*\.
+This section discusses using IAM in the context of AWS Organizations\. It doesn't provide detailed information about the IAM service\. For complete IAM documentation, see the [IAM User Guide](http://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html)\. For information about IAM policy syntax and descriptions, see the [AWS IAM Policy Reference](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html) in the *IAM User Guide*\.
 
 Policies that are attached to an IAM identity are referred to as *identity\-based* policies \(IAM policies\)\. Policies that are attached to a resource are referred to as *resource\-based* policies\. AWS Organizations supports only identity\-based policies \(IAM policies\)\.
 
@@ -62,7 +62,7 @@ You can attach policies to IAM identities\. For example, you can do the followin
 
   1. The member account administrator can then delegate permissions to assume the role to any users in the member account\. Doing this allows users in the member account to create or access resources in the master account and the organization\. The principal in the trust policy can also be an AWS service principal if you want to grant permissions to an AWS service to assume the role\.
 
-  For more information about using IAM to delegate permissions, see [Access Management](http://alpha-docs-aws.amazon.com/IAM/latest/UserGuide/access.html) in the *IAM User Guide*\.
+  For more information about using IAM to delegate permissions, see [Access Management](http://docs.aws.amazon.com/IAM/latest/UserGuide/access.html) in the *IAM User Guide*\.
 
 The following is an example policy that allows a user to perform the `CreateAccount` action in your organization:
 
@@ -81,7 +81,7 @@ The following is an example policy that allows a user to perform the `CreateAcco
   ]
 ```
 
-For more information about using identity\-based policies, see [Using Identity\-Based Policies \(IAM Policies\) for AWS Organizations](orgs_permissions_iam-policies.md)\. For more information about users, groups, roles, and permissions, see [Identities \(Users, Groups, and Roles\)](http://alpha-docs-aws.amazon.com/IAM/latest/UserGuide/id.html) in the *IAM User Guide*\.
+For more information about using identity\-based policies, see [Using Identity\-Based Policies \(IAM Policies\) for AWS Organizations](orgs_permissions_iam-policies.md)\. For more information about users, groups, roles, and permissions, see [Identities \(Users, Groups, and Roles\)](http://docs.aws.amazon.com/IAM/latest/UserGuide/id.html) in the *IAM User Guide*\.
 
 ### Resource\-based Policies<a name="orgs-access-control-resource-policies"></a>
 
@@ -109,6 +109,6 @@ The following are the most basic elements that you can use in an IAM permission 
 
 + **Principal** – In identity\-based policies \(IAM policies\), the user that the policy is attached to is automatically and implicitly the principal\. For resource\-based policies, you specify the user, account, service, or other entity that you want to receive permissions \(applies to resource\-based policies only\)\. AWS Organizations currently supports only identity\-based policies, not resource\-based policies\.
 
-To learn more about IAM policy syntax and descriptions, see the [AWS IAM Policy Reference](http://alpha-docs-aws.amazon.com/IAM/latest/UserGuide/reference_policies.html) in the *IAM User Guide*\.
+To learn more about IAM policy syntax and descriptions, see the [AWS IAM Policy Reference](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html) in the *IAM User Guide*\.
 
 For a table that show all the AWS Organizations API actions that can be used in IAM policies, see [Using Identity\-Based Policies \(IAM Policies\) for AWS Organizations](orgs_permissions_iam-policies.md)\.

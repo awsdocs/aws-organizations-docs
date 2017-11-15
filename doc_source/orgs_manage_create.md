@@ -12,7 +12,7 @@ To create an organization with your current AWS account, you must have the follo
 
 **To create an organization \(Console\)**
 
-1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](http://alpha-docs-aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the account that you want to be the organization's master account\.
+1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](http://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the account that you want to be the organization's master account\.
 
 1. On the introduction page, choose **Create organization**\.
 
@@ -31,6 +31,6 @@ To create an organization with your current AWS account, you must have the follo
 **To create an organization \(AWS CLI, AWS API\)**  
 You can use one of the following commands to create an organization:
 
-+ AWS CLI: [aws organizations create\-organization](http://alpha-docs-aws.amazon.com/cli/latest/reference/organizations/create-organization.html)
++ AWS CLI: [aws organizations create\-organization](http://docs.aws.amazon.com/cli/latest/reference/organizations/create-organization.html)
 
-+ AWS API: [CreateOrganization](http://alpha-docs-aws.amazon.com/organizations/latest/APIReference/API_CreateOrganization.html)
++ AWS API: [CreateOrganization](http://docs.aws.amazon.com/organizations/latest/APIReference/API_CreateOrganization.html)

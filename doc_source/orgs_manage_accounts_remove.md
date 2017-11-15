@@ -24,9 +24,9 @@ To remove a member account from your organization, you must have the following p
 
 The following procedure works only for an account that already has the information required to operate as a standalone AWS account\. If this procedure fails, you must instead follow the steps in the procedure [To leave an organization when all required account information has *not* yet been provided \(console\)](#leave-without-all-info)\. 
 
-1. To remove an account, you must first enable IAM user access to billing in the account\. If the account already has this enabled, move to Step 2\. Otherwise, see [Activating Access to the Billing and Cost Management Console](http://alpha-docs-aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate) in the *AWS Billing and Cost Management User Guide*\.
+1. To remove an account, you must first enable IAM user access to billing in the account\. If the account already has this enabled, move to Step 2\. Otherwise, see [Activating Access to the Billing and Cost Management Console](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate) in the *AWS Billing and Cost Management User Guide*\.
 
-1. Sign in to the Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](http://alpha-docs-aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\.
+1. Sign in to the Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](http://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\.
 
 1. On the **Accounts** tab, choose the member account that you want to remove from your organization\. You can choose more than one\.
 
@@ -41,9 +41,9 @@ If the procedure fails at this point then you must instead follow the steps in t
 **To remove a member account from your organization \(AWS CLI, AWS API\)**  
 You can use the following CLI command or API operation to remove a member account:
 
-+ AWS CLI: [aws organizations remove\-account\-from\-organization](http://alpha-docs-aws.amazon.com/cli/latest/reference/organizations/remove-account-from-organization.html)
++ AWS CLI: [aws organizations remove\-account\-from\-organization](http://docs.aws.amazon.com/cli/latest/reference/organizations/remove-account-from-organization.html)
 
-+ AWS API: [RemoveAccountFromOrganization](http://alpha-docs-aws.amazon.com/organizations/latest/APIReference/API_RemoveAccountFromOrganization.html)
++ AWS API: [RemoveAccountFromOrganization](http://docs.aws.amazon.com/organizations/latest/APIReference/API_RemoveAccountFromOrganization.html)
 
 ## Leaving an Organization as a Member Account<a name="orgs_manage_accounts_leave-as-member"></a>
 
@@ -58,7 +58,7 @@ To leave an AWS organization, you must have the following permissions:
 
 You typically use the following procedure with accounts that were created outside of Organizations and operated as standalone accounts before being invited to join to an organization\. However, if the account no longer has a current payment method \(that is, the payment method expired after the account joined the organization\), you might instead have to follow the steps in the procedure [To leave an organization when all required account information has *not* yet been provided \(console\)](#leave-without-all-info)\.
 
-1. To leave an organization, you must first enable IAM user access to billing in the account that is leaving\. If the account already has this enabled, move to Step 2\. Otherwise, see [Activating Access to the Billing and Cost Management Console](http://alpha-docs-aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate) in the *AWS Billing and Cost Management User Guide*\.
+1. To leave an organization, you must first enable IAM user access to billing in the account that is leaving\. If the account already has this enabled, move to Step 2\. Otherwise, see [Activating Access to the Billing and Cost Management Console](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate) in the *AWS Billing and Cost Management User Guide*\.
 
 1. Sign in to the Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as the root user of the member account that you want to remove from the organization\. 
 **Note**  
@@ -119,6 +119,6 @@ By default, you don't have access to the root user password in a member account 
 **To leave an organization as a member account \(AWS CLI, AWS API\)**  
 You can use the following command or operation to leave an organization:
 
-+ AWS CLI: [aws organizations leave\-organization](http://alpha-docs-aws.amazon.com/cli/latest/reference/organizations/leave-organization.html)
++ AWS CLI: [aws organizations leave\-organization](http://docs.aws.amazon.com/cli/latest/reference/organizations/leave-organization.html)
 
-+ API: [LeaveOrganization](http://alpha-docs-aws.amazon.com/organizations/latest/APIReference/API_LeaveOrganization.html)
++ API: [LeaveOrganization](http://docs.aws.amazon.com/organizations/latest/APIReference/API_LeaveOrganization.html)

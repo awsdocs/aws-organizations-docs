@@ -32,7 +32,7 @@ To enable all features in your organization, you must have the following permiss
 
 **To ask your member accounts to agree to enable all features in the organization**
 
-1. Sign in to the AWS Management Console and open the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](http://alpha-docs-aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\.
+1. Sign in to the AWS Management Console and open the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](http://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\.
 
 1. On the **Settings** tab, choose **Begin process to enable all features**\.
 
@@ -53,9 +53,9 @@ After you complete the process of enabling all features, you once again can invi
 **To ask your invited member accounts to agree to enable all features in the organization \(AWS CLI, AWS API\)**  
 You can use the following command or operation to enable all features in an organization: 
 
-+ AWS CLI: [aws organizations enable\-all\-features](http://alpha-docs-aws.amazon.com/cli/latest/reference/organizations/enable-all-features.html)
++ AWS CLI: [aws organizations enable\-all\-features](http://docs.aws.amazon.com/cli/latest/reference/organizations/enable-all-features.html)
 
-+ AWS API: [EnableAllFeatures](http://alpha-docs-aws.amazon.com/organizations/latest/APIReference/API_EnableAllFeatures.html)
++ AWS API: [EnableAllFeatures](http://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAllFeatures.html)
 
 ## Approving the Request to Enable All Features or to Recreate the Service\-Linked Role<a name="manage-approve-all-features-invite"></a>
 
@@ -71,16 +71,16 @@ If you perform the steps in the following procedure, the master account in the o
 
 **To agree to the request to enable all features in the organization \(console\)**
 
-1. Sign in to the AWS Management Console and open the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](http://alpha-docs-aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\.
+1. Sign in to the AWS Management Console and open the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](http://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\.
 
 1. Read what accepting the request for all features in the organization means for your account, and then choose **Accept**\. The page continues to show the process as incomplete until all accounts in the organization accept the requests and the administrator of the master account finalizes the process\.
 
 **To agree to the request to enable all features in the organization \(AWS CLI, AWS API\)**  
 To agree to the request, you must accept the handshake with `"Action": "APPROVE_ALL_FEATURES"`\.
 
-+ AWS CLI: [aws organizations accept\-handshake](http://alpha-docs-aws.amazon.com/cli/latest/reference/organizations/accept-handshake.html)
++ AWS CLI: [aws organizations accept\-handshake](http://docs.aws.amazon.com/cli/latest/reference/organizations/accept-handshake.html)
 
-+ AWS API: [AcceptHandshake](http://alpha-docs-aws.amazon.com/organizations/latest/APIReference/API_AcceptHandshake.html)
++ AWS API: [AcceptHandshake](http://docs.aws.amazon.com/organizations/latest/APIReference/API_AcceptHandshake.html)
 
 ## Finalizing the Process to Enable All Features<a name="finalize-migration"></a>
 
@@ -92,7 +92,7 @@ To finalize the process to enable all features for the organization, you must ha
 
 **To finalize the process to enable all features \(console\)**
 
-1. Sign in to the AWS Management Console and open the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](http://alpha-docs-aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\.
+1. Sign in to the AWS Management Console and open the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](http://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\.
 
 1. On the **Settings** tab, under **ENABLE ALL FEATURES**, choose **View all feature request approval status**\.
 
@@ -103,6 +103,6 @@ To finalize the process to enable all features for the organization, you must ha
 **To finalize the process to enable all features \(AWS CLI, AWS API\)**  
 To finalize the process, you must accept the handshake with `"Action": "ENABLE_ALL_FEATURES"`\.
 
-+ AWS CLI: [aws organizations accept\-handshake](http://alpha-docs-aws.amazon.com/cli/latest/reference/organizations/accept-handshake.html)
++ AWS CLI: [aws organizations accept\-handshake](http://docs.aws.amazon.com/cli/latest/reference/organizations/accept-handshake.html)
 
-+ AWS API: [AcceptHandshake](http://alpha-docs-aws.amazon.com/organizations/latest/APIReference/API_AcceptHandshake.html)
++ AWS API: [AcceptHandshake](http://docs.aws.amazon.com/organizations/latest/APIReference/API_AcceptHandshake.html)

@@ -25,7 +25,7 @@ Test your new rule by running one of the monitored operations\. In this tutorial
 
 This tutorial assumes the following:
 
-+ You can sign in to the AWS Management Console as an IAM user from the master account in your organization\. The IAM user must have permissions to create and configure a log in CloudTrail, a function in Lambda, a topic in Amazon SNS, and a rule in CloudWatch\. For more information about granting permission, see [Access Management](http://alpha-docs-aws.amazon.com/IAM/latest/UserGuide/access.html) in the *IAM User Guide*, or the guide for the service for which you want to configure access\.
++ You can sign in to the AWS Management Console as an IAM user from the master account in your organization\. The IAM user must have permissions to create and configure a log in CloudTrail, a function in Lambda, a topic in Amazon SNS, and a rule in CloudWatch\. For more information about granting permission, see [Access Management](http://docs.aws.amazon.com/IAM/latest/UserGuide/access.html) in the *IAM User Guide*, or the guide for the service for which you want to configure access\.
 
 + You have access to an existing S3 bucket \(or you have permission to create a bucket\) to receive the CloudTrail log that you configure in the first step\.
 
@@ -191,7 +191,7 @@ In this step, you create an organizational unit \(OU\) and then observe the Clou
 1. Each group contains one or more streams, and there should be one group for today\. Choose it\.
 
 1. View the log\. You should see rows similar to the following:  
-![\[Image NOT FOUND\]](http://alpha-docs-aws.amazon.com/organizations/latest/userguide/images/tutorial-sample-CWE-log.png)
+![\[Image NOT FOUND\]](http://docs.aws.amazon.com/organizations/latest/userguide/images/tutorial-sample-CWE-log.png)
 
 1. Select the middle row of the entry to see the full JSON text of the received event\. You can see all the details of the API request in the `requestParameters` and `responseElements` pieces of the output:
 
