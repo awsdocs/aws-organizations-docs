@@ -40,50 +40,47 @@ However, member accounts that you *invite* to join your organization ***do not**
 
 1. Sign in to the Identity and Access Management \(IAM\) console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](http://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the member account that has permissions to create IAM roles and policies\.
 
-1. In the IAM console, navigate to **Roles**, **Create New Role**\.
+1. In the IAM console, navigate to **Roles**, and then choose**Create Role**\.
 
-1. Specify a role name\. We recommend that you use `OrganizationAccountAccessRole`, which is the default name assigned to the role in new accounts\. Choose **Next Step**\.
+1. Choose **Another AWS account**\.
 
-1. Choose **Role for Cross\-Account Access**, choose **Select** next to **Provide access between AWS accounts you own**, and then choose **Next Step**\.
+1. Type the 12\-digit account ID number of the master account that you want to grant admin access to\. 
 
-1. Type the 12\-digit account ID number of the master account that you want to grant admin access to\. You can optionally choose to require authentication using a multi\-factor authentication \(MFA\) device, if you have MFA enabled and configured\. For more information about MFA, see [Using Multi\-Factor Authentication \(MFA\) in AWS](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa.html) in the *IAM User Guide*\.
+1. For this role, because the accounts are internal to your company, you should not choose **Require external ID**\. For more information about the External ID option, see [When Should I Use the External ID?](http://docs.aws.amazon.com/IAM/latest/UserGuide//id_roles_create_for-user_externalid.html#external-id-use) in the *IAM User Guide*\. 
 
-1. On the **Attach Policy** page, choose the AWS managed policy named `AdministratorAccess`, and then choose **Next Step**\.
+1. You can optionally choose to require authentication using a multi\-factor authentication \(MFA\) device, if you have MFA enabled and configured\. For more information about MFA, see [Using Multi\-Factor Authentication \(MFA\) in AWS](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa.html) in the *IAM User Guide*\. 
 
-1. On the **Review** page, check your settings, paying special note to the link URL that is provided\. Give this URL to users in the member account who need to access the role\. Also make note of the **Role ARN** because you need this in step 11\.
+1. On the **Attach permissions policies** page, choose the AWS managed policy named `AdministratorAccess`, and then choose **Next: Review**\.
 
-1. Choose **Create Role** to commit your changes\.
+1. On the **Review** page, specify a role name and an optional description\. We recommend that you use `OrganizationAccountAccessRole`, which is the default name assigned to the role in new accounts\. Choose **Create role** to commit your changes\.
+
+1. Your new role appears on the list of available roles\. Choose the new role's name to view the details, paying special note to the link URL that is provided\. Give this URL to users in the member account who need to access the role\. Also make note of the **Role ARN** because you need this in step 11\.
 
 1. Sign in to the Identity and Access Management \(IAM\) console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\. This time, sign in as a user in the master account who has permissions to create policies and assign the policies to users or groups\.
 
-1. Navigate to **Policies**, **Create Policy**, **Create Your Own Policy**\.
+1. Navigate to **Policies**, and then choose **Create Policy**\.
 **Note**  
-This example shows how to create a policy and attach it to a group\. You can alternatively modify an existing policy\.
+This example shows how to create a policy and attach it to a group\. If you already created this policy for other accounts, you can skip to 
 
-1. Type a policy name and description, and then type the following into the **Policy Document** field, replacing the role ARN with the actual ARN that you noted in step 7, using the member account ID number and the role name with the name from step 3\.
+1. For **Service**, choose **STS**\.
 
-   ```
-   {
-      "Version": "2012-10-17",
-      "Statement": {
-        "Effect": "Allow",
-        "Action": "sts:AssumeRole",
-        "Resource": [
-          "arn:aws:iam::<memberAccountIdNumber>:role/<roleNameFromStep3>",
-          <repeat the line above for each member account, replacing the account ID number and role name>,
-          ...
-        ]
-      }
-    }
-   ```
+1. For **Actions**, start typing **AssumeRole** in the **Filter** box, and then check the box next to it when it appears\.
 
-1. Choose **Create Policy** to save your changes\.
+1. Choose **Resources**, ensure **Specific** is selected, and then choose **Add ARN**\.
 
-1. Choose **Groups**, and then choose the name of the group \(not the check box\) that you want to use to delegate administration of the member account\.
+1. Type your AWS account ID number and type the name of the role you previously created in steps 1 \- 9\.
 
-1. Choose **Attach Policy**, select the policy that you created in step 11, and then choose **Attach Policy**\.
+1. If you are granting permission to assume the role in mutiple member accounts, repeats steps 14 and 15 for each account\.
 
-The users who are members of the selected group now can use the URL that you captured in step 7 to access the role\. They can use it the same way as they would if accessing an account that you create in the organization\. For more information about using the role to administer a member account, see [Accessing a Member Account That Has a Master Account Access Role](#orgs_manage_accounts_access-cross-account-role)\. 
+1. Choose **Review policy**\.
+
+1. Type a name for the new policy, and then choose **Create policy** to save your changes\.
+
+1. Choose **Groups** in the navigation pane, and then choose the name of the group \(not the check box\) that you want to use to delegate administration of the member account\.
+
+1. Choose **Attach Policy**, select the policy that you created in steps 11 \- 18, and then choose **Attach Policy**\.
+
+The users who are members of the selected group now can use the URLs that you captured in step 9 to access each member account's role\. They can access these member accounts the same way as they would if accessing an account that you create in the organization\. For more information about using the role to administer a member account, see [Accessing a Member Account That Has a Master Account Access Role](#orgs_manage_accounts_access-cross-account-role)\. 
 
 ## Accessing a Member Account That Has a Master Account Access Role<a name="orgs_manage_accounts_access-cross-account-role"></a>
 

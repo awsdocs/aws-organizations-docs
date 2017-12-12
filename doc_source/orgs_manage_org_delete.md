@@ -4,7 +4,7 @@ When you no longer need your organization, you can delete it\.
 
 **Important**  
 If you delete an organization, all history associated with that organization, such as invitations history, is lost and cannot be recovered\. Recreating an organization with the same master account does not recover that information\.
-You can only delete an organization after you remove all member accounts from the organization\. If you created some of your member accounts using Organizations, you might be blocked from removing those accounts\. You can remove an account only if it has all of the information required to operate as a stand\-alone AWS account\. AWS Organizations does not collect all all of this for a new member account\. For more information about how to provide that information and remove the account, see [To leave an organization when all required account information has *not* yet been provided \(console\)](orgs_manage_accounts_remove.md#leave-without-all-info)\.
+You can only delete an organization after you remove all member accounts from the organization\. If you created some of your member accounts using Organizations, you might be blocked from removing those accounts\. You can remove an account only if it has all of the information required to operate as a stand\-alone AWS account\. AWS Organizations does not collect all of this for a new member account\. For more information about how to provide that information and remove the account, see [To leave an organization when all required account information has *not* yet been provided \(console\)](orgs_manage_accounts_remove.md#leave-without-all-info)\.
 
 **To delete an organization \(Console\)**
 **Minimum permissions**  

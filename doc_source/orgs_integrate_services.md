@@ -20,3 +20,31 @@ After you enable all features in your organization, you no longer can delete the
 
 **Important**  
 Service\-linked roles are never affected by Organizations service control policies \(SCPs\)\. They are automatically exempt from any SCP restrictions\.
+
+## AWS Services That Can Integrate with AWS Organizations<a name="services-that-can-integrate"></a>
+
+The following sections describe the AWS services that can integrate with AWS Organizations\. Each section includes the following:
+
++ A summary of the service and how it works when you integrate it with AWS Organizations\.
+
++ Links to instructions for enabling and disabling integration of the service with AWS Organizations\.
+
++ The principal name of the AWS service that you can specify in policies to grant the service access to the accounts in your organization\. 
+
++ If applicable, the name of the IAM service\-linked role created in all accounts when integration is enabled\.
+
+### AWS Single Sign\-On<a name="services-that-can-integrate-peregrine"></a>
+
+AWS Single Sign\-On \(AWS SSO\) provides single sign\-on services for all of your AWS accounts and cloud applications\. It connects with Microsoft Active Directory through AWS Directory Service to allow users in that directory to sign in to a personalized user portal using their existing Active Directory usernames and passwords\. From the portal, users have access to all of the AWS accounts and cloud applications that you provide in the portal\. For more information about AWS SSO, see the [AWS Single Sign\-On User Guide](http://docs.aws.amazon.com/singlesignon/latest/userguide/)\.
+
+The following list is information that is useful to know when you want to integrate AWS SSO and Organizations:
+
++ **To enable integration with Organizations:** AWS SSO requires integration with AWS Organizations to function\. Integration is enabled when you set up AWS SSO\. For more information, see [Getting Started \- Step 1: Enable AWS Single Sign\-On](http://docs.aws.amazon.com/singlesignon/latest/userguide/step1.html) in the *AWS Single Sign\-On User Guide*\.
+
++ **To disable integration with Organizations:** AWS SSO requires integration with AWS Organizations to operate\. You cannot disable integration with Organizations while you are using AWS SSO\. If you remove an account from your organization, AWS SSO automatically cleans up any metadata and resources, such as its service\-linked role\. The stand\-alone account can longer work with AWS SSO\.
+
++ **Service principal name for AWS SSO:** `sso.amazonaws.com`
+
++ **Name of the IAM service\-linked role created in all accounts** when integration is enabled: `AWSServiceRoleForSSO`
+
+  For more information, see [Using Service\-Linked Roles for AWS SSO](http://docs.aws.amazon.com/singlesignon/latest/userguide/using-service-linked-roles.html) in the *AWS Single Sign\-On User Guide*\.
