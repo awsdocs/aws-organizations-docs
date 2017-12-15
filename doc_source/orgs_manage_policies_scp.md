@@ -123,7 +123,7 @@ You can use this option to create a new SCP using the editor\. Don't select a po
 **To create a service control policy \(AWS CLI, AWS API\)**  
 You can use the following commands to create an SCP:
 
-+ AWS CLI: [aws organizations create\-policy](http://docs.aws.amazon.com/cli/latest/reference/organizations/create-account.html)
++ AWS CLI: [aws organizations create\-policy](http://docs.aws.amazon.com/cli/latest/reference/organizations/create-policy.html)
 
 + AWS API: [CreatePolicy](http://docs.aws.amazon.com/organizations/latest/APIReference/API_CreatePolicy.html)
 
