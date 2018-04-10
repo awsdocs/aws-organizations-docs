@@ -21,12 +21,10 @@ Create a rule that tells CloudWatch Events to pass details of specified API call
 **[Step 5: Test Your CloudWatch Events Rule](#tutorial-cwe-step5)**  
 Test your new rule by running one of the monitored operations\. In this tutorial, the monitored operation is creating an organizational unit \(OU\)\. You view the log entry that the Lambda function creates, and you view the email that SNS sends to subscribers\.
 
-## Prerequisites<a name="w3ab1b9b9c11"></a>
+## Prerequisites<a name="tutorial-cwe-prereqs"></a>
 
 This tutorial assumes the following:
-
 + You can sign in to the AWS Management Console as an IAM user from the master account in your organization\. The IAM user must have permissions to create and configure a log in CloudTrail, a function in Lambda, a topic in Amazon SNS, and a rule in CloudWatch\. For more information about granting permission, see [Access Management](http://docs.aws.amazon.com/IAM/latest/UserGuide/access.html) in the *IAM User Guide*, or the guide for the service for which you want to configure access\.
-
 + You have access to an existing S3 bucket \(or you have permission to create a bucket\) to receive the CloudTrail log that you configure in the first step\.
 
 **Important**  
@@ -49,9 +47,7 @@ In this step, you sign in to the master account and configure a log \(called a *
 1. For **Trail name**, type **My\-Test\-Trail**\. 
 
 1. Perform one of the following options to specify where CloudTrail is to deliver its logs:
-
    + If you already have a bucket, choose **No** next to **Create a new S3 bucket**, and then choose the bucket name from the **S3 bucket** list\.
-
    + If you need to create a bucket, choose **Yes** next to **Create a new S3 bucket**, and then for **S3 bucket**, type a name for the new bucket\.
 **Note**  
 S3 bucket names must be ***globally*** unique\.
@@ -154,7 +150,7 @@ Now that the required Lambda function exists in your account, you create a Cloud
 
    1. For **Event Type**, choose **AWS API Call via CloudTrail**\.
 
-   1. Choose **Specific operation\(s\)**, and then enter the APIs that you want monitored: **CreateAccount**, **CreateOrganizationalUnit**, and **LeaveOrganization**\. You can select any others that you want as well\. For a complete list of available Organizations APIs, see the []()\.
+   1. Choose **Specific operation\(s\)**, and then enter the APIs that you want monitored: **CreateAccount**, **CreateOrganizationalUnit**, and **LeaveOrganization**\. You can select any others that you want as well\. For a complete list of available Organizations APIs, see the [AWS Organizations API Reference](http://docs.aws.amazon.com/organizations/latest/APIReference/)\.
 
 1. Under **Targets**, under **Lambda function**, in the drop\-down list, select the function you created in the previous procedure\.
 

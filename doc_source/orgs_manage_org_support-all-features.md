@@ -1,18 +1,18 @@
 # Enabling All Features in Your Organization<a name="orgs_manage_org_support-all-features"></a>
 
-AWS Organizations has two available feature sets: consolidated billing features and all features\. All organizations support consolidated billing, which provides basic management tools that you can use to centrally manage the accounts in your organization\. If you enable all features, you continue to get all the consolidated billing features plus a set of advanced features such as service control policies \(SCPs\), which give you fine\-grained control over which services and actions that member accounts can access\. 
+AWS Organizations has two available feature sets: [consolidated billing features](orgs_getting-started_concepts.md#feature-set-cb-only) and [all features](orgs_getting-started_concepts.md#feature-set-all)\. All organizations support consolidated billing, which provides basic management tools that you can use to centrally manage the accounts in your organization\. If you enable all features, you continue to get all the consolidated billing features plus a set of advanced features such as service control policies \(SCPs\), which give you fine\-grained control over which services and actions that member accounts can access\. 
 
 When you start the process to enable all features, AWS Organizations sends a request to every member account that you *invited* to join your organization\. Every invited account must approve enabling all features by accepting the request\. Only then can you complete the process to enable all features in your organization\. If an account declines the request then you must either remove the account from your organization or resend the request and get it accepted before you can complete the process to enable all features\. Accounts that you *created* using AWS Organizations don't get a request because they don't need to approve the additional control\.
 
 Organizations also verifies that every account has a service\-linked role named AWSServiceRoleForOrganizations\. This role is mandatory in all accounts to enable all features\. If you deleted the role in an invited account then accepting the invitation to enable all features recreates the role\. If you deleted the role in an account that was created using Organizations then that account receives an invitation specifically to recreate that role\. All of these invitations must be accepted for the organization to complete the process of enabling all features\.
 
 **Notes**  
-Currently, AWS Organizations offers only one type of policy called a service control policy \(SCP\)\.
+Currently, AWS Organizations offers only one type of policy called a [service control policy \(SCP\)](orgs_getting-started_concepts.md#scp)\.
 Currently, you can have only one root in your organization\.
 While enabling all features is in progress, you cannot invite accounts to join the organization\. You must wait until the process to enable all features is complete\. Alternatively, you can cancel the process to enable all features, invite the accounts, and then restart the process to enable all features\.
 While enabling all features is in progress, you can continue to create accounts within the organization\.
 
-After you enable all features in your organization, you can enable support in the root for one or more policy types, such as service control policies \(SCPs\)\. Within the root, you can attach the policies of the enabled types to the roots, OUs, and accounts in your organization\. For more information, see [Managing Organization Policies](orgs_manage_policies.md)\.
+After you enable all features in your organization, you can enable support in the root for one or more policy types, such as [service control policies \(SCPs\)](orgs_getting-started_concepts.md#scp)\. Within the root, you can attach the policies of the enabled types to the roots, OUs, and accounts in your organization\. For more information, see [Managing Organization Policies](orgs_manage_policies.md)\.
 
 **Important**  
 After you enable all features in your organization, the master account in the organization can apply policies to all member accounts\.  
@@ -52,9 +52,7 @@ After you complete the process of enabling all features, you once again can invi
 
 **To ask your invited member accounts to agree to enable all features in the organization \(AWS CLI, AWS API\)**  
 You can use the following command or operation to enable all features in an organization: 
-
 + AWS CLI: [aws organizations enable\-all\-features](http://docs.aws.amazon.com/cli/latest/reference/organizations/enable-all-features.html)
-
 + AWS API: [EnableAllFeatures](http://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAllFeatures.html)
 
 ## Approving the Request to Enable All Features or to Recreate the Service\-Linked Role<a name="manage-approve-all-features-invite"></a>
@@ -77,9 +75,7 @@ If you perform the steps in the following procedure, the master account in the o
 
 **To agree to the request to enable all features in the organization \(AWS CLI, AWS API\)**  
 To agree to the request, you must accept the handshake with `"Action": "APPROVE_ALL_FEATURES"`\.
-
 + AWS CLI: [aws organizations accept\-handshake](http://docs.aws.amazon.com/cli/latest/reference/organizations/accept-handshake.html)
-
 + AWS API: [AcceptHandshake](http://docs.aws.amazon.com/organizations/latest/APIReference/API_AcceptHandshake.html)
 
 ## Finalizing the Process to Enable All Features<a name="finalize-migration"></a>
@@ -102,7 +98,5 @@ To finalize the process to enable all features for the organization, you must ha
 
 **To finalize the process to enable all features \(AWS CLI, AWS API\)**  
 To finalize the process, you must accept the handshake with `"Action": "ENABLE_ALL_FEATURES"`\.
-
 + AWS CLI: [aws organizations accept\-handshake](http://docs.aws.amazon.com/cli/latest/reference/organizations/accept-handshake.html)
-
 + AWS API: [AcceptHandshake](http://docs.aws.amazon.com/organizations/latest/APIReference/API_AcceptHandshake.html)

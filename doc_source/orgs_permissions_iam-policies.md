@@ -41,7 +41,10 @@ Complete the following steps to grant full AWS Organizations administrator permi
 
 ## Granting Limited Access by Actions<a name="orgs_permissions_grant-limited-actions"></a>
 
-If you want to grant limited permissions instead of full permissions, you can create a policy that lists individual permissions that you want to allow in the "Action" element of the IAM permissions policy\. As shown in the following example, you can use wildcard \(\*\) characters to grant only the `Describe*` and `List*` permissions, essentially providing read\-only access to the organization:
+If you want to grant limited permissions instead of full permissions, you can create a policy that lists individual permissions that you want to allow in the "Action" element of the IAM permissions policy\. As shown in the following example, you can use wildcard \(\*\) characters to grant only the `Describe*` and `List*` permissions, essentially providing read\-only access to the organization\.
+
+**Note**  
+In an SCPs the wildcard \(\*\) character in an `Action` element can be used only by itself or at the end of the string\. It cannot appear at the beginning or middle of the string\. Therefore, `"servicename:action*"` is valid, but `"servicename:*action"` and `"servicename:some*action"` are both invalid in SCPs\.
 
 ```
 {

@@ -9,7 +9,7 @@ The Query API for AWS Organizations lets you call service actions\. Query API re
 
 The response is an XML document\. For details about the response, see the individual action pages in the [AWS Organizations API Reference](http://docs.aws.amazon.com/organizations/latest/APIReference/)\.
 
-
+**Topics**
 + [Endpoints](#OrgsEndpoints)
 + [HTTPS Required](#IAMHTTPSRequired)
 + [Signing Organizations API Requests](#SigVersion)
@@ -33,9 +33,6 @@ To sign your API requests, you must use AWS Signature Version 4\. For informatio
 Organizations does not support earlier versions, such as Signature Version 2\.
 
 For more information, see the following:
-
 + [AWS Security Credentials](http://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html)\. Provides general information about the types of credentials that you can use to access AWS\. 
-
 + [IAM Best Practices](http://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html)\. Offers suggestions for using the IAM service to help secure your AWS resources, including those in Organizations\. 
-
 + [Temporary Credentials](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html)\. Describes how to create and use temporary security credentials\. 

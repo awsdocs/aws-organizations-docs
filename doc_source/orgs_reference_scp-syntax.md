@@ -4,7 +4,10 @@ Service control policies \(SCPs\) use a very similar syntax to that used by IAM 
 
 An SCP is a plain text file that is structured according to the rules of [JSON](http://json.org)\. It uses the elements that are described in this section\.
 
-For general information about service control policies, see [About Service Control Policies](orgs_manage_policies_about-scps.md)\.
+**Note**  
+All characters that you type count against the [size limit of your SCP](orgs_reference_limits.md#min-max-values)\. The examples in this guide show the SCPs formatted with extra whitespace to improve their readability\. However, you can delete any whitespace, such as space characters and line breaks that are outside of quotation marks, to save space if your policy size approaches the limit\.
+
+For general information about how service control policies work, see [About Service Control Policies](orgs_manage_policies_about-scps.md)\.
 
 ## `Version` Element<a name="scp-syntax-version"></a>
 
@@ -49,7 +52,7 @@ The following example includes two statements as an array list inside one `State
 
 Each statement must contain one `Effect` element\. The value can be either `Allow` or `Deny`\. It affects any actions listed in the same statement\.
 
-The following example shows an SCP with a statement that contains an `Effect` with a value of `Allow` that permits account users to perform actions for the S3 service\. This example is useful in an organization where the default `FullAWSAccess` policies are all detached so that permissions are implicitly denied by default\. The end result is that it whitelists the S3 permissions for any attached accounts:
+The following example shows an SCP with a statement that contains an `Effect` with a value of `Allow` that permits account users to perform actions for the S3 service\. This example is useful in an organization where the default `FullAWSAccess` policies are all detached so that permissions are implicitly denied by default\. The end result is that it [whitelists](orgs_getting-started_concepts.md#whitelisting) the S3 permissions for any attached accounts:
 
 ```
 {
@@ -67,9 +70,14 @@ Note that even though it uses the same `Allow` value keyword as an IAM permissio
 
 Each statement must contain one `Action` element\. The value is a list \(a JSON array\) of strings that identify AWS services and actions that are allowed or denied by the statement\.
 
-Each string consists of the abbreviation for the service \(such as "s3", "ec2", "iam", or "organizations"\), in all lowercase, followed by a colon and then an action from that service\. The actions are case\-sensitive, and must be typed as shown in each service's documentation\. Generally, they are all typed with each word starting with an uppercase letter and the rest lowercase\. For example: `"s3:ListAllMyBuckets"`\. You also can use an asterisk as a wildcard to match multiple actions that share part of a name\. The value `"s3:*"` means all actions in the S3 service\. The value `"ec2:Describe*"` matches only the EC2 actions that begin with "Describe"\. The wildcard can appear only by itself or at the very end of the string\. `"*"` or `"ec2:Describe*"` are both valid, while `"iam:*User"` is not valid\.
+Each string consists of the abbreviation for the service \(such as "s3", "ec2", "iam", or "organizations"\), in all lowercase, followed by a colon and then an action from that service\. The actions are case\-sensitive, and must be typed as shown in each service's documentation\. Generally, they are all typed with each word starting with an uppercase letter and the rest lowercase\. For example: `"s3:ListAllMyBuckets"`\.
 
-The examples in the preceding sections show simple `Action` elements that use wildcards to enable an entire service\. The following example shows an SCP with a statement that permits account administrators to delegate describe, start, stop, and terminate permissions for EC2 instances in the account\. This is another example of a whitelist, and is useful when the default `Allow *` policies are ***not*** attached so that, by default, permissions are implicitly denied\. If the default `Allow *` policy is still attached to the root, OU, or account to which the following policy is attached, then the policy has no effect:
+You also can use an asterisk as a wildcard to match multiple actions that share part of a name\. The value `"s3:*"` means all actions in the S3 service\. The value `"ec2:Describe*"` matches only the EC2 actions that begin with "Describe"\.
+
+**Note**  
+In an SCPs the wildcard \(\*\) character in an `Action` element can be used only by itself or at the end of the string\. It cannot appear at the beginning or middle of the string\. Therefore, `"servicename:action*"` is valid, but `"servicename:*action"` and `"servicename:some*action"` are both invalid in SCPs\.
+
+The examples in the preceding sections show simple `Action` elements that use wildcards to enable an entire service\. The following example shows an SCP with a statement that permits account administrators to delegate describe, start, stop, and terminate permissions for EC2 instances in the account\. This is another example of a [whitelist](orgs_getting-started_concepts.md#whitelisting), and is useful when the default `Allow *` policies are ***not*** attached so that, by default, permissions are implicitly denied\. If the default `Allow *` policy is still attached to the root, OU, or account to which the following policy is attached, then the policy has no effect:
 
 ```
 {
@@ -86,7 +94,7 @@ The examples in the preceding sections show simple `Action` elements that use wi
 }
 ```
 
-The following example shows how you can blacklist services that you don't want used in attached accounts\. It assumes that the default `"Allow *"` SCPs are still attached to all OUs and the root\. This example policy prevents the account administrators in attached accounts from delegating any permissions for the IAM, Amazon EC2, or Amazon RDS services\. Any action from other services can be delegated as long as there is not another attached policy that denies them:
+The following example shows how you can [blacklist](orgs_getting-started_concepts.md#blacklisting) services that you don't want used in attached accounts\. It assumes that the default `"Allow *"` SCPs are still attached to all OUs and the root\. This example policy prevents the account administrators in attached accounts from delegating any permissions for the IAM, Amazon EC2, or Amazon RDS services\. Any action from other services can be delegated as long as there is not another attached policy that denies them:
 
 ```
 {
@@ -111,3 +119,7 @@ You can specify only "\*" in the `Resource` element of an SCP\. You cannot speci
 ## `Principal` Element<a name="scp-syntax-principal"></a>
 
 You cannot specify a `Principal` element in an SCP\.
+
+## `Condition` Element<a name="scp-syntax-condition"></a>
+
+You cannot specify a `Condition` element in an SCP\.

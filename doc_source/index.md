@@ -1,7 +1,7 @@
 # AWS Organizations User Guide
 
 -----
-*****Copyright &copy; 2017 Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
+*****Copyright &copy; 2018 Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
 
 -----
 Amazon's trademarks and trade dress may not be used in 
@@ -35,7 +35,7 @@ Amazon's trademarks and trade dress may not be used in
 + [Managing Organization Policies](orgs_manage_policies.md)
    + [Service Control Policies](orgs_manage_policies_scp.md)
       + [About Service Control Policies](orgs_manage_policies_about-scps.md)
-+ [Integrating AWS Organizations with Other AWS Services](orgs_integrate_services.md)
++ [Enabling Trusted Access with Other AWS Services](orgs_integrate_services.md)
 + [Authentication and Access Control for AWS Organizations](orgs_permissions.md)
    + [Overview of Managing Access Permissions to Your AWS Organization](orgs_permissions_overview.md)
    + [Using Identity-Based Policies (IAM Policies) for AWS Organizations](orgs_permissions_iam-policies.md)

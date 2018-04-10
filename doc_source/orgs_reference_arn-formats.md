@@ -9,9 +9,9 @@ If you see an expand arrow \(**↗** \) in the upper\-right corner of the table,
 
 | Resource Type | ARN Format | 
 | --- | --- | 
-| Organization | arn:aws:organizations::<masterAccountId>:organization/o\-<organizationId> | 
-| Root | arn:aws:organizations::<masterAccountId>:root/o\-<organizationId>/r\-<rootId> | 
-| Account | arn:aws:organizations::<masterAccountId>:account/o\-<organizationId>/<accountId> | 
-| Organizational Unit | arn:aws:organizations::<masterAccountId>:ou/o\-<organizationId>/ou\-<organizationalUnitId> | 
-| Policy | arn:aws:organizations::<masterAccountId>:policy/o\-<organizationId>/<policyType>/p\-<policyId> | 
-| Handshake | arn:aws:organizations::<masterAccountId>:handshake/o\-<organizationId>/<handshakeType>/h\-<handshakeId> | 
+| <a name="arn_organization"></a>Organization | arn:aws:organizations::<masterAccountId>:organization/o\-<organizationId> | 
+| <a name="arn_root"></a>Root | arn:aws:organizations::<masterAccountId>:root/o\-<organizationId>/r\-<rootId> | 
+| <a name="arn_account"></a>Account | arn:aws:organizations::<masterAccountId>:account/o\-<organizationId>/<accountId> | 
+| <a name="arn_ou"></a>Organizational Unit | arn:aws:organizations::<masterAccountId>:ou/o\-<organizationId>/ou\-<organizationalUnitId> | 
+| <a name="arn_policy"></a>Policy | arn:aws:organizations::<masterAccountId>:policy/o\-<organizationId>/<policyType>/p\-<policyId> | 
+| <a name="arn_handshake"></a>Handshake | arn:aws:organizations::<masterAccountId>:handshake/o\-<organizationId>/<handshakeType>/h\-<handshakeId> | 

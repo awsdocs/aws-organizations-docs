@@ -6,7 +6,7 @@ A service control policy \(SCP\) determines what services and actions can be del
 SCPs ***do not*** affect the master account no matter where the account is in the root/OU hierarchy\.
 SCPs ***do*** affect the root user along with all IAM users and standard IAM roles in any affected account\.
 SCPs ***do not*** affect any service\-linked role in an account\. These roles exist to support integration with other AWS services and can't be restricted by SCPs\.
-SCPs are available only in organizations that enable all features\. SCPs are not available if your organization has enabled only the consolidated billing features\.
+SCPs are available only in organizations that [enable all features](orgs_manage_org_support-all-features.md)\. SCPs are not available if your organization has enabled only the consolidated billing features\.
 
 The following illustration shows how SCPs work\.
 
@@ -17,26 +17,21 @@ In this illustration, the root has an SCP attached that allows permissions A, B,
 Users and roles must still be granted permissions using IAM permission policies attached to them or to groups\. The permissions granted by such policies are filtered by the SCPs, and any actions that are not permitted by the applicable SCPs cannot be performed by the user\. Actions allowed by the SCPs can be used if they are granted to the user or role by one or more IAM permission policies\.
 
 When you attach SCPs to the root, OUs, or directly to accounts, all policies that affect a given account are evaluated together using the same rules that govern IAM permission policies:
-
 + Any action that has an explicit `Deny` in an SCP cannot be delegated to users or roles in the affected accounts\. An explicit `Deny` statement overrides any `Allow` that might be granted by other SCPs\.
-
 + Any action that has an explicit `Allow` in an SCP \(such as the default "\*" SCP or by any other SCP that calls out a specific service or action\) can be delegated to users and roles in the affected accounts\.
-
 + Any action that is not explicitly allowed by an SCP is implicitly denied and cannot be delegated to users or roles in the affected accounts\.
 
 By default, an SCP named `FullAWSAccess` is attached to every root, OU, and account\. This default SCP allows all actions and all services\. So in a new organization, until you start creating or manipulating the SCPs, all of your existing IAM permissions continue to operate as they did\. As soon as you apply a new or modified SCP to a root or OU that contains an account, the permissions that your users have in that account become filtered by the SCP\. Permissions that used to work might now be denied if they are not allowed by the SCP at every level of the hierarchy down to the specified account\.
 
 If you disable the SCP policy type in a root, all SCPs are automatically detached from all entities in that root\. If you re\-enable SCPs in that root, all the original attachments are lost, and all entities are reset to being attached to only the default `FullAWSAccess` SCP\.
 
-For details about the syntax of SCPs, see [Service Control Policy Syntax](orgs_reference_scp-syntax.md) in the Reference section of this guide\.
+For details about the syntax of SCPs, see [Service Control Policy Syntax](orgs_reference_scp-syntax.md) in the [Reference](orgs_reference.md) section of this guide\.
 
 ## Strategies for Using SCPs<a name="SCP_strategies"></a>
 
 You can configure the SCPs in your organization to work as either of the following:
-
-+ A blacklist \- actions are allowed by default, and you specify what services and actions are prohibited\.
-
-+ A whitelist \- actions are prohibited by default, and you specify what services and actions are allowed\.
++ A [blacklist](#orgs_policies_blacklist) \- actions are allowed by default, and you specify what services and actions are prohibited\.
++ A [whitelist](#orgs_policies_whitelist) \- actions are prohibited by default, and you specify what services and actions are allowed\.
 
 ### Using SCPs as a Blacklist<a name="orgs_policies_blacklist"></a>
 
@@ -72,7 +67,7 @@ Such a policy might look like the following example, which prevents users in the
             "Resource": "*"
         },
         {
-            "Sid": "Deny 
+            "Sid": "DenyDynamoDB", 
             "Effect": "Deny",
             "Action": "dynamodb:*",
             "Resource": "*"

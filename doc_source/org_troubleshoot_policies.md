@@ -8,7 +8,7 @@ Service control policies \(SCPs\) in Organizations are similar to IAM policies a
 
 Organizations uses a subset of the IAM syntax and grammar\. For details, see [Service Control Policy Syntax](orgs_reference_scp-syntax.md)\.
 
-
+**Topics**
 + [More than one policy object](#morethanonepolicyblock)
 + [More than one Statement element](#morethanonestatement)
 

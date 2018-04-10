@@ -2,7 +2,7 @@
 
 As a best practice, you should monitor your organization to ensure that changes are logged\. This helps you to ensure that any unexpected change can be investigated and unwanted changes can be rolled back\. AWS Organizations currently supports two AWS services that enable you to monitor your organization and the activity that happens within it\.
 
-
+**Topics**
 + [AWS CloudTrail](#orgs_cloudtrail-integration)
 + [Amazon CloudWatch Events](#orgs_cloudwatch-integration)
 
@@ -10,20 +10,24 @@ As a best practice, you should monitor your organization to ensure that changes 
 
 AWS Organizations is integrated with AWS CloudTrail, a service that captures AWS Organizations API calls and delivers the log files to an Amazon S3 bucket that you specify\. CloudTrail captures API calls from the AWS Organizations console or from your code\. Using the information collected by CloudTrail, you can determine the request that was made to AWS Organizations, the source IP address from which the request was made, who made the request, when it was made, and so on\. 
 
+AWS Organizations is also integrated with the **Event history** feature in CloudTrail\. If an API for Organizations is supported in **Event history**, you can view the most recent 90 days of events in Organizations in the CloudTrail console in **Event history** even if you have not configured any logs in CloudTrail\.
+
+**Important**  
+You can view all CloudTrail information for AWS Organizations only in the US East \(N\. Virginia\) region\. If you don't see your Organizations activity in the CloudTrail console, set your console to **US East \(N\. Virginia\)** using the menu in the upper\-right corner\. If you query CloudTrail with the CLI or SDK tools, direct your query to the US East \(N\. Virginia\) endpoint\.
+
 To learn more about CloudTrail, including how to configure and enable it, see the [AWS CloudTrail User Guide](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/)\.
 
 ### AWS Organizations Information in CloudTrail<a name="service-name-info-in-cloudtrail"></a>
+
+CloudTrail is enabled on your AWS account when you create the account\. When activity occurs in Organizations, that activity is recorded in a CloudTrail event along with other AWS service events in **Event history**\. You can view, search, and download the past 90 days of supported activity in your AWS account\. For more information, see [Viewing Events with CloudTrail Event History](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html) and [Services Supported by CloudTrail Event History](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events-supported-services.html)\.
 
 When CloudTrail logging is enabled in your AWS account, API calls made to AWS Organizations actions are tracked in CloudTrail log files, where they are written with other AWS service records\. CloudTrail determines when to create and write to a new file based on a time period and file size\.
 
 All AWS Organizations actions are logged by CloudTrail and are documented in the [AWS Organizations API Reference](http://docs.aws.amazon.com/organizations/latest/APIReference/)\. For example, calls to the `ListHandshakesForAccount`, `CreatePolicy`, and `InviteAccountToOrganization` operations generate entries in the CloudTrail log files\. 
 
 Every log entry contains information about who generated the request\. The user identity information in the log entry helps you determine the following: 
-
 + Whether the request was made with root or IAM user credentials
-
 + Whether the request was made with temporary security credentials for an [IAM role](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) or a [federated user](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers.html) whose security credentials are validated by an external identity provider instead of directly by AWS
-
 + Whether the request was made by another AWS service
 
 For more information, see the [CloudTrail userIdentity Element](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html)\.
