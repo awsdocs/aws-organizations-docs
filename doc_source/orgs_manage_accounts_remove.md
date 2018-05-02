@@ -3,38 +3,46 @@
 An organization is a collection of AWS accounts that you centrally manage\. In addition to creating accounts and managing invitations, you can perform the following tasks:
 + [Removing a Member Account from Your Organization](#orgs_manage_accounts_remove-from-master)
 + [Leaving an Organization as a Member Account](#orgs_manage_accounts_leave-as-member)
++ [Remove the Master Account and Delete the Organization](orgs_manage_org_delete.md)
 
 **Important**  
-You can remove an account from your organization only if the account has the information required for it to operate as a standalone account\. When you create an account in an organization using the AWS Organizations console, API, or CLI commands, all the information required of standalone accounts is not automatically collected\. For each account that you want to make standalone, you must accept the AWS Customer Agreement, choose a support plan, provide and verify the required contact information, and provide a current payment method\. AWS uses the payment method to charge for any billable \(not free tier\) AWS activity that occurs while the account is not attached to an organization\. 
+You can remove an account from your organization only if the account has the information that is required for it to operate as a standalone account\. When you create an account in an organization using the AWS Organizations console, API, or CLI commands, all the information that is required of standalone accounts is not automatically collected\. For each account that you want to make standalone, you must accept the AWS Customer Agreement, choose a support plan, provide and verify the required contact information, and provide a current payment method\. AWS uses the payment method to charge for any billable \(not free tier\) AWS activity that occurs while the account is not attached to an organization\. 
 
 **Notes**  
 Even after the removal of created accounts \(accounts created using the AWS Organizations console or the `CreateAccount` API\) from within an organization, \(i\) created accounts are governed by the terms of the creating master account’s agreement with us, and \(ii\) the creating master account remains jointly and severally liable for any actions taken by its created accounts\. Customers’ agreements with us, and the rights and obligations under those agreements cannot be assigned or transferred without our prior consent\. To obtain our consent, contact us at [https://aws\.amazon\.com/contact\-us/](https://aws.amazon.com/contact-us/)\.
 When a member account leaves an organization, that account no longer has access to cost and usage data from the time range when the account was a member of the organization\. However, the master account of the organization can still access the data\. If the account re\-joins the organization, the account can access that data again\.
 
+## Effects of Removing an Account from an Organization<a name="orgs_manage_account-remove-affects"></a>
+
+When you remove an account from an organization, no direct changes are made to the account\. However, the following indirect effects occur:
++ The account is now responsible for paying its own charges and must have a valid payment method attached to the account\.
++ The principals in the account are no longer affected by any service control policies \(SCPs\) that were defined in the organization\. This means that restrictions imposed by those SCPs are gone, and the users and roles in the account might have more permissions than they had before\.
++ Integration with other services might be disabled\. For example, AWS Single Sign\-On requires an organization to operate, so if you remove an account from an organization that supports AWS SSO, the users in that account can no longer use that service\.
+
 ## Removing a Member Account from Your Organization<a name="orgs_manage_accounts_remove-from-master"></a>
 
-When you sign in to the organization's master account, you can remove accounts from the organization that you no longer need\. To do this, complete the following procedure\.
+When you sign in to the organization's master account, you can remove member accounts from the organization that you no longer need\. To do this, complete the following procedure\. These procedures apply only to member accounts\. To remove the master account, you must [delete the organization]()\.
 
 **Minimum permissions**  
-To remove one or more member accounts from your organization as an IAM user or role in the master account, you must have the following permissions:  
+To remove one or more member accounts from your organization, you must sign in as an IAM user or role in the master account with the following permissions:  
 `organizations:DescribeOrganization` \(console only\)
 `organizations:RemoveAccountFromOrganization` 
-If you choose to sign\-in as an IAM user or role in a member account in step 6, then that user or role must have the following permissions:  
+If you choose to sign in as an IAM user or role in a member account in step 6, then that user or role must have the following permissions:  
 `organizations:DescribeOrganization` \(console only\)
 `organizations:LeaveOrganization` – Note that the organization administrator can apply a policy to your account that removes this permission, preventing you from removing your account from the organization\.
 If you sign in as an IAM user and the account is missing payment information, then the IAM user must have the permissions `aws-portal:ModifyBilling` and `aws-portal:ModifyPaymentMethods`\. Also, the member account must have IAM user access to billing enabled\. If this is not already enabled, see [Activating Access to the Billing and Cost Management Console](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate) in the *AWS Billing and Cost Management User Guide*\.
 
 **To remove a member account from your organization \(console\)**
 
-1. Sign in to the Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](http://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\.
+1. Sign in to the Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in to the organization's master account\.
 
 1. On the **Accounts** tab, check the box next to the member account that you want to remove from your organization\. You can choose more than one\.
 
 1. Choose **Remove account**\.
 
-1. In the **Remove account** confirmation dialog box, choose **Remove**\.
+1. In the **Remove account** dialog box, choose **Remove**\.
 
-1. A dialog box displays the success or failure status for each account\. 
+   A dialog box displays the success or failure status for each account\. 
 
 1. If Organizations fails to remove one or more of the accounts, it is typically because you have not provided all the required information for the account to operate as a standalone account\. Perform the following steps:
 
@@ -59,7 +67,7 @@ You can use the following CLI command or API operation to remove a member accoun
 
 ## Leaving an Organization as a Member Account<a name="orgs_manage_accounts_leave-as-member"></a>
 
-When signed in to a member account, you can remove that one account from its organization\. To do this, complete the following procedure\.
+When signed in to a member account, you can remove that one account from its organization\. To do this, complete the following procedure\. The master account cannot leave the organization using this technique\. To remove the master account, you must [delete the organization]()\.
 
 **Minimum permissions**  
 To leave an AWS organization, you must have the following permissions:  

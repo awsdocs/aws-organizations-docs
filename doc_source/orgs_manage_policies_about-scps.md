@@ -6,6 +6,7 @@ A service control policy \(SCP\) determines what services and actions can be del
 SCPs ***do not*** affect the master account no matter where the account is in the root/OU hierarchy\.
 SCPs ***do*** affect the root user along with all IAM users and standard IAM roles in any affected account\.
 SCPs ***do not*** affect any service\-linked role in an account\. These roles exist to support integration with other AWS services and can't be restricted by SCPs\.
+SCPs ***affect only principals*** that are managed by accounts that are part of the organization\. They do not affect users or roles from accounts outside the organization\. For example, consider an S3 bucket that is owned by account "A" in an organization\. The bucket policy grants access to users from accounts outside of the organization\. Account "A" has an SCP attached\. That SCP does not apply to those outside users\. It applies only to users that are managed by account "A" in the organization\. 
 SCPs are available only in organizations that [enable all features](orgs_manage_org_support-all-features.md)\. SCPs are not available if your organization has enabled only the consolidated billing features\.
 
 The following illustration shows how SCPs work\.

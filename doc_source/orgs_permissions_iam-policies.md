@@ -18,12 +18,12 @@ Complete the following steps to grant full AWS Organizations administrator permi
 
    ```
    {
-       "Version": "2012-10-17",
-       "Statement": {
-           "Effect": "Allow",
-           "Action": "organizations:*",
-           "Resource": "*"
-       }
+     "Version": "2012-10-17",
+     "Statement": {
+       "Effect": "Allow",
+       "Action": "organizations:*",
+       "Resource": "*"
+     }
    }
    ```
 
@@ -48,19 +48,19 @@ In an SCPs the wildcard \(\*\) character in an `Action` element can be used only
 
 ```
 {
-     "Version": "2012-10-17",
-     "Statement": {
-         "Effect": "Allow",
-         "Action": [
-             "organizations:Describe*", 
-             "organizations:List*" 
-         ],
-         "Resource": "*"
-     }
- }
+   "Version": "2012-10-17",
+   "Statement": {
+     "Effect": "Allow",
+     "Action": [
+       "organizations:Describe*", 
+       "organizations:List*" 
+     ],
+     "Resource": "*"
+   }
+}
 ```
 
-For a list of all the permissions that are available to assign in an IAM policy, see [Permissions You Can Use in an IAM Policy for AWS Organizations](orgs_reference_iam-permissions.md)\.
+For a list of all the permissions that are available to assign in an IAM policy, see [Resources, Permissions, and Context Keys You Can Use in an IAM Policy for AWS Organizations](orgs_reference_iam-permissions.md)\.
 
 ## Granting Limited Access to Resources<a name="orgs_permissions_grant-limited-resources"></a>
 
@@ -71,25 +71,52 @@ The first statement of the following policy allows an IAM user read access to th
 
 ```
 {
-     "Version": "2012-10-17",
-     "Statement": [
-         {
-             "Effect": "Allow",
-             "Action": [
-                 "organizations:Describe*", 
-                 "organizations:List*" 
-             ],
-             "Resource": "*"
-         },
-         {
-             "Effect": "Allow",
-             "Action": "organizations:*",
-             "Resource": "arn:aws:organizations::<masterAccountId>:ou/o-<organizationId>/ou-<organizationalUnitId>"
-         }
-     ]
- }
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "organizations:Describe*", 
+        "organizations:List*" 
+      ],
+      "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": "organizations:*",
+      "Resource": "arn:aws:organizations::<masterAccountId>:ou/o-<organizationId>/ou-<organizationalUnitId>"
+    }
+  ]
+}
 ```
 
 You get the IDs for the OU and the organization from the AWS Organizations console or by calling the `List*` APIs\. The user or group that you apply this policy to can perform any action \(`"organizations:*"`\) on any entity that is contained by the OU\. The OU is identified by the Amazon Resource Name \(ARN\)\. 
+
+For more information about the ARNs for various resources, see [ARN Formats Supported by AWS Organizations](orgs_reference_arn-formats.md)\. 
+
+## Granting the Ability to Enable Trusted Access to Limited Service Principals<a name="orgs_permissions_grant-trusted-access-condition"></a>
+
+You can use the `Condition` element of a policy statement to further limit the circumstances under which the policy statement matches\.
+
+**Example: Granting permissions to enable trusted access to one specified service**  
+The following statement shows how you can restrict the ability to enable trusted access to only those services that you specify\. If the user tries to call the API with a different service principal than the one for AWS Single Sign\-On then this policy doesn't match and the request is denied:
+
+```
+{
+   "Version": "2012-10-17",
+   "Statement": [
+     {
+       "Effect": "Allow",
+       "Action": "organizations:EnableAWSServiceAccess",
+       "Resource": "*",
+       "Condition": { 
+         "StringEquals" : {
+           "organizations:ServicePrincipal" : "sso.amazonaws.com"
+         }
+       }
+     }
+   ]
+}
+```
 
 For more information about the ARNs for various resources, see [ARN Formats Supported by AWS Organizations](orgs_reference_arn-formats.md)\. 

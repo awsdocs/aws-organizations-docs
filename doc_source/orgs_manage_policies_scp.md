@@ -22,6 +22,7 @@ All characters that you type count against the [size limit of your SCP](orgs_ref
 **Important**  
 SCPs affect all users and roles in attached accounts, ***including the root user***\.The only exceptions are those described in the following list of tasks that are not affected and cannot be restricted by using SCPs\.
 SCPs ***do not ***affect any service\-linked role\. Service\-linked roles enable other AWS services to integrate with AWS Organizations and can't be restricted by SCPs\.
+SCPs ***affect only principals*** that are managed by accounts that are part of the organization\. They do not affect users or roles from accounts outside the organization\. For example, consider an S3 bucket that is owned by account "A" in an organization\. The bucket policy grants access to users from accounts outside of the organization\. Account "A" has an SCP attached\. That SCP does not apply to those outside users\. It applies only to users that are managed by account "A" in the organization\. 
 When you disable the SCP policy type in a root, all SCPs are automatically detached from all entities in that root\. If you re\-enable SCPs in a root, that root reverts to only the default `FullAWSAccess` policy automatically attached to all entities in the root\. Any attachments of SCPs to entities from before SCPs were disabled are lost and are not automatically recoverable, although you can manually reattach them\.
 
 **Tasks and entities not restricted by SCPs**

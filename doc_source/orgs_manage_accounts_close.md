@@ -4,10 +4,12 @@ If you no longer need an AWS account \(whether a member in an organization or no
 
 Before closing your account, back up any applications and data that you want to retain\. All resources and data that were stored in the account are lost and cannot be recovered\. For more information, see the KB article [ "How do I close my Amazon Web Services account?"](https://aws.amazon.com/premiumsupport/knowledge-center/close-aws-account/)
 
-Immediately, the account can no longer be used for any AWS activity other than signing in as the root user to view past bills or to contact AWS Customer Support\. For more information, see [Contacting Customer Support About Your Bill](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-get-answers.html)\. After approximately 90 days, the account is permanently deleted\.
+Immediately, the account can no longer be used for any AWS activity other than signing in as the root user to view past bills or to contact AWS Customer Support\. For more information, see [Contacting Customer Support About Your Bill](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-get-answers.html)\.
+
+After approximately 90 days, the closed account is subject to being permanently deleted\. After it is deleted, the account and any resources it contained can no longer be recovered\.
 
 **Important**  
-Closing an account doesn't immediately remove it from an organization\. A closed member account in an organization still counts towards your limit of accounts in the organization\. It is removed from your account only after it is permanently deleted after approximately 90 days after you close it\. Instead of waiting 90 days, you can [remove the account from the organization](orgs_manage_accounts_remove.md) before closing it to avoid it counting against the limit\.
+Closing an account doesn't immediately remove it from an organization\. A closed member account in an organization still counts towards your limit of accounts in the organization\. It is removed from your organization only after it is permanently deleted\. Instead of waiting, you can [remove the account from the organization](orgs_manage_accounts_remove.md) before closing it to avoid it counting against the limit\.
 
 You can close an account only by using the Billing and Cost Management console, not by using the AWS Organizations console or its tools\. Use the following procedure to close an account\. 
 
@@ -29,4 +31,4 @@ By default, member accounts that you create with Organizations do not have a pas
 
 1. In the confirmation box, choose **Close Account**\.
 
-After you close an AWS account, you can no longer use it to access AWS services or resources\. You can only view the account's past bills and access AWS Customer Support\. You can reopen the account by contacting AWS Support\. For more information, see [How do I reopen my closed AWS account?](https://aws.amazon.com/premiumsupport/knowledge-center/reopen-aws-account/) in the Knowledge Center\.
+After you close an AWS account, you can no longer use it to access AWS services or resources\. You can only view the account's past bills and access AWS Customer Support\. You can reopen the account by contacting AWS Support before the permanent deletion occurs \(no sooner than 90 days after closing\)\. For more information, see [How do I reopen my closed AWS account?](https://aws.amazon.com/premiumsupport/knowledge-center/reopen-aws-account/) in the Knowledge Center\.
