@@ -88,7 +88,7 @@ Some services, such as Amazon S3, support resource\-based permissions policies\.
 
 ## Specifying Policy Elements: Actions, Conditions, Effects, and Resources<a name="orgs-access-control-policy-elements"></a>
 
-For each AWS Organizations [resource](orgs_reference_arn-formats.md), the service defines a set of API operations, or [actions](orgs_reference_iam-permissions.md), that can interact with or manipulate that resource in some way\. To grant permissions for these operations, Organizations defines a set of actions that you can specify in a policy\. For example, for the organizational unit \(OU\) resource, Organizations defines actions like the following:
+For each AWS Organizations resource, the service defines a set of API operations, or actions, that can interact with or manipulate that resource in some way\. To grant permissions for these operations, Organizations defines a set of actions that you can specify in a policy\. For example, for the organizational unit \(OU\) resource, Organizations defines actions like the following:
 + `AttachPolicy` and `DetachPolicy`
 + `CreateOrganizationalUnit` and `DeleteOrganizationalUnit`
 + `ListOrganizationalUnits` and `DescribeOrganizationalUnit`

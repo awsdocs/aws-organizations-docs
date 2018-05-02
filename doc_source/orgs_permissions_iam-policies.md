@@ -60,9 +60,9 @@ In an SCPs the wildcard \(\*\) character in an `Action` element can be used only
 }
 ```
 
-For a list of all the permissions that are available to assign in an IAM policy, see [Resources, Permissions, and Context Keys You Can Use in an IAM Policy for AWS Organizations](orgs_reference_iam-permissions.md)\.
+For a list of all the permissions that are available to assign in an IAM policy, see [Actions Defined by AWS Organizations](http://docs.aws.amazon.com/IAM/latest/UserGuide/list_awsorganizations.html#awsorganizations-actions-as-permissions) in the *IAM User Guide*\.
 
-## Granting Limited Access to Resources<a name="orgs_permissions_grant-limited-resources"></a>
+## Granting Access to Specific Resources<a name="orgs_permissions_grant-limited-resources"></a>
 
 In addition to restricting access to specific actions, you also can restrict access to specific entities in your organization\. The `Resource` elements in the examples in the preceding sections both specify the wildcard character \("\*"\), which means "any resource that the action can access"\. Instead, you can replace the "\*" with the Amazon Resource Name \(ARN\) of specific entities to which you want to allow access\. 
 
@@ -92,7 +92,7 @@ The first statement of the following policy allows an IAM user read access to th
 
 You get the IDs for the OU and the organization from the AWS Organizations console or by calling the `List*` APIs\. The user or group that you apply this policy to can perform any action \(`"organizations:*"`\) on any entity that is contained by the OU\. The OU is identified by the Amazon Resource Name \(ARN\)\. 
 
-For more information about the ARNs for various resources, see [ARN Formats Supported by AWS Organizations](orgs_reference_arn-formats.md)\. 
+For more information about the ARNs for various resources, see [Resources Defined by AWS Organizations](http://docs.aws.amazon.com/IAM/latest/UserGuide/list_awsorganizations.html#awsorganizations-resources-for-iam-policies) in the *IAM User Guide*\. 
 
 ## Granting the Ability to Enable Trusted Access to Limited Service Principals<a name="orgs_permissions_grant-trusted-access-condition"></a>
 
@@ -119,4 +119,4 @@ The following statement shows how you can restrict the ability to enable trusted
 }
 ```
 
-For more information about the ARNs for various resources, see [ARN Formats Supported by AWS Organizations](orgs_reference_arn-formats.md)\. 
+For more information about the ARNs for various resources, see [Resources Defined by AWS Organizations](http://docs.aws.amazon.com/IAM/latest/UserGuide/list_awsorganizations.html#awsorganizations-resources-for-iam-policies) in the *IAM User Guide*\. 

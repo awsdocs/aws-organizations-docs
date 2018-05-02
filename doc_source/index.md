@@ -44,8 +44,6 @@ Amazon's trademarks and trade dress may not be used in
    + [Limits of AWS Organizations](orgs_reference_limits.md)
    + [AWS Managed Policies Available for Use with AWS Organizations](orgs_reference_available-policies.md)
    + [Service Control Policy Syntax](orgs_reference_scp-syntax.md)
-   + [ARN Formats Supported by AWS Organizations](orgs_reference_arn-formats.md)
-   + [Resources, Permissions, and Context Keys You Can Use in an IAM Policy for AWS Organizations](orgs_reference_iam-permissions.md)
 + [Troubleshooting AWS Organizations](orgs_troubleshoot.md)
    + [Troubleshooting General Issues](orgs_troubleshoot_general.md)
    + [Troubleshooting AWS Organizations Policies](org_troubleshoot_policies.md)
