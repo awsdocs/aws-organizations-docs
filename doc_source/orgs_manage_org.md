@@ -2,9 +2,9 @@
 
 You can perform the following tasks using the AWS Organizations console:
 + **[Create an organization](orgs_manage_create.md)**\. Create your organization with your current account as its master account\. Create member accounts within your organization, and invite other accounts to join your organization\.
-+ **[Enable all features in your organization](orgs_manage_org_support-all-features.md)**\. If your organization has only the consolidated billing feature set enabled then you must enable all features to use the advanced features available in AWS Organizations, such as policies that enable you to apply fine\-grained control over which services and actions that member accounts can access\.
++ **[Enable all features in your organization](orgs_manage_org_support-all-features.md)**\. You must enable all features to use the advanced features available in AWS Organizations, such as policies that enable you to apply fine\-grained control over which services and actions that member accounts can access\.
 **Note**  
-If you originally had a Consolidated Billing family of accounts, it was migrated to an organization with only the consolidated billing features enabled\. You can also choose to create your organization with only consolidated billing features enabled\. 
+You can also choose to create your organization with only consolidated billing features enabled\. 
 + **[View details about your organization](orgs_manage_org_details.md)**\. View details about your organization and its roots, organizational units \(OUs\), and accounts\.
 + **[Delete an organization](orgs_manage_org_delete.md)**\. Delete an organization when you no longer need it\.
 

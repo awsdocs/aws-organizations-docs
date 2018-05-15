@@ -2,9 +2,7 @@
 
 You can use AWS Organizations to create your own organization to consolidate and manage your AWS accounts\. 
 
-If you previously collected your company's accounts into a Consolidated Billing family, then AWS has automatically converted it into an organization for you\. The original "bill\-to" account \(the payer account\) is now the organization's master account, and all linked accounts remain as member accounts in the organization\. An organization that is created from an existing Consolidated Billing family initially has a single root with all accounts in it and no organizational units \(OUs\)\. Also, an organization created from a Consolidated Billing family of accounts has only the consolidated billing features of Organizations enabled\. If you want, you can later enable [all features](orgs_manage_org_support-all-features.md)\.
-
-If you've never set up Consolidated Billing, then you can create an organization that starts with your AWS account as the master account\. After you sign in to your account, you can create other AWS accounts that automatically are added to your organization as member accounts\. You also can invite existing AWS accounts to join as member accounts\. When you create an organization, you can choose whether the organization supports only consolidated billing features or all features\.
+You can create an organization that starts with your AWS account as the master account\. After you sign in to your account, you can create other AWS accounts that automatically are added to your organization as member accounts\. You also can invite existing AWS accounts to join as member accounts\. When you create an organization, you can choose whether the organization supports only consolidated billing features or all features\.
 
 **Minimum permissions**  
 To create an organization with your current AWS account, you must have the following permissions:  

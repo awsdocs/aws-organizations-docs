@@ -42,8 +42,6 @@ In this step, you sign in to account 111111111111 as an administrator, create an
 1. In the **Create new organization** dialog box, choose **ENABLE ALL FEATURES**, and then choose **Create organization**\.
 
 1. Choose **Settings** in the upper\-right corner and confirm that your organization has all features enabled by looking at the box in the lower left corner of the page\.
-**Note**  
-Instead of enabling all features, which gives you the ability to use the full range of advanced features, you can choose to create an organization that supports only the consolidated billing features\. For more information, see [Consolidated billing](orgs_getting-started_concepts.md#feature-set-cb-only) and [All features](orgs_getting-started_concepts.md#feature-set-all)\. If you previously had a Consolidated Billing family of accounts that you created through the AWS Billing and Cost Management service, that Consolidated Billing family has been converted to an organization with only the consolidated billing features enabled\. You can choose to [enable all features](orgs_manage_org_support-all-features.md) in your organization\. To complete this tutorial, you must have all features enabled, or you cannot attach service control policies to your accounts and organizational units\.
 
 You now have an organization with your account as its only member\. This is the master account of the organization\.
 
@@ -67,9 +65,7 @@ Now that you have an organization, you can begin to populate it with accounts\. 
 
 1. Choose **Invite**\. AWS Organizations sends the invitation to the account owner\.
 **Important**  
-If you get an either of these exceptions then contact [AWS Customer Support](https://console.aws.amazon.com/support/home#/)\.  
-You exceeded the maximum number of accounts allowed in your organization\.
-Your organization is still initializing and it's been longer than one hour since you created the organization\.
+If you get an error that indicates that you exceeded your account limits for the organization or that you can't add an account because your organization is still initializing, wait until one hour after you created the organization and try again\. If the error still persists, contact [AWS Customer Support](https://console.aws.amazon.com/support/home#/)\.
 
 1. For the purposes of this tutorial, you now need to accept your own invitation\. Do one of the following to get to the **Invitations** page in the console:
    + Open the email that was sent by AWS from the master account and choose the link to accept the invitation\. When prompted to sign in, do so as an administrator in the invited member account\. 
@@ -95,7 +91,7 @@ In the steps in this section, you create an AWS account that is automatically a 
 
 1. Choose **Create**\. You might need to wait a short while and refresh the page to see the new account appear on the **Accounts** tab\.
 **Important**  
-If you get an exception that indicates that you exceeded your account limits for the organization or that you can't add an account because your organization is still initializing, please contact [AWS Customer Support](https://console.aws.amazon.com/support/home#/)\.
+If you get an error that indicates that you exceeded your account limits for the organization or that you can't add an account because your organization is still initializing, wait until one hour after you created the organization and try again\. If the error still persists, contact [AWS Customer Support](https://console.aws.amazon.com/support/home#/)\.
 
 ## Step 2: Create the Organizational Units<a name="tutorial-orgs-step2"></a>
 

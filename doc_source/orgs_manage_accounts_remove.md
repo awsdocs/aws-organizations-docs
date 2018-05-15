@@ -75,6 +75,13 @@ To leave an AWS organization, you must have the following permissions:
 `organizations:LeaveOrganization` – Note that the organization administrator can apply a policy to your account that removes this permission, preventing you from removing your account from the organization\.
 If you sign in as an IAM user and the account is missing payment information, then the IAM user must have the permissions `aws-portal:ModifyBilling` and `aws-portal:ModifyPaymentMethods`\. Also, the member account must have IAM user access to billing enabled\. If this is not already enabled, see [Activating Access to the Billing and Cost Management Console](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate) in the *AWS Billing and Cost Management User Guide*\. 
 
+**Note**  
+An account’s status with an organization affects what cost and usage data is visible:  
+When a standalone account joins an organization, the account no longer has access to cost and usage data from the time range when the account was a standalone account\.
+If a member account leaves an organization and becomes a standalone account, the account no longer has access to cost and usage data from the time range when the account was a member of the organization\. The account has access only to the data that is generated as a standalone account\. 
+If a member account leaves organization A to join organization B, the account no longer has access to cost and usage data from the time range when the account was a member of organization A\. The account has access only to the data that is generated as a member of organization B\. 
+If an account re\-joins an organization that it previously belonged to, the account regains access to its historical cost and usage data\.
+
 **To leave an organization as a member account \(console\)**
 
 1. Sign in to the Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You can sign in as an IAM user with the required permissions, or as the root user of the member account that you want to remove from the organization\. By default, you don't have access to the root user password in a member account that was created using AWS Organizations\. If required, recover the root user password by following the steps at [Accessing a Member Account as the Root User](orgs_manage_accounts_access.md#orgs_manage_accounts_access-as-root)\.

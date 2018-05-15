@@ -38,7 +38,8 @@ Remember this role name\. You need it later to grant access to the new account f
 
 1. Choose **Create**\.
 **Important**  
-If you get an error that indicates that you exceeded your account limits for the organization or that you can't add an account because your organization is still initializing, contact [AWS Customer Support](https://console.aws.amazon.com/support/home#/)\.
+If you get an error that indicates that you exceeded your account limits for the organization then contact [AWS Customer Support](https://console.aws.amazon.com/support/home#/)\.
+If you get an error that indicates that you can't add an account because your organization is still initializing, wait one hour and try again\. If the error persists, contact [AWS Customer Support](https://console.aws.amazon.com/support/home#/)\.
 
 1. You are redirected to the **Accounts**/**All accounts** tab, showing your new account at the top of the list with its status set to **Pending creation**\. This status changes to **Active** when the account is created\. 
 **Note**  
@@ -46,7 +47,7 @@ By default, the **Accounts** tab hides account creation requests that failed\. T
 
 1. Now that the account exists and has an IAM role that grants admin access to users in the master account, you can access the account by following the steps in [Accessing and Administering the Member Accounts in Your Organization](orgs_manage_accounts_access.md)\.
 
-   When you create an account, Organizations initially assigns a password to the root user that is a minimum of 64 characters long\. All characters are randomly generated with no guarantees on the appearance of certain character sets\. You cannot retrieve this initial password\. To access the account as the root user for the first time, you must go through the process for password recovery\. For more information, see [Accessing a Member Account as the Root User](orgs_manage_accounts_access.md#orgs_manage_accounts_access-as-root)\.
+   When you create an account, Organizations initially assigns a random password to the root user that is a minimum of 64 characters long\. All characters are randomly generated with no guarantees on the appearance of certain character sets\. You cannot retrieve this initial password\. To access the account as the root user for the first time, you must go through the process for password recovery\. For more information, see [Accessing a Member Account as the Root User](orgs_manage_accounts_access.md#orgs_manage_accounts_access-as-root)\.
 
 **To create an AWS account that automatically is part of your organization \(AWS CLI, AWS API\)**  
 You can use the following command or operation to create an account:
