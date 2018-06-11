@@ -2,7 +2,7 @@
 
 You can use AWS Organizations to create your own organization to consolidate and manage your AWS accounts\. 
 
-You can create an organization that starts with your AWS account as the master account\. After you sign in to your account, you can create other AWS accounts that automatically are added to your organization as member accounts\. You also can invite existing AWS accounts to join as member accounts\. When you create an organization, you can choose whether the organization supports only consolidated billing features or all features\.
+You can create an organization that starts with your AWS account as the master account\. After you sign in to your account, you can create other AWS accounts that automatically are added to your organization as member accounts\. You also can invite existing AWS accounts to join as member accounts\. When you create an organization, you can choose whether the organization supports all features or only consolidated billing features\.
 
 **Minimum permissions**  
 To create an organization with your current AWS account, you must have the following permissions:  
@@ -10,7 +10,7 @@ To create an organization with your current AWS account, you must have the follo
 
 **To create an organization \(Console\)**
 
-1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](http://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the account that you want to be the organization's master account\.
+1. Sign in to the AWS Management Console and open the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](http://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the account that you want to be the organization's master account\.
 
 1. On the introduction page, choose **Create organization**\.
 

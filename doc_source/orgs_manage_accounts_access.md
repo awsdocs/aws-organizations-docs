@@ -7,21 +7,21 @@ When you create an account in your organization, AWS Organizations automatically
 
 **Minimum permissions**  
 To access an AWS account from any other account in your organization, you must have the following permission:  
-`sts:AssumeRole` \- The `Resource` element must be set to either an asterisk \(\*\) or the account ID number of the account with the user who needs to access the new member account\.
+`sts:AssumeRole` – The `Resource` element must be set to either an asterisk \(\*\) or the account ID number of the account with the user who needs to access the new member account
 
 ## Accessing a Member Account as the Root User<a name="orgs_manage_accounts_access-as-root"></a>
 
-When you create a new account, Organizations initially assigns a password to the root user that is a minimum of 64 characters long\. All characters are randomly generated with no guarantees on the appearance of certain character sets\. You cannot retrieve this initial password\. To access the account as the root user for the first time, you must go through the process for password recovery\.
+When you create a new account, AWS Organizations initially assigns a password to the root user that is a minimum of 64 characters long\. All characters are randomly generated with no guarantees on the appearance of certain character sets\. You can't retrieve this initial password\. To access the account as the root user for the first time, you must go through the process for password recovery\.
 
 **Notes**  
-As a [best practice](http://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#create-iam-users), we recommend that you do not use the root user to access your account for anything other than to create other users and roles with more limited permissions\. Then sign in as one of those users or roles\.
-We also recommend that you set [multi\-factor authentication](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa.html) on the root user\. Reset the password, and then [assign an MFA device to the root user](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_enable.html)\.
+As a [best practice](http://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#create-iam-users), we recommend that you don't use the root user to access your account except to create other users and roles with more limited permissions\. Then sign in as one of those users or roles\.
+We also recommend that you set [multi\-factor authentication](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa.html) \(MFA\) on the root user\. Reset the password, and then [assign an MFA device to the root user](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_enable.html)\.
 
 **To request a new password for the root user of the member account \(console\)**
 
-1. Go to the sign\-in page of the AWS console at [https://console\.aws\.amazon\.com/](https://console.aws.amazon.com/)\. If you are already signed\-in to AWS, you first have to sign out to see the sign\-in page\.
+1. Go to the sign\-in page of the AWS console at [https://console\.aws\.amazon\.com/](https://console.aws.amazon.com/)\. If you are already signed in to AWS, you have to sign out to see the sign\-in page\.
 
-1. If the **Sign in** page shows three text boxes for **Account ID or alias**, **IAM user name**, and **Password**, then choose **Sign\-in using root account credentials**\.
+1. If the **Sign in** page shows three text boxes for **Account ID or alias**, **IAM user name**, and **Password**, choose **Sign in using root account credentials**\.
 
 1. Type the email address that is associated with your AWS account, and then choose **Next**\. 
 
@@ -29,23 +29,23 @@ We also recommend that you set [multi\-factor authentication](http://docs.aws.am
 
 ## Creating the OrganizationAccountAccessRole in an Invited Member Account<a name="orgs_manage_accounts_create-cross-account-role"></a>
 
-By default, if you create a member account as part of your organization, AWS automatically creates a role in the account that grants admin permissions to delegated IAM users in the master account\. By default, that role is named `OrganizationAccountAccessRole`\. For more information, see [Accessing a Member Account That Has a Master Account Access Role](#orgs_manage_accounts_access-cross-account-role)\.
+By default, if you create a member account as part of your organization, AWS automatically creates a role in the account that grants administrator permissions to delegated IAM users in the master account\. By default, that role is named `OrganizationAccountAccessRole`\. For more information, see [Accessing a Member Account That Has a Master Account Access Role](#orgs_manage_accounts_access-cross-account-role)\.
 
-However, member accounts that you *invite* to join your organization ***do not*** automatically get an admin role created\. You have to do this manually, as shown in the following procedure\. This essentially duplicates the role automatically set up for created accounts\. We recommend that you use the same name, `OrganizationAccountAccessRole`, for your manually created roles for consistency and ease of remembering\.
+However, member accounts that you *invite* to join your organization ***do not*** automatically get an administrator role created\. You have to do this manually, as shown in the following procedure\. This essentially duplicates the role automatically set up for created accounts\. We recommend that you use the same name, `OrganizationAccountAccessRole`, for your manually created roles for consistency and ease of remembering\.
 
-**To create an AWS Organizations admin role in a member account \(console\)**
+**To create an AWS Organizations administrator role in a member account \(console\)**
 
-1. Sign in to the Identity and Access Management \(IAM\) console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](http://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the member account that has permissions to create IAM roles and policies\.
+1. Sign in to the AWS Identity and Access Management \(IAM\) console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](http://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the member account that has permissions to create IAM roles and policies\.
 
 1. In the IAM console, navigate to **Roles**, and then choose**Create Role**\.
 
 1. Choose **Another AWS account**\.
 
-1. Type the 12\-digit account ID number of the master account that you want to grant admin access to\. 
+1. Type the 12\-digit account ID number of the master account that you want to grant administrator access to\. 
 
 1. For this role, because the accounts are internal to your company, you should not choose **Require external ID**\. For more information about the external ID option, see [When Should I Use the External ID?](http://docs.aws.amazon.com/IAM/latest/UserGuide//id_roles_create_for-user_externalid.html#external-id-use) in the *IAM User Guide*\. 
 
-1. If you have MFA enabled and configured, you can optionally choose to require authentication using a multi\-factor authentication \(MFA\) device\. For more information about MFA, see [Using Multi\-Factor Authentication \(MFA\) in AWS](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa.html) in the *IAM User Guide*\. 
+1. If you have MFA enabled and configured, you can optionally choose to require authentication using an MFA device\. For more information about MFA, see [Using Multi\-Factor Authentication \(MFA\) in AWS](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa.html) in the *IAM User Guide*\. 
 
 1. On the **Attach permissions policies** page, choose the AWS managed policy named `AdministratorAccess`, and then choose **Next: Review**\.
 
@@ -53,19 +53,19 @@ However, member accounts that you *invite* to join your organization ***do not**
 
 1. Your new role appears on the list of available roles\. Choose the new role's name to view the details, paying special note to the link URL that is provided\. Give this URL to users in the member account who need to access the role\. Also make note of the **Role ARN** because you need this in step 11\.
 
-1. Sign in to the Identity and Access Management \(IAM\) console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\. This time, sign in as a user in the master account who has permissions to create policies and assign the policies to users or groups\.
+1. Sign in to the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\. This time, sign in as a user in the master account who has permissions to create policies and assign the policies to users or groups\.
 
 1. Navigate to **Policies**, and then choose **Create Policy**\.
 **Note**  
-This example shows how to create a policy and attach it to a group\. If you already created this policy for other accounts, you can skip to step 19\. 
+This example shows how to create a policy and attach it to a group\. If you already created this policy for other accounts, you can skip to step 19\.
 
 1. For **Service**, choose **STS**\.
 
-1. For **Actions**, start typing **AssumeRole** in the **Filter** box, and then check the box next to it when it appears\.
+1. For **Actions**, start typing **AssumeRole** in the **Filter** box, and then select the check box next to it when it appears\.
 
 1. Choose **Resources**, ensure that **Specific** is selected, and then choose **Add ARN**\.
 
-1. Type your AWS account ID number, and then type the name of the role that you previously created in steps 1 \- 9\.
+1. Type your AWS account ID number, and then type the name of the role that you previously created in steps 1–9\.
 
 1. If you are granting permission to assume the role in multiple member accounts, repeats steps 14 and 15 for each account\.
 
@@ -75,7 +75,7 @@ This example shows how to create a policy and attach it to a group\. If you alre
 
 1. Choose **Groups** in the navigation pane, and then choose the name of the group \(not the check box\) that you want to use to delegate administration of the member account\.
 
-1. Choose **Attach Policy**, select the policy that you created in steps 11 \- 18, and then choose **Attach Policy**\.
+1. Choose **Attach Policy**, select the policy that you created in steps 11–18, and then choose **Attach Policy**\.
 
 The users who are members of the selected group now can use the URLs that you captured in step 9 to access each member account's role\. They can access these member accounts the same way as they would if accessing an account that you create in the organization\. For more information about using the role to administer a member account, see [Accessing a Member Account That Has a Master Account Access Role](#orgs_manage_accounts_access-cross-account-role)\. 
 
@@ -87,7 +87,7 @@ When you create a member account using the AWS Organizations console, AWS Organi
 
 1. Sign in to the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/) as a user with administrator permissions in the master account\. This is required to delegate permissions to the IAM group whose users will access the role in the member account\.
 
-1. In the navigation pane, choose **Groups**, and then choose the name of the group \(not the check box\) whose members you want to be able to assume the role in the member account\. If required, you can create a new group\.
+1. In the navigation pane, choose **Groups** and then choose the name of the group \(not the check box\) whose members you want to be able to assume the role in the member account\. If required, you can create a new group\.
 
 1. Choose the **Permissions** tab, and then expand the **Inline Policies** section\.
 
@@ -128,15 +128,15 @@ For more information about granting permissions to switch roles, see [Granting a
 
 **To manually switch to the role for the member account \(console\)**
 
-If you provide your users with a link formatted as shown in the preceding procedure, then they simply have to click the link\. They do not have to follow this procedure\.
+If you provide your users with a link formatted as shown in the preceding procedure, they simply have to click the link\. They don't have to follow this procedure\.
 
-1. Sign\-in to the AWS Management Console as the master account user who was granted permissions in the preceding procedure\. For example, you can use the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
+1. Sign in to the AWS Management Console as the master account user who was granted permissions in the preceding procedure\. For example, you can use the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
 
-1. In the upper\-right corner, choose the link that contains your current sign\-in name, and then choose **Switch role**\.
+1. In the upper\-right corner, choose the link that contains your current sign\-in name and then choose **Switch role**\.
 
-1. Type the account ID number and role name that are provided by your administrator\.
+1. Type the account ID number and role name that your administrator provided\.
 
-1. For **Display Name**, type the text that you want to show on the navigation bar in the upper\-right corner in place of your user name while you are using the role\. You can optionally select a color\.
+1. For **Display Name**, type the text that you want to show on the navigation bar in the upper\-right corner in place of your user name while you are using the role\. You can optionally choose a color\.
 
 1. Choose **Switch Role**\. Now, all actions that you perform are done with the permissions granted to the role that you switched to\. You no longer have the permissions associated with your original IAM user until you switch back\.
 

@@ -1,4 +1,4 @@
-# Monitor the Activity in Your Organization<a name="orgs_monitoring"></a>
+# Monitoring the Activity in Your Organization<a name="orgs_monitoring"></a>
 
 As a best practice, you should monitor your organization to ensure that changes are logged\. This helps you to ensure that any unexpected change can be investigated and unwanted changes can be rolled back\. AWS Organizations currently supports two AWS services that enable you to monitor your organization and the activity that happens within it\.
 
@@ -8,18 +8,18 @@ As a best practice, you should monitor your organization to ensure that changes 
 
 ## AWS CloudTrail<a name="orgs_cloudtrail-integration"></a>
 
-AWS Organizations is integrated with AWS CloudTrail, a service that captures AWS Organizations API calls and delivers the log files to an Amazon S3 bucket that you specify\. CloudTrail captures API calls from the AWS Organizations console or from your code\. Using the information collected by CloudTrail, you can determine the request that was made to AWS Organizations, the source IP address from which the request was made, who made the request, when it was made, and so on\. 
+AWS Organizations is integrated with AWS CloudTrail, a service that captures AWS Organizations API calls and delivers the log files to an Amazon Simple Storage Service \(Amazon S3\) bucket that you specify\. CloudTrail captures API calls from the AWS Organizations console or from your code\. Using the information collected by CloudTrail, you can determine the request that was made to AWS Organizations, the source IP address from which the request was made, who made the request, when it was made, and so on\. 
 
-AWS Organizations is also integrated with the **Event history** feature in CloudTrail\. If an API for Organizations is supported in **Event history**, you can view the most recent 90 days of events in Organizations in the CloudTrail console in **Event history** even if you have not configured any logs in CloudTrail\.
+AWS Organizations is also integrated with the **Event history** feature in CloudTrail\. If an API for AWS Organizations is supported in **Event history**, you can view the most recent 90 days of events in AWS Organizations in the CloudTrail console in **Event history** even if you have not configured any logs in CloudTrail\.
 
 **Important**  
-You can view all CloudTrail information for AWS Organizations only in the US East \(N\. Virginia\) region\. If you don't see your Organizations activity in the CloudTrail console, set your console to **US East \(N\. Virginia\)** using the menu in the upper\-right corner\. If you query CloudTrail with the CLI or SDK tools, direct your query to the US East \(N\. Virginia\) endpoint\.
+You can view all CloudTrail information for AWS Organizations only in the US East \(N\. Virginia\) Region\. If you don't see your AWS Organizations activity in the CloudTrail console, set your console to **US East \(N\. Virginia\)** using the menu in the upper\-right corner\. If you query CloudTrail with the AWS CLI or SDK tools, direct your query to the US East \(N\. Virginia\) endpoint\.
 
 To learn more about CloudTrail, including how to configure and enable it, see the [AWS CloudTrail User Guide](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/)\.
 
 ### AWS Organizations Information in CloudTrail<a name="service-name-info-in-cloudtrail"></a>
 
-CloudTrail is enabled on your AWS account when you create the account\. When activity occurs in Organizations, that activity is recorded in a CloudTrail event along with other AWS service events in **Event history**\. You can view, search, and download the past 90 days of supported activity in your AWS account\. For more information, see [Viewing Events with CloudTrail Event History](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html) and [Services Supported by CloudTrail Event History](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events-supported-services.html)\.
+CloudTrail is enabled on your AWS account when you create the account\. When activity occurs in AWS Organizations, that activity is recorded in a CloudTrail event along with other AWS service events in **Event history**\. You can view, search, and download the past 90 days of supported activity in your AWS account\. For more information, see [Viewing Events with CloudTrail Event History](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html) and [Services Supported by CloudTrail Event History](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events-supported-services.html)\.
 
 When CloudTrail logging is enabled in your AWS account, API calls made to AWS Organizations actions are tracked in CloudTrail log files, where they are written with other AWS service records\. CloudTrail determines when to create and write to a new file based on a time period and file size\.
 
@@ -34,11 +34,11 @@ For more information, see the [CloudTrail userIdentity Element](http://docs.aws.
 
 You can store your log files in your Amazon S3 bucket for as long as you want, but you can also define Amazon S3 lifecycle rules to archive or delete log files automatically\. By default, your log files are encrypted with Amazon S3 server\-side encryption \(SSE\)\.
 
-If you want to be notified upon log file delivery, you can configure CloudTrail to publish Amazon SNS notifications when new log files are delivered\. For more information, see [Configuring Amazon SNS Notifications for CloudTrail](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/getting_notifications_top_level.html)\.
+If you want to be notified upon log file delivery, you can configure CloudTrail to publish Amazon Simple Notification Service \(Amazon SNS\) notifications when new log files are delivered\. For more information, see [Configuring Amazon SNS Notifications for CloudTrail](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/getting_notifications_top_level.html)\.
 
 ### Understanding AWS Organizations Log File Entries<a name="understanding-service-name-entries"></a>
 
-CloudTrail log files can contain one or more log entries\. Each entry lists multiple JSON\-formatted events\. A log entry represents a single request from any source and includes information about the requested action, the date and time of the action, request parameters, and so on\. Log entries are not an ordered stack trace of the public API calls, so they do not appear in any specific order\. 
+CloudTrail log files can contain one or more log entries\. Each entry lists multiple JSON\-formatted events\. A log entry represents a single request from any source and includes information about the requested action, the date and time of the action, request parameters, and so on\. Log entries aren't an ordered stack trace of the public API calls, so they don't appear in any specific order\. 
 
 The following example shows a CloudTrail log entry for a sample `CreateAccount` call:
 
@@ -196,7 +196,7 @@ The following example shows a CloudTrail log entry for a sample `InviteAccountTo
 }
 ```
 
-The following example shows a CloudTrail log entry for a sample `AttachPolicy` call\. The response indicates that the call failed because the requested policy type is not enabled in the root in which the request to attach was attempted:
+The following example shows a CloudTrail log entry for a sample `AttachPolicy` call\. The response indicates that the call failed because the requested policy type isn't enabled in the root where the request to attach was attempted:
 
 ```
 {
@@ -231,7 +231,7 @@ The following example shows a CloudTrail log entry for a sample `AttachPolicy` c
 
 ## Amazon CloudWatch Events<a name="orgs_cloudwatch-integration"></a>
 
-AWS Organizations can work with CloudWatch Events to raise "events" when administrator\-specified actions occur in an organization\. For example, because of the sensitivity of such actions, most administrators would want to be warned every time someone creates a new account in the organization, or when an administrator of a member account attempts to leave the organization\. You can configure CloudWatch Events rules that look for these actions and then send the generated events to administrator defined "targets"\. Targets can be an Amazon SNS topic that emails or text messages its subscribers\. You could also create a simple AWS Lambda function that logs the details of the action for your later review\.
+AWS Organizations can work with CloudWatch Events to raise "events" when administrator\-specified actions occur in an organization\. For example, because of the sensitivity of such actions, most administrators would want to be warned every time someone creates a new account in the organization, or when an administrator of a member account attempts to leave the organization\. You can configure CloudWatch Events rules that look for these actions and then send the generated events to administrator\-defined targets\. Targets can be an Amazon SNS topic that emails or text messages its subscribers\. You could also create an AWS Lambda function that logs the details of the action for your later review\.
 
 For a tutorial that shows how to enable CloudWatch Events to monitor key activity in your organization, see [Tutorial: Monitor Important Changes to Your Organization with CloudWatch Events ](orgs_tutorials_cwe.md)\.
 

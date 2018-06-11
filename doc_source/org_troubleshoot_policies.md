@@ -1,12 +1,12 @@
 # Troubleshooting AWS Organizations Policies<a name="org_troubleshoot_policies"></a>
 
-Use the information here to help you diagnose and fix common errors found in Organizations policies\.
+Use the information here to help you diagnose and fix common errors found in AWS Organizations policies\.
 
 ## Service Control Policies<a name="tshoot-scp"></a>
 
-Service control policies \(SCPs\) in Organizations are similar to IAM policies and share a common syntax\. This syntax begins with the rules of [JavaScript Object Notation](http://www.json.org) \(JSON\)\. JSON describes an *object* with name and value pairs that make up the object\. The [IAM policy grammar](http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-grammar.html) builds on that by defining what names and values have meaning for, and are understood by, the AWS services that use policies to grant permissions\.
+Service control policies \(SCPs\) in AWS Organizations are similar to IAM policies and share a common syntax\. This syntax begins with the rules of [JavaScript Object Notation](http://www.json.org) \(JSON\)\. JSON describes an *object* with name and value pairs that make up the object\. The [IAM policy grammar](http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-grammar.html) builds on that by defining what names and values have meaning for, and are understood by, the AWS services that use policies to grant permissions\.
 
-Organizations uses a subset of the IAM syntax and grammar\. For details, see [Service Control Policy Syntax](orgs_reference_scp-syntax.md)\.
+AWS Organizations uses a subset of the IAM syntax and grammar\. For details, see [Service Control Policy Syntax](orgs_reference_scp-syntax.md)\.
 
 **Topics**
 + [More than one policy object](#morethanonepolicyblock)
@@ -59,7 +59,7 @@ This example cannot be further compressed into a `Statement` with one element be
 
 ### More than one Statement element<a name="morethanonestatement"></a>
 
-This error might at first appear to be a variation on the error in the preceding section\. However, syntactically it is a different type of error\. In the following example, there is only one policy object as denoted by a single pair of \{ \} braces at the top level\. However, that object contains two `Statement` elements within it\.
+This error might at first appear to be a variation on the error in the preceding section\. However, syntactically it's a different type of error\. In the following example, there is only one policy object as denoted by a single pair of \{ \} braces at the top level\. However, that object contains two `Statement` elements within it\.
 
 An SCP must contain only one `Statement` element, consisting of the name \(`Statement`\) appearing to the left of a colon, followed by its value on the right\. The value of a `Statement` element must be an object, denoted by \{ \} braces, containing one `Effect` element, one `Action` element, and one `Resource` element\. The following example is ***incorrect*** because it contains two `Statement` elements in the policy object:
 

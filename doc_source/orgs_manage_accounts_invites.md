@@ -10,9 +10,9 @@ If you are the administrator of an AWS account, you also can accept or decline a
 When an invited account joins your organization, you *do not* automatically have full administrator control over the account, unlike created accounts\. If you want the master account to have full administrative control over an invited member account, you must create the `OrganizationAccountAccessRole` IAM role in the member account and grant permission to the master account to assume the role\. To configure this, after the invited account becomes a member, follow the steps in [Creating the OrganizationAccountAccessRole in an Invited Member Account](orgs_manage_accounts_access.md#orgs_manage_accounts_create-cross-account-role)\.
 
 **Note**  
-When you create an account in your organization instead of inviting an existing account to join your organization, Organizations automatically creates an IAM role \(named `OrganizationAccountAccessRole` by default\) that you can use to grant users in the master account administrator access to the created account\. 
+When you create an account in your organization instead of inviting an existing account to join your organization, AWS Organizations automatically creates an IAM role \(named `OrganizationAccountAccessRole` by default\) that you can use to grant users in the master account administrator access to the created account\. 
 
-Organizations *does* automatically create a service\-linked role in invited member accounts to support integration between Organizations and other AWS services\. For more information, see [AWS Organizations and Service\-Linked Roles](orgs_integrate_services.md#orgs_integrate_services-using_slrs)\.
+AWS Organizations *does* automatically create a service\-linked role in invited member accounts to support integration between AWS Organizations and other AWS services\. For more information, see [AWS Organizations and Service\-Linked Roles](orgs_integrate_services.md#orgs_integrate_services-using_slrs)\.
 
 You can send up to 20 invitations per day per organization\. Each invitation must be responded to within 15 days or it expires\.
 
@@ -50,12 +50,12 @@ If you get a message that indicates that you exceeded your account limits for th
 
 1. The console redirects you to the **Invitations** tab\. View all open and accepted invitations on this page\. The invitation that you just created appears at the top of the list with its status set to **OPEN**\.
 
-   AWS Organizations sends an invitation to the email address of the owner of the account that you invited to the organization\. This email includes a link to the AWS Organizations console where the account owner can view the details and choose to accept or decline the invitation\. Alternatively, the owner of the invited account can bypass the email, go directly to the AWS Organizations console, view the invitation, and accept or decline it\.
+   AWS Organizations sends an invitation to the email address of the owner of the account that you invited to the organization\. This email includes a link to the AWS Organizations console, where the account owner can view the details and choose to accept or decline the invitation\. Alternatively, the owner of the invited account can bypass the email, go directly to the AWS Organizations console, view the invitation, and accept or decline it\.
 
-   The invitation to this account immediately counts against the limit to the number of accounts that you can have in your organization; Organizations does not wait until the account accepts the invitation\. If the invited account declines, the master account cancels the invitation\. If the invited account doesn't respond within the specified time period, the invitation expires\. In either case, the invitation no longer counts against your limit\.
+   The invitation to this account immediately counts against the limit to the number of accounts that you can have in your organization; AWS Organizations does not wait until the account accepts the invitation\. If the invited account declines, the master account cancels the invitation\. If the invited account doesn't respond within the specified time period, the invitation expires\. In either case, the invitation no longer counts against your limit\.
 
 **To invite another account to join your organization \(AWS CLI, AWS API\)**  
-You can use the following command or operation to invite another account to join your organization:
+You can use one of the following commands to invite another account to join your organization:
 + AWS CLI: [aws organizations invite\-account\-to\-organization](http://docs.aws.amazon.com/cli/latest/reference/organizations/invite-account-to-organization.html) 
 + AWS API: [InviteAccountToOrganization](http://docs.aws.amazon.com/organizations/latest/APIReference/API_InviteAccountToOrganization.html)
 
@@ -84,7 +84,7 @@ Accepted, canceled, and declined invitations continue to appear in the list for 
    AWS sends an email to the account owner stating that you canceled the invitation\. The account can no longer join the organization unless you send a new invitation\.
 
 **To view or cancel invitations that are sent from your organization to other accounts \(AWS CLI, AWS API\)**  
-You can use the following commands or operations to view or cancel invitations:
+You can use the following commands to view or cancel invitations:
 + AWS CLI: [aws organizations list\-handshakes\-for\-organization](http://docs.aws.amazon.com/cli/latest/reference/organizations/list-handshakes-for-organization.html), [aws organizations cancel\-handshake](http://docs.aws.amazon.com/cli/latest/reference/organizations/cancel-handshake.html) 
 + AWS API: [ListHandshakesForOrganization](http://docs.aws.amazon.com/organizations/latest/APIReference/API_ListHandshakesForOrganization.html), [CancelHandshake](http://docs.aws.amazon.com/organizations/latest/APIReference/API_CancelHandshake.html)
 
@@ -94,17 +94,17 @@ Your AWS account might receive an invitation to join an organization\. You can a
 
 **Minimum permissions**  
 To accept or decline an invitation to join an AWS organization, you must have the following permissions:  
-`organizations:ListHandshakesForAccount` – required to see the list of invitations in the Organizations console\.
-`organizations:AcceptHandshake`
-`organizations:DeclineHandshake`
-`iam:CreateServiceLinkedRole` – required only when accepting the invitation requires the creation of a service\-linked role to support integration with other AWS services\. For more information, see [AWS Organizations and Service\-Linked Roles](orgs_integrate_services.md#orgs_integrate_services-using_slrs)\.
+`organizations:ListHandshakesForAccount` – Required to see the list of invitations in the AWS Organizations console\.
+`organizations:AcceptHandshake`\.
+`organizations:DeclineHandshake`\.
+`iam:CreateServiceLinkedRole` – Required only when accepting the invitation requires the creation of a service\-linked role to support integration with other AWS services\. For more information, see [AWS Organizations and Service\-Linked Roles](orgs_integrate_services.md#orgs_integrate_services-using_slrs)\.
 
 **Note**  
 An account’s status with an organization affects what cost and usage data is visible:  
 When a standalone account joins an organization, the account no longer has access to cost and usage data from the time range when the account was a standalone account\.
 If a member account leaves an organization and becomes a standalone account, the account no longer has access to cost and usage data from the time range when the account was a member of the organization\. The account has access only to the data that is generated as a standalone account\. 
 If a member account leaves organization A to join organization B, the account no longer has access to cost and usage data from the time range when the account was a member of organization A\. The account has access only to the data that is generated as a member of organization B\. 
-If an account re\-joins an organization that it previously belonged to, the account regains access to its historical cost and usage data\.
+If an account rejoins an organization that it previously belonged to, the account regains access to its historical cost and usage data\.
 
 **To accept or decline an invitation \(console\)**
 
@@ -119,7 +119,7 @@ If an account re\-joins an organization that it previously belonged to, the acco
 **Note**  
 Accepted invitations continue to appear in the list for 30 days\. After that, they are deleted and no longer appear in the list\.
 
-     Organizations automatically creates a service\-linked role in the new member account to support integration between Organizations and other AWS services\. For more information, see [AWS Organizations and Service\-Linked Roles](orgs_integrate_services.md#orgs_integrate_services-using_slrs)\.
+     AWS Organizations automatically creates a service\-linked role in the new member account to support integration between AWS Organizations and other AWS services\. For more information, see [AWS Organizations and Service\-Linked Roles](orgs_integrate_services.md#orgs_integrate_services-using_slrs)\.
 
      AWS sends an email to the owner of the organization's master account stating that you accepted the invitation\. It also sends an email to the member account owner stating that the account is now a member of the organization\.
    + If you choose **Decline** in the preceding step, your account remains on the **Invitations** page that lists any other pending invitations\.
@@ -129,6 +129,6 @@ Accepted invitations continue to appear in the list for 30 days\. After that, th
 Declined invitations continue to appear in the list for 30 days\. After that, they are deleted and no longer appear in the list\.
 
 **To accept or decline an invitation \(AWS CLI, AWS API\)**  
-You can use the following commands or operations to accept or decline an invitation:
+You can use the following commands to accept or decline an invitation:
 + AWS CLI: [aws organizations accept\-handshake](http://docs.aws.amazon.com/cli/latest/reference/organizations/accept-handshake.html), [aws organizations decline\-handshake](http://docs.aws.amazon.com/cli/latest/reference/organizations/decline-handshake.html) 
 + AWS API: [AcceptHandshake](http://docs.aws.amazon.com/organizations/latest/APIReference/API_AcceptHandshake.html), [DeclineHandshake](http://docs.aws.amazon.com/organizations/latest/APIReference/API_DeclineHandshake.html)
