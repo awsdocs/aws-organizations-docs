@@ -136,7 +136,7 @@ Before you can attach a policy of any type to a root, you must first enable that
 
 **Note**  
 Currently, you can have only one root in an organization\.
-Currently, a sSCP is the only supported policy type\.
+Currently, an SCP is the only supported policy type\.
 
 **Important**  
 When you disable a policy type in a root, all policies of that type are automatically detached from all entities in that root\. If you reenable the policy type, that root reverts to the default state for that policy type\. For example, if you reenable SCPs in a root, all entities in that root are initially attached to only the default `FullAWSAccess` policy\. Any attachments of policies to entities from before the policy type was disabled are lost and aren't automatically recoverable\.
