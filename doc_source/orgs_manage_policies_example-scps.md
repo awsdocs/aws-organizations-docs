@@ -38,7 +38,7 @@ A lower\-level CloudWatch operator needs to monitor dashboards and alarms, but m
         "cloudwatch:PutDashboard",
         "cloudwatch:PutMetricAlarm",
         "cloudwatch:SetAlarmState"
-      ]
+      ],
       "Resource": "*"
     }
   ]

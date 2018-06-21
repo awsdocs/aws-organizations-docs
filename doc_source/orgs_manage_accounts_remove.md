@@ -23,6 +23,9 @@ When you remove an account from an organization, no direct changes are made to t
 
 When you sign in to the organization's master account, you can remove member accounts from the organization that you no longer need\. To do this, complete the following procedure\. These procedures apply only to member accounts\. To remove the master account, you must [delete the organization]()\.
 
+**Note**  
+If a member account is removed from an organization, that member account will no longer be covered by organization agreements\. Master account administrators should communicate this to member accounts before removing member accounts from the organization, so that member accounts can put new agreements in place if necessary\. A list of active organization agreements can be viewed in [AWS Artifact Organization Agreements](http://console.aws.amazon.com/artifact/home?#!/agreements?tab=organizationAgreements)\.
+
 **Minimum permissions**  
 To remove one or more member accounts from your organization, you must sign in as an IAM user or role in the master account with the following permissions:  
 `organizations:DescribeOrganization` \(console only\)
@@ -68,6 +71,9 @@ You can use one of the following commands to remove a member account:
 ## Leaving an Organization as a Member Account<a name="orgs_manage_accounts_leave-as-member"></a>
 
 When signed in to a member account, you can remove that one account from its organization\. To do this, complete the following procedure\. The master account can't leave the organization using this technique\. To remove the master account, you must [delete the organization]()\.
+
+**Note**  
+If you leave an organization, you will no longer be covered by organization agreements that were accepted on your behalf by the master account of the organization\. You can view a list of these organization agreements in [AWS Artifact Organization Agreements](http://console.aws.amazon.com/artifact/home?#!/agreements?tab=organizationAgreements)\. Before leaving the organization, you should determine \(with the assistance of your legal, privacy, or compliance teams where appropriate\) whether it is necessary for you to have new agreement\(s\) in place\.
 
 **Minimum permissions**  
 To leave an AWS organization, you must have the following permissions:  

@@ -3,7 +3,7 @@
 You can use *trusted access* to enable an AWS service that you specify, called the *trusted service*, to perform tasks in your organization and its accounts on your behalf\. This involves granting permissions to the trusted service but does *not* otherwise affect the permissions for IAM users or roles\. When you enable access, the trusted service can create an IAM role called a *service\-linked role* in every account in your organization\. That role has a permissions policy that allows the trusted service to do the tasks that are described in that service's documentation\. This enables you to specify settings and configuration details that you would like the trusted service to maintain in your organization's accounts on your behalf\. The trusted service creates the roles asynchronously as needed, and not necessarily in all accounts of the organization\.
 
 **Important**  
-We recommend that you enable trusted access by using the trusted service's console, the AWS CLI, or the API operations in one of the AWS SDKs\. This enables the trusted service to perform any required initialization or create any required resources\. To learn what configuration the trusted service performs, see the documentation for that service\. 
+We recommend that you enable trusted access by using the trusted service's console, the AWS CLI, or the API operations in one of the [AWS SDKs](https://aws.amazon.com/tools/) \. This enables the trusted service to perform any required initialization or create any required resources\. To learn what configuration the trusted service performs, see the documentation for that service\. 
 
 ## Permissions Required to Enable Trusted Access<a name="orgs_trusted_access_perms"></a>
 
@@ -13,13 +13,13 @@ Trusted access requires permissions for two services: AWS Organizations and the 
   The minimum permissions for these credentials are the following:
   + `organizations:EnableAWSServiceAccess`\. You can also use the `organizations:ServicePrincipal` condition key with this operation to limit requests that those operations make to a list of approved service principal names\. For more information, see [Condition Keys](orgs_permissions_overview.md#orgs_permissions_conditionkeys)\.
   + `organizations:ListAWSServiceAccessForOrganization` – Required if you use the AWS Organizations console\.
-  + The minimum permissions required by the trusted service depend on the service\. For more information, see the trusted service's documentation\.
+  + The minimum permissions that are required by the trusted service depend on the service\. For more information, see the trusted service's documentation\.
 + If one person has credentials with permissions in AWS Organizations but someone else has credentials with permissions in the trusted service, perform these steps in the following order:
 
   1. The person who has credentials with permissions in AWS Organizations should use the AWS Organizations console, the AWS CLI, or an AWS SDK to enable trusted access for the trusted service\. This grants permission to the other service to perform its required configuration in the organization when the following step \(step 2\) is performed\.
 
      The minimum AWS Organizations permissions are the following:
-     + `organizations:EnableAWSServiceAccess`
+     + `organizations:EnableAWSServiceAccess`\.
      + `organizations:ListAWSServiceAccessForOrganization` – Required only if you use the AWS Organizations console
 
      For the steps to enable trusted access in AWS Organizations, see [How to Enable or Disable Trusted Access](#orgs_how-to-enable-disable-trusted-access)\.
@@ -28,7 +28,7 @@ Trusted access requires permissions for two services: AWS Organizations and the 
 
 ## Permissions Required to Disable Trusted Access<a name="orgs_trusted_access_disable_perms"></a>
 
-When you no longer want to allow the trusted service to operate on your organization or its accounts, choose one of the following scenarios:
+When you no longer want to allow the trusted service to operate on your organization or its accounts, choose one of the following scenarios\.
 
 **Important**  
 Disabling trusted service access does ***not*** prevent users and roles with appropriate permissions from using that service\. To completely block users and roles from accessing an AWS service, you can remove the IAM permissions that grant that access, or you can use [service control policies \(SCPs\)](orgs_manage_policies_scp.md) in AWS Organizations\.
@@ -45,7 +45,7 @@ Disabling trusted service access does ***not*** prevent users and roles with app
   1. The person with permissions in AWS Organizations can then use the AWS Organizations console, AWS CLI, or an AWS SDK to disable access for the trusted service\. This removes the permissions for the trusted service from the organization and its accounts\. 
 
      The minimum AWS Organizations permissions are the following:
-     + `organizations:DisableAWSServiceAccess`
+     + `organizations:DisableAWSServiceAccess`\.
      + `organizations:ListAWSServiceAccessForOrganization` – Required only if you use the AWS Organizations console
 
      For the steps to disable trusted access in AWS Organizations, see [How to Enable or Disable Trusted Access](#orgs_how-to-enable-disable-trusted-access)\.
@@ -68,7 +68,7 @@ If you have permissions only for AWS Organizations and you want to enable or dis
 
 **To enable or disable trusted service access \(AWS CLI, AWS API\)**
 
-You can use the following commands to enable or disable trusted service access:
+You can use the following AWS CLI commands or API operations to enable or disable trusted service access:
 + AWS CLI: aws organizations [enable\-aws\-service\-access](http://docs.aws.amazon.com/cli/latest/reference/organizations/enable-aws-service-access.html)
 + AWS CLI: aws organizations [disable\-aws\-service\-access](http://docs.aws.amazon.com/cli/latest/reference/organizations/disable-aws-service-access.html)
 + AWS API: [EnableAWSServiceAccess](http://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAWSServiceAccess.html)
@@ -97,9 +97,21 @@ The following sections describe the AWS services for which you can enable truste
 + The principal name of the trusted service that you can specify in policies to grant the trusted access to the accounts in your organization
 + If applicable, the name of the IAM service\-linked role created in all accounts when you enable trusted access
 
+### AWS Artifact<a name="services-that-can-integrate-art"></a>
+
+AWS Artifact is a service that allows you to download AWS security compliance reports such as ISO and PCI reports\. Using AWS Artifact, a user in a master account can automatically accept agreements on behalf of all member accounts in an organization, even as new reports and accounts are added\. Member account users can view and download agreements\. For more information about AWS Artifact, see the [AWS Artifact User Guide](http://docs.aws.amazon.com/artifact/latest/ug/)\.
+
+The following list provides information that is useful to know when you want to integrate AWS Artifact and Organizations:
++ **To enable trusted access with Organizations:** You must sign in with your AWS Organizations master account to configure an account within the organization as the AWS Artifact administrator account\. For information, see [Step 1: Create an Admin Group and Add an IAM User](http://docs.aws.amazon.com/artifact/latest/ug/getting-started.html#create-an-admin) in the *AWS Artifact User Guide*\.
++ **To disable trusted access with Organizations:** AWS Artifact requires trusted access with AWS Organizations to work with organization agreements\. If you disable trusted access using Organizations while you are using AWS Artifact for organization agreements, it stops functioning because it cannot access the organization\. Any organization agreements that you accept in AWS Artifact remain, but can't be accessed by AWS Artifact\. The AWS Artifact role that AWS Artifact creates remains\. If you then re\-enable trusted access, AWS Artifact continues to operate as before, without the need for you to reconfigure the service\. 
+
+  A standalone account that is removed from an organization no longer has access to any organization agreements\.
++ **Service principal name for AWS Artifact:** `aws-artifact-account-sync.amazonaws.com`
++ **Role name created to synchronize with AWS Artifact:** `AWSArtifactAccountSync`
+
 ### AWS Config<a name="services-that-can-integrate-config"></a>
 
-Multi\-account multi\-region data aggregation in AWS Config allows you to aggregate AWS Config data from multiple accounts and regions into a single account\. Multi\-account multi\-region data aggregation is useful for central IT administrators to monitor compliance for multiple AWS accounts in the enterprise\. An aggregator is a new resource type in AWS Config that collects AWS Config data from multiple source accounts and regions\. Create an aggregator in the region where you want to see the aggregated AWS Config data\. While creating an aggregator, you can choose to add either individual account IDs or your organization\. For more information about AWS Config, see the [AWS Config Developer Guide](http://docs.aws.amazon.com/config/latest/developerguide/)\.
+Multi\-account, multi\-region data aggregation in AWS Config allows you to aggregate AWS Config data from multiple accounts and regions into a single account\. Multi\-account, multi\-region data aggregation is useful for central IT administrators to monitor compliance for multiple AWS accounts in the enterprise\. An aggregator is a new resource type in AWS Config that collects AWS Config data from multiple source accounts and regions\. Create an aggregator in the region where you want to see the aggregated AWS Config data\. While creating an aggregator, you can choose to add either individual account IDs or your organization\. For more information about AWS Config, see the [AWS Config Developer Guide](http://docs.aws.amazon.com/config/latest/developerguide/)\.
 
 The following list provides information that is useful to know when you want to integrate AWS Config and AWS Organizations:
 + **To enable trusted access with AWS Organizations:** To enable trusted access to AWS Organizations from AWS Config, you create a multi\-account aggregator and add the organization\. For information on how to configure a multi\-account aggregator, see [Setting Up an Aggregator Using the Console](http://docs.aws.amazon.com/config/latest/developerguide/setup-aggregator-console.html) in the *AWS Config Developer Guide*\.

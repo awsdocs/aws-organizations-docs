@@ -6,15 +6,21 @@ By default, a user has no permissions of any kind\. All permissions must be expl
 
 ## Granting Full Admin Permissions to a User<a name="orgs_permissions_grant-admin-actions"></a>
 
-Complete the following steps to grant full AWS Organizations administrator permissions to an IAM user in your organization\.
+You can create an IAM policy that grants full AWS Organizations administrator permissions to an IAM user in your organization\. You can do this using the JSON policy editor in the IAM console\. 
 
-**To grant full admin permissions to an IAM user in your organization**
+**To use the JSON policy editor to create a policy**
 
-1. Sign in to the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\. Sign in as a user in the master account who has permissions to create IAM policies and attach them to other IAM users\.
+1. Sign in to the AWS Management Console and open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
 
-   In the IAM console, navigate to **Policies**, **Create Policy**, **Create Your Own Policy**\.
+1. In the navigation column on the left, choose **Policies**\. 
 
-1. Specify a policy name and description in **Policy Name**, **Description** and then copy and paste the following code into the **Policy Document** field:
+   If this is your first time choosing **Policies**, the **Welcome to Managed Policies** page appears\. Choose **Get Started**\.
+
+1. At the top of the page, choose **Create policy**\.
+
+1. Choose the **JSON** tab\.
+
+1. Type the following JSON policy document:
 
    ```
    {
@@ -27,17 +33,13 @@ Complete the following steps to grant full AWS Organizations administrator permi
    }
    ```
 
-   This policy enables the user to perform *any* operation associated with the AWS Organizations service\. 
+1. Choose **Review policy**\.
+**Note**  
+You can switch between the **Visual editor** and **JSON** tabs any time\. However, if you make changes or choose **Review policy** in the **Visual editor** tab, IAM might restructure your policy to optimize it for the visual editor\. For more information, see [Policy Restructuring](http://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_policies.html#troubleshoot_viseditor-restructure) in the *IAM User Guide*\.
 
-1. Navigate to **Groups** and then choose **Create New Group**\.
+1. On the **Review policy** page, type a **Name** and a **Description** \(optional\) for the policy that you are creating\. Review the policy **Summary** to see the permissions that are granted by your policy\. Then choose **Create policy** to save your work\.
 
-1. On the **Set Group Name** page, type a name for the group, such as `OrganizationAdmins` and then choose **Next Step**\.
-
-1. On the **Attach Policy** page, choose the policy that you just created\. You can filter the list by setting **Policy Type** to **Customer Managed Policies** or by typing the first few letters of the policy name in the filter box\. Choose **Next Step**, and then choose **Create Group**\.
-
-1. Choose the new group from the list and then, on the **Users** tab, choose **Add Users to Group**\.
-
-1. Choose the users that you want to grant administrator permissions to, and then choose **Add Users**\.
+To learn more about creating an IAM policy, see [Creating IAM Policies](http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html) in the *IAM User Guide*\.
 
 ## Granting Limited Access by Actions<a name="orgs_permissions_grant-limited-actions"></a>
 

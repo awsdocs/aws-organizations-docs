@@ -63,7 +63,7 @@ The following condition keys are especially useful with AWS Organizations:
 **Note**  
 This global condition also applies to the master account of an AWS organization\.
 
-  For more information, see the description of `PrincipalOrgID` in [AWS Global Condition Context Keys](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys) in the *IAM User Guide*\.
+  For more information, see the description of `PrincipalOrgID` in [AWS Global Condition Context Keys](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html) in the *IAM User Guide*\.
 
 For a list of all of the AWS Organizations–specific condition keys that can be used as permissions in an IAM policy, see [Condition Context Keys for AWS Organizations](http://docs.aws.amazon.com/IAM/latest/UserGuide/list_awsorganizations.html#awsorganizations-policy-keys) in the *IAM User Guide*\.
 
