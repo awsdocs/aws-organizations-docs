@@ -5,6 +5,7 @@ The following table describes major documentation updates for AWS Organizations\
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [New service for trusted access](http://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html#services-that-can-integrate) | AWS Artifact added as a service that can work with the accounts in your organization\. | June 20, 2018 | 
 | [New services for trusted access](http://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html#services-that-can-integrate) | AWS Config and AWS Firewall Manager added as services that can work with the accounts in your organization\. | April 18, 2018 | 
 | [Trusted service access](http://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html) | You can now enable or disable access for select AWS services to work in the accounts in your organization\. AWS SSO is the initial supported trusted service\. | March 29, 2018 | 
 | [Account removal is now self\-service](http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#orgs_manage_accounts_remove-from-master) | You can now remove accounts that were created from within AWS Organizations without contacting AWS Support\. | December 19, 2017 | 
