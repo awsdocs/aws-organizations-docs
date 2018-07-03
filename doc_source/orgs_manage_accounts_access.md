@@ -65,7 +65,7 @@ This example shows how to create a policy and attach it to a group\. If you alre
 
 1. Choose **Resources**, ensure that **Specific** is selected, and then choose **Add ARN**\.
 
-1. Type your AWS account ID number, and then type the name of the role that you previously created in steps 1–9\.
+1. Type the AWS member account ID number, and then type the name of the role that you previously created in steps 1–9\.
 
 1. If you are granting permission to assume the role in multiple member accounts, repeats steps 14 and 15 for each account\.
 
