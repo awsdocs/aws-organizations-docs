@@ -39,7 +39,9 @@ Remember this role name\. You need it later to grant access to the new account f
 1. Choose **Create**\.
 **Important**  
 If you get an error that indicates that you exceeded your account limits for the organization, contact [AWS Customer Support](https://console.aws.amazon.com/support/home#/)\.
-If you get an error that indicates that you can't add an account because your organization is still initializing, wait one hour and try again\. If the error persists, contact [AWS Customer Support](https://console.aws.amazon.com/support/home#/)\.
+If you get an error that indicates that you can't add an account because your organization is still initializing, wait one hour and try again\.
+You can also check the AWS CloudTrail log for information on whether the account creation was successful\. For more information, see [Monitoring the Activity in Your Organization](orgs_monitoring.md)\.
+If the error persists, contact [AWS Customer Support](https://console.aws.amazon.com/support/home#/)\.
 
 1. You are redirected to the **Accounts**/**All accounts** tab, showing your new account at the top of the list with its status set to **Pending creation**\. This status changes to **Active** when the account is created\. 
 **Note**  

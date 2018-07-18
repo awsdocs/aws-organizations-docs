@@ -5,6 +5,7 @@ The following table describes major documentation updates for AWS Organizations\
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [CreateAccount notifications](http://docs.aws.amazon.com/organizations/latest/userguide/orgs_monitoring.html#Log-entries-create-account) | `CreateAccount` notifications are published to the master account's CloudTrail logs\. | June 28, 2018 | 
 | [New service for trusted access](http://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html#services-that-can-integrate) | AWS Artifact added as a service that can work with the accounts in your organization\. | June 20, 2018 | 
 | [New services for trusted access](http://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html#services-that-can-integrate) | AWS Config and AWS Firewall Manager added as services that can work with the accounts in your organization\. | April 18, 2018 | 
 | [Trusted service access](http://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html) | You can now enable or disable access for select AWS services to work in the accounts in your organization\. AWS SSO is the initial supported trusted service\. | March 29, 2018 | 

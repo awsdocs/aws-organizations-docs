@@ -1,6 +1,6 @@
 # Tutorial: Monitor Important Changes to Your Organization with CloudWatch Events<a name="orgs_tutorials_cwe"></a>
 
-This tutorial shows how to configure CloudWatch Events to monitor your organization for changes\. You start by configuring a rule that is triggered when users invoke specific Organizations operations\. Next, you configure CloudWatch Events to run an AWS Lambda function when the rule is triggered, and you configure Amazon SNS to send an email with details about the event\.
+This tutorial shows how to configure CloudWatch Events to monitor your organization for changes\. You start by configuring a rule that is triggered when users invoke specific AWS Organizations operations\. Next, you configure CloudWatch Events to run an AWS Lambda function when the rule is triggered, and you configure Amazon SNS to send an email with details about the event\. 
 
 The following illustration shows the main steps of the tutorial\.
 
@@ -21,6 +21,9 @@ Create a rule that tells CloudWatch Events to pass details of specified API call
 **[Step 5: Test Your CloudWatch Events Rule](#tutorial-cwe-step5)**  
 Test your new rule by running one of the monitored operations\. In this tutorial, the monitored operation is creating an organizational unit \(OU\)\. You view the log entry that the Lambda function creates, and you view the email that Amazon SNS sends to subscribers\.
 
+**Tip**  
+You can also use this tutorial as a guide in configuring similar operations, such as sending email notifications when account creation is complete\. Because account creation is an asynchronous operation, you're not notified by default when it completes\. For more information on using AWS CloudTrail and CloudWatch Events with AWS Organizations, see [Monitoring the Activity in Your Organization](orgs_monitoring.md)\.
+
 ## Prerequisites<a name="tutorial-cwe-prereqs"></a>
 
 This tutorial assumes the following:
@@ -38,11 +41,11 @@ In this step, you sign in to the master account and configure a log \(called a *
 
 1. Sign in to AWS as an administrator of the organization's master account and then open the CloudTrail console at [https://console.aws.amazon.com/cloudtrail/](https://console.aws.amazon.com/cloudtrail/)\.
 
-1. On the navigation bar in the upper\-right corner of the console, choose the **US East \(N\. Virginia\)** Region\. If you choose a different region, AWS Organizations doesn't appear as an option in the CloudWatch Events configuration settings, and CloudTrail doesn't capture information about Organizations\.
+1. On the navigation bar in the upper\-right corner of the console, choose the **US East \(N\. Virginia\)** Region\. If you choose a different region, AWS Organizations doesn't appear as an option in the CloudWatch Events configuration settings, and CloudTrail doesn't capture information about AWS Organizations\.
 
 1. In the navigation pane, choose **Trails**\.
 
-1. Choose **Add new trail**\.
+1. Choose **Create trail**\.
 
 1. For **Trail name**, type **My\-Test\-Trail**\. 
 
@@ -60,7 +63,7 @@ S3 bucket names must be ***globally*** unique\.
 
 1. For **Read/Write events**, choose **All**, choose **Save**, and then choose **Configure**\.
 
-CloudWatch Events enables you to choose from several different ways to send alerts when an alarm rule matches an incoming API call\. This tutorial demonstrates two methods: invoking a Lambda function that can log the API call and sending information to an Amazon SNS topic that sends an email or text message to the topic's subscribers\. In the next two steps, you create the components you need, the Lambda function, and the Amazon SNS topic\.
+CloudWatch Events enables you to choose from several different ways to send alerts when an alarm rule matches an incoming API call\. This tutorial demonstrates two methods: invoking a Lambda function that can log the API call and sending information to an Amazon SNS topic that sends an email or text message to the topic's subscribers\. In the next two steps, you create the components you need: the Lambda function, and the Amazon SNS topic\.
 
 ## Step 2: Configure a Lambda Function<a name="tutorial-cwe-step2"></a>
 
@@ -160,7 +163,7 @@ Now that the required Lambda function exists in your account, you create a Cloud
 
 1. For **Topic**, choose the topic named **OrganizationCloudWatchTopic** that you created in the preceding procedure\.
 
-1. Choose **Configure details**\.
+1. Choose **Configure input** and then choose **Configure details**\.
 
 1. On the **Configure rule details** page, for **Name** type **OrgsMonitorRule**, leave **State** selected and then choose **Create rule**\.
 
@@ -233,7 +236,7 @@ In this step, you create an organizational unit \(OU\) and observe the CloudWatc
 
 1. Check your email account for a message from **OrgsCWEvnt** \(the display name of your Amazon SNS topic\)\. The body of the email contains the same JSON text output as the log entry that is shown in the preceding step\.
 
-## Clean up: Remove the Resources You No Longer Need<a name="w3ab1c11b9c23"></a>
+## Clean Up: Remove the Resources You No Longer Need<a name="w3ab1c11b9c25"></a>
 
 To avoid incurring charges, you should delete any AWS resources that you created as part of this tutorial that you don't want to keep\.
 
