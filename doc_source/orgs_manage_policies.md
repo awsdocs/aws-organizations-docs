@@ -8,7 +8,7 @@ Policies in AWS Organizations enable you to apply additional types of management
 **Notes**  
 Service control policies never apply to the master account, no matter which root or OU the master account is located in\.
 Currently, service control policy \(SCP\) is the only supported policy type\.
-Policy types are *available* to use in an organization when you [enable all features](orgs_manage_org_support-all-features.md)\. However, at the root level, you can disable an individual policy type using the [EnablePolicyType](http://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html) and [DisablePolicyType](http://docs.aws.amazon.com/organizations/latest/APIReference/API_DisablePolicyType.html) operations\. Use the [DescribeOrganization](http://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeOrganization.html) API operation to determine what organization policy types are available to use\. Use the `ListRoots` API operation to see which policy types are enabled and disabled in each root\.  
+Policy types are *available* to use in an organization when you [enable all features](orgs_manage_org_support-all-features.md)\. However, at the root level, you can disable an individual policy type using the [EnablePolicyType](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html) and [DisablePolicyType](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DisablePolicyType.html) operations\. Use the [DescribeOrganization](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeOrganization.html) API operation to determine what organization policy types are available to use\. Use the `ListRoots` API operation to see which policy types are enabled and disabled in each root\.  
 The AWS Organizations console can also display the enabled and disabled policy types\. On the **Organize accounts** tab, choose the `Root` in the navigation pane on the left\. The details pane on the right shows all of the available policy types and indicates which are enabled and which are disabled\.
 
 For procedures that are specific to each type of policy, see the following topics:
@@ -40,7 +40,7 @@ To list the policies within your organization, you must have the following permi
 
 **To list all policies in the organization \(Console\)**
 
-1. Sign in to the Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](http://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\.
+1. Sign in to the Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\.
 
 1. Choose the **Policies** tab\.
 
@@ -48,8 +48,8 @@ To list the policies within your organization, you must have the following permi
 
 **To list all policies in an organization \(AWS CLI, AWS API\)**  
 You can use one of the following commands to list policies in an organization:
-+ AWS CLI: [aws organizations list\-policies](http://docs.aws.amazon.com/cli/latest/reference/organizations/list-policies.html)
-+ AWS API: [ListPolicies](http://docs.aws.amazon.com/organizations/latest/APIReference/API_ListPolicies.html)
++ AWS CLI: [aws organizations list\-policies](https://docs.aws.amazon.com/cli/latest/reference/organizations/list-policies.html)
++ AWS API: [ListPolicies](https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListPolicies.html)
 
 ### Listing All Policies Attached to a Root, OU, or Account<a name="list-all-pols-in-entity"></a>
 
@@ -59,7 +59,7 @@ To list the policies that are attached to a root, OU, or account within your org
 
 **To list all policies that are attached directly to a specified root, OU, or account \(console\)**
 
-1. Sign in to the Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](http://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\.
+1. Sign in to the Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\.
 
 1. On the **Organize accounts** tab, [navigate](orgs_manage_ous.md#navigate_tree) to the root, OU, or account whose policy attachments you want to see\.
 
@@ -73,8 +73,8 @@ To list the policies that are attached to a root, OU, or account within your org
 
 **To list all policies that are attached directly to a specified root, OU, or account \(AWS CLI, AWS API\)**  
 You can use one of the following commands to list policies that are attached to an entity:
-+ AWS CLI: [aws organizations list\-policies\-for\-target](http://docs.aws.amazon.com/cli/latest/reference/organizations/list-policies-for-target.html)
-+ AWS API: [ListPoliciesForTarget](http://docs.aws.amazon.com/organizations/latest/APIReference/API_ListPoliciesForTarget.html)
++ AWS CLI: [aws organizations list\-policies\-for\-target](https://docs.aws.amazon.com/cli/latest/reference/organizations/list-policies-for-target.html)
++ AWS API: [ListPoliciesForTarget](https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListPoliciesForTarget.html)
 
 ### Listing All Roots, OUs, and Accounts That a Policy Is Attached To<a name="list-all-entities-attached-to-pol"></a>
 
@@ -93,8 +93,8 @@ To list the entities that a policy is attached to, you must have the following p
 
 **To list all roots, OUs, and accounts that have a specified policy attached \(AWS CLI, AWS API\)**  
 You can use one of the following commands to list entities that have a policy:
-+ AWS CLI: [aws organizations list\-targets\-for\-policy](http://docs.aws.amazon.com/cli/latest/reference/organizations/list-targets-for-policy.html)
-+ AWS API: [ListTargetsForPolicy](http://docs.aws.amazon.com/organizations/latest/APIReference/API_ListTargetsForPolicy.html)
++ AWS CLI: [aws organizations list\-targets\-for\-policy](https://docs.aws.amazon.com/cli/latest/reference/organizations/list-targets-for-policy.html)
++ AWS API: [ListTargetsForPolicy](https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListTargetsForPolicy.html)
 
 ### Getting Details About a Policy<a name="get-details-about-pol"></a>
 
@@ -120,8 +120,8 @@ To display the details of a policy, you must have the following permission:
 
 **To get details about a policy \(AWS CLI, AWS API\)**  
 You can use one of the following commands to get details about a policy:
-+ AWS CLI: [aws organizations describe\-policy](http://docs.aws.amazon.com/cli/latest/reference/organizations/describe-policy.html)
-+ AWS API: [DescribePolicy](http://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribePolicy.html)
++ AWS CLI: [aws organizations describe\-policy](https://docs.aws.amazon.com/cli/latest/reference/organizations/describe-policy.html)
++ AWS API: [DescribePolicy](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribePolicy.html)
 
 ## Editing a Policy<a name="edit-pol"></a>
 
@@ -153,7 +153,7 @@ To enable a policy type in a root in your organization, you must have the follow
 
 When you sign in to your organization's master account, you can enable or disable policy types on a root\. 
 
-1. Sign in to the Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](http://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\.
+1. Sign in to the Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\.
 
 1. On the **Organize accounts** tab, choose **Root** in the left navigation pane\.
 
@@ -163,8 +163,8 @@ You must first detach all policies of the specified type from all entities in a 
 
 **To enable or disable a policy type on a root \(AWS CLI, AWS API\)**  
 You can use one of the following commands to disable a policy type:
-+ AWS CLI: [aws organizations enable\-policy\-type](http://docs.aws.amazon.com/cli/latest/reference/organizations/enable-policy-type.html) and [aws organizations disable\-policy\-type](http://docs.aws.amazon.com/cli/latest/reference/organizations/disable-policy-type.html)
-+ AWS API: [EnablePolicyType](http://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html) and [DisablePolicyType](http://docs.aws.amazon.com/organizations/latest/APIReference/API_DisablePolicyType.html)
++ AWS CLI: [aws organizations enable\-policy\-type](https://docs.aws.amazon.com/cli/latest/reference/organizations/enable-policy-type.html) and [aws organizations disable\-policy\-type](https://docs.aws.amazon.com/cli/latest/reference/organizations/disable-policy-type.html)
++ AWS API: [EnablePolicyType](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html) and [DisablePolicyType](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DisablePolicyType.html)
 
 ## Attaching a Policy to Roots, OUs, or Accounts<a name="attach_policy"></a>
 
@@ -176,7 +176,7 @@ To attach a policy to a root, OU, or account, you must have the following permis
 
 **To attach a policy to a root, OU, or account \(console\)**
 
-1. Sign in to the Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](http://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\.
+1. Sign in to the Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\.
 
 1. On the **Organize accounts** tab, [navigate to](orgs_manage_ous.md#navigate_tree) and select the check box for the root, OU, or account you want to attach the policy to\.
 
@@ -186,8 +186,8 @@ To attach a policy to a root, OU, or account, you must have the following permis
 
 **To attach a policy to a root, OU, or account \(AWS CLI, AWS API\)**  
 You can use one of the following commands to attach a policy:
-+ AWS CLI: [aws organizations attach\-policy](http://docs.aws.amazon.com/cli/latest/reference/organizations/attach-policy.html)
-+ AWS API: [AttachPolicy](http://docs.aws.amazon.com/organizations/latest/APIReference/API_AttachPolicy.html)
++ AWS CLI: [aws organizations attach\-policy](https://docs.aws.amazon.com/cli/latest/reference/organizations/attach-policy.html)
++ AWS API: [AttachPolicy](https://docs.aws.amazon.com/organizations/latest/APIReference/API_AttachPolicy.html)
 
 ## Detaching a Policy from Roots, OUs, or Accounts<a name="detach_policy"></a>
 
@@ -202,7 +202,7 @@ To detach a policy from a root, OU, or account, you must have the following perm
 
 **To detach a policy from a root, OU, or account \(console\)**
 
-1. Sign in to the Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](http://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\.
+1. Sign in to the Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\.
 
 1. On the **Organize accounts** tab, [navigate to](orgs_manage_ous.md#navigate_tree) and select the check box for the root, OU, or account from which you want to detach the policy\.
 
@@ -212,8 +212,8 @@ To detach a policy from a root, OU, or account, you must have the following perm
 
 **To detach a policy from a root, OU, or account \(AWS CLI, AWS API\)**  
 You can use one of the following commands to detach a policy:
-+ AWS CLI: [aws organizations detach\-policy](http://docs.aws.amazon.com/cli/latest/reference/organizations/detach-policy.html)
-+ AWS API: [DetachPolicy](http://docs.aws.amazon.com/organizations/latest/APIReference/API_DetachPolicy.html)
++ AWS CLI: [aws organizations detach\-policy](https://docs.aws.amazon.com/cli/latest/reference/organizations/detach-policy.html)
++ AWS API: [DetachPolicy](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DetachPolicy.html)
 
 ## Deleting a Policy<a name="delete_policy"></a>
 
@@ -231,7 +231,7 @@ To delete a policy, you must have the following permission:
 
 **To delete a policy \(console\)**
 
-1. Sign in to the Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](http://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\.
+1. Sign in to the Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\.
 
 1. The policy that you want to delete must first be detached from all roots, OUs, and accounts\. Follow the steps in [Detaching a Policy from Roots, OUs, or Accounts](#detach_policy) to detach the policy from all entities in the organization\.
 
@@ -243,5 +243,5 @@ To delete a policy, you must have the following permission:
 
 **To delete a policy \(AWS CLI, AWS API\)**  
 You can use one of the following commands to delete a policy:
-+ AWS CLI: [aws organizations delete\-policy](http://docs.aws.amazon.com/cli/latest/reference/organizations/delete-policy.html)
-+ AWS API: [DeletePolicy](http://docs.aws.amazon.com/organizations/latest/APIReference/API_DeletePolicy.html)
++ AWS CLI: [aws organizations delete\-policy](https://docs.aws.amazon.com/cli/latest/reference/organizations/delete-policy.html)
++ AWS API: [DeletePolicy](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DeletePolicy.html)

@@ -1,6 +1,6 @@
 # Service Control Policy Syntax<a name="orgs_reference_scp-syntax"></a>
 
-Service control policies \(SCPs\) use a similar syntax to that used by IAM permission policies and resource\-based policies \(like Amazon S3 bucket policies\)\. For more information about IAM policies and their syntax, see [Overview of IAM Policies](http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html) in the *IAM User Guide*\.
+Service control policies \(SCPs\) use a similar syntax to that used by IAM permission policies and resource\-based policies \(like Amazon S3 bucket policies\)\. For more information about IAM policies and their syntax, see [Overview of IAM Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html) in the *IAM User Guide*\.
 
 An SCP is a plaintext file that is structured according to the rules of [JSON](http://json.org)\. It uses the elements that are described in this section\.
 
@@ -110,7 +110,7 @@ The following example shows how you can [blacklist](orgs_getting-started_concept
 **Important**  
 SCPs do ***not*** support the `NotAction` element available for IAM permission policies\.
 
-For a list of all the services and the actions that they support in both AWS Organizations SCPs and IAM permission policies, see [AWS Service Actions and Condition Context Keys for Use in IAM Policies](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actionsconditions.html) in the *IAM User Guide*\.
+For a list of all the services and the actions that they support in both AWS Organizations SCPs and IAM permission policies, see [AWS Service Actions and Condition Context Keys for Use in IAM Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actionsconditions.html) in the *IAM User Guide*\.
 
 ## `Resource` Element<a name="scp-syntax-resource"></a>
 

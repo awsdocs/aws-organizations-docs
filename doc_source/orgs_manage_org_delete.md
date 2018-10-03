@@ -18,7 +18,7 @@ To delete an organization, you must sign in as an IAM user or role in the master
 `organizations:DeleteOrganization`
 `organizations:DescribeOrganization` \(console only\)
 
-1. Sign in to the Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](http://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\.
+1. Sign in to the Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\.
 
 1. Before you can delete the organization, you must first remove all accounts from the organization\. For more information, see [Removing a Member Account from Your Organization](orgs_manage_accounts_remove.md)\.
 
@@ -30,5 +30,5 @@ To delete an organization, you must sign in as an IAM user or role in the master
 
 **To delete an organization \(AWS CLI, AWS API\)**  
 You can use one of the following commands to delete an organization: 
-+ AWS CLI: [aws organizations delete\-organization](http://docs.aws.amazon.com/cli/latest/reference/organizations/delete-organization.html)
-+ AWS API: [DeleteOrganization](http://docs.aws.amazon.com/organizations/latest/APIReference/API_DeleteOrganization.html)
++ AWS CLI: [aws organizations delete\-organization](https://docs.aws.amazon.com/cli/latest/reference/organizations/delete-organization.html)
++ AWS API: [DeleteOrganization](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DeleteOrganization.html)

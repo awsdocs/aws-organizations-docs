@@ -27,7 +27,7 @@ You can also use this tutorial as a guide in configuring similar operations, suc
 ## Prerequisites<a name="tutorial-cwe-prereqs"></a>
 
 This tutorial assumes the following:
-+ You can sign in to the AWS Management Console as an IAM user from the master account in your organization\. The IAM user must have permissions to create and configure a log in CloudTrail, a function in Lambda, a topic in Amazon SNS, and a rule in CloudWatch\. For more information about granting permissions, see [Access Management](http://docs.aws.amazon.com/IAM/latest/UserGuide/access.html) in the *IAM User Guide*, or the guide for the service for which you want to configure access\.
++ You can sign in to the AWS Management Console as an IAM user from the master account in your organization\. The IAM user must have permissions to create and configure a log in CloudTrail, a function in Lambda, a topic in Amazon SNS, and a rule in CloudWatch\. For more information about granting permissions, see [Access Management](https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html) in the *IAM User Guide*, or the guide for the service for which you want to configure access\.
 + You have access to an existing Amazon Simple Storage Service \(Amazon S3\) bucket \(or you have permissions to create a bucket\) to receive the CloudTrail log that you configure in step 1\.
 
 **Important**  
@@ -153,7 +153,7 @@ Now that the required Lambda function exists in your account, you create a Cloud
 
    1. For **Event Type**, choose **AWS API Call via CloudTrail**\.
 
-   1. Choose **Specific operation\(s\)**, and then enter the APIs that you want monitored: **CreateAccount**, **CreateOrganizationalUnit**, and **LeaveOrganization**\. You can select any others that you also want\. For a complete list of available AWS Organizations APIs, see the [AWS Organizations API Reference](http://docs.aws.amazon.com/organizations/latest/APIReference/)\.
+   1. Choose **Specific operation\(s\)**, and then enter the APIs that you want monitored: **CreateAccount**, **CreateOrganizationalUnit**, and **LeaveOrganization**\. You can select any others that you also want\. For a complete list of available AWS Organizations APIs, see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/)\.
 
 1. Under **Targets**, under **Lambda function**, in the drop\-down list, select the function you created in the previous procedure\.
 
@@ -236,7 +236,7 @@ In this step, you create an organizational unit \(OU\) and observe the CloudWatc
 
 1. Check your email account for a message from **OrgsCWEvnt** \(the display name of your Amazon SNS topic\)\. The body of the email contains the same JSON text output as the log entry that is shown in the preceding step\.
 
-## Clean Up: Remove the Resources You No Longer Need<a name="w3ab1c11b9c25"></a>
+## Clean Up: Remove the Resources You No Longer Need<a name="w4aac11b9c25"></a>
 
 To avoid incurring charges, you should delete any AWS resources that you created as part of this tutorial that you don't want to keep\.
 

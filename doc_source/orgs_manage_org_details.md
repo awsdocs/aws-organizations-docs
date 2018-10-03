@@ -16,7 +16,7 @@ To view the details of an organization, you must have the following permission:
 
 When signed in to the organization's master account in the [AWS Organizations console](https://console.aws.amazon.com/organizations/), you can view details of the organization\.
 
-1. Sign in to the Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](http://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\.
+1. Sign in to the Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\.
 
 1. Choose the **Settings** tab\.
 
@@ -24,8 +24,8 @@ When signed in to the organization's master account in the [AWS Organizations co
 
 **To view details of an organization \(AWS CLI, AWS API\)**  
 You can use one of the following commands to view details of an organization:
-+ AWS CLI: [aws organizations describe\-organization](http://docs.aws.amazon.com/cli/latest/reference/organizations/describe-organization.html) 
-+ AWS API: [DescribeOrganization](http://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeOrganization.html)
++ AWS CLI: [aws organizations describe\-organization](https://docs.aws.amazon.com/cli/latest/reference/organizations/describe-organization.html) 
++ AWS API: [DescribeOrganization](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeOrganization.html)
 
 ## Viewing Details of a Root<a name="orgs_view_root"></a>
 
@@ -38,7 +38,7 @@ To view the details of a root, you must have the following permissions:
 
 When signed in to the organization's master account in the [AWS Organizations console](https://console.aws.amazon.com/organizations/), you can view details of a root\.
 
-1. Sign in to the Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](http://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\.
+1. Sign in to the Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\.
 
 1. Choose the **Organize accounts** tab, and then choose **Home**\.
 
@@ -48,8 +48,8 @@ When signed in to the organization's master account in the [AWS Organizations co
 
 **To view details of a root \(AWS CLI, AWS API\)**  
 You can use one of the following commands to view details of a root: 
-+ AWS CLI: [aws organizations list\-roots](http://docs.aws.amazon.com/cli/latest/reference/organizations/list-roots.html) 
-+ AWS API: [ListRoots](http://docs.aws.amazon.com/organizations/latest/APIReference/API_ListRoots.html)
++ AWS CLI: [aws organizations list\-roots](https://docs.aws.amazon.com/cli/latest/reference/organizations/list-roots.html) 
++ AWS API: [ListRoots](https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListRoots.html)
 
 ## Viewing Details of an OU<a name="orgs_view_ou"></a>
 
@@ -64,7 +64,7 @@ To view the details of an organizational unit \(OU\), you must have the followin
 
 When signed in to the organization's master account in the [AWS Organizations console](https://console.aws.amazon.com/organizations/), you can view details of the OUs in your organization\.
 
-1. Sign in to the Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](http://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\.
+1. Sign in to the Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\.
 
 1. On the **Organize accounts** tab, navigate to the OU that you want to examine\. If the OU that you want is a child of another OU, choose each OU in the hierarchy to find the one you're looking for\.
 
@@ -74,8 +74,8 @@ When signed in to the organization's master account in the [AWS Organizations co
 
 **To view details of an OU \(AWS CLI, AWS API\)**  
 You can use one of the following commands to view details of an OU:
-+ AWS CLI: [aws organizations describe\-organizational\-unit](http://docs.aws.amazon.com/cli/latest/reference/organizations/describe-organizational-unit.html) 
-+ AWS API: [DescribeOrganizationalUnit](http://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeOrganizationalUnit.html)
++ AWS CLI: [aws organizations describe\-organizational\-unit](https://docs.aws.amazon.com/cli/latest/reference/organizations/describe-organizational-unit.html) 
++ AWS API: [DescribeOrganizationalUnit](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeOrganizationalUnit.html)
 
 ## Viewing Details of an Account<a name="orgs_view_account"></a>
 
@@ -89,7 +89,7 @@ To view the details of an AWS account, you must have the following permissions:
 
 When signed in to the organization's master account in the [AWS Organizations console](https://console.aws.amazon.com/organizations/), you can view details about your accounts\.
 
-1. Sign in to the Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](http://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\.
+1. Sign in to the Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\.
 
 1. Do one of the following:
    + On the **Accounts** tab, choose the account that you want to examine\.
@@ -102,5 +102,5 @@ By default, failed account creation requests are hidden on the **Accounts** tab\
 
 **To view details of an account \(AWS CLI, AWS API\)**  
 You can use one of the following commands to view details of an account:
-+ AWS CLI: [aws organizations describe\-account](http://docs.aws.amazon.com/cli/latest/reference/organizations/describe-account.html) 
-+ AWS API: [DescribeAccount](http://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeAccount.html)
++ AWS CLI: [aws organizations describe\-account](https://docs.aws.amazon.com/cli/latest/reference/organizations/describe-account.html) 
++ AWS API: [DescribeAccount](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeAccount.html)

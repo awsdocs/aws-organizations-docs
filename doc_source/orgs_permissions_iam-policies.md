@@ -35,11 +35,11 @@ You can create an IAM policy that grants full AWS Organizations administrator pe
 
 1. Choose **Review policy**\.
 **Note**  
-You can switch between the **Visual editor** and **JSON** tabs any time\. However, if you make changes or choose **Review policy** in the **Visual editor** tab, IAM might restructure your policy to optimize it for the visual editor\. For more information, see [Policy Restructuring](http://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_policies.html#troubleshoot_viseditor-restructure) in the *IAM User Guide*\.
+You can switch between the **Visual editor** and **JSON** tabs any time\. However, if you make changes or choose **Review policy** in the **Visual editor** tab, IAM might restructure your policy to optimize it for the visual editor\. For more information, see [Policy Restructuring](https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_policies.html#troubleshoot_viseditor-restructure) in the *IAM User Guide*\.
 
 1. On the **Review policy** page, type a **Name** and a **Description** \(optional\) for the policy that you are creating\. Review the policy **Summary** to see the permissions that are granted by your policy\. Then choose **Create policy** to save your work\.
 
-To learn more about creating an IAM policy, see [Creating IAM Policies](http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html) in the *IAM User Guide*\.
+To learn more about creating an IAM policy, see [Creating IAM Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html) in the *IAM User Guide*\.
 
 ## Granting Limited Access by Actions<a name="orgs_permissions_grant-limited-actions"></a>
 
@@ -62,7 +62,7 @@ In a service control policy \(SCP\), the wildcard \(\*\) character in an `Action
 }
 ```
 
-For a list of all the permissions that are available to assign in an IAM policy, see [Actions Defined by AWS Organizations](http://docs.aws.amazon.com/IAM/latest/UserGuide/list_awsorganizations.html#awsorganizations-actions-as-permissions) in the *IAM User Guide*\.
+For a list of all the permissions that are available to assign in an IAM policy, see [Actions Defined by AWS Organizations](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awsorganizations.html#awsorganizations-actions-as-permissions) in the *IAM User Guide*\.
 
 ## Granting Access to Specific Resources<a name="orgs_permissions_grant-limited-resources"></a>
 
@@ -94,7 +94,7 @@ The first statement of the following policy allows an IAM user read access to th
 
 You get the IDs for the OU and the organization from the AWS Organizations console or by calling the `List*` APIs\. The user or group that you apply this policy to can perform any action \(`"organizations:*"`\) on any entity that is contained by the OU\. The OU is identified by the Amazon Resource Name \(ARN\)\. 
 
-For more information about the ARNs for various resources, see [Resources Defined by AWS Organizations](http://docs.aws.amazon.com/IAM/latest/UserGuide/list_awsorganizations.html#awsorganizations-resources-for-iam-policies) in the *IAM User Guide*\. 
+For more information about the ARNs for various resources, see [Resources Defined by AWS Organizations](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awsorganizations.html#awsorganizations-resources-for-iam-policies) in the *IAM User Guide*\. 
 
 ## Granting the Ability to Enable Trusted Access to Limited Service Principals<a name="orgs_permissions_grant-trusted-access-condition"></a>
 
@@ -121,4 +121,4 @@ The following statement shows how you can restrict the ability to enable trusted
 }
 ```
 
-For more information about the ARNs for various resources, see [Resources Defined by AWS Organizations](http://docs.aws.amazon.com/IAM/latest/UserGuide/list_awsorganizations.html#awsorganizations-resources-for-iam-policies) in the *IAM User Guide*\. 
+For more information about the ARNs for various resources, see [Resources Defined by AWS Organizations](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awsorganizations.html#awsorganizations-resources-for-iam-policies) in the *IAM User Guide*\. 

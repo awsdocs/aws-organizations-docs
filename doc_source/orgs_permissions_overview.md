@@ -3,7 +3,7 @@
 All AWS resources, including the roots, OUs, accounts, and policies in an organization, are owned by an AWS account, and permissions to create or access a resource are governed by permissions policies\. In the case of an organization, its master account owns all resources\. An account administrator can control access to AWS resources by attaching permissions policies to IAM identities \(users, groups, and roles\)\.
 
 **Note**  
-An *account administrator* \(or administrator user\) is a user with administrator permissions\. For more information, see [IAM Best Practices](http://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html) in the *IAM User Guide*\.
+An *account administrator* \(or administrator user\) is a user with administrator permissions\. For more information, see [IAM Best Practices](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html) in the *IAM User Guide*\.
 
 When granting permissions, you decide who is getting the permissions, the resources that they get permissions for, and the specific actions that you want to allow on those resources\.
 
@@ -21,11 +21,11 @@ In AWS Organizations, you can control access to the following resources:
 + The policies that you attach to the entities in the organization
 + The handshakes that you use to change the state of the organization
 
-Each of these resources has a unique Amazon Resource Name \(ARN\) associated with it\. You control access to a resource by specifying its ARN in the `Resource` element of an IAM permission policy\. For a complete list of the ARN formats for resources that are used in AWS Organizations, see [Resources Defined by AWS Organizations](http://docs.aws.amazon.com/IAM/latest/UserGuide/list_awsorganizations.html#awsorganizations-resources-for-iam-policies) in the *IAM User Guide*\.
+Each of these resources has a unique Amazon Resource Name \(ARN\) associated with it\. You control access to a resource by specifying its ARN in the `Resource` element of an IAM permission policy\. For a complete list of the ARN formats for resources that are used in AWS Organizations, see [Resources Defined by AWS Organizations](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awsorganizations.html#awsorganizations-resources-for-iam-policies) in the *IAM User Guide*\.
 
 ### Operations<a name="orgs_permissions_operations"></a>
 
-AWS provides a set of operations to work with the resources in an organization\. They enable you to do things like create, list, modify, access the contents of, and delete resources\. Most operations can be referenced in the `Action` element of an IAM policy to control who can use that operation\. For a list of AWS Organizations operations that can be used as permissions in an IAM policy, see [API Action Permissions Defined by AWS Organizations](http://docs.aws.amazon.com/IAM/latest/UserGuide/list_awsorganizations.html#awsorganizations-actions-as-permissions) in the *IAM User Guide*\.
+AWS provides a set of operations to work with the resources in an organization\. They enable you to do things like create, list, modify, access the contents of, and delete resources\. Most operations can be referenced in the `Action` element of an IAM policy to control who can use that operation\. For a list of AWS Organizations operations that can be used as permissions in an IAM policy, see [API Action Permissions Defined by AWS Organizations](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awsorganizations.html#awsorganizations-actions-as-permissions) in the *IAM User Guide*\.
 
 When you combine an `Action` and a `Resource` in a single permission policy `Statement`, you control exactly which resources that particular set of actions can be used on\.
 
@@ -34,7 +34,7 @@ When you combine an `Action` and a `Resource` in a single permission policy `Sta
 AWS provides condition keys that you can query to provide more granular control over certain actions\. You can reference these condition keys in the `Condition` element of an IAM policy to specify the additional circumstances that must be met for the statement to be considered a match\. 
 
 The following condition keys are especially useful with AWS Organizations:
-+ `organizations:ServicePrincipal` – Available as a condition if you use the [EnableAWSServiceAccess](http://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAWSServiceAccess.html) or [DisableAWSServiceAccess](http://docs.aws.amazon.com/organizations/latest/APIReference/API_DisableAWSServiceAccess.html) operations to enable or disable [trusted access](orgs_integrate_services.md) with other AWS services\. You can use `organizations:ServicePrincipal` to limit requests that those operations make to a list of approved service principal names\.
++ `organizations:ServicePrincipal` – Available as a condition if you use the [EnableAWSServiceAccess](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAWSServiceAccess.html) or [DisableAWSServiceAccess](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DisableAWSServiceAccess.html) operations to enable or disable [trusted access](orgs_integrate_services.md) with other AWS services\. You can use `organizations:ServicePrincipal` to limit requests that those operations make to a list of approved service principal names\.
 
   For example, the following policy allows the user to specify only AWS Firewall Manager when enabling and disabling trusted access with AWS Organizations: 
 
@@ -63,13 +63,13 @@ The following condition keys are especially useful with AWS Organizations:
 **Note**  
 This global condition also applies to the master account of an AWS organization\.
 
-  For more information, see the description of `PrincipalOrgID` in [AWS Global Condition Context Keys](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html) in the *IAM User Guide*\.
+  For more information, see the description of `PrincipalOrgID` in [AWS Global Condition Context Keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html) in the *IAM User Guide*\.
 
-For a list of all of the AWS Organizations–specific condition keys that can be used as permissions in an IAM policy, see [Condition Context Keys for AWS Organizations](http://docs.aws.amazon.com/IAM/latest/UserGuide/list_awsorganizations.html#awsorganizations-policy-keys) in the *IAM User Guide*\.
+For a list of all of the AWS Organizations–specific condition keys that can be used as permissions in an IAM policy, see [Condition Context Keys for AWS Organizations](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awsorganizations.html#awsorganizations-policy-keys) in the *IAM User Guide*\.
 
 ## Understanding Resource Ownership<a name="orgs-access-control-resource-ownership"></a>
 
-The AWS account owns the resources that are created in the account, regardless of who created the resources\. Specifically, the resource owner is the AWS account of the [principal entity](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html) \(that is, the root account, an IAM user, or an IAM role\) that authenticates the resource creation request\. For an AWS organization, that is ***always*** the master account\. You can't call most operations that create or access organization resources from the member accounts\. The following examples illustrate how this works:
+The AWS account owns the resources that are created in the account, regardless of who created the resources\. Specifically, the resource owner is the AWS account of the [principal entity](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html) \(that is, the root account, an IAM user, or an IAM role\) that authenticates the resource creation request\. For an AWS organization, that is ***always*** the master account\. You can't call most operations that create or access organization resources from the member accounts\. The following examples illustrate how this works:
 + If you use the root account credentials of your master account to create an OU, your master account is the owner of the resource\. \(In AWS Organizations, the resource is the OU\.\)
 + If you create an IAM user in your master account and grant permissions to create an OU to that user, the user can create an OU\. However, the master account, to which the user belongs, owns the OU resource\.
 + If you create an IAM role in your master account with permissions to create an OU, anyone who can assume the role can create an OU\. The master account, to which the role \(not the assuming user\) belongs, owns the OU resource\.
@@ -79,7 +79,7 @@ The AWS account owns the resources that are created in the account, regardless o
 A *permissions policy* describes who has access to what\. The following section explains the available options for creating permissions policies\.
 
 **Note**  
-This section discusses using IAM in the context of AWS Organizations\. It doesn't provide detailed information about the IAM service\. For complete IAM documentation, see the [IAM User Guide](http://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html)\. For information about IAM policy syntax and descriptions, see the [AWS IAM Policy Reference](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html) in the *IAM User Guide*\.
+This section discusses using IAM in the context of AWS Organizations\. It doesn't provide detailed information about the IAM service\. For complete IAM documentation, see the [IAM User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html)\. For information about IAM policy syntax and descriptions, see the [AWS IAM Policy Reference](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html) in the *IAM User Guide*\.
 
 Policies that are attached to an IAM identity are referred to as *identity\-based* policies \(IAM policies\)\. Policies that are attached to a resource are referred to as *resource\-based* policies\. AWS Organizations supports only identity\-based policies \(IAM policies\)\.
 
@@ -99,7 +99,7 @@ You can attach policies to IAM identities\. For example, you can do the followin
 
   1. The member account administrator can then delegate permissions to assume the role to any users in the member account\. Doing this allows users in the member account to create or access resources in the master account and the organization\. The principal in the trust policy can also be an AWS service principal if you want to grant permissions to an AWS service to assume the role\.
 
-  For more information about using IAM to delegate permissions, see [Access Management](http://docs.aws.amazon.com/IAM/latest/UserGuide/access.html) in the *IAM User Guide*\.
+  For more information about using IAM to delegate permissions, see [Access Management](https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html) in the *IAM User Guide*\.
 
 The following is an example policy that allows a user to perform the `CreateAccount` action in your organization:
 
@@ -114,11 +114,12 @@ The following is an example policy that allows a user to perform the `CreateAcco
         "organizations:CreateAccount"
       ],
       "Resource": "*"
-    }
-  ]
+      }
+   ]
+}
 ```
 
-For more information about using identity\-based policies, see [Using Identity\-Based Policies \(IAM Policies\) for AWS Organizations](orgs_permissions_iam-policies.md)\. For more information about users, groups, roles, and permissions, see [Identities \(Users, Groups, and Roles\)](http://docs.aws.amazon.com/IAM/latest/UserGuide/id.html) in the *IAM User Guide*\.
+For more information about using identity\-based policies, see [Using Identity\-Based Policies \(IAM Policies\) for AWS Organizations](orgs_permissions_iam-policies.md)\. For more information about users, groups, roles, and permissions, see [Identities \(Users, Groups, and Roles\)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id.html) in the *IAM User Guide*\.
 
 ### Resource\-based Policies<a name="orgs-access-control-resource-policies"></a>
 
@@ -134,12 +135,12 @@ For each AWS Organizations resource, the service defines a set of API operations
 In some cases, performing an API operation might require permissions to more than one action and might require permissions to more than one resource\.
 
 The following are the most basic elements that you can use in an IAM permission policy:
-+ **Action** – Use this keyword to identify the operations \(actions\) that you want to allow or deny\. For example, depending on the specified `Effect`, `organizations:CreateAccount` allows or denies the user permissions to perform the AWS Organizations `CreateAccount` operation\. For more information, see [IAM JSON Policy Elements: Action](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_action.html) in the *IAM User Guide*\.
-+ **Resource** – Use this keyword to specify the ARN of the resource to which the policy statement applies\. For more information, see [IAM JSON Policy Elements: Resource](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_resource.html) in the *IAM User Guide*\.
-+ **Condition** – Use this keyword to specify a condition that must be met for the policy statement to apply\. `Condition` usually specifies additional circumstances that must be true for the policy to match\. For more information, see [IAM JSON Policy Elements: Condition](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html) in the *IAM User Guide*\.
-+ **Effect** – Use this keyword to specify whether the policy statement allows or denies the action on the resource\. If you don't explicitly grant access to \(or allow\) a resource, access is implicitly denied\. You also can explicitly deny access to a resource, which you might do to ensure that a user can't perform the specified action on the specified resource, even if a different policy grants access\. For more information, see [IAM JSON Policy Elements: Effect](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_effect.html) in the *IAM User Guide*\.
++ **Action** – Use this keyword to identify the operations \(actions\) that you want to allow or deny\. For example, depending on the specified `Effect`, `organizations:CreateAccount` allows or denies the user permissions to perform the AWS Organizations `CreateAccount` operation\. For more information, see [IAM JSON Policy Elements: Action](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_action.html) in the *IAM User Guide*\.
++ **Resource** – Use this keyword to specify the ARN of the resource to which the policy statement applies\. For more information, see [IAM JSON Policy Elements: Resource](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_resource.html) in the *IAM User Guide*\.
++ **Condition** – Use this keyword to specify a condition that must be met for the policy statement to apply\. `Condition` usually specifies additional circumstances that must be true for the policy to match\. For more information, see [IAM JSON Policy Elements: Condition](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html) in the *IAM User Guide*\.
++ **Effect** – Use this keyword to specify whether the policy statement allows or denies the action on the resource\. If you don't explicitly grant access to \(or allow\) a resource, access is implicitly denied\. You also can explicitly deny access to a resource, which you might do to ensure that a user can't perform the specified action on the specified resource, even if a different policy grants access\. For more information, see [IAM JSON Policy Elements: Effect](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_effect.html) in the *IAM User Guide*\.
 + **Principal** – In identity\-based policies \(IAM policies\), the user that the policy is attached to is automatically and implicitly the principal\. For resource\-based policies, you specify the user, account, service, or other entity that you want to receive permissions \(applies to resource\-based policies only\)\. AWS Organizations currently supports only identity\-based policies, not resource\-based policies\.
 
-To learn more about IAM policy syntax and descriptions, see the [AWS IAM Policy Reference](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html) in the *IAM User Guide*\.
+To learn more about IAM policy syntax and descriptions, see the [AWS IAM Policy Reference](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html) in the *IAM User Guide*\.
 
 For a table that show all of the AWS Organizations API actions that can be used in IAM policies, see [Using Identity\-Based Policies \(IAM Policies\) for AWS Organizations](orgs_permissions_iam-policies.md)\.

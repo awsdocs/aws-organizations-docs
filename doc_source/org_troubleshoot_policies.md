@@ -4,7 +4,7 @@ Use the information here to help you diagnose and fix common errors found in AWS
 
 ## Service Control Policies<a name="tshoot-scp"></a>
 
-Service control policies \(SCPs\) in AWS Organizations are similar to IAM policies and share a common syntax\. This syntax begins with the rules of [JavaScript Object Notation](http://www.json.org) \(JSON\)\. JSON describes an *object* with name and value pairs that make up the object\. The [IAM policy grammar](http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-grammar.html) builds on that by defining what names and values have meaning for, and are understood by, the AWS services that use policies to grant permissions\.
+Service control policies \(SCPs\) in AWS Organizations are similar to IAM policies and share a common syntax\. This syntax begins with the rules of [JavaScript Object Notation](http://www.json.org) \(JSON\)\. JSON describes an *object* with name and value pairs that make up the object\. The [IAM policy grammar](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-grammar.html) builds on that by defining what names and values have meaning for, and are understood by, the AWS services that use policies to grant permissions\.
 
 AWS Organizations uses a subset of the IAM syntax and grammar\. For details, see [Service Control Policy Syntax](orgs_reference_scp-syntax.md)\.
 
