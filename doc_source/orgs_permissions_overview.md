@@ -119,7 +119,7 @@ The following is an example policy that allows a user to perform the `CreateAcco
 }
 ```
 
-For more information about using identity\-based policies, see [Using Identity\-Based Policies \(IAM Policies\) for AWS Organizations](orgs_permissions_iam-policies.md)\. For more information about users, groups, roles, and permissions, see [Identities \(Users, Groups, and Roles\)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id.html) in the *IAM User Guide*\.
+For more information about users, groups, roles, and permissions, see [Identities \(Users, Groups, and Roles\)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id.html) in the *IAM User Guide*\.
 
 ### Resource\-based Policies<a name="orgs-access-control-resource-policies"></a>
 
@@ -142,5 +142,3 @@ The following are the most basic elements that you can use in an IAM permission 
 + **Principal** – In identity\-based policies \(IAM policies\), the user that the policy is attached to is automatically and implicitly the principal\. For resource\-based policies, you specify the user, account, service, or other entity that you want to receive permissions \(applies to resource\-based policies only\)\. AWS Organizations currently supports only identity\-based policies, not resource\-based policies\.
 
 To learn more about IAM policy syntax and descriptions, see the [AWS IAM Policy Reference](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html) in the *IAM User Guide*\.
-
-For a table that show all of the AWS Organizations API actions that can be used in IAM policies, see [Using Identity\-Based Policies \(IAM Policies\) for AWS Organizations](orgs_permissions_iam-policies.md)\.

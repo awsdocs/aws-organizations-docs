@@ -10,4 +10,4 @@ You can also choose to create your organization with only consolidated billing f
 
 **Note**  
 The procedures in this section specify the minimum permissions needed to perform the tasks\. These typically apply to the API or access to the command line tool\.  
-Performing a task in the console might require additional permissions\. For example, you could grant read\-only permissions to all users in your organization, and then grant other permissions that allow select users to perform specific tasks\. For an example of a policy that grants read\-only permissions to an organization, see [Granting Limited Access by Actions](orgs_permissions_iam-policies.md#orgs_permissions_grant-limited-actions)\.
+Performing a task in the console might require additional permissions\. For example, you could grant read\-only permissions to all users in your organization, and then grant other permissions that allow select users to perform specific tasks\. 

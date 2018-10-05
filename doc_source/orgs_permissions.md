@@ -10,7 +10,6 @@ For most administrator operations for AWS Organizations, you need to attach perm
 + [Authentication](#orgs_permissions_authentication)
 + [Access Control](#orgs-access-control)
 + [Managing Access Permissions for Your AWS Organization](orgs_permissions_overview.md)
-+ [Using Identity\-Based Policies \(IAM Policies\) for AWS Organizations](orgs_permissions_iam-policies.md)
 
 ## Authentication<a name="orgs_permissions_authentication"></a>
 
@@ -30,7 +29,3 @@ For security reasons, we recommend that you use the root credentials only to cre
 ## Access Control<a name="orgs-access-control"></a>
 
 You can have valid credentials to authenticate your requests, but unless you have permissions, you can't administer or access AWS Organizations resources\. For example, you must have permissions to create an OU or to attach a service control policy \(SCP\) to an account\.
-
-The following sections describe how to manage permissions for AWS Organizations\. We recommend that you read the overview first\.
-+ [Managing Access Permissions for Your AWS Organization](orgs_permissions_overview.md)
-+ [Using Identity\-Based Policies \(IAM Policies\) for AWS Organizations](orgs_permissions_iam-policies.md)

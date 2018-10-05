@@ -39,7 +39,6 @@ Amazon's trademarks and trade dress may not be used in
 + [Enabling Trusted Access with Other AWS Services](orgs_integrate_services.md)
 + [Authentication and Access Control for AWS Organizations](orgs_permissions.md)
    + [Managing Access Permissions for Your AWS Organization](orgs_permissions_overview.md)
-   + [Using Identity-Based Policies (IAM Policies) for AWS Organizations](orgs_permissions_iam-policies.md)
 + [Monitoring the Activity in Your Organization](orgs_monitoring.md)
 + [AWS Organizations Reference](orgs_reference.md)
    + [Limits of AWS Organizations](orgs_reference_limits.md)

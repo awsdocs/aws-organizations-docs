@@ -37,7 +37,6 @@ When you disable the SCP policy type in a root, all SCPs are automatically detac
   + Enabling or disabling multi\-factor authentication on the root user
   + Creating, updating, or deleting x\.509 keys for the root user
 + Registering for the Enterprise support plan as the root user
-+ Closing an account as the root user \(from within the account instead of submitting a ticket to AWS Support\)
 + Changing the AWS support level as the root user
 + Managing Amazon CloudFront keys
 + Trusted signer functionality for CloudFront private content
