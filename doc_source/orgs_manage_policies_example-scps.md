@@ -6,7 +6,7 @@ Each of the following policies is an example of a [blacklist policy](orgs_manage
 
 ## Example 1: Prevent Users from Disabling AWS CloudTrail<a name="example_scp_1"></a>
 
-This SCP prevents users or roles in any affected account from disabling a CloudTrail log, either directly as a command or through the console\.
+This SCP prevents users or roles in any affected account from disabling or deleting a CloudTrail log, either directly as a command or through the console\.
 
 ```
 {
@@ -14,7 +14,10 @@ This SCP prevents users or roles in any affected account from disabling a CloudT
   "Statement": [
     {
       "Effect": "Deny",
-      "Action": "cloudtrail:StopLogging",
+      "Action": [
+        "cloudtrail:StopLogging",
+        "cloudtrail:DeleteTrail"
+      ],
       "Resource": "*"
     }
   ]
