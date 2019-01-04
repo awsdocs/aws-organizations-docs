@@ -1,18 +1,22 @@
 # Removing a Member Account from Your Organization<a name="orgs_manage_accounts_remove"></a>
 
-An organization is a collection of AWS accounts that you centrally manage\. In addition to creating accounts and managing invitations, you can perform the following tasks:
+Part of managing accounts in an organization is removing *member* accounts that you no longer need\. This page describes what you need to know before removing an account and provides procedures for removing accounts\.
+
+For information on removing the *master* account, see [Remove the Master Account and Delete the Organization](orgs_manage_org_delete.md)\.
+
+**Topics**
++ [Before Removing an Account from an Organization](#orgs_manage_account-before_-remove)
 + [Removing a Member Account from Your Organization](#orgs_manage_accounts_remove-from-master)
 + [Leaving an Organization as a Member Account](#orgs_manage_accounts_leave-as-member)
-+ [Remove the Master Account and Delete the Organization](orgs_manage_org_delete.md)
 
-**Important**  
-You can remove an account from your organization only if the account has the information that is required for it to operate as a standalone account\. When you create an account in an organization using the AWS Organizations console, API, or AWS CLI commands, all the information that is required of standalone accounts is not automatically collected\. For each account that you want to make standalone, you must accept the AWS Customer Agreement, choose a support plan, provide and verify the required contact information, and provide a current payment method\. AWS uses the payment method to charge for any billable \(not AWS Free Tier\) AWS activity that occurs while the account isn't attached to an organization\. 
+## Before Removing an Account from an Organization<a name="orgs_manage_account-before_-remove"></a>
 
-**Notes**  
-Even after the removal of created accounts \(accounts created using the AWS Organizations console or the `CreateAccount` API\) from within an organization, \(i\) created accounts are governed by the terms of the creating master account's agreement with us, and \(ii\) the creating master account remains jointly and severally liable for any actions taken by its created accounts\. Customers' agreements with us, and the rights and obligations under those agreements, cannot be assigned or transferred without our prior consent\. To obtain our consent, contact us at [https://aws\.amazon\.com/contact\-us/](https://aws.amazon.com/contact-us/)\.
-When a member account leaves an organization, that account no longer has access to cost and usage data from the time range when the account was a member of the organization\. However, the master account of the organization can still access the data\. If the account rejoins the organization, the account can access that data again\.
+Before you remove an account, it's important to know the following:
++ You can remove an account from your organization only if the account has the information that is required for it to operate as a standalone account\. When you create an account in an organization using the AWS Organizations console, API, or AWS CLI commands, all the information that is required of standalone accounts is not automatically collected\. For each account that you want to make standalone, you must accept the AWS Customer Agreement, choose a support plan, provide and verify the required contact information, and provide a current payment method\. AWS uses the payment method to charge for any billable \(not AWS Free Tier\) AWS activity that occurs while the account isn't attached to an organization\. 
++ Even after the removal of created accounts \(accounts created using the AWS Organizations console or the `CreateAccount` API\) from within an organization, \(i\) created accounts are governed by the terms of the creating master account's agreement with us, and \(ii\) the creating master account remains jointly and severally liable for any actions taken by its created accounts\. Customers' agreements with us, and the rights and obligations under those agreements, cannot be assigned or transferred without our prior consent\. To obtain our consent, contact us at [https://aws\.amazon\.com/contact\-us/](https://aws.amazon.com/contact-us/)\.
++ When a member account leaves an organization, that account no longer has access to cost and usage data from the time range when the account was a member of the organization\. However, the master account of the organization can still access the data\. If the account rejoins the organization, the account can access that data again\.
 
-## Effects of Removing an Account from an Organization<a name="orgs_manage_account-remove-affects"></a>
+### Effects of Removing an Account from an Organization<a name="orgs_manage_account-remove-affects"></a>
 
 When you remove an account from an organization, no direct changes are made to the account\. However, the following indirect effects occur:
 + The account is now responsible for paying its own charges and must have a valid payment method attached to the account\.

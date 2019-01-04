@@ -9,6 +9,7 @@ Use the information here to help you diagnose and fix access\-denied or other co
 + [I get a "limit exceeded" message when I try to add an account to my organization](#troubleshoot_general_error-adding-account)
 + [I get a "this operation requires a wait period" message while adding or removing accounts](#troubleshoot_general_error-wait-req)
 + [I get an "organization is still initializing" message when I try to add an account to my organization](#troubleshoot_general_error-still-init)
++ [I used an incorrect email address when I created a member account](#troubleshoot_incorrect-email)
 + [Changes that I make aren't always immediately visible](#troubleshoot_general_eventual-consistency)
 
 ## I get an "access denied" message when I make a request to AWS Organizations<a name="troubleshoot_general_access-denied-service"></a>
@@ -39,6 +40,10 @@ Some actions require a wait period\. For example, you can't immediately remove n
 ## I get an "organization is still initializing" message when I try to add an account to my organization<a name="troubleshoot_general_error-still-init"></a>
 
 If you receive this error and it's been over an hour since you created the organization, contact [AWS Support](https://console.aws.amazon.com/support/home#/)\.
+
+## I used an incorrect email address when I created a member account<a name="troubleshoot_incorrect-email"></a>
+
+If you created a member account in an organization with an incorrect email address, you can’t sign in to the account as the root user\. To update the email address, see the [Contact Us](https://aws.amazon.com/contact-us/) page, and choose the item regarding billing to contact AWS Support\.
 
 ## Changes that I make aren't always immediately visible<a name="troubleshoot_general_eventual-consistency"></a>
 

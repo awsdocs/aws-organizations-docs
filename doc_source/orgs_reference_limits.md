@@ -19,13 +19,14 @@ The following are the default maximums for entities in AWS Organizations\.
 | --- |--- |
 |  Number of AWS accounts in an organization  |  Varies\. *If you need to increase your limit, contact AWS Support\. In the upper\-right corner of the console, choose **Support** and then **Support Center**\. On the **Support Center** page, choose **Create case**\.* An invitation sent to an account counts against this limit\. The count is returned if the invited account declines, the master account cancels the invitation, or the invitation expires\.  | 
 |  Number of roots in an organization  |  1\.  | 
-| Number of OUs in an organization | 1,000\. | 
-| Number of policies in an organization | 1,000\. | 
-| Maximum size of a service control policy \(SCP\) document | 5,120 bytes\. This includes all characters, including white space\. To reduce the size of your SCP if you approach the limit, you can remove all white space characters \(such as spaces and line breaks\) that are outside quotation marks\. | 
-| OU maximum nesting in a root | Five levels of OUs deep under a root\. | 
-| Invitations sent in a 24\-hour period | 20 — Accepted invitations don't count against this limit\. As soon as one invitation is accepted, you can send another invitation that same day\. | 
-| Number of member accounts you can create concurrently | 5 — As soon as one finishes, you can start another, but only five can be in progress at a time\. | 
-| Number of entities that you can attach a policy to | Unlimited\. | 
+|  Number of OUs in an organization  |  1,000\.  | 
+|  Number of policies in an organization  |  1,000\.  | 
+|  Maximum size of a service control policy \(SCP\) document  |  5,120 bytes\. This includes all characters, including white space\. To reduce the size of your SCP if you approach the limit, you can remove all white space characters \(such as spaces and line breaks\) that are outside quotation marks\.  | 
+|  OU maximum nesting in a root  |  Five levels of OUs deep under a root\.  | 
+|  Number of open invitations you can add in a 24\-hour period  |  20 — Accepted invitations don't count against this limit\. As soon as one invitation is accepted, you can send another invitation that same day\.  | 
+|  |  | 
+|  Number of member accounts you can create concurrently  |  3 — As soon as one finishes, you can start another, but only three can be in progress at a time\.  | 
+|  Number of entities that you can attach a policy to  |  Unlimited\.  | 
 
 **Expiration times for handshakes**
 

@@ -1,7 +1,7 @@
 # AWS Organizations User Guide
 
 -----
-*****Copyright &copy; 2018 Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
+*****Copyright &copy; 2019 Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
 
 -----
 Amazon's trademarks and trade dress may not be used in 
@@ -15,6 +15,7 @@ Amazon's trademarks and trade dress may not be used in
 -----
 ## Contents
 + [What Is AWS Organizations?](orgs_introduction.md)
+   + [AWS Services That You Can Use with AWS Organizations](orgs_integrated-services-list.md)
 + [Getting Started with AWS Organizations](orgs_getting-started.md)
    + [AWS Organizations Terminology and Concepts](orgs_getting-started_concepts.md)
 + [AWS Organizations Tutorials](orgs_tutorials.md)
@@ -37,6 +38,16 @@ Amazon's trademarks and trade dress may not be used in
       + [About Service Control Policies](orgs_manage_policies_about-scps.md)
       + [Example Service Control Policies](orgs_manage_policies_example-scps.md)
 + [Enabling Trusted Access with Other AWS Services](orgs_integrate_services.md)
+   + [Services That Support Trusted Access with Your Organization](services-that-can-integrate.md)
+      + [AWS Artifact and AWS Organizations](services-that-can-integrate-art.md)
+      + [AWS CloudTrail and AWS Organizations](services-that-can-integrate-ct.md)
+      + [AWS Config and AWS Organizations](services-that-can-integrate-config.md)
+      + [AWS Directory Service and AWS Organizations](services-that-can-integrate-ads.md)
+      + [AWS Firewall Manager and AWS Organizations](services-that-can-integrate-fms.md)
+      + [AWS License Manager and AWS Organizations](services-that-can-integrate-license-manager.md)
+      + [AWS RAM and AWS Organizations](services-that-can-integrate-ram.md)
+      + [AWS Service Catalog and AWS Organizations](services-that-can-integrate-service-catalog.md)
+      + [AWS Single Sign-On and AWS Organizations](services-that-can-integrate-peregrine.md)
 + [Authentication and Access Control for AWS Organizations](orgs_permissions.md)
    + [Managing Access Permissions for Your AWS Organization](orgs_permissions_overview.md)
 + [Monitoring the Activity in Your Organization](orgs_monitoring.md)

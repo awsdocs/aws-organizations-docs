@@ -1,0 +1,10 @@
+# AWS License Manager and AWS Organizations<a name="services-that-can-integrate-license-manager"></a>
+
+AWS License Manager streamlines the process of bringing software vendor licenses to the cloud\. As you build out cloud infrastructure on AWS, you can save costs by using bring\-your\-own\-license \(BYOL\) opportunities—that is, by repurposing your existing license inventory for use with cloud resources\. With rule\-based controls on the consumption of licenses, administrators can set hard or soft limits on new and existing cloud deployments, stopping noncompliant server usage before it happens\. By linking AWS License Manager with AWS Organizations, you can enable cross\-account discovery of computing resources throughout your organization\. For more information about AWS License Manager, see the [AWS License Manager Guide](https://docs.aws.amazon.com/license-manager/latest/userguide/license-manager.html)\.
+
+The following list provides information that is useful to know when you want to integrate AWS License Manager and AWS Organizations:
++ **To enable trusted access with AWS Organizations:** You must sign in with your AWS Organizations master account to associate it with your AWS License Manager account and then configure your License Manager settings\. For information, see [Configuring AWS License Manager Guide Settings](https://docs.aws.amazon.com/license-manager/latest/userguide/settings.html)\. 
++ **Service principal names for AWS License Manager:** `license-manager.amazonaws.com` and `license-manager.member-account.amazonaws.com`\.
++ **Names of the IAM service\-linked roles that can be created in accounts** when trusted access is enabled: `AWSLicenseManagerMasterAccountRole`, `AWSLicenseManagerMemberAccountRole`, and `AWSServiceRoleForAWSLicenseManagerRole`\.
+
+  For more information, see [Using the License Manager–Master Account Role](https://docs.aws.amazon.com/license-manager/latest/userguide/master-role.html) and [Using the License Manager–Member Account Role](https://docs.aws.amazon.com/license-manager/latest/userguide/member-role.html)\.

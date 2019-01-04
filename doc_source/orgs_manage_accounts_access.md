@@ -15,7 +15,8 @@ When you create a new account, AWS Organizations initially assigns a password to
 
 **Notes**  
 As a [best practice](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#create-iam-users), we recommend that you don't use the root user to access your account except to create other users and roles with more limited permissions\. Then sign in as one of those users or roles\.
-We also recommend that you set [multi\-factor authentication](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa.html) \(MFA\) on the root user\. Reset the password, and [assign an MFA device to the root user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_enable.html)\.
+We also recommend that you set [multi\-factor authentication](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa.html) \(MFA\) on the root user\. Reset the password, and [assign an MFA device to the root user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_enable.html)\. 
+If you created a member account in an organization with an incorrect email address, you can’t sign in to the account as the root user\. To update the email address, see the [Contact Us](https://aws.amazon.com/contact-us/) page, and choose the item regarding billing to contact AWS Support\.
 
 **To request a new password for the root user of the member account \(console\)**
 
