@@ -11,6 +11,7 @@ AWS Organizations uses a subset of the IAM syntax and grammar\. For details, see
 **Topics**
 + [More than one policy object](#morethanonepolicyblock)
 + [More than one Statement element](#morethanonestatement)
++ [Policy document exceeds maximum size](#scptoolong)
 
 ### More than one policy object<a name="morethanonepolicyblock"></a>
 
@@ -99,4 +100,8 @@ Because a value object can be an array of multiple value objects, you can solve 
 }
 ```
 
-The value of the `Statement` element is an object array\. The array in the example consists of two objects, each of which is a correct value for a `Statement` element\. Each object in the array is separated by commas\.
+The value of the `Statement` element is an object array\. The array in the example consists of two objects, each of which is a correct value for a `Statement` element\. Each object in the array is separated by commas\. 
+
+### Policy document exceeds maximum size<a name="scptoolong"></a>
+
+The maximum size of an SCP document is 5,120 bytes\. This limit includes all characters, including white space\. To reduce the size of your SCP if you approach the limit, you can remove all white space characters \(such as spaces and line breaks\) that are outside quotation marks\. 
