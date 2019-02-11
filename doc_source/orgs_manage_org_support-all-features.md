@@ -1,18 +1,18 @@
 # Enabling All Features in Your Organization<a name="orgs_manage_org_support-all-features"></a>
 
-AWS Organizations has two available feature sets: [consolidated billing features](orgs_getting-started_concepts.md#feature-set-cb-only) and [all features](orgs_getting-started_concepts.md#feature-set-all)\. All organizations support consolidated billing, which provides basic management tools that you can use to centrally manage the accounts in your organization\. If you enable all features, you continue to get all the consolidated billing features plus a set of advanced features such as service control policies \(SCPs\), which give you fine\-grained control over which services and actions that member accounts can access\. 
+AWS Organizations has two available feature sets: [all features](orgs_getting-started_concepts.md#feature-set-all) and [consolidated billing features](orgs_getting-started_concepts.md#feature-set-cb-only)\. All organizations support consolidated billing, which provides basic management tools that you can use to centrally manage the accounts in your organization\. If you enable all features, you continue to get all the consolidated billing features plus a set of advanced features such as service control policies \(SCPs\)\. SCPs specify the maximum permissions for an organization or organizational unit \(OU\)\. The SCP limits permissions for entities in member accounts\. 
 
 When you start the process to enable all features, AWS Organizations sends a request to every member account that you *invited* to join your organization\. Every invited account must approve enabling all features by accepting the request\. Only then can you complete the process to enable all features in your organization\. If an account declines the request, you must either remove the account from your organization or resend the request and get it accepted before you can complete the process to enable all features\. Accounts that you *created* using AWS Organizations don't get a request because they don't need to approve the additional control\.
 
 Organizations also verifies that every account has a service\-linked role named `AWSServiceRoleForOrganizations`\. This role is mandatory in all accounts to enable all features\. If you deleted the role in an invited account, accepting the invitation to enable all features recreates the role\. If you deleted the role in an account that was created using AWS Organizations, that account receives an invitation specifically to recreate that role\. All of these invitations must be accepted for the organization to complete the process of enabling all features\.
 
 **Notes**  
-Currently, AWS Organizations offers only one type of policy called a [SCP](orgs_getting-started_concepts.md#scp)\.
+Currently, AWS Organizations offers only one type of policy: an [SCP](orgs_getting-started_concepts.md#scp)\.
 Currently, you can have only one root in your organization\.
 While enabling all features is in progress, you can't invite accounts to join the organization\. You must wait until the process to enable all features is complete\. Alternatively, you can cancel the process to enable all features, invite the accounts, and then restart the process to enable all features\.
 While enabling all features is in progress, you can continue to create accounts within the organization\.
 
-After you enable all features in your organization, you can enable support in the root for one or more policy types, such as [SCPs](orgs_getting-started_concepts.md#scp)\. Within the root, you can attach the policies of the enabled types to the roots, OUs, and accounts in your organization\. For more information, see [Managing Organization Policies](orgs_manage_policies.md)\.
+After you enable all features in your organization, you can enable support in the root for one or more policy types, such as [SCPs](orgs_getting-started_concepts.md#scp)\. Within the root, you can attach the policies of the enabled types to the roots, OUs, and accounts in your organization\. For more information, see [Managing AWS Organizations Policies](orgs_manage_policies.md)\.
 
 **Important**  
 After you enable all features in your organization, the master account in the organization can apply policies to all member accounts\.  

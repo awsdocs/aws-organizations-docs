@@ -8,7 +8,7 @@ For example SCPs that you can copy and paste and customize for your use, see [Ex
 
 SCPs are available only in an organization that has [all features enabled](orgs_manage_org_support-all-features.md)\. SCPs aren't available if your organization has enabled only the consolidated billing features\.
 
-SCPs are similar to IAM permission policies and use almost the exact same syntax\. However, an SCP never grants permissions\. Instead, think of an SCP as a filter that enables you to restrict what service and actions can be accessed by users and roles in the accounts that you attach the SCP to\. An SCP that is applied at the root cascades its permissions to the OUs below it\. An OU at the next level down gets the mathematical intersection of the permissions that flow down from the parent root and the SCPs that are attached to the OU\. In other words, any account has only those permissions permitted by ***every*** parent above it\. If a permission is blocked at any level above the account, either implicitly \(by not being included in an `Allow` policy statement\) or explicitly \(by being included in a `Deny` policy statement\), a user or role in the affected account cannot use that permission, even if the account administrator attaches the `AdministratorAccess` IAM policy with \*/\* permissions to the user\.
+SCPs are similar to IAM permission policies and use almost the same syntax\. However, an SCP never grants permissions\. Instead, SCPs are JSON policies that specify the maximum permissions for an organization or organizational unit \(OU\)\. The SCP limits permissions for entities in member accounts, including each AWS account root user\. Any account has only those permissions permitted by ***every*** parent above it\. If a permission is blocked at any level above the account, either implicitly \(by not being included in an `Allow` policy statement\) or explicitly \(by being included in a `Deny` policy statement\), a user or role in the affected account can't use that permission, even if the account administrator attaches the `AdministratorAccess` IAM policy with \*/\* permissions to the user\.
 
 **Warning**  
 We strongly recommend that you don't attach SCPs to the root of your organization without thoroughly testing the impact that the policy has on accounts\. Instead, create an OU that you can move your accounts into one at a time, or at least in small numbers, to ensure that you don't inadvertently lock users out of key services\. One way to determine whether a service is used by an account is to examine the [service last accessed data in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html)\. Another way is to [use AWS CloudTrail to log service usage at the API level](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/how-cloudtrail-works.html)\.
@@ -40,7 +40,7 @@ When you disable the SCP policy type in a root, all SCPs are automatically detac
 + Changing the AWS support level as the root user
 + Managing Amazon CloudFront keys
 + Trusted signer functionality for CloudFront private content
-+ Modifying AWS account email allowance/rDNS
++ Modifying AWS account email allowance/reverse DNS
 + Performing tasks on some AWS\-related services:
   + Alexa Top Sites
   + Alexa Web Information Service
@@ -49,7 +49,7 @@ When you disable the SCP policy type in a root, all SCPs are automatically detac
 
 You can use the procedures in the following sections to create and update SCPs\. 
 
-To learn more about policy types, see [Managing Organization Policies](orgs_manage_policies.md)\.
+To learn more about policy types, see [Managing AWS Organizations Policies](orgs_manage_policies.md)\.
 
 ## Creating a Service Control Policy<a name="create_policy"></a>
 

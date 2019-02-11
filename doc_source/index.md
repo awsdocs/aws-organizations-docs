@@ -33,7 +33,7 @@ Amazon's trademarks and trade dress may not be used in
    + [Removing a Member Account from Your Organization](orgs_manage_accounts_remove.md)
    + [Closing an AWS Account](orgs_manage_accounts_close.md)
 + [Managing Organizational Units (OUs)](orgs_manage_ous.md)
-+ [Managing Organization Policies](orgs_manage_policies.md)
++ [Managing AWS Organizations Policies](orgs_manage_policies.md)
    + [Service Control Policies](orgs_manage_policies_scp.md)
       + [About Service Control Policies](orgs_manage_policies_about-scps.md)
       + [Example Service Control Policies](orgs_manage_policies_example-scps.md)

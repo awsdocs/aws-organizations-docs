@@ -1,4 +1,4 @@
-# Managing Organization Policies<a name="orgs_manage_policies"></a>
+# Managing AWS Organizations Policies<a name="orgs_manage_policies"></a>
 
 Policies in AWS Organizations enable you to apply additional types of management to the AWS accounts in your organization\. Policies are enabled only after you [enable all features in your organization](orgs_manage_org_support-all-features.md)\. You can apply policies to the following entities in your organization:
 + **A root** – A policy applied to a root applies to all accounts in the organization
@@ -12,7 +12,7 @@ Policy types are *available* to use in an organization when you [enable all feat
 The AWS Organizations console can also display the enabled and disabled policy types\. On the **Organize accounts** tab, choose the `Root` in the navigation pane on the left\. The details pane on the right shows all of the available policy types and indicates which are enabled and which are disabled\.
 
 For procedures that are specific to each type of policy, see the following topics:
-+ **[Service control policies](orgs_manage_policies_scp.md)**\. Service control policies \(SCPs\) are similar to IAM permission policies and use almost the exact same syntax\. However, an SCP never grants permissions\. Instead, think of an SCP as a "filter" that enables you to restrict what service and actions can be accessed by users and roles in the accounts that you attach the SCP to\. An SCP applied at the root cascades its permissions to the OUs below it\. An OU at the next level down gets the mathematical intersection of the permissions flowing down from the parent root and the SCPs that are attached to the child OU\. In other words, any account has only those permissions permitted by ***every*** OU and the parent root above it\. If a permission is blocked at any level above the account, either implicitly \(by not being included in an "`Allow`" policy statement\) or explicitly \(by being included in a "`Deny`" policy statement\), a user or role in the affected account can't use that permission, even if the account administrator attaches the `AdministratorAccess` IAM policy with \*/\* permissions to the user\.
++ **[Service control policies](orgs_manage_policies_scp.md)**\. Service control policies \(SCPs\) are similar to IAM permission policies and use almost the same syntax\. However, an SCP never grants permissions\. Instead, SCPs specify the maximum permissions for an organization or organizational unit \(OU\)\. The SCP limits permissions for entities in member accounts\. An SCP applied at the root cascades its permissions to the OUs below it\. An OU at the next level down gets the mathematical intersection of the permissions flowing down from the parent root and the SCPs that are attached to the child OU\. In other words, any account has only those permissions permitted by ***every*** OU and the parent root above it\. If a permission is blocked at any level above the account, either implicitly \(by not being included in an "`Allow`" policy statement\) or explicitly \(by being included in a "`Deny`" policy statement\), a user or role in the affected account can't use that permission, even if the account administrator attaches the `AdministratorAccess` IAM policy with \*/\* permissions to the user\.
 
 **Important**  
 When you disable a policy type in a root, all policies of that type are automatically detached from all entities in that root\. If you reenable the policy type, that root reverts to the default state for that policy type\. For example, if you reenable SCPs in a root, all entities in that root are initially attached only to the default SCP `FullAWSAccess` policy\. Any attachments of policies to entities from before the policy type was disabled are lost and aren't automatically recoverable\.
@@ -20,7 +20,7 @@ When you disable a policy type in a root, all policies of that type are automati
 The following procedures apply to ***all*** policy types\. You must [enable a policy type in a root](#enable_policies_on_root) before you can attach policies of that type to any entities in that root\. 
 
 **Topics**
-+ [Listing and Displaying Information about Organization Policies](#list-policy-details)
++ [Listing and Displaying Information About AWS Organizations Policies](#list-policy-details)
 + [Editing a Policy](#edit-pol)
 + [Enabling and Disabling a Policy Type on a Root](#enable_policies_on_root)
 + [Attaching a Policy to Roots, OUs, or Accounts](#attach_policy)
@@ -28,17 +28,17 @@ The following procedures apply to ***all*** policy types\. You must [enable a po
 + [Deleting a Policy](#delete_policy)
 + [Service Control Policies](orgs_manage_policies_scp.md)
 
-## Listing and Displaying Information about Organization Policies<a name="list-policy-details"></a>
+## Listing and Displaying Information About AWS Organizations Policies<a name="list-policy-details"></a>
 
 This section describes various ways to get details about the policies in your organization\.
 
-### Listing All Policies in the Organization<a name="list-all-pols-in-org"></a>
+### Listing All Policies<a name="list-all-pols-in-org"></a>
 
 **Minimum permissions**  
 To list the policies within your organization, you must have the following permission:  
 `organizations:ListPolicies`<a name="proc-list-all-pols-in-org"></a>
 
-**To list all policies in the organization \(Console\)**
+**To list all policies in your organization \(console\)**
 
 1. Sign in to the Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\.
 
@@ -46,7 +46,7 @@ To list the policies within your organization, you must have the following permi
 
    The displayed list includes the policies of all types that are currently defined in the organization\.
 
-**To list all policies in an organization \(AWS CLI, AWS API\)**  
+**To list all policies in your organization \(AWS CLI, AWS API\)**  
 You can use one of the following commands to list policies in an organization:
 + AWS CLI: [aws organizations list\-policies](https://docs.aws.amazon.com/cli/latest/reference/organizations/list-policies.html)
 + AWS API: [ListPolicies](https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListPolicies.html)
@@ -63,7 +63,7 @@ To list the policies that are attached to a root, OU, or account within your org
 
 1. On the **Organize accounts** tab, [navigate](orgs_manage_ous.md#navigate_tree) to the root, OU, or account whose policy attachments you want to see\.
 
-   1. For a root or OU, do not select any check boxes\. This way, the details pane on the right shows the information about the root or OU that you are viewing\. Alternatively, you can navigate to the parent of the OU, and then select the check box for the OU whose information you want to see\.
+   1. For a root or OU, don't select any check boxes\. This way, the details pane on the right shows the information about the root or OU that you are viewing\. Alternatively, you can navigate to the parent of the OU, and then select the check box for the OU whose information you want to see\.
 
    1. For an account, check the box for the account\.
 
@@ -221,7 +221,7 @@ When signed in to your organization's master account, you can delete a policy th
 
 **Notes**  
 Before you can delete a policy, you must first detach it from all attached entities\. 
-You cannot delete any AWS\-managed SCP such as the one named `FullAWSAccess`\.
+You can't delete any AWS\-managed SCP such as the one named `FullAWSAccess`\.
 
 To delete a policy, complete the following steps\.
 
