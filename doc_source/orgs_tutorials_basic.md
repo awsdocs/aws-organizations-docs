@@ -4,7 +4,7 @@ In this tutorial, you create your organization and configure it with two AWS mem
 
 The following illustration shows the main steps of the tutorial\.
 
-
+![\[Image NOT FOUND\]](http://docs.aws.amazon.com/organizations/latest/userguide/images/tutorialorgs.png)
 
 **[Step 1: Create Your Organization](#tutorial-orgs-step1)**  
 In this step, you create an organization with your current AWS account as the master account\. You also invite one AWS account to join your organization, and you create a second account as a member account\.
@@ -29,7 +29,7 @@ The tutorial refers to the accounts as the following:
 + `222222222222` – An account that you invite to join the organization as a member account\. The owner of this account has an email address of `member222@example.com`\.
 + `333333333333` – An account that you create as a member of the organization\. The owner of this account has an email address of `member333@example.com`\.
 
-Substitute the values above with the values that are associated with your test accounts\. We recommend that you do not use production accounts for this tutorial\.
+Substitute the values above with the values that are associated with your test accounts\. We recommend that you don't use production accounts for this tutorial\.
 
 ## Step 1: Create Your Organization<a name="tutorial-orgs-step1"></a>
 
@@ -41,7 +41,7 @@ In this step, you sign in to account 111111111111 as an administrator, create an
 
 1. In the **Create new organization** dialog box, choose **ENABLE ALL FEATURES** and then choose **Create organization**\.
 
-1. Choose **Settings** in the upper\-right corner and confirm that your organization has all features enabled by looking at the box in the lower\-left corner of the page\.
+1. Choose **Settings** in the upper\-right corner and confirm that your organization has all features enabled\. The feature set is listed in the **Organization details** section of the **Settings** page\.
 
 You now have an organization with your account as its only member\. This is the master account of the organization\.
 
@@ -59,7 +59,7 @@ Now that you have an organization, you can begin to populate it with accounts\. 
 
 1. On the **Accounts** tab, choose **Add account** and then choose **Invite account**\.
 
-1. In the **Account ID or email** box, type the email address of the owner of the account that you want to invite, similar to the following: **account222@example\.com**
+1. In the **Account ID or email** box, enter the email address of the owner of the account that you want to invite, similar to the following: **account222@example\.com**
 
 1. Type any text that you want into the **Notes** box\. This text is included in the email that is sent to the owner of the account\.
 
@@ -83,9 +83,9 @@ In the steps in this section, you create an AWS account that is automatically a 
 
 1. On the AWS Organizations console, on the **Accounts** tab, choose **Add account**\.
 
-1. For **Full name**, type a name for the account, such as **MainApp Account**\.
+1. For **Full name**, enter a name for the account, such as **MainApp Account**\.
 
-1. For **Email**, type the email address of the individual who is to receive communications on behalf of the account\. This value must be globally unique\. No two accounts can have the same email address\. For example, you might use something like **mainapp@example\.com**\.
+1. For **Email**, enter the email address of the individual who is to receive communications on behalf of the account\. This value must be globally unique\. No two accounts can have the same email address\. For example, you might use something like **mainapp@example\.com**\.
 
 1. For **IAM role name**, you can leave this blank to automatically use the default role name of `OrganizationAccountAccessRole`, or you can supply your own name\. This role enables you to access the new member account when signed in as an IAM user in the master account\. For this tutorial, leave it blank to instruct AWS Organizations to create the role with the default name\.
 
@@ -95,7 +95,7 @@ If you get an error that indicates that you exceeded your account limits for the
 
 ## Step 2: Create the Organizational Units<a name="tutorial-orgs-step2"></a>
 
-In the steps in this section, you create organizational units \(OUs\) and place your member accounts in them\. Your hierarchy looks like the following illustration when you are done\. The master account remains in the root\. One member account is moved to the Production OU, and the other member account is moved to the MainApp OU, which is a child of Production\. 
+In the steps in this section, you create organizational units \(OUs\) and place your member accounts in them\. Your hierarchy looks like the following illustration when you're done\. The master account remains in the root\. One member account is moved to the Production OU, and the other member account is moved to the MainApp OU, which is a child of Production\. 
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/organizations/latest/userguide/images/orgs-lab-structure.jpg)
 
@@ -103,43 +103,43 @@ In the steps in this section, you create organizational units \(OUs\) and place 
 
 1. On the AWS Organizations console, choose the **Organize Accounts** tab and then choose **\+ New organizational unit**\.
 
-1. For the name of the OU, type **Production** and then choose **Create organizational unit**\.
+1. For the name of the OU, enter **Production** and then choose **Create organizational unit**\.
 
-1. Choose your new **Production** OU to navigate into it, and then choose **\+ New organizational unit**\.
+1. Choose your new **Production** OU to navigate into it and then choose **\+ New organizational unit**\.
 
-1. For the name of the second OU, type **MainApp** and then choose **Create organizational unit**\.
+1. For the name of the second OU, enter **MainApp** and then choose **Create organizational unit**\.
 
    Now you can move your member accounts into these OUs\.
 
 1. In the tree view on the left, choose the **Root**\.
 
-1. Select the first member account 222222222222, and then choose **Move**\.
+1. Select the first member account, 222222222222, and then choose **Move**\.
 
 1. In the **Move accounts** dialog box, choose **Production** and then choose **Move**\.
 
-1. Select the second member account 333333333333, and then choose **Move**\.
+1. Select the second member account, 333333333333, and then choose **Move**\.
 
-1. In the **Move accounts** dialog box, choose **Production** to expose **MainApp**\. Choose **MainApp**, and then choose **Move**\.
+1. In the **Move accounts** dialog box, choose **Production** to expose **MainApp**\. Choose **MainApp** and then choose **Move**\.
 
 ## Step 3: Create the Service Control Policies<a name="tutorial-orgs-step3"></a>
 
-In the steps in this section, you create three service control policies \(SCPs\) and attach them to the root and to the OUs to restrict what users in the organization's accounts can do\. The first SCP prevents anyone in any of the member accounts from creating or modifying any AWS CloudTrail logs that you configure\. The master account is not affected by any SCP, so after you apply the CloudTrail SCP you must create any logs from the master account\.
+In the steps in this section, you create three service control policies \(SCPs\) and attach them to the root and to the OUs to restrict what users in the organization's accounts can do\. The first SCP prevents anyone in any of the member accounts from creating or modifying any AWS CloudTrail logs that you configure\. The master account isn't affected by any SCP, so after you apply the CloudTrail SCP, you must create any logs from the master account\.
 
 **To create the first SCP that blocks CloudTrail configuration actions**
 
-1. Choose the **Policies** tab, and then choose **Create policy**\.
+1. Choose the **Policies** tab and then choose **Create policy**\.
 
 1. Choose **Policy generator**\.
 
-1. For **Policy name**, type **Block CloudTrail Configuration Actions**\.
+1. For **Policy name**, enter **Block CloudTrail Configuration Actions**\.
 
 1. For **Choose Overall Effect**, choose **Deny**\.
 
 1. In the **Statement builder**, for **Select service** select **AWS CloudTrail**\. For **Select action**, choose the following actions: **AddTags**, **CreateTrail**, **DeleteTrail**, **RemoveTags**, **StartLogging**, **StopLogging**, and **UpdateTrail**\.
 
-1. Choose **Add statement** to add it to the list of statements for the SCP, and then choose **Create policy** to save it to your organization\.
+1. Choose **Add statement** to add it to the list of statements for the SCP and then choose **Create policy** to save it to your organization\.
 
-1. Choose the new policy in the list, and then choose **Policy editor** to view the new policy's JSON content\. It looks similar to the following:
+1. Choose the new policy in the list and then choose **Policy editor** to view the new policy's JSON content\. It looks similar to the following\.
 
    ```
    {
@@ -171,19 +171,19 @@ The second policy defines a [whitelist](orgs_getting-started_concepts.md#whiteli
 
 1. Choose **All policies** at the top of the page to go back to the list, choose **Create policy**, and then choose **Policy generator**\.
 
-1. For **Policy name**, type **Whitelist for All Approved Services**\.
+1. For **Policy name**, enter **Whitelist for All Approved Services**\.
 
 1. For **Choose Overall Effect**, choose **Allow**\.
 
 1. In the **Statement builder**, select **Amazon EC2**\. For **Select action**, choose **Select All** and then choose **Add statement**\.
 
-1. Repeat the preceding step for each of the following services: **Amazon S3**, **Elastic Load Balancing**, **AWS CodeCommit**, **AWS CloudTrail**, and **AWS CodeDeploy**\.
+1. Repeat the preceding step for each of the following services: **Amazon S3**, **Elastic Load Balancing**, **CodeCommit**, **AWS CloudTrail**, and **AWS CodeDeploy**\.
 
-   Choose **Select All** for the actions for each service, and then choose **Add another statement**\.
+   Choose **Select All** for the actions for each service and then choose **Add statement**\.
 
-1. When you are done, choose **Create policy** to save the SCP\.
+1. When you're done, choose **Create policy** to save the SCP\.
 
-1. Choose the new policy in the list and then choose **Policy editor** to view the new policy's JSON content\. It looks similar to the following \(shown here with some formatting compressed to save space\):
+1. Choose the new policy in the list and then choose **Policy editor** to view the new policy's JSON content\. It looks similar to the following \(shown with some formatting compressed to save space\)\.
 
    ```
    {
@@ -235,15 +235,15 @@ The final policy provides a [blacklist](orgs_getting-started_concepts.md#blackli
 
 1. Choose **All policies** at the top of the page to go back to the list, choose **Create policy**, and then choose **Policy generator**\.
 
-1. For **Policy name**, type **Blacklist for MainApp Prohibited Services**\.
+1. For **Policy name**, enter **Blacklist for MainApp Prohibited Services**\.
 
 1. For **Choose Overall Effect**, choose **Deny**\.
 
-1. In the **Statement builder**, select **Amazon DynamoDB**\. For **Select action**, choose **Select All** and then choose **Add another statement**\.
+1. In the **Statement builder**, select **Amazon DynamoDB**\. For **Select action**, choose **Select All** and then choose **Add statement**\.
 
 1. Choose **Create policy** to save the SCP\.
 
-1. Choose the new policy in the list, and then choose **Policy editor** to view the new policy's JSON content\. It looks similar to the following \(shown here with some formatting compressed to save space\):
+1. Choose the new policy in the list and then choose **Policy editor** to view the new policy's JSON content\. It looks similar to the following \(shown with some formatting compressed to save space\)\.
 
    ```
    {
@@ -260,7 +260,7 @@ The final policy provides a [blacklist](orgs_getting-started_concepts.md#blackli
 
 ### Enable the Service Control Policy Type in the Root<a name="tut-basic-enable-scp"></a>
 
-Before you can attach a policy of any type to a root or to any OU within a root, you must enable the policy type for that root\. Policy types are not enabled in any root by default\. The steps in this section show you how to enable the service control policy \(SCP\) type for the root in your organization\.
+Before you can attach a policy of any type to a root or to any OU within a root, you must enable the policy type for that root\. Policy types aren't enabled in any root by default\. The steps in this section show you how to enable the service control policy \(SCP\) type for the root in your organization\.
 
 **Note**  
 Currently, you can have only one root in your organization\. It's created for you and named **Root** when you create your organization\.
@@ -269,7 +269,7 @@ Currently, you can have only one root in your organization\. It's created for yo
 
 1. On the **Organize accounts** tab, choose your root\.
 
-1. In the Details pane on the right, under **ENABLE/DISABLE POLICY TYPES** and next to **Service control policies**, choose **Enable**\.
+1. In the **Details** pane on the right, under **ENABLE/DISABLE POLICY TYPES** and next to **Service control policies**, choose **Enable**\.
 
 ### Attach the SCPs to Your OUs<a name="tut-basic-attach-scp"></a>
 
@@ -277,15 +277,15 @@ Now that the SCPs exist and are enabled for your root, you can attach them to th
 
 **To attach the policies to the root and the OUs**
 
-1. Still on the **Organize accounts** tab, in the Details pane on the right, under **POLICIES**, choose **SERVICE CONTROL POLICIES**\.
+1. Still on the **Organize accounts** tab, in the **Details** pane on the right, under **POLICIES**, choose **SERVICE CONTROL POLICIES**\.
 
 1. Choose **Attach** next to the SCP named `Block CloudTrail Configuration Actions` to prevent anyone from altering the way that you configured CloudTrail\. In this tutorial, you attach it to the root so that it affects all member accounts\. 
 
-   The Details pane now shows by highlighting that two SCPs are attached to the root: the one you just created and the default `FullAWSAccess` SCP\. 
+   The **Details** pane now shows by highlighting that two SCPs are attached to the root: the one you just created and the default `FullAWSAccess` SCP\. 
 
 1. Choose the **Production** OU \(not the check box\) to navigate to its contents\.
 
-1. Under **POLICIES**, choose **SERVICE CONTROL POLICIES**, and then choose **Attach** next to `Whitelist for All Approved Services` to enable users or roles in member accounts in the Production OU to access the approved services\.
+1. Under **POLICIES**, choose **SERVICE CONTROL POLICIES** and then choose **Attach** next to `Whitelist for All Approved Services` to enable users or roles in member accounts in the Production OU to access the approved services\.
 
 1. The information pane now shows that two SCPs are attached to the OU: the one that you just attached and the default `FullAWSAccess` SCP\. However, because the `FullAWSAccess` SCP is also a whitelist that allows all services and actions, you must detach this SCP to ensure that only your approved services are allowed\.
 
@@ -295,7 +295,7 @@ Now that the SCPs exist and are enabled for your root, you can attach them to th
 
    To do this, choose the **MainApp** OU \(not the check box\) to navigate to its contents\.
 
-1. In the Details pane, under **POLICIES**, expand the **Service control policies** section\. In the list of available policies, next to **Blacklist for MainApp Prohibited Services**, choose **Attach**\.
+1. In the **Details** pane, under **POLICIES**, expand the **Service control policies** section\. In the list of available policies, next to **Blacklist for MainApp Prohibited Services**, choose **Attach**\.
 
 ## Step 4: Testing Your Organization's Policies<a name="tutorial-orgs-step4"></a>
 

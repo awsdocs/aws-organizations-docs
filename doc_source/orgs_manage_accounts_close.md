@@ -32,4 +32,4 @@ By default, member accounts that you create with AWS Organizations don't have a 
 
 1. In the confirmation box, choose **Close Account**\.
 
-After you close an AWS account, you can no longer use it to access AWS services or resources\. You can only view the account's past bills and access AWS Support\. You can contact AWS Support  to reopen the account\. For more information, see [How do I reopen my closed AWS account?](https://aws.amazon.com/premiumsupport/knowledge-center/reopen-aws-account/) in the Knowledge Center\.
+After you close an AWS account, you can no longer use it to access AWS services or resources\. You can only view the account's past bills and access AWS Support\. You can contact AWS Support within the 90\-day post\-closure period to reopen the account\. For more information, see [How do I reopen my closed AWS account?](https://aws.amazon.com/premiumsupport/knowledge-center/reopen-aws-account/) in the Knowledge Center\.

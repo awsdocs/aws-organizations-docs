@@ -47,11 +47,11 @@ In this step, you sign in to the master account and configure a log \(called a *
 
 1. Choose **Create trail**\.
 
-1. For **Trail name**, type **My\-Test\-Trail**\. 
+1. For **Trail name**, enter **My\-Test\-Trail**\. 
 
 1. Perform one of the following options to specify where CloudTrail is to deliver its logs:
    + If you already have a bucket, choose **No** next to **Create a new S3 bucket** and then choose the bucket name from the **S3 bucket** list\.
-   + If you need to create a bucket, choose **Yes** next to **Create a new S3 bucket** and then, for **S3 bucket**, type a name for the new bucket\.
+   + If you need to create a bucket, choose **Yes** next to **Create a new S3 bucket** and then, for **S3 bucket**, enter a name for the new bucket\.
 **Note**  
 S3 bucket names must be ***globally*** unique\.
 
@@ -73,35 +73,38 @@ In this step, you create a Lambda function that logs the API activity that is se
 
 1. Open the AWS Lambda console at [https://console.aws.amazon.com/lambda/](https://console.aws.amazon.com/lambda/)\.
 
-1. If you are new to Lambda, choose **Get Started Now** on the welcome page; otherwise, choose **Create a Lambda function**\.
+1. If you are new to Lambda, choose **Get Started Now** on the welcome page; otherwise, choose **Create a function**\.
 
-1. On the **Select blueprint** page, type **hello** for the filter, and then choose the **hello\-world** blueprint\.
+1. On the **Create function** page, choose **Blueprints**\.
 
-1. On the **Configure triggers** page, choose **Next**\.
+1. From the **Blueprints** search box, enter **hello** for the filter and choose the **hello\-world** blueprint\.
 
-1. On the **Configure function** page, do the following:
+1. Choose **Configure**\.
 
-   1. For the Lambda function name, type **LogOrganizationEvents**\. 
+1. On the **Basic information** page, do the following:
 
-   1. Edit the code for the Lambda function, as shown in the following example:
+   1. For the Lambda function name, enter **LogOrganizationEvents** in the **Name** text box\. 
 
-      ```
-      'use strict';
-      
-      exports.handler = (event, context, callback) => {
-          console.log('LogOrganizationEvents');
-          console.log('Received event:', JSON.stringify(event, null, 2));
-          callback(null, 'Finished');
-      };
-      ```
+   1. For **Role**, choose **Create a custom role** and then, at the bottom of the **AWS Lambda requires access to your resources** page, choose **Allow**\. This role grants your Lambda function permissions to access the data it requires and to write its output log\.
 
-      This sample code logs the event with a **LogOrganizationEvents** marker string followed by the JSON string that makes up the event\.
+   1. Choose **Create function**\. 
 
-1. For **Role**, choose **Create a custom role** and then, at the bottom of the **AWS Lambda requires access to your resources** page, choose **Allow**\. This role grants your Lambda function permissions to access the data it requires and to write its output log\.
+1. On the next page, edit the code for the Lambda function, as shown in the following example\.
 
-1. At the bottom of the page, choose **Next**\.
+   ```
+   console.log('Loading function');
+   
+   exports.handler = async (event, context) => {
+       console.log('LogOrganizationsEvents');
+       console.log('Received event:', JSON.stringify(event, null, 2));
+       return event.key1;  // Echo back the first key value
+       // throw new Error('Something went wrong');
+   };
+   ```
 
-1. On the **Review** page, verify your selections and choose **Create function**\.
+   This sample code logs the event with a **LogOrganizationEvents** marker string followed by the JSON string that makes up the event\.
+
+1. Choose **Save**\.
 
 ## Step 3: Create an Amazon SNS Topic That Sends Emails to Subscribers<a name="tutorial-cwe-step3"></a>
 
@@ -115,9 +118,9 @@ In this step, you create an Amazon SNS topic that emails information to its subs
 
 1. Choose **Create new topic**\.
 
-   1. For **Topic name**, type **OrganizationsCloudWatchTopic**\.
+   1. For **Topic name**, enter **OrganizationsCloudWatchTopic**\.
 
-   1. For **Display name**, type **OrgsCWEvnt**\.
+   1. For **Display name**, enter **OrgsCWEvnt**\.
 
    1. Choose **Create topic**\.
 
@@ -127,7 +130,7 @@ In this step, you create an Amazon SNS topic that emails information to its subs
 
    1. On the **Create subscription** page, for **Protocol**, choose **Email**\.
 
-   1. For **Endpoint**, type your email address\.
+   1. For **Endpoint**, enter your email address\.
 
    1. Choose **Create subscription**\. AWS sends an email to the email address that you specified in the preceding step\. Wait for that email to arrive, and then choose the **Confirm subscription** link in the email to verify that you successfully received the email\.
 
@@ -141,7 +144,7 @@ Now that the required Lambda function exists in your account, you create a Cloud
 
 1. Open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/)\.
 
-1. In the navigation pane, choose **Events**, and then choose **Create rule**\.
+1. In the navigation pane, choose **Rules** and then choose **Create rule**\.
 
 1. For **Event source**, do the following:
 
@@ -153,19 +156,19 @@ Now that the required Lambda function exists in your account, you create a Cloud
 
    1. For **Event Type**, choose **AWS API Call via CloudTrail**\.
 
-   1. Choose **Specific operation\(s\)**, and then enter the APIs that you want monitored: **CreateAccount**, **CreateOrganizationalUnit**, and **LeaveOrganization**\. You can select any others that you also want\. For a complete list of available AWS Organizations APIs, see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/)\.
+   1. Choose **Specific operation\(s\)** and then enter the APIs that you want monitored: **CreateAccount**, **CreateOrganizationalUnit**, and **LeaveOrganization**\. You can select any others that you also want\. For a complete list of available AWS Organizations APIs, see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/)\.
 
-1. Under **Targets**, under **Lambda function**, in the drop\-down list, select the function you created in the previous procedure\.
+1. Under **Targets**, for **Function**, choose the function that you created in the previous procedure\.
 
 1. Under **Targets**, choose **Add target**\.
 
-1. In the new target row, choose the drop\-down header, and then choose **SNS topic**\.
+1. In the new target row, choose the dropdown header and then choose **SNS topic**\.
 
 1. For **Topic**, choose the topic named **OrganizationCloudWatchTopic** that you created in the preceding procedure\.
 
-1. Choose **Configure input** and then choose **Configure details**\.
+1. Choose **Configure details**\.
 
-1. On the **Configure rule details** page, for **Name** type **OrgsMonitorRule**, leave **State** selected and then choose **Create rule**\.
+1. On the **Configure rule details** page, for **Name** enter **OrgsMonitorRule**, leave **State** selected and then choose **Create rule**\.
 
 ## Step 5: Test Your CloudWatch Events Rule<a name="tutorial-cwe-step5"></a>
 
@@ -175,9 +178,9 @@ In this step, you create an organizational unit \(OU\) and observe the CloudWatc
 
 1. Open the AWS Organizations console at [https://console.aws.amazon.com/organizations/](https://console.aws.amazon.com/organizations/)\. 
 
-1. Choose the **Organize Accounts** tab, and then choose **Create organizational unit**\.
+1. Choose the **Organize accounts** tab and then choose **New organizational unit**\.
 
-1. For the name of the OU, type **TestCWEOU**, and then choose **Create organizational unit**\.
+1. For the name of the OU, enter **TestCWEOU** and then choose **Create organizational unit**\.
 
 **To see the CloudWatch Events log entry**
 
@@ -185,14 +188,14 @@ In this step, you create an organizational unit \(OU\) and observe the CloudWatc
 
 1. In the navigation page, choose **Logs**\.
 
-1. On the **Log Groups** page, choose the group that is associated with your Lambda function: **/aws/lambda/LogOrganizationEvents**\.
+1. Under **Log Groups**, choose the group that is associated with your Lambda function: **/aws/lambda/LogOrganizationEvents**\.
 
 1. Each group contains one or more streams, and there should be one group for today\. Choose it\.
 
-1. View the log\. You should see rows similar to the following:  
+1. View the log\. You should see rows similar to the following\.  
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/organizations/latest/userguide/images/tutorial-sample-CWE-log.png)
 
-1. Select the middle row of the entry to see the full JSON text of the received event\. You can see all the details of the API request in the `requestParameters` and `responseElements` pieces of the output:
+1. Select the middle row of the entry to see the full JSON text of the received event\. You can see all the details of the API request in the `requestParameters` and `responseElements` pieces of the output\.
 
    ```
    2017-03-09T22:45:05.101Z 0999eb20-051a-11e7-a426-cddb46425f16 Received event:
@@ -236,7 +239,7 @@ In this step, you create an organizational unit \(OU\) and observe the CloudWatc
 
 1. Check your email account for a message from **OrgsCWEvnt** \(the display name of your Amazon SNS topic\)\. The body of the email contains the same JSON text output as the log entry that is shown in the preceding step\.
 
-## Clean Up: Remove the Resources You No Longer Need<a name="w4aac10b9c25"></a>
+## Clean Up: Remove the Resources You No Longer Need<a name="w4aac10c10c25"></a>
 
 To avoid incurring charges, you should delete any AWS resources that you created as part of this tutorial that you don't want to keep\.
 

@@ -46,7 +46,7 @@ A countdown of 90 days begins when the request is sent to the member accounts\. 
 During the time between when you make the request to enable all features and when either all accounts accept or the timeout occurs, all pending invitations for other accounts to join the organization are automatically canceled\. You can't issue new invitations until the process of enabling all features is finished\. 
 After you complete the process of enabling all features, you once again can invite accounts to join the organization\. The process doesn't change, but all invitations include information letting the recipients know that if they accept the invitation, they're subject to any applicable policies\.
 
-1. If an account doesn't approve its request, you can select the account in the **Account progress** page, and then choose **Remove**\. This cancels the request for the selected account and removes that account from the organization, eliminating the blocker to enabling all features\.
+1. If an account doesn't approve its request, you can select the account on this page, and then choose **Remove**\. This cancels the request for the selected account and removes that account from the organization, eliminating the blocker to enabling all features\.
 
 1. After all accounts approve the requests, you can finalize the process and enable all features\. You can also immediately finalize the process if your organization doesn't have any invited member accounts\. Finalizing the process requires only a couple of clicks in the console\. See [Finalizing the Process to Enable All Features](#finalize-migration)\. 
 
