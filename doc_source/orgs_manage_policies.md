@@ -5,23 +5,21 @@ Policies in AWS Organizations enable you to apply additional types of management
 + **An OU** – A policy applied to an OU applies to all accounts in the OU and to any child OUs
 + **An account** – A policy applied to an account applies only to that one account
 
-**Notes**  
-Service control policies never apply to the master account, no matter which root or OU the master account is located in\.
 Currently, service control policy \(SCP\) is the only supported policy type\.
-Policy types are *available* to use in an organization when you [enable all features](orgs_manage_org_support-all-features.md)\. However, at the root level, you can disable an individual policy type using the [EnablePolicyType](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html) and [DisablePolicyType](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DisablePolicyType.html) operations\. Use the [DescribeOrganization](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeOrganization.html) API operation to determine what organization policy types are available to use\. Use the [ListRoots](https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListRoots.html) API operation to see which policy types are enabled and disabled in each root\.  
-The AWS Organizations console can also display the enabled and disabled policy types\. On the **Organize accounts** tab, choose the `Root` in the navigation pane on the left\. The details pane on the right shows all of the available policy types and indicates which are enabled and which are disabled\.
 
-For procedures that are specific to each type of policy, see the following topics:
-+ **[Service control policies](orgs_manage_policies_scp.md)**\. Service control policies \(SCPs\) are similar to IAM permission policies and use almost the same syntax\. However, an SCP never grants permissions\. Instead, SCPs specify the maximum permissions for an organization or organizational unit \(OU\)\. The SCP limits permissions for entities in member accounts\. An SCP applied at the root cascades its permissions to the OUs below it\. An OU at the next level down gets the mathematical intersection of the permissions flowing down from the parent root and the SCPs that are attached to the child OU\. In other words, any account has only those permissions permitted by ***every*** OU and the parent root above it\. If a permission is blocked at any level above the account, either implicitly \(by not being included in an "`Allow`" policy statement\) or explicitly \(by being included in a "`Deny`" policy statement\), a user or role in the affected account can't use that permission, even if the account administrator attaches the `AdministratorAccess` IAM policy with \*/\* permissions to the user\.
+Policy types are *available* to use in an organization when you [enable all features](orgs_manage_org_support-all-features.md)\. However, at the root level, you can disable an individual policy type using the [EnablePolicyType](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html) and [DisablePolicyType](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DisablePolicyType.html) operations\. Use the [DescribeOrganization](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeOrganization.html) API operation to determine what organization policy types are available to use\. Use the [ListRoots](https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListRoots.html) API operation to see which policy types are enabled and disabled in each root\.
+
+The AWS Organizations console can also display the enabled and disabled policy types\. On the **Organize accounts** tab, choose the `Root` in the navigation pane on the left\. The details pane on the right shows all of the available policy types and indicates which are enabled and which are disabled\.
 
 **Important**  
 When you disable a policy type in a root, all policies of that type are automatically detached from all entities in that root\. If you reenable the policy type, that root reverts to the default state for that policy type\. For example, if you reenable SCPs in a root, all entities in that root are initially attached only to the default SCP `FullAWSAccess` policy\. Any attachments of policies to entities from before the policy type was disabled are lost and aren't automatically recoverable\.
+
+For procedures that are specific to SCPs, see [Creating and Updating SCPs](create-policy.md)\.
 
 The following procedures apply to ***all*** policy types\. You must [enable a policy type in a root](#enable_policies_on_root) before you can attach policies of that type to any entities in that root\. 
 
 **Topics**
 + [Listing and Displaying Information About AWS Organizations Policies](#list-policy-details)
-+ [Editing a Policy](#edit-pol)
 + [Enabling and Disabling a Policy Type on a Root](#enable_policies_on_root)
 + [Attaching a Policy to Roots, OUs, or Accounts](#attach_policy)
 + [Detaching a Policy from Roots, OUs, or Accounts](#detach_policy)
@@ -116,19 +114,12 @@ To display the details of a policy, you must have the following permission:
    + The policy's content \(specific to the type of policy\):
      + For SCPs, the JSON text that defines the permissions that are allowed in attached accounts
 
-     To update the contents of the policy document, choose **Edit** \. Choose **Save** when you are done\. For more details, see the next section\.
+     To update the contents of the policy document, choose **Edit**\. Choose **Save** when you are done\. For more details, see the next section\.
 
 **To get details about a policy \(AWS CLI, AWS API\)**  
 You can use one of the following commands to get details about a policy:
 + AWS CLI: [aws organizations describe\-policy](https://docs.aws.amazon.com/cli/latest/reference/organizations/describe-policy.html)
 + AWS API: [DescribePolicy](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribePolicy.html)
-
-## Editing a Policy<a name="edit-pol"></a>
-
-**Minimum permissions**  
-To display the details of a policy, you must have the following permissions:  
-`organizations:DescribePolicy` with a `Resource` element in the same policy statement that includes the ARN of the specified policy \(or "\*"\)
-`organizations:UpdatePolicy` with a `Resource` element in the same policy statement that includes the ARN of the specified policy \(or "\*"\)
 
 ## Enabling and Disabling a Policy Type on a Root<a name="enable_policies_on_root"></a>
 
@@ -180,7 +171,7 @@ To attach a policy to a root, OU, or account, you must have the following permis
 
 1. On the **Organize accounts** tab, [navigate to](orgs_manage_ous.md#navigate_tree) and select the check box for the root, OU, or account you want to attach the policy to\.
 
-1. In the **Details** pane on the right, expand the **CONTROL POLICIES** section to see the list of the currently attached policies, and then choose **Attach policy**\.
+1. In the **Details** pane on the right, expand the **Service control policies** section to see the list of the currently attached policies\.
 
 1. On the list of available policies, find the one that you want and choose **Attach**\. The list of attached policies is updated with the new addition\. The policy goes into effect immediately\. For example, an SCP immediately affects the permissions of IAM users and roles in the attached account or all accounts under the attached root or OU\.
 
@@ -206,9 +197,9 @@ To detach a policy from a root, OU, or account, you must have the following perm
 
 1. On the **Organize accounts** tab, [navigate to](orgs_manage_ous.md#navigate_tree) and select the check box for the root, OU, or account from which you want to detach the policy\.
 
-1. In the **Details** pane on the right, expand the **CONTROL POLICIES** section to see the list of the currently attached policies\. The **Source** field tells you where the policy comes from\. It can be attached directly to the account or OU, or it could be attached to a parent OU or root\.
+1. In the **Details** pane on the right, expand the **Service control policies** section to see the list of the currently attached policies\. The **Source** field tells you where the policy comes from\. It can be attached directly to the account or OU, or it could be attached to a parent OU or root\.
 
-1. Choose the **X** next to the policy that you want to detach\. The list of attached policies is updated with the chosen policy removed\. The policy change caused by detaching the policy goes into effect immediately\. For example, detaching a SCP immediately affects the permissions of IAM users and roles in the formerly attached account or accounts under the formerly attached root or OU\.
+1. Find the policy that you want to detach and choose **Detach**\. The list of attached policies is updated with the chosen policy removed\. The policy change caused by detaching the policy goes into effect immediately\. For example, detaching a SCP immediately affects the permissions of IAM users and roles in the formerly attached account or accounts under the formerly attached root or OU\.
 
 **To detach a policy from a root, OU, or account \(AWS CLI, AWS API\)**  
 You can use one of the following commands to detach a policy:
@@ -235,11 +226,9 @@ To delete a policy, you must have the following permission:
 
 1. The policy that you want to delete must first be detached from all roots, OUs, and accounts\. Follow the steps in [Detaching a Policy from Roots, OUs, or Accounts](#detach_policy) to detach the policy from all entities in the organization\.
 
-1. On the **Policies** tab, choose **All policies** and then select the policy that you want to delete\. 
+1. On the **Policies** tab, choose the policy that you want to delete\. 
 
 1. Choose **Delete policy**\.
-
-1. In the **Delete policy** dialog box, choose **Delete**\.
 
 **To delete a policy \(AWS CLI, AWS API\)**  
 You can use one of the following commands to delete a policy:

@@ -239,7 +239,7 @@ In this step, you create an organizational unit \(OU\) and observe the CloudWatc
 
 1. Check your email account for a message from **OrgsCWEvnt** \(the display name of your Amazon SNS topic\)\. The body of the email contains the same JSON text output as the log entry that is shown in the preceding step\.
 
-## Clean Up: Remove the Resources You No Longer Need<a name="w4aac11c10c25"></a>
+## Clean Up: Remove the Resources You No Longer Need<a name="w4aab9b9c25"></a>
 
 To avoid incurring charges, you should delete any AWS resources that you created as part of this tutorial that you don't want to keep\.
 

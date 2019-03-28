@@ -20,7 +20,7 @@ Before you remove an account, it's important to know the following:
 
 When you remove an account from an organization, no direct changes are made to the account\. However, the following indirect effects occur:
 + The account is now responsible for paying its own charges and must have a valid payment method attached to the account\.
-+ The principals in the account are no longer affected by any service control policies \(SCPs\) that were defined in the organization\. This means that restrictions imposed by those SCPs are gone, and the users and roles in the account might have more permissions than they had before\.
++ The principals in the account are no longer affected by any [service control policies \(SCPs\)](orgs_manage_policies_scp.md) that were defined in the organization\. This means that restrictions imposed by those SCPs are gone, and the users and roles in the account might have more permissions than they had before\.
 + Integration with other services might be disabled\. For example, AWS Single Sign\-On requires an organization to operate, so if you remove an account from an organization that supports AWS SSO, the users in that account can no longer use that service\.
 
 ## Removing a Member Account from Your Organization<a name="orgs_manage_accounts_remove-from-master"></a>
@@ -53,7 +53,7 @@ If you sign in as an IAM user and the account is missing payment information, th
 
 1. If AWS Organizations fails to remove one or more of the accounts, it's typically because you have not provided all the required information for the account to operate as a standalone account\. Perform the following steps:
 
-   1. Choose **Sign in options** for one of the failed accounts\.
+   1. Sign in to one of the failed accounts\.
 
    1. We recommend that you sign in to the member account by choosing **Copy link**, and then pasting it into the address bar of a new incognito browser window\. If you don't use an incognito window, you're signed out of the master account and won't be able to navigate back to this dialog box\.
 

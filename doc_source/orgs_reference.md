@@ -5,4 +5,3 @@ Use the topics in this section to find detailed reference information for variou
 **Topics**
 + [Limits of AWS Organizations](orgs_reference_limits.md)
 + [AWS Managed Policies Available for Use with AWS Organizations](orgs_reference_available-policies.md)
-+ [Service Control Policy Syntax](orgs_reference_scp-syntax.md)

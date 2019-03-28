@@ -90,7 +90,7 @@ Policies that are attached to an IAM identity are referred to as *identity\-base
 ### Identity\-based Policies \(IAM Policies\)<a name="orgs-access-control-iam-policies"></a>
 
 You can attach policies to IAM identities\. For example, you can do the following:
-+ **Attach a permissions policy to a user or a group in your account** – To grant a user permissions to create an AWS Organizations resource, such as a service control policy \(SCP\) or an OU, you can attach a permissions policy to a user or a group that the user belongs to\. The user or group must be in the organization's master account\.
++ **Attach a permissions policy to a user or a group in your account** – To grant a user permissions to create an AWS Organizations resource, such as a [service control policy \(SCP\)](orgs_manage_policies_scp.md) or an OU, you can attach a permissions policy to a user or a group that the user belongs to\. The user or group must be in the organization's master account\.
 + **Attach a permissions policy to a role \(grant cross\-account permissions\)** – You can attach an identity\-based permissions policy to an IAM role to grant cross\-account access to an organization\. For example, the administrator in the master account can create a role to grant cross\-account permissions to a user in a member account as follows:
 
   1. The master account administrator creates an IAM role and attaches a permissions policy to the role that grants permissions to the organization's resources\.

@@ -5,6 +5,7 @@ You can perform the following tasks using the AWS Organizations console:
 + [Viewing Details of a Root](#orgs_view_root)
 + [Viewing Details of an OU](#orgs_view_ou)
 + [Viewing Details of an Account](#orgs_view_account)
++ [Viewing Details of a Policy ](#orgs_view_policy)
 
 ## Viewing Details of an Organization from the Master Account<a name="orgs_view_org"></a>
 
@@ -104,3 +105,25 @@ By default, failed account creation requests are hidden on the **Accounts** tab\
 You can use one of the following commands to view details of an account:
 + AWS CLI: [aws organizations describe\-account](https://docs.aws.amazon.com/cli/latest/reference/organizations/describe-account.html) 
 + AWS API: [DescribeAccount](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeAccount.html)
+
+## Viewing Details of a Policy<a name="orgs_view_policy"></a>
+
+**Minimum permissions**  
+To view the details of a policy, you must have the following permissions:  
+`organizations:DescribePolicy`
+`organizations:ListPolicies`<a name="view_details_policy"></a>
+
+**To view details of a policy \(console\)**
+
+When signed in to the organization's master account in the [AWS Organizations console](https://console.aws.amazon.com/organizations/), you can view details about your policies\.
+
+1. Sign in to the Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\.
+
+1. On the **Policies** tab, choose the policy that you want to examine\.
+
+1. Choose **View policy details** in the pane on the right side of the page\.
+
+**To view details of a policy \(AWS CLI, AWS API\)**  
+You can use one of the following commands to view details of a policy:
++ AWS CLI: [aws organizations describe\-policy](https://docs.aws.amazon.com/cli/latest/reference/organizations/describe-policy.html)
++ AWS API: [DescribePolicy](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribePolicy.html)

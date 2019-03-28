@@ -21,7 +21,7 @@ The following are the default maximums for entities in AWS Organizations\.
 |  Number of roots in an organization  |  1\.  | 
 |  Number of OUs in an organization  |  1,000\.  | 
 |  Number of policies in an organization  |  1,000\.  | 
-|  Maximum size of a service control policy \(SCP\) document  |  5,120 bytes\. This includes all characters, including white space\. To reduce the size of your SCP if you approach the limit, you can remove all white space characters \(such as spaces and line breaks\) that are outside quotation marks\.  | 
+|  Maximum size of a [service control policy \(SCP\)](orgs_manage_policies_scp.md) document  |  5,120 bytes\. This includes all characters, including white space\. To reduce the size of your SCP if you approach the limit, you can remove all white space characters \(such as spaces and line breaks\) that are outside quotation marks\.  | 
 |  OU maximum nesting in a root  |  Five levels of OUs deep under a root\.  | 
 |  Number of open invitations you can add in a 24\-hour period  |  20 — Accepted invitations don't count against this limit\. As soon as one invitation is accepted, you can send another invitation that same day\.  | 
 |  |  | 

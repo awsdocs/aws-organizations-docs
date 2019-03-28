@@ -5,7 +5,7 @@ An organization is a collection of AWS accounts that you centrally manage\. You 
 + [Accessing a Member Account That Has a Master Account Access Role](orgs_manage_accounts_access.md#orgs_manage_accounts_access-cross-account-role)
 
 **Important**  
-When you create a member account in your organization, AWS Organizations automatically creates an IAM role in the member account that enables IAM users in the master account to exercise full administrative control over the member account\. This role is subject to any service control policies \(SCPs\) that apply to the member account\.  
+When you create a member account in your organization, AWS Organizations automatically creates an IAM role in the member account that enables IAM users in the master account to exercise full administrative control over the member account\. This role is subject to any [service control policies \(SCPs\)](orgs_manage_policies_scp.md) that apply to the member account\.  
 AWS Organizations also automatically creates a service\-linked role named `AWSServiceRoleForOrganizations` that enables integration with select AWS services\. You must configure the other services to allow the integration\. For more information, see [AWS Organizations and Service\-Linked Roles](orgs_integrate_services.md#orgs_integrate_services-using_slrs)\.
 
 ## Creating an AWS Account That Is Part of Your Organization<a name="orgs_manage_accounts_create-new"></a>

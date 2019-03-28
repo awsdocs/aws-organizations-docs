@@ -4,6 +4,9 @@ Use AWS Organizations to create your own organization to consolidate and manage 
 
 You can create an organization that starts with your AWS account as the master account\. When you create an organization, you can choose whether the organization supports all features \(recommended\) or only consolidated billing features\. 
 
+**Note**  
+Currently, you can have only one root in your organization\.
+
 After creating an organization, you can add accounts to your organization in these ways from the master account:
 + Create other AWS accounts that are automatically added to your organization as member accounts
 + After verifying your email address, invite existing AWS accounts to join your organization as member accounts
