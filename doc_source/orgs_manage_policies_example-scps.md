@@ -210,7 +210,7 @@ This SCP builds on the previous example to make an exception for administrators\
   "Version": "2012-10-17",
   "Statement": [
     {
-      "Sid": "DenyAccessToAdminRole",
+      "Sid": "DenyAccessWithException",
       "Effect": "Deny",
       "Action": [
         "iam:AttachRolePolicy",
@@ -228,7 +228,7 @@ This SCP builds on the previous example to make an exception for administrators\
         "arn:aws:iam::*:role/role-to-deny"
       ],
       "Condition": {
-        "StringNotEquals": {
+        "StringNotLike": {
           "aws:PrincipalARN":"arn:aws:iam::*:role/role-to-deny"
         }
       }
