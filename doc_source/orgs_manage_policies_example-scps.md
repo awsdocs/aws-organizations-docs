@@ -248,7 +248,6 @@ This SCP requires that all Amazon S3 buckets use AES256 encryption\.
     {
       "Sid": "DenyIncorrectEncryptionHeader",
       "Effect": "Deny",
-      "Principal": "*",
       "Action": "s3:PutObject",
       "Resource": "*",
       "Condition": {
@@ -260,7 +259,6 @@ This SCP requires that all Amazon S3 buckets use AES256 encryption\.
     {
       "Sid": "DenyUnEncryptedObjectUploads",
       "Effect": "Deny",
-      "Principal": "*",
       "Action": "s3:PutObject",
       "Resource": "*",
       "Condition": {
