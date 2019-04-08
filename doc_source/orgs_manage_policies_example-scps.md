@@ -239,7 +239,7 @@ This SCP builds on the previous example to make an exception for administrators\
 
 ## Example 9: Require Encryption on Amazon S3 Buckets<a name="example-require-encryption"></a>
 
-This SCP requires that all Amazon S3 buckets use AES256 encryption\.
+This SCP requires that principals use AES256 encryption when writing to Amazon S3 buckets\.
 
 ```
 {
