@@ -21,6 +21,7 @@ Each of the following policies is an example of a [blacklist policy](SCP_strateg
 + [Example 9: Require Encryption on Amazon S3 Buckets](#example-require-encryption)
 + [Example 10: Require Amazon EC2 Instances to Use a Specific Type](#example-ec2-instances)
 + [Example 11: Require MFA to Stop an Amazon EC2 Instance](#example-ec2-mfa)
++ [Example 12: Restrict Access to Amazon EC2 for Root User](#example-ec2-root-user)
 
 ## Example 1: Prevent Users from Disabling AWS CloudTrail<a name="example_scp_1"></a>
 
@@ -135,8 +136,9 @@ This SCP denies access to any operations outside of the `eu-central-1` and `eu-w
 
 This policy uses the [NotAction](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_notaction.html) element with the `Deny` effect to deny access to all of the actions *not* listed in the statement\. The listed services are examples of AWS global services with a single endpoint that is physically located in the `us-east-1` Region\. Requests made to services in the `us-east-1` Region aren't denied if they're included in the `NotAction` element\. Any other requests to services in the `us-east-1` Region are denied\.
 
-**Note**  
+**Notes**  
 Not all AWS global services are shown in this example policy\. Replace the list of services in red italicized text with the global services used by accounts in your organization\.
+This example policy blocks access to the AWS Security Token Service global endpoint \(`sts.amazonaws.com`\)\. To use AWS STS with this policy, use regional endpoints or add `"sts:*"` to the `NotAction` element\. For more information on AWS STS endpoints, see [Activating and Deactivating AWS STS in an AWS Region](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html) in the *IAM User Guide*\.
 
 ```
 {
@@ -203,7 +205,7 @@ This SCP restricts IAM principals in accounts from making changes to a common ad
 
 ## Example 8: Prevent IAM Principals from Making Certain Changes, with Exceptions for Admins<a name="example-scp-restricts-with-exception"></a>
 
-This SCP builds on the previous example to make an exception for administrators\. It prevents IAM principals in accounts from making changes to a common administrative IAM role created in all accounts in your organization *except* for administrators using the specified role\. 
+This SCP builds on the previous example to make an exception for administrators\. It prevents IAM principals in accounts from making changes to a common administrative IAM role created in all accounts in your organization *except* for administrators using a specified role\. 
 
 ```
 {    
@@ -229,7 +231,7 @@ This SCP builds on the previous example to make an exception for administrators\
       ],
       "Condition": {
         "StringNotLike": {
-          "aws:PrincipalARN":"arn:aws:iam::*:role/role-to-deny"
+          "aws:PrincipalARN":"arn:aws:iam::*:role/role-to-allow"
         }
       }
     }
@@ -311,6 +313,35 @@ Use an SCP like the following to require that multi\-factor authentication \(MFA
       ],
       "Resource": "*",
       "Condition": {"BoolIfExists": {"aws:MultiFactorAuthPresent": false}}
+    }
+  ]
+}
+```
+
+## Example 12: Restrict Access to Amazon EC2 for Root User<a name="example-ec2-root-user"></a>
+
+The following policy restricts all access to Amazon EC2 actions for the [root user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html) in an account\. If you want to prevent your accounts from using root credentials in specific ways, add your own actions to this policy\.
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "RestrictEC2ForRoot",
+      "Effect": "Deny",
+      "Action": [
+        "ec2:*"
+      ],
+      "Resource": [
+        "*"
+      ],
+      "Condition": {
+        "StringLike": {
+          "aws:PrincipalArn": [
+            "arn:aws:iam::*:root"
+          ]
+        }
+      }
     }
   ]
 }

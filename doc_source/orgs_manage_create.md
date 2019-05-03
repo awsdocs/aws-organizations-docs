@@ -21,11 +21,9 @@ To create an organization with your current AWS account, you must have the follo
 
 1. On the introduction page, choose **Create organization**\.
 
-1. Specify that you want to create the organization with [all features](orgs_getting-started_concepts.md#feature-set-all) enabled\.
-
-   You can also create the organization with only [consolidated billing features](orgs_getting-started_concepts.md#feature-set-cb-only) enabled\.
-
 1. In the **Create organization** confirmation dialog box, choose **Create organization**\.
+**Note**  
+By default, the organization is created with all features enabled\. You can also create the organization with only [consolidated billing features](orgs_getting-started_concepts.md#feature-set-cb-only) enabled\.
 
    The organization is created\. You're now on the **Accounts** tab\. The star next to the account email indicates that it's the master account\.
 

@@ -9,6 +9,7 @@ SCPs are necessary but not sufficient for granting access in the accounts in you
 + [SCP Size Limit](#scp-size-limit)
 + [Effects on Permissions](#scp-effects-on-permissions)
 + [Tasks and Entities Not Restricted by SCPs](#not-restricted-by-scp)
++ [Amazon EC2 Actions for the Root User](#ec2-actions-root)
 + [How SCPs Work](orgs_manage_policies_about-scps.md)
 + [Strategies for Using SCPs](SCP_strategies.md)
 + [Creating and Updating SCPs](create-policy.md)
@@ -57,3 +58,11 @@ The following tasks and entities are not restricted by SCPs:
   + Alexa Web Information Service
   + Amazon Mechanical Turk
   + Amazon Product Marketing API
+
+## Amazon EC2 Actions for the Root User<a name="ec2-actions-root"></a>
+
+Currently, when using [root user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html) credentials to make Amazon EC2 requests, the resource and condition policy elements don't function as expected in the following ways:
++ **Resource ARNs** – If you specify an AWS resource ARN in an SCP's resource element, it won't match the resource the root user performs the Amazon EC2 action on during policy evaluation\. This means that the specified restrictions for this action don't apply to the root user\. Deny statements that specify all resources \(`"Resource": "*"`\) for Amazon EC2 actions are correctly evaluated for root users\. 
++ **Amazon EC2 condition keys** – All condition keys that start with `"ec2"` aren't evaluated when using root credentials\. Because policy conditions aren't correctly evaluated for root users, users with root credentials might have unintended access to Amazon EC2 actions\. 
+
+This issue doesn't affect IAM users and roles or any AWS service except Amazon EC2\. Only the root user is subject to this issue\. If you don’t want your root user to have access to Amazon EC2 actions, attach an SCP like the [Restrict Access to Amazon EC2 for Root User](orgs_manage_policies_example-scps.md#example-ec2-root-user) example to your organization root\.

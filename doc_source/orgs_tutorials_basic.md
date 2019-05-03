@@ -39,9 +39,15 @@ In this step, you sign in to account 111111111111 as an administrator, create an
 
 1. On the introduction page, choose **Create organization**\.
 
-1. In the **Create new organization** dialog box, choose **ENABLE ALL FEATURES** and then choose **Create organization**\.
+1. In the **Create organization** confirmation dialog box, choose **Create organization**\.
+**Note**  
+By default, the organization is created with all features enabled\. You can also create the organization with only [consolidated billing features](orgs_getting-started_concepts.md#feature-set-cb-only) enabled\.
 
-1. Choose **Settings** in the upper\-right corner and confirm that your organization has all features enabled\. The feature set is listed in the **Organization details** section of the **Settings** page\.
+   The organization is created\. You're now on the **Accounts** tab\. The star next to the account email indicates that it's the master account\.
+
+   A verification email is automatically sent to the address that is associated with your master account\. There might be a delay before you receive the verification email\.
+
+1. Verify your email address within 24 hours\. For more information, see [Email Address Verification](orgs_manage_create.md#about-email-verification)\.
 
 You now have an organization with your account as its only member\. This is the master account of the organization\.
 

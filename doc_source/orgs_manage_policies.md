@@ -1,13 +1,13 @@
 # Managing AWS Organizations Policies<a name="orgs_manage_policies"></a>
 
-Policies in AWS Organizations enable you to apply additional types of management to the AWS accounts in your organization\. Policies are enabled only after you [enable all features in your organization](orgs_manage_org_support-all-features.md)\. You can apply policies to the following entities in your organization:
+Policies in AWS Organizations enable you to apply additional types of management to the AWS accounts in your organization\. You can use policies when [all features are enabled ](orgs_manage_org_support-all-features.md) in your organization\. You can apply policies to the following entities in your organization:
 + **A root** – A policy applied to a root applies to all accounts in the organization
 + **An OU** – A policy applied to an OU applies to all accounts in the OU and to any child OUs
 + **An account** – A policy applied to an account applies only to that one account
 
 Currently, service control policy \(SCP\) is the only supported policy type\.
 
-Policy types are *available* to use in an organization when you [enable all features](orgs_manage_org_support-all-features.md)\. However, at the root level, you can disable an individual policy type using the [EnablePolicyType](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html) and [DisablePolicyType](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DisablePolicyType.html) operations\. Use the [DescribeOrganization](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeOrganization.html) API operation to determine what organization policy types are available to use\. Use the [ListRoots](https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListRoots.html) API operation to see which policy types are enabled and disabled in each root\.
+Policy types are *available* to use in an organization where all features are enabled\. However, at the root level, you can disable an individual policy type using the [EnablePolicyType](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html) and [DisablePolicyType](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DisablePolicyType.html) operations\. Use the [DescribeOrganization](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeOrganization.html) API operation to determine what organization policy types are available to use\. Use the [ListRoots](https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListRoots.html) API operation to see which policy types are enabled and disabled in each root\.
 
 The AWS Organizations console can also display the enabled and disabled policy types\. On the **Organize accounts** tab, choose the `Root` in the navigation pane on the left\. The details pane on the right shows all of the available policy types and indicates which are enabled and which are disabled\.
 

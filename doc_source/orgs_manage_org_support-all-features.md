@@ -75,7 +75,7 @@ To agree to the request, you must accept the handshake with `"Action": "APPROVE_
 
 ## Finalizing the Process to Enable All Features<a name="finalize-migration"></a>
 
-After all invited member accounts must approve the request to enable all features\. If there are no invited member accounts in the organization, the **Enable all features progress** page indicates with a green banner that you can finalize the process\.
+All invited member accounts must approve the request to enable all features\. If there are no invited member accounts in the organization, the **Enable all features progress** page indicates with a green banner that you can finalize the process\.
 
 **Minimum permissions**  
 To finalize the process to enable all features for the organization, you must have the following permission:  
