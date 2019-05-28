@@ -49,7 +49,7 @@ By default, the **Accounts** tab hides account creation requests that failed\. T
 
 1. Now that the account exists and has an IAM role that grants administrator access to users in the master account, you can access the account by following the steps in [Accessing and Administering the Member Accounts in Your Organization](orgs_manage_accounts_access.md)\.
 
-   When you create an account, AWS Organizations initially assigns a password to the root user that is a minimum of 64 characters long\. All characters are randomly generated with no guarantees on the appearance of certain character sets\. You can't retrieve this initial password\. To access the account as the root user for the first time, you must go through the process for password recovery\. For more information, see [Accessing a Member Account as the Root User](orgs_manage_accounts_access.md#orgs_manage_accounts_access-as-root)\.
+   When you create an account, AWS Organizations initially assigns a password to the root user that is a minimum of 64 characters long\. All characters are randomly generated with no guarantees on the appearance of certain character sets\. You can't retrieve this initial password, as it's discarded after the account is created\. To access the account as the root user for the first time, you must go through the process for password recovery\. For more information, see [Accessing a Member Account as the Root User](orgs_manage_accounts_access.md#orgs_manage_accounts_access-as-root)\.
 
 **To create an AWS account that automatically is part of your organization \(AWS CLI, AWS API\)**  
 You can use one of the following commands to create an account:

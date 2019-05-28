@@ -264,8 +264,8 @@ This SCP requires that principals use AES256 encryption when writing to Amazon S
       "Action": "s3:PutObject",
       "Resource": "*",
       "Condition": {
-        "Bool": {
-          "s3:x-amz-server-side-encryption": false
+        "Null": {
+          "s3:x-amz-server-side-encryption": true
         }
       }
     }

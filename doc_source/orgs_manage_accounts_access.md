@@ -132,3 +132,4 @@ When using the role, the user has administrator permissions in the new member ac
 + For more information about granting permissions to switch roles, see [Granting a User Permissions to Switch Roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_permissions-to-switch.html) in the *IAM User Guide*\.
 + For more information about using a role that you have been granted permissions to assume, see [Switching to a Role \(AWS Management Console\)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-console.html) in the *IAM User Guide*\.
 + For a tutorial about using roles for cross\-account access, see [Tutorial: Delegate Access Across AWS Accounts Using IAM Roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html) in the *IAM User Guide*\.
++ For information about closing AWS accounts, see [Closing an AWS Account](orgs_manage_accounts_close.md)\. 

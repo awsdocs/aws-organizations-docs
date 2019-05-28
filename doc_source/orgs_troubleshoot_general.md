@@ -43,7 +43,7 @@ If you receive this error and it's been over an hour since you created the organ
 
 ## I used an incorrect email address when I created a member account<a name="troubleshoot_incorrect-email"></a>
 
-If you created a member account in an organization with an incorrect email address, you can’t sign in to the account as the root user\. To update the email address, see the [Contact Us](https://aws.amazon.com/contact-us/) page, and choose the item regarding billing to contact AWS Support\.
+If you created a member account in an organization with an incorrect email address, you can’t sign in to the account as the root user\. In this case, try accessing or creating a master account access role for the account\. For more information, see [Accessing a Member Account That Has a Master Account Access Role](orgs_manage_accounts_access.md#orgs_manage_accounts_access-cross-account-role)\. If you can't access or create the role, see the [Contact Us](https://aws.amazon.com/contact-us/) page, and choose the item regarding billing to contact AWS Support\.
 
 ## Changes that I make aren't always immediately visible<a name="troubleshoot_general_eventual-consistency"></a>
 

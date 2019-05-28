@@ -112,16 +112,16 @@ The following shows an example of how to use a condition key in a deny statement
     "Statement": {
         "Effect": "Deny",
         "Action": "ec2:RunInstances",
-        "Resource": "*",
+        "Resource": "arn:aws:ec2:*:*:instance/*",
         "Condition": {
           "StringNotEquals": {
-            "ec2:InstanceType": "t3.micro"
+            "ec2:InstanceType": "t2.micro"
           }  
     }
 }
 ```
 
-This statement in an SCP sets a guardrail to prevent affected accounts \(where the SCP is attached to the account itself or to the organization root or OU that contains the account\), from launching Amazon EC2 instances if the Amazon EC2 instance isn't set to `t3.micro`\. Even if an IAM policy that allows this action is attached to the account, the guardrail created by the SCP prevents it\.
+This statement in an SCP sets a guardrail to prevent affected accounts \(where the SCP is attached to the account itself or to the organization root or OU that contains the account\), from launching Amazon EC2 instances if the Amazon EC2 instance isn't set to `t2.micro`\. Even if an IAM policy that allows this action is attached to the account, the guardrail created by the SCP prevents it\.
 
 ## `Action` and `NotAction` Elements<a name="scp-syntax-action"></a>
 

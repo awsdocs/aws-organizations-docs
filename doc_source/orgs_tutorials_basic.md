@@ -139,6 +139,8 @@ In the steps in this section, you create three [service control policies \(SCPs\
 
 1. In the **Policy** section on the left, select CloudTrail for the service\. Then choose the following actions: **AddTags**, **CreateTrail**, **DeleteTrail**, **RemoveTags**, **StartLogging**, **StopLogging**, and **UpdateTrail**\.
 
+1. Still in the left pane, choose **Add resource** and specify **CloudTrail** and **All Resources**\. Then choose **Add resource**\.
+
    The policy statement on the right updates to look similar to the following\.
 
    ```
@@ -208,6 +210,8 @@ The final policy provides a [blacklist](orgs_getting-started_concepts.md#blackli
 1. For **Policy name**, enter **Blacklist for MainApp Prohibited Services**\.
 
 1. In the **Policy** section on the left, select **Amazon DynamoDB** for the service\. For the action, choose **All actions**\.
+
+1. Still in the left pane, choose **Add resource** and specify **DynamoDB** and **All Resources**\. Then choose **Add resource**\.
 
    The policy statement on the right updates to look similar to the following\.
 

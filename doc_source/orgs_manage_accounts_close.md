@@ -7,12 +7,13 @@ Before closing your account, back up any applications and data that you want to 
 Immediately, the account can no longer be used for any AWS activity other than signing in as the root user to view past bills or to contact AWS Support\. For more information, see [Contacting Customer Support About Your Bill](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-get-answers.html)\.
 
 **Important**  
-Accounts that are closed for a period of time are subject to permanent deletion after which the account and its resources can’t be recovered\.
+Accounts that are closed for 90 days are subject to permanent deletion after which the account and its resources can’t be recovered\.
+Closed accounts are visible in your organization with the "suspended" state\. After an account is permanently deleted, it's no longer visible in your organization\.
 If you choose to close a member account without first removing it from the organization, the closed account still counts toward your limit on the number of accounts you can have in the organization\. It's removed from your organization only after the account is permanently deleted\. Instead of waiting, you can [remove the account from the organization](orgs_manage_accounts_remove.md) before closing it to avoid it counting against the limit\.
 
-You can close an account only by using the Billing and Cost Management console, not by using the AWS Organizations console or its tools\. 
-+ To close a member account, we recommend that you first [remove the account from the organization](orgs_manage_accounts_remove.md) and then close it using the steps in the following procedure\. 
-+ To close a master account, first [remove the master account and delete the organization](orgs_manage_org_delete.md), and then close it using the steps in the following procedure\.
+You can close an account only by using the Billing and Cost Management console, not by using the AWS Organizations console or its tools\.
+
+To close a master account, first [delete the organization](orgs_manage_org_delete.md), and then close it using the steps in the following procedure\.
 
 **To close an AWS account \(console\)**
 
