@@ -40,6 +40,7 @@ Amazon's trademarks and trade dress may not be used in
       + [Creating and Updating SCPs](create-policy.md)
       + [Example Service Control Policies](orgs_manage_policies_example-scps.md)
       + [SCP Syntax](orgs_reference_scp-syntax.md)
++ [Tagging AWS Organizations Resources](orgs_tagging.md)
 + [Enabling Trusted Access with Other AWS Services](orgs_integrate_services.md)
    + [Services That Support Trusted Access with Your Organization](services-that-can-integrate.md)
       + [AWS Artifact and AWS Organizations](services-that-can-integrate-art.md)

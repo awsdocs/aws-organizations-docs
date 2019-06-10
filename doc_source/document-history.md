@@ -5,6 +5,7 @@ The following table describes major documentation updates for AWS Organizations\
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Tagging accounts](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html) | You can tag and untag accounts in your organization and view tags on an account in your organization\. | June 6, 2019 | 
 | [Resources, conditions, and the NotAction element in service control policies \(SCPs\)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html) | You can now specify resources, conditions, and the [https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_notaction.html](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_notaction.html) element in SCPs to deny access across accounts in your organization or organizational unit \(OU\)\.  | March 25, 2019 | 
 | [New services for trusted access](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrated-services-list.html) | AWS License Manager and AWS Service Catalog added as services that can work with the accounts in your organizaton\.  | December 21, 2018 | 
 | [New services for trusted access](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrated-services-list.html) | AWS CloudTrail and AWS RAM added as services that can work with the accounts in your organization\. | December 4, 2018 | 
