@@ -131,7 +131,7 @@ Each statement must contain one of the following:
 
 The value for the `Action` or `NotAction` element is a list \(a JSON array\) of strings that identify AWS services and actions that are allowed or denied by the statement\.
 
-Each string consists of the abbreviation for the service \(such as "s3", "ec2", "iam", or "organizations"\), in all lowercase, followed by a colon and then an action from that service\. The actions and notactions are case\-sensitive, and must be typed as shown in each service's documentation\. Generally, they are all typed with each word starting with an uppercase letter and the rest lowercase\. For example: `"s3:ListAllMyBuckets"`\.
+Each string consists of the abbreviation for the service \(such as "s3", "ec2", "iam", or "organizations"\), in all lowercase, followed by a colon and then an action from that service\. The actions and notactions are case sensitive and must be typed as shown in each service's documentation\. Generally, they are all typed with each word starting with an uppercase letter and the rest lowercase\. For example: `"s3:ListAllMyBuckets"`\.
 
 You also can use an asterisk as a wildcard to match multiple actions that share part of a name\. The value `"s3:*"` means all actions in the Amazon S3 service\. The value `"ec2:Describe*"` matches only the EC2 actions that begin with "Describe"\.
 

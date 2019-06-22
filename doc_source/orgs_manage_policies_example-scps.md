@@ -7,6 +7,9 @@ Before you attempt to use these example SCPs in your organization, do the follow
 Carefully review and customize them for your unique requirements\.
 Test your policies before using them in a production capacity\. Remember that an SCP affects every user and role and even the root user in every account that it's attached to\. 
 
+**Tip**  
+You can use [service last accessed data](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html) in [IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) to update your SCPs to restrict access to only the AWS services that you need\. For more information, see [Viewing Organizations Service Last Accessed Data for Organizations](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor-view-data-orgs.html) in the *IAM User Guide\.* 
+
 Each of the following policies is an example of a [blacklist policy](SCP_strategies.md#orgs_policies_blacklist) strategy\. Blacklist policies must be attached along with other policies that allow the approved actions in the affected accounts\. For example, the default `FullAWSAccess` policy permits the use of all services in an account\. This policy is attached by default to the root, all organizational units \(OUs\), and all accounts\. It doesn't actually grant the permissions; no SCP does\. Instead, it enables administrators in that account to delegate access to those actions by attaching standard IAM permission policies to users, roles, or groups in the account\. Each of these blacklist policies then overrides any policy by blocking access to the specified services or actions\.
 
 **Topics**

@@ -2,7 +2,7 @@
 
 A *tag* is a custom attribute label that you add to an AWS resource to make it easier to identify, organize, and search for resources\. Each tag has two parts:
 + A *tag key* \(for example, `CostCenter`, `Environment`, or `Project`\)\. Tag keys are case sensitive\.
-+ An optional field known as a *tag value* \(for example, `111122223333` or `Production`\)\. Omitting the tag value is the same as using an empty string\. Like tag keys, tag values are case sensitive\.
++ A *tag value* \(for example, `111122223333` or `Production`\)\. You can set the value of a tag to an empty string, but you can't set the value of a tag to null\. Omitting the tag value is the same as using an empty string\. Like tag keys, tag values are case sensitive\.
 
 You can use tags to categorize resources by purpose, owner, environment, or other criteria\. For more information, see [AWS Tagging Strategies](https://aws.amazon.com/answers/account-management/aws-tagging-strategies/)\.
 
@@ -12,7 +12,7 @@ Currently, AWS Organizations supports the following tagging operations when you 
 + You can tag and untag accounts in AWS Organizations\.
 + You can view tags on an account in AWS Organizations\.
 
-AWS Organizations doesn't currently support the tag\-based access control feature of AWS Identity and Access Management \(IAM\)\.
+AWS Organizations doesn't currently support tagging resources within an account, or the tag\-based access control feature of AWS Identity and Access Management \(IAM\)\.
 
 ## Adding Tags<a name="add-tag"></a>
 

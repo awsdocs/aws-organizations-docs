@@ -6,6 +6,9 @@ The default configuration for working with SCPs is to create statements that den
 
 For more information about statements that deny \(blacklist\) access and allow \(whitelist\) access, see [Strategies for Using SCPs](SCP_strategies.md)\.
 
+**Tip**  
+You can use [service last accessed data](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html) in [IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) to update your SCPs to restrict access to only the AWS services that you need\. For more information, see [Viewing Organizations Service Last Accessed Data for Organizations](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor-view-data-orgs.html) in the *IAM User Guide\.* 
+
 ## Creating an SCP<a name="create-an-scp"></a>
 
 To create SCPs, you must have the following permission:
