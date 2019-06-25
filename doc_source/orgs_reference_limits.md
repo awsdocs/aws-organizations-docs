@@ -17,7 +17,7 @@ The following are the default maximums for entities in AWS Organizations\.
 
 |  |  | 
 | --- |--- |
-|  Number of AWS accounts in an organization  |  Varies\. *If you need to increase your limit, contact AWS Support\. In the upper\-right corner of the console, choose **Support** and then **Support Center**\. On the **Support Center** page, choose **Create case**\.* An invitation sent to an account counts against this limit\. The count is returned if the invited account declines, the master account cancels the invitation, or the invitation expires\.  | 
+|  Number of AWS accounts in an organization  |   4 is the default maximum number of accounts allowed in an organization\. *If you need to increase your limit, contact AWS Support\. In the upper\-right corner of the console, choose **Support** and then **Support Center**\. On the **Support Center** page, choose **Create case**\.* An invitation sent to an account counts against this limit\. The count is returned if the invited account declines, the master account cancels the invitation, or the invitation expires\.  | 
 |  Number of roots in an organization  |  1\.  | 
 |  Number of OUs in an organization  |  1,000\.  | 
 |  Number of policies in an organization  |  1,000\.  | 

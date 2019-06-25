@@ -51,6 +51,7 @@ Amazon's trademarks and trade dress may not be used in
       + [AWS License Manager and AWS Organizations](services-that-can-integrate-license-manager.md)
       + [AWS RAM and AWS Organizations](services-that-can-integrate-ram.md)
       + [AWS Service Catalog and AWS Organizations](services-that-can-integrate-service-catalog.md)
+      + [Service Quotas and AWS Organizations](services-that-can-integrate-service-quotas.md)
       + [AWS Single Sign-On and AWS Organizations](services-that-can-integrate-peregrine.md)
 + [Authentication and Access Control for AWS Organizations](orgs_permissions.md)
    + [Managing Access Permissions for Your AWS Organization](orgs_permissions_overview.md)
