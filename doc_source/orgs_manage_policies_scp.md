@@ -53,6 +53,7 @@ For more information, see the following pages in the *IAM User Guide*:
 ## Tasks and Entities Not Restricted by SCPs<a name="not-restricted-by-scp"></a>
 
 The following tasks and entities are not restricted by SCPs:
++ Actions performed by the master account\.
 + Any action performed using permissions that are attached to a service\-linked role\.
 + Managing root credentials\. No matter what SCPs are attached, the root user in an account can always do the following:
   + Changing the root user's password

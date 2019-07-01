@@ -123,7 +123,7 @@ This SCP prevents users or roles in any affected account from changing the confi
       "Action": [
         "ec2:AttachInternetGateway",
         "ec2:CreateInternetGateway",
-        "ec2:AttachEgressOnlyInternetGateway",
+        "ec2:CreateEgressOnlyInternetGateway",
         "ec2:CreateVpcPeeringConnection",
         "ec2:AcceptVpcPeeringConnection"
       ],

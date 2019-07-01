@@ -71,6 +71,9 @@ The resource element is required\. If you want to specify all resources for the 
 
 Your new SCP appears in the list of the organization's policies\. You can now [attach your SCP to the root, OUs, or accounts](orgs_manage_policies.md#attach_policy)\.
 
+**Note**  
+SCPs don't take effect on the master account and in a few other situations\. For more information, see [Tasks and Entities Not Restricted by SCPs](orgs_manage_policies_scp.md#not-restricted-by-scp)\.
+
 **To create a service control policy \(AWS CLI, AWS API\)**  
 You can use one of the following commands to create an SCP:
 + AWS CLI: [aws organizations create\-policy](https://docs.aws.amazon.com/cli/latest/reference/organizations/create-policy.html)
