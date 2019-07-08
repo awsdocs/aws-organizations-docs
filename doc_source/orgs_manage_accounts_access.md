@@ -100,7 +100,7 @@ When you create a member account using the AWS Organizations console, AWS Organi
    + For **Effect**, choose **Allow**\.
    + For **AWS Service**, choose **AWS Security Token Service**\.
    + For **Actions**, choose **AssumeRole**\.
-   + For **Amazon Resource Name \(ARN\)**, enter the ARN of the role that was created in the account\. You can see the ARN in the IAM console on the role's **Summary** page\. To construct this ARN, use the following template:
+   + For **Amazon Resource Name \(ARN\)**, enter the ARN of the role that was created in the member account\. You can see the ARN in the IAM console on the role's **Summary** page\. To construct this ARN, use the following template:
 
      `arn:aws:iam::accountIdNumber:role/rolename`
 
