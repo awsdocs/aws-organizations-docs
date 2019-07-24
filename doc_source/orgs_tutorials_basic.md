@@ -1,6 +1,6 @@
 # Tutorial: Creating and Configuring an Organization<a name="orgs_tutorials_basic"></a>
 
-In this tutorial, you create your organization and configure it with two AWS member accounts\. You create one of the member accounts in your organization, and you invite the other account to join your organization\. Next, you use the [whitelisting](orgs_getting-started_concepts.md#whitelisting) technique to specify that account administrators can delegate only explicitly listed services and actions\. This allows administrators to validate any new service that AWS introduces before they permit its use by anyone else in your company\. That way, if AWS introduces a new service, it remains prohibited until an administrator adds the service to the whitelist in the appropriate policy\. The tutorial also shows you how to use [blacklisting](orgs_getting-started_concepts.md#blacklisting) to ensure that no users in a member account can change the configuration for the auditing logs that AWS CloudTrail creates\. 
+In this tutorial, you create your organization and configure it with two AWS member accounts\. You create one of the member accounts in your organization, and you invite the other account to join your organization\. Next, you use the [allow list](orgs_getting-started_concepts.md#allowlist) technique to specify that account administrators can delegate only explicitly listed services and actions\. This allows administrators to validate any new service that AWS introduces before they permit its use by anyone else in your company\. That way, if AWS introduces a new service, it remains prohibited until an administrator adds the service to the allow list in the appropriate policy\. The tutorial also shows you how to use a [deny list](orgs_getting-started_concepts.md#denylist) to ensure that no users in a member account can change the configuration for the auditing logs that AWS CloudTrail creates\. 
 
 The following illustration shows the main steps of the tutorial\.
 
@@ -65,7 +65,7 @@ Now that you have an organization, you can begin to populate it with accounts\. 
 
 1. On the **Accounts** tab, choose **Add account** and then choose **Invite account**\.
 
-1. In the **Account ID or email** box, enter the email address of the owner of the account that you want to invite, similar to the following: **member222@example\.com**
+1. In the **Account ID or email** box, enter the email address of the owner of the account that you want to invite, similar to the following: **member222@example\.com**\.
 
 1. Type any text that you want into the **Notes** box\. This text is included in the email that is sent to the owner of the account\.
 
@@ -169,13 +169,13 @@ In the steps in this section, you create three [service control policies \(SCPs\
 
 1. Choose **Create policy**\.
 
-The second policy defines a [whitelist](orgs_getting-started_concepts.md#whitelisting) of all the services and actions that you want to enable for users and roles in the Production OU\. When you're done, users in the Production OU can access ***only*** the listed services and actions\.
+The second policy defines an [allow list](orgs_getting-started_concepts.md#allowlist) of all the services and actions that you want to enable for users and roles in the Production OU\. When you're done, users in the Production OU can access ***only*** the listed services and actions\.
 
-**To create the second policy that whitelists approved services for the Production OU**
+**To create the second policy that allows approved services for the Production OU**
 
 1. From the list of policies, choose **Create policy**\.
 
-1. For **Policy name**, enter **Whitelist for All Approved Services**\.
+1. For **Policy name**, enter **Allow List for All Approved Services**\.
 
 1. Position your cursor in the right pane of the **Policy** section and paste in a policy like the following\.
 
@@ -201,13 +201,13 @@ The second policy defines a [whitelist](orgs_getting-started_concepts.md#whiteli
 
 1. Choose **Create policy**\.
 
-The final policy provides a [blacklist](orgs_getting-started_concepts.md#blacklisting) of services that are blocked from use in the MainApp OU\. For this tutorial, you block access to Amazon DynamoDB in any accounts that are in the MainApp OU\.
+The final policy provides a [deny list](orgs_getting-started_concepts.md#denylist) of services that are blocked from use in the MainApp OU\. For this tutorial, you block access to Amazon DynamoDB in any accounts that are in the MainApp OU\.
 
-**To create the third policy that blacklists services that can't be used in the MainApp OU**
+**To create the third policy that denies access to services that can't be used in the MainApp OU**
 
 1. From the **Policies** tab, choose **Create policy**\.
 
-1. For **Policy name**, enter **Blacklist for MainApp Prohibited Services**\.
+1. For **Policy name**, enter **Deny List for MainApp Prohibited Services**\.
 
 1. In the **Policy** section on the left, select **Amazon DynamoDB** for the service\. For the action, choose **All actions**\.
 
@@ -257,21 +257,21 @@ Now that the SCPs exist and are enabled for your root, you can attach them to th
 
 1. Choose the **Production** OU \(not the check box\) to navigate to its contents\.
 
-1. Under **POLICIES**, choose **SERVICE CONTROL POLICIES** and then choose **Attach** next to `Whitelist for All Approved Services` to enable users or roles in member accounts in the Production OU to access the approved services\.
+1. Under **POLICIES**, choose **SERVICE CONTROL POLICIES** and then choose **Attach** next to `Allow List for All Approved Services` to enable users or roles in member accounts in the Production OU to access the approved services\.
 
-1. The information pane now shows that two SCPs are attached to the OU: the one that you just attached and the default `FullAWSAccess` SCP\. However, because the `FullAWSAccess` SCP is also a whitelist that allows all services and actions, you must detach this SCP to ensure that only your approved services are allowed\.
+1. The information pane now shows that two SCPs are attached to the OU: the one that you just attached and the default `FullAWSAccess` SCP\. However, because the `FullAWSAccess` SCP is also an allow list that allows all services and actions, you must detach this SCP to ensure that only your approved services are allowed\.
 
-1. To remove the default policy from the Production OU, next to **FullAWSAccess**, choose **Detach**\. After you remove this default policy, all member accounts under the root immediately lose access to all actions and services that are not on the whitelist SCP that you attached in the preceding step\. Even if an administrator in one of the accounts grants full access to another service by attaching an AWS Identity and Access Management \(IAM\) permissions policy to a user in one of the member accounts, any requests to use actions that aren't included in the **Whitelist for All Approved Services** SCP are denied\.
+1. To remove the default policy from the Production OU, next to **FullAWSAccess**, choose **Detach**\. After you remove this default policy, all member accounts under the root immediately lose access to all actions and services that are not on the allow list SCP that you attached in the preceding step\. Any requests to use actions that aren't included in the **Allow List for All Approved Services** SCP are denied\. This is true even if an administrator in an account grants access to another service by attaching an IAM permissions policy to a user in one of the member accounts\.
 
-1. Now you can attach the SCP named `Blacklist for MainApp Prohibited services` to prevent anyone in the accounts in the MainApp OU from using any of the restricted services\.
+1. Now you can attach the SCP named `Deny List for MainApp Prohibited services` to prevent anyone in the accounts in the MainApp OU from using any of the restricted services\.
 
    To do this, choose the **MainApp** OU \(not the check box\) to navigate to its contents\.
 
-1. In the **Details** pane, under **POLICIES**, expand the **Service control policies** section\. In the list of available policies, next to **Blacklist for MainApp Prohibited Services**, choose **Attach**\.
+1. In the **Details** pane, under **POLICIES**, expand the **Service control policies** section\. In the list of available policies, next to **Deny List for MainApp Prohibited Services**, choose **Attach**\.
 
 ## Step 4: Testing Your Organization's Policies<a name="tutorial-orgs-step4"></a>
 
 You now can sign in as a user in any of the member accounts and try to perform various AWS actions:
 + If you sign in as a user in the master account, you can perform any operation that is allowed by your IAM permissions policies\. The SCPs don't affect any user or role in the master account, no matter which root or OU the account is located in\.
-+ If you sign in as the root user or an IAM user in account 222222222222, you can perform any actions that are allowed by the whitelist\. AWS Organizations denies any attempt to perform an action in any service that isn't in the whitelist\. Also, AWS Organizations denies any attempt to perform one of the CloudTrail configuration actions\.
-+ If you sign in as a user in account 333333333333, you can perform any actions that are allowed by the whitelist and not blocked by the blacklist\. AWS Organizations denies any attempt to perform an action that isn't in the whitelist policy and any action that is in the blacklist policy\. Also, AWS Organizations denies any attempt to perform one of the CloudTrail configuration actions\.
++ If you sign in as the root user or an IAM user in account 222222222222, you can perform any actions that are allowed by the allow list\. AWS Organizations denies any attempt to perform an action in any service that isn't in the allow list\. Also, AWS Organizations denies any attempt to perform one of the CloudTrail configuration actions\.
++ If you sign in as a user in account 333333333333, you can perform any actions that are allowed by the allow list and not blocked by the deny list\. AWS Organizations denies any attempt to perform an action that isn't in the allow list policy and any action that is in the deny list policy\. Also, AWS Organizations denies any attempt to perform one of the CloudTrail configuration actions\.

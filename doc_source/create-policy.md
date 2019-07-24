@@ -1,10 +1,10 @@
 # Creating and Updating SCPs<a name="create-policy"></a>
 
-When signed in with permissions to your organization's master account, you can create and update [service control policies \(SCPs\)](orgs_manage_policies_scp.md)\. You create SCPs by building statements that deny \(blacklist\) or allow \(whitelist\) access to services and actions that you specify\.
+When signed in with permissions to your organization's master account, you can create and update [service control policies \(SCPs\)](orgs_manage_policies_scp.md)\. You create SCPs by building statements that deny or allow access to services and actions that you specify\.
 
 The default configuration for working with SCPs is to create statements that deny access\. With deny statements, you can also specify resources and conditions for the statement and use the [NotAction](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_notaction.html) element\. For allow statements, you can specify services and actions only\.
 
-For more information about statements that deny \(blacklist\) access and allow \(whitelist\) access, see [Strategies for Using SCPs](SCP_strategies.md)\.
+For more information about statements that deny access and allow access, see [Strategies for Using SCPs](SCP_strategies.md)\.
 
 **Tip**  
 You can use [service last accessed data](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html) in [IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) to update your SCPs to restrict access to only the AWS services that you need\. For more information, see [Viewing Organizations Service Last Accessed Data for Organizations](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor-view-data-orgs.html) in the *IAM User Guide\.* 

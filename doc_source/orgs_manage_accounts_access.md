@@ -2,7 +2,7 @@
 
 When you create an account in your organization, AWS Organizations automatically creates a root user and an IAM role named `OrganizationAccountAccessRole` for the account\. However, AWS Organizations doesn't create any IAM users, groups, or other roles\. To access the accounts in your organization, you must use one of the following methods:
 + The account has a root user that you can use to sign in\. We recommend that you use the root user only to create IAM users, groups, and roles and then always sign in with one of those\. See [Accessing a Member Account as the Root User](#orgs_manage_accounts_access-as-root)\. 
-+ If you create an account in your organization, you can access the account by using the preconfigured `OrganizationAccountAccessRole` role that exists in all new accounts that are created this way\. See [Accessing a Member Account That Has a Master Account Access Role](#orgs_manage_accounts_access-cross-account-role)\.
++ If you create an account in your organization, you can access the account by using the preconfigured role named `OrganizationAccountAccessRole` that exists in all new accounts that are created this way\. See [Accessing a Member Account That Has a Master Account Access Role](#orgs_manage_accounts_access-cross-account-role)\.
 + If you invite an existing account to join your organization and the account accepts the invitation, you can then create an IAM role that allows the master account to access the invited account\. This is similar to the role automatically added to an account that is created with AWS Organizations\. To create this role, see [Creating the OrganizationAccountAccessRole in an Invited Member Account](#orgs_manage_accounts_create-cross-account-role)\. After you create the role, you can access it using the steps in [Accessing a Member Account That Has a Master Account Access Role](#orgs_manage_accounts_access-cross-account-role)\.
 
 **Minimum permissions**  
@@ -82,7 +82,7 @@ The users who are members of the selected group now can use the URLs that you ca
 
 ## Accessing a Member Account That Has a Master Account Access Role<a name="orgs_manage_accounts_access-cross-account-role"></a>
 
-When you create a member account using the AWS Organizations console, AWS Organizations *automatically* creates an IAM role in the account\. This role has full administrative permissions in the member account\. The role is also configured to grant that access to the organization's master account\. You can create an identical role for an invited member account by following the steps in [Creating the OrganizationAccountAccessRole in an Invited Member Account](#orgs_manage_accounts_create-cross-account-role)\. To use this role to access the member account, you must sign in as a user from the master account that has permissions to assume the role\. To configure these permissions, perform the following procedure\. We recommend that you grant permissions to groups instead of users for ease of maintenance\.
+When you create a member account using the AWS Organizations console, AWS Organizations *automatically* creates an IAM role named `OrganizationAccountAccessRole` in the account\. This role has full administrative permissions in the member account\. The role is also configured to grant that access to the organization's master account\. You can create an identical role for an invited member account by following the steps in [Creating the OrganizationAccountAccessRole in an Invited Member Account](#orgs_manage_accounts_create-cross-account-role)\. To use this role to access the member account, you must sign in as a user from the master account that has permissions to assume the role\. To configure these permissions, perform the following procedure\. We recommend that you grant permissions to groups instead of users for ease of maintenance\.
 
 **To grant permissions to members of an IAM group in the master account to access the role \(console\)**
 
@@ -100,7 +100,7 @@ When you create a member account using the AWS Organizations console, AWS Organi
    + For **Effect**, choose **Allow**\.
    + For **AWS Service**, choose **AWS Security Token Service**\.
    + For **Actions**, choose **AssumeRole**\.
-   + For **Amazon Resource Name \(ARN\)**, enter the ARN of the role that was created in the account\. You can see the ARN in the IAM console on the role's **Summary** page\. To construct this ARN, use the following template:
+   + For **Amazon Resource Name \(ARN\)**, enter the ARN of the role that was created in the member account\. You can see the ARN in the IAM console on the role's **Summary** page\. To construct this ARN, use the following template:
 
      `arn:aws:iam::accountIdNumber:role/rolename`
 
@@ -108,7 +108,7 @@ When you create a member account using the AWS Organizations console, AWS Organi
 
      `arn:aws:iam::123456789012:role/OrganizationAccountAccessRole`
 
-1. Choose **Add statement** and then choose **Next step**\.
+1. Choose **Add Statement** and then choose **Next Step**\.
 
 1. On the **Review Policy** page, ensure that the ARN for the role is correct\. Enter a name for the new policy and then choose **Apply Policy**\.
 
@@ -118,7 +118,7 @@ When you create a member account using the AWS Organizations console, AWS Organi
 
 When using the role, the user has administrator permissions in the new member account\. Instruct your IAM users who are members of the group to do the following to switch to the new role\. 
 
-1. From the upper\-right corner of the AWS Organizations console, choose the link that contains the current sign\-in name and then choose **Switch role**\.
+1. From the upper\-right corner of the AWS Organizations console, choose the link that contains the current sign\-in name and then choose **Switch Role**\.
 
 1. Enter the administrator\-provided account ID number and role name\.
 

@@ -5,6 +5,7 @@ The following table describes major documentation updates for AWS Organizations\
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Integration with AWS Config rules](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrated-services-list.html) | You can use AWS Config APIs to manage AWS Config rules across all AWS accounts in your organization\. | July 8, 2019 | 
 | [New service for trusted access](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrated-services-list.html) | Service Quotas added as a service that can work with the accounts in your organization\. | June 24, 2019 | 
 | [Integration with AWS Control Tower](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrated-services-list.html) | AWS Control Tower added as a service that can work with the accounts in your organization\. | June 24, 2019 | 
 | [Integration with AWS Identity and Access Management](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html) | IAM provides service last accessed data for your organization's entities \(the organization root, OUs, and accounts\)\. You can use this data to restrict access to only the AWS services that you need\. | June 20, 2019 | 

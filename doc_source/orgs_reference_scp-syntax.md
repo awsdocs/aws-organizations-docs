@@ -19,7 +19,7 @@ The following table summarizes the policy elements that you can use in SCPs\. So
 | [Version](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_version.html) | Specifies the language syntax rules to use for processing the policy\. |  `Allow`, `Deny`  | 
 | [Statement](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_statement.html) | Serves as the container for policy elements\. You can have multiple statements in SCPs\. |  `Allow`, `Deny`  | 
 | [Statement ID \(Sid\)](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_sid.html) |  \(Optional\) Provides a friendly name for the statement\.  |  `Allow`, `Deny`  | 
-|  [Effect](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_effect.html)  |  Defines whether the SCP statement [whitelists](orgs_getting-started_concepts.md#whitelisting) \(allows\) or [blacklists](orgs_getting-started_concepts.md#blacklisting) \(denies\) principal and root access in an account\.  |  `Allow`, `Deny`  | 
+|  [Effect](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_effect.html)  |  Defines whether the SCP statement [allows](orgs_getting-started_concepts.md#allowlist) or [denies](orgs_getting-started_concepts.md#denylist) principal and root access in an account\.  |  `Allow`, `Deny`  | 
 |  [Action](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_action.html)  |  Specifies AWS service/actions that the SCP allows or denies\.  |  `Allow`, `Deny`  | 
 |  [NotAction](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_notaction.html)  |  Specifies AWS service/actions that are exempt from the SCP\. Used instead of the `Action` element\.  |  `Deny`  | 
 |  [Resource](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_resource.html)  |  Specifies the AWS resources that the SCP applies to\.  | Deny | 
@@ -87,7 +87,7 @@ Each statement must contain one `Effect` element\. The value can be either `Allo
 
 ### `"Effect": "Allow"`<a name="scp-syntax-effect-allow"></a>
 
-The following example shows an SCP with a statement that contains an `Effect` element with a value of `Allow` that permits account users to perform actions for the Amazon S3 service\. This example is useful in an organization where the default `FullAWSAccess` policies are all detached so that permissions are implicitly denied by default\. The result is that it [whitelists](orgs_getting-started_concepts.md#whitelisting) the Amazon S3 permissions for any attached accounts:
+The following example shows an SCP with a statement that contains an `Effect` element with a value of `Allow` that permits account users to perform actions for the Amazon S3 service\. This example is useful in an organization where the default `FullAWSAccess` policies are all detached so that permissions are implicitly denied by default\. The result is that it [allows](orgs_getting-started_concepts.md#allowlist) the Amazon S3 permissions for any attached accounts:
 
 ```
 {
@@ -98,7 +98,7 @@ The following example shows an SCP with a statement that contains an `Effect` el
 }
 ```
 
-Note that even though it uses the same `Allow` value keyword as an IAM permission policy, in an SCP it doesn't actually grant a user permissions to do anything\. Instead, SCPs specify the maximum permissions for an organization, organizational unit \(OU\), or account\. In the preceding example, even if a user in the account had the `AdministratorAccess` managed policy attached, the SCP limits ***all*** users in the account to only Amazon S3 actions\.
+Even though it uses the same `Allow` value keyword as an IAM permission policy, in an SCP it doesn't actually grant a user permissions to do anything\. Instead, SCPs specify the maximum permissions for an organization, organizational unit \(OU\), or account\. In the preceding example, even if a user in the account had the `AdministratorAccess` managed policy attached, the SCP limits ***all*** users in the account to only Amazon S3 actions\.
 
 ### `"Effect": "Deny"`<a name="scp-syntax-effect-deny"></a>
 
@@ -138,11 +138,11 @@ You also can use an asterisk as a wildcard to match multiple actions that share 
 **Note**  
 In an SCP, the wildcard \(\*\) character in an `Action` or `NotAction` element can be used only by itself or at the end of the string\. It can't appear at the beginning or middle of the string\. Therefore, `"servicename:action*"` is valid, but `"servicename:*action"` and `"servicename:some*action"` are both invalid in SCPs\.
 
-For a list of all the services and the actions that they support in both AWS Organizations SCPs and IAM permission policies, see [Actions, Resources, and Condition Keys for AWS Servies](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actionsconditions.html) in the *IAM User Guide*\.
+For a list of all the services and the actions that they support in both AWS Organizations SCPs and IAM permission policies, see [Actions, Resources, and Condition Keys for AWS Services](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actionsconditions.html) in the *IAM User Guide*\.
 
 ### Example of `Action` Element<a name="scp-syntax-action-example"></a>
 
-The following example shows an SCP with a statement that permits account administrators to delegate describe, start, stop, and terminate permissions for EC2 instances in the account\. This is another example of a [whitelist](orgs_getting-started_concepts.md#whitelisting), and is useful when the default `Allow *` policies are ***not*** attached so that, by default, permissions are implicitly denied\. If the default `Allow *` policy is still attached to the root, OU, or account to which the following policy is attached, the policy has no effect:
+The following example shows an SCP with a statement that permits account administrators to delegate describe, start, stop, and terminate permissions for EC2 instances in the account\. This is an example of an [allow list](orgs_getting-started_concepts.md#allowlist), and is useful when the default `Allow *` policies are ***not*** attached so that, by default, permissions are implicitly denied\. If the default `Allow *` policy is still attached to the root, OU, or account to which the following policy is attached, the policy has no effect:
 
 ```
 {
@@ -159,7 +159,7 @@ The following example shows an SCP with a statement that permits account adminis
 }
 ```
 
-The following example shows how you can [blacklist](orgs_getting-started_concepts.md#blacklisting) services that you don't want used in attached accounts\. It assumes that the default `"Allow *"` SCPs are still attached to all OUs and the root\. This example policy prevents the account administrators in attached accounts from delegating any permissions for the IAM, Amazon EC2, and Amazon RDS services\. Any action from other services can be delegated as long as there isn't another attached policy that denies them:
+The following example shows how you can [deny access](orgs_getting-started_concepts.md#denylist) to services that you don't want used in attached accounts\. It assumes that the default `"Allow *"` SCPs are still attached to all OUs and the root\. This example policy prevents the account administrators in attached accounts from delegating any permissions for the IAM, Amazon EC2, and Amazon RDS services\. Any action from other services can be delegated as long as there isn't another attached policy that denies them:
 
 ```
 {
