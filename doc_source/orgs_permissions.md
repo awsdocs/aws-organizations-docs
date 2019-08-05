@@ -1,4 +1,4 @@
-# Authentication and Access Control for AWS Organizations<a name="orgs_permissions"></a>
+# AWS Identity and Access Management in AWS Organizations<a name="orgs_permissions"></a>
 
 Access to AWS Organizations requires credentials\. Those credentials must have permissions to access AWS resources, such as an Amazon Simple Storage Service \(Amazon S3\) bucket, an Amazon Elastic Compute Cloud \(Amazon EC2\) instance, or an AWS Organizations organizational unit \(OU\)\. The following sections provide details on how you can use AWS Identity and Access Management \(IAM\) to help secure access to your organization and control who can administer it\.
 
