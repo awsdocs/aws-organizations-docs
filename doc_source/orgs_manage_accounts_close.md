@@ -9,7 +9,6 @@ Immediately, the account can no longer be used for any AWS activity other than s
 **Important**  
 Accounts that are closed for 90 days are subject to permanent deletion after which the account and its resources can’t be recovered\.
 Closed accounts are visible in your organization with the "suspended" state\. After an account is permanently deleted, it's no longer visible in your organization\.
-If you choose to close a member account without first removing it from the organization, the closed account still counts toward your limit on the number of accounts you can have in the organization\. It's removed from your organization only after the account is permanently deleted\. Instead of waiting, you can [remove the account from the organization](orgs_manage_accounts_remove.md) before closing it to avoid it counting against the limit\.
 
 You can close an account only by using the Billing and Cost Management console, not by using the AWS Organizations console or its tools\.
 

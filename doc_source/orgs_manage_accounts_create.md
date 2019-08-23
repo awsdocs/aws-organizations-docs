@@ -1,5 +1,7 @@
 # Creating an AWS Account in Your Organization<a name="orgs_manage_accounts_create"></a>
 
+This page describes how to create accounts within your organization in AWS Organizations\. To learn about getting started with AWS and creating a single AWS account, see the [Getting Started Resource Center](https://aws.amazon.com/getting-started/)\.
+
 An organization is a collection of AWS accounts that you centrally manage\. You can perform the following procedures to manage the accounts that are part of your organization:
 + [Creating an AWS Account That Is Part of Your Organization](#orgs_manage_accounts_create-new)
 + [Accessing a Member Account That Has a Master Account Access Role](orgs_manage_accounts_access.md#orgs_manage_accounts_access-cross-account-role)

@@ -156,7 +156,7 @@ Now that the required Lambda function exists in your account, you create a Cloud
 
    1. For **Event Type**, choose **AWS API Call via CloudTrail**\.
 
-   1. Choose **Specific operation\(s\)** and then enter the APIs that you want monitored: **CreateAccount**, **CreateOrganizationalUnit**, and **LeaveOrganization**\. You can select any others that you also want\. For a complete list of available AWS Organizations APIs, see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/)\.
+   1. Choose **Specific operation\(s\)** and then enter the APIs that you want monitored: **CreateAccount** and **CreateOrganizationalUnit**\. You can select any others that you also want\. For a complete list of available AWS Organizations APIs, see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/)\.
 
 1. Under **Targets**, for **Function**, choose the function that you created in the previous procedure\.
 
