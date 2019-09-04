@@ -125,7 +125,9 @@ This SCP prevents users or roles in any affected account from changing the confi
         "ec2:CreateInternetGateway",
         "ec2:CreateEgressOnlyInternetGateway",
         "ec2:CreateVpcPeeringConnection",
-        "ec2:AcceptVpcPeeringConnection"
+        "ec2:AcceptVpcPeeringConnection",
+        "globalaccelerator:Create*",
+        "globalaccelerator:Update*"
       ],
       "Resource": "*"
     }
