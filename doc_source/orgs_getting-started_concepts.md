@@ -18,8 +18,16 @@ A container for [accounts](#account) within a [root](#root)\. An OU also can con
 
 **Account**  <a name="account"></a>
 A standard AWS account that contains your AWS resources\. You can attach a policy to an account to apply controls to only that one account\.  
-An organization has one account that is designated as the *master account*\. This is the account that creates the organization\. The rest of the accounts that belong to an organization are called *member accounts*\. From the organization's master account, you can create accounts in the organization, invite other existing accounts to the organization, remove accounts from the organization, manage invitations, and apply policies to entities \(roots, OUs, or accounts\) within the organization\. An account can be a member of only one organization at a time\.  
-The master account has the responsibilities of a *payer account* and is responsible for paying all charges that are accrued by the member accounts\. 
+There are two types of accounts in an organization: a single account that is designated as the master account, and member accounts\.  
++ The **master account** is the account that creates the organization\. From the organization's master account, you can do the following:
+  + Create accounts in the organization
+  + Invite other existing accounts to the organization
+  + Remove accounts from the organization
+  + Manage invitations
+  + Apply policies to entities \(roots, OUs, or accounts\) within the organization
+
+  The master account has the responsibilities of a *payer account* and is responsible for paying all charges that are accrued by the member accounts\. 
++ The rest of the accounts that belong to an organization are called **member accounts**\. An account can be a member of only one organization at a time\.
 
 **Invitation**  <a name="invite"></a>
 The process of asking another [account](#account) to join your [organization](#org)\. An invitation can be issued only by the organization's master account and is extended to either the account ID or the email address that is associated with the invited account\. After the invited account accepts an invitation, it becomes a member account in the organization\. Invitations also can be sent to all current member accounts when the organization needs all members to approve the change from supporting only [consolidated billing](#feature-set-cb-only) features to supporting [all features](#feature-set-all) in the organization\. Invitations work by accounts exchanging [handshakes](#handshake)\. Although you might not see handshakes when you work in the AWS Organizations console, if you use the AWS CLI or AWS Organizations API, you must work directly with handshakes\.

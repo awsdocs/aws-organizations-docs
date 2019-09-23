@@ -34,7 +34,7 @@ If a member account is removed from an organization, that member account will no
 To remove one or more member accounts from your organization, you must sign in as an IAM user or role in the master account with the following permissions:  
 `organizations:DescribeOrganization` \(console only\)
 `organizations:RemoveAccountFromOrganization` 
-If you choose to sign in as an IAM user or role in a member account in step 6, then that user or role must have the following permissions:  
+If you choose to sign in as an IAM user or role in a member account in step 5, then that user or role must have the following permissions:  
 `organizations:DescribeOrganization` \(console only\)\.
 `organizations:LeaveOrganization` – Note that the organization administrator can apply a policy to your account that removes this permission, preventing you from removing your account from the organization\.
 If you sign in as an IAM user and the account is missing payment information, the IAM user must have the permissions `aws-portal:ModifyBilling` and `aws-portal:ModifyPaymentMethods`\. Also, the member account must have IAM user access to billing enabled\. If this isn't already enabled, see [Activating Access to the Billing and Cost Management Console](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate) in the *AWS Billing and Cost Management User Guide*\.
