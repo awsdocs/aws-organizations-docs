@@ -26,7 +26,7 @@ There are two types of accounts in an organization: a single account that is des
   + Manage invitations
   + Apply policies to entities \(roots, OUs, or accounts\) within the organization
 
-  The master account has the responsibilities of a *payer account* and is responsible for paying all charges that are accrued by the member accounts\. 
+  The master account has the responsibilities of a *payer account* and is responsible for paying all charges that are accrued by the member accounts\. You can't change an organization's master account\.
 + The rest of the accounts that belong to an organization are called **member accounts**\. An account can be a member of only one organization at a time\.
 
 **Invitation**  <a name="invite"></a>
