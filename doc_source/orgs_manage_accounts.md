@@ -9,14 +9,14 @@ An organization is a collection of AWS accounts that you centrally manage\. You 
 
 ## Impact on an AWS Account That You Invite to Join an Organization<a name="impact_of_join"></a>
 
-When you invite an AWS account to join an organization and the owner of the account accepts the invitation, AWS Organizations automatically makes the following changes to the new member account:
+You invite an AWS account to join an organization\. When the owner of the account accepts the invitation, AWS Organizations automatically makes the following changes to the new member account:
 + AWS Organizations creates a service\-linked role called [AWSServiceRoleForOrganizations](orgs_integrate_services.md#orgs_integrate_services-using_slrs)\. The account must have this role if your organization supports all features\. You can delete the role if the organization supports only the consolidated billing feature set\. If you delete the role and later you enable all features in your organization, AWS Organizations recreates the role for the account\. 
-+ If you have any [service control policies \(SCPs\) attached to the root of the OU tree](orgs_manage_policies_scp.md), those SCPs immediately apply to all users and roles in the invited account\. AWS Organizations adds new accounts to the root OU by default\.
-+ If you have [enabled service trust for another AWS service](services-that-can-integrate.md) for your organization, that trusted service can create service\-linked roles or perform actions in any member account in the organization, including an invited account\.
++ You might have [service control policies \(SCPs\)](orgs_manage_policies_scp.md) or [tag policies](orgs_manage_policies_tag-policies.md) that are attached to the organization root or the OU that contains the account\. If so, those policies immediately apply to all users and roles in the invited account\.
++ You can [enable service trust for another AWS service](services-that-can-integrate.md) for your organization\. When you do, that trusted service can create service\-linked roles or perform actions in any member account in the organization, including an invited account\.
 
 For invited member accounts, AWS Organizations doesn't automatically create the IAM role [OrganizationAccountAccessRole](orgs_manage_accounts_access.md#orgs_manage_accounts_access-cross-account-role)\. This role grants the master account administrative control of the member account\. If you want to enable that level of administrative control, you can manually add the role to the invited account\. For more information, see [Creating the OrganizationAccountAccessRole in an Invited Member Account](orgs_manage_accounts_access.md#orgs_manage_accounts_create-cross-account-role)\. 
 
-If you invite an account to join an organization that has only the consolidated billing features enabled and you later want to enable all features for the organization, invited accounts must approve the change\.
+You can invite an account to join an organization that has only the consolidated billing features enabled\. If you later want to enable all features for the organization, invited accounts must approve the change\.
 
 ## Impact on an AWS Account That You Create in an Organization<a name="impact_of_create"></a>
 

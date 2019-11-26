@@ -62,7 +62,7 @@ To create an OU within a root in your organization, you must have the following 
 
 1. In the **Create organizational unit** dialog box, type the name of the OU that you want to create, and then choose **Create organizational unit**\.
 
-   Your new OU appears inside the parent\. You now can [move accounts to this OU](#move_account_to_ou) or [attach policies](orgs_manage_policies.md#attach_policy) to it\.
+   Your new OU appears inside the parent\. You now can [move accounts to this OU](#move_account_to_ou) or attach policies to it\.
 
 **To create an OU \(AWS CLI, AWS API\)**  
 You can use one of the following commands to create an OU:

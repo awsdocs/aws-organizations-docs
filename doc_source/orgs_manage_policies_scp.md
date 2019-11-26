@@ -1,6 +1,6 @@
 # Service Control Policies<a name="orgs_manage_policies_scp"></a>
 
-Service control policies \(SCPs\) are one type of policy that you can use to manage your organization\. SCPs offer central control over the maximum available permissions for all accounts in your organization, allowing you to ensure your accounts stay within your organization’s access control guidelines\. SCPs are available only in an organization that has [all features enabled](orgs_manage_org_support-all-features.md)\. SCPs aren't available if your organization has enabled only the consolidated billing features\. For instructions on enabling SCPs, see [Enabling and Disabling a Policy Type on a Root](orgs_manage_policies.md#enable_policies_on_root)\.
+Service control policies \(SCPs\) are one type of policy that you can use to manage your organization\. SCPs offer central control over the maximum available permissions for all accounts in your organization, allowing you to ensure your accounts stay within your organization’s access control guidelines\. SCPs are available only in an organization that has [all features enabled](orgs_manage_org_support-all-features.md)\. SCPs aren't available if your organization has enabled only the consolidated billing features\. For instructions on enabling SCPs, see [Enabling and Disabling SCPs](enable-scps.md)\.
 
 SCPs are necessary but not sufficient for granting access in the accounts in your organization\. Attaching an SCP to the organization root or an organizational unit \(OU\) defines a guardrail for what actions accounts within the organization root or OU can do\. You still need to attach [IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html) to users and roles in your organization's accounts to actually grant permissions to them\. With an SCP attached to those accounts, identity\-based and resource\-based policies grant permissions to entities only if those policies and the SCP allow the action\. If both a permissions boundary \(an advanced IAM feature\) and an SCP are present, then the boundary, the SCP, and the identity\-based policy must all allow the action\. For more information, see [Policy Evaluation Logic](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html) in the *IAM User Guide*\. 
 
@@ -10,11 +10,13 @@ SCPs are necessary but not sufficient for granting access in the accounts in you
 + [Effects on Permissions](#scp-effects-on-permissions)
 + [Using Access Data to Improve SCPs](#data-from-iam)
 + [Tasks and Entities Not Restricted by SCPs](#not-restricted-by-scp)
++ [Enabling and Disabling SCPs](enable-scps.md)
++ [Creating and Updating SCPs](create-policy.md)
++ [Attaching SCPs](attach-scps.md)
 + [How SCPs Work](orgs_manage_policies_about-scps.md)
 + [Strategies for Using SCPs](SCP_strategies.md)
-+ [Creating and Updating SCPs](create-policy.md)
-+ [Example Service Control Policies](orgs_manage_policies_example-scps.md)
 + [SCP Syntax](orgs_reference_scp-syntax.md)
++ [Example Service Control Policies](orgs_manage_policies_example-scps.md)
 
 ## Testing Effects of SCPs<a name="scp-warning-testing-effect"></a>
 

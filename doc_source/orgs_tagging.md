@@ -6,6 +6,9 @@ A *tag* is a custom attribute label that you add to an AWS resource to make it e
 
 You can use tags to categorize resources by purpose, owner, environment, or other criteria\. For more information, see [AWS Tagging Strategies](https://aws.amazon.com/answers/account-management/aws-tagging-strategies/)\.
 
+**Tip**  
+ You can use [tag policies](orgs_manage_policies_tag-policies.md) to help standardize tags across resources in your organization's accounts\.
+
 ## Supported Resources in AWS Organizations<a name="supported-resources"></a>
 
 Currently, AWS Organizations supports the following tagging operations when you are logged in to the master account:
@@ -18,10 +21,9 @@ AWS Organizations doesn't currently support tagging resources within an account,
 
 When signed in with permissions to your organization's master account, you can add tags to accounts in your organization\. 
 
-**Minimum permissions**  
-To add tags to accounts in your organization, you must have the following permissions:  
-`organizations:ListTagsForResource` \(console only\)
-`organizations:TagResource`
+To add tags to accounts in your organization, you need permission to run the following actions:
++ `organizations:ListTagsForResource` \(console only\)
++ `organizations:TagResource`
 
 **To add a tag to an account in your organization \(console\)**
 
@@ -48,9 +50,8 @@ You can use one of the following commands to add tags to accounts:
 
 When signed in with permissions to your organization's master account, you can view tags on an account in your organization\.
 
-**Minimum permissions**  
-To view tags on an account in your organization, you must have the following permission:  
-`organizations:ListTagsForResource`
+To view tags on an account in your organization, you need permission to run the following action:
++ `organizations:ListTagsForResource`
 
 **To view tags on an account in your organization \(console\)**
 
@@ -73,10 +74,9 @@ When signed in with permissions to your organization's master account, you can e
 
 To edit *tag keys*, you need to delete the tag key and then add a new tag key\. For more information, see [Deleting Tags](#delete-tag) and [Adding Tags](#add-tag)\.
 
-**Minimum permissions**  
-To edit tag values on tags that are attached to accounts, you must have the following permissions:  
-`organizations:ListTagsForResource`
-`organizations:TagResource`
+To edit tag values on tags that are attached to accounts, you need permission to run the following actions:
++ `organizations:ListTagsForResource`
++ `organizations:TagResource`
 
 **To edit a tag value for a tag on an account in your organization \(console\)**
 
@@ -106,10 +106,9 @@ The **TAGS** section in the details pane on the right updates with any changes t
 
 When signed in with permissions to your organization's master account, you can delete tags that are attached to accounts in your organization\. 
 
-**Minimum permissions**  
-To delete tags, you must have the following permission:  
-`organizations:ListTagsForResource`
-`organizations:UntagResource` 
+To delete tags, you need permission to run the following actions:
++ `organizations:ListTagsForResource`
++ `organizations:UntagResource` 
 
 **To delete a tag from an account in your organization \(console\)**
 

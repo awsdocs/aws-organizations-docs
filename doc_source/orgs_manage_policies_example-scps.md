@@ -10,7 +10,7 @@ Test your policies before using them in a production capacity\. Remember that an
 **Tip**  
 You can use [service last accessed data](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html) in [IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) to update your SCPs to restrict access to only the AWS services that you need\. For more information, see [Viewing Organizations Service Last Accessed Data for Organizations](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor-view-data-orgs.html) in the *IAM User Guide\.* 
 
-Each of the following policies is an example of a [deny list policy](SCP_strategies.md#orgs_policies_denylist) strategy\. Deny list policies must be attached along with other policies that allow the approved actions in the affected accounts\. For example, the default `FullAWSAccess` policy permits the use of all services in an account\. This policy is attached by default to the root, all organizational units \(OUs\), and all accounts\. It doesn't actually grant the permissions; no SCP does\. Instead, it enables administrators in that account to delegate access to those actions by attaching standard IAM permission policies to users, roles, or groups in the account\. Each of these deny list policies then overrides any policy by blocking access to the specified services or actions\.
+Each of the following policies is an example of a [deny list policy](SCP_strategies.md#orgs_policies_denylist) strategy\. Deny list policies must be attached along with other policies that allow the approved actions in the affected accounts\. For example, the default `FullAWSAccess` policy permits the use of all services in an account\. This policy is attached by default to the root, all organizational units \(OUs\), and all accounts\. It doesn't actually grant the permissions; no SCP does\. Instead, it enables administrators in that account to delegate access to those actions by attaching standard IAM permissions policies to users, roles, or groups in the account\. Each of these deny list policies then overrides any policy by blocking access to the specified services or actions\.
 
 **Topics**
 + [Example 1: Prevent Users from Disabling AWS CloudTrail](#example_scp_1)
@@ -25,6 +25,7 @@ Each of the following policies is an example of a [deny list policy](SCP_strateg
 + [Example 10: Require Amazon EC2 Instances to Use a Specific Type](#example-ec2-instances)
 + [Example 11: Require MFA to Stop an Amazon EC2 Instance](#example-ec2-mfa)
 + [Example 12: Restrict Access to Amazon EC2 for Root User](#example-ec2-root-user)
++ [Example 13: Require a Tag Upon Resource Creation](#example-require-tag-on-create)
 
 ## Example 1: Prevent Users from Disabling AWS CloudTrail<a name="example_scp_1"></a>
 
@@ -345,6 +346,68 @@ The following policy restricts all access to Amazon EC2 actions for the [root us
           "aws:PrincipalArn": [
             "arn:aws:iam::*:root"
           ]
+        }
+      }
+    }
+  ]
+}
+```
+
+## Example 13: Require a Tag Upon Resource Creation<a name="example-require-tag-on-create"></a>
+
+The following SCP prevents account principals from creating certain resource types without the specified tags\. 
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "DenyCreateSecretWithNoProjectTag",
+      "Effect": "Deny",
+      "Action": "secretsmanager:CreateSecret",
+      "Resource": "*",
+      "Condition": {
+        "Null": {
+          "aws:RequestTag/Project": "true"
+        }
+      }
+    },
+    {
+      "Sid": " DenyRunInstanceWithNoProjectTag",
+      "Effect": "Deny",
+      "Action": "ec2:RunInstances",
+      "Resource": [
+        "arn:aws:ec2:*:*:instance/*",
+        "arn:aws:ec2:*:*:volume/*"
+      ],
+      "Condition": {
+        "Null": {
+          "aws:RequestTag/Project": "true"
+        }
+      }
+    },
+    {
+      "Sid": "DenyCreateSecretWithNoCostCenterTag",
+      "Effect": "Deny",
+      "Action": "secretsmanager:CreateSecret",
+      "Resource": "*",
+      "Condition": {
+        "Null": {
+          "aws:RequestTag/CostCenter": "true"
+        }
+      }
+    },
+    {
+      "Sid": " DenyRunInstanceWithNoCostCenterTag",
+      "Effect": "Deny",
+      "Action": "ec2:RunInstances",
+      "Resource": [
+        "arn:aws:ec2:*:*:instance/*",
+        "arn:aws:ec2:*:*:volume/*"
+      ],
+      "Condition": {
+        "Null": {
+          "aws:RequestTag/CostCenter": "true"
         }
       }
     }
