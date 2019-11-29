@@ -97,7 +97,7 @@ Assume that you want users in OU1 to use different tag value for a key, and you 
             },
             "enforced_for": {
                 "@@assign": [
-                    "ec2:*",
+                    "redshift:*",
                     "dynamodb:table"
                 ]
             }
@@ -108,7 +108,7 @@ Assume that you want users in OU1 to use different tag value for a key, and you 
 
 Specifying the `@@assign` operator for the tag does the following when policy A and policy B merge to form the *effective tag policy* for an account:
 + Policy B overwrites the two tag values that were specified in the parent policy, policy A\. `Sandbox` is only compliant value for the `CostCenter` tag key\.
-+ The addition of `enforced_for` specifies that the `CostCenter` tag must be used the specified tag value on all Amazon EC2 resources and Amazon DynamoDB tables\.
++ The addition of `enforced_for` specifies that the `CostCenter` tag must be used the specified tag value on all Amazon Redshift resources and Amazon DynamoDB tables\.
 
 As shown in the diagram, OU1 includes two accounts: 111111111111 and 222222222222\. 
 
@@ -123,7 +123,7 @@ As shown in the diagram, OU1 includes two accounts: 111111111111 and 22222222222
                 "Sandbox"
             ],
             "enforced_for": [
-                "ec2:*",
+                "redshift:*",
                 "dynamodb:table"
             ]
         }
@@ -175,7 +175,7 @@ For this example, attach policy C to OU2\. The difference in this example is tha
             },
             "enforced_for": {
                 "@@append": [
-                    "ec2:*",
+                    "redshift:*",
                     "dynamodb:table"
                 ]
             }
@@ -186,7 +186,7 @@ For this example, attach policy C to OU2\. The difference in this example is tha
 
 Attaching policy C to OU2 has the following effects when policy A and policy C merge to form the effective tag policy for an account:
 + Because policy C includes the `@@append` operator, it allows for *adding to*, not overwriting, the list of acceptable tag values that are specified in Policy A\.
-+ As in policy B, the addition of `enforced_for` specifies that the `CostCenter` tag must be used the specified tag value on all Amazon EC2 resources and Amazon DynamoDB tables\. Overwriting \(`@@assign`\) and adding \(`@@append`\) have the same effect if the parent policy doesn't include a child control operator that restricts what a child policy can specify\.
++ As in policy B, the addition of `enforced_for` specifies that the `CostCenter` tag must be used the specified tag value on all Amazon Redshift resources and Amazon DynamoDB tables\. Overwriting \(`@@assign`\) and adding \(`@@append`\) have the same effect if the parent policy doesn't include a child control operator that restricts what a child policy can specify\.
 
 As shown in the diagram, OU2 includes one account: 999999999999\. Policy A and policy C merge to create the effective tag policy for account 999999999999\.
 
@@ -203,7 +203,7 @@ As shown in the diagram, OU2 includes one account: 999999999999\. Policy A and p
                 "Marketing"
             ],
             "enforced_for": [
-                "ec2:*",
+                "redshift:*",
                 "dynamodb:table"
             ]
         }
@@ -255,7 +255,7 @@ For this example, attach policy D to account 999999999999\.
                 ],
                 "enforced_for": {
                     "@@remove": [
-                        "ec2:*",
+                        "redshift:*",
                         "dynamodb:table"
                     ]
                 }
