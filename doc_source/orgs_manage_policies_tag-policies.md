@@ -17,7 +17,9 @@ The rest of this page describes tag policies\. For more information about tags, 
 
 ## What Are Tag Policies?<a name="what-are-tag-policies"></a>
 
-*Tag policies* are a type of policy that can help you standardize tags across resources in your organization's accounts\. In a tag policy, you specify tagging rules for specific resources\. For example, you can specify that all Amazon EC2 instances have a "CostCenter" tag\. 
+*Tag policies* are a type of policy that can help you standardize tags across resources in your organization's accounts\. In a tag policy, you specify tagging rules applicable to resources when they are tagged\.
+
+For example, a tag policy can specify that when the `CostCenter` tag is attached to a resource, it must use the case treatment and tag values that the tag policy defines\. A tag policy can also specify that noncompliant tagging operations on specified resource types are *enforced*\. In other words, noncompliant tagging requests on specified resource types are prevented from completing\. Untagged resources or tags that aren't defined in the tag policy aren't evaluated for compliance with the tag policy\.
 
 Using tag policies involves working with multiple AWS services:
 + Use **AWS Organizations** to manage *tag policies*\. When signed in to the organization's master account, you use Organizations to enable the tag policies feature\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\. Then you can create tag policies and attach them to the organization entities to put those tagging rules in effect\. 
