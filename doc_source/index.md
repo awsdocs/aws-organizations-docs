@@ -69,6 +69,7 @@ Amazon's trademarks and trade dress may not be used in
       + [AWS Service Catalog and AWS Organizations](services-that-can-integrate-service-catalog.md)
       + [Service Quotas and AWS Organizations](services-that-can-integrate-service-quotas.md)
       + [AWS Single Sign-On and AWS Organizations](services-that-can-integrate-peregrine.md)
+      + [AWS Systems Manager and AWS Organizations](services-that-can-integrate-systems-manager.md)
       + [Tag Policies and AWS Organizations](orgs_integrate_services-tag-policies.md)
 + [Security in AWS Organizations](security.md)
    + [AWS Identity and Access Management in AWS Organizations](orgs_permissions.md)
