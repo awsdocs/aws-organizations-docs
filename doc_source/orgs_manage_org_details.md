@@ -21,7 +21,7 @@ When signed in to the organization's master account in the [AWS Organizations co
 
 1. Choose the **Settings** tab\.
 
-   The console displays details about the organization, including its ID, its ARN, and the email address of the owner of its master account\.
+   The console displays details about the organization, including its ID and the email address of the owner of its master account\.
 
 **To view details of an organization \(AWS CLI, AWS API\)**  
 You can use one of the following commands to view details of an organization:

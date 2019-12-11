@@ -17,11 +17,11 @@ Tag policy features are available in the following Regions:
 | Asia Pacific \(Sydney\) Region | `ap-southeast-2` | 
 | Asia Pacific \(Tokyo\) Region | `ap-northeast-1` | 
 | Canada \(Central\) Region | `ca-central-1` | 
-| EU \(Frankfurt\) Region | `eu-central-1` | 
-| EU \(Ireland\) Region | `eu-west-1` | 
-| EU \(London\) Region | `eu-west-2` | 
-| EU \(Paris\) Region | `eu-west-3` | 
-| EU \(Stockholm\) Region | `eu-north-1` | 
+| Europe \(Frankfurt\) Region | `eu-central-1` | 
+| Europe \(Ireland\) Region | `eu-west-1` | 
+| Europe \(London\) Region | `eu-west-2` | 
+| Europe \(Paris\) Region | `eu-west-3` | 
+| Europe \(Stockholm\) Region | `eu-north-1` | 
 | Middle East \(Bahrain\) Region² | `me-south-1` | 
 | South America \(São Paulo\) Region | `sa-east-1` | 
 
