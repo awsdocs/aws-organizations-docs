@@ -45,7 +45,7 @@ This global condition also applies to the master account of an organization\.
 
   ```
               "Condition": {
-                  "ForAnyValues:StringLike": {
+                  "ForAnyValue:StringLike": {
                       "aws:PrincipalOrgPaths": [
                           "o-a1b2c3d4e5/r-f6g7h8i9j0example/ou-def0-awsbbbbb/",
                           "o-a1b2c3d4e5/r-f6g7h8i9j0example/ou-jkl0-awsddddd/"
