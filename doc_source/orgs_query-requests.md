@@ -16,7 +16,7 @@ The response is an XML document\. For details about the response, see the indivi
 
 ## Endpoints<a name="OrgsEndpoints"></a>
 
-AWS Organizations has a single global API endpoint that is hosted in the US East \(N\. Virginia\) Region: [https://organizations\.us\-east\-1\.amazonaws\.com](https://organizations.us-east-1.amazonaws.com)
+AWS Organizations has a single global API endpoint that is hosted in the US East \(N\. Virginia\) Region\.
 
 For more information about AWS endpoints and regions for all services, see [Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/index.html?rande.html) in the *AWS General Reference*\. 
 
