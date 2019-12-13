@@ -52,6 +52,7 @@ Amazon's trademarks and trade dress may not be used in
       + [Viewing Effective Tag Policies](orgs_manage_policies_tag-policies-effective.md)
       + [Using CloudWatch Events to Monitor Noncompliant Tags](orgs_manage_policies_tag-policies-cwe.md)
       + [Understanding Enforcement](orgs_manage_policies_tag-policies-enforcement.md)
+         + [Services and Resource Types That Support Enforcement](orgs_manage_policies_supported-resources-enforcement.md)
       + [Tag Policy Syntax and Examples](orgs_manage_policies_example-tag-policies.md)
       + [How Policy Inheritance Works](orgs_manage_policies-inheritance.md)
       + [Using Tag Policies in the AWS CLI](tag-policy-cli.md)

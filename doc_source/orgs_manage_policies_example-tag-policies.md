@@ -50,7 +50,9 @@ You should only change this option from the default if you are experienced with 
 + *Operators* that specify how the tag policy merges with other tag policies within the organization tree to create an account's [effective tag policy](orgs_manage_policies_tag-policies-effective.md)\. In this example, `@@assign` is used to assign strings to `tag_key`, `tag_value`, and `enforced_for`\. For more information on operators, see [Inheritance Operators](orgs_manage_policies-inheritance.md#tag-policy-operators)\.
 + You can use the `*` wildcard in tag values and `enforced_for` fields:
   + You can use one wildcard per tag value\. For example, `*@example.com` is allowed, but `*@*.com` is not\. 
-  + In the `enforced_for` field, you can use `*` to indicate that you must use a key for all services\. Using a wildcard to specify a resource for all services \(as in, `*:instance`\) is not allowed\.
+  + For `enforced_for`, you can use `<service>:*` with some services to enable enforcement for all resources for that service\. For a list of services and resource types that support `enforced_for`, see [Services and Resource Types That Support Enforcement](orgs_manage_policies_supported-resources-enforcement.md)\. 
+
+    You can't use a wildcard to specify all services or to specify a resource for all services\.
 
 ## Tag Policy Examples<a name="tag-policy-examples"></a>
 
