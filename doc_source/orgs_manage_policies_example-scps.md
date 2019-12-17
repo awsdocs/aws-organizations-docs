@@ -373,7 +373,7 @@ The following SCP prevents account principals from creating certain resource typ
       }
     },
     {
-      "Sid": " DenyRunInstanceWithNoProjectTag",
+      "Sid": "DenyRunInstanceWithNoProjectTag",
       "Effect": "Deny",
       "Action": "ec2:RunInstances",
       "Resource": [
@@ -398,7 +398,7 @@ The following SCP prevents account principals from creating certain resource typ
       }
     },
     {
-      "Sid": " DenyRunInstanceWithNoCostCenterTag",
+      "Sid": "DenyRunInstanceWithNoCostCenterTag",
       "Effect": "Deny",
       "Action": "ec2:RunInstances",
       "Resource": [
