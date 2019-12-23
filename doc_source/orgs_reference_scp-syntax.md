@@ -5,7 +5,7 @@ Service control policies \(SCPs\) use a similar syntax to that used by IAM permi
 An SCP is a plaintext file that is structured according to the rules of [JSON](http://json.org)\. It uses the elements that are described on this page\.
 
 **Note**  
-All characters in your SCP count against its [size limit](orgs_reference_limits.md#min-max-values)\. The examples in this guide show the SCPs formatted with extra white space to improve their readability\. However, to save space if your policy size approaches the limit, you can delete any white space, such as space characters and line breaks that are outside quotation marks\.
+All characters in your SCP count against its [maximum size](orgs_reference_limits.md#min-max-values)\. The examples in this guide show the SCPs formatted with extra white space to improve their readability\. However, to save space if your policy size approaches the maximum size, you can delete any white space, such as space characters and line breaks that are outside quotation marks\.
 
 For general information about SCPs, see [Service Control Policies](orgs_manage_policies_scp.md)\.
 

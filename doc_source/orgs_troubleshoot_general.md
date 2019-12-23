@@ -6,7 +6,7 @@ Use the information here to help you diagnose and fix access\-denied or other co
 + [I get an "access denied" message when I make a request to AWS Organizations](#troubleshoot_general_access-denied-service)
 + [I get an "access denied" message when I make a request with temporary security credentials](#troubleshoot_general_access-denied-temp-creds)
 + [I get an "access denied" message when I try to leave an organization as a member account or remove a member account as the master account](#troubleshoot_general_error-leaving-org)
-+ [I get a "limit exceeded" message when I try to add an account to my organization](#troubleshoot_general_error-adding-account)
++ [I get a "quota exceeded" message when I try to add an account to my organization](#troubleshoot_general_error-adding-account)
 + [I get a "this operation requires a wait period" message while adding or removing accounts](#troubleshoot_general_error-wait-req)
 + [I get an "organization is still initializing" message when I try to add an account to my organization](#troubleshoot_general_error-still-init)
 + [I used an incorrect email address when I created a member account](#troubleshoot_incorrect-email)
@@ -25,17 +25,17 @@ Use the information here to help you diagnose and fix access\-denied or other co
 + You can remove a member account only after you enable IAM user access to billing in the member account\. For more information, see [Activating Access to the Billing and Cost Management Console](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate) in the *AWS Billing and Cost Management User Guide*\.
 + You can remove an account from your organization only if the account has the information required for it to operate as a standalone account\. When you create an account in an organization using the AWS Organizations console, API, or AWS CLI commands, that information isn't automatically collected\. For an account that you want to make standalone, you must accept the AWS Customer Agreement, choose a support plan, provide and verify the required contact information, and provide a current payment method\. AWS uses the payment method to charge for any billable \(not AWS Free Tier\) AWS activity that occurs while the account isn't attached to an organization\. For more information, see [Leaving an Organization as a Member Account](orgs_manage_accounts_remove.md#orgs_manage_accounts_leave-as-member)\.
 
-## I get a "limit exceeded" message when I try to add an account to my organization<a name="troubleshoot_general_error-adding-account"></a>
+## I get a "quota exceeded" message when I try to add an account to my organization<a name="troubleshoot_general_error-adding-account"></a>
 
-There is a limit to the number of accounts that you can have in an organization\. Deleted or closed accounts continue to count against this limit\.
+There is a maximum number of accounts that you can have in an organization\. Deleted or closed accounts continue to count against this quota\.
 
-An invitation to join counts against the limit of accounts in your organization\. The count is returned if the invited account declines, the master account cancels the invitation, or the invitation expires\.
-+ Before you close or delete an AWS account, [remove it from your organization](orgs_manage_accounts_remove.md) so that it doesn't continue to count against your limit\.
-+ Contact [AWS Support](https://console.aws.amazon.com/support/home#/) to request a limit increase\.
+An invitation to join counts against the maximum number of accounts in your organization\. The count is returned if the invited account declines, the master account cancels the invitation, or the invitation expires\.
++ Before you close or delete an AWS account, [remove it from your organization](orgs_manage_accounts_remove.md) so that it doesn't continue to count against your quota\.
++ Contact [AWS Support](https://console.aws.amazon.com/support/home#/) to request a quota increase\.
 
 ## I get a "this operation requires a wait period" message while adding or removing accounts<a name="troubleshoot_general_error-wait-req"></a>
 
-Some actions require a wait period\. For example, you can't immediately remove newly created accounts\. Try the action again later\. If you experience issues with account limits while adding and removing accounts, contact [AWS Support](https://console.aws.amazon.com/support/home#/) to request a limit increase\.
+Some actions require a wait period\. For example, you can't immediately remove newly created accounts\. Try the action again later\. If you experience issues with account quotas while adding and removing accounts, contact [AWS Support](https://console.aws.amazon.com/support/home#/) to request a quota increase\.
 
 ## I get an "organization is still initializing" message when I try to add an account to my organization<a name="troubleshoot_general_error-still-init"></a>
 

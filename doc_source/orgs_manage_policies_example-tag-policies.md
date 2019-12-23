@@ -62,7 +62,7 @@ The example [tag policies](orgs_manage_policies_tag-policies.md) that follow are
 Before you attempt to use these example tag policies in your organization, note the following:  
 Make sure that you've followed the [recommended workflow](tag-policies-getting-started.md) for getting started with tag policies\.
 You should carefully review and customize these tag policies for your unique requirements\.
-All characters in your tag policy are subject to a [size limit](orgs_reference_limits.md#min-max-values)\. The examples in this guide show tag policies formatted with extra white space to improve their readability\. However, to save space if your policy size approaches the limit, you can delete any white space\. Examples of white space include space characters and line breaks that are outside quotation marks\.
+All characters in your tag policy are subject to a [maximum size](orgs_reference_limits.md#min-max-values)\. The examples in this guide show tag policies formatted with extra white space to improve their readability\. However, to save space if your policy size approaches the maximum size, you can delete any white space\. Examples of white space include space characters and line breaks that are outside quotation marks\.
 
 ## Example: Define Organization\-wide Tag Key Case<a name="tag-policy-example-key-case"></a>
 

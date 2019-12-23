@@ -53,7 +53,7 @@ This global condition also applies to the master account of an organization\.
                   }
               }
   ```
-+ `organizations:ServicePrincipal` – Available as a condition if you use the [EnableAWSServiceAccess](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAWSServiceAccess.html) or [DisableAWSServiceAccess](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DisableAWSServiceAccess.html) operations to enable or disable [trusted access](orgs_integrate_services.md) with other AWS services\. You can use `organizations:ServicePrincipal` to limit requests that those operations make to a list of approved service principal names\.
++ `organizations:ServicePrincipal` – Available as a condition if you use the [EnableAWSServiceAccess](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAWSServiceAccess.html) or [DisableAWSServiceAccess](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DisableAWSServiceAccess.html) operations to enable or disable [trusted access](orgs_integrate_services.md) with other AWS services\. You can use `organizations:ServicePrincipal` to restrict requests that those operations make to a list of approved service principal names\.
 
   For example, the following policy allows the user to specify only AWS Firewall Manager when enabling and disabling trusted access with AWS Organizations\.
 

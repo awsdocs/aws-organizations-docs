@@ -13,9 +13,9 @@ When you create an account in your organization instead of inviting an existing 
 
 AWS Organizations *does* automatically create a service\-linked role in invited member accounts to support integration between AWS Organizations and other AWS services\. For more information, see [AWS Organizations and Service\-Linked Roles](orgs_integrate_services.md#orgs_integrate_services-using_slrs)\.
 
-You can send up to 20 invitations per day per organization\. Accepted invitations don't count against this limit\. As soon as one invitation is accepted, you can send another invitation that same day\. Each invitation must be responded to within 15 days, or it expires\.
+You can send up to 20 invitations per day per organization\. Accepted invitations don't count against this quota\. As soon as one invitation is accepted, you can send another invitation that same day\. Each invitation must be responded to within 15 days, or it expires\.
 
-An invitation that is sent to an account counts against the limit of accounts in your organization\. The count is returned if the invited account declines, the master account cancels the invitation, or the invitation expires\.
+An invitation that is sent to an account counts against the quota of accounts in your organization\. The count is returned if the invited account declines, the master account cancels the invitation, or the invitation expires\.
 
 To create an account that automatically is part of your organization, see [Creating an AWS Account in Your Organization](orgs_manage_accounts_create.md)\.
 
@@ -49,13 +49,13 @@ To invite an AWS account to join your organization, you must have the following 
 
 1. Choose **Invite**\.
 **Important**  
-If you get a message that you exceeded your account limits for the organization or that you can't add an account because your organization is still initializing, contact [AWS Support](https://console.aws.amazon.com/support/home#/)\.
+If you get a message that you exceeded your account quotas for the organization or that you can't add an account because your organization is still initializing, contact [AWS Support](https://console.aws.amazon.com/support/home#/)\.
 
 1. The console redirects you to the **Invitations** tab\. View all open and accepted invitations here\. The invitation that you just created appears at the top of the list with its status set to **OPEN**\.
 
    AWS Organizations sends an invitation to the email address of the owner of the account that you invited to the organization\. This email includes a link to the AWS Organizations console, where the account owner can view the details and choose to accept or decline the invitation\. Alternatively, the owner of the invited account can bypass the email, go directly to the AWS Organizations console, view the invitation, and accept or decline it\.
 
-   The invitation to this account immediately counts against the limit to the number of accounts that you can have in your organization\. AWS Organizations doesn't wait until the account accepts the invitation\. If the invited account declines, the master account cancels the invitation\. If the invited account doesn't respond within the specified time period, the invitation expires\. In either case, the invitation no longer counts against your limit\.
+   The invitation to this account immediately counts against the maximum number of accounts that you can have in your organization\. AWS Organizations doesn't wait until the account accepts the invitation\. If the invited account declines, the master account cancels the invitation\. If the invited account doesn't respond within the specified time period, the invitation expires\. In either case, the invitation no longer counts against your quota\.
 
 **To invite another account to join your organization \(AWS CLI, AWS API\)**  
 You can use one of the following commands to invite another account to join your organization:

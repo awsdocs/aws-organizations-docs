@@ -104,4 +104,4 @@ The value of the `Statement` element is an object array\. The array in the examp
 
 ### Policy document exceeds maximum size<a name="scptoolong"></a>
 
-The maximum size of an SCP document is 5,120 bytes\. This limit includes all characters, including white space\. To reduce the size of your SCP if you approach the limit, you can remove all white space characters \(such as spaces and line breaks\) that are outside quotation marks\. 
+The maximum size of an SCP document is 5,120 bytes\. This maximum size includes all characters, including white space\. To reduce the size of your SCP, you can remove all white space characters \(such as spaces and line breaks\) that are outside quotation marks\. 

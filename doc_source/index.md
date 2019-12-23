@@ -80,7 +80,7 @@ Amazon's trademarks and trade dress may not be used in
    + [Resilience in AWS Organizations](disaster-recovery-resiliency.md)
    + [Infrastructure Security in AWS Organizations](infrastructure-security.md)
 + [AWS Organizations Reference](orgs_reference.md)
-   + [Limits of AWS Organizations](orgs_reference_limits.md)
+   + [Quotas for AWS Organizations](orgs_reference_limits.md)
    + [AWS Managed Policies Available for Use with AWS Organizations](orgs_reference_available-policies.md)
 + [Troubleshooting AWS Organizations](orgs_troubleshoot.md)
    + [Troubleshooting General Issues](orgs_troubleshoot_general.md)

@@ -6,7 +6,7 @@ SCPs are necessary but not sufficient for granting access in the accounts in you
 
 **Topics**
 + [Testing Effects of SCPs](#scp-warning-testing-effect)
-+ [SCP Size Limit](#scp-size-limit)
++ [Maximum Size of SCPs](#scp-size-limit)
 + [Effects on Permissions](#scp-effects-on-permissions)
 + [Using Access Data to Improve SCPs](#data-from-iam)
 + [Tasks and Entities Not Restricted by SCPs](#not-restricted-by-scp)
@@ -22,9 +22,9 @@ SCPs are necessary but not sufficient for granting access in the accounts in you
 
 AWS strongly recommends that you don't attach SCPs to the root of your organization without thoroughly testing the impact that the policy has on accounts\. Instead, create an OU that you can move your accounts into one at a time, or at least in small numbers, to ensure that you don't inadvertently lock users out of key services\. One way to determine whether a service is used by an account is to examine the [service last accessed data in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html)\. Another way is to [use AWS CloudTrail to log service usage at the API level](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/how-cloudtrail-works.html)\.
 
-## SCP Size Limit<a name="scp-size-limit"></a>
+## Maximum Size of SCPs<a name="scp-size-limit"></a>
 
-All characters in your SCP count against its [size limit](orgs_reference_limits.md#min-max-values)\. The examples in this guide show the SCPs formatted with extra white space to improve their readability\. However, to save space if your policy size approaches the limit, you can delete any white space, such as space characters and line breaks that are outside quotation marks\.
+All characters in your SCP count against its [maximum size](orgs_reference_limits.md#min-max-values)\. The examples in this guide show the SCPs formatted with extra white space to improve their readability\. However, to save space if your policy size approaches the maximum size, you can delete any white space, such as space characters and line breaks that are outside quotation marks\.
 
 **Tip**  
 Use the visual editor to build your SCP\. It automatically removes extra white space\.
@@ -32,7 +32,7 @@ Use the visual editor to build your SCP\. It automatically removes extra white s
 ## Effects on Permissions<a name="scp-effects-on-permissions"></a>
 
 SCPs are similar to IAM permission policies and use almost the same syntax\. However, an SCP never grants permissions\. Instead, SCPs are JSON policies that specify the maximum permissions for an organization or organizational unit \(OU\)\. Note the following:
-+ An SCP limits permissions for entities in member accounts, including each AWS account root user\. Any account has only those permissions permitted by ***every*** parent above it\. If a permission is blocked at any level above the account, either implicitly \(by not being included in an `Allow` policy statement\) or explicitly \(by being included in a `Deny` policy statement\), a user or role in the affected account can't use that permission, even if the account administrator attaches the `AdministratorAccess` IAM policy with \*/\* permissions to the user\.
++ An SCP restricts permissions for entities in member accounts, including each AWS account root user\. Any account has only those permissions permitted by ***every*** parent above it\. If a permission is blocked at any level above the account, either implicitly \(by not being included in an `Allow` policy statement\) or explicitly \(by being included in a `Deny` policy statement\), a user or role in the affected account can't use that permission, even if the account administrator attaches the `AdministratorAccess` IAM policy with \*/\* permissions to the user\.
 + Users and roles must still be granted permissions with appropriate IAM permission policies\. A user without any IAM permission policies has no access at all, even if the applicable SCPs allow all services and all actions\.
 + If a user or role has an IAM permission policy that grants access to an action that is also allowed by the applicable SCPs, the user or role can perform that action\.
 + If a user or role has an IAM permission policy that grants access to an action that is either not allowed or explicitly denied by the applicable SCPs, the user or role can't perform that action\.
