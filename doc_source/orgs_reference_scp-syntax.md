@@ -174,16 +174,16 @@ The following example shows how you can [deny access](orgs_getting-started_conce
 
 ### Example of `NotAction` Element<a name="scp-syntax-notaction-example"></a>
 
-The following example shows how you can use a `NotAction` element to control access to a Region for all resources of a service\.
+The following example shows how you can use a `NotAction` element to exclude AWS services from the effect of the policy\.
 
 ```
 {
   "Version": "2012-10-17",
   "Statement": [
     {
-      "Sid": "RequireBucketsInUSWest1",
+      "Sid": "LimitActionsInRegion",
       "Effect": "Deny",
-      "NotAction": "s3:*",
+      "NotAction": "iam:*",
       "Resource": "*",
       "Condition": {
         "StringNotEquals": {
@@ -195,7 +195,7 @@ The following example shows how you can use a `NotAction` element to control acc
 }
 ```
 
-With this statement, affected accounts are limited to creating Amazon S3 buckets to the specified Region\.
+With this statement, affected accounts are limited to taking actions in the specified Region, except when using IAM actions\.
 
 ## `Resource` Element<a name="scp-syntax-resource"></a>
 
