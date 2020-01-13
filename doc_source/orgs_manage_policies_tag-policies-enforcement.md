@@ -1,6 +1,8 @@
 # Understanding Enforcement<a name="orgs_manage_policies_tag-policies-enforcement"></a>
 
-By default, compliance with tag policies is not enforced\. To enforce compliance with tag policies, do one of the following when you [create a tag policy](orgs_manage_policies_tag-policies-create.md):
+A tag policy can specify that noncompliant tagging operations on specified resource types are *enforced*\. In other words, noncompliant tagging requests on specified resource types are prevented from completing\.
+
+To enforce compliance with tag policies, do one of the following when you [create a tag policy](orgs_manage_policies_tag-policies-create.md):
 + From the **Visual editor** tab, select [**Prevent noncompliant operations for this tag**](orgs_manage_policies_tag-policies-create.md#prevent-noncompliant-operations)\.
 + From the **JSON** tab, use the `enforced_for` field\. For information on tag policy syntax, see [Tag Policy Syntax and Examples](orgs_manage_policies_example-tag-policies.md)\.
 
