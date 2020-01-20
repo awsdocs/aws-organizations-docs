@@ -43,17 +43,17 @@ The resource element is required\. If you want to specify all resources for the 
 
    1. Optional: To specify conditions for when a policy is in effect, choose **Add condition**\. For the selected service, specify the following:
       + **Condition key** – You can specify a condition key that is available for all AWS services \(for example, `aws:SourceIp`\) or a service\-specific key\(for example, `ec2:InstanceType`\)\. 
-      + **Qualifier** – \(Optional\) If you enter multiple values for the condition, you can specify a [qualifier](https://docs.aws.amazon.com/IAM/latest/UserGuide//reference_policies_multi-value-conditions.html) for testing requests against the values\.
-      + **Operator** – You can use [operators](https://docs.aws.amazon.com/IAM/latest/UserGuide//reference_policies_elements_condition_operators.html) to restrict access based on comparing a key to a value\. 
+      + **Qualifier** – \(Optional\) If you enter multiple values for the condition, you can specify a [qualifier](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_multi-value-conditions.html) for testing requests against the values\.
+      + **Operator** – You can use [operators](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html) to restrict access based on comparing a key to a value\. 
 
-        For any condition operator except the `Null` condition, you can choose the [IfExists](https://docs.aws.amazon.com/IAM/latest/UserGuide///reference_policies_elements_condition_operators.html#Conditions_IfExists) option\. 
+        For any condition operator except the `Null` condition, you can choose the [IfExists](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html#Conditions_IfExists) option\. 
       + **Value** – \(Optional\) Specify one or more values for the condition\.
 
       Choose **Add condition**\.
 
-      For more information on condition keys, see [IAM JSON Policy Elements: Condition](https://docs.aws.amazon.com/IAM/latest/UserGuide//reference_policies_elements_condition.html) in the *IAM User Guide*\. 
+      For more information on condition keys, see [IAM JSON Policy Elements: Condition](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html) in the *IAM User Guide*\. 
 
-   1. Optional: To use the `NotAction` element to deny access to all of the listed resources except for specified actions, replace `Action` in the left pane with `NotAction`, just after the `"Effect": "Deny",` element\. For more information, see [IAM JSON Policy Elements: NotAction](https://docs.aws.amazon.com/IAM/latest/UserGuide//reference_policies_elements_notaction.html) in the *IAM User Guide*\. 
+   1. Optional: To use the `NotAction` element to deny access to all of the listed resources except for specified actions, replace `Action` in the left pane with `NotAction`, just after the `"Effect": "Deny",` element\. For more information, see [IAM JSON Policy Elements: NotAction](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_notaction.html) in the *IAM User Guide*\. 
 
 1. To add a statement that *allows* access:
 

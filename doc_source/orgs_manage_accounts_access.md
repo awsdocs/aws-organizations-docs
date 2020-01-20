@@ -42,13 +42,15 @@ However, member accounts that you *invite* to join your organization ***do not**
 
 1. Choose **Another AWS account**\.
 
-1. Enter the 12\-digit account ID number of the master account that you want to grant administrator access to\. 
+1. Enter the 12\-digit account ID number of the master account that you want to grant administrator access to and choose **Next: Permissions**\. 
 
-1. For this role, because the accounts are internal to your company, you should not choose **Require external ID**\. For more information about the external ID option, see [When Should I Use the External ID?](https://docs.aws.amazon.com/IAM/latest/UserGuide//id_roles_create_for-user_externalid.html#external-id-use) in the *IAM User Guide*\. 
+   For this role, because the accounts are internal to your company, you should not choose **Require external ID**\. For more information about the external ID option, see [When Should I Use the External ID?](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html#external-id-use) in the *IAM User Guide*\. 
 
 1. If you have MFA enabled and configured, you can optionally choose to require authentication using an MFA device\. For more information about MFA, see [Using Multi\-Factor Authentication \(MFA\) in AWS](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa.html) in the *IAM User Guide*\. 
 
-1. On the **Attach permissions policies** page, choose the AWS managed policy named `AdministratorAccess` and then choose **Next: Review**\.
+1. On the **Attach permissions policies** page, choose the AWS managed policy named `AdministratorAccess` and then choose **Next: Tags**\.
+
+1. On the **Add tags \(optional\)** page, choose **Next: Review**\. 
 
 1. On the **Review** page, specify a role name and an optional description\. We recommend that you use `OrganizationAccountAccessRole`, which is the default name assigned to the role in new accounts\. To commit your changes, choose **Create role**\.
 
@@ -58,7 +60,7 @@ However, member accounts that you *invite* to join your organization ***do not**
 
 1. Navigate to **Policies** and then choose **Create Policy**\.
 **Note**  
-This example shows how to create a policy and attach it to a group\. If you already created this policy for other accounts, skip to step 19\.
+This example shows how to create a policy and attach it to a group\. If you already created this policy for other accounts, skip to step 18
 
 1. For **Service**, choose **STS**\.
 
@@ -66,7 +68,7 @@ This example shows how to create a policy and attach it to a group\. If you alre
 
 1. Choose **Resources**, ensure that **Specific** is selected and then choose **Add ARN**\.
 
-1. Enter the AWS member account ID number and then enter the name of the role that you previously created in steps 1–9\.
+1. Enter the AWS member account ID number and then enter the name of the role that you previously created in steps 1–8\. Choose **Add**\.
 
 1. If you're granting permission to assume the role in multiple member accounts, repeats steps 14 and 15 for each account\.
 
@@ -75,6 +77,8 @@ This example shows how to create a policy and attach it to a group\. If you alre
 1. Enter a name for the new policy and then choose **Create policy** to save your changes\.
 
 1. Choose **Groups** in the navigation pane and then choose the name of the group \(not the check box\) that you want to use to delegate administration of the member account\.
+
+1. Choose the **Permissions** tab\.
 
 1. Choose **Attach Policy**, select the policy that you created in steps 11–18, and then choose **Attach Policy**\.
 

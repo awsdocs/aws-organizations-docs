@@ -32,10 +32,10 @@ Tag policy features are available in the following Regions:
 + Any other operations on an organization root, such as [ListRoots](https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListRoots.html)\.
 
 **You must also specify the `us-east-1` Region when calling the following Resource Groups Tagging API operations that are part of the tag policies feature:**
-+ [DescribeReportCreation](https://docs.aws.amazon.com//resourcegroupstagging/latest/APIReference/API_DescribeReportCreation.html)
-+ [GetComplianceSummary](https://docs.aws.amazon.com//resourcegroupstagging/latest/APIReference/API_GetComplianceSummary.html)
-+ [GetResources](https://docs.aws.amazon.com//resourcegroupstagging/latest/APIReference/API_GetResources.html)
-+ [StartReportCreation](https://docs.aws.amazon.com//resourcegroupstagging/latest/APIReference/API_StartReportCreation.html)
++ [DescribeReportCreation](https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/API_DescribeReportCreation.html)
++ [GetComplianceSummary](https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/API_GetComplianceSummary.html)
++ [GetResources](https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/API_GetResources.html)
++ [StartReportCreation](https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/API_StartReportCreation.html)
 
 **Note**  
 To evaluate organization\-wide compliance with tag policies, you must also have access to an Amazon S3 bucket in the US East \(N\. Virginia\) Region for report storage\. For more information, see [Amazon S3 Bucket Policy for Storing Report](https://docs.aws.amazon.com/ARG/latest/userguide/tag-policies-prereqs.html#bucket-policy)\.
