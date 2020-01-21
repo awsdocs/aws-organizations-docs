@@ -99,7 +99,7 @@ When signed in to the organization's master account in the [AWS Organizations co
    The **Account summary** pane on the right side of the page shows details of the selected account\.
 
 **Note**  
-By default, failed account creation requests are hidden on the **Accounts** tab\. You can include them in the list by choosing the switch at the top to change it to **Show**\.
+By default, failed account creation requests are available for 90 days and hidden on the **Accounts** tab\. To view a list that includes failed account creation requests, choose the switch at the top to change it to **Show**\.
 
 **To view details of an account \(AWS CLI, AWS API\)**  
 You can use one of the following commands to view details of an account:
