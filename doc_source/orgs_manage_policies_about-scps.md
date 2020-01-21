@@ -9,7 +9,7 @@ In this illustration, an SCP attached to the organization root allows permission
 Users and roles must still be granted permissions using IAM permission policies attached to them or to groups\. The SCPs filter the permissions granted by such policies, and the user can't perform any actions that the applicable SCPs don't allow\. Actions allowed by the SCPs can be used if they are granted to the user or role by one or more IAM permission policies\.
 
 When you attach SCPs to the organization root, OUs, or directly to accounts, all policies that affect a given account are evaluated together using the same rules that govern IAM permission policies:
-+ Any action that has an explicit `Deny` in an SCP can't be delegated to users or roles in the affected accounts\. An explicit `Deny` statement overrides any `Allow` that other SCPs might grant\.
++ Users and roles in affected accounts can't perform any actions that are listed in the SCP's `Deny` statement\. An explicit `Deny` statement overrides any `Allow` that other SCPs might grant\.
 + Any action that has an explicit `Allow` in an SCP \(such as the default "\*" SCP or by any other SCP that calls out a specific service or action\) can be delegated to users and roles in the affected accounts\.
 + Any action that isn't explicitly allowed by an SCP is implicitly denied and can't be delegated to users or roles in the affected accounts\.
 
