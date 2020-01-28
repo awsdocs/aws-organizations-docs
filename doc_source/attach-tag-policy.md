@@ -7,6 +7,9 @@ You can use tag policies on an entire organization as well as on organizational 
 
 The aggregation of any tag policies the account inherits, plus any tag policy directly attached to the account is the [*effective tag policy*](orgs_manage_policies_tag-policies-effective.md)\. For more information, see [How Policy Inheritance Works](orgs_manage_policies-inheritance.md)\.
 
+**Important**  
+Untagged resources don't appear as noncompliant in results\.
+
 To attach tag policies, you must have permission to run the following action:
 + `organizations:AttachPolicy`
 

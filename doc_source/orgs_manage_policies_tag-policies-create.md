@@ -1,6 +1,9 @@
 # Creating and Updating Tag Policies<a name="orgs_manage_policies_tag-policies-create"></a>
 
-After you enable tag policies for your organization, you can create a tag policy\. 
+After you enable tag policies for your organization, you can create a tag policy\.
+
+**Important**  
+Untagged resources don't appear as noncompliant in results\.
 
 ## Creating a Tag Policy<a name="create-tag-policy-procedure"></a>
 
@@ -19,7 +22,7 @@ To create tag policies, you need permission to run the following action:
 
    You can build the tag policy using the **Visual editor** as described in this procedure\. You can also type or paste a tag policy in the **JSON** tab\. For information on tag policy syntax, see [Tag Policy Syntax](orgs_manage_policies_example-tag-policies.md#tag-policy-syntax-reference)\.
 
-1. For **Tag Key**, specify the name of the tag key to add\. 
+1. For **Tag Key**, specify the name of a tag key to add\. 
 
 1. For **Tag key capitalization compliance**, leave this option cleared \(the default\) to specify that the parent tag policy should define the case treatment for the tag key\. 
 
@@ -27,7 +30,7 @@ To create tag policies, you need permission to run the following action:
 
    If a parent policy doesn't exist and you don't select this option, tag keys in all lowercase characters are considered compliant\. For more information about parent policies, see [How Policy Inheritance Works](orgs_manage_policies-inheritance.md)\.
 **Tip**  
-Consider using the example tag policy shown in [Example: Define Organization\-wide Tag Key Case](orgs_manage_policies_example-tag-policies.md#tag-policy-example-key-case) as a guide in creating a tag policy that define tag keys and their case treatment\. Attach it to the organization root\. Later, you can create and attach additional tag policies to OUs or accounts to create additional tagging rules\. 
+Consider using the example tag policy shown in [Example 1: Define Organization\-wide Tag Key Case](orgs_manage_policies_example-tag-policies.md#tag-policy-example-key-case) as a guide in creating a tag policy that define tag keys and their case treatment\. Attach it to the organization root\. Later, you can create and attach additional tag policies to OUs or accounts to create additional tagging rules\. 
 
 1. For **Tag value compliance**, select the check box if you want to add allowed values for this tag key\.
 
@@ -38,6 +41,8 @@ Consider using the example tag policy shown in [Example: Define Organization\-wi
 1. For **Prevent noncompliant operations for this tag**, leave this option cleared \(the default\) unless you are experienced with using tag policies\. Make sure that you have reviewed the recommendations in [Understanding Enforcement](orgs_manage_policies_tag-policies-enforcement.md)\. Otherwise, you could prevent users in your organization's accounts from tagging the resources they need\. 
 
    If you do want to enforce compliance with this tag key, select the check box and then **Specify allowed values**\. When prompted, enter the resource types to add\. Then choose **Save changes**\.
+
+1. \(Optional\) To add another tag key to this tag policy, choose **Add tag key**\. Then perform steps 5–8 to define the tag key\.
 
 1. When you're finished building your tag policy, choose **Save changes**\.
 

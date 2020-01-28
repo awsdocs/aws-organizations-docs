@@ -11,7 +11,7 @@ The following tag policy shows basic tag policy syntax:
 ```
 {
     "tags": {
-        "CostCenter": {
+        "costcenter": {
             "tag_key": {
                 "@@assign": "CostCenter"
             },
@@ -33,12 +33,14 @@ The following tag policy shows basic tag policy syntax:
 
 Tag policy syntax includes the following components: 
 + The `tags` field key name\. Tag policies always start with this fixed key name\. It's the top line in the example policy above\.
-+ A *policy key* that uniquely identifies the policy statement\. It should match the value for the *tag key*, except for the case treatment\. The policy key *is not* case sensitive, but the tag key *is*\. 
++ A *policy key* that uniquely identifies the policy statement\. It must match the value for the *tag key*, except for the case treatment\. Unlike the tag key \(described next\), the policy key *is not* case sensitive\. 
 
-  In this example, the first instance of `CostCenter` is the policy key\.
+  In this example, `costcenter` is the policy key\.
 + At least one *tag key* that specifies the allowed tag key with the capitalization that you want resources to be compliant with\. If case treatment isn't defined, lowercase is the default case treatment for tag keys\. The value for the tag key must match the value for the policy key\. But since the policy key value is case insensitive, the capitalization can be different\. 
 
-  In this example, the second instance of `CostCenter` is the tag key\.
+  In this example, `CostCenter` is the tag key\. This is the case treatment that is required for compliance with the tag policy\. Resources with alternate case treatment for this tag key are noncompliant with the tag policy\. 
+
+  You can define multiple tag keys in a tag policy\.
 + \(Optional\) A list of one or more acceptable *tag values* for the tag key\. If the tag policy doesn't specify a tag value for a tag key, any value \(including no value at all\) is considered compliant\.
 
   In this example, acceptable values for the `CostCenter` tag key are `100` and `200`\. 
@@ -63,8 +65,9 @@ Before you attempt to use these example tag policies in your organization, note 
 Make sure that you've followed the [recommended workflow](tag-policies-getting-started.md) for getting started with tag policies\.
 You should carefully review and customize these tag policies for your unique requirements\.
 All characters in your tag policy are subject to a [maximum size](orgs_reference_limits.md#min-max-values)\. The examples in this guide show tag policies formatted with extra white space to improve their readability\. However, to save space if your policy size approaches the maximum size, you can delete any white space\. Examples of white space include space characters and line breaks that are outside quotation marks\.
+Untagged resources don't appear as noncompliant in results\.
 
-## Example: Define Organization\-wide Tag Key Case<a name="tag-policy-example-key-case"></a>
+## Example 1: Define Organization\-wide Tag Key Case<a name="tag-policy-example-key-case"></a>
 
 The following example shows a tag policy that only defines two tag keys and the capitalization that you want accounts in your organization to standardize on\. 
 
@@ -89,11 +92,15 @@ The following example shows a tag policy that only defines two tag keys and the 
 }
 ```
 
-This tag policy defines two tag keys: `CostCenter` and `Project`\. By attaching this tag policy to the organization root, you specify that all accounts in your organization inherit it and must use the defined case treatment for compliance\. The `@@operators_allowed_for_child_policies": ["@@none"]` lines "lock down" the tag keys\. Tag policies that are attached lower in the organization tree \(child policies\) can't use value\-setting operators to changes the tag key, including its case treatment\. 
+This tag policy defines two tag keys: `CostCenter` and `Project`\. Attaching this tag policy to the organization root has the following effects:
++ All accounts in your organization inherit this tag policy\.
++ All accounts in your organization must use the defined case treatment for compliance\. Resources with `CostCenter` and `Project` tags are compliant\. Resources with alternate case treatment for the tag key \(for example, `costcenter`, `Costcenter`, or `COSTCENTER`\) are noncompliant\. 
++ The `@@operators_allowed_for_child_policies": ["@@none"]` lines lock down the tag keys\. Tag policies that are attached lower in the organization tree \(child policies\) can't use value\-setting operators to changes the tag key, including its case treatment\.
++ As with all tag policies, untagged resources or tags that aren't defined in the tag policy aren't evaluated for compliance with the tag policy\.
 
 AWS recommends that you use this example as a guide in creating a similar tag policy for tag keys that you want to use\. Attach it to the organization root\. Then create a tag policy similar to the next example, which only defines the acceptable values for the defined tag keys\. 
 
-## Example: Define Values<a name="tag-policy-example-add-values"></a>
+### Next Step: Define Values<a name="tag-policy-example-add-values"></a>
 
 Assume that you attached the previous tag policy to the organization root\. Next, you can create a tag policy like the following and attach it to an account\. This policy defines acceptable values for the `CostCenter` and `Project` tag keys\. 
 
@@ -148,3 +155,35 @@ If you attach Policy A to the organization root and Policy B to an account, the 
 ```
 
 For more information on policy inheritance, including examples of how the inheritance operators work and example effective tag policies, see [How Policy Inheritance Works](orgs_manage_policies-inheritance.md)\.
+
+## Example 2: Prevent Use of a Tag Key<a name="tag-policy-example-prevent-key"></a>
+
+To prevent the use of a tag key, you can attach a tag policy like the following to an organization entity\.
+
+This example policy specifies that no values are acceptable for the `Color` tag key\. It also specifies that no [operators](orgs_manage_policies-inheritance.md#tag-policy-operators) are allowed in child tag policies\. Therefore, any `Color` tags on resources in affected accounts are noncompliant\. In addition, the `enforced_for` option actually prevents affected accounts from tagging Amazon DynamoDB tables with the `Color` tag\. 
+
+```
+{
+    "tags": {
+        "Color": {
+            "tag_key": {
+                "@@operators_allowed_for_child_policies": [
+                    "@@none"
+                ],
+                "@@assign": "Color"
+            },
+            "tag_value": {
+                "@@operators_allowed_for_child_policies": [
+                    "@@none"
+                ],
+                "@@append": []
+            },
+            "enforced_for": {
+                "@@assign": [
+                    "dynamodb:table"
+                ]
+            }
+        }
+    }
+}
+```
