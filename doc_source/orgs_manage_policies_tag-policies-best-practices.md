@@ -3,7 +3,7 @@
 AWS recommends the following best practices for using tag policies:
 + **Decide on a tag capitalization strategy** – Determine how you want to capitalize tags and consistently implement that strategy across all resource types\. For example, decide whether to use `Costcenter`, `costcenter`, or `CostCenter`, and use the same convention for all tags\. For consistent results in compliance reports, avoid using similar tags with inconsistent case treatment\. This strategy will help you define tag policies for your organization\. 
 + **Use the recommended workflow** – Start small by creating a simple tag policy\. Then attach it to a member account that you can use for testing purposes\. Use the workflows described in [Getting Started with Tag Policies](tag-policies-getting-started.md)\.
-+ **Determine tagging rules** – This will depend on your organization's needs\. For example, you may want to specify that all AWS Secrets Manager secrets should have a `CostCenter` tag\. Create tag policies that define compliant tags and attach them to the organization entities where you want those tagging rules to be in effect\.
++ **Determine tagging rules** – This will depend on your organization's needs\. For example, you may want to specify that when a `CostCenter` tag is attached to AWS Secrets Manager secrets, it must use the specified case treatment\. Create tag policies that define compliant tags and attach them to the organization entities where you want those tagging rules to be in effect\.
 + **Educate account administrators** – When you're ready to expand your use of tag policies, educate account administrators as follows:
   + Communicate your tagging strategy\.
   + Emphasize that administrators need to use tags on specific resource types\.

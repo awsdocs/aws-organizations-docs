@@ -5,7 +5,7 @@ When signed in to your organization's master account, you can attach a service c
 To attach an SCP to a root, OU, or account, you need permission to run the following action:
 + `organizations:AttachPolicy` with a `Resource` element in the same policy statement that includes "\*" or the ARN of the specified policy and the ARN of the root, OU, or account that you want to attach the policy to
 
-**To attach anSCP to a root, OU, or account \(console\)**
+**To attach an SCP to a root, OU, or account \(console\)**
 
 1. Sign in to the Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\.
 

@@ -15,7 +15,7 @@ Currently, AWS Organizations supports the following tagging operations when you 
 + You can tag and untag accounts in AWS Organizations\.
 + You can view tags on an account in AWS Organizations\.
 
-AWS Organizations doesn't currently support tagging resources within an account, or the tag\-based access control feature of AWS Identity and Access Management \(IAM\)\.
+AWS Organizations doesn't currently support tagging resources within an account, cost allocation tags, or the tag\-based access control feature of AWS Identity and Access Management \(IAM\)\.
 
 ## Adding Tags<a name="add-tag"></a>
 
