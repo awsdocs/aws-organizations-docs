@@ -5,6 +5,7 @@ The following table describes major documentation updates for AWS Organizations\
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Integration with Compute Optimizer](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrated-services-list.html) | Compute Optimizer was added as a service that can work with accounts in your organization\. | February 4, 2020 | 
 | [Tag policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html) | You can use tag policies to help standardize tags across resources in your organization's accounts\. | November 26, 2019 | 
 | [Integration with Systems Manager](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrated-services-list.html) | You can synchronize operations data across all AWS accounts in your organization in Systems Manager Explorer\. | November 26, 2019 | 
 | [aws:PrincipalOrgPaths](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions_overview.html) | New global condition key checks the AWS Organizations path for the IAM user, IAM role, or AWS account root user who is making the request\.  | November 20, 2019 | 

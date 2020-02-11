@@ -59,6 +59,8 @@ The following tasks and entities are not restricted by SCPs:
 + Managing root credentials\. No matter what SCPs are attached, the root user in an account can always do the following:
   + Changing the root user's password
   + Creating, updating, or deleting root access keys
+**Note**  
+For some accounts created before 9/15/2017, this restriction doesn't apply\. AWS recommends that you don't rely on this restriction for these accounts\.
   + Enabling or disabling multi\-factor authentication on the root user
   + Creating, updating, or deleting x\.509 keys for the root user
 + Registering for the Enterprise support plan as the root user

@@ -112,7 +112,7 @@ In this step, you create an Amazon SNS topic that emails information to its subs
 
 **To create an Amazon SNS topic to send an email to subscribers**
 
-1. Open the Amazon SNS console at [https://console.aws.amazon.com/sns/](https://console.aws.amazon.com/sns/)\. 
+1. Open the Amazon SNS console at [https://console.aws.amazon.com/sns/v3/](https://console.aws.amazon.com/sns/v3/)\. 
 
 1. In the navigation pane, choose **Topics**\.
 
