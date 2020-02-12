@@ -61,6 +61,7 @@ Amazon's trademarks and trade dress may not be used in
 + [Enabling Trusted Access with Other AWS Services](orgs_integrate_services.md)
    + [Services That Support Trusted Access with Your Organization](services-that-can-integrate.md)
       + [AWS Artifact and AWS Organizations](services-that-can-integrate-art.md)
+      + [AWS CloudFormation StackSets and AWS Organizations](services-that-can-integrate-cloudformation.md)
       + [AWS CloudTrail and AWS Organizations](services-that-can-integrate-ct.md)
       + [AWS Compute Optimizer and AWS Organizations](services-that-can-integrate-compute-optimizer.md)
       + [AWS Config and AWS Organizations](services-that-can-integrate-config.md)

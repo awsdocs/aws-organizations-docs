@@ -5,6 +5,7 @@ The following table describes major documentation updates for AWS Organizations\
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Integration with AWS CloudFormation StackSets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.html) | You can create a service\-managed stack set to deploy stack instances to accounts managed by AWS Organizations\. | February 11, 2020 | 
 | [Integration with Compute Optimizer](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrated-services-list.html) | Compute Optimizer was added as a service that can work with accounts in your organization\. | February 4, 2020 | 
 | [Tag policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html) | You can use tag policies to help standardize tags across resources in your organization's accounts\. | November 26, 2019 | 
 | [Integration with Systems Manager](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrated-services-list.html) | You can synchronize operations data across all AWS accounts in your organization in Systems Manager Explorer\. | November 26, 2019 | 
