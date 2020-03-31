@@ -1,4 +1,4 @@
-# Troubleshooting General Issues<a name="orgs_troubleshoot_general"></a>
+# Troubleshooting general issues<a name="orgs_troubleshoot_general"></a>
 
 Use the information here to help you diagnose and fix access\-denied or other common issues that you might encounter when working with AWS Organizations\.
 
@@ -9,7 +9,7 @@ Use the information here to help you diagnose and fix access\-denied or other co
 + [I get a "quota exceeded" message when I try to add an account to my organization](#troubleshoot_general_error-adding-account)
 + [I get a "this operation requires a wait period" message while adding or removing accounts](#troubleshoot_general_error-wait-req)
 + [I get an "organization is still initializing" message when I try to add an account to my organization](#troubleshoot_general_error-still-init)
-+ [I used an incorrect email address when I created a member account](#troubleshoot_incorrect-email)
++ [I used an incorrect email address when i created a member account](#troubleshoot_incorrect-email)
 + [Changes that I make aren't always immediately visible](#troubleshoot_general_eventual-consistency)
 
 ## I get an "access denied" message when I make a request to AWS Organizations<a name="troubleshoot_general_access-denied-service"></a>
@@ -23,7 +23,7 @@ Use the information here to help you diagnose and fix access\-denied or other co
 
 ## I get an "access denied" message when I try to leave an organization as a member account or remove a member account as the master account<a name="troubleshoot_general_error-leaving-org"></a>
 + You can remove a member account only after you enable IAM user access to billing in the member account\. For more information, see [Activating Access to the Billing and Cost Management Console](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate) in the *AWS Billing and Cost Management User Guide*\.
-+ You can remove an account from your organization only if the account has the information required for it to operate as a standalone account\. When you create an account in an organization using the AWS Organizations console, API, or AWS CLI commands, that information isn't automatically collected\. For an account that you want to make standalone, you must accept the AWS Customer Agreement, choose a support plan, provide and verify the required contact information, and provide a current payment method\. AWS uses the payment method to charge for any billable \(not AWS Free Tier\) AWS activity that occurs while the account isn't attached to an organization\. For more information, see [Leaving an Organization as a Member Account](orgs_manage_accounts_remove.md#orgs_manage_accounts_leave-as-member)\.
++ You can remove an account from your organization only if the account has the information required for it to operate as a standalone account\. When you create an account in an organization using the AWS Organizations console, API, or AWS CLI commands, that information isn't automatically collected\. For an account that you want to make standalone, you must accept the AWS Customer Agreement, choose a support plan, provide and verify the required contact information, and provide a current payment method\. AWS uses the payment method to charge for any billable \(not AWS Free Tier\) AWS activity that occurs while the account isn't attached to an organization\. For more information, see [Leaving an organization as a member account](orgs_manage_accounts_remove.md#orgs_manage_accounts_leave-as-member)\.
 
 ## I get a "quota exceeded" message when I try to add an account to my organization<a name="troubleshoot_general_error-adding-account"></a>
 
@@ -41,9 +41,9 @@ Some actions require a wait period\. For example, you can't immediately remove n
 
 If you receive this error and it's been over an hour since you created the organization, contact [AWS Support](https://console.aws.amazon.com/support/home#/)\.
 
-## I used an incorrect email address when I created a member account<a name="troubleshoot_incorrect-email"></a>
+## I used an incorrect email address when i created a member account<a name="troubleshoot_incorrect-email"></a>
 
-If you created a member account in an organization with an incorrect email address, you can’t sign in to the account as the root user\. In this case, try accessing or creating a master account access role for the account\. For more information, see [Accessing a Member Account That Has a Master Account Access Role](orgs_manage_accounts_access.md#orgs_manage_accounts_access-cross-account-role)\. If you can't access or create the role, see the [Contact Us](https://aws.amazon.com/contact-us/) page, and choose the item regarding billing to contact AWS Support\.
+If you created a member account in an organization with an incorrect email address, you can’t sign in to the account as the root user\. In this case, try accessing or creating a master account access role for the account\. For more information, see [Accessing a member account that has a master account access role](orgs_manage_accounts_access.md#orgs_manage_accounts_access-cross-account-role)\. If you can't access or create the role, see the [Contact Us](https://aws.amazon.com/contact-us/) page, and choose the item regarding billing to contact AWS Support\.
 
 ## Changes that I make aren't always immediately visible<a name="troubleshoot_general_eventual-consistency"></a>
 

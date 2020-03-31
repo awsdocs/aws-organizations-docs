@@ -1,4 +1,4 @@
-# Inviting an AWS Account to Join Your Organization<a name="orgs_manage_accounts_invites"></a>
+# Inviting an AWS account to join your organization<a name="orgs_manage_accounts_invites"></a>
 
 After you create an organization and verify that you own the email address associated with the master account, you can invite existing AWS accounts to join your organization\. 
 
@@ -6,23 +6,23 @@ When you invite an account, AWS Organizations sends an invitation to the account
 
 If you are the administrator of an AWS account, you also can accept or decline an invitation from an organization\. If you accept, your account becomes a member of that organization\. Your account can join only one organization, so if you receive multiple invitations to join, you can accept only one\.
 
-When an invited account joins your organization, you *do not* automatically have full administrator control over the account, unlike created accounts\. If you want the master account to have full administrative control over an invited member account, you must create the `OrganizationAccountAccessRole` IAM role in the member account and grant permission to the master account to assume the role\. To configure this, after the invited account becomes a member, follow the steps in [Creating the OrganizationAccountAccessRole in an Invited Member Account](orgs_manage_accounts_access.md#orgs_manage_accounts_create-cross-account-role)\.
+When an invited account joins your organization, you *do not* automatically have full administrator control over the account, unlike created accounts\. If you want the master account to have full administrative control over an invited member account, you must create the `OrganizationAccountAccessRole` IAM role in the member account and grant permission to the master account to assume the role\. To configure this, after the invited account becomes a member, follow the steps in [Creating the OrganizationAccountAccessRole in an invited member account](orgs_manage_accounts_access.md#orgs_manage_accounts_create-cross-account-role)\.
 
 **Note**  
 When you create an account in your organization instead of inviting an existing account to join, AWS Organizations automatically creates an IAM role \(named `OrganizationAccountAccessRole` by default\) that you can use to grant users in the master account administrator access to the created account\. 
 
-AWS Organizations *does* automatically create a service\-linked role in invited member accounts to support integration between AWS Organizations and other AWS services\. For more information, see [AWS Organizations and Service\-Linked Roles](orgs_integrate_services.md#orgs_integrate_services-using_slrs)\.
+AWS Organizations *does* automatically create a service\-linked role in invited member accounts to support integration between AWS Organizations and other AWS services\. For more information, see [AWS Organizations and service\-linked roles](orgs_integrate_services.md#orgs_integrate_services-using_slrs)\.
 
 You can send up to 20 invitations per day per organization\. Accepted invitations don't count against this quota\. As soon as one invitation is accepted, you can send another invitation that same day\. Each invitation must be responded to within 15 days, or it expires\.
 
 An invitation that is sent to an account counts against the quota of accounts in your organization\. The count is returned if the invited account declines, the master account cancels the invitation, or the invitation expires\.
 
-To create an account that automatically is part of your organization, see [Creating an AWS Account in Your Organization](orgs_manage_accounts_create.md)\.
+To create an account that automatically is part of your organization, see [Creating an AWS account in your organization](orgs_manage_accounts_create.md)\.
 
 **Important**  
 Because of legal and billing constraints, you can invite AWS accounts only from the same AWS seller as the master account\. You can't mix accounts from AWS, Amazon Internet Services Pvt\. Ltd \(AISPL, an AWS seller in India\), or Amazon Connect Technology Services \(Beijing\) Co\. \(ACTS, an AWS seller in China\) in the same organization\. You can add accounts from an AWS seller only to an organization with accounts from the same AWS seller\.
 
-## Sending Invitations to AWS Accounts<a name="orgs_manage_accounts_invite-account"></a>
+## Sending invitations to AWS accounts<a name="orgs_manage_accounts_invite-account"></a>
 
 To invite accounts to your organization, you must first verify that you own the email address associated with the master account\. After you have verified your email address, complete the following steps to invite accounts to your organization\.
 
@@ -62,7 +62,7 @@ You can use one of the following commands to invite another account to join your
 + AWS CLI: [aws organizations invite\-account\-to\-organization](https://docs.aws.amazon.com/cli/latest/reference/organizations/invite-account-to-organization.html) 
 + AWS API: [InviteAccountToOrganization](https://docs.aws.amazon.com/organizations/latest/APIReference/API_InviteAccountToOrganization.html)
 
-## Managing Pending Invitations for Your Organization<a name="orgs_manage_accounts_manage-invites"></a>
+## Managing pending invitations for your organization<a name="orgs_manage_accounts_manage-invites"></a>
 
 When signed in to your master account, you can view all the linked AWS accounts in your organization and cancel any pending \(open\) invitations\. To do this, complete the following steps\.
 
@@ -91,7 +91,7 @@ You can use the following commands to view or cancel invitations:
 + AWS CLI: [aws organizations list\-handshakes\-for\-organization](https://docs.aws.amazon.com/cli/latest/reference/organizations/list-handshakes-for-organization.html), [aws organizations cancel\-handshake](https://docs.aws.amazon.com/cli/latest/reference/organizations/cancel-handshake.html) 
 + AWS API: [ListHandshakesForOrganization](https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListHandshakesForOrganization.html), [CancelHandshake](https://docs.aws.amazon.com/organizations/latest/APIReference/API_CancelHandshake.html)
 
-## Accepting or Declining an Invitation from an Organization<a name="orgs_manage_accounts_accept-decline-invite"></a>
+## Accepting or declining an invitation from an organization<a name="orgs_manage_accounts_accept-decline-invite"></a>
 
 Your AWS account might receive an invitation to join an organization\. You can accept or decline the invitation\. To do this, complete the following steps\.
 
@@ -100,7 +100,7 @@ To accept or decline an invitation to join an AWS organization, you must have th
 `organizations:ListHandshakesForAccount` – Required to see the list of invitations in the AWS Organizations console\.
 `organizations:AcceptHandshake`\.
 `organizations:DeclineHandshake`\.
-`iam:CreateServiceLinkedRole` – Required only when accepting the invitation requires the creation of a service\-linked role to support integration with other AWS services\. For more information, see [AWS Organizations and Service\-Linked Roles](orgs_integrate_services.md#orgs_integrate_services-using_slrs)\.
+`iam:CreateServiceLinkedRole` – Required only when accepting the invitation requires the creation of a service\-linked role to support integration with other AWS services\. For more information, see [AWS Organizations and service\-linked roles](orgs_integrate_services.md#orgs_integrate_services-using_slrs)\.
 
 **Note**  
 An account’s status with an organization affects what cost and usage data is visible:  
@@ -122,7 +122,7 @@ If an account rejoins an organization that it previously belonged to, the accoun
 **Note**  
 Accepted invitations continue to appear in the list for 30 days\. After that, they are deleted and no longer appear in the list\.
 
-     AWS Organizations automatically creates a service\-linked role in the new member account to support integration between AWS Organizations and other AWS services\. For more information, see [AWS Organizations and Service\-Linked Roles](orgs_integrate_services.md#orgs_integrate_services-using_slrs)\.
+     AWS Organizations automatically creates a service\-linked role in the new member account to support integration between AWS Organizations and other AWS services\. For more information, see [AWS Organizations and service\-linked roles](orgs_integrate_services.md#orgs_integrate_services-using_slrs)\.
 
      AWS sends an email to the owner of the organization's master account stating that you accepted the invitation\. It also sends an email to the member account owner stating that the account is now a member of the organization\.
    + If you choose **Decline** in the preceding step, your account remains on the **Invitations** page that lists any other pending invitations\.

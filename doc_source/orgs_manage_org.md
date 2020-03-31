@@ -1,4 +1,4 @@
-# Creating and Managing an Organization<a name="orgs_manage_org"></a>
+# Creating and managing an organization<a name="orgs_manage_org"></a>
 
 You can perform the following tasks using the AWS Organizations console:
 + **[Create an organization](orgs_manage_create.md)**\. Create your organization with your current account as its master account\. Create member accounts within your organization, and invite other accounts to join your organization\.

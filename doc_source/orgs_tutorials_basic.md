@@ -1,4 +1,4 @@
-# Tutorial: Creating and Configuring an Organization<a name="orgs_tutorials_basic"></a>
+# Tutorial: Creating and configuring an organization<a name="orgs_tutorials_basic"></a>
 
 In this tutorial, you create your organization and configure it with two AWS member accounts\. You create one of the member accounts in your organization, and you invite the other account to join your organization\. Next, you use the [allow list](orgs_getting-started_concepts.md#allowlist) technique to specify that account administrators can delegate only explicitly listed services and actions\. This allows administrators to validate any new service that AWS introduces before they permit its use by anyone else in your company\. That way, if AWS introduces a new service, it remains prohibited until an administrator adds the service to the allow list in the appropriate policy\. The tutorial also shows you how to use a [deny list](orgs_getting-started_concepts.md#denylist) to ensure that no users in a member account can change the configuration for the auditing logs that AWS CloudTrail creates\. 
 
@@ -6,16 +6,16 @@ The following illustration shows the main steps of the tutorial\.
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/organizations/latest/userguide/images/tutorialorgs.png)
 
-**[Step 1: Create Your Organization](#tutorial-orgs-step1)**  
+**[Step 1: Create your organization](#tutorial-orgs-step1)**  
 In this step, you create an organization with your current AWS account as the master account\. You also invite one AWS account to join your organization, and you create a second account as a member account\.
 
-**[Step 2: Create the Organizational Units ](#tutorial-orgs-step2)**  
+**[Step 2: Create the organizational units ](#tutorial-orgs-step2)**  
 Next, you create two organizational units \(OUs\) in your new organization and place the member accounts in those OUs\.
 
-**[Step 3: Create the Service Control Policies](#tutorial-orgs-step3)**  
+**[Step 3: Create the service control policies](#tutorial-orgs-step3)**  
 You can apply restrictions to what actions can be delegated to users and roles in the member accounts by using [service control policies \(SCPs\)](orgs_manage_policies_scp.md)\. In this step, you create two SCPs and attach them to the OUs in your organization\.
 
-**[Step 4: Testing Your Organization's Policies](#tutorial-orgs-step4)**  
+**[Step 4: Testing your organization's policies](#tutorial-orgs-step4)**  
 You can sign in as users from each of the test accounts and see the effects that the SCPs have on the accounts\.
 
 None of the steps in this tutorial incurs costs to your AWS bill\. AWS Organizations is a free service\.
@@ -31,7 +31,7 @@ The tutorial refers to the accounts as the following:
 
 Substitute the values above with the values that are associated with your test accounts\. We recommend that you don't use production accounts for this tutorial\.
 
-## Step 1: Create Your Organization<a name="tutorial-orgs-step1"></a>
+## Step 1: Create your organization<a name="tutorial-orgs-step1"></a>
 
 In this step, you sign in to account 111111111111 as an administrator, create an organization with that account as the master, and invite an existing account, 222222222222, to join as a member account\.
 
@@ -47,11 +47,11 @@ By default, the organization is created with all features enabled\. You can also
 
    A verification email is automatically sent to the address that is associated with your master account\. There might be a delay before you receive the verification email\.
 
-1. Verify your email address within 24 hours\. For more information, see [Email Address Verification](orgs_manage_create.md#about-email-verification)\.
+1. Verify your email address within 24 hours\. For more information, see [Email address verification](orgs_manage_create.md#about-email-verification)\.
 
 You now have an organization with your account as its only member\. This is the master account of the organization\.
 
-### Invite an Existing Account to Join Your Organization<a name="tut-basic-invite-existing"></a>
+### Invite an existing account to join your organization<a name="tut-basic-invite-existing"></a>
 
 Now that you have an organization, you can begin to populate it with accounts\. In the steps in this section, you invite an existing account to join as a member of your organization\.
 
@@ -81,7 +81,7 @@ If you get an error that indicates that you exceeded your account limits for the
 
 1. Sign out of your member account and sign in again as an administrator in your master account\. 
 
-### Create a Member Account<a name="tut-basic-create-new"></a>
+### Create a member account<a name="tut-basic-create-new"></a>
 
 In the steps in this section, you create an AWS account that is automatically a member of the organization\. We refer to this account in the tutorial as 333333333333\.
 
@@ -99,7 +99,7 @@ In the steps in this section, you create an AWS account that is automatically a 
 **Important**  
 If you get an error that indicates that you exceeded your account limits for the organization or that you can't add an account because your organization is still initializing, wait until one hour after you created the organization and try again\. If the error persists, contact [AWS Support](https://console.aws.amazon.com/support/home#/)\.
 
-## Step 2: Create the Organizational Units<a name="tutorial-orgs-step2"></a>
+## Step 2: Create the organizational units<a name="tutorial-orgs-step2"></a>
 
 In the steps in this section, you create organizational units \(OUs\) and place your member accounts in them\. Your hierarchy looks like the following illustration when you're done\. The master account remains in the root\. One member account is moved to the Production OU, and the other member account is moved to the MainApp OU, which is a child of Production\. 
 
@@ -127,7 +127,7 @@ In the steps in this section, you create organizational units \(OUs\) and place 
 
 1. In the **Move accounts** dialog box, choose **Production** to expose **MainApp**\. Choose **MainApp** and then choose **Move**\.
 
-## Step 3: Create the Service Control Policies<a name="tutorial-orgs-step3"></a>
+## Step 3: Create the service control policies<a name="tutorial-orgs-step3"></a>
 
 In the steps in this section, you create three [service control policies \(SCPs\)](orgs_manage_policies_scp.md) and attach them to the root and to the OUs to restrict what users in the organization's accounts can do\. The first SCP prevents anyone in any of the member accounts from creating or modifying any AWS CloudTrail logs that you configure\. The master account isn't affected by any SCP, so after you apply the CloudTrail SCP, you must create any logs from the master account\.
 
@@ -171,7 +171,7 @@ In the steps in this section, you create three [service control policies \(SCPs\
 
 The second policy defines an [allow list](orgs_getting-started_concepts.md#allowlist) of all the services and actions that you want to enable for users and roles in the Production OU\. When you're done, users in the Production OU can access ***only*** the listed services and actions\.
 
-**To create the second policy that allows approved services for the Production OU**
+**To create the second policy that allows approved services for the production OU**
 
 1. From the list of policies, choose **Create policy**\.
 
@@ -230,7 +230,7 @@ The final policy provides a [deny list](orgs_getting-started_concepts.md#denylis
 
 1. Choose **Create policy** to save the SCP\.
 
-### Enable the Service Control Policy Type in the Root<a name="tut-basic-enable-scp"></a>
+### Enable the service control policy type in the root<a name="tut-basic-enable-scp"></a>
 
 Before you can attach a policy of any type to a root or to any OU within a root, you must enable the policy type for that root\. Policy types aren't enabled in any root by default\. The steps in this section show you how to enable the service control policy \(SCP\) type for the root in your organization\.
 
@@ -243,7 +243,7 @@ Currently, you can have only one root in your organization\. It's created for yo
 
 1. In the **Details** pane on the right, under **ENABLE/DISABLE POLICY TYPES** and next to **Service control policies**, choose **Enable**\.
 
-### Attach the SCPs to Your OUs<a name="tut-basic-attach-scp"></a>
+### Attach the SCPs to your OUs<a name="tut-basic-attach-scp"></a>
 
 Now that the SCPs exist and are enabled for your root, you can attach them to the root and OUs\.
 
@@ -269,7 +269,7 @@ Now that the SCPs exist and are enabled for your root, you can attach them to th
 
 1. In the **Details** pane, under **POLICIES**, expand the **Service control policies** section\. In the list of available policies, next to **Deny List for MainApp Prohibited Services**, choose **Attach**\.
 
-## Step 4: Testing Your Organization's Policies<a name="tutorial-orgs-step4"></a>
+## Step 4: Testing your organization's policies<a name="tutorial-orgs-step4"></a>
 
 You now can sign in as a user in any of the member accounts and try to perform various AWS actions:
 + If you sign in as a user in the master account, you can perform any operation that is allowed by your IAM permissions policies\. The SCPs don't affect any user or role in the master account, no matter which root or OU the account is located in\.

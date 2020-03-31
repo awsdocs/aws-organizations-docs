@@ -1,11 +1,11 @@
-# Attaching Tag Policies<a name="attach-tag-policy"></a>
+# Attaching tag policies<a name="attach-tag-policy"></a>
 
 You can use tag policies on an entire organization as well as on organizational units \(OUs\) and individual accounts\. 
 + When you attach a tag policy to your *organization root*, the tag policy applies to all of that root's member OUs and accounts\.
 + When you attach a tag policy to an *OU*, that tag policy applies to the accounts that belong to the OU\. Those accounts are also subject to any tag policy attached to the organization root\.
 + When you attach a tag policy to an *account*, that tag policy, applies to the account\. In addition, that account is subject to any tag policy attached to the organization root, *plus* any tag policy attached to an OU that the account belongs to\.
 
-The aggregation of any tag policies the account inherits, plus any tag policy directly attached to the account is the [*effective tag policy*](orgs_manage_policies_tag-policies-effective.md)\. For more information, see [How Policy Inheritance Works](orgs_manage_policies-inheritance.md)\.
+The aggregation of any tag policies the account inherits, plus any tag policy directly attached to the account is the [*effective tag policy*](orgs_manage_policies_tag-policies-effective.md)\. For more information, see [How policy inheritance works](orgs_manage_policies-inheritance.md)\.
 
 **Important**  
 Untagged resources don't appear as noncompliant in results\.
@@ -31,7 +31,7 @@ You can use one of the following to attach a tag policy:
 **What to Do Next**  
 After you attach a tag policy, you can find out how compliant that account's resources are with that tag policy\. To do this, use the Resource Groups console\. For information, see [Evaluating an Account's Compliance](https://docs.aws.amazon.com/ARG/latest/userguide/tag-policies-arg-finding-noncompliant-tags.html#tag-policy-compliance-account) in the *AWS Resource Groups User Guide*\. 
 
-## Detaching a Tag Policy<a name="detach-tag-policy"></a>
+## Detaching a tag policy<a name="detach-tag-policy"></a>
 
 When signed in to your organization's master account, you can detach a tag policy from the organization root, OU, or account that it is attached to\. After you detach a tag policy from an entity, that policy no longer applies to any account that was affected by the now detached entity\. To detach a policy, complete the following steps\. 
 

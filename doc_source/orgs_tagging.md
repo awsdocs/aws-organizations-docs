@@ -1,4 +1,4 @@
-# Tagging AWS Organizations Resources<a name="orgs_tagging"></a>
+# Tagging AWS Organizations resources<a name="orgs_tagging"></a>
 
 A *tag* is a custom attribute label that you add to an AWS resource to make it easier to identify, organize, and search for resources\. Each tag has two parts:
 + A *tag key* \(for example, `CostCenter`, `Environment`, or `Project`\)\. Tag keys are case sensitive\.
@@ -9,7 +9,7 @@ You can use tags to categorize resources by purpose, owner, environment, or othe
 **Tip**  
  You can use [tag policies](orgs_manage_policies_tag-policies.md) to help standardize tags across resources in your organization's accounts\.
 
-## Supported Resources in AWS Organizations<a name="supported-resources"></a>
+## Supported resources in AWS Organizations<a name="supported-resources"></a>
 
 Currently, AWS Organizations supports the following tagging operations when you are logged in to the master account:
 + You can tag and untag accounts in AWS Organizations\.
@@ -17,7 +17,7 @@ Currently, AWS Organizations supports the following tagging operations when you 
 
 AWS Organizations doesn't currently support tagging resources within an account, cost allocation tags, or the tag\-based access control feature of AWS Identity and Access Management \(IAM\)\.
 
-## Adding Tags<a name="add-tag"></a>
+## Adding tags<a name="add-tag"></a>
 
 When signed in with permissions to your organization's master account, you can add tags to accounts in your organization\. 
 
@@ -46,7 +46,7 @@ You can use one of the following commands to add tags to accounts:
 + AWS CLI: [aws organizations tag\-resource](https://docs.aws.amazon.com/cli/latest/reference/organizations/tag-resource.html)
 + AWS API: [TagResource](https://docs.aws.amazon.com/organizations/latest/APIReference/API_TagResource.html)
 
-## Viewing Tags on an Account<a name="list-tagged-resources"></a>
+## Viewing tags on an account<a name="list-tagged-resources"></a>
 
 When signed in with permissions to your organization's master account, you can view tags on an account in your organization\.
 
@@ -68,11 +68,11 @@ You can use one of the following commands to view tags on an account:
 + AWS CLI: [aws organizations list\-tags\-for\-resource](https://docs.aws.amazon.com/cli/latest/reference/organizations/list-tags-for-resource.html)
 + AWS API: [ListTagsForResource](https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListTagsForResource.html)
 
-## Editing Tag Values<a name="edit-tag"></a>
+## Editing tag values<a name="edit-tag"></a>
 
 When signed in with permissions to your organization's master account, you can edit *tag values* on tags that are attached to accounts\.
 
-To edit *tag keys*, you need to delete the tag key and then add a new tag key\. For more information, see [Deleting Tags](#delete-tag) and [Adding Tags](#add-tag)\.
+To edit *tag keys*, you need to delete the tag key and then add a new tag key\. For more information, see [Deleting tags](#delete-tag) and [Adding tags](#add-tag)\.
 
 To edit tag values on tags that are attached to accounts, you need permission to run the following actions:
 + `organizations:ListTagsForResource`
@@ -102,7 +102,7 @@ The **TAGS** section in the details pane on the right updates with any changes t
    + AWS CLI: [aws organizations tag\-resource](https://docs.aws.amazon.com/cli/latest/reference/organizations/tag-resource.html)
    + AWS API: [TagResource](https://docs.aws.amazon.com/organizations/latest/APIReference/API_TagResource.html)
 
-## Deleting Tags<a name="delete-tag"></a>
+## Deleting tags<a name="delete-tag"></a>
 
 When signed in with permissions to your organization's master account, you can delete tags that are attached to accounts in your organization\. 
 

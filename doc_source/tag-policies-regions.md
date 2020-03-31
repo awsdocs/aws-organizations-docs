@@ -3,7 +3,7 @@
 Tag policy features are available in the following Regions: 
 
 
-| Region Name | Region Parameter | 
+| Region name | Region parameter | 
 | --- | --- | 
 |  US East \(Ohio\) Region  |  `us-east-2`  | 
 | US East \(N\. Virginia\) Region¹ |  **`us-east-1`**  | 

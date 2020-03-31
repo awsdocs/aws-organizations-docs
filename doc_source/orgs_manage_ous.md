@@ -1,4 +1,4 @@
-# Managing Organizational Units \(OUs\)<a name="orgs_manage_ous"></a>
+# Managing organizational units \(OUs\)<a name="orgs_manage_ous"></a>
 
 You can use organizational units \(OUs\) to group accounts together to administer as a single unit\. This greatly simplifies the management of your accounts\. For example, you can attach a policy\-based control to an OU, and all accounts within the OU automatically inherit the policy\. You can create multiple OUs within a single organization, and you can create OUs within other OUs\. Each OU can contain multiple accounts, and you can move accounts from one OU to another\. However, OU names must be unique within a parent OU or root\.
 
@@ -11,7 +11,7 @@ To structure the accounts in your organization, you can perform the following ta
 + [Renaming an OU](#rename_ou)
 + [Moving an account to an OU or between the root and OUs](#move_account_to_ou)
 
-## Navigating the Root and OU Hierarchy<a name="navigate_tree"></a>
+## Navigating the root and OU hierarchy<a name="navigate_tree"></a>
 
 To navigate to different OUs or to the root when moving accounts or attaching policies, you can use the tree view\.
 
@@ -50,7 +50,7 @@ To create an OU within a root in your organization, you must have the following 
 `organizations:DescribeOrganization` \(console only\)
 `organizations:CreateOrganizationalUnit`
 
-**To create an OU \(Console\)**
+**To create an OU \(console\)**
 
 1. Sign in to the Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\.
 
@@ -78,7 +78,7 @@ To rename an OU within a root in your AWS organization, you must have the follow
 `organizations:DescribeOrganization` \(console only\)
 `organizations:UpdateOrganizationalUnit`
 
-**To rename an OU \(Console\)**
+**To rename an OU \(console\)**
 
 1. Sign in to the Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\.
 
@@ -93,7 +93,7 @@ You can use one of the following commands to rename an OU:
 + AWS CLI: [aws organizations update\-organizational\-unit](https://docs.aws.amazon.com/cli/latest/reference/organizations/update-organizational-unit.html)
 + AWS API: [UpdateOrganizationalUnit](https://docs.aws.amazon.com/organizations/latest/APIReference/API_UpdateOrganizationalUnit.html)
 
-## Moving an Account to an OU or Between the Root and OUs<a name="move_account_to_ou"></a>
+## Moving an account to an OU or between the root and OUs<a name="move_account_to_ou"></a>
 
 When signed in to your organization's master account, you can move accounts in your organization from the root to an OU, from one OU to another, or back to the root from an OU\. Placing an account inside an OU makes it subject to any policies that are attached to the parent OU and any other OUs in the parent chain up to the root\. If an account isn't in an OU, it's subject to only the policies that are attached to the root and any that are attached directly to the account\. To move an account, complete the following steps\.
 
@@ -117,7 +117,7 @@ You can use one of the following commands to move an account:
 + AWS CLI: [aws organizations move\-account](https://docs.aws.amazon.com/cli/latest/reference/organizations/move-account.html)
 + AWS API: [MoveAccount](https://docs.aws.amazon.com/organizations/latest/APIReference/API_MoveAccount.html)
 
-## Deleting an OU That You No Longer Need<a name="delete-ou"></a>
+## Deleting an OU that you no longer need<a name="delete-ou"></a>
 
 When signed in to your organization's master account, you can delete OUs that you no longer need\. You first must move all accounts out of the OU and any child OUs, and then delete the child OUs\.
 
@@ -126,7 +126,7 @@ To delete an OU, you must have the following permissions:
 `organizations:DescribeOrganization` \(console only\)
 `organizations:DeleteOrganizationalUnit`
 
-**To delete an OU \(Console\)**
+**To delete an OU \(console\)**
 
 1. Sign in to the Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\.
 

@@ -1,4 +1,4 @@
-# Service Quotas and AWS Organizations<a name="services-that-can-integrate-service-quotas"></a>
+# Service quotas and AWS Organizations<a name="services-that-can-integrate-service-quotas"></a>
 
 Service Quotas is an AWS service that enables you to view and manage your quotas from a central location\. Quotas, also referred to as limits, are the maximum value for your resources, actions, and items in your AWS account\. When Service Quotas is associated with AWS Organizations, you can create a quota request template to automatically request quota increases when accounts are created\. For more information about Service Quotas, see the [https://docs.aws.amazon.com/servicequotas/latest/userguide/intro.html](https://docs.aws.amazon.com/servicequotas/latest/userguide/intro.html)\.
 

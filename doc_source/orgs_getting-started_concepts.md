@@ -1,4 +1,4 @@
-# AWS Organizations Terminology and Concepts<a name="orgs_getting-started_concepts"></a>
+# AWS Organizations terminology and concepts<a name="orgs_getting-started_concepts"></a>
 
 To help you get started with AWS Organizations, this topic explains some of the key concepts\. 
 

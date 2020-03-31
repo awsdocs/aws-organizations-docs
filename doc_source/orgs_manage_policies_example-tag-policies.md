@@ -1,8 +1,8 @@
-# Tag Policy Syntax and Examples<a name="orgs_manage_policies_example-tag-policies"></a>
+# Tag policy syntax and examples<a name="orgs_manage_policies_example-tag-policies"></a>
 
 This page describes tag policy syntax and provides examples\.
 
-## Tag Policy Syntax<a name="tag-policy-syntax-reference"></a>
+## Tag policy syntax<a name="tag-policy-syntax-reference"></a>
 
 A tag policy is a plaintext file that is structured according to the rules of [JSON](http://json.org)\. 
 
@@ -49,14 +49,14 @@ Tag policy syntax includes the following components:
   The example tag policy specifies that all AWS Secrets Manager resources must have this tag\. 
 **Warning**  
 You should only change this option from the default if you are experienced with using tag policies\. Otherwise, you could prevent users in your organization's accounts from creating the resources they need\. 
-+ *Operators* that specify how the tag policy merges with other tag policies within the organization tree to create an account's [effective tag policy](orgs_manage_policies_tag-policies-effective.md)\. In this example, `@@assign` is used to assign strings to `tag_key`, `tag_value`, and `enforced_for`\. For more information on operators, see [Inheritance Operators](orgs_manage_policies-inheritance.md#tag-policy-operators)\.
++ *Operators* that specify how the tag policy merges with other tag policies within the organization tree to create an account's [effective tag policy](orgs_manage_policies_tag-policies-effective.md)\. In this example, `@@assign` is used to assign strings to `tag_key`, `tag_value`, and `enforced_for`\. For more information on operators, see [Inheritance operators](orgs_manage_policies-inheritance.md#tag-policy-operators)\.
 + You can use the `*` wildcard in tag values and `enforced_for` fields:
   + You can use one wildcard per tag value\. For example, `*@example.com` is allowed, but `*@*.com` is not\. 
-  + For `enforced_for`, you can use `<service>:*` with some services to enable enforcement for all resources for that service\. For a list of services and resource types that support `enforced_for`, see [Services and Resource Types That Support Enforcement](orgs_manage_policies_supported-resources-enforcement.md)\. 
+  + For `enforced_for`, you can use `<service>:*` with some services to enable enforcement for all resources for that service\. For a list of services and resource types that support `enforced_for`, see [Services and resource types that support enforcement](orgs_manage_policies_supported-resources-enforcement.md)\. 
 
     You can't use a wildcard to specify all services or to specify a resource for all services\.
 
-## Tag Policy Examples<a name="tag-policy-examples"></a>
+## Tag policy examples<a name="tag-policy-examples"></a>
 
 The example [tag policies](orgs_manage_policies_tag-policies.md) that follow are for information purposes only\.
 
@@ -67,7 +67,7 @@ You should carefully review and customize these tag policies for your unique req
 All characters in your tag policy are subject to a [maximum size](orgs_reference_limits.md#min-max-values)\. The examples in this guide show tag policies formatted with extra white space to improve their readability\. However, to save space if your policy size approaches the maximum size, you can delete any white space\. Examples of white space include space characters and line breaks that are outside quotation marks\.
 Untagged resources don't appear as noncompliant in results\.
 
-## Example 1: Define Organization\-wide Tag Key Case<a name="tag-policy-example-key-case"></a>
+## Example 1: Define organization\-wide tag key case<a name="tag-policy-example-key-case"></a>
 
 The following example shows a tag policy that only defines two tag keys and the capitalization that you want accounts in your organization to standardize on\. 
 
@@ -100,7 +100,7 @@ This tag policy defines two tag keys: `CostCenter` and `Project`\. Attaching thi
 
 AWS recommends that you use this example as a guide in creating a similar tag policy for tag keys that you want to use\. Attach it to the organization root\. Then create a tag policy similar to the next example, which only defines the acceptable values for the defined tag keys\. 
 
-### Next Step: Define Values<a name="tag-policy-example-add-values"></a>
+### Next step: Define values<a name="tag-policy-example-add-values"></a>
 
 Assume that you attached the previous tag policy to the organization root\. Next, you can create a tag policy like the following and attach it to an account\. This policy defines acceptable values for the `CostCenter` and `Project` tag keys\. 
 
@@ -154,9 +154,9 @@ If you attach Policy A to the organization root and Policy B to an account, the 
 }
 ```
 
-For more information on policy inheritance, including examples of how the inheritance operators work and example effective tag policies, see [How Policy Inheritance Works](orgs_manage_policies-inheritance.md)\.
+For more information on policy inheritance, including examples of how the inheritance operators work and example effective tag policies, see [How policy inheritance works](orgs_manage_policies-inheritance.md)\.
 
-## Example 2: Prevent Use of a Tag Key<a name="tag-policy-example-prevent-key"></a>
+## Example 2: Prevent use of a tag key<a name="tag-policy-example-prevent-key"></a>
 
 To prevent the use of a tag key, you can attach a tag policy like the following to an organization entity\.
 

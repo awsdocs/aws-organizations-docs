@@ -10,7 +10,7 @@ This documentation helps you understand how to apply the shared responsibility m
 
 **Topics**
 + [AWS Identity and Access Management in AWS Organizations](orgs_permissions.md)
-+ [Logging and Monitoring in AWS Organizations](orgs_incident-response.md)
-+ [Compliance Validation for AWS Organizations](orgs_compliance-validation.md)
++ [Logging and monitoring in AWS Organizations](orgs_incident-response.md)
++ [Compliance validation for AWS Organizations](orgs_compliance-validation.md)
 + [Resilience in AWS Organizations](disaster-recovery-resiliency.md)
-+ [Infrastructure Security in AWS Organizations](infrastructure-security.md)
++ [Infrastructure security in AWS Organizations](infrastructure-security.md)

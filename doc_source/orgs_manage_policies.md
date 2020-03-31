@@ -1,8 +1,8 @@
-# Managing AWS Organizations Policies<a name="orgs_manage_policies"></a>
+# Managing AWS Organizations policies<a name="orgs_manage_policies"></a>
 
 Policies in AWS Organizations enable you to apply additional types of management to the AWS accounts in your organization\. You can use policies when [all features are enabled ](orgs_manage_org_support-all-features.md) in your organization\.
 
-## Policy Types<a name="orgs-policy-types"></a>
+## Policy types<a name="orgs-policy-types"></a>
 
 Organizations offers the following policy types:
 + [**Service control policies \(SCPs\)**](orgs_manage_policies_scp.md) offer central control over the maximum available permissions for all accounts your organization\. 
@@ -10,11 +10,11 @@ Organizations offers the following policy types:
 
 The AWS Organizations console displays the enabled and disabled status of each policy type\. On the **Organize accounts** tab, choose the `Root` in the left navigation pane\. The details pane on the right side of the screen shows all of the available policy types\. The list indicates which are enabled and which are disabled in that organization root\. If the option to **Enable** a type is present, that type is currently disabled\. If the option to **Disable** a type is present, that type is currently enabled\.
 
-## Listing Policy Information<a name="orgs-listing-policies"></a>
+## Listing policy information<a name="orgs-listing-policies"></a>
 
 This section describes various ways to get details about the policies in your organization\. These procedures apply to *all* policy types\. You must enable a policy type on the organization root before you can attach policies of that type to any entities in that organization root\. 
 
-### Listing All Policies<a name="list-all-pols-in-org"></a>
+### Listing all policies<a name="list-all-pols-in-org"></a>
 
 **Minimum permissions**  
 To list the policies within your organization, you must have the following permission:  
@@ -35,7 +35,7 @@ You can use one of the following commands to list policies in an organization:
 + AWS CLI: [aws organizations list\-policies](https://docs.aws.amazon.com/cli/latest/reference/organizations/list-policies.html)
 + AWS API: [ListPolicies](https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListPolicies.html)
 
-### Listing All Policies Attached to a Root, OU, or Account<a name="list-all-pols-in-entity"></a>
+### Listing all policies attached to a root, OU, or account<a name="list-all-pols-in-entity"></a>
 
 **Minimum permissions**  
 To list the policies that are attached to a root, OU, or account within your organization, you must have the following permission:  
@@ -60,7 +60,7 @@ You can use one of the following commands to list policies that are attached to 
 + AWS CLI: [aws organizations list\-policies\-for\-target](https://docs.aws.amazon.com/cli/latest/reference/organizations/list-policies-for-target.html)
 + AWS API: [ListPoliciesForTarget](https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListPoliciesForTarget.html)
 
-### Listing All Roots, OUs, and Accounts That a Policy Is Attached To<a name="list-all-entities-attached-to-pol"></a>
+### Listing all roots, OUs, and accounts that a policy is attached to<a name="list-all-entities-attached-to-pol"></a>
 
 **Minimum permissions**  
 To list the entities that a policy is attached to, you must have the following permission:  
@@ -84,7 +84,7 @@ You can use one of the following commands to list entities that have a policy:
 + AWS CLI: [aws organizations list\-targets\-for\-policy](https://docs.aws.amazon.com/cli/latest/reference/organizations/list-targets-for-policy.html)
 + AWS API: [ListTargetsForPolicy](https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListTargetsForPolicy.html)
 
-### Getting Details About a Policy<a name="get-details-about-pol"></a>
+### Getting details about a policy<a name="get-details-about-pol"></a>
 
 **Minimum permissions**  
 To display the details of a policy, you must have the following permission:  

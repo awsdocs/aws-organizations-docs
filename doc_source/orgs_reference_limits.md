@@ -2,13 +2,13 @@
 
 This section specifies quotas that affect AWS Organizations\.
 
-## Naming Guidelines<a name="name-limits"></a>
+## Naming guidelines<a name="name-limits"></a>
 
 The following are guidelines for names that you create in AWS Organizations, including names of accounts, organizational units \(OUs\), roots, and policies:
 + They must be composed of Unicode characters
 + They must not exceed 250 characters in length
 
-## Maximum and Minimum Values<a name="min-max-values"></a>
+## Maximum and minimum values<a name="min-max-values"></a>
 
 The following are the default maximums for entities in AWS Organizations\.
 
@@ -49,7 +49,7 @@ The maximum depends on the policy type and the entity that you're attaching the 
 
 ****  
 
-| Policy Type | Policies per Root | Policies per OU | Policies per Account | 
+| Policy type | Policies per root | Policies per OU | Policies per account | 
 | --- | --- | --- | --- | 
 | Service control policy | 5 | 5 | 5 | 
 
@@ -61,6 +61,6 @@ The minimum depends on the policy type\. The following table shows each policy t
 
 ****  
 
-| Policy Type | Minimum Allowed Attached to an Entity | 
+| Policy type | Minimum allowed attached to an entity | 
 | --- | --- | 
 | Service control policy | 1 — Every entity must have at least one SCP attached at all times\. You can't remove the last SCP from an entity\. | 

@@ -1,4 +1,4 @@
-# Closing an AWS Account<a name="orgs_manage_accounts_close"></a>
+# Closing an AWS account<a name="orgs_manage_accounts_close"></a>
 
 If you no longer need an AWS account \(whether a member in an organization or not\) and want to ensure that no one can accrue charges for it, you can close the account\. 
 
@@ -20,7 +20,7 @@ To close a master account, first [delete the organization](orgs_manage_org_delet
 
 1. [Sign in as the root user of the account](https://docs.aws.amazon.com/general/latest/gr/aws_tasks-that-require-root.html) that you want to close, using the email address and password that are associated with the account\. If you sign in as an IAM user or role, you can't close an account\.
 **Note**  
-By default, member accounts that you create with AWS Organizations don't have a password that's associated with the account's root user\. To sign in, you must request a password for the root user\. For more information, see [Accessing a Member Account as the Root User](orgs_manage_accounts_access.md#orgs_manage_accounts_access-as-root)\.
+By default, member accounts that you create with AWS Organizations don't have a password that's associated with the account's root user\. To sign in, you must request a password for the root user\. For more information, see [Accessing a member account as the root user](orgs_manage_accounts_access.md#orgs_manage_accounts_access-as-root)\.
 
 1. Open the Billing and Cost Management console at [https://console.aws.amazon.com/billing/home#/](https://console.aws.amazon.com/billing/home#/)\.
 

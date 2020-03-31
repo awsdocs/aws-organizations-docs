@@ -1,4 +1,4 @@
-# Using CloudWatch Events to Monitor Noncompliant Tags<a name="orgs_manage_policies_tag-policies-cwe"></a>
+# Using CloudWatch Events to monitor noncompliant tags<a name="orgs_manage_policies_tag-policies-cwe"></a>
 
 You can use CloudWatch Events to monitor when noncompliant tags are introduced\. In the following example event, the `"false"` value for `tag-policy-compliant` indicates that a new tag is noncompliant with the effective tag policy\.
 

@@ -1,4 +1,4 @@
-# SCP Syntax<a name="orgs_reference_scp-syntax"></a>
+# SCP syntax<a name="orgs_reference_scp-syntax"></a>
 
 Service control policies \(SCPs\) use a similar syntax to that used by IAM permission policies and resource\-based policies \(like Amazon S3 bucket policies\)\. For more information about IAM policies and their syntax, see [Overview of IAM Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html) in the *IAM User Guide*\.
 
@@ -7,14 +7,14 @@ An SCP is a plaintext file that is structured according to the rules of [JSON](h
 **Note**  
 All characters in your SCP count against its [maximum size](orgs_reference_limits.md#min-max-values)\. The examples in this guide show the SCPs formatted with extra white space to improve their readability\. However, to save space if your policy size approaches the maximum size, you can delete any white space, such as space characters and line breaks that are outside quotation marks\.
 
-For general information about SCPs, see [Service Control Policies](orgs_manage_policies_scp.md)\.
+For general information about SCPs, see [Service control policies](orgs_manage_policies_scp.md)\.
 
-## Elements Summary<a name="scp-elements-table"></a>
+## Elements summary<a name="scp-elements-table"></a>
 
 The following table summarizes the policy elements that you can use in SCPs\. Some policy elements are available only in SCPs that deny actions\. The **Supported Effects** column lists the effect type that you can use with each policy element in SCPs\.
 
 
-| Element | Purpose | Supported Effects | 
+| Element | Purpose | Supported effects | 
 | --- | --- | --- | 
 | [Version](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_version.html) | Specifies the language syntax rules to use for processing the policy\. |  `Allow`, `Deny`  | 
 | [Statement](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_statement.html) | Serves as the container for policy elements\. You can have multiple statements in SCPs\. |  `Allow`, `Deny`  | 
@@ -66,7 +66,7 @@ The following example includes two statements as an array list inside one `State
     ]
 ```
 
-## Statement ID \(`Sid`\) Element<a name="scp-syntax-sid"></a>
+## Statement ID \(`Sid`\) element<a name="scp-syntax-sid"></a>
 
 The `Sid` is an optional identifier that you provide for the policy statement\. You can assign a `Sid` value to each statement in a statement array\. The following example SCP shows a sample `Sid` statement\. 
 
@@ -123,7 +123,7 @@ The following shows an example of how to use a condition key in a deny statement
 
 This statement in an SCP sets a guardrail to prevent affected accounts \(where the SCP is attached to the account itself or to the organization root or OU that contains the account\), from launching Amazon EC2 instances if the Amazon EC2 instance isn't set to `t2.micro`\. Even if an IAM policy that allows this action is attached to the account, the guardrail created by the SCP prevents it\.
 
-## `Action` and `NotAction` Elements<a name="scp-syntax-action"></a>
+## `Action` And `NotAction` elements<a name="scp-syntax-action"></a>
 
 Each statement must contain one of the following:
 + In allow and deny statements, an `Action` element\.
@@ -140,7 +140,7 @@ In an SCP, the wildcard \(\*\) character in an `Action` or `NotAction` element c
 
 For a list of all the services and the actions that they support in both AWS Organizations SCPs and IAM permission policies, see [Actions, Resources, and Condition Keys for AWS Services](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actionsconditions.html) in the *IAM User Guide*\.
 
-### Example of `Action` Element<a name="scp-syntax-action-example"></a>
+### Example of `Action` element<a name="scp-syntax-action-example"></a>
 
 The following example shows an SCP with a statement that permits account administrators to delegate describe, start, stop, and terminate permissions for EC2 instances in the account\. This is an example of an [allow list](orgs_getting-started_concepts.md#allowlist), and is useful when the default `Allow *` policies are ***not*** attached so that, by default, permissions are implicitly denied\. If the default `Allow *` policy is still attached to the root, OU, or account to which the following policy is attached, the policy has no effect:
 
@@ -172,7 +172,7 @@ The following example shows how you can [deny access](orgs_getting-started_conce
 }
 ```
 
-### Example of `NotAction` Element<a name="scp-syntax-notaction-example"></a>
+### Example of `NotAction` element<a name="scp-syntax-notaction-example"></a>
 
 The following example shows how you can use a `NotAction` element to exclude AWS services from the effect of the policy\.
 
@@ -265,7 +265,7 @@ This SCP restricts IAM principals in accounts from making changes to a common ad
 
 This SCP denies access to any operations outside the `eu-central-1` and `eu-west-1` Regions, except for actions in the listed services\. 
 
-## Unsupported Elements<a name="scp-syntax-principal"></a>
+## Unsupported elements<a name="scp-syntax-principal"></a>
 
 The following elements aren't supported in SCPs:
 + `Principal`

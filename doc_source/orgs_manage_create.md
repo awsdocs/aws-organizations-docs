@@ -1,4 +1,4 @@
-# Creating an Organization<a name="orgs_manage_create"></a>
+# Creating an organization<a name="orgs_manage_create"></a>
 
 Use AWS Organizations to create your own organization to consolidate and manage your AWS accounts\. 
 
@@ -29,11 +29,11 @@ By default, the organization is created with all features enabled\. You can also
 
    A verification email is automatically sent to the address that is associated with your master account\. There might be a delay before you receive the verification email\.
 
-1. Verify your email address within 24 hours\. For more information, see [Email Address Verification](#about-email-verification)\.
+1. Verify your email address within 24 hours\. For more information, see [Email address verification](#about-email-verification)\.
 
 1. Add accounts to your organization as follows:
-   + To create an AWS account that is automatically part of your AWS organization, see [Creating an AWS Account in Your Organization](orgs_manage_accounts_create.md)\.
-   + To invite an existing account to your organization, see [Inviting an AWS Account to Join Your Organization](orgs_manage_accounts_invites.md)\. 
+   + To create an AWS account that is automatically part of your AWS organization, see [Creating an AWS account in your organization](orgs_manage_accounts_create.md)\.
+   + To invite an existing account to your organization, see [Inviting an AWS account to join your organization](orgs_manage_accounts_invites.md)\. 
 **Note**  
 You can add new accounts to your organization without verifying your master account's email address\. To invite existing accounts, you must first verify that email address\.
 
@@ -42,7 +42,7 @@ You can use one of the following commands to create an organization:
 + AWS CLI: [aws organizations create\-organization](https://docs.aws.amazon.com/cli/latest/reference/organizations/create-organization.html)
 + AWS API: [CreateOrganization](https://docs.aws.amazon.com/organizations/latest/APIReference/API_CreateOrganization.html)
 
-## Email Address Verification<a name="about-email-verification"></a>
+## Email address verification<a name="about-email-verification"></a>
 
 After you create an organization and before you can invite accounts to join, you must verify that you own the email address provided for the master account in the organization\. 
 
@@ -51,7 +51,7 @@ When you create an organization, AWS automatically sends a verification email to
 Within 24 hours, follow the instructions in the email to verify your email address\. 
 
 If you don't verify your email address within 24 hours, you can resend the verification request so that you can invite other AWS accounts to your organization\. If you don't receive the verification email, check that your email address is correct and, if necessary, modify it\. 
-+ To find out what email address is associated with your master account, see [Viewing Details of an Organization from the Master Account](orgs_manage_org_details.md#orgs_view_org)\.
++ To find out what email address is associated with your master account, see [Viewing details of an organization from the master account](orgs_manage_org_details.md#orgs_view_org)\.
 + To change the email address that is associated with your master account, see [Managing an AWS Account](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/manage-account-payment.html) in the *AWS Billing and Cost Management User Guide*\.
 
 **To resend the verification request**
@@ -62,6 +62,6 @@ If you don't verify your email address within 24 hours, you can resend the verif
 
 1. Verify your email address within 24 hours\.
 
-   After verifying your email address, you can invite other AWS accounts to your organization\. For more information, see [Inviting an AWS Account to Join Your Organization](orgs_manage_accounts_invites.md)\.
+   After verifying your email address, you can invite other AWS accounts to your organization\. For more information, see [Inviting an AWS account to join your organization](orgs_manage_accounts_invites.md)\.
 
 If you change the email address of the master account, the account's status reverts to "email unverified," and you must complete the verification process for your new email address\.

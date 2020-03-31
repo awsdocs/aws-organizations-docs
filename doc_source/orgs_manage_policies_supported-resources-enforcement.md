@@ -1,9 +1,9 @@
-# Services and Resource Types That Support Enforcement<a name="orgs_manage_policies_supported-resources-enforcement"></a>
+# Services and resource types that support enforcement<a name="orgs_manage_policies_supported-resources-enforcement"></a>
 
 The following services and resource types support enforcement with tag policies:
 
 
-| Service Name | Resource Type | JSON Syntax | 
+| Service name | Resource type | JSON syntax | 
 | --- | --- | --- | 
 |  Amazon API Gateway  |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_supported-resources-enforcement.html)  |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_supported-resources-enforcement.html)  | 
 |  AWS App Mesh  |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_supported-resources-enforcement.html)  |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_supported-resources-enforcement.html)  | 

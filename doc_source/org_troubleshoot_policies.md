@@ -1,16 +1,16 @@
-# Troubleshooting AWS Organizations Policies<a name="org_troubleshoot_policies"></a>
+# Troubleshooting AWS Organizations policies<a name="org_troubleshoot_policies"></a>
 
 Use the information here to help you diagnose and fix common errors found in AWS Organizations policies\.
 
-## Service Control Policies<a name="tshoot-scp"></a>
+## Service control policies<a name="tshoot-scp"></a>
 
 Service control policies \(SCPs\) in AWS Organizations are similar to IAM policies and share a common syntax\. This syntax begins with the rules of [JavaScript Object Notation](http://www.json.org) \(JSON\)\. JSON describes an *object* with name and value pairs that make up the object\. The [IAM policy grammar](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-grammar.html) builds on that by defining what names and values have meaning for, and are understood by, the AWS services that use policies to grant permissions\.
 
-AWS Organizations uses a subset of the IAM syntax and grammar\. For details, see [SCP Syntax](orgs_reference_scp-syntax.md)\.
+AWS Organizations uses a subset of the IAM syntax and grammar\. For details, see [SCP syntax](orgs_reference_scp-syntax.md)\.
 
 **Topics**
 + [More than one policy object](#morethanonepolicyblock)
-+ [More than one Statement element](#morethanonestatement)
++ [More than one statement element](#morethanonestatement)
 + [Policy document exceeds maximum size](#scptoolong)
 
 ### More than one policy object<a name="morethanonepolicyblock"></a>
@@ -58,7 +58,7 @@ You can, however, meet the intention of the preceding example with the use of co
 
 This example cannot be further compressed into a `Statement` with one element because the two elements have different effects\. Generally, you can combine statements only when the `Effect` and `Resource` elements in each statement are identical\.
 
-### More than one Statement element<a name="morethanonestatement"></a>
+### More than one statement element<a name="morethanonestatement"></a>
 
 This error might at first appear to be a variation on the error in the preceding section\. However, syntactically it's a different type of error\. In the following example, there is only one policy object as denoted by a single pair of \{ \} braces at the top level\. However, that object contains two `Statement` elements within it\.
 

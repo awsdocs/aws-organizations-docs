@@ -1,4 +1,4 @@
-# Calling the API by Making HTTP Query Requests<a name="orgs_query-requests"></a>
+# Calling the API by making HTTP Query requests<a name="orgs_query-requests"></a>
 
 This section contains general information about using the Query API for AWS Organizations\. For details about the API operations and errors, see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/)\.
 
@@ -11,8 +11,8 @@ The response is an XML document\. For details about the response, see the indivi
 
 **Topics**
 + [Endpoints](#OrgsEndpoints)
-+ [HTTPS Required](#IAMHTTPSRequired)
-+ [Signing AWS Organizations API Requests](#SigVersion)
++ [HTTPS required](#IAMHTTPSRequired)
++ [Signing AWS Organizations API requests](#SigVersion)
 
 ## Endpoints<a name="OrgsEndpoints"></a>
 
@@ -20,11 +20,11 @@ AWS Organizations has a single global API endpoint that is hosted in the US East
 
 For more information about AWS endpoints and regions for all services, see [Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/index.html?rande.html) in the *AWS General Reference*\. 
 
-## HTTPS Required<a name="IAMHTTPSRequired"></a>
+## HTTPS required<a name="IAMHTTPSRequired"></a>
 
 Because the Query API returns sensitive information such as security credentials, you must use HTTPS to encrypt all API requests\. 
 
-## Signing AWS Organizations API Requests<a name="SigVersion"></a>
+## Signing AWS Organizations API requests<a name="SigVersion"></a>
 
 Requests must be signed using an access key ID and a secret access key\. We strongly recommend that you don't use your AWS root account credentials for everyday work with AWS Organizations\. You can use the credentials for an IAM user or temporary credentials such as you use with an IAM role\.
 

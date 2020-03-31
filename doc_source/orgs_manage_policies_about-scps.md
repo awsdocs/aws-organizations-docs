@@ -1,4 +1,4 @@
-# How SCPs Work<a name="orgs_manage_policies_about-scps"></a>
+# How SCPs work<a name="orgs_manage_policies_about-scps"></a>
 
 The following illustration shows how [SCPs](orgs_manage_policies_scp.md) work\.
 
@@ -17,4 +17,4 @@ By default, an SCP named `FullAWSAccess` is attached to every organization root,
 
 If you disable the SCP policy type on the organization root, all SCPs are automatically detached from all entities in the organization root\. If you reenable SCPs on the organization root, all the original attachments are lost, and all entities are reset to being attached to only the default `FullAWSAccess` SCP\.
 
-For details about the syntax of SCPs, see [SCP Syntax](orgs_reference_scp-syntax.md)\.
+For details about the syntax of SCPs, see [SCP syntax](orgs_reference_scp-syntax.md)\.

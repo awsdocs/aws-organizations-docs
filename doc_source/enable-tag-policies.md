@@ -1,4 +1,4 @@
-# Enabling Tag Policies<a name="enable-tag-policies"></a>
+# Enabling tag policies<a name="enable-tag-policies"></a>
 
 Before you can create and attach tag policies, you must enable this feature\. Enabling the use of tag policies is a one\-time task\. You enable tag policies on the organization root, even if you plan to attach tag policies to individual accounts only\. You must be signed in to the organization's master account to enable tag policies\.
 
@@ -23,13 +23,13 @@ To enable tag policies, you need permissions to run the following actions:
 You can use one of the following to enable tag policies:
 + AWS CLI: [aws organizations enable\-policy\-type](https://docs.aws.amazon.com/cli/latest/reference/organizations/enable-policy-type.html)
 
-  For the complete procedure for using tag policies in the AWS CLI, see [Using Tag Policies in the AWS CLI](tag-policy-cli.md)\.
+  For the complete procedure for using tag policies in the AWS CLI, see [Using tag policies in the AWS CLI](tag-policy-cli.md)\.
 + AWS API: [EnablePolicyType](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html)
 
 **What to Do Next**  
 After you enable tag policies, you can [create tag policies](orgs_manage_policies_tag-policies-create.md)\.
 
-## Disabling Tag Policies<a name="disable-tag-policies"></a>
+## Disabling tag policies<a name="disable-tag-policies"></a>
 
 When you disable tag policies, all tag policies are automatically detached, but not deleted, from all entities in the organization root\. 
 

@@ -1,8 +1,8 @@
-# Using Tag Policies in the AWS CLI<a name="tag-policy-cli"></a>
+# Using tag policies in the AWS CLI<a name="tag-policy-cli"></a>
 
 To use tag policies in the AWS Command Line Interface, AWS recommends that you first follow the basic workflow described in this topic\. 
 
-## Recommended Workflow<a name="tag-policy-recommended-workflow-cli"></a>
+## Recommended workflow<a name="tag-policy-recommended-workflow-cli"></a>
 
 The recommended workflow for using tag policies is as follows:
 
@@ -20,7 +20,7 @@ The recommended workflow for using tag policies is as follows:
 
 1. At any time, you can find out the compliance status for all tagged resources across all accounts across your organization\. To do this, [generate the organization\-wide report\.](#generate-org-wide-report-cli)
 
-## Enabling Tag Policies for Your Organization<a name="tag-policy-enable-cli"></a>
+## Enabling tag policies for your organization<a name="tag-policy-enable-cli"></a>
 
 Enabling the use of tag policies is a one\-time task\. You enable tag policies on the organization root, even if you plan to attach tag policies to individual accounts only\. 
 
@@ -57,7 +57,7 @@ Enabling the use of tag policies is a one\-time task\. You enable tag policies o
 
    This command enables tag policies for the organization with the root ID `r-examplerootid111.` 
 
-## Creating a Tag Policy<a name="tag-policy-create-first-cli"></a>
+## Creating a tag policy<a name="tag-policy-create-first-cli"></a>
 
 After you enable tag policies, you're ready to create your first tag policy\. 
 
@@ -80,7 +80,7 @@ You can use any text editor to create a tag policy\. Use JSON syntax and save th
 
   This tag policy defines the `CostCenter` tag key\. The tag can accept any value or no value\. That's because when you don't specify at least one value, any value or no value is compliant\. 
 
-## Attach a Tag Policy<a name="tag-policy-attach-first-cli"></a>
+## Attach a tag policy<a name="tag-policy-attach-first-cli"></a>
 
 After you create a tag policy, you're ready to attach it to your organization root, an OU, or to an individual account\. Attaching a tag policy to the organization root affects all of your organization's member accounts\. When you attach a tag policy to an individual account, only that account is subject to that tag policy\. It is also subject to any tag policy that is attached to the organization root\.
 
@@ -91,7 +91,7 @@ The following procedure shows how to attach the tag policy you just created to a
   aws --region us-east-1 organizations attach-policy --target-id <account-id> --policy file://<path-and-filename>
   ```
 
-## Determining the Effective Policy for an Account<a name="tag-policy-get-effective-cli"></a>
+## Determining the effective policy for an account<a name="tag-policy-get-effective-cli"></a>
 
 To start checking compliance status for tagged resources in an account, it's helpful to first determine the effective tag policy for the account\.
 
@@ -106,7 +106,7 @@ aws --region region-name organizations describe-effective-policy
 
 If a tag policy is attached to the account as well as to the organization root, the combination of both policies defines the account's effective tag policy\. In these cases, running `describe-effective-policy` from the account returns the contents of both tag policies\. 
 
-## Finding Noncompliant Resources for an Account<a name="tag-policy-find-noncompliant-cli"></a>
+## Finding noncompliant resources for an account<a name="tag-policy-find-noncompliant-cli"></a>
 
 For each account, you can get information about noncompliant resources\. You should run this command from every Region in which the account has resources\.
 
@@ -125,7 +125,7 @@ Here is an example:
 aws --region us-east-1 resourcegroupstaggingapi get-resources --include-compliance-details --exclude-compliant-resources
 ```
 
-## Correcting Noncompliant Tags in Resources<a name="tag-policy-corrections-cli"></a>
+## Correcting noncompliant tags in resources<a name="tag-policy-corrections-cli"></a>
 
 After finding noncompliant tags, make corrections using any of the following methods\. You must be signed in to the account that has the resource with noncompliant tags:
 + Use the console or API operations of the service that has the noncompliant resources\.
@@ -133,7 +133,7 @@ After finding noncompliant tags, make corrections using any of the following met
   Use [TagResources](https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/API_TagResources.html) to add tags that are compliant with the effective policy\.
 + Use [UntagResources](https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/API_UntagResources.html) to remove tags that are noncompliant with the effective tag policy\.
 
-## Finding and Correcting Additional Noncompliance Issues<a name="tag-policy-repeat-cli"></a>
+## Finding and correcting additional noncompliance issues<a name="tag-policy-repeat-cli"></a>
 
 Finding and correcting compliance issues is an iterative process\. 
 
@@ -147,7 +147,7 @@ Finding and correcting compliance issues is an iterative process\.
 
 1. Repeat the process of finding and correcting compliance issues until the resources you care about are compliant with your tag policy\.
 
-## Generating an Organization\-wide Compliance Report<a name="generate-org-wide-report-cli"></a>
+## Generating an organization\-wide compliance report<a name="generate-org-wide-report-cli"></a>
 
 At any time, you can generate a report that lists all tagged resources in accounts across your organization\. The report shows whether each resource is compliant with the effective tag policy\. Note that it can take up to 48 hours for changes you make to a tag policy or resources to be reflected in the organization\-wide compliance report\. For example, assume that you have a tag policy that defines a new standardized tag for a resource type\. Resources of that type that don't have this tag are shown as compliant in the report for up to 48 hours\. 
 

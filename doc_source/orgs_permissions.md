@@ -8,8 +8,8 @@ For most administrator operations for AWS Organizations, you need to attach perm
 
 **Topics**
 + [Authentication](#orgs_permissions_authentication)
-+ [Access Control](#orgs-access-control)
-+ [Managing Access Permissions for Your AWS Organization](orgs_permissions_overview.md)
++ [Access control](#orgs-access-control)
++ [Managing access permissions for your AWS organization](orgs_permissions_overview.md)
 
 ## Authentication<a name="orgs_permissions_authentication"></a>
 
@@ -26,6 +26,6 @@ For security reasons, we recommend that you use the root credentials only to cre
   + **AWS service access** – You can use an IAM role in your account to grant an AWS service permissions to access your account's resources\. For example, you can create a role that allows Amazon Redshift to access an Amazon S3 bucket on your behalf and then load data stored in the bucket into an Amazon Redshift cluster\. For more information, see [Creating a Role to Delegate Permissions to an AWS Service](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html) in the *IAM User Guide*\.
   + **Applications running on Amazon EC2** – Instead of storing access keys in the EC2 instance for use by applications running on the instance and making AWS API requests, you can use an IAM role to manage temporary credentials for these applications\. To assign an AWS role to an EC2 instance and make it available to all of its applications, you can create an instance profile that is attached to the instance\. An instance profile contains the role and enables programs running on the EC2 instance to get temporary credentials\. For more information, see [Using Roles for Applications on Amazon EC2](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html) in the *IAM User Guide*\.
 
-## Access Control<a name="orgs-access-control"></a>
+## Access control<a name="orgs-access-control"></a>
 
 You can have valid credentials to authenticate your requests, but unless you have permissions, you can't administer or access AWS Organizations resources\. For example, you must have permissions to create an OU or to attach a [service control policy \(SCP\)](orgs_manage_policies_scp.md) to an account\.

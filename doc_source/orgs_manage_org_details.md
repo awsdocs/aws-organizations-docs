@@ -1,13 +1,13 @@
-# Viewing Details About Your Organization<a name="orgs_manage_org_details"></a>
+# Viewing details about your organization<a name="orgs_manage_org_details"></a>
 
 You can perform the following tasks using the AWS Organizations console:
-+ [Viewing Details of an Organization from the Master Account](#orgs_view_org)
-+ [Viewing Details of a Root](#orgs_view_root)
-+ [Viewing Details of an OU](#orgs_view_ou)
-+ [Viewing Details of an Account](#orgs_view_account)
-+ [Viewing Details of a Policy ](#orgs_view_policy)
++ [Viewing details of an organization from the master account](#orgs_view_org)
++ [Viewing details of a root](#orgs_view_root)
++ [Viewing details of an OU](#orgs_view_ou)
++ [Viewing details of an account](#orgs_view_account)
++ [Viewing details of a policy ](#orgs_view_policy)
 
-## Viewing Details of an Organization from the Master Account<a name="orgs_view_org"></a>
+## Viewing details of an organization from the master account<a name="orgs_view_org"></a>
 
 **Minimum permissions**  
 To view the details of an organization, you must have the following permission:  
@@ -28,7 +28,7 @@ You can use one of the following commands to view details of an organization:
 + AWS CLI: [aws organizations describe\-organization](https://docs.aws.amazon.com/cli/latest/reference/organizations/describe-organization.html) 
 + AWS API: [DescribeOrganization](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeOrganization.html)
 
-## Viewing Details of a Root<a name="orgs_view_root"></a>
+## Viewing details of a root<a name="orgs_view_root"></a>
 
 **Minimum permissions**  
 To view the details of a root, you must have the following permissions:  
@@ -52,7 +52,7 @@ You can use one of the following commands to view details of a root:
 + AWS CLI: [aws organizations list\-roots](https://docs.aws.amazon.com/cli/latest/reference/organizations/list-roots.html) 
 + AWS API: [ListRoots](https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListRoots.html)
 
-## Viewing Details of an OU<a name="orgs_view_ou"></a>
+## Viewing details of an OU<a name="orgs_view_ou"></a>
 
 **Minimum permissions**  
 To view the details of an organizational unit \(OU\), you must have the following permissions:  
@@ -78,7 +78,7 @@ You can use one of the following commands to view details of an OU:
 + AWS CLI: [aws organizations describe\-organizational\-unit](https://docs.aws.amazon.com/cli/latest/reference/organizations/describe-organizational-unit.html) 
 + AWS API: [DescribeOrganizationalUnit](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeOrganizationalUnit.html)
 
-## Viewing Details of an Account<a name="orgs_view_account"></a>
+## Viewing details of an account<a name="orgs_view_account"></a>
 
 **Minimum permissions**  
 To view the details of an AWS account, you must have the following permissions:  
@@ -106,7 +106,7 @@ You can use one of the following commands to view details of an account:
 + AWS CLI: [aws organizations describe\-account](https://docs.aws.amazon.com/cli/latest/reference/organizations/describe-account.html) 
 + AWS API: [DescribeAccount](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeAccount.html)
 
-## Viewing Details of a Policy<a name="orgs_view_policy"></a>
+## Viewing details of a policy<a name="orgs_view_policy"></a>
 
 **Minimum permissions**  
 To view the details of a policy, you must have the following permissions:  

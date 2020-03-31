@@ -1,4 +1,4 @@
-# Compliance Validation for AWS Organizations<a name="orgs_compliance-validation"></a>
+# Compliance validation for AWS Organizations<a name="orgs_compliance-validation"></a>
 
 Third\-party auditors assess the security and compliance of AWS Organizations as part of multiple AWS compliance programs\. These include SOC, PCI, FedRAMP, HIPAA, and others\.
 

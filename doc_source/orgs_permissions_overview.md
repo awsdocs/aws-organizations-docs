@@ -1,4 +1,4 @@
-# Managing Access Permissions for Your AWS Organization<a name="orgs_permissions_overview"></a>
+# Managing access permissions for your AWS organization<a name="orgs_permissions_overview"></a>
 
 All AWS resources, including the roots, OUs, accounts, and policies in an organization, are owned by an AWS account, and permissions to create or access a resource are governed by permissions policies\. For an organization, its master account owns all resources\. An account administrator can control access to AWS resources by attaching permissions policies to IAM identities \(users, groups, and roles\)\.
 
@@ -9,7 +9,7 @@ When granting permissions, you decide who is getting the permissions, the resour
 
 By default, IAM users, groups, and roles have no permissions\. As an administrator in the master account of an organization, you can perform administrative tasks or delegate administrator permissions to other IAM users or roles in the master account\. To do this, you attach an IAM permissions policy to an IAM user, group, or role\. By default, a user has no permissions at all; this is sometimes called an *implicit deny*\. The policy overrides the implicit deny with an *explicit allow* that specifies which actions the user can perform, and which resources they can perform the actions on\. If the permissions are granted to a role, users in other accounts in the organization can assume that role\.
 
-## AWS Organizations Resources and Operations<a name="orgs-access-control-resources-and-operataions"></a>
+## AWS Organizations resources and operations<a name="orgs-access-control-resources-and-operataions"></a>
 
 This section discusses how AWS Organizations concepts map to their IAM\-equivalent concepts\.
 
@@ -29,7 +29,7 @@ AWS provides a set of operations to work with the resources in an organization\.
 
 When you combine an `Action` and a `Resource` in a single permission policy `Statement`, you control exactly which resources that particular set of actions can be used on\.
 
-### Condition Keys<a name="orgs_permissions_conditionkeys"></a>
+### Condition keys<a name="orgs_permissions_conditionkeys"></a>
 
 AWS provides condition keys that you can query to provide more granular control over certain actions\. You can reference these condition keys in the `Condition` element of an IAM policy to specify the additional circumstances that must be met for the statement to be considered a match\. 
 
@@ -81,14 +81,14 @@ This global condition also applies to the master account of an organization\.
 
 For a list of all of the AWS Organizations–specific condition keys that can be used as permissions in an IAM policy, see [Condition Context Keys for AWS Organizations](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awsorganizations.html#awsorganizations-policy-keys) in the *IAM User Guide*\.
 
-## Understanding Resource Ownership<a name="orgs-access-control-resource-ownership"></a>
+## Understanding resource ownership<a name="orgs-access-control-resource-ownership"></a>
 
 The AWS account owns the resources that are created in the account, regardless of who created the resources\. Specifically, the resource owner is the AWS account of the [principal entity](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html) \(that is, the root account, an IAM user, or an IAM role\) that authenticates the resource creation request\. For an AWS organization, that is ***always*** the master account\. You can't call most operations that create or access organization resources from the member accounts\. The following examples illustrate how this works:
 + If you use the root account credentials of your master account to create an OU, your master account is the owner of the resource\. \(In AWS Organizations, the resource is the OU\.\)
 + If you create an IAM user in your master account and grant permissions to create an OU to that user, the user can create an OU\. However, the master account, to which the user belongs, owns the OU resource\.
 + If you create an IAM role in your master account with permissions to create an OU, anyone who can assume the role can create an OU\. The master account, to which the role \(not the assuming user\) belongs, owns the OU resource\.
 
-## Managing Access to Resources<a name="orgs-access-control-manage-access-to-resources"></a>
+## Managing access to resources<a name="orgs-access-control-manage-access-to-resources"></a>
 
 A *permissions policy* describes who has access to what\. The following section explains the available options for creating permissions policies\.
 
@@ -98,10 +98,10 @@ This section discusses using IAM in the context of AWS Organizations\. It doesn'
 Policies that are attached to an IAM identity are referred to as *identity\-based* policies \(IAM policies\)\. Policies that are attached to a resource are referred to as *resource\-based* policies\. AWS Organizations supports only identity\-based policies \(IAM policies\)\.
 
 **Topics**
-+ [Identity\-Based Policies \(IAM Policies\)](#orgs-access-control-iam-policies)
-+ [Resource\-Based Policies](#orgs-access-control-resource-policies)
++ [Identity\-based policies \(IAM policies\)](#orgs-access-control-iam-policies)
++ [Resource\-based policies](#orgs-access-control-resource-policies)
 
-### Identity\-Based Policies \(IAM Policies\)<a name="orgs-access-control-iam-policies"></a>
+### Identity\-based policies \(IAM policies\)<a name="orgs-access-control-iam-policies"></a>
 
 You can attach policies to IAM identities\. For example, you can do the following:
 + **Attach a permissions policy to a user or a group in your account** – To grant a user permissions to create an AWS Organizations resource, such as a [service control policy \(SCP\)](orgs_manage_policies_scp.md) or an OU, you can attach a permissions policy to a user or a group that the user belongs to\. The user or group must be in the organization's master account\.
@@ -135,11 +135,11 @@ The following is an example policy that allows a user to perform the `CreateAcco
 
 For more information about users, groups, roles, and permissions, see [Identities \(Users, Groups, and Roles\)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id.html) in the *IAM User Guide*\.
 
-### Resource\-Based Policies<a name="orgs-access-control-resource-policies"></a>
+### Resource\-based policies<a name="orgs-access-control-resource-policies"></a>
 
 Some services, such as Amazon S3, support resource\-based permissions policies\. For example, you can attach a policy to an Amazon S3 bucket to manage access permissions to that bucket\. AWS Organizations currently doesn't support resource\-based policies\.
 
-## Specifying Policy Elements: Actions, Conditions, Effects, and Resources<a name="orgs-access-control-policy-elements"></a>
+## Specifying policy elements: Actions, conditions, effects, and resources<a name="orgs-access-control-policy-elements"></a>
 
 For each AWS Organizations resource, the service defines a set of API operations, or actions, that can interact with or manipulate that resource in some way\. To grant permissions for these operations, AWS Organizations defines a set of actions that you can specify in a policy\. For example, for the OU resource, AWS Organizations defines actions like the following:
 + `AttachPolicy` and `DetachPolicy`

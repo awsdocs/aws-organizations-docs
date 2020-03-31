@@ -1,4 +1,4 @@
-# Enabling and Disabling SCPs<a name="enable-scps"></a>
+# Enabling and disabling SCPs<a name="enable-scps"></a>
 
 Before you can create and attach service control policies \(SCPs\), you must enable this feature\. Enabling the use of SCPs is a one\-time task on the organization root\. You must be signed in to the organization's master account to enable SCPs\.
 

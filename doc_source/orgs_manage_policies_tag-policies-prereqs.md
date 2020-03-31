@@ -1,21 +1,21 @@
-# Prerequisites and Permissions for Managing Tag Policies<a name="orgs_manage_policies_tag-policies-prereqs"></a>
+# Prerequisites and permissions for managing tag policies<a name="orgs_manage_policies_tag-policies-prereqs"></a>
 
 This page describes the prerequisites and required permissions for managing tag policies in AWS Organizations\.
 
 **Topics**
-+ [Prerequisites for Managing Tag Policies](#tag-policies-prereqs-overview)
-+ [Permissions for Managing Tag Policies](#tag-policies-permissions-manage-policies)
++ [Prerequisites for managing tag policies](#tag-policies-prereqs-overview)
++ [Permissions for managing tag policies](#tag-policies-permissions-manage-policies)
 
-## Prerequisites for Managing Tag Policies<a name="tag-policies-prereqs-overview"></a>
+## Prerequisites for managing tag policies<a name="tag-policies-prereqs-overview"></a>
 
 Using tag policies requires the following:
 + Your organization must have [all features enabled](orgs_manage_org_support-all-features.md)\. 
 + You must be signed in to your organization's master account\. 
-+ You need the permissions that are listed in [Permissions for Managing Tag Policies](#tag-policies-permissions-manage-policies)\.
++ You need the permissions that are listed in [Permissions for managing tag policies](#tag-policies-permissions-manage-policies)\.
 
 To evaluate compliance with tag policies, you use AWS Resource Groups\. For information on requirements for evaluating compliance, see [Prerequisites and Permissions](https://docs.aws.amazon.com/ARG/latest/userguide/tag-policies-prereqs.html) in the *AWS Resource Groups User Guide*\.
 
-## Permissions for Managing Tag Policies<a name="tag-policies-permissions-manage-policies"></a>
+## Permissions for managing tag policies<a name="tag-policies-permissions-manage-policies"></a>
 
 The following example IAM policy provides permissions for managing tag policies\. 
 

@@ -20,7 +20,7 @@ You can use one of the following commands to attach an SCP:
 + AWS CLI: [aws organizations attach\-policy](https://docs.aws.amazon.com/cli/latest/reference/organizations/attach-policy.html)
 + AWS API: [AttachPolicy](https://docs.aws.amazon.com/organizations/latest/APIReference/API_AttachPolicy.html)
 
-## Detaching an SCP from the Organization Root, OUs, or Accounts<a name="detach_policy"></a>
+## Detaching an SCP from the organization root, OUs, or accounts<a name="detach_policy"></a>
 
 When signed in to your organization's master account, you can detach an SCP from the organization root, OU, or account that it is attached to\. After you detach an SCP from an entity, that SCP no longer applies to any account that was affected by the now detached entity\. To detach an SCP, complete the following steps\. 
 

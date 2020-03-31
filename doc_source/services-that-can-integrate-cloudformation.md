@@ -1,6 +1,6 @@
 # AWS CloudFormation StackSets and AWS Organizations<a name="services-that-can-integrate-cloudformation"></a>
 
-AWS CloudFormation StackSets enables you to create, update, or delete stacks across multiple accounts and regions with a single operation\. For more information about StackSets, see [Working with AWS CloudFormation StackSets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.html) in the *AWS CloudFormation User Guide*\.
+AWS CloudFormation StackSets enables you to create, update, or delete stacks across multiple accounts and Regions with a single operation\. For more information about StackSets, see [Working with AWS CloudFormation StackSets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.html) in the *AWS CloudFormation User Guide*\.
 
 The following list provides information that you need when integrating AWS CloudFormation StackSets with AWS Organizations:
 + **To enable trusted access with AWS Organizations:** Only an administrator in an AWS Organizations master account has permissions to enable trusted access\. You can enable trusted access using either the AWS CloudFormation console or the AWS Organizations console\. To enable trusted access using the AWS CloudFormation console, see [Enable Trusted Access with AWS Organizations](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-enable-trusted-access.html) in the AWS CloudFormation User Guide\. To enable trusted access using the AWS Organizations console:
