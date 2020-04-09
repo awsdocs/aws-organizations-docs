@@ -3,7 +3,7 @@
 When you no longer need your organization, you can delete it\. This removes the master account from the organization and deletes the organization itself\. The former master account becomes a standalone AWS account\. You then have three options: You can continue to use it as a standalone account, you can use it to create a different organization, or you can accept an invitation from another organization to add the account to that organization as a member account\. 
 
 **Important**  
-If you delete an organization, you will not be able to recover it\. If you created any policies inside of the organization, they will also be deleted\.
+If you delete an organization, you can't recover it\. If you created any policies inside of the organization, they are also deleted\.
 You can delete an organization only after you remove all member accounts from the organization\. If you created some of your member accounts using AWS Organizations, you might be blocked from removing those accounts\. You can remove a member account only if it has all the information that is required to operate as a standalone AWS account\. For more information about how to provide that information and remove the account, see [Leaving an organization as a member account](orgs_manage_accounts_remove.md#orgs_manage_accounts_leave-as-member)\.
 
 When you remove the master account from an organization by deleting the organization, the account is affected in the following ways:

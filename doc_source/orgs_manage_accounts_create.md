@@ -16,8 +16,9 @@ When signed in to the organization's master account, you can create member accou
 
 **Minimum permissions**  
 To create a member account in your organization, you must have the following permissions:  
+`organizations:CreateAccount`
 `organizations:DescribeOrganization` \(console only\)
-`organizations:CreateAccount` 
+`iam:CreateServiceLinkedRole` \(granted to principal `organizations.amazonaws.com` to enable creating the required service\-linked role in the member accounts\)\.
 
 **Important**  
 When you create an account using the following procedure, AWS doesn't automatically collect all the information required for an account to operate as a standalone account\. If you ever need to remove the account from the organization and make it a standalone account, you must provide that information for the account before you can remove it\. For more information, see [Leaving an organization as a member account](orgs_manage_accounts_remove.md#orgs_manage_accounts_leave-as-member)\.
@@ -42,7 +43,7 @@ Remember this role name\. You need it later to grant access to the new account f
 **Important**  
 If you get an error that indicates that you exceeded your account limits for the organization, contact [AWS Support](https://console.aws.amazon.com/support/home#/)\.
 If you get an error that indicates that you can't add an account because your organization is still initializing, wait one hour and try again\.
-You can also check the AWS CloudTrail log for information on whether the account creation was successful\. For more information, see [Logging and monitoring in AWS Organizations](orgs_incident-response.md)\.
+You can also check the AWS CloudTrail log for information on whether the account creation was successful\. For more information, see [Logging and monitoring in AWS Organizations](orgs_security_incident-response.md)\.
 If the error persists, contact [AWS Support](https://console.aws.amazon.com/support/home#/)\.
 
 1. You are redirected to the **Accounts**/**All accounts** tab, showing your new account at the top of the list with its status set to **Pending creation**\. When the account is created, this status changes to **Active**\. 

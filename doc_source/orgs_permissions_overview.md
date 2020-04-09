@@ -9,7 +9,7 @@ When granting permissions, you decide who is getting the permissions, the resour
 
 By default, IAM users, groups, and roles have no permissions\. As an administrator in the master account of an organization, you can perform administrative tasks or delegate administrator permissions to other IAM users or roles in the master account\. To do this, you attach an IAM permissions policy to an IAM user, group, or role\. By default, a user has no permissions at all; this is sometimes called an *implicit deny*\. The policy overrides the implicit deny with an *explicit allow* that specifies which actions the user can perform, and which resources they can perform the actions on\. If the permissions are granted to a role, users in other accounts in the organization can assume that role\.
 
-## AWS Organizations resources and operations<a name="orgs-access-control-resources-and-operataions"></a>
+## AWS Organizations resources and operations<a name="orgs-access-control-resources-and-operations"></a>
 
 This section discusses how AWS Organizations concepts map to their IAM\-equivalent concepts\.
 
@@ -52,6 +52,32 @@ This global condition also applies to the master account of an organization\.
                       ]
                   }
               }
+  ```
++ `organizations:PolicyType` – You can use this condition key to restrict the Organizations policy\-related API operations to work on only Organizations policies of the specified type\. You can apply this condition key to any policy statement that includes an action that interacts with Organizations policies\.
+
+  You can use the following values with this condition key:
+  + `SERVICE_CONTROL_POLICY`
+  + `TAG_POLICY`
+
+  For example, the following example policy allows the user to perform any Organizations operation\. However, if the user performs an operation that takes a policy argument, the operation is allowed only if the specified policy is a tagging policy\. The operation fails if the user specifies a service control policy \(SCP\)\.
+
+  ```
+  {
+      "Version": "2012-10-17",
+      "Statement": [
+          {
+              "Sid": "IfTaggingAPIThenAllowOnOnlyTaggingPolicies",
+              "Effect": "Allow",
+              "Action": "organizations:*",
+              "Resource": "*",
+              "Condition": { 
+                  "StringLikeIfExists": {
+                      "organizations:PolicyType": [ "TAG_POLICY" ]
+                  }
+              }
+          }
+      ]
+  }
   ```
 + `organizations:ServicePrincipal` – Available as a condition if you use the [EnableAWSServiceAccess](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAWSServiceAccess.html) or [DisableAWSServiceAccess](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DisableAWSServiceAccess.html) operations to enable or disable [trusted access](orgs_integrate_services.md) with other AWS services\. You can use `organizations:ServicePrincipal` to restrict requests that those operations make to a list of approved service principal names\.
 
@@ -98,12 +124,12 @@ This section discusses using IAM in the context of AWS Organizations\. It doesn'
 Policies that are attached to an IAM identity are referred to as *identity\-based* policies \(IAM policies\)\. Policies that are attached to a resource are referred to as *resource\-based* policies\. AWS Organizations supports only identity\-based policies \(IAM policies\)\.
 
 **Topics**
-+ [Identity\-based policies \(IAM policies\)](#orgs-access-control-iam-policies)
++ [Identity\-based permission policies \(IAM policies\)](#orgs-access-control-iam-policies)
 + [Resource\-based policies](#orgs-access-control-resource-policies)
 
-### Identity\-based policies \(IAM policies\)<a name="orgs-access-control-iam-policies"></a>
+### Identity\-based permission policies \(IAM policies\)<a name="orgs-access-control-iam-policies"></a>
 
-You can attach policies to IAM identities\. For example, you can do the following:
+You can attach policies to IAM identities to allow those identities to perform operations on AWS resources\. For example, you can do the following:
 + **Attach a permissions policy to a user or a group in your account** – To grant a user permissions to create an AWS Organizations resource, such as a [service control policy \(SCP\)](orgs_manage_policies_scp.md) or an OU, you can attach a permissions policy to a user or a group that the user belongs to\. The user or group must be in the organization's master account\.
 + **Attach a permissions policy to a role \(grant cross\-account permissions\)** – You can attach an identity\-based permissions policy to an IAM role to grant cross\-account access to an organization\. For example, the administrator in the master account can create a role to grant cross\-account permissions to a user in a member account as follows:
 
@@ -119,17 +145,17 @@ The following is an example policy that allows a user to perform the `CreateAcco
 
 ```
 {
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid" : "Stmt1OrgPermissions",  
-      "Effect": "Allow",
-      "Action": [
-        "organizations:CreateAccount"
-      ],
-      "Resource": "*"
-      }
-   ]
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid" : "Stmt1OrgPermissions",  
+            "Effect": "Allow",
+            "Action": [
+                "organizations:CreateAccount"
+            ],
+            "Resource": "*"
+        }
+    ]
 }
 ```
 

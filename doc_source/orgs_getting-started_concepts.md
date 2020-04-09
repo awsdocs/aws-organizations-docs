@@ -42,7 +42,7 @@ A multi\-step process of exchanging information between two parties\. One of its
 **Service control policy \(SCP\)**  <a name="scp"></a>
 A policy that specifies the services and actions that users and roles can use in the accounts that the [SCP](orgs_manage_policies_scp.md) affects\. SCPs are similar to IAM permissions policies except that they don't grant any permissions\. Instead, SCPs specify the maximum permissions for an organization, organizational unit \(OU\), or account\. When you attach an SCP to your organization root or an OU, the SCP limits permissions for entities in member accounts\. 
 
-**Tag policy**  
+**Tag policy**  <a name="tag_policy"></a>
 A type of policy that can help you standardize tags across resources in your organization's accounts\. In a [tag policy](orgs_manage_policies_tag-policies.md), you can specify tagging rules for specific resources\. 
 
 **Allow lists vs\. deny lists**  <a name="allowlist_denylist"></a>

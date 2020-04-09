@@ -22,7 +22,7 @@ Create a rule that tells CloudWatch Events to pass details of specified API call
 Test your new rule by running one of the monitored operations\. In this tutorial, the monitored operation is creating an organizational unit \(OU\)\. You view the log entry that the Lambda function creates, and you view the email that Amazon SNS sends to subscribers\.
 
 **Tip**  
-You can also use this tutorial as a guide in configuring similar operations, such as sending email notifications when account creation is complete\. Because account creation is an asynchronous operation, you're not notified by default when it completes\. For more information on using AWS CloudTrail and CloudWatch Events with AWS Organizations, see [Logging and monitoring in AWS Organizations](orgs_incident-response.md)\.
+You can also use this tutorial as a guide in configuring similar operations, such as sending email notifications when account creation is complete\. Because account creation is an asynchronous operation, you're not notified by default when it completes\. For more information on using AWS CloudTrail and CloudWatch Events with AWS Organizations, see [Logging and monitoring in AWS Organizations](orgs_security_incident-response.md)\.
 
 ## Prerequisites<a name="tutorial-cwe-prereqs"></a>
 

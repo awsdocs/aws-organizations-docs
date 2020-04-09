@@ -29,7 +29,7 @@ The following are the default maximums for entities in AWS Organizations\.
 |  Number of entities that you can attach a policy to  |  Unlimited\.  | 
 |  Number of tags that you can attach to an account  |  50\.  | 
 
-**Expiration times for handshakes**
+### Expiration times for handshakes<a name="min-max-handshakes"></a>
 
 The following are the timeouts for handshakes in AWS Organizations\.
 
@@ -42,7 +42,7 @@ The following are the timeouts for handshakes in AWS Organizations\.
 | Request to enable all features in an organization | 90 days | 
 | Handshake is deleted and no longer appears in lists | 30 days after the handshake is completed | 
 
-**Number of policies that you can attach to an entity**
+### Number of policies that you can attach to an entity<a name="min-max-policies"></a>
 
 The maximum depends on the policy type and the entity that you're attaching the policy to\. The following table shows each policy type and the number of entities that you can attach each type to\.
 

@@ -15,7 +15,7 @@ AWS Organizations *does* automatically create a service\-linked role in invited 
 
 You can send up to 20 invitations per day per organization\. Accepted invitations don't count against this quota\. As soon as one invitation is accepted, you can send another invitation that same day\. Each invitation must be responded to within 15 days, or it expires\.
 
-An invitation that is sent to an account counts against the quota of accounts in your organization\. The count is returned if the invited account declines, the master account cancels the invitation, or the invitation expires\.
+An invitation that is sent to an account counts against the quota of accounts in your organization\. The count is restored if the invited account declines, the master account cancels the invitation, or the invitation expires\.
 
 To create an account that automatically is part of your organization, see [Creating an AWS account in your organization](orgs_manage_accounts_create.md)\.
 

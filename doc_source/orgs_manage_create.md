@@ -14,6 +14,8 @@ After creating an organization, you can add accounts to your organization in the
 **Minimum permissions**  
 To create an organization with your current AWS account, you must have the following permissions:  
 `organizations:CreateOrganization`
+`iam:CreateServiceLinkedRole`   
+You can restrict this permission to only the service principal `organizations.amazonaws.com`\. 
 
 **To create an organization \(console\)**
 

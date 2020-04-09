@@ -13,7 +13,7 @@ You can use [service last accessed data](https://docs.aws.amazon.com/IAM/latest/
 Each of the following policies is an example of a [deny list policy](SCP_strategies.md#orgs_policies_denylist) strategy\. Deny list policies must be attached along with other policies that allow the approved actions in the affected accounts\. For example, the default `FullAWSAccess` policy permits the use of all services in an account\. This policy is attached by default to the root, all organizational units \(OUs\), and all accounts\. It doesn't actually grant the permissions; no SCP does\. Instead, it enables administrators in that account to delegate access to those actions by attaching standard IAM permissions policies to users, roles, or groups in the account\. Each of these deny list policies then overrides any policy by blocking access to the specified services or actions\.
 
 **Topics**
-+ [Example 1: Prevent users from disabling AWS CloudTrail](#example_scp_1)
++ [Example 1: Prevent users from disabling Amazon GuardDuty or modifying its configuration](#example_scp_1)
 + [Example 2: Prevent users from disabling Amazon CloudWatch or altering its configuration](#example_scp_2)
 + [Example 3: Prevent users from deleting Amazon VPC flow logs](#example_scp_3)
 + [Example 4: Prevent users from disabling AWS Config or changing its rules](#example_scp_4)
@@ -21,26 +21,57 @@ Each of the following policies is an example of a [deny list policy](SCP_strateg
 + [Example 6: Denies access to AWS based on the requested Region](#example-scp-deny-region)
 + [Example 7: Prevent IAM principals from making certain changes](#example-scp-restricts-iam-principals)
 + [Example 8: Prevent IAM principals from making certain changes, with exceptions for admins](#example-scp-restricts-with-exception)
-+ [Example 9: Require encryption on Amazon S3 buckets](#example-require-encryption)
-+ [Example 10: Require Amazon EC2 instances to use a specific type](#example-ec2-instances)
-+ [Example 11: Require MFA to stop an Amazon EC2 instance](#example-ec2-mfa)
-+ [Example 12: Restrict access to Amazon EC2 for root user](#example-ec2-root-user)
-+ [Example 13: Require a tag upon resource creation](#example-require-tag-on-create)
++ [Example 9: Require Amazon EC2 instances to use a specific type](#example-ec2-instances)
++ [Example 10: Require MFA to stop an Amazon EC2 instance](#example-ec2-mfa)
++ [Example 11: Restrict access to Amazon EC2 for root user](#example-ec2-root-user)
++ [Example 12: Require a tag upon resource creation](#example-require-tag-on-create)
 
-## Example 1: Prevent users from disabling AWS CloudTrail<a name="example_scp_1"></a>
+## Example 1: Prevent users from disabling Amazon GuardDuty or modifying its configuration<a name="example_scp_1"></a>
 
-This SCP prevents users or roles in any affected account from disabling a CloudTrail log, either directly as a command or through the console\.
+This SCP prevents users or roles in any affected account from disabling GuardDuty or altering its configuration, either directly as a command or through the console\. It effectively enables read\-only access to the GuardDuty information and resources\.
 
 ```
 {
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Deny",
-      "Action": "cloudtrail:StopLogging",
-      "Resource": "*"
-    }
-  ]
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Deny",
+            "Action": [ 
+                "guardduty:AcceptInvitation",
+                "guardduty:ArchiveFindings",
+                "guardduty:CreateDetector",
+                "guardduty:CreateFilter",
+                "guardduty:CreateIPSet",
+                "guardduty:CreateMembers",
+                "guardduty:CreatePublishingDestination",
+                "guardduty:CreateSampleFindings",
+                "guardduty:CreateThreatIntelSet",
+                "guardduty:DeclineInvitations",
+                "guardduty:DeleteDetector",
+                "guardduty:DeleteFilter",
+                "guardduty:DeleteInvitations",
+                "guardduty:DeleteIPSet",
+                "guardduty:DeleteMembers",
+                "guardduty:DeletePublishingDestination",
+                "guardduty:DeleteThreatIntelSet",
+                "guardduty:DisassociateFromMasterAccount",
+                "guardduty:DisassociateMembers",
+                "guardduty:InviteMembers",
+                "guardduty:StartMonitoringMembers",
+                "guardduty:StopMonitoringMembers",
+                "guardduty:TagResource",
+                "guardduty:UnarchiveFindings",
+                "guardduty:UntagResource",
+                "guardduty:UpdateDetector",
+                "guardduty:UpdateFilter",
+                "guardduty:UpdateFindingsFeedback",
+                "guardduty:UpdateIPSet",
+                "guardduty:UpdatePublishingDestination",
+                "guardduty:UpdateThreatIntelSet"
+            ],      
+            "Resource": "*"
+        }
+    ]
 }
 ```
 
@@ -154,15 +185,25 @@ This example policy blocks access to the AWS Security Token Service global endpo
             "Sid": "DenyAllOutsideEU",
             "Effect": "Deny",
             "NotAction": [
-               "iam:*",
-               "organizations:*",
-               "route53:*",
-               "budgets:*",
-               "waf:*",
-               "cloudfront:*",
-               "globalaccelerator:*",
-               "importexport:*",
-               "support:*"
+               "a4b:*",
+                "budgets:*",
+                "ce:*",
+                "chime:*",
+                "cloudfront:*",
+                "cur:*",
+                "globalaccelerator:*",
+                "health:*",
+                "iam:*",
+                "importexport:*",
+                "mobileanalytics:*",
+                "organizations:*",
+                "route53:*",
+                "route53domains:*",
+                "shield:*",
+                "support:*",
+                "trustedadvisor:*",
+                "waf:*",
+                "wellarchitected:*"
             ],
             "Resource": "*",
             "Condition": {
@@ -245,41 +286,7 @@ This SCP builds on the previous example to make an exception for administrators\
 }
 ```
 
-## Example 9: Require encryption on Amazon S3 buckets<a name="example-require-encryption"></a>
-
-This SCP requires that principals use AES256 encryption when writing to Amazon S3 buckets\.
-
-```
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid": "DenyIncorrectEncryptionHeader",
-      "Effect": "Deny",
-      "Action": "s3:PutObject",
-      "Resource": "*",
-      "Condition": {
-        "StringNotEquals": {
-          "s3:x-amz-server-side-encryption": "AES256"
-        }
-      }
-    },
-    {
-      "Sid": "DenyUnEncryptedObjectUploads",
-      "Effect": "Deny",
-      "Action": "s3:PutObject",
-      "Resource": "*",
-      "Condition": {
-        "Null": {
-          "s3:x-amz-server-side-encryption": true
-        }
-      }
-    }
-  ]
-}
-```
-
-## Example 10: Require Amazon EC2 instances to use a specific type<a name="example-ec2-instances"></a>
+## Example 9: Require Amazon EC2 instances to use a specific type<a name="example-ec2-instances"></a>
 
 With this SCP, any instance launches not using the `t2.micro` instance type are denied\.
 
@@ -302,7 +309,7 @@ With this SCP, any instance launches not using the `t2.micro` instance type are 
 }
 ```
 
-## Example 11: Require MFA to stop an Amazon EC2 instance<a name="example-ec2-mfa"></a>
+## Example 10: Require MFA to stop an Amazon EC2 instance<a name="example-ec2-mfa"></a>
 
 Use an SCP like the following to require that multi\-factor authentication \(MFA\) is enabled before a principal or root user can stop an Amazon EC2 instance\.
 
@@ -324,7 +331,7 @@ Use an SCP like the following to require that multi\-factor authentication \(MFA
 }
 ```
 
-## Example 12: Restrict access to Amazon EC2 for root user<a name="example-ec2-root-user"></a>
+## Example 11: Restrict access to Amazon EC2 for root user<a name="example-ec2-root-user"></a>
 
 The following policy restricts all access to Amazon EC2 actions for the [root user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html) in an account\. If you want to prevent your accounts from using root credentials in specific ways, add your own actions to this policy\.
 
@@ -353,7 +360,7 @@ The following policy restricts all access to Amazon EC2 actions for the [root us
 }
 ```
 
-## Example 13: Require a tag upon resource creation<a name="example-require-tag-on-create"></a>
+## Example 12: Require a tag upon resource creation<a name="example-require-tag-on-create"></a>
 
 The following SCP prevents account principals from creating certain resource types without the specified tags\. 
 

@@ -19,7 +19,7 @@ AWS Organizations offers the following features:
 You can combine your existing accounts into an organization that enables you to manage the accounts centrally\. You can create accounts that automatically are a part of your organization, and you can invite other accounts to join your organization\. You also can attach policies that affect some or all of your accounts\. 
 
 **Consolidated billing for all member accounts**  
-Consolidated billing is a feature of AWS Organizations\. You can use the master account of your organization to consolidate and pay for all member accounts\. 
+Consolidated billing is a feature of AWS Organizations\. You can use the master account of your organization to consolidate and pay for all member accounts\. In consolidated billing, master accounts can also access the billing information, account information, and account activity of member accounts in their organization\. This information may be used for services such as Cost Explorer, which can help master accounts improve their organization’s cost performance\. 
 
 **Hierarchical grouping of your accounts to meet your budgetary, security, or compliance needs**  
 You can group your accounts into organizational units \(OUs\) and attach different access policies to each OU\. For example, if you have accounts that must access only the AWS services that meet certain regulatory requirements, you can put those accounts into one OU\. You then can attach a policy to that OU that blocks access to services that do not meet those regulatory requirements\. You can nest OUs within other OUs to a depth of five levels, providing flexibility in how you structure your account groups\.
@@ -55,7 +55,9 @@ You can work with AWS Organizations in any of the following ways:
 
 **AWS Command Line Tools**  
 With the AWS command line tools, you can issue commands at your system's command line to perform AWS Organizations and AWS tasks\. Working with the command line can be faster and more convenient than using the console\. The command line tools also are useful if you want to build scripts that perform AWS tasks\.  
-AWS provides two sets of command line tools: the [AWS Command Line Interface](https://aws.amazon.com/cli/) \(AWS CLI\) and the [AWS Tools for Windows PowerShell](https://aws.amazon.com/powershell/)\. For information about installing and using the AWS CLI, see the [AWS Command Line Interface User Guide](https://docs.aws.amazon.com/cli/latest/userguide/)\. For information about installing and using the Tools for Windows PowerShell, see the [AWS Tools for Windows PowerShell User Guide](https://docs.aws.amazon.com/powershell/latest/userguide/)\.
+AWS provides two sets of command line tools:  
++  [AWS Command Line Interface](https://aws.amazon.com/cli/) \(AWS CLI\)\. For information about installing and using the AWS CLI, see the [AWS Command Line Interface User Guide](https://docs.aws.amazon.com/cli/latest/userguide/)\.
++  [AWS Tools for Windows PowerShell](https://aws.amazon.com/powershell/)\. For information about installing and using the Tools for Windows PowerShell, see the [AWS Tools for Windows PowerShell User Guide](https://docs.aws.amazon.com/powershell/latest/userguide/)\.
 
 **AWS SDKs**  
 The AWS SDKs consist of libraries and sample code for various programming languages and platforms \(for example, Java, Python, Ruby, \.NET, iOS, and Android\)\. The SDKs take care of tasks such as cryptographically signing requests, managing errors, and retrying requests automatically\. For more information about the AWS SDKs, including how to download and install them, see [Tools for Amazon Web Services](https://aws.amazon.com/tools/#sdk)\.

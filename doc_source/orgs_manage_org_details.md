@@ -1,11 +1,13 @@
 # Viewing details about your organization<a name="orgs_manage_org_details"></a>
 
 You can perform the following tasks using the AWS Organizations console:
+
+**Topics**
 + [Viewing details of an organization from the master account](#orgs_view_org)
 + [Viewing details of a root](#orgs_view_root)
 + [Viewing details of an OU](#orgs_view_ou)
 + [Viewing details of an account](#orgs_view_account)
-+ [Viewing details of a policy ](#orgs_view_policy)
++ [Viewing details of a policy](#orgs_view_policy)
 
 ## Viewing details of an organization from the master account<a name="orgs_view_org"></a>
 
