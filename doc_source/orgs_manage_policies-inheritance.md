@@ -1,4 +1,4 @@
-# How policy inheritance works<a name="orgs_manage_policies-inheritance"></a>
+# How tag policy inheritance works<a name="orgs_manage_policies-inheritance"></a>
 
 You can attach tag policies to any organization entity \(organization root, organizational unit, or account\):
 + When you attach a tag policy to the organization root, all accounts in the organization inherit that policy\. 
@@ -16,16 +16,25 @@ This page describes how parent policies and child policies are aggregated into t
 
 ## Terminology<a name="inheritance-terminology"></a>
 
-The following table describes common terms used in defining how policy inheritance works\.
+The following table describes common terms used in defining how tag policy inheritance works\.
 
+Policy inheritance  
+The interaction of tag policies at differing levels of an organization\.  
+You can attach tag policies to the organization root, organizational units \(OUs\), individual accounts, and to a combination of these organization entities\. Policy inheritance refers to policies that are attached to the organization root or to an OU\. All accounts that are members of the organization root or OU where a tag policy is attached *inherit* that tag policy\.  
+For example, when policies are attached to the organization root, all accounts in the organization inherit that policy\. That's because all accounts in an organization are always under the organization root\. When policies are attached to a specific OU, accounts that are directly under that OU or any child OU inherit the policy\. Because you can attach policies to multiple levels in the organization, accounts might inherit multiple policy documents for a single policy type\. 
 
-| Term | Definition | 
-| --- | --- | 
-|  Policy inheritance  |  The interaction of tag policies at differing levels of an organization\. You can attach tag policies to the organization root, organizational units \(OUs\), individual accounts, and to a combination of these organization entities\. Policy inheritance refers to policies that are attached to the organization root or to an OU\. All accounts that are members of the organization root or OU where a tag policy is attached *inherit* that tag policy\. For example, when policies are attached to the organization root, all accounts in the organization inherit that policy\. That's because all accounts in an organization are always under the organization root\. When policies are attached to a specific OU, accounts that are directly under that OU or any child OU inherit the policy\. Because you can attach policies to multiple levels in the organization, accounts might inherit multiple policy documents for a single policy type\.   | 
-|  Parent policies  |  Policies that are attached higher in the organizational tree than policies that are attached to entities lower in the tree\.  For example, if you attach policy A to the organization root, it's just a policy\. If you also attach policy B to an OU, policy A is the parent policy of Policy B\. Policy B is the child policy of Policy A\. Policy A and policy B merge to create the effective tag policy for accounts in the OU\.   | 
-|  Child policies  |  Policies that are attached at a lower level in the organization tree than the parent policy\.   | 
-|  [Effective policy](orgs_manage_policies_tag-policies-effective.md)  |  A single policy document that specifies the tagging rules that apply to an account\. The effective policy is the aggregation of any tag policies the account inherits, plus any tag policy that is directly attached to the account\.   | 
-|  [Inheritance operators](#tag-policy-operators)  |  Operators that control how inherited policies merge into a single effective policy\. These operators are considered an advanced feature\. Experienced tag policy authors can use them to limit what changes a child policy can make and how settings in policies merge\.   | 
+Parent policies  
+Policies that are attached higher in the organizational tree than policies that are attached to entities lower in the tree\.   
+For example, if you attach policy A to the organization root, it's just a policy\. If you also attach policy B to an OU, policy A is the parent policy of Policy B\. Policy B is the child policy of Policy A\. Policy A and policy B merge to create the effective tag policy for accounts in the OU\. 
+
+Child policies  
+Policies that are attached at a lower level in the organization tree than the parent policy\. 
+
+[Effective policy](orgs_manage_policies_tag-policies-effective.md)  
+A single policy document that specifies the tagging rules that apply to an account\. The effective policy is the aggregation of any tag policies the account inherits, plus any tag policy that is directly attached to the account\. 
+
+[Inheritance operators](#tag-policy-operators)  
+Operators that control how inherited policies merge into a single effective policy\. These operators are considered an advanced feature\. Experienced tag policy authors can use them to limit what changes a child policy can make and how settings in policies merge\. 
 
 ## Inheritance operators<a name="tag-policy-operators"></a>
 
@@ -117,6 +126,9 @@ As shown in the diagram, OU1 includes two accounts: 111111111111 and 22222222222
 
 **Effective tag policy for accounts 111111111111 and 222222222222**
 
+**Note**  
+You can't directly use the contents of a displayed effective policy as the content of a new policy\. The syntax doesn't include the operators needed to control merging with other child and parent policies\. This is for understanding the effective results only\.
+
 ```
 {
     "tags": {
@@ -194,6 +206,9 @@ Attaching policy C to OU2 has the following effects when policy A and policy C m
 As shown in the diagram, OU2 includes one account: 999999999999\. Policy A and policy C merge to create the effective tag policy for account 999999999999\.
 
 **Effective tag policy for account 999999999999**
+
+**Note**  
+You can't directly use the contents of a displayed effective policy as the content of a new policy\. The syntax doesn't include the operators needed to control merging with other child and parent policies\. This is for understanding the effective results only\.
 
 ```
 {
@@ -275,6 +290,9 @@ Attaching policy D to account 999999999999 to has the following effects when pol
 
 **New effective tag policy for account 999999999999**
 
+**Note**  
+You can't directly use the content of a displayed effective policy as the content of a new policy\. The syntax doesn't include the operators needed to control merging with other child and parent policies\. This is for understanding the effective results only\.
+
 ```
 {
     "tags": {
@@ -347,6 +365,9 @@ Merging policy E and policy F have the following effects on the OU's accounts:
 + However, policy F can append tag values for the key\. That's because policy E includes `"@@operators_allowed_for_child_policies": ["@@append"]` for the tag value\. 
 
 **Effective policy for accounts in the OU**
+
+**Note**  
+You can't directly use the content of a displayed effective policy as the content of a new policy\. The syntax doesn't include the operators needed to control merging with other child and parent policies\. This is for understanding the effective results only\.
 
 ```
 {
@@ -444,6 +465,9 @@ In this example, the tag key `PROJECT` is used in the effective tag policy becau
 **Policy JK – Effective tag policy for account**
 
 The effective policy for the account is as follows\.
+
+**Note**  
+You can't directly use the content of a displayed effective policy as the content of a new policy\. The syntax doesn't include the operators needed to control merging with other child and parent policies\. This is for understanding the effective results only\.
 
 ```
 {

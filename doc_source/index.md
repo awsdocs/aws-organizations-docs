@@ -54,7 +54,7 @@ Amazon's trademarks and trade dress may not be used in
       + [Understanding enforcement](orgs_manage_policies_tag-policies-enforcement.md)
          + [Services and resource types that support enforcement](orgs_manage_policies_supported-resources-enforcement.md)
       + [Tag policy syntax and examples](orgs_manage_policies_example-tag-policies.md)
-      + [How policy inheritance works](orgs_manage_policies-inheritance.md)
+      + [How tag policy inheritance works](orgs_manage_policies-inheritance.md)
       + [Using tag policies in the AWS CLI](tag-policy-cli.md)
       + [Supported Regions](tag-policies-regions.md)
 + [Tagging AWS Organizations resources](orgs_tagging.md)

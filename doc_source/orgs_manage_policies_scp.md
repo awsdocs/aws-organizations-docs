@@ -61,7 +61,7 @@ The following tasks and AWS Organizations entities are not restricted by SCPs:
   + Changing the root user's password
   + Creating, updating, or deleting root access keys
 **Note**  
-For some accounts created before 9/15/2017, this restriction doesn't apply\. AWS recommends that you don't rely on this restriction for these accounts\.
+For all accounts created *after* September 15th, 2017, you ***can*** use SCPs to prevent the root user in member accounts from managing root user access keys\. However, for some accounts created before 9/15/2017, SCPs ***don't*** prevent that member account’s root user from creating, updating, or deleting the root user access keys\. Because of this, we recommend that you don’t rely on SCPs to try to restrict this operation unless you're certain that the account was created after that date\.
   + Enabling or disabling multi\-factor authentication on the root user
   + Creating, updating, or deleting x\.509 keys for the root user
 + Registering for the Enterprise support plan as the root user

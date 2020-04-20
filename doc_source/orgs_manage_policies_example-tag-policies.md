@@ -154,7 +154,7 @@ If you attach Policy A to the organization root and Policy B to an account, the 
 }
 ```
 
-For more information on policy inheritance, including examples of how the inheritance operators work and example effective tag policies, see [How policy inheritance works](orgs_manage_policies-inheritance.md)\.
+For more information on policy inheritance, including examples of how the inheritance operators work and example effective tag policies, see [How tag policy inheritance works](orgs_manage_policies-inheritance.md)\.
 
 ## Example 2: Prevent use of a tag key<a name="tag-policy-example-prevent-key"></a>
 

@@ -9,6 +9,7 @@ Use the information here to help you diagnose and fix access\-denied or other co
 + [I get a "quota exceeded" message when I try to add an account to my organization](#troubleshoot_general_error-adding-account)
 + [I get a "this operation requires a wait period" message while adding or removing accounts](#troubleshoot_general_error-wait-req)
 + [I get an "organization is still initializing" message when I try to add an account to my organization](#troubleshoot_general_error-still-init)
++ [I get an "Invitations are disabled" message when I try to invite an account to my organization\.](#troubleshoot_general_error-changing-feature-set)
 + [I used an incorrect email address when i created a member account](#troubleshoot_incorrect-email)
 + [Changes that I make aren't always immediately visible](#troubleshoot_general_eventual-consistency)
 
@@ -40,6 +41,10 @@ Some actions require a wait period\. For example, you can't immediately remove n
 ## I get an "organization is still initializing" message when I try to add an account to my organization<a name="troubleshoot_general_error-still-init"></a>
 
 If you receive this error and it's been over an hour since you created the organization, contact [AWS Support](https://console.aws.amazon.com/support/home#/)\.
+
+## I get an "Invitations are disabled" message when I try to invite an account to my organization\.<a name="troubleshoot_general_error-changing-feature-set"></a>
+
+This happens when you [enable all features in your organization](orgs_manage_org_support-all-features.md)\. This operation can take some time and requires that all member accounts respond\. Until the operation is completed, you can't invite new accounts to join the organization\.
 
 ## I used an incorrect email address when i created a member account<a name="troubleshoot_incorrect-email"></a>
 
