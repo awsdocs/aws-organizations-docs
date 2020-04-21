@@ -1,99 +1,75 @@
-# How policy inheritance works<a name="orgs_manage_policies-inheritance"></a>
+# How tag policy inheritance works<a name="orgs_manage_policies-inheritance"></a>
 
-You can attach policies to organization entities \(organization root, organizational unit, or account\):
-+ When you attach a policy to the organization root, all OUs and accounts in the organization inherit that policy\. 
-+ When you attach a policy to a specific OU, accounts that are directly under that OU or any child OU inherit the policy\.
-+ When you attach a policy to a specific account, it affects only that account\. 
+You can attach tag policies to any organization entity \(organization root, organizational unit, or account\):
++ When you attach a tag policy to the organization root, all accounts in the organization inherit that policy\. 
++ When you attach a tag policy to a specific OU, accounts that are directly under that OU or any child OU inherit the policy\.
++ When you attach tag policies to an account, they affect only that account\. 
 
-Because you can attach policies to multiple levels in the organization, accounts can inherit multiple policies\.
+Because you can attach policies to multiple levels in the organization, accounts can inherit multiple tag policies\.
 
-Exactly how policies affect the OUs and accounts that inherit them depends on the type of policy:
-+ [Service control policies \(SCPs\)](#orgs_manage_policies-inheritance-scps)
-+ [Tag policies](#orgs_manage_policies-inheritance-others)
-
-## Inheritance for SCPs<a name="orgs_manage_policies-inheritance-scps"></a>
+The *effective tag policy* is the set of tagging rules that are inherited from the organization root and OUs, plus the attached account tag policies\. The effective tag policy specifies the tagging rules that apply to the account\. To learn how to view the effective tag policy for an account, see [Viewing effective tag policies](orgs_manage_policies_tag-policies-effective.md)\.
 
 **Important**  
-The information in this section does ***not*** apply to tag policies\. See the next section [Inheritance for tag policies](#orgs_manage_policies-inheritance-others)\.
+Untagged resources don't appear as noncompliant in results\.
 
-Inheritance for service control policies behaves like a filter through which permissions flow to all parts of the tree below\. Imagine that the inverted tree structure of the organization is made of pipes that connect from the root to all of the OUs and end at the accounts\. All AWS permissions flow into the pipe at the root of the tree\. Those permissions must then flow past the SCPs attached to the root, OUs, and the account to get to the principal \(an IAM role or user\) making a request\. Each SCP can filter the permissions passing through to the levels below it\. If an action is blocked by a `Deny` statement then all OUs and accounts affected by that SCP are denied access to that action\. An SCP at a lower level can't add a permission back once it is blocked by an SCP at a higher level\. SCPs can ***only*** filter; they never add permissions back\.
+This page describes how parent policies and child policies are aggregated into the effective policy for an account\.
 
-SCPs do not support inheritance operators that alter how elements of the policy are inherited by child OUs and accounts\.
+## Terminology<a name="inheritance-terminology"></a>
 
-If you view the details for an account in the Organizations console, and choose Policies and then Service Control Policies in the right\-hand details pane, you can see a list of all policies applied to the account and where that policy comes from\. The same policy might apply to the account multiple times because the policy can be attached any or all of the parent containers of the account\. The effective policy that applies to the account is the intersection of allowed permissions of all applicable policies
-
-For more information about how to use SCPs, see [Service control policies](orgs_manage_policies_scp.md)\.
-
-## Inheritance for tag policies<a name="orgs_manage_policies-inheritance-others"></a>
-
-Inheritance for tag policies behaves differently than SCPs\. The syntax for this policy type includes *inheritance operators*, which enable you to specify with fine granularity what elements from the parent policies are applied and what elements can be inherited by child OUs and accounts\.
-
-The *effective policy* is the set of rules that are inherited from the organization root and OUs along with those directly attached to the account\. The effective policy specifies the rules that apply to the account\. You can view the effective tag policy for an account that includes the effect of all of the inheritance operators in the policies applied\. For more information, see [Viewing effective tag policies](orgs_manage_policies_tag-policies-effective.md)\.
-
-This section explains how parent policies and child policies are processed into the effective policy for an account\. 
-
-**Important**  
-The information in this section does ***not*** apply to SCPs\. See the previous section [Inheritance for SCPs](#orgs_manage_policies-inheritance-scps)\.
-
-### Terminology<a name="inheritance-terminology"></a>
-
-The following table describes terms used in the following discussion about how policy inheritance works\.
+The following table describes common terms used in defining how tag policy inheritance works\.
 
 Policy inheritance  
-The interaction of policies at differing levels of an organization, moving from the top\-level root of the organization, down through the OU hierarchy to individual accounts\.  
-You can attach policies to the organization root, organizational units \(OUs\), individual accounts, and to any combination of these organization entities\. Policy inheritance refers to policies that are attached to the organization root or to an OU\. All accounts that are members of the organization root or OU where a policy is attached *inherit* that policy\.  
-For example, when policies are attached to the organization root, all accounts in the organization inherit that policy\. That's because all accounts in an organization are always under the organization root\. When you attach a policy to a specific OU, accounts that are directly under that OU or any child OU inherit that policy\. Because you can attach policies to multiple levels in the organization, accounts might inherit multiple policy documents for a single policy type\. 
+The interaction of tag policies at differing levels of an organization\.  
+You can attach tag policies to the organization root, organizational units \(OUs\), individual accounts, and to a combination of these organization entities\. Policy inheritance refers to policies that are attached to the organization root or to an OU\. All accounts that are members of the organization root or OU where a tag policy is attached *inherit* that tag policy\.  
+For example, when policies are attached to the organization root, all accounts in the organization inherit that policy\. That's because all accounts in an organization are always under the organization root\. When policies are attached to a specific OU, accounts that are directly under that OU or any child OU inherit the policy\. Because you can attach policies to multiple levels in the organization, accounts might inherit multiple policy documents for a single policy type\. 
 
 Parent policies  
 Policies that are attached higher in the organizational tree than policies that are attached to entities lower in the tree\.   
-For example, if you attach policy A to the organization root, it's just a policy\. If you also attach policy B to an OU under that root, policy A is the parent policy of Policy B\. Policy B is the child policy of Policy A\. Policy A and policy B merge to create the effective tag policy for accounts in the OU\.
+For example, if you attach policy A to the organization root, it's just a policy\. If you also attach policy B to an OU, policy A is the parent policy of Policy B\. Policy B is the child policy of Policy A\. Policy A and policy B merge to create the effective tag policy for accounts in the OU\. 
 
 Child policies  
 Policies that are attached at a lower level in the organization tree than the parent policy\. 
 
-Effective policies  
-The final, single policy document that specifies the rules that apply to an account\. The effective policy is the aggregation of any policies the account inherits, plus any policy that is directly attached to the account\. For example, tag policies enable you to view the effective tag policy that applies to any of your accounts\. For more information, see [Viewing effective tag policies](orgs_manage_policies_tag-policies-effective.md)\.
+[Effective policy](orgs_manage_policies_tag-policies-effective.md)  
+A single policy document that specifies the tagging rules that apply to an account\. The effective policy is the aggregation of any tag policies the account inherits, plus any tag policy that is directly attached to the account\. 
 
 [Inheritance operators](#tag-policy-operators)  
 Operators that control how inherited policies merge into a single effective policy\. These operators are considered an advanced feature\. Experienced tag policy authors can use them to limit what changes a child policy can make and how settings in policies merge\. 
 
-### Inheritance operators<a name="tag-policy-operators"></a>
+## Inheritance operators<a name="tag-policy-operators"></a>
 
-Inheritance operators control how inherited policies and account policies merge into the account's effective policy\. These operators include value\-setting operators and child control operators\. 
+Inheritance operators control how inherited tag policies and account tag policies merge into the account's effective tag policy\. These operators include value\-setting operators and child control operators\. 
 
-When you use the visual editor in the AWS Organizations console, you can use only the `@@assign` operator\. Other operators are considered an advanced feature\. To use the other operators, you must manually author the JSON policy\. Experienced policy authors can use them to control what values are applied to the effective policy and limit what changes child policies can make\. 
+When you use the visual editor in the AWS Organizations console, you can use only the `@@assign` operator\. Other operators are considered an advanced feature\. To use the other operators, you must manually author the JSON policy\. Experienced tag policy authors can use them to control what tag values are applied to the effective tag policy and limit what changes child policies can make\. 
 
-#### Value\-setting operators<a name="value-setting-operators"></a>
+### Value\-setting operators<a name="value-setting-operators"></a>
 
-You can use the following value\-setting operators to control how your policy interacts with its parent policies\.
-+ `@@assign` – **Overwrites** any inherited policy settings with the specified settings\. If the specified setting isn't inherited, this operator adds it to the effective policy\.
-  + For tag policies, this removes any inherited tag keys and values and replaces them with the specified tag keys and values
-+ `@@append` – **Adds** the specified settings \(without removing any\) to the inherited ones\. If the specified setting isn't inherited, this operator adds it to the effective policy\. 
-  + For tag policies, this adds the specified tag keys and values to any inherited ones\.
-+ `@@remove` – **Removes** the specified inherited settings from the effective policy, if they exist\.
-  + For tag policies, this removes the specified tag keys and values from the effective policy, if they exist\. If this operator results in a tag policy key without any values, then accounts with that effective policy can use any value for that tag\.
+You can use the value\-setting operators to control how your tag policy interacts with its parent policies\.
++ `@@assign` – Overwrites inherited tag keys and values with the specified tag keys and values\. If the specified tag isn't inherited, this operator adds the key and value to the effective policy\.
++ `@@append` – Adds the specified tag keys and values to the inherited tag keys and values\. If the specified tag isn't inherited, this operator adds the keys and values to the effective policy\. 
++ `@@remove` – Removes specific inherited tag keys and values from the effective policy, if they exist\. If this operator removes all values from a tag policy key, accounts that are directly under that OU or any child OU can use any value for that tag\.
 
-#### Child control operators<a name="child-control-operators"></a>
+### Child control operators<a name="child-control-operators"></a>
 
-You can use the `@@operators_allowed_for_child_policies` operator to control which value\-setting operators child policies can use\. Using child control operators is optional\. You can allow all operators, some specific operators, or no operators\. By default, all operators \(`@@all`\) are allowed\.
-+ `"@@operators_allowed_for_child_policies"`:`["@@all"]` – Child OUs and accounts can use any operator in policies\. By default, all operators are allowed in child policies\.
-+ `"@@operators_allowed_for_child_policies"`:`["@@assign", "@@append", "@@remove"]` – Child OUs and accounts can use only the specified operators in policies\. You can specify one or more value\-setting operators in this child control operator\.
-+ `"@@operators_allowed_for_child_policies"`:`["@@none"]` – Child OUs and accounts can't use operators in policies\. You can use this operator to effectively lock down values that are defined in a parent policy so that child policies can't add, append, or remove values\.
+You can use the `@@operators_allowed_for_child_policies` operator to control which value\-setting operators child tag policies can use\. Using child control operators is optional\. You can allow all operators, some specific operators, or no operators\. By default, all operators \(`@@all`\) are allowed\.
++ `"@@operators_allowed_for_child_policies"`:`["@@all"]` – Child OUs and accounts can use any operator in tag policies\. By default, all operators are allowed in child policies\.
++ `"@@operators_allowed_for_child_policies"`:`["@@assign", "@@append", "@@remove"]` – Child OUs and accounts can use only the specified operators in tag policies\. You can specify one or more value\-setting operators in this child control operator\.
++ `"@@operators_allowed_for_child_policies"`:`["@@none"]` – Child OUs and accounts can't use operators in tag policies\. To effectively lock down values that are defined in a parent policy so that child policies can't add, append, or remove values, use this operator\.
 
 **Note**  
-If an inherited child control operator limits the use of an operator, you can't reverse that rule in a child policy\. If you include child control operators in a parent policy, they limit the value\-setting operators in all child policies\.
+If an inherited child control operator limits the use of an operator, you can't reverse that rule in a child tag policy\. If you include child control operators in a parent policy, they limit the value\-setting operators in all child policies\.
 
-### Policy inheritance examples<a name="inheritance-examples"></a>
+## Tag policy inheritance examples<a name="inheritance-examples"></a>
 
-These examples show how policy inheritance works by showing how parent and child tag policies are merged into an effective tag policy for an account\.
+These examples show how policy inheritance works by showing parent and child tag policies are merged into an effective tag policy for an account\.
 
 The examples assume that you have the following organization structure\.
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/organizations/latest/userguide/images/org-structure-inheritance.png)
 
-#### Example 1: Allow child policies to overwrite *only* tag values<a name="example-assign-operator"></a>
+### Example 1: Allow child policies to overwrite tag values<a name="example-assign-operator"></a>
 
-The following tag policy defines the `CostCenter` tag key and two acceptable values\. If you attach it to the organization root, the tag policy is in effect for all accounts in the organization\. 
+The following tag policy defines the `CostCenter` tag key and acceptable values\. If you attach it to the organization root, the tag policy is in effect for all accounts in the organization\. 
 
 **Policy A – Organization root tag policy**
 
@@ -143,15 +119,15 @@ Assume that you want users in OU1 to use different tag value for a key, and you 
 ```
 
 Specifying the `@@assign` operator for the tag does the following when policy A and policy B merge to form the *effective tag policy* for an account:
-+ Policy B overwrites the two tag values that were specified in the parent policy, policy A\. The result is that `Sandbox` is the only compliant value for the `CostCenter` tag key\.
-+ The addition of `enforced_for` specifies that the `CostCenter` tag *must* be the specified tag value on all Amazon Redshift resources and Amazon DynamoDB tables\.
++ Policy B overwrites the two tag values that were specified in the parent policy, policy A\. `Sandbox` is only compliant value for the `CostCenter` tag key\.
++ The addition of `enforced_for` specifies that the `CostCenter` tag must be used the specified tag value on all Amazon Redshift resources and Amazon DynamoDB tables\.
 
 As shown in the diagram, OU1 includes two accounts: 111111111111 and 222222222222\. 
 
-**Resultant effective tag policy for accounts 111111111111 and 222222222222**
+**Effective tag policy for accounts 111111111111 and 222222222222**
 
 **Note**  
-You can't directly use the contents of a displayed effective policy as the contents of a new policy\. The syntax doesn't include the operators needed to control merging with other child and parent policies\. The display of an effective policy is intended only for understanding the results of the merger\. 
+You can't directly use the contents of a displayed effective policy as the content of a new policy\. The syntax doesn't include the operators needed to control merging with other child and parent policies\. This is for understanding the effective results only\.
 
 ```
 {
@@ -170,7 +146,7 @@ You can't directly use the contents of a displayed effective policy as the conte
 }
 ```
 
-#### Example 2: Append new values to inherited tags<a name="example-append-operator"></a>
+### Example 2: Append new values to inherited tags<a name="example-append-operator"></a>
 
 There may be cases where you want all accounts in your organization to specify a tag key with a short list of acceptable values\. For accounts in one OU, you may want to allow an additional value that only those accounts can specify when creating resources\. This example specifies how to do that by using the `@@append` operator\. The `@@append` operator is an advanced feature\. 
 
@@ -232,7 +208,7 @@ As shown in the diagram, OU2 includes one account: 999999999999\. Policy A and p
 **Effective tag policy for account 999999999999**
 
 **Note**  
-You can't directly use the contents of a displayed effective policy as the contents of a new policy\. The syntax doesn't include the operators needed to control merging with other child and parent policies\. The display of an effective policy is intended only for understanding the results of the merger\. 
+You can't directly use the contents of a displayed effective policy as the content of a new policy\. The syntax doesn't include the operators needed to control merging with other child and parent policies\. This is for understanding the effective results only\.
 
 ```
 {
@@ -253,7 +229,7 @@ You can't directly use the contents of a displayed effective policy as the conte
 }
 ```
 
-#### Example 3: Remove values from inherited tags<a name="example-remove-operator"></a>
+### Example 3: Remove values from inherited tags<a name="example-remove-operator"></a>
 
 There may be cases where the tag policy that is attached to the organization defines more tag values than you want an account to use\. This example explains how to do that using the `@@remove` operator\. The `@@remove` is an advanced feature\.
 
@@ -315,7 +291,7 @@ Attaching policy D to account 999999999999 to has the following effects when pol
 **New effective tag policy for account 999999999999**
 
 **Note**  
-You can't directly use the contents of a displayed effective policy as the contents of a new policy\. The syntax doesn't include the operators needed to control merging with other child and parent policies\. The display of an effective policy is intended only for understanding the results of the merger\. 
+You can't directly use the content of a displayed effective policy as the content of a new policy\. The syntax doesn't include the operators needed to control merging with other child and parent policies\. This is for understanding the effective results only\.
 
 ```
 {
@@ -332,7 +308,7 @@ You can't directly use the contents of a displayed effective policy as the conte
 
 If you later add more accounts to OU2, their effective tag policies would be different than for account 999999999999\. That's because the more restrictive policy D is only attached at the account level, and not to the OU\. 
 
-#### Example 4: Restrict changes to child policies<a name="example-restrict-child"></a>
+### Example 4: Restrict changes to child policies<a name="example-restrict-child"></a>
 
 There may be cases where you want to restrict changes in child policies\. This example explains how to do that using child control operators\.
 
@@ -391,7 +367,7 @@ Merging policy E and policy F have the following effects on the OU's accounts:
 **Effective policy for accounts in the OU**
 
 **Note**  
-You can't directly use the contents of a displayed effective policy as the contents of a new policy\. The syntax doesn't include the operators needed to control merging with other child and parent policies\. The display of an effective policy is intended only for understanding the results of the merger\. 
+You can't directly use the content of a displayed effective policy as the content of a new policy\. The syntax doesn't include the operators needed to control merging with other child and parent policies\. This is for understanding the effective results only\.
 
 ```
 {
@@ -408,7 +384,7 @@ You can't directly use the contents of a displayed effective policy as the conte
 }
 ```
 
-#### Example 5: Conflicts with child control operators<a name="multiple-same-node-operators"></a>
+### Example 5: Conflicts with child control operators<a name="multiple-same-node-operators"></a>
 
 Child control operators can exist in tag policies that are attached at the same level in the organization hierarchy\. When that happens, the intersection of the allowed operators is used when the policies merge to form the effective policy for accounts\.
 
@@ -447,7 +423,7 @@ Assume policy G and policy H are attached to the organization root\.
 
 In this example, one policy at the organization root defines that the values for the tag key can only be appended to\. The other policy attached to the organization root allows child policies to both append and remove values\. The intersection of these two permissions is used for child policies\. The result is that child policies can append values, but not remove values\. Therefore, the child policy can append a value to the list of tag values, but can't remove `Maintenance`\.
 
-#### Example 6: Conflicts with appending values at same hierarchy level<a name="multiple-same-node-values"></a>
+### Example 6: Conflicts with appending values at same hierarchy level<a name="multiple-same-node-values"></a>
 
 You can attach multiple tag policies to each organization entity\. When you do this, the tag policies that are attached to the same organization entity can include conflicting information\. These policies are evaluated based on the order in which they were attached to the organization entity\. To change which policy is evaluated first, you can detach a policy and then reattach it\.
 
@@ -491,7 +467,7 @@ In this example, the tag key `PROJECT` is used in the effective tag policy becau
 The effective policy for the account is as follows\.
 
 **Note**  
-You can't directly use the contents of a displayed effective policy as the contents of a new policy\. The syntax doesn't include the operators needed to control merging with other child and parent policies\. The display of an effective policy is intended only for understanding the results of the merger\. 
+You can't directly use the content of a displayed effective policy as the content of a new policy\. The syntax doesn't include the operators needed to control merging with other child and parent policies\. This is for understanding the effective results only\.
 
 ```
 {
