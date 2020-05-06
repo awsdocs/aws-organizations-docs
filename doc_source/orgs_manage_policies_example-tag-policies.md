@@ -160,7 +160,7 @@ For more information on policy inheritance, including examples of how the inheri
 
 To prevent the use of a tag key, you can attach a tag policy like the following to an organization entity\.
 
-This example policy specifies that no values are acceptable for the `Color` tag key\. It also specifies that no [operators](orgs_manage_policies-inheritance.md#tag-policy-operators) are allowed in child tag policies\. Therefore, any `Color` tags on resources in affected accounts are non\-compliant\. In addition, the `enforced_for` option actually prevents affected accounts from tagging Amazon DynamoDB tables with the `Color` tag\. 
+This example policy specifies that no values are acceptable for the `Color` tag key\. It also specifies that no [operators](orgs_manage_policies-inheritance.md#tag-policy-operators) are allowed in child tag policies\. Therefore, any `Color` tags on resources in affected accounts are considered non\-compliant\. However, the `enforced_for` option actually prevents affected accounts from tagging ***only*** Amazon DynamoDB tables with the `Color` tag\.
 
 ```
 {

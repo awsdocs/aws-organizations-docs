@@ -89,4 +89,4 @@ Amazon's trademarks and trade dress may not be used in
    + [Troubleshooting AWS Organizations policies](org_troubleshoot_policies.md)
 + [Calling the API by making HTTP Query requests](orgs_query-requests.md)
 + [Document history for AWS Organizations](document-history.md)
-+ [AWS Glossary](glossary.md)
++ [AWS glossary](glossary.md)
