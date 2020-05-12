@@ -169,13 +169,14 @@ This SCP prevents users or roles in any affected account from changing the confi
 
 ## Example 6: Denies access to AWS based on the requested Region<a name="example-scp-deny-region"></a>
 
-This SCP denies access to any operations outside of the `eu-central-1` and `eu-west-1` Regions, except for actions in the listed services\. To use this SCP, replace the red italicized text in the example policy with your own information\.
+This SCP denies access to any operations outside of the `eu-central-1` and `eu-west-1` Regions\. It provides exemptions for operations in approved global services\. To use this SCP, replace the red italicized text in the example policy with your own information\.
 
-This policy uses the [NotAction](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_notaction.html) element with the `Deny` effect to deny access to all of the actions *not* listed in the statement\. The listed services are examples of AWS global services with a single endpoint that is physically located in the `us-east-1` Region\. Requests made to services in the `us-east-1` Region aren't denied if they're included in the `NotAction` element\. Any other requests to services in the `us-east-1` Region are denied\.
+This policy uses the `Deny` effect to deny access to all requests for operations that are not in one of the two approved regions\. The [NotAction](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_notaction.html) element enables you to list services whose operations are exempted from this restriction\. Because global services have endpoints that physically hosted by the `us-east-1` Region , they must be exempted in this way\. With an SCP structured this way, requests made to global services in the `us-east-1` Region are allowed if the requested service is included in the `NotAction` element\. Any other requests to services in the `us-east-1` Region are denied by this example policy\.
 
 **Notes**  
-Not all AWS global services are shown in this example policy\. Replace the list of services in red italicized text with the global services used by accounts in your organization\.
-This example policy blocks access to the AWS Security Token Service global endpoint \(`sts.amazonaws.com`\)\. To use AWS STS with this policy, use regional endpoints or add `"sts:*"` to the `NotAction` element\. For more information on AWS STS endpoints, see [Activating and Deactivating AWS STS in an AWS Region](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html) in the *IAM User Guide*\.
+Not all AWS global services are shown in this example policy\. Replace the list of services in red italicized text with the global services used by accounts in your organization\.   
+You can view the[ service last accessed data in the IAM console](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html) to determine what global services your organization uses\. The **Access Advisor** tab on the details page for an IAM user, group, or role displays the AWS services that have been used by that entity, sorted by most recent access\. 
+This example policy blocks access to the AWS Security Token Service *global* endpoint \(`sts.amazonaws.com`\)\. To use AWS STS with this policy, you must either use the AWS STS regional endpoints or add `"sts:*"` to the `NotAction` element\. For more information on AWS STS endpoints, see [Activating and Deactivating AWS STS in an AWS Region](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html) in the *IAM User Guide*\.
 
 ```
 {
