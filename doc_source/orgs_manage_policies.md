@@ -5,7 +5,7 @@ Policies in AWS Organizations enable you to apply additional types of management
 ## Policy types<a name="orgs-policy-types"></a>
 
 Organizations offers the following policy types:
-+ [**Service control policies \(SCPs\)**](orgs_manage_policies_scp.md) offer central control over the maximum available permissions for all accounts your organization\. 
++ [**Service control policies \(SCPs\)**](orgs_manage_policies_scp.md) offer central control over the maximum available permissions for all of the accounts in your organization\. 
 + [**Tag policies**](orgs_manage_policies_tag-policies.md) help you standardize tags across resources in your organization's accounts\. 
 
 The AWS Organizations console displays the enabled and disabled status of each policy type\. On the **Organize accounts** tab, choose the `Root` in the left navigation pane\. The details pane on the right side of the screen shows all of the available policy types\. The list indicates which are enabled and which are disabled in that organization root\. If the option to **Enable** a type is present, that type is currently disabled\. If the option to **Disable** a type is present, that type is currently enabled\.

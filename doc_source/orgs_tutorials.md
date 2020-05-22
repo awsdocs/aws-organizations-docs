@@ -1,4 +1,4 @@
-# AWS organizations tutorials<a name="orgs_tutorials"></a>
+# AWS Organizations tutorials<a name="orgs_tutorials"></a>
 
 Use the tutorials in this section to learn how to perform tasks using AWS Organizations\.
 
