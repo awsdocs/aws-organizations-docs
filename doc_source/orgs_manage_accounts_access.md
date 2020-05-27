@@ -1,6 +1,6 @@
 # Accessing and administering the member accounts in your organization<a name="orgs_manage_accounts_access"></a>
 
-When you create an account in your organization, AWS Organizations automatically creates a root user and an IAM role named `OrganizationAccountAccessRole` for the account\. However, AWS Organizations doesn't create any IAM users, groups, or other roles\. To access the accounts in your organization, you must use one of the following methods:
+When you create an account in your organization, in addition to the root user, AWS Organizations automatically creates an IAM role that is by default named `OrganizationAccountAccessRole`\. You can specify the name when you create it\. We refer to the role in this guide by that default name\. However, AWS Organizations doesn't create any IAM users, groups, or other roles\. To access the accounts in your organization, you must use one of the following methods:
 + The account has a root user that you can use to sign in\. We recommend that you use the root user only to create IAM users, groups, and roles and then always sign in with one of those\. See [Accessing a member account as the root user](#orgs_manage_accounts_access-as-root)\. 
 + If you create an account in your organization, you can access the account by using the preconfigured role named `OrganizationAccountAccessRole` that exists in all new accounts that are created this way\. See [Accessing a member account that has a master account access role](#orgs_manage_accounts_access-cross-account-role)\.
 + If you invite an existing account to join your organization and the account accepts the invitation, you can then create an IAM role that allows the master account to access the invited account\. This is similar to the role automatically added to an account that is created with AWS Organizations\. To create this role, see [Creating the OrganizationAccountAccessRole in an invited member account](#orgs_manage_accounts_create-cross-account-role)\. After you create the role, you can access it using the steps in [Accessing a member account that has a master account access role](#orgs_manage_accounts_access-cross-account-role)\.
@@ -95,31 +95,37 @@ When you create a member account using the AWS Organizations console, AWS Organi
 
 1. Sign in to the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/) as a user with administrator permissions in the master account\. This is required to delegate permissions to the IAM group whose users will access the role in the member account\.
 
-1. In the navigation pane, choose **Groups** and then choose the name of the group \(not the check box\) whose members you want to be able to assume the role in the member account\. If necessary, you can create a new group\.
+1. <a name="step-create-policy"></a>Start by creating the managed policy that you need later in [Step 11](#step-choose-group)\. 
 
-1. Choose the **Permissions** tab and then expand the **Inline Policies** section\.
+   In the navigation pane, choose **Policies** and then choose **Create policy**\.
 
-1. If no inline policies exist, choose **click here** to create one\. Otherwise, choose **Create Group Policy**\.
+1. On the Visual editor tab, choose **Choose a service**, type **STS** in the search box to filter the list, and then choose the **STS** option\.
 
-1. Next to **Policy Generator**, choose **Select**\.
+1. In the **Actions** section, type **assume** in the search box to filter the list, and then choose the **AssumeRole** option\.
 
-1. On the **Edit Permissions** page, set the following options:
-   + For **Effect**, choose **Allow**\.
-   + For **AWS Service**, choose **AWS Security Token Service**\.
-   + For **Actions**, choose **AssumeRole**\.
-   + For **Amazon Resource Name \(ARN\)**, enter the ARN of the role that was created in the member account\. You can see the ARN in the IAM console on the role's **Summary** page\. To construct this ARN, use the following template:
+1. In the Resources section, choose **Specific**, choose** Add ARN to restrict access**, and then type the member account number and the name of the role that you created in the previous section \(we recommended naming it `OrganizationAccountAccessRole`\)\.
 
-     `arn:aws:iam::accountIdNumber:role/rolename`
+1. Choose Add when the dialog box displays the correct ARN\.
 
-     Substitute the account ID number of the member account and the role name that was configured when you created the account\. If you didn't specify a role name, the name defaults to `OrganizationAccountAccessRole`\. The ARN should look like the following:
+1. \(Optional\) If you want to require multi\-factor authentication \(MFA\), or restrict access to the role from a specified IP address range, then expand the Request conditions section, and select the options you want to enforce\.
 
-     `arn:aws:iam::123456789012:role/OrganizationAccountAccessRole`
+1. Choose **Review policy**\.
 
-1. Choose **Add Statement** and then choose **Next Step**\.
+1. In the **Name** field, enter a name for your policy\. For example : **GrantAccessToOrganizationAccountAccessRole**\. You can also add an optional description\. 
 
-1. On the **Review Policy** page, ensure that the ARN for the role is correct\. Enter a name for the new policy and then choose **Apply Policy**\.
+1. <a name="step-end-policy"></a>Choose **Create policy** to save your new managed policy\.
 
-   IAM users that are members of the group now have permissions to switch to the new role in the AWS Organizations console by following the below procedure\.
+1. <a name="step-choose-group"></a>Now that you have the policy available, you can attach it to a group\.
+
+   In the navigation pane, choose **Groups** and then choose the name of the group \(not the check box\) whose members you want to be able to assume the role in the member account\. If necessary, you can create a new group\.
+
+1. Choose the **Permissions** tab and then under **Managed Policies,** choose **Attach policy**\.
+
+1. \(Optional\) In the **Search** box, you can start typing the name of your policy to filter the list until you can see the name of the policy you just created in [Step 2](#step-create-policy) through [Step 10](#step-end-policy)\. You can also filter out all of the AWS managed policies by choosing **Policy Type** and then choosing **Customer Managed**\.
+
+1. Check the box next to your policy, and then choose **Attach Policy**\.
+
+IAM users that are members of the group now have permissions to switch to the new role in the AWS Organizations console by following the below procedure\.
 
 **To switch to the role for the member account \(console\)**
 
@@ -133,7 +139,7 @@ When using the role, the user has administrator permissions in the new member ac
 
 1. Choose **Switch Role**\. Now all actions that you perform are done with the permissions granted to the role that you switched to\. You no longer have the permissions associated with your original IAM user until you switch back\.
 
-1. When you have finished performing actions that require the permissions of the role, you can switch back to your normal IAM user\. Choose the role name in the upper\-right corner \(whatever you specified as the **Display Name**\) and then choose **Back to *UserName***\.
+1. When you finish performing actions that require the permissions of the role, you can switch back to your normal IAM user\. Choose the role name in the upper\-right corner \(whatever you specified as the **Display Name**\) and then choose **Back to *UserName***\.
 
 ### Additional resources<a name="orgs-resources-switching"></a>
 + For more information about granting permissions to switch roles, see [Granting a User Permissions to Switch Roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_permissions-to-switch.html) in the *IAM User Guide*\.

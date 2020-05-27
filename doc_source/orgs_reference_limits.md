@@ -38,9 +38,9 @@ The following are the timeouts for handshakes in AWS Organizations\.
 
 |  |  | 
 | --- |--- |
-|  Invitation to join an organization  | 15 days | 
-| Request to enable all features in an organization | 90 days | 
-| Handshake is deleted and no longer appears in lists | 30 days after the handshake is completed | 
+|  Invitation to join an organization  |  15 days  | 
+|  Request to enable all features in an organization  |  90 days  | 
+|  Handshake is deleted and no longer appears in lists  |  30 days after the handshake is completed  | 
 
 ### Number of policies that you can attach to an entity<a name="min-max-policies"></a>
 
@@ -52,6 +52,7 @@ The maximum depends on the policy type and the entity that you're attaching the 
 | Policy type | Policies per root | Policies per OU | Policies per account | 
 | --- | --- | --- | --- | 
 | Service control policy | 5 | 5 | 5 | 
+| Tag policy | 5 | 5 | 5 | 
 
 **Note**  
 Currently, you can have only one root in an organization\.
@@ -64,3 +65,4 @@ The minimum depends on the policy type\. The following table shows each policy t
 | Policy type | Minimum allowed attached to an entity | 
 | --- | --- | 
 | Service control policy | 1 — Every entity must have at least one SCP attached at all times\. You can't remove the last SCP from an entity\. | 
+| Tag policy | 0 | 
