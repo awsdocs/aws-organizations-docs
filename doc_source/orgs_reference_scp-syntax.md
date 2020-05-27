@@ -16,14 +16,14 @@ The following table summarizes the policy elements that you can use in SCPs\. So
 
 | Element | Purpose | Supported effects | 
 | --- | --- | --- | 
-| [Version](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_version.html) | Specifies the language syntax rules to use for processing the policy\. |  `Allow`, `Deny`  | 
-| [Statement](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_statement.html) | Serves as the container for policy elements\. You can have multiple statements in SCPs\. |  `Allow`, `Deny`  | 
-| [Statement ID \(Sid\)](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_sid.html) |  \(Optional\) Provides a friendly name for the statement\.  |  `Allow`, `Deny`  | 
-|  [Effect](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_effect.html)  |  Defines whether the SCP statement [allows](orgs_getting-started_concepts.md#allowlist) or [denies](orgs_getting-started_concepts.md#denylist) principal and root access in an account\.  |  `Allow`, `Deny`  | 
-|  [Action](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_action.html)  |  Specifies AWS service/actions that the SCP allows or denies\.  |  `Allow`, `Deny`  | 
-|  [NotAction](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_notaction.html)  |  Specifies AWS service/actions that are exempt from the SCP\. Used instead of the `Action` element\.  |  `Deny`  | 
-|  [Resource](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_resource.html)  |  Specifies the AWS resources that the SCP applies to\.  | Deny | 
-|  [Condition](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html)  |  Specifies conditions for when the statement is in effect\.  |  `Deny`  | 
+| [Version](#scp-syntax-version) | Specifies the language syntax rules to use for processing the policy\. |  `Allow`, `Deny`  | 
+| [Statement](#scp-syntax-statement) | Serves as the container for policy elements\. You can have multiple statements in SCPs\. | Allow, Deny | 
+| [Statement ID \(Sid\)](#scp-syntax-sid) | \(Optional\) Provides a friendly name for the statement\. | Allow, Deny | 
+| [Effect](#scp-syntax-effect) | Defines whether the SCP statement [allows](orgs_getting-started_concepts.md#allowlist) or [denies](orgs_getting-started_concepts.md#denylist) principal and root access in an account\. | Allow, Deny | 
+| [Action](#scp-syntax-action) | Specifies AWS service/actions that the SCP allows or denies\. | Allow, Deny | 
+| [NotAction](#scp-syntax-action) | Specifies AWS service/actions that are exempt from the SCP\. Used instead of the Action element\. | Deny | 
+| [Resource](#scp-syntax-resource) | Specifies the AWS resources that the SCP applies to\. | Deny | 
+| [Condition](#scp-syntax-condition) | Specifies conditions for when the statement is in effect\. | Deny | 
 
 The following sections provide more information and examples of how policy elements are used in SCPs\.
 
@@ -34,6 +34,8 @@ Every SCP must include a `Version` element with the value `"2012-10-17"`\. This 
 ```
     "Version": "2012-10-17",
 ```
+
+For more information, see [IAM JSON Policy Elements: Version](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_version.html) in the *IAM User Guide*\.
 
 ## `Statement` Element<a name="scp-syntax-statement"></a>
 
@@ -66,6 +68,8 @@ The following example includes two statements as an array list inside one `State
     ]
 ```
 
+For more information, see [IAM JSON Policy Elements: Statement](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_statement.html) in the *IAM User Guide*\.
+
 ## Statement ID \(`Sid`\) element<a name="scp-syntax-sid"></a>
 
 The `Sid` is an optional identifier that you provide for the policy statement\. You can assign a `Sid` value to each statement in a statement array\. The following example SCP shows a sample `Sid` statement\. 
@@ -81,9 +85,13 @@ The `Sid` is an optional identifier that you provide for the policy statement\. 
 }
 ```
 
+For more information, see [IAM JSON Policy Elements: Id](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_id.html) in the *IAM User Guide*\.
+
 ## `Effect` Element<a name="scp-syntax-effect"></a>
 
 Each statement must contain one `Effect` element\. The value can be either `Allow` or `Deny`\. It affects any actions listed in the same statement\.
+
+For more information, see [IAM JSON Policy Elements: Effect](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_effect.html) in the *IAM User Guide*\.
 
 ### `"Effect": "Allow"`<a name="scp-syntax-effect-allow"></a>
 
@@ -139,6 +147,8 @@ You also can use an asterisk as a wildcard to match multiple actions that share 
 In an SCP, the wildcard \(\*\) character in an `Action` or `NotAction` element can be used only by itself or at the end of the string\. It can't appear at the beginning or middle of the string\. Therefore, `"servicename:action*"` is valid, but `"servicename:*action"` and `"servicename:some*action"` are both invalid in SCPs\.
 
 For a list of all the services and the actions that they support in both AWS Organizations SCPs and IAM permission policies, see [Actions, Resources, and Condition Keys for AWS Services](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actionsconditions.html) in the *IAM User Guide*\.
+
+For more information, see [IAM JSON Policy Elements: Action](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_action.html) and [IAM JSON Policy Elements: NotAction](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_notaction.html) in the *IAM User Guide*\.
 
 ### Example of `Action` element<a name="scp-syntax-action-example"></a>
 
@@ -232,6 +242,8 @@ In statements where the `Effect` element has a value of `Deny`, you *can* specif
 
 This SCP restricts IAM principals in accounts from making changes to a common administrative IAM role created in all accounts in your organization\.
 
+For more information, see [IAM JSON Policy Elements: Resource](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_resource.html) in the *IAM User Guide*\.
+
 ## `Condition` Element<a name="scp-syntax-condition"></a>
 
  You can specify a `Condition` element in deny statements in an SCP\. For example:
@@ -264,6 +276,8 @@ This SCP restricts IAM principals in accounts from making changes to a common ad
 ```
 
 This SCP denies access to any operations outside the `eu-central-1` and `eu-west-1` Regions, except for actions in the listed services\. 
+
+For more information, see [IAM JSON Policy Elements: Condition](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html) in the *IAM User Guide*\.
 
 ## Unsupported elements<a name="scp-syntax-principal"></a>
 

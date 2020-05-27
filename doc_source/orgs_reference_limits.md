@@ -21,8 +21,8 @@ The following are the default maximums for entities in AWS Organizations\.
 |  Number of roots in an organization  |  1\.  | 
 |  Number of OUs in an organization  |  1,000\.  | 
 |  Number of policies in an organization  |  1,000\.  | 
-|  Maximum size of a [service control policy \(SCP\)](orgs_manage_policies_scp.md) document  |  5,120 bytes\. This includes all characters, except white space \(such as spaces and line breaks\)\.  | 
-|  Maximum size of a [tag policy](orgs_manage_policies_tag-policies.md) document  |  2,500 characters\. This includes all characters, except white space \(such as spaces and line breaks\)\.  | 
+|  Maximum size of a [service control policy \(SCP\)](orgs_manage_policies_scp.md) document  |  5,120 bytes\. White space \(such as spaces and line breaks\) between JSON elements and outside of quotation marks, is not counted\.   | 
+|  Maximum size of a [tag policy](orgs_manage_policies_tag-policies.md) document  |  2,500 characters\. White space \(such as spaces and line breaks\) between JSON elements and outside of quotation marks, is not counted\.   | 
 |  OU maximum nesting in a root  |  Five levels of OUs deep under a root\.  | 
 |  Number of open invitations you can add in a 24\-hour period  |  20 — Accepted invitations don't count against this quota\. As soon as one invitation is accepted, you can send another invitation that same day\.  | 
 |  Number of member accounts you can create concurrently  |  5 — As soon as one finishes, you can start another, but only five can be in progress at a time\.  | 
