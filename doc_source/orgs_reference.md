@@ -1,4 +1,4 @@
-# AWS organizations reference<a name="orgs_reference"></a>
+# AWS Organizations reference<a name="orgs_reference"></a>
 
 Use the topics in this section to find detailed reference information for various aspects of AWS Organizations\.
 

@@ -2,7 +2,7 @@
 
 Part of managing accounts in an organization is removing *member* accounts that you no longer need\. This page describes what you need to know before removing an account and provides procedures for removing accounts\.
 
-For information on removing the *master* account, see [Remove the master account and delete the organization](orgs_manage_org_delete.md)\.
+For information on removing the *master* account, see [Delete the organization by removing the master account](orgs_manage_org_delete.md)\.
 
 **Topics**
 + [Before removing an account from an organization](#orgs_manage_account-before_-remove)
