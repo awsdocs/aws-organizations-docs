@@ -1,6 +1,6 @@
 # Service control policies<a name="orgs_manage_policies_scp"></a>
 
-Service control policies \(SCPs\) are one type of policy that you can use to manage your organization\. SCPs offer central control over the maximum available permissions for all accounts in your organization, allowing you to ensure your accounts stay within your organization’s access control guidelines\. SCPs are available only in an organization that has [all features enabled](orgs_manage_org_support-all-features.md)\. SCPs aren't available if your organization has enabled only the consolidated billing features\. For instructions on enabling SCPs, see [Enabling and disabling SCPs](enable-scps.md)\.
+Service control policies \(SCPs\) are one type of policy that you can use to manage your organization\. SCPs offer central control over the maximum available permissions for all accounts in your organization, allowing you to ensure your accounts stay within your organization’s access control guidelines\. SCPs are available only in an organization that has [all features enabled](orgs_manage_org_support-all-features.md)\. SCPs aren't available if your organization has enabled only the consolidated billing features\. For instructions on enabling SCPs, see [Enabling and disabling policy types](orgs_manage_policies_enable-disable.md)\.
 
 SCPs alone are not sufficient for allowing access in the accounts in your organization\. Attaching an SCP to an AWS Organizations entity \(root, OU, or account\) defines a guardrail for what actions the principals can perform\. You still need to attach [identity\-based or resource\-based policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html) to principals or resources in your organization's accounts to actually grant permissions to them\. When a principal belongs to an account that is a member of an organization, the SCPs contribute to the principal's [effective permissions](#scp-effects-on-permissions)\.
 
@@ -10,7 +10,6 @@ SCPs alone are not sufficient for allowing access in the accounts in your organi
 + [Effects on permissions](#scp-effects-on-permissions)
 + [Using access data to improve SCPs](#data-from-iam)
 + [Tasks and entities not restricted by SCPs](#not-restricted-by-scp)
-+ [Enabling and disabling SCPs](enable-scps.md)
 + [Creating and updating SCPs](create-policy.md)
 + [Attaching SCPs](attach-scps.md)
 + [How SCPs work](orgs_manage_policies_about-scps.md)

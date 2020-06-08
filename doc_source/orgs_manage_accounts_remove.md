@@ -115,6 +115,10 @@ If an account rejoins an organization that it previously belonged to, the accoun
 
      1. A confirmation dialog box appears\. Confirm your choice to remove the account\. You are redirected to the **Getting Started** page of the AWS Organizations console, where you can view any pending invitations for your account to join other organizations\.
 
+1. 
+**Important**  
+If your account was created in the organization instead of joined by invitation, then it automatically received an IAM role that enabled access by the master account\. If you were invited to join, then the member account did not receive such a role automatically, but it might have been manually created\. In either case, if you want to terminate such access from the former organization's master account, then you must manually delete this IAM role\.
+
 **To leave an organization as a member account \(AWS CLI, AWS API\)**
 
 You can use one of the following commands to leave an organization:

@@ -171,6 +171,9 @@ This SCP prevents users or roles in any affected account from changing the confi
 
 This SCP denies access to any operations outside of the `eu-central-1` and `eu-west-1` Regions\. It provides exemptions for operations in approved global services\. To use this SCP, replace the red italicized text in the example policy with your own information\.
 
+**Important**  
+If you use AWS Control Tower in your organization, we recommend that you do not use this example policy\. AWS Control Tower works across AWS Regions in a way that is not compatible with this example policy\.
+
 This policy uses the `Deny` effect to deny access to all requests for operations that are not in one of the two approved regions\. The [NotAction](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_notaction.html) element enables you to list services whose operations are exempted from this restriction\. Because global services have endpoints that physically hosted by the `us-east-1` Region , they must be exempted in this way\. With an SCP structured this way, requests made to global services in the `us-east-1` Region are allowed if the requested service is included in the `NotAction` element\. Any other requests to services in the `us-east-1` Region are denied by this example policy\.
 
 **Notes**  

@@ -49,7 +49,7 @@ Tag policy syntax includes the following components:
   The example tag policy specifies that all AWS Secrets Manager resources must have this tag\. 
 **Warning**  
 You should only change this option from the default if you are experienced with using tag policies\. Otherwise, you could prevent users in your organization's accounts from creating the resources they need\. 
-+ *Operators* that specify how the tag policy merges with other tag policies within the organization tree to create an account's [effective tag policy](orgs_manage_policies_tag-policies-effective.md)\. In this example, `@@assign` is used to assign strings to `tag_key`, `tag_value`, and `enforced_for`\. For more information on operators, see [Inheritance operators](orgs_manage_policies-inheritance.md#tag-policy-operators)\.
++ *Operators* that specify how the tag policy merges with other tag policies within the organization tree to create an account's [effective tag policy](orgs_manage_policies_tag-policies-effective.md)\. In this example, `@@assign` is used to assign strings to `tag_key`, `tag_value`, and `enforced_for`\. For more information on operators, see [Inheritance operators](orgs_manage_policies_inheritance_mgmt.md#tag-policy-operators)\.
 + You can use the `*` wildcard in tag values and `enforced_for` fields:
   + You can use one wildcard per tag value\. For example, `*@example.com` is allowed, but `*@*.com` is not\. 
   + For `enforced_for`, you can use `<service>:*` with some services to enable enforcement for all resources for that service\. For a list of services and resource types that support `enforced_for`, see [Services and resource types that support enforcement](orgs_manage_policies_supported-resources-enforcement.md)\. 
@@ -160,7 +160,7 @@ For more information on policy inheritance, including examples of how the inheri
 
 To prevent the use of a tag key, you can attach a tag policy like the following to an organization entity\.
 
-This example policy specifies that no values are acceptable for the `Color` tag key\. It also specifies that no [operators](orgs_manage_policies-inheritance.md#tag-policy-operators) are allowed in child tag policies\. Therefore, any `Color` tags on resources in affected accounts are considered non\-compliant\. However, the `enforced_for` option actually prevents affected accounts from tagging ***only*** Amazon DynamoDB tables with the `Color` tag\.
+This example policy specifies that no values are acceptable for the `Color` tag key\. It also specifies that no [operators](orgs_manage_policies_inheritance_mgmt.md#tag-policy-operators) are allowed in child tag policies\. Therefore, any `Color` tags on resources in affected accounts are considered non\-compliant\. However, the `enforced_for` option actually prevents affected accounts from tagging ***only*** Amazon DynamoDB tables with the `Color` tag\.
 
 ```
 {
