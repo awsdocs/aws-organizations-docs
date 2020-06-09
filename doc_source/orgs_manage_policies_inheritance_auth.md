@@ -11,4 +11,4 @@ SCPs do not support inheritance operators that alter how elements of the policy 
 
 You can see a list of all policies applied to an account and where that policy comes from\. To do this,choose an account in the AWS Organizations console\. On the account details page, choose **Policies** and then choose **Service Control Policies** in the right\-hand details pane\. The same policy might apply to the account multiple times because the policy can be attached to any or all of the parent containers of the account\. The effective policy that applies to the account is the intersection of allowed permissions of all applicable policies\.
 
-For more information about how to use SCPs, see [Service control policies](orgs_manage_policies_scp.md)\.
+For more information about how to use SCPs, see [Service Control Policies \(SCPs\)](orgs_manage_policies_type-auth.md#orgs_manage_policies_scp)\.

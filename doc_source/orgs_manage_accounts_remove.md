@@ -20,7 +20,7 @@ Before you remove an account, it's important to know the following:
 
 When you remove an account from an organization, no direct changes are made to the account\. However, the following indirect effects occur:
 + The account is now responsible for paying its own charges and must have a valid payment method attached to the account\.
-+ The principals in the account are no longer affected by any [service control policies \(SCPs\)](orgs_manage_policies_scp.md) that were defined in the organization\. This means that restrictions imposed by those SCPs are gone, and the users and roles in the account might have more permissions than they had before\.
++ The principals in the account are no longer affected by any [service control policies \(SCPs\)](orgs_manage_policies_type-auth.md#orgs_manage_policies_scp) that were defined in the organization\. This means that restrictions imposed by those SCPs are gone, and the users and roles in the account might have more permissions than they had before\.
 + Integration with other services might be disabled\. For example, AWS Single Sign\-On requires an organization to operate, so if you remove an account from an organization that supports AWS SSO, the users in that account can no longer use that service\.
 
 ## Removing a member account from your organization<a name="orgs_manage_accounts_remove-from-master"></a>

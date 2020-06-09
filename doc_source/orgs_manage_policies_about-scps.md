@@ -1,6 +1,6 @@
 # How SCPs work<a name="orgs_manage_policies_about-scps"></a>
 
-The following illustration shows how [SCPs](orgs_manage_policies_scp.md) work\.
+The following illustration shows how [SCPs](orgs_manage_policies_type-auth.md#orgs_manage_policies_scp) work\.
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/organizations/latest/userguide/images/How_SCP_Permissions_Work.jpg)
 

@@ -1,6 +1,6 @@
 # Creating and updating SCPs<a name="create-policy"></a>
 
-When signed in with permissions to your organization's master account, you can create and update [service control policies \(SCPs\)](orgs_manage_policies_scp.md)\. You create SCPs by building statements that deny or allow access to services and actions that you specify\.
+When signed in with permissions to your organization's master account, you can create and update [service control policies \(SCPs\)](orgs_manage_policies_type-auth.md#orgs_manage_policies_scp)\. You create SCPs by building statements that deny or allow access to services and actions that you specify\.
 
 The default configuration for working with SCPs is to create statements that deny access\. With deny statements, you can also specify resources and conditions for the statement and use the [NotAction](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_notaction.html) element\. For allow statements, you can specify services and actions only\.
 
@@ -9,7 +9,7 @@ For more information about statements that deny access and allow access, see [St
 **Tip**  
 You can use [service last accessed data](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html) in [IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) to update your SCPs to restrict access to only the AWS services that you need\. For more information, see [Viewing Organizations Service Last Accessed Data for Organizations](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor-view-data-orgs.html) in the *IAM User Guide\.* 
 
-## Creating an SCP<a name="create-an-scp"></a>
+### Creating an SCP<a name="create-an-scp"></a>
 
 To create SCPs, you need permission to run the following action:
 + `organizations:CreatePolicy`
@@ -72,14 +72,14 @@ The resource element is required\. If you want to specify all resources for the 
 Your new SCP appears in the list of the organization's policies\. You can now [attach your SCP to the root, OUs, or accounts](attach-scps.md)\.
 
 **Note**  
-SCPs don't take effect on the master account and in a few other situations\. For more information, see [Tasks and entities not restricted by SCPs](orgs_manage_policies_scp.md#not-restricted-by-scp)\.
+SCPs don't take effect on the master account and in a few other situations\. For more information, see [Tasks and entities not restricted by SCPs](orgs_manage_policies_type-auth.md#not-restricted-by-scp)\.
 
 **To create a service control policy \(AWS CLI, AWS API\)**  
 You can use one of the following commands to create an SCP:
 + AWS CLI: [aws organizations create\-policy](https://docs.aws.amazon.com/cli/latest/reference/organizations/create-policy.html)
 + AWS API: [CreatePolicy](https://docs.aws.amazon.com/organizations/latest/APIReference/API_CreatePolicy.html)
 
-## Updating an SCP<a name="update_policy"></a>
+### Updating an SCP<a name="update_policy"></a>
 
 When signed in to your organization's master account, you can rename or change the contents of a policy\. Changing the contents of an SCP immediately affects any users, groups, and roles in all attached accounts\.
 
@@ -108,13 +108,13 @@ You can use one of the following commands to update a policy:
 + AWS CLI: [aws organizations update\-policy](https://docs.aws.amazon.com/cli/latest/reference/organizations/update-policy.html)
 + AWS API: [UpdatePolicy](https://docs.aws.amazon.com/organizations/latest/APIReference/API_UpdatePolicy.html)
 
-### For more information<a name="orgs_create_policies_scp-more-info"></a>
+#### For more information<a name="orgs_create_policies_scp-more-info"></a>
 
 For more information on creating SCPs, see the following pages:
 + [Example service control policies](orgs_manage_policies_example-scps.md)
 + [SCP syntax](orgs_reference_scp-syntax.md)
 
-## Deleting a policy<a name="delete_policy"></a>
+### Deleting a policy<a name="delete_policy"></a>
 
 When signed in to your organization's master account, you can delete a policy that you no longer need in your organization\. 
 

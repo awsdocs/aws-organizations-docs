@@ -11,7 +11,7 @@ Organizations offers policy types in the following two broad categories:
 ### Authorization policies<a name="orgs-policy-types-list-authorization"></a>
 
 Authorization policies help you to centrally manage the security of the AWS accounts in your organization\.
-+ [**Service control policies \(SCPs\)**](orgs_manage_policies_scp.md) offer central control over the maximum available permissions for all of the accounts in your organization\. 
++ [**Service control policies \(SCPs\)**](orgs_manage_policies_type-auth.md#orgs_manage_policies_scp) offer central control over the maximum available permissions for all of the accounts in your organization\. 
 
 ### Management policies<a name="orgs-policy-types-list-management"></a>
 
@@ -21,6 +21,6 @@ Management policies enable you to centrally configure and manage AWS services an
 ## Using policies in your organization<a name="orgs-policy-using"></a>
 + [Enabling and disabling policy types](orgs_manage_policies_enable-disable.md)
 + [Getting information about your organization's policies](orgs_manage_policies_info-operations.md)
-+ [How policy inheritance works](orgs_manage_policies-inheritance.md)
-+ [Service control policies](orgs_manage_policies_scp.md)
-+ [Tag policies](orgs_manage_policies_tag-policies.md)
++ [Understanding policy inheritance](orgs_manage_policies-inheritance.md)
++ [Authorization Policy Type – Service control policies](orgs_manage_policies_type-auth.md)
++ [](orgs_manage_policies_type-mgmt.md)

@@ -1,6 +1,6 @@
 # Example service control policies<a name="orgs_manage_policies_example-scps"></a>
 
-The example [service control policies \(SCPs\)](orgs_manage_policies_scp.md) displayed in this topic are for information purposes only\.
+The example [service control policies \(SCPs\)](orgs_manage_policies_type-auth.md#orgs_manage_policies_scp) displayed in this topic are for information purposes only\.
 
 **Before Using These Examples**  
 Before you attempt to use these example SCPs in your organization, do the following:  
@@ -26,7 +26,7 @@ Each of the following policies is an example of a [deny list policy](SCP_strateg
 + [Example 11: Restrict access to Amazon EC2 for root user](#example-ec2-root-user)
 + [Example 12: Require a tag upon resource creation](#example-require-tag-on-create)
 
-## Example 1: Prevent users from disabling Amazon GuardDuty or modifying its configuration<a name="example_scp_1"></a>
+### Example 1: Prevent users from disabling Amazon GuardDuty or modifying its configuration<a name="example_scp_1"></a>
 
 This SCP prevents users or roles in any affected account from disabling GuardDuty or altering its configuration, either directly as a command or through the console\. It effectively enables read\-only access to the GuardDuty information and resources\.
 
@@ -75,7 +75,7 @@ This SCP prevents users or roles in any affected account from disabling GuardDut
 }
 ```
 
-## Example 2: Prevent users from disabling Amazon CloudWatch or altering its configuration<a name="example_scp_2"></a>
+### Example 2: Prevent users from disabling Amazon CloudWatch or altering its configuration<a name="example_scp_2"></a>
 
 A lower\-level CloudWatch operator needs to monitor dashboards and alarms, but must not be able to delete or change any dashboard or alarm that senior people might put into place\. This SCP prevents users or roles in any affected account from running any of the CloudWatch commands that could delete or change your dashboards or alarms\.
 
@@ -99,7 +99,7 @@ A lower\-level CloudWatch operator needs to monitor dashboards and alarms, but m
 }
 ```
 
-## Example 3: Prevent users from deleting Amazon VPC flow logs<a name="example_scp_3"></a>
+### Example 3: Prevent users from deleting Amazon VPC flow logs<a name="example_scp_3"></a>
 
 This SCP prevents users or roles in any affected account from deleting Amazon EC2 flow logs or CloudWatch log groups or log streams\. 
 
@@ -120,7 +120,7 @@ This SCP prevents users or roles in any affected account from deleting Amazon EC
  }
 ```
 
-## Example 4: Prevent users from disabling AWS Config or changing its rules<a name="example_scp_4"></a>
+### Example 4: Prevent users from disabling AWS Config or changing its rules<a name="example_scp_4"></a>
 
 This SCP prevents users or roles in any affected account from running AWS Config operations that could disable AWS Config or alter its rules or triggers\.
 
@@ -142,7 +142,7 @@ This SCP prevents users or roles in any affected account from running AWS Config
 }
 ```
 
-## Example 5: Prevent any VPC that doesn't already have internet access from getting it<a name="example_scp_5"></a>
+### Example 5: Prevent any VPC that doesn't already have internet access from getting it<a name="example_scp_5"></a>
 
 This SCP prevents users or roles in any affected account from changing the configuration of your Amazon EC2 virtual private clouds \(VPCs\) to grant them direct access to the internet\. It doesn't block existing direct access or any access that routes through your on\-premises network environment\.
 
@@ -167,7 +167,7 @@ This SCP prevents users or roles in any affected account from changing the confi
 }
 ```
 
-## Example 6: Denies access to AWS based on the requested Region<a name="example-scp-deny-region"></a>
+### Example 6: Denies access to AWS based on the requested Region<a name="example-scp-deny-region"></a>
 
 This SCP denies access to any operations outside of the `eu-central-1` and `eu-west-1` Regions\. It provides exemptions for operations in approved global services\. To use this SCP, replace the red italicized text in the example policy with your own information\.
 
@@ -223,7 +223,7 @@ This example policy blocks access to the AWS Security Token Service *global* end
 }
 ```
 
-## Example 7: Prevent IAM principals from making certain changes<a name="example-scp-restricts-iam-principals"></a>
+### Example 7: Prevent IAM principals from making certain changes<a name="example-scp-restricts-iam-principals"></a>
 
 This SCP restricts IAM principals in accounts from making changes to a common administrative IAM role created in all accounts in your organization\.
 
@@ -254,7 +254,7 @@ This SCP restricts IAM principals in accounts from making changes to a common ad
 }
 ```
 
-## Example 8: Prevent IAM principals from making certain changes, with exceptions for admins<a name="example-scp-restricts-with-exception"></a>
+### Example 8: Prevent IAM principals from making certain changes, with exceptions for admins<a name="example-scp-restricts-with-exception"></a>
 
 This SCP builds on the previous example to make an exception for administrators\. It prevents IAM principals in accounts from making changes to a common administrative IAM role created in all accounts in your organization *except* for administrators using a specified role\. 
 
@@ -290,7 +290,7 @@ This SCP builds on the previous example to make an exception for administrators\
 }
 ```
 
-## Example 9: Require Amazon EC2 instances to use a specific type<a name="example-ec2-instances"></a>
+### Example 9: Require Amazon EC2 instances to use a specific type<a name="example-ec2-instances"></a>
 
 With this SCP, any instance launches not using the `t2.micro` instance type are denied\.
 
@@ -313,7 +313,7 @@ With this SCP, any instance launches not using the `t2.micro` instance type are 
 }
 ```
 
-## Example 10: Require MFA to stop an Amazon EC2 instance<a name="example-ec2-mfa"></a>
+### Example 10: Require MFA to stop an Amazon EC2 instance<a name="example-ec2-mfa"></a>
 
 Use an SCP like the following to require that multi\-factor authentication \(MFA\) is enabled before a principal or root user can stop an Amazon EC2 instance\.
 
@@ -335,7 +335,7 @@ Use an SCP like the following to require that multi\-factor authentication \(MFA
 }
 ```
 
-## Example 11: Restrict access to Amazon EC2 for root user<a name="example-ec2-root-user"></a>
+### Example 11: Restrict access to Amazon EC2 for root user<a name="example-ec2-root-user"></a>
 
 The following policy restricts all access to Amazon EC2 actions for the [root user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html) in an account\. If you want to prevent your accounts from using root credentials in specific ways, add your own actions to this policy\.
 
@@ -364,7 +364,7 @@ The following policy restricts all access to Amazon EC2 actions for the [root us
 }
 ```
 
-## Example 12: Require a tag upon resource creation<a name="example-require-tag-on-create"></a>
+### Example 12: Require a tag upon resource creation<a name="example-require-tag-on-create"></a>
 
 The following SCP prevents account principals from creating certain resource types without the specified tags\. 
 

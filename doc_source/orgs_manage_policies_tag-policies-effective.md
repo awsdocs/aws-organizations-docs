@@ -8,7 +8,7 @@ The *effective tag policy* specifies the tagging rules that apply to an account\
 
 For example, the tag policy attached to the organization root may define a `CostCenter` tag with five compliant values\. A separate tag policy attached to the account may restrict the `CostCenter` key to only two of the four compliant values\. The combination of these tag policies comprises the effective tag policy\. The result is that only two of the four compliant tag values defined in the organization root tag policy are compliant for the account\.
 
-For more information and more advanced examples of how effective tag policies are generated, see [How policy inheritance works](orgs_manage_policies-inheritance.md)\.
+For more information and more advanced examples of how effective tag policies are generated, see [Understanding policy inheritance](orgs_manage_policies-inheritance.md)\.
 
 ## How to view the effective tag policy<a name="how-to-view-effective-tag-policy"></a>
 
