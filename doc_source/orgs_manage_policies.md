@@ -23,4 +23,4 @@ Management policies enable you to centrally configure and manage AWS services an
 + [Getting information about your organization's policies](orgs_manage_policies_info-operations.md)
 + [Understanding policy inheritance](orgs_manage_policies-inheritance.md)
 + [Authorization Policy Type – Service control policies](orgs_manage_policies_type-auth.md)
-+ [](orgs_manage_policies_type-mgmt.md)
++ [Management Policy Types](orgs_manage_policies_type-mgmt.md)

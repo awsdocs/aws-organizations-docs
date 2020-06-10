@@ -34,7 +34,7 @@ Enabling the use of tag policies is a one\-time task\. You enable tag policies o
        "Roots": [
            {
                "Id": "r-examplerootid111",
-               "Arn": "arn:aws:organizations::111111111111:root/o-exampleorgid/r-examplerootid111",
+               "Arn": "arn:aws:organizations::123456789012:root/o-exampleorgid/r-examplerootid111",
                "Name": "Root",
                "PolicyTypes": []
            }
@@ -73,7 +73,7 @@ Enabling the use of tag policies is a one\-time task\. You enable tag policies o
    }
    ```
 
-   This command enables tag policies for the organization with the root ID `r-examplerootid111.` 
+   This command enables tag policies for the organization root with the ID `r-examplerootid111.` 
 
 ## Creating a tag policy<a name="tag-policy-create-first-cli"></a>
 
@@ -176,6 +176,8 @@ $ aws resourcegroupstaggingapi get-resources \
     --exclude-compliant-resources > outputfile.txt
 ```
 
+This command produces no output if it is successful\.
+
 ## Correcting non\-compliant tags in resources<a name="tag-policy-corrections-cli"></a>
 
 After finding non\-compliant tags, make corrections using any of the following methods\. You must be signed in to the account that has the resource with non\-compliant tags:
@@ -206,6 +208,14 @@ You can generate the report from your organization's master account in the `us-e
 
 ```
 $ aws resourcegroupstaggingapi get-compliance-summary
+{
+    "SummaryList": [
+        {
+            "LastUpdated": "2020-06-09T18:40:46Z",
+            "NonCompliantResources": 0
+        }
+    ]
+}
 ```
 
 You can generate one report at a time\. 
@@ -213,7 +223,10 @@ You can generate one report at a time\.
 This report can take some time to complete\. You can check the status by running the following command:
 
 ```
-$ aws resourcegroupstaggingapi describe-report-creation
+$ aws resourcegroupstaggingapi describe-report-creation --region us-east-1
+{
+    "Status": "SUCCEEDED"
+}
 ```
 
-When the above command returns `SUCCEEDED`, you can open the report from the Amazon S3 bucket\. 
+After the above command returns `SUCCEEDED`, you can open the report from the Amazon S3 bucket\. 
