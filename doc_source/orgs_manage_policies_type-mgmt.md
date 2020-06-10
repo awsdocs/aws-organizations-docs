@@ -1,4 +1,4 @@
-# Management Policy Types<a name="orgs_manage_policies_type-mgmt"></a>
+# Management policy types<a name="orgs_manage_policies_type-mgmt"></a>
 
 Management policies types enable you to centrally manage the features of AWS services that are integrated with AWS Organizations\.
 

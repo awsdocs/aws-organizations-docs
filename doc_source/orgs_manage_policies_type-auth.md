@@ -1,4 +1,4 @@
-# Authorization Policy Type – Service control policies<a name="orgs_manage_policies_type-auth"></a>
+# Authorization policy type – Service control policies<a name="orgs_manage_policies_type-auth"></a>
 
 Authorization policies types enable you to centrally manage the permissions available to use in your organization's AWS accounts\.
 
