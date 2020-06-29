@@ -1,12 +1,13 @@
 # Inheritance for management policy types<a name="orgs_manage_policies_inheritance_mgmt"></a>
 
 **Important**  
-The information in this section does ***not*** apply to SCPs\. See the previous section [Inheritance for authorization policy types](orgs_manage_policies_inheritance_auth.md)\.
+The information in this section does ***not*** apply to SCPs\. See the previous section [Inheritance for service control policies](orgs_manage_policies_inheritance_auth.md)\.
 
 Management policy types include:
-+ Tag policies
++ [Backup policies](orgs_manage_policies_backup.md)
++ [Tag policies](orgs_manage_policies_tag-policies.md)
 
-Inheritance behaves differently for management policy types than it does for authorization policy types\. The syntax for management policy types includes *inheritance operators*, which enable you to specify with fine granularity what elements from the parent policies are applied and what elements can be inherited by child OUs and accounts\.
+Inheritance behaves differently for management policy types than it does for service control policies\. The syntax for management policy types includes *inheritance operators*, which enable you to specify with fine granularity what elements from the parent policies are applied and what elements can be inherited by child OUs and accounts\.
 
 The *effective policy* is the set of rules that are inherited from the organization root and OUs along with those directly attached to the account\. The effective policy specifies the rules that apply to the account\. You can view the effective policy for an account that includes the effect of all of the inheritance operators in the policies applied\. For more information, see [Viewing effective tag policies](orgs_manage_policies_tag-policies-effective.md)\.
 
@@ -31,10 +32,10 @@ Policies that are attached at a lower level in the organization tree than the pa
 Effective policies  
 The final, single policy document that specifies the rules that apply to an account\. The effective policy is the aggregation of any policies the account inherits, plus any policy that is directly attached to the account\. For example, tag policies enable you to view the effective tag policy that applies to any of your accounts\. For more information, see [Viewing effective tag policies](orgs_manage_policies_tag-policies-effective.md)\.
 
-[Inheritance operators](#tag-policy-operators)  
+[Inheritance operators](#policy-operators)  
 Operators that control how inherited policies merge into a single effective policy\. These operators are considered an advanced feature\. Experienced policy authors can use them to limit what changes a child policy can make and how settings in policies merge\. 
 
-## Inheritance operators<a name="tag-policy-operators"></a>
+## Inheritance operators<a name="policy-operators"></a>
 
 Inheritance operators control how inherited policies and account policies merge into the account's effective policy\. These operators include value\-setting operators and child control operators\. 
 
@@ -43,19 +44,20 @@ When you use the visual editor in the AWS Organizations console, you can use onl
 ### Value\-setting operators<a name="value-setting-operators"></a>
 
 You can use the following value\-setting operators to control how your policy interacts with its parent policies:
-+ `@@assign` – **Overwrites** any inherited policy settings with the specified settings\. If the specified setting isn't inherited, this operator adds it to the effective policy\.
-  + For tag policies, this operator removes any inherited tag keys and values and replaces them with the specified tag keys and values\.
-+ `@@append` – **Adds** the specified settings \(without removing any\) to the inherited ones\. If the specified setting isn't inherited, this operator adds it to the effective policy\. 
-  + For tag policies, this operator adds the specified tag keys and values to any inherited ones\.
-+ `@@remove` – **Removes** the specified inherited settings from the effective policy, if they exist\.
-  + For tag policies, this operator removes the specified tag keys and values from the effective policy, if they exist\. If this operator results in a tag policy key without any values, then accounts with that effective policy can use any value for that tag\.
++ `@@assign` – **Overwrites** any inherited policy settings with the specified settings\. If the specified setting isn't inherited, this operator adds it to the effective policy\. This operator can apply to any policy setting of any type\.
+  + For single\-valued settings, this operator replaces the inherited value with the specified value\.
+  + For multi\-valued settings \(JSON arrays\), this operator removes any inherited values and replaces them with the values specified by this policy\.
++ `@@append` – **Adds** the specified settings \(without removing any\) to the inherited ones\. If the specified setting isn't inherited, this operator adds it to the effective policy\. You can use this operator with only multi\-valued settings\.
+  + This operator adds the specified values to any values in the inherited array\.
++ `@@remove` – **Removes** the specified inherited settings from the effective policy, if they exist\. You can use this operator with only multi\-valued settings\.
+  + This operator removes only the specified values from the array of values inherited from the parent policies\. Other values can continue to exist in the array and can be inherited by child policies\.
 
 ### Child control operators<a name="child-control-operators"></a>
 
 Using child control operators is optional\. You can use the `@@operators_allowed_for_child_policies` operator to control which value\-setting operators child policies can use\. You can allow all operators, some specific operators, or no operators\. By default, all operators \(`@@all`\) are allowed\.
 + `"@@operators_allowed_for_child_policies"`:`["@@all"]` – Child OUs and accounts can use any operator in policies\. By default, all operators are allowed in child policies\.
-+ `"@@operators_allowed_for_child_policies"`:`["@@assign", "@@append", "@@remove"]` – Child OUs and accounts can use only the specified operators in policies\. You can specify one or more value\-setting operators in this child control operator\.
-+ `"@@operators_allowed_for_child_policies"`:`["@@none"]` – Child OUs and accounts can't use operators in policies\. You can use this operator to effectively lock down values that are defined in a parent policy so that child policies can't add, append, or remove values\.
++ `"@@operators_allowed_for_child_policies"`:`["@@assign", "@@append", "@@remove"]` – Child OUs and accounts can use only the specified operators in child policies\. You can specify one or more value\-setting operators in this child control operator\.
++ `"@@operators_allowed_for_child_policies"`:`["@@none"]` – Child OUs and accounts can't use operators in policies\. You can use this operator to effectively lock in the values that are defined in a parent policy so that child policies can't add, append, or remove those values\.
 
 **Note**  
 If an inherited child control operator limits the use of an operator, you can't reverse that rule in a child policy\. If you include child control operators in a parent policy, they limit the value\-setting operators in all child policies\.

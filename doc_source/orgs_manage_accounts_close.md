@@ -33,3 +33,6 @@ By default, member accounts that you create with AWS Organizations don't have a 
 1. In the confirmation box, choose **Close Account**\.
 
 After you close an AWS account, you can no longer use it to access AWS services or resources\. For the 90 days after you close your account \(the "Post\-Closure Period"\), you will be able to log in to view past bills and access AWS Support\. You can contact AWS Support within the Post\-Closure Period to reopen the account\. For more information, see [How do I reopen my closed AWS account?](https://aws.amazon.com/premiumsupport/knowledge-center/reopen-aws-account/) in the Knowledge Center\.
+
+**Note**  
+For security reasons, AWS ***never*** reuses an AWS account ID number after the account is closed\. As a result of this security measure, if you happen to leave an ID for a closed account in an IAM policy, an unknown account with the same ID won't have access to your resources\. However, we recommend that you remove references to closed accounts, in accordance with the [security best practice of granting the least privilege needed to get the job done](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#grant-least-privilege)\.

@@ -3,6 +3,7 @@
 Management policies types enable you to centrally manage the features of AWS services that are integrated with AWS Organizations\.
 
 The management policy type category consists of the following policy types:
++ [Backup policies](orgs_manage_policies_backup.md)
 + [Tag policies](orgs_manage_policies_tag-policies.md)
 
 For information and procedures common to all of these policy types, see the following topics:

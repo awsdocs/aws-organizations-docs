@@ -1,4 +1,4 @@
-# How SCPs work<a name="orgs_manage_policies_about-scps"></a>
+# How SCPs work<a name="orgs_manage_policies_scps-about"></a>
 
 The following illustration shows how [SCPs](orgs_manage_policies_type-auth.md#orgs_manage_policies_scp) work\.
 

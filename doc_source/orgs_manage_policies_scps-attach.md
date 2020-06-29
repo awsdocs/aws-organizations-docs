@@ -1,4 +1,4 @@
-# Attaching SCPs<a name="attach-scps"></a>
+# Attaching SCPs<a name="orgs_manage_policies_scps-attach"></a>
 
 When signed in to your organization's master account, you can attach a service control policy \(SCP\) that you previously created\. You can attach an SCP to the organization root, to an OU, or directly to an account\. To attach an SCP, complete the following steps\.
 
@@ -20,7 +20,7 @@ You can use one of the following commands to attach an SCP:
 + AWS CLI: [aws organizations attach\-policy](https://docs.aws.amazon.com/cli/latest/reference/organizations/attach-policy.html)
 + AWS API: [AttachPolicy](https://docs.aws.amazon.com/organizations/latest/APIReference/API_AttachPolicy.html)
 
-### Detaching an SCP from the organization root, OUs, or accounts<a name="detach_policy"></a>
+## Detaching an SCP from the organization root, OUs, or accounts<a name="detach_policy"></a>
 
 When signed in to your organization's master account, you can detach an SCP from the organization root, OU, or account that it is attached to\. After you detach an SCP from an entity, that SCP no longer applies to any account that was affected by the now detached entity\. To detach an SCP, complete the following steps\. 
 

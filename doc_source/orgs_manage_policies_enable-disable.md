@@ -6,7 +6,7 @@ Before you can create and attach a policy to your organization, you must enable 
 To enable a policy type, you need permission to run the following actions:  
 `organizations:EnablePolicyType`
 `organizations:DescribeOrganization` \(needed only if you're using the [AWS Organizations console](https://console.aws.amazon.com/organizations/)\)
-`organizations:ListRoots (needed only if you're using the [AWS Organizations console](https://console.aws.amazon.com/organizations/))`
+`organizations:ListRoots` \(needed only if you're using the [AWS Organizations console](https://console.aws.amazon.com/organizations/)\)
 
 **To enable a policy type \(console\)**
 
@@ -33,7 +33,7 @@ When you disable a policy type, all policies of the specified type are automatic
 To disable SCPs, you need permission to run the following actions:  
 `organizations:DisablePolicyType`
 `organizations:DescribeOrganization` \(needed only if you're using the [AWS Organizations console](https://console.aws.amazon.com/organizations/)\)
-`organizations:ListRoots (needed only if you're using the [AWS Organizations console](https://console.aws.amazon.com/organizations/))`
+`organizations:ListRoots` \(needed only if you're using the [AWS Organizations console](https://console.aws.amazon.com/organizations/)\)
 
 **To disable a policy type \(console\)**
 

@@ -1,33 +1,22 @@
-# Authorization policy type – Service control policies<a name="orgs_manage_policies_type-auth"></a>
+# Service control policies<a name="orgs_manage_policies_type-auth"></a>
 
-Authorization policies types enable you to centrally manage the permissions available to use in your organization's AWS accounts\.
-
-The authorization policy type category consists of one policy type:
-+ [Service control policies \(SCPs\) ](#orgs_manage_policies_scp)
-
-For information and procedures common to all of these policy types, see the following topics:
+For information and procedures common to all policy types, see the following topics:
 + [Enable and disable policy types](orgs_manage_policies_enable-disable.md)
 + [Get details about your policies](orgs_manage_policies_info-operations.md)
 + [Policy syntax and inheritance](orgs_manage_policies_inheritance_auth.md)
 
 ## Service Control Policies \(SCPs\)<a name="orgs_manage_policies_scp"></a>
 
-Service control policies \(SCPs\) are one type of policy that you can use to manage your organization\. SCPs offer central control over the maximum available permissions for all accounts in your organization\. SCPs help you to ensure your accounts stay within your organization’s access control guidelines\. SCPs are available only in an organization that has [all features enabled](orgs_manage_org_support-all-features.md)\. SCPs aren't available if your organization has enabled only the consolidated billing features\. For instructions on enabling SCPs, see [Enabling and disabling policy types](orgs_manage_policies_enable-disable.md)\.
+Service control policies \(SCPs\) are a type of organization policy that you can use to manage permissions in your organization\. SCPs offer central control over the maximum available permissions for all accounts in your organization\. SCPs help you to ensure your accounts stay within your organization’s access control guidelines\. SCPs are available only in an organization that has [all features enabled](orgs_manage_org_support-all-features.md)\. SCPs aren't available if your organization has enabled only the consolidated billing features\. For instructions on enabling SCPs, see [Enabling and disabling policy types](orgs_manage_policies_enable-disable.md)\.
 
 SCPs alone are not sufficient for allowing access in the accounts in your organization\. Attaching an SCP to an AWS Organizations entity \(root, organizational unit \(OU\), or account\) defines a guardrail for what actions the principals can perform\. You still need to attach [identity\-based or resource\-based policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html) to principals or resources in your organization's accounts to actually grant permissions to them\. When a principal belongs to an account that is a member of an organization, the SCPs contribute to the principal's [effective permissions](#scp-effects-on-permissions)\.
 
-**Topics**
+****Topics on this page****
 + [Testing effects of SCPs](#scp-warning-testing-effect)
 + [Maximum size of SCPs](#scp-size-limit)
 + [Effects on permissions](#scp-effects-on-permissions)
 + [Using access data to improve SCPs](#data-from-iam)
 + [Tasks and entities not restricted by SCPs](#not-restricted-by-scp)
-+ [Creating and updating SCPs](create-policy.md)
-+ [Attaching SCPs](attach-scps.md)
-+ [How SCPs work](orgs_manage_policies_about-scps.md)
-+ [Strategies for using SCPs](SCP_strategies.md)
-+ [SCP syntax](orgs_reference_scp-syntax.md)
-+ [Example service control policies](orgs_manage_policies_example-scps.md)
 
 ### Testing effects of SCPs<a name="scp-warning-testing-effect"></a>
 

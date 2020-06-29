@@ -16,11 +16,12 @@ Authorization policies help you to centrally manage the security of the AWS acco
 ### Management policies<a name="orgs-policy-types-list-management"></a>
 
 Management policies enable you to centrally configure and manage AWS services and their features\.
-+ [**Tag policies**](orgs_manage_policies_tag-policies.md) help you standardize the tags attached to the AWS resources in your organization's accounts\. 
++ **[Backup policies](orgs_manage_policies_backup.md)** help you centrally manage and apply backup plans to the AWS resources across your organization's accounts\.
++ **[Tag policies](orgs_manage_policies_tag-policies.md)** help you standardize the tags attached to the AWS resources in your organization's accounts\. 
 
 ## Using policies in your organization<a name="orgs-policy-using"></a>
 + [Enabling and disabling policy types](orgs_manage_policies_enable-disable.md)
 + [Getting information about your organization's policies](orgs_manage_policies_info-operations.md)
 + [Understanding policy inheritance](orgs_manage_policies-inheritance.md)
-+ [Authorization policy type – Service control policies](orgs_manage_policies_type-auth.md)
++ [Service control policies](orgs_manage_policies_type-auth.md)
 + [Management policy types](orgs_manage_policies_type-mgmt.md)
