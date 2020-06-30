@@ -5,6 +5,7 @@ The following table describes major documentation updates for AWS Organizations\
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Added backup policies and integration with AWS Backup\.](orgsug/mainline/orgs_manage_policies_backup.html) | Enables you to create and enforce backup policies across all of the accounts in your organization\. | June 24, 2020 | 
 | [Support delegated administration for IAM Access Analyzer\.](https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#access-analyzer-enabling) | Enables you to delegate administrative access for Access Analyzer in your Organization to a designated member account\. | March 30, 2020 | 
 | [Integration with AWS CloudFormation StackSets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.html) | You can create a service\-managed stack set to deploy stack instances to accounts managed by AWS Organizations\. | February 11, 2020 | 
 | [Integration with Compute Optimizer](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrated-services-list.html) | Compute Optimizer was added as a service that can work with accounts in your organization\. | February 4, 2020 | 
