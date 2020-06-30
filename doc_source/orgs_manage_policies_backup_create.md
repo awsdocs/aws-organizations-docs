@@ -3,7 +3,7 @@
 **In this topic:**
 + After you enable backup policies for your organization, you can create a policy\.
 + When your backup requirements change, you can [update an existing policy](#update-backup-policy-procedure)\.
-+ When you no longer need a policy and after you detach it from all OUs and accounts, you can [delete it](#delete-backup-policy-procedure)\.
++ When you no longer need a policy and after you detach it from all organizational units \(OUs\) and accounts, you can [delete it](#delete-backup-policy-procedure)\.
 
 ## Creating a backup policy<a name="create-backup-policy-procedure"></a>
 
@@ -15,11 +15,11 @@ You can create a backup policy in the AWS Management Console in one of two ways:
 + A visual editor that lets you select options and generates the JSON policy text for you\.
 + A text editor that lets you directly create the JSON policy text yourself\. 
 
-The visual editor makes the process easy, but limits your flexibility\. It's a great way to create your first policies and get comfortable with using them\. After you understand how they work and have started to be limited by what the visual editor provides, you can add advanced features to your policies by editing the JSON policy text yourself\. The visual editor uses only the [@@assign value\-setting operator](orgs_manage_policies_inheritance_mgmt.md#value-setting-operators), and doesn't provide any access to the [child control operators](orgs_manage_policies_inheritance_mgmt.md#child-control-operators)\. You can add these only if you manually edit the JSON policy text\.
+The visual editor makes the process easy, but it limits your flexibility\. It's a great way to create your first policies and get comfortable with using them\. After you understand how they work and have started to be limited by what the visual editor provides, you can add advanced features to your policies by editing the JSON policy text yourself\. The visual editor uses only the [@@assign value\-setting operator](orgs_manage_policies_inheritance_mgmt.md#value-setting-operators), and it doesn't provide any access to the [child control operators](orgs_manage_policies_inheritance_mgmt.md#child-control-operators)\. You can add the child control operators only if you manually edit the JSON policy text\.
 
 **To create a backup policy \(console\)**
 
-1. Sign in to the Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. In the organization's master account, sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\)\.
+1. Sign in to the Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. In the organization's master account, sign in as an AWS Identity and Access Management \(IAM\) user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\)\.
 
 1. On the **Policies** tab, choose **Backup policies**\.
 
@@ -27,13 +27,13 @@ The visual editor makes the process easy, but limits your flexibility\. It's a g
 
 1. On the **Create policy** page, enter a ****Policy name**** and an optional **Description** for the policy\.
 
-   You can build the policy using the **Visual editor** as described in this procedure\. You can also type or paste policy text in the **JSON** tab\. For information on backup policy syntax, see [Backup policy syntax and examples](orgs_manage_policies_backup_syntax.md)\.
+   You can build the policy using the **Visual editor** as described in this procedure\. You can also type or paste policy text in the **JSON** tab\. For information about backup policy syntax, see [Backup policy syntax and examples](orgs_manage_policies_backup_syntax.md)\.
 
 1. If you choose to use the **Visual editor**, select the backup options appropriate for your scenario\. A backup plan consists of three parts\. For more information about these backup plan elements, see [Creating a backup plan](https://docs.aws.amazon.com/aws-backup/latest/devguide/creating-a-backup-plan.html) and [Assigning resources](https://docs.aws.amazon.com/aws-backup/latest/devguide/assigning-resources.html) in the *AWS Backup Developer Guide*\.
 
    1. Backup plan details
       + The **Backup plan name** can consist of only alphanumeric, hyphen, and underline characters\.
-      + You must select at least one **Backup plan region** from the list\. The plan can backup resources in only the selected regions\.
+      + You must select at least one **Backup plan region** from the list\. The plan can back up resources in only the selected AWS Regions\.
 
    1. One or more backup rules that specify how and when AWS Backup is to operate\. Each backup rule defines the following items:
       +  A schedule that includes the frequency of the backup and the time window in which the backup can occur\.
@@ -46,7 +46,7 @@ The visual editor makes the process easy, but limits your flexibility\. It's a g
       + The **Resource assignment name** can consist of only alphanumeric, hyphen, and underline characters\.
       + Specify the **IAM role** for AWS Backup to use to perform the backup by its name\. 
 
-        In the console, you don't specify the entire ARN\. You must include both the role name and its prefix that specifies the type of role\. This is typically "role" or "service\-role" , and is separated from the role name by a forward slash \('/'\)\. For example, you might enter `role/MyRoleName` or `service-role/MyManagedRoleName`\. This is converted to a full ARN for you when stored in the underying JSON\.
+        In the console, you don't specify the entire Amazon Resource Name \(ARN\)\. You must include both the role name and its prefix that specifies the type of role\. The prefixes are typically `role` or `service-role` , and they are separated from the role name by a forward slash \('/'\)\. For example, you might enter `role/MyRoleName` or `service-role/MyManagedRoleName`\. This is converted to a full ARN for you when stored in the underlying JSON\.
 **Important**  
 The specified IAM role must already exist in the account the policy is applied to\. If it does not, the backup plan might successfully start backup jobs, but those backup jobs will fail\.
       + Specify one or more **Resource tag key** and **Tag values** pairs\. If there is more than one tag value, separate them with commas\.
@@ -54,13 +54,13 @@ The specified IAM role must already exist in the account the policy is applied t
 1. When you're finished building your policy, choose **Create policy**\. The policy appears in your list of available backup policies\. 
 
 **To create a backup policy \(AWS CLI, AWS API\)**  
-You can use one of the following to create a tag policy:
+You can use one of the following to create a backup policy:
 + AWS CLI: [aws organizations create\-policy](https://docs.aws.amazon.com/cli/latest/reference/organizations/create-policy.html)
 
   For examples that use the AWS CLI to create a backup policy, see [Using backup policies in the AWS CLI](orgs_manage_policies_backup_cli.md)\.
 + AWS API: [CreatePolicy](https://docs.aws.amazon.com/organizations/latest/APIReference/API_CreatePolicy.html)
 
-**What to Do Next**  
+**What to do next**  
 After you create a backup policy, you can put your policy into effect\. To do that, you can [attach the policy ](attach-tag-policy.md) to the organization root, organizational units \(OUs\), AWS accounts within your organization, or a combination of all of those\. 
 
 ## Updating a backup policy<a name="update-backup-policy-procedure"></a>
@@ -88,8 +88,8 @@ To update a backup policy, you must have permission to run the following actions
 
 1. When you're finished updating the policy, choose **Save changes**\.
 
-**To update a policy \(AWS CLI, AWS API\)**  
-You can use one of the following to update a policy: 
+**To update a backup policy \(AWS CLI, AWS API\)**  
+You can use one of the following to update a backup policy: 
 + AWS CLI: [aws organizations update\-policy](https://docs.aws.amazon.com/cli/latest/reference/organizations/update-policy.html)
 + AWS API: [UpdatePolicy](https://docs.aws.amazon.com/organizations/latest/APIReference/API_UpdatePolicy.html)
 
@@ -116,6 +116,6 @@ To delete a policy, you must have permission to run the following action:
 1. Choose **Delete policy**\.
 
 **To delete a backup policy \(AWS CLI, AWS API\)**  
-You can use one of the following to delete a policy:
+You can use one of the following commands to delete a backup policy:
 + AWS CLI: [aws organizations delete\-policy](https://docs.aws.amazon.com/cli/latest/reference/organizations/delete-policy.html)
 + AWS API: [DeletePolicy](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DeletePolicy.html)

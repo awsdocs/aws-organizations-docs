@@ -33,7 +33,7 @@ Enabling the use of backup policies is a one\-time task\. You enable backup poli
 
    In this example, `r-examplerootid111` is the root ID of the organization\. You use the root ID of your own organization in the next step\.
 
-1. Run the following to enable backup policies for the specified root in your organization:
+1. Run the following to enable backup policies for the specified root in your organization\.
 
    ```
    $ aws organizations enable-policy-type \
@@ -68,7 +68,7 @@ Enabling the use of backup policies is a one\-time task\. You enable backup poli
 
 After you enable backup policies, you're ready to create your first policy of that type\. 
 
-You can use any basic text editor to create a backup policy\. Use JSON syntax and save the policy as a file with any name and extension in a location of your choosing\. Backup policies can have a maximum of 2,500 characters, including spaces\. 
+You can use any basic text editor to create a backup policy\. Use JSON syntax, and save the policy as a file with any name and extension in a location of your choice\. Backup policies can have a maximum of 2,500 characters, including spaces\. 
 
 **To create a backup policy**
 
@@ -113,9 +113,9 @@ You can use any basic text editor to create a backup policy\. Use JSON syntax an
    }
    ```
 
-   This backup policy specifies that AWS Backup should back up all resources in the affected AWS accounts that are in the specified regions and that have the tag `dataType` with a value of `PII`\. 
+   This backup policy specifies that AWS Backup should back up all resources in the affected AWS accounts that are in the specified AWS Regions and that have the tag `dataType` with a value of `PII`\. 
 
-1. Import the JSON policy file to create a new policy object in the organization\. Note the policy ID at the end of the policy ARN in the output\.
+1. Import the JSON policy file to create a new policy object in the organization\. Note the policy ID at the end of the policy Amazon Resource Name \(ARN\) in the output\.
 
    ```
    $ aws organizations create-policy \
@@ -138,7 +138,7 @@ You can use any basic text editor to create a backup policy\. Use JSON syntax an
 
 ## Attach the backup policy to a root, OU, or account<a name="backup-attach-first-cli"></a>
 
-After you create a backup policy, you're ready to attach it to your organization root, an OU, or an individual account\. Attaching a backup policy to the organization root affects all of your organization's member accounts\. When you attach a backup policy to an individual account, only that account is subject to the policy\. The account is still subject to any backup policy that is attached to the organization root or to any OUs the account is contained in\.
+After you create a backup policy, you're ready to attach it to your organization root, an organizational unit \(OU\), or an individual account\. Attaching a backup policy to the organization root affects all of your organization's member accounts\. When you attach a backup policy to an individual account, only that account is subject to the policy\. The account is still subject to any backup policy that is attached to the organization root or to any OUs the account is contained in\.
 
 The following procedure shows how to attach the backup policy you just created to a single test account\.
 + Attach the backup policy to your test account by running a command like the following example\. The policy ID comes from the output in the previous step\.
@@ -151,9 +151,9 @@ The following procedure shows how to attach the backup policy you just created t
 
 ## Determining the effective backup policy for an account<a name="backup-get-effective-cli"></a>
 
-To determine what backup policies apply to an account, run the following command from that account\. From the master account, you can use the `--target-id` parameter to get the effective policy of any member account\. If you are signed in to a member account, you can use the command without the `--target-id` parameter to get the effective policy of AWS account you're signed in to\.
+To determine what backup policies apply to an account, run the following command from that account\. From the master account, you can use the `--target-id` parameter to get the effective policy of any member account\. If you are signed in to a member account, you can use the command without the `--target-id` parameter to get the effective policy of the AWS account you're signed in to\.
 
-The output displays the merged combination of all backup policies that apply to the specified AWS account: attached to directly the account, attached to the organization root, or attached to one or more of the OUs the account is in\.
+The output displays the merged combination of all backup policies that apply to the specified AWS account: attached directly to the account, attached to the organization root, or attached to one or more of the OUs the account is in\.
 
 The `PolicyContent` element in the sample output that follows is line wrapped for clarity\. In the actual output, the element is presented as a single line of text\.
 

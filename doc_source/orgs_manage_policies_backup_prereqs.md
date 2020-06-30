@@ -1,6 +1,6 @@
 # Prerequisites and permissions for managing backup policies<a name="orgs_manage_policies_backup_prereqs"></a>
 
-This page describes the prerequisites and required permissions to manage tag policies in AWS Organizations\.
+This page describes the prerequisites and required permissions to manage backup policies in AWS Organizations\.
 
 **Topics**
 + [Prerequisites for managing backup policies](#backup-policies-prereqs-overview)
@@ -11,7 +11,7 @@ This page describes the prerequisites and required permissions to manage tag pol
 To manage backup policies in an organization requires the following:
 + Your organization must have [all features enabled](orgs_manage_org_support-all-features.md)\. 
 + You must be signed in to your organization's master account\. 
-+ Your IAM user or role needs the permissions that are listed in the following section\.
++ Your AWS Identity and Access Management \(IAM\) user or role must have the permissions that are listed in the following section\.
 
 ## Permissions for managing backup policies<a name="backup-policies-permissions-manage-policies"></a>
 
@@ -57,4 +57,4 @@ The following example IAM policy provides permissions to manage all aspects of b
 }
 ```
 
-For more information on IAM policies and permissions, see the [IAM User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/)\.
+For more information about IAM policies and permissions, see the [IAM User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/)\.

@@ -10,13 +10,13 @@ To list the policies within your organization, you must have the following permi
 
 **To list all policies in your organization \(console\)**
 
-1. Sign in to the Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\.
+1. Sign in to the Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an AWS Identity and Access Management \(IAM\) user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\.
 
 1. Choose the **Policies** tab\.
 
 1.  Choose the policy type: **Service control policies** or **Tag policies**\. 
 
-   The displayed list includes the all policies of that type that are currently defined in the organization\.
+   The displayed list includes all policies of that type that are currently defined in the organization\.
 
 **To list all policies in your organization \(AWS CLI, AWS API\)**  
 You can use one of the following commands to list policies in an organization:
@@ -26,8 +26,8 @@ You can use one of the following commands to list policies in an organization:
 ## Listing all policies attached to a root, OU, or account<a name="list-all-pols-in-entity"></a>
 
 **Minimum permissions**  
-To list the policies that are attached to a root, OU, or account within your organization, you must have the following permission:  
-`organizations:ListPoliciesForTarget` with a `Resource` element in the same policy statement that includes the ARN of the specified target \(or "\*"\)
+To list the policies that are attached to a root, organizational unit \(OU\), or account within your organization, you must have the following permission:  
+`organizations:ListPoliciesForTarget` with a `Resource` element in the same policy statement that includes the Amazon Resource Name \(ARN\) of the specified target \(or "\*"\)
 
 **To list all policies that are attached directly to a specified root, OU, or account \(console\)**
 

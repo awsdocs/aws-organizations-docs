@@ -22,7 +22,7 @@ To view the effective tag policy for an account, you must have permission to run
 
 1. Sign in to the organization's master account\.
 **Note**  
-When you are signed in to a member account, the procedure for viewing the effective policy is different\. When signed in to an account, you can view the effective tag policy in the context of evaluating compliance for the acount\. For more information, see [ Evaluating Compliance for an Account](https://docs.aws.amazon.com/ARG/latest/userguide/tag-policies-arg-finding-noncompliant-tags.html) in the *AWS Resource Groups User Guide\.*
+When you are signed in to a member account, the procedure for viewing the effective policy is different\. When signed in to an account, you can view the effective tag policy in the context of evaluating compliance for the account\. For more information, see [ Evaluating Compliance for an Account](https://docs.aws.amazon.com/ARG/latest/userguide/tag-policies-arg-finding-noncompliant-tags.html) in the *AWS Resource Groups User Guide\.*
 
 1. On the **Accounts** tab, choose the account\.
 
