@@ -6,7 +6,7 @@ This section specifies quotas that affect AWS Organizations\.
 
 The following are guidelines for names that you create in AWS Organizations, including names of accounts, organizational units \(OUs\), roots, and policies:
 + They must be composed of Unicode characters
-+ They must not exceed 250 characters in length
++ Maximum string length for names vary by the object\. To see actual limit for each, see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/) and find the API operation that creates the object\. Look at the details for that operation's `Name` parameter\. For example: [Account name](https://docs.aws.amazon.com/organizations/latest/APIReference/API_CreateAccount.html#organizations-CreateAccount-request-AccountName), or [OU name](https://docs.aws.amazon.com/organizations/latest/APIReference/API_CreateOrganizationalUnit.html#organizations-CreateOrganizationalUnit-request-Name)\.
 
 ## Maximum and minimum values<a name="min-max-values"></a>
 
