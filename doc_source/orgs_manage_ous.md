@@ -45,6 +45,9 @@ To navigate to different OUs or to the root when moving accounts or attaching po
 
 When signed in to your organization's master account, you can create an OU in your organization's root\. OUs can be nested up to five levels deep\. To create an OU, complete the following steps\.
 
+**Important**  
+If this organization is managed with AWS Control Tower, then create your OUs with the AWS Control Tower console or APIs\. If you create the OU in Organizations then that OU isn't registered with AWS Control Tower\. For more information, see [Referring to Resources Outside of AWS Control Tower](https://docs.aws.amazon.com/controltower/latest/userguide/external-resources.html#ungoverned-resources) in the *AWS Control Tower User Guide*\.
+
 **Minimum permissions**  
 To create an OU within a root in your organization, you must have the following permissions:  
 `organizations:DescribeOrganization` \(console only\)

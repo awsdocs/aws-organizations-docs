@@ -43,8 +43,14 @@ For more information, see [AI services opt\-out policies](orgs_manage_policies_a
 You can leverage the multi\-account management services available in AWS Organizations with select AWS services to perform tasks on all accounts that are members of an organization\. For a list of services and the benefits of using each service on an organization\-wide level, see [AWS services that you can use with AWS Organizations](orgs_integrated-services-list.md)\.   
 When you enable an AWS service to perform tasks on your behalf in your organization's member accounts, AWS Organizations creates an [IAM service\-linked role](http://aws.amazon.com/blogs/security/introducing-an-easier-way-to-delegate-permissions-to-aws-services-service-linked-roles/) for that service in each member account\. The service\-linked role has predefined IAM permissions that allow the other AWS service to perform specific tasks in your organization and its accounts\. For this to work, all accounts in an organization automatically have a [service\-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html?icmpid=docs_iam_console#iam-term-service-linked-role)\. This role must enable the AWS Organizations service to create the service\-linked roles required by AWS services for which you enable trusted access\. These additional service\-linked roles come with policies that enable the specified service to perform only those tasks that are required by your configuration choices\. For more information, see [Enabling trusted access with other AWS services](orgs_integrate_services.md)\.
 
+**Global access**  
+AWS Organizations is a global service with a single endpoint that works from any and all AWS Regions\. You don't need to explicitly select a region to operate in\. 
+
 **Data replication that is eventually consistent**  
 AWS Organizations, like many other AWS services, is [eventually consistent](https://wikipedia.org/wiki/Eventual_consistency)\. AWS Organizations achieves high availability by replicating data across multiple servers in AWS data centers within its Region\. If a request to change some data is successful, the change is committed and safely stored\. However, the change must then be replicated across the multiple servers\. For more information, see [Changes that I make aren't always immediately visible](orgs_troubleshoot_general.md#troubleshoot_general_eventual-consistency)\.
+
+**Free to use**  
+AWS Organizations is a feature of your AWS account offered at no additional charge\. You are charged only when you access other AWS services from the accounts in your organization\. For information about the pricing of other AWS products, see the [Amazon Web Services pricing page](http://aws.amazon.com/pricing/)\.
 
 ## AWS Organizations pricing<a name="pricing"></a>
 
