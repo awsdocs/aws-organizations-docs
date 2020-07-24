@@ -1,7 +1,7 @@
 # Creating, updating, and deleting backup policies<a name="orgs_manage_policies_backup_create"></a>
 
 **In this topic:**
-+ After you enable backup policies for your organization, you can create a policy\.
++ After you enable backup policies for your organization, you can [create a policy](#create-backup-policy-procedure)\.
 + When your backup requirements change, you can [update an existing policy](#update-backup-policy-procedure)\.
 + When you no longer need a policy and after you detach it from all organizational units \(OUs\) and accounts, you can [delete it](#delete-backup-policy-procedure)\.
 

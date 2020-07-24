@@ -7,4 +7,4 @@ The following list provides information that is useful to know when you want to 
 
   **To disable trusted access with AWS Organizations:** Call the [AWSOrganizations::DisableAWSServiceAccess](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DisableAWSServiceAccess.html) action or perform the action from the [ Organizations console's](https://console.aws.amazon.com/organizations;) **Settings** page\.
 
-  **Service principal name for tag policies:** `tagpolicies.tag.amazonaws.com`\.
+  **Service principal name for tag policies: ** `tagpolicies.tag.amazonaws.com`

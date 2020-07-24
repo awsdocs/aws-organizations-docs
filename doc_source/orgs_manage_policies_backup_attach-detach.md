@@ -5,7 +5,7 @@ You can use backup policies on an entire organization as well as on organization
 + When you attach a backup policy to an *OU*, that policy applies to the accounts that belong to the OU or any of its child OUs\. Those accounts are also subject to any policy attached to the organization root\.
 + When you attach a backup policy to an *account*, that policy applies to only that account\. The account is also subject to any policy attached to the organization root and any OUs that the account belongs to\.
 
-The aggregation of any backup policies the account inherits from the root and parent OUs, as well as any policies directly attached to the account, is the [*effective policy*](orgs_manage_policies_backup_effective.md)\. For information about how policies are merged to the effective policy, see [Inheritance for management policy types](orgs_manage_policies_inheritance_mgmt.md)\.
+The aggregation of any backup policies the account inherits from the root and parent OUs, as well as any policies directly attached to the account, is the [*effective policy*](orgs_manage_policies_backup_effective.md)\. For information about how policies are merged to the effective policy, see [Policy syntax and inheritance for management policy types](orgs_manage_policies_inheritance_mgmt.md)\.
 
 ## Attaching a backup policy<a name="orgs_manage_policies_backup_attach"></a>
 

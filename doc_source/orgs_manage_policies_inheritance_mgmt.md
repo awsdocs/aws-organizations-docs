@@ -1,15 +1,16 @@
-# Inheritance for management policy types<a name="orgs_manage_policies_inheritance_mgmt"></a>
+# Policy syntax and inheritance for management policy types<a name="orgs_manage_policies_inheritance_mgmt"></a>
 
 **Important**  
 The information in this section does ***not*** apply to SCPs\. See the previous section [Inheritance for service control policies](orgs_manage_policies_inheritance_auth.md)\.
 
 Management policy types include:
++ [Artificial Intelligence \(AI\) services opt\-out policies](orgs_manage_policies_ai-opt-out.md)
 + [Backup policies](orgs_manage_policies_backup.md)
 + [Tag policies](orgs_manage_policies_tag-policies.md)
 
-Inheritance behaves differently for management policy types than it does for service control policies\. The syntax for management policy types includes *inheritance operators*, which enable you to specify with fine granularity what elements from the parent policies are applied and what elements can be inherited by child OUs and accounts\.
+Inheritance behaves differently for management policy types than it does for service control policies\. The syntax for management policy types includes *inheritance operators*, which enable you to specify with fine granularity what elements from the parent policies are applied and what elements can be overridden or modified when inherited by child OUs and accounts\.
 
-The *effective policy* is the set of rules that are inherited from the organization root and OUs along with those directly attached to the account\. The effective policy specifies the rules that apply to the account\. You can view the effective policy for an account that includes the effect of all of the inheritance operators in the policies applied\. For more information, see [Viewing effective tag policies](orgs_manage_policies_tag-policies-effective.md)\.
+The *effective policy* is the set of rules that are inherited from the organization root and OUs along with those directly attached to the account\. The effective policy specifies the final set of rules that apply to the account\. You can view the effective policy for an account that includes the effect of all of the inheritance operators in the policies applied\. For more information, see [Viewing effective tag policies](orgs_manage_policies_tag-policies-effective.md)\.
 
 This section explains how parent policies and child policies are processed into the effective policy for an account\. 
 

@@ -7,5 +7,5 @@ The following list provides information that is useful to know when you want to 
 + **To disable trusted access with AWS Organizations:** AWS Artifact requires trusted access with AWS Organizations to work with organization agreements\. If you disable trusted access using AWS Organizations while you are using AWS Artifact for organization agreements, it stops functioning because it cannot access the organization\. Any organization agreements that you accept in AWS Artifact remain, but can't be accessed by AWS Artifact\. The AWS Artifact role that AWS Artifact creates remains\. If you then re\-enable trusted access, AWS Artifact continues to operate as before, without the need for you to reconfigure the service\. 
 
   A standalone account that is removed from an organization no longer has access to any organization agreements\.
-+ **Service principal name for AWS Artifact:** `aws-artifact-account-sync.amazonaws.com`\.
-+ **Role name created to synchronize with AWS Artifact:** `AWSArtifactAccountSync`\.
++ **Service principal name for AWS Artifact: ** `aws-artifact-account-sync.amazonaws.com`
++ **Role name created to synchronize with AWS Artifact: ** `AWSArtifactAccountSync`

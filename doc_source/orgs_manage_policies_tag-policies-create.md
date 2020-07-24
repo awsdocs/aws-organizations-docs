@@ -28,7 +28,7 @@ To create tag policies, you need permission to run the following action:
 
    Select this option only if you want to specify different capitalization for the tag key\. If you select this option, the capitalization you specified for **Tag Key** overrides the case treatment specified in a parent policy\. 
 
-   If a parent policy doesn't exist and you don't select this option, tag keys in all lowercase characters are considered compliant\. For more information about parent policies, see [Understanding policy inheritance](orgs_manage_policies-inheritance.md)\.
+   If a parent policy doesn't exist and you don't select this option, tag keys in all lowercase characters are considered compliant\. For more information about parent policies, see [Understanding policy inheritance](orgs_manage_policies_inheritance.md)\.
 **Tip**  
 Consider using the example tag policy shown in [Example 1: Define organization\-wide tag key case](orgs_manage_policies_example-tag-policies.md#tag-policy-example-key-case) as a guide in creating a tag policy that define tag keys and their case treatment\. Attach it to the organization root\. Later, you can create and attach additional tag policies to OUs or accounts to create additional tagging rules\. 
 

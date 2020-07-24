@@ -8,7 +8,7 @@ The *effective backup policy* specifies the final backup plan settings that appl
 
 For example, the backup policy attached to the organization root might specify that all accounts in the organization back up all Amazon DynamoDB tables with a default backup frequency of once per week\. A separate backup policy attached directly to one member account with critical information in a table can override the frequency with a value of once per day\. The combination of these backup policies comprises the effective backup policy\. This effective backup policy is determined for each account in the organization individually\. In this example, the result is that all accounts in the organization back up their DynamoDB tables once per week, with the exception of one account that backs up its tables daily\.
 
-For information about how backup policies are combined into the final effective backup policy, see [Inheritance for management policy types](orgs_manage_policies_inheritance_mgmt.md)\.
+For information about how backup policies are combined into the final effective backup policy, see [Policy syntax and inheritance for management policy types](orgs_manage_policies_inheritance_mgmt.md)\.
 
 ## Viewing the effective backup policy<a name="how-to-view-effective-backup-policy"></a>
 

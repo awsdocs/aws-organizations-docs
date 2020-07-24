@@ -4,5 +4,5 @@ AWS Compute Optimizer is a service that analyzes the configuration and utilizati
 
 The following list provides information that is useful to know when you want to integrate AWS Compute Optimizer and AWS Organizations:
 + **To enable trusted access with AWS Organizations** – You must sign in with your AWS Organizations master account and opt in your accounts\. For information, see [Opting in your Account](https://docs.aws.amazon.com/compute-optimizer/latest/ug/getting-started.html#account-opt-in) in the *AWS Compute Optimizer User Guide*\.
-+ **Service principal name for AWS Compute Optimizer** – `compute-optimizer.amazonaws.com`\.
-+ **Name of the IAM service\-linked role that can be created in accounts when trusted access is enabled** – `AWSServiceRoleForComputeOptimizer`\.
++ **Service principal name for AWS Compute Optimizer: ** `compute-optimizer.amazonaws.com`
++ **Name of the IAM service\-linked role that can be created in accounts when trusted access is enabled: ** `AWSServiceRoleForComputeOptimizer`

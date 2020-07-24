@@ -122,10 +122,10 @@ You can use the `$account` variable only in policy elements that can include an 
   This backup plan key name in a backup policy maps to the value of the `BackupPlanName` key in an AWS Backup plan\. 
 
   Each plan contains four elements:
-  + `[rules](#backup-policy-rules)` – This key contains a collection of rules\. Each rule translates to a scheduled task, with a start time and window in which to back up the resources identified by the `selections` and `regions` elements in the effective backup policy\.
-  + `[regions](#backup-plan-regions)` – This key contains an array list of AWS Regions whose resources can be backed up by this policy\.
-  + `[selections](#backup-plan-selections)` – This key contains one or more collections of resources \(within the specified `regions`\) that are backed up by the specified `rules`\. 
-  + `[backup\_plan\_tags](#backup-plan-tags)` – This specifies tags that are attached to the backup plan itself\.
+  + `rules` – This key contains a collection of rules\. Each rule translates to a scheduled task, with a start time and window in which to back up the resources identified by the `selections` and `regions` elements in the effective backup policy\.
+  + `regions` – This key contains an array list of AWS Regions whose resources can be backed up by this policy\.
+  + `selections` – This key contains one or more collections of resources \(within the specified `regions`\) that are backed up by the specified `rules`\. 
+  + `backup_plan_tags` – This specifies tags that are attached to the backup plan itself\.
 + `rules`
 
   The `rules` policy key maps to the `Rules` key in an AWS Backup plan\. You can have one or more rules under the `rules` key\. Each rule becomes a scheduled task to perform a backup of the selected resources\.

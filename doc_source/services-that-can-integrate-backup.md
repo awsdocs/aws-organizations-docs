@@ -11,8 +11,7 @@ When you [enable trusted access for AWS Backup](orgs_integrate_services.md#orgs_
 For more information about AWS Backup, see the *[AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/)*\.
 
 The following list provides information that is useful to know when you want to integrate AWS Backup and Organizations:
-+ **To enable a delegated administor for AWS Backup in your organization:** Sign in with your AWS Organizations master account and configure an account within the organization as the AWS Backup administrator account\. For information, see [TODO](https://docs.aws.amazon.com/aws-backup/latest/devguide/TODO) in the *AWS Backup Developer Guide*\.
 + **To enable trusted access with AWS Organizations:** We recommend that you enable trusted access with AWS Backup by using the AWS Backup console\. For more information, see [Enabling Backup in Multiple AWS Accounts](https://docs.aws.amazon.com/aws-backup/latest/devguide/manage-cross-account.html#enable-xaccount-management) in the *AWS Backup Developer Guide*\.
 + **To disable trusted access with AWS Organizations:** AWS Backup requires trusted access with AWS Organizations to enable monitoring of backup, restore, and copy jobs across your organization's accounts\. If you disable trusted access AWS Backup, you lose the ability to view jobs outside of the current account\. The AWS Backup role that AWS Backup creates remains\. If you later re\-enable trusted access, AWS Backup continues to operate as before, without the need for you to reconfigure the service\. To disable trusted access with AWS Backup, see [How to enable or disable trusted access](orgs_integrate_services.md#orgs_how-to-enable-disable-trusted-access)\.
-+ **Service principal name for AWS Backup:** `backup.amazonaws.com`\.
-+ **Role name created to integrate with AWS Backup:** `AWSBackupDefaultServiceRole`\.
++ **Service principal name for AWS Backup: ** `backup.amazonaws.com`
++ **Role name created to integrate with AWS Backup: ** `AWSBackupDefaultServiceRole`

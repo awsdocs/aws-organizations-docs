@@ -7,5 +7,5 @@ The following list provides information that is useful to know when you want to 
 
   You can also call the [AssociateServiceQuotaTemplate](https://docs.aws.amazon.com/servicequotas/2019-06-24/apireference/API_AssociateServiceQuotaTemplate.html) operation\. For more information, see the [*Service Quotas API Reference*\.](https://docs.aws.amazon.com/servicequotas/2019-06-24/apireference/Welcome.html) 
 + **To disable trusted access with AWS Organizations:** Call the [DisableAWSServiceAccess](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DisableAWSServiceAccess.html) operation\.
-+ **Service principal name for Service Quotas:** `servicequotas.amazonaws.com`\.
-+ **Name of the IAM service\-linked role that can be created in accounts** when trusted access is enabled: `AWSServiceRoleForServiceQuotas`\.
++ **Service principal name for Service Quotas: ** `servicequotas.amazonaws.com`
++ **Name of the IAM service\-linked role that can be created in accounts when trusted access is enabled: ** `AWSServiceRoleForServiceQuotas`

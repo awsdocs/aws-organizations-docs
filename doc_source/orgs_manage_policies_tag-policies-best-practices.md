@@ -1,6 +1,6 @@
 # Best practices for using tag policies<a name="orgs_manage_policies_tag-policies-best-practices"></a>
 
-AWS recommends the following best practices for using tag policies
+AWS recommends the following best practices for using tag policies\.
 
 ## Decide on a tag capitalization strategy<a name="bp-tag-cap"></a>
 
@@ -8,7 +8,7 @@ Determine how you want to capitalize tags and consistently implement that strate
 
 ## Use the recommended workflow<a name="bp-tag-workflow"></a>
 
-Start small by creating a simple tag policy\. Then attach it to a member account that you can use for testing purposes\. Use the workflows described in [Getting started with tag policies](tag-policies-getting-started.md)\.
+Start small by creating a simple tag policy\. Then attach it to a member account that you can use for testing purposes\. Use the workflows described in [Getting started with tag policies](orgs_manage_policies_tag-policies-getting-started.md)\.
 
 ## Determine tagging rules<a name="bp-tag-rules"></a>
 
@@ -25,7 +25,7 @@ When you're ready to expand your use of tag policies, educate account administra
 
 ## Use caution in enforcing compliance<a name="bp-tag-compliance"></a>
 
- Enforcing compliance could prevent users in your organization's accounts from tagging the resources they need\. Review the information in [Understanding enforcement](orgs_manage_policies_tag-policies-enforcement.md)\. Also see the workflows described in [Getting started with tag policies](tag-policies-getting-started.md)\.
+ Enforcing compliance could prevent users in your organization's accounts from tagging the resources they need\. Review the information in [Understanding enforcement](orgs_manage_policies_tag-policies-enforcement.md)\. Also see the workflows described in [Getting started with tag policies](orgs_manage_policies_tag-policies-getting-started.md)\.
 
 ## Consider creating an SCP to set guardrails around resource creation requests<a name="bp-tag-guardrails"></a>
 

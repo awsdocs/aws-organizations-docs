@@ -96,7 +96,7 @@ This global condition also applies to the master account of an organization\.
               ],
               "Resource": "*",
               "Condition": { 
-                  "ForAllValues:StringLike": {
+                  "StringLikeIfExists": {
                       "organizations:ServicePrincipal": [ "fms.amazonaws.com" ]
                   }
               }

@@ -5,7 +5,7 @@ You can use tag policies on an entire organization as well as on organizational 
 + When you attach a tag policy to an *OU*, that tag policy applies to the accounts that belong to the OU\. Those accounts are also subject to any tag policy attached to the organization root\.
 + When you attach a tag policy to an *account*, that tag policy, applies to the account\. In addition, that account is subject to any tag policy attached to the organization root, *plus* any tag policy attached to an OU that the account belongs to\.
 
-The aggregation of any tag policies the account inherits, plus any tag policy directly attached to the account is the [*effective tag policy*](orgs_manage_policies_tag-policies-effective.md)\. For more information, see [Understanding policy inheritance](orgs_manage_policies-inheritance.md)\.
+The aggregation of any tag policies the account inherits, plus any tag policy directly attached to the account is the [*effective tag policy*](orgs_manage_policies_tag-policies-effective.md)\. For more information, see [Understanding policy inheritance](orgs_manage_policies_inheritance.md)\.
 
 **Important**  
 Untagged resources don't appear as noncompliant in results\.

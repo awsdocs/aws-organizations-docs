@@ -1,7 +1,7 @@
 # Inheritance for service control policies<a name="orgs_manage_policies_inheritance_auth"></a>
 
 **Important**  
-The information in this section does ***not*** apply to management policy types, such as tag policies\. See the next section [Inheritance for management policy types](orgs_manage_policies_inheritance_mgmt.md)\.
+The information in this section does ***not*** apply to management policy types, such as tag policies\. See the next section [Policy syntax and inheritance for management policy types](orgs_manage_policies_inheritance_mgmt.md)\.
 
 ## Service control policies \(SCPs\)<a name="orgs_manage_policies_inheritance_auth_scps"></a>
 

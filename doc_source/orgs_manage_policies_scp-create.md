@@ -16,7 +16,7 @@ To create SCPs, you need permission to run the following action:
 
 **To create a service control policy \(console\)**
 
-1. Sign in to the Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\.
+1. Sign in to the Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an AWS Identity and Access Management \(IAM\) user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\.
 
 1. On the **Policies** tab, choose **Service control policies**\. 
 
@@ -36,13 +36,13 @@ To create SCPs, you need permission to run the following action:
 
    1. Specify resources to include in the statement\. 
       + Choose **Add resource**\.
-      + On the **Add resource** screen, choose the service from the list and then choose the **Resource type**\. Enter the **Resource ARN**\.
+      + On the **Add resource** screen, choose the service from the list and then choose the **Resource type**\. Enter the Amazon Resource Name \(ARN\) in **Resource ARN**\.
       + Choose **Add resource**\.
 **Tip**  
 The resource element is required\. If you want to specify all resources for the selected service, edit the resource statement in the right pane to read `"Resource":"*"`\.
 
-   1. Optional: To specify conditions for when a policy is in effect, choose **Add condition**\. For the selected service, specify the following:
-      + **Condition key** – You can specify a condition key that is available for all AWS services \(for example, `aws:SourceIp`\) or a service\-specific key\(for example, `ec2:InstanceType`\)\. 
+   1. \(Optional\) To specify conditions for when a policy is in effect, choose **Add condition**\. For the selected service, specify the following:
+      + **Condition key** – You can specify a condition key that is available for all AWS services \(for example, `aws:SourceIp`\) or a service\-specific key \(for example, `ec2:InstanceType`\)\. 
       + **Qualifier** – \(Optional\) If you enter multiple values for the condition, you can specify a [qualifier](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_multi-value-conditions.html) for testing requests against the values\.
       + **Operator** – You can use [operators](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html) to restrict access based on comparing a key to a value\. 
 
@@ -51,9 +51,9 @@ The resource element is required\. If you want to specify all resources for the 
 
       Choose **Add condition**\.
 
-      For more information on condition keys, see [IAM JSON Policy Elements: Condition](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html) in the *IAM User Guide*\. 
+      For more information about condition keys, see [IAM JSON Policy Elements: Condition](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html) in the *IAM User Guide*\. 
 
-   1. Optional: To use the `NotAction` element to deny access to all of the listed resources except for specified actions, replace `Action` in the left pane with `NotAction`, just after the `"Effect": "Deny",` element\. For more information, see [IAM JSON Policy Elements: NotAction](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_notaction.html) in the *IAM User Guide*\. 
+   1. \(Optional\) To use the `NotAction` element to deny access to all of the listed resources except for specified actions, replace `Action` in the left pane with `NotAction`, just after the `"Effect": "Deny",` element\. For more information, see [IAM JSON Policy Elements: NotAction](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_notaction.html) in the *IAM User Guide*\. 
 
 1. To add a statement that *allows* access:
 
@@ -65,7 +65,7 @@ The resource element is required\. If you want to specify all resources for the 
 
    1. From the list that opens of available actions for that service, choose the action or actions to allow\. 
 
-1. Optional: To add another statement to the policy, choose **Add statement** and use the visual editor to build the next statement\. 
+1. \(Optional\) To add another statement to the policy, choose **Add statement** and use the visual editor to build the next statement\. 
 
 1. When you're finished adding statements, choose **Create policy** to save the completed SCP\.
 
@@ -110,7 +110,7 @@ You can use one of the following commands to update a policy:
 
 ### For more information<a name="orgs_create_policies_scp-more-info"></a>
 
-For more information on creating SCPs, see the following pages:
+For more information about creating SCPs, see the following topics:
 + [Example service control policies](orgs_manage_policies_example-scps.md)
 + [SCP syntax](orgs_reference_scp-syntax.md)
 
@@ -120,9 +120,9 @@ When signed in to your organization's master account, you can delete a policy th
 
 **Notes**  
 Before you can delete a policy, you must first detach it from all attached entities\. 
-You can't delete any AWS managed SCP such as the one named `FullAWSAccess`\.
+You can't delete any AWS managed SCP such as the SCP named `FullAWSAccess`\.
 
-To delete an SCP, you permission to run the following action:
+To delete an SCP, you need permission to run the following action:
 + `organizations:DeletePolicy`
 
 **To delete a policy \(console\)**

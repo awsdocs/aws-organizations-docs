@@ -3,6 +3,7 @@
 Management policy types enable you to centrally manage the features of AWS services that are integrated with AWS Organizations\.
 
 The management policy type category consists of the following policy types:
++ [AI services opt\-out policies](orgs_manage_policies_ai-opt-out.md)
 + [Backup policies](orgs_manage_policies_backup.md)
 + [Tag policies](orgs_manage_policies_tag-policies.md)
 

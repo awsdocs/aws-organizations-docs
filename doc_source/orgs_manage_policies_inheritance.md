@@ -1,6 +1,6 @@
-# Understanding policy inheritance<a name="orgs_manage_policies-inheritance"></a>
+# Understanding policy inheritance<a name="orgs_manage_policies_inheritance"></a>
 
-You can attach policies to organization entities \(organization root, organizational unit \(OU\), or account\):
+You can attach policies to organization entities \(organization root, organizational unit \(OU\), or account\) in your organization:
 + When you attach a policy to the organization root, all OUs and accounts in the organization inherit that policy\. 
 + When you attach a policy to a specific OU, accounts that are directly under that OU or any child OU inherit the policy\.
 + When you attach a policy to a specific account, it affects only that account\. 

@@ -21,7 +21,12 @@ To create a member account in your organization, you must have the following per
 `iam:CreateServiceLinkedRole` \(granted to principal `organizations.amazonaws.com` to enable creating the required service\-linked role in the member accounts\)\.
 
 **Important**  
-When you create an account using the following procedure, AWS doesn't automatically collect all the information required for an account to operate as a standalone account\. If you ever need to remove the account from the organization and make it a standalone account, you must provide that information for the account before you can remove it\. For more information, see [Leaving an organization as a member account](orgs_manage_accounts_remove.md#orgs_manage_accounts_leave-as-member)\.
+When you create an account using the following procedure, Organizations copies the following information from the master account to the new member account:  
+Company name
+URL
+Company contact email
+Communication language 
+AWS does ***not*** automatically collect all the information required for an account to operate as a standalone account\. If you ever need to remove the account from the organization and make it a standalone account, you must provide that information for the account before you can remove it\. For more information, see [Leaving an organization as a member account](orgs_manage_accounts_remove.md#orgs_manage_accounts_leave-as-member)\.
 
 **To create an AWS account that automatically is part of your organization \(console\)**
 

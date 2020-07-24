@@ -2,15 +2,15 @@
 
 The example [service control policies \(SCPs\)](orgs_manage_policies_type-auth.md#orgs_manage_policies_scp) displayed in this topic are for information purposes only\.
 
-**Before Using These Examples**  
-Before you attempt to use these example SCPs in your organization, do the following:  
-Carefully review and customize them for your unique requirements\.
-Test your policies before using them in a production capacity\. Remember that an SCP affects every user and role and even the root user in every account that it's attached to\. 
+**Before using these examples**  
+Before you use these example SCPs in your organization, do the following:  
+Carefully review and customize the SCPs for your unique requirements\.
+Test your SCPs before using them in a production capacity\. Remember that an SCP affects every user and role and even the root user in every account that it's attached to\. 
 
 **Tip**  
 You can use [service last accessed data](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html) in [IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) to update your SCPs to restrict access to only the AWS services that you need\. For more information, see [Viewing Organizations Service Last Accessed Data for Organizations](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor-view-data-orgs.html) in the *IAM User Guide\.* 
 
-Each of the following policies is an example of a [deny list policy](SCP_strategies.md#orgs_policies_denylist) strategy\. Deny list policies must be attached along with other policies that allow the approved actions in the affected accounts\. For example, the default `FullAWSAccess` policy permits the use of all services in an account\. This policy is attached by default to the root, all organizational units \(OUs\), and all accounts\. It doesn't actually grant the permissions; no SCP does\. Instead, it enables administrators in that account to delegate access to those actions by attaching standard IAM permissions policies to users, roles, or groups in the account\. Each of these deny list policies then overrides any policy by blocking access to the specified services or actions\.
+Each of the following policies is an example of a [deny list policy](SCP_strategies.md#orgs_policies_denylist) strategy\. Deny list policies must be attached along with other policies that allow the approved actions in the affected accounts\. For example, the default `FullAWSAccess` policy permits the use of all services in an account\. This policy is attached by default to the root, all organizational units \(OUs\), and all accounts\. It doesn't actually grant the permissions; no SCP does\. Instead, it enables administrators in that account to delegate access to those actions by attaching standard AWS Identity and Access Management \(IAM\) permissions policies to users, roles, or groups in the account\. Each of these deny list policies then overrides any policy by blocking access to the specified services or actions\.
 
 **Topics**
 + [Example 1: Prevent users from disabling Amazon GuardDuty or modifying its configuration](#example_scp_1)
@@ -18,7 +18,7 @@ Each of the following policies is an example of a [deny list policy](SCP_strateg
 + [Example 3: Prevent users from deleting Amazon VPC flow logs](#example_scp_3)
 + [Example 4: Prevent users from disabling AWS Config or changing its rules](#example_scp_4)
 + [Example 5: Prevent any VPC that doesn't already have internet access from getting it](#example_scp_5)
-+ [Example 6: Denies access to AWS based on the requested Region](#example-scp-deny-region)
++ [Example 6: Denies access to AWS based on the requested AWS Region](#example-scp-deny-region)
 + [Example 7: Prevent IAM principals from making certain changes](#example-scp-restricts-iam-principals)
 + [Example 8: Prevent IAM principals from making certain changes, with exceptions for admins](#example-scp-restricts-with-exception)
 + [Example 9: Require Amazon EC2 instances to use a specific type](#example-ec2-instances)
@@ -77,7 +77,7 @@ This SCP prevents users or roles in any affected account from disabling GuardDut
 
 ## Example 2: Prevent users from disabling Amazon CloudWatch or altering its configuration<a name="example_scp_2"></a>
 
-A lower\-level CloudWatch operator needs to monitor dashboards and alarms, but must not be able to delete or change any dashboard or alarm that senior people might put into place\. This SCP prevents users or roles in any affected account from running any of the CloudWatch commands that could delete or change your dashboards or alarms\.
+A lower\-level CloudWatch operator needs to monitor dashboards and alarms\. However, the operator must not be able to delete or change any dashboard or alarm that senior people might put into place\. This SCP prevents users or roles in any affected account from running any of the CloudWatch commands that could delete or change your dashboards or alarms\.
 
 ```
 {
@@ -101,7 +101,7 @@ A lower\-level CloudWatch operator needs to monitor dashboards and alarms, but m
 
 ## Example 3: Prevent users from deleting Amazon VPC flow logs<a name="example_scp_3"></a>
 
-This SCP prevents users or roles in any affected account from deleting Amazon EC2 flow logs or CloudWatch log groups or log streams\. 
+This SCP prevents users or roles in any affected account from deleting Amazon Elastic Compute Cloud \(Amazon EC2\) flow logs or CloudWatch log groups or log streams\. 
 
 ```
 {
@@ -167,19 +167,19 @@ This SCP prevents users or roles in any affected account from changing the confi
 }
 ```
 
-## Example 6: Denies access to AWS based on the requested Region<a name="example-scp-deny-region"></a>
+## Example 6: Denies access to AWS based on the requested AWS Region<a name="example-scp-deny-region"></a>
 
 This SCP denies access to any operations outside of the `eu-central-1` and `eu-west-1` Regions\. It provides exemptions for operations in approved global services\. To use this SCP, replace the red italicized text in the example policy with your own information\.
 
 **Important**  
 If you use AWS Control Tower in your organization, we recommend that you do not use this example policy\. AWS Control Tower works across AWS Regions in a way that is not compatible with this example policy\.
 
-This policy uses the `Deny` effect to deny access to all requests for operations that don't target one of the two approved regions \(`eu-central-1` and `eu-west-1`\)\. The [NotAction](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_notaction.html) element enables you to list services whose operations \(or individual operations\) are exempted from this restriction\. Because global services have endpoints that physically hosted by the `us-east-1` Region , they must be exempted in this way\. With an SCP structured this way, requests made to global services in the `us-east-1` Region are allowed if the requested service is included in the `NotAction` element\. Any other requests to services in the `us-east-1` Region are denied by this example policy\.
+This policy uses the `Deny` effect to deny access to all requests for operations that don't target one of the two approved regions \(`eu-central-1` and `eu-west-1`\)\. The [NotAction](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_notaction.html) element enables you to list services whose operations \(or individual operations\) are exempted from this restriction\. Because global services have endpoints that are physically hosted by the `us-east-1` Region , they must be exempted in this way\. With an SCP structured this way, requests made to global services in the `us-east-1` Region are allowed if the requested service is included in the `NotAction` element\. Any other requests to services in the `us-east-1` Region are denied by this example policy\.
 
 **Notes**  
 ***This example doesn't attempt to include all AWS global services or operations\.*** Replace the list of services and operations in red italicized text with the global services used by accounts in your organization\.   
 You can view the[ service last accessed data in the IAM console](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html) to determine what global services your organization uses\. The **Access Advisor** tab on the details page for an IAM user, group, or role displays the AWS services that have been used by that entity, sorted by most recent access\. 
-This example policy blocks access to the AWS Security Token Service *global* endpoint \(`sts.amazonaws.com`\)\. To use AWS STS with this policy, you must either use the AWS STS regional endpoints or add `"sts:*"` to the `NotAction` element\. For more information on AWS STS endpoints, see [Activating and Deactivating AWS STS in an AWS Region](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html) in the *IAM User Guide*\.
+This example policy blocks access to the AWS Security Token Service *global* endpoint \(`sts.amazonaws.com`\)\. To use AWS STS with this policy, you must either use the AWS STS regional endpoints or add `"sts:*"` to the `NotAction` element\. For more information about AWS STS endpoints, see [Activating and Deactivating AWS STS in an AWS Region](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html) in the *IAM User Guide*\.
 
 ```
 {
@@ -192,7 +192,7 @@ This example policy blocks access to the AWS Security Token Service *global* end
                "a4b:*", "artifact:*", "aws-portal:*",
                 "budgets:*",
                 "ce:*", "chime:*", "cloudfront:*", "cur:*",
-                "datapipiline:GetAccountLimits", "directconnect:",
+                "datapipeline:GetAccountLimits", "directconnect:",
                 "globalaccelerator:*",
                 "health:*",
                 "iam:*", "importexport:*",
