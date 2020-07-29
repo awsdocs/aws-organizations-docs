@@ -10,7 +10,7 @@ Test your SCPs before using them in a production capacity\. Remember that an SCP
 **Tip**  
 You can use [service last accessed data](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html) in [IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) to update your SCPs to restrict access to only the AWS services that you need\. For more information, see [Viewing Organizations Service Last Accessed Data for Organizations](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor-view-data-orgs.html) in the *IAM User Guide\.* 
 
-Each of the following policies is an example of a [deny list policy](SCP_strategies.md#orgs_policies_denylist) strategy\. Deny list policies must be attached along with other policies that allow the approved actions in the affected accounts\. For example, the default `FullAWSAccess` policy permits the use of all services in an account\. This policy is attached by default to the root, all organizational units \(OUs\), and all accounts\. It doesn't actually grant the permissions; no SCP does\. Instead, it enables administrators in that account to delegate access to those actions by attaching standard AWS Identity and Access Management \(IAM\) permissions policies to users, roles, or groups in the account\. Each of these deny list policies then overrides any policy by blocking access to the specified services or actions\.
+Each of the following policies is an example of a [deny list policy](orgs_manage_policies_scp-strategies.md#orgs_policies_denylist) strategy\. Deny list policies must be attached along with other policies that allow the approved actions in the affected accounts\. For example, the default `FullAWSAccess` policy permits the use of all services in an account\. This policy is attached by default to the root, all organizational units \(OUs\), and all accounts\. It doesn't actually grant the permissions; no SCP does\. Instead, it enables administrators in that account to delegate access to those actions by attaching standard AWS Identity and Access Management \(IAM\) permissions policies to users, roles, or groups in the account\. Each of these deny list policies then overrides any policy by blocking access to the specified services or actions\.
 
 **Topics**
 + [Example 1: Prevent users from disabling Amazon GuardDuty or modifying its configuration](#example_scp_1)
@@ -192,7 +192,7 @@ This example policy blocks access to the AWS Security Token Service *global* end
                "a4b:*", "artifact:*", "aws-portal:*",
                 "budgets:*",
                 "ce:*", "chime:*", "cloudfront:*", "cur:*",
-                "datapipeline:GetAccountLimits", "directconnect:",
+                "datapipeline:GetAccountLimits", "directconnect:*",
                 "globalaccelerator:*",
                 "health:*",
                 "iam:*", "importexport:*",

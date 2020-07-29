@@ -51,7 +51,7 @@ The visual editor makes the process easy, but it limits your flexibility\. It's 
 The specified IAM role must already exist in the account the policy is applied to\. If it does not, the backup plan might successfully start backup jobs, but those backup jobs will fail\.
       + Specify one or more **Resource tag key** and **Tag values** pairs\. If there is more than one tag value, separate them with commas\.
 
-1. When you're finished building your policy, choose **Create policy**\. The policy appears in your list of available backup policies\. 
+1. When you're finished creating your policy, choose **Create policy**\. The policy appears in your list of available backup policies\. 
 
 **To create a backup policy \(AWS CLI, AWS API\)**  
 You can use one of the following to create a backup policy:

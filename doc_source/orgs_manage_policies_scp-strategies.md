@@ -1,4 +1,4 @@
-# Strategies for using SCPs<a name="SCP_strategies"></a>
+# Strategies for using SCPs<a name="orgs_manage_policies_scp-strategies"></a>
 
 You can configure the service control policies \(SCPs\) in your organization to work as either of the following:
 + A [deny list](#orgs_policies_denylist) – actions are allowed by default, and you specify what services and actions are prohibited
@@ -26,7 +26,7 @@ To support this, AWS Organizations attaches an AWS managed SCP named [FullAWSAcc
 }
 ```
 
-This policy enables account administrators to delegate permissions for any service or action until you create and attach an SCP that denies some access\. You can attach an SCP that explicitly prohibits actions that you don't want users and roles in certain accounts to perform\.
+This policy enables account administrators to delegate permissions for any service or operation until you create and attach an SCP that denies some access\. You can attach an SCP that explicitly prohibits actions that you don't want users and roles in certain accounts to perform\.
 
 Such a policy might look like the following example, which prevents users in the affected accounts from performing any actions for the Amazon DynamoDB service\. The organization administrator can detach the `FullAWSAccess` policy and attach this one instead\. This SCP still allows all other services and their actions\.
 
@@ -70,6 +70,10 @@ The combination of the `FullAWSAccess` policy and the `Deny` statement in the pr
 ## Using SCPs as an allow list<a name="orgs_policies_allowlist"></a>
 
 To use SCPs as an allow list, you must replace the AWS managed `FullAWSAccess` SCP with an SCP that explicitly permits only those services and actions that you want to allow\. By removing the default `FullAWSAccess` SCP, all actions for all services are now implicitly denied\. Your custom SCP then overrides the implicit `Deny` with an explicit `Allow` for only those actions that you want to permit\. For a permission to be enabled for a specified account, every SCP from the root through each OU in the direct path to the account, and even attached to the account itself, must allow that permission\.
+
+**Notes**  
+An `Allow` statement in an SCP can't have a `Resource` element with anything except a `"*"`\.
+An `Allow` statement in an SCP can't have a `Condition` element at all\. 
 
 An allow list policy might look like the following example, which enables account users to perform operations for Amazon Elastic Compute Cloud \(Amazon EC2\) and Amazon CloudWatch, but no other service\. All SCPs in parent OUs and the root also must explicitly allow these permissions\.
 
