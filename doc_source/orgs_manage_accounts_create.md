@@ -23,10 +23,13 @@ To create a member account in your organization, you must have the following per
 
 **Important**  
 When you create an account using the following procedure, Organizations copies the following information from the master account to the new member account:  
+Account name
+Phone number
 Company name
-URL
+Customer URL
 Company contact email
 Communication language 
+Marketplace \(vendor of the account in some AWS Regions\)
 AWS does ***not*** automatically collect all the information required for an account to operate as a standalone account\. If you ever need to remove the account from the organization and make it a standalone account, you must provide that information for the account before you can remove it\. For more information, see [Leaving an organization as a member account](orgs_manage_accounts_remove.md#orgs_manage_accounts_leave-as-member)\.
 
 **To create an AWS account that automatically is part of your organization \(console\)**
