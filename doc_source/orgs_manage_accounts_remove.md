@@ -2,11 +2,11 @@
 
 Part of managing accounts in an organization is removing *member* accounts that you no longer need\. This page describes what you need to know before removing an account and provides procedures for removing accounts\.
 
-For information on removing the *master* account, see [Delete the organization by removing the master account](orgs_manage_org_delete.md)\.
+For information on removing the *master account*, see [Delete the organization by removing the master account](orgs_manage_org_delete.md)\.
 
 **Topics**
 + [Before removing an account from an organization](#orgs_manage_account-before_-remove)
-+ [Removing a member account from your organization](#orgs_manage_accounts_remove-from-master)
++ [Removing a member account from your organization](#orgs_manage_accounts_remove-from-management-account)
 + [Leaving an organization as a member account](#orgs_manage_accounts_leave-as-member)
 
 ## Before removing an account from an organization<a name="orgs_manage_account-before_-remove"></a>
@@ -23,7 +23,7 @@ When you remove an account from an organization, no direct changes are made to t
 + The principals in the account are no longer affected by any [service control policies \(SCPs\)](orgs_manage_policies_type-auth.md#orgs_manage_policies_scp) that were defined in the organization\. This means that restrictions imposed by those SCPs are gone, and the users and roles in the account might have more permissions than they had before\.
 + Integration with other services might be disabled\. For example, AWS Single Sign\-On requires an organization to operate, so if you remove an account from an organization that supports AWS SSO, the users in that account can no longer use that service\.
 
-## Removing a member account from your organization<a name="orgs_manage_accounts_remove-from-master"></a>
+## Removing a member account from your organization<a name="orgs_manage_accounts_remove-from-management-account"></a>
 
 When you sign in to the organization's master account, you can remove member accounts from the organization that you no longer need\. To do this, complete the following procedure\. These procedures apply only to member accounts\. To remove the master account, you must [delete the organization]()\.
 

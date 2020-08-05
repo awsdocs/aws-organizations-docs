@@ -33,7 +33,7 @@ Substitute the values above with the values that are associated with your test a
 
 ## Step 1: Create your organization<a name="tutorial-orgs-step1"></a>
 
-In this step, you sign in to account 111111111111 as an administrator, create an organization with that account as the master, and invite an existing account, 222222222222, to join as a member account\.
+In this step, you sign in to account 111111111111 as an administrator, create an organization with that account as the master account, and invite an existing account, 222222222222, to join as a member account\.
 
 1. Sign in to AWS as an administrator of account 111111111111 and open the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\.
 

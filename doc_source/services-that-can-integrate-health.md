@@ -1,0 +1,12 @@
+# AWS Health and AWS Organizations<a name="services-that-can-integrate-health"></a>
+
+AWS Health provides ongoing visibility into your resource performance and the availability of your AWS services and accounts\. AWS Health delivers events when your AWS resources and services are impacted by an issue or will be affected by upcoming changes\. After you enable organizational view, a user in the organization’s master account can aggregate AWS Health events across all accounts in the organization\. Organizational view only shows AWS Health events delivered after the feature is enabled and retains them for 90 days\. 
+
+For more information, see [Aggregating AWS Health events](https://docs.aws.amazon.com/health/latest/ug/aggregate-events.html) in the *AWS Health User Guide*\.
+
+**Note**  
+Currently, the organizational view feature is available only through the AWS Health API\. For more information, see the [AWS Health API Reference](https://docs.aws.amazon.com/health/latest/APIReference/Welcome.html)\.
++ **To enable trusted access with AWS Organizations:** You must sign in as an IAM user or role in your AWS Organizations master account and then call the [EnableHealthServiceAccessForOrganization](https://docs.aws.amazon.com/health/latest/APIReference/API_EnableHealthServiceAccessForOrganization.html) API operation\. You can use the AWS Command Line Interface \(AWS CLI\) or your own code\. After you enable this feature, the `AWSServiceRoleForHealth_Organizations` [service\-linked](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html) role is applied to the organization’s master account\. For more information, see [Enabling organizational view](https://docs.aws.amazon.com/health/latest/ug/aggregate-events.html#enable-organizational-view) in the *AWS Health User Guide*\.
++ **To disable trusted access with AWS Health:** You must sign in as an IAM user or role in your AWS Organizations master account\. After you disable this feature, AWS Health stops aggregating events for all other accounts in your organization\. For information, see [Disabling organizational view](https://docs.aws.amazon.com/health/latest/ug/aggregate-events.html#disabling-organizational-view) in the *AWS Health User Guide*\.
++ **Service principal name for AWS Health:** `health.amazonaws.com` 
++ **Role name created to synchronize with AWS Health:**`AWSServiceRoleForHealth_Organizations`

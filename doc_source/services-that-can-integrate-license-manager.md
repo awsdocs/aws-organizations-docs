@@ -7,4 +7,4 @@ The following list provides information that is useful to know when you want to 
 + **Service principal names for AWS License Manager: ** `license-manager.amazonaws.com` and `license-manager.member-account.amazonaws.com`
 + **Names of the IAM service\-linked roles that can be created in accounts** when trusted access is enabled:  `AWSLicenseManagerMasterAccountRole`, `AWSLicenseManagerMemberAccountRole`, and `AWSServiceRoleForAWSLicenseManagerRole`\.
 
-  For more information, see [Using the License Manager–Master Account Role](https://docs.aws.amazon.com/license-manager/latest/userguide/master-role.html) and [Using the License Manager–Member Account Role](https://docs.aws.amazon.com/license-manager/latest/userguide/member-role.html)\.
+  For more information, see [Using the License Manager–master account role](https://docs.aws.amazon.com/license-manager/latest/userguide/master-role.html) and [Using the License Manager–member account role](https://docs.aws.amazon.com/license-manager/latest/userguide/member-role.html)\.

@@ -14,5 +14,5 @@ The following list provides information that you need when integrating AWS Cloud
 
   1. On the **Settings** page, next to **AWS CloudFormation**, choose **Disable access**\.
 + **Name suffixes of the IAM service\-linked roles that are automatically created in administrator and target accounts** when trusted access is enabled:
-  + Administrator \(master\) account:  `CloudFormationStackSetsOrgAdmin`\. You can modify or delete this role only if trusted access with AWS Organizations is disabled\.
+  + Administrator \(management\) account:  `CloudFormationStackSetsOrgAdmin`\. You can modify or delete this role only if trusted access with AWS Organizations is disabled\.
   + Target accounts: `CloudFormationStackSetsOrgMember`\. You can modify or delete this role only if trusted access with AWS Organizations is disabled, or if the account is removed from the target organization or organizational unit \(OU\)\.

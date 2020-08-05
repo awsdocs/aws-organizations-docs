@@ -86,6 +86,7 @@ Amazon's trademarks and trade dress may not be used in
       + [AWS Directory Service and AWS Organizations](services-that-can-integrate-ads.md)
       + [AWS Firewall Manager and AWS Organizations](services-that-can-integrate-fms.md)
       + [Amazon GuardDuty and AWS Organizations](services-that-can-integrate-guardduty.md)
+      + [AWS Health and AWS Organizations](services-that-can-integrate-health.md)
       + [AWS License Manager and AWS Organizations](services-that-can-integrate-license-manager.md)
       + [Amazon Macie and AWS Organizations](services-that-can-integrate-macie.md)
       + [AWS RAM and AWS Organizations](services-that-can-integrate-ram.md)
