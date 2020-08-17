@@ -18,13 +18,9 @@ To create an AI services opt\-out policy, you need permission to run the followi
 
 1. On the **Create policy** page, enter a name and description for the policy\.
 
-   You can build the policy using the **Visual editor** as described in this procedure\. You can also type or paste policy text in the **JSON** tab\. For information about AI services opt\-out policy syntax, see [AI services opt\-out policy syntax and examples](orgs_manage_policies_ai-opt-out_syntax.md)\.
+1. Type or paste the policy text in the **JSON** tab\. For information about AI services opt\-out policy syntax, see [AI services opt\-out policy syntax and examples](orgs_manage_policies_ai-opt-out_syntax.md)\. For example policies that you can use as a starting point, see [AI services opt\-out policy examples](orgs_manage_policies_ai-opt-out_syntax.md#ai-opt-out-policy-examples)\.
 
-1. If you choose to use the **Visual editor**, select the service that you want to move to the other column and then choose the appropriate arrow to move it\.
-
-1. \(Optional\) Repeat step 5 for each service that you want to change\.
-
-1. When you're finished building your policy, choose **Create policy**\.
+1. When you're finished editing your policy, choose **Create policy** at the lower\-right corner of the page\.
 
 **To create an AI services opt\-out policy \(AWS CLI, AWS API\)**  
 You can use one of the following to create a tag policy:
@@ -54,7 +50,7 @@ To update an AI services opt\-out policy, you must have permission to run the fo
 
 1. On the page that shows the tag policy, choose **Edit policy**\.
 
-1. Make your changes either by using the visual editor or by editing the JSON\. 
+1. Make your changes either by editing the JSON\. 
 
 1. When you're finished updating the policy, choose **Save changes**\.
 

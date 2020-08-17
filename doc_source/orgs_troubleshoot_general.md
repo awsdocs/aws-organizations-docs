@@ -10,7 +10,7 @@ Use the information here to help you diagnose and fix access\-denied or other co
 + [I get a "this operation requires a wait period" message while adding or removing accounts](#troubleshoot_general_error-wait-req)
 + [I get an "organization is still initializing" message when I try to add an account to my organization](#troubleshoot_general_error-still-init)
 + [I get an "Invitations are disabled" message when I try to invite an account to my organization\.](#troubleshoot_general_error-changing-feature-set)
-+ [I used an incorrect email address when i created a member account](#troubleshoot_incorrect-email)
++ [I used an incorrect email address when I created a member account](#troubleshoot_incorrect-email)
 + [Changes that I make aren't always immediately visible](#troubleshoot_general_eventual-consistency)
 
 ## I get an "access denied" message when I make a request to AWS Organizations<a name="troubleshoot_general_access-denied-service"></a>
@@ -46,9 +46,9 @@ If you receive this error and it's been over an hour since you created the organ
 
 This happens when you [enable all features in your organization](orgs_manage_org_support-all-features.md)\. This operation can take some time and requires that all member accounts respond\. Until the operation is completed, you can't invite new accounts to join the organization\.
 
-## I used an incorrect email address when i created a member account<a name="troubleshoot_incorrect-email"></a>
+## I used an incorrect email address when I created a member account<a name="troubleshoot_incorrect-email"></a>
 
-If you created a member account in an organization with an incorrect email address, you can’t sign in to the account as the root user\. In this case, try accessing or creating a master account access role for the account\. For more information, see [Accessing a member account that has a master account access role](orgs_manage_accounts_access.md#orgs_manage_accounts_access-cross-account-role)\. If you can't access or create the role, see the [Contact Us](https://aws.amazon.com/contact-us/) page, and choose the item regarding billing to contact AWS Support\.
+If you created a member account in an organization with an incorrect email address, you can’t sign in to the account as the root user\. In this case, you can try to access the master account access role for the account\. For more information, see [Accessing a member account that has a master account access role](orgs_manage_accounts_access.md#orgs_manage_accounts_access-cross-account-role)\. If you can't access the role, then you must contact AWS Support to correct the email address\. Use your browser to access the [Contact Us](https://aws.amazon.com/contact-us/) page, and choose the item regarding Billing to contact AWS Support\.
 
 ## Changes that I make aren't always immediately visible<a name="troubleshoot_general_eventual-consistency"></a>
 

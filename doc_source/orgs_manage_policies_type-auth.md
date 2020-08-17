@@ -54,24 +54,26 @@ For more information, see the following topics in the *IAM User Guide*:
 
 ### Tasks and entities not restricted by SCPs<a name="not-restricted-by-scp"></a>
 
-The following tasks and AWS Organizations entities are not restricted by SCPs:
-+ Actions performed by the master account\.
-+ Any action performed using permissions that are attached to a service\-linked role\.
-+ Managing root credentials\. No matter what SCPs are attached, the root user in an account can always do the following:
-  + Enable or disable multi\-factor authentication on the root user
-  + Create, update, or delete x\.509 keys for the root user
-  + Change the root user's password \(only on some accounts \- see following **Important** note\)
-  + Create, update, or delete root access keys \(only on some accounts \- see following **Important** note\)
-**Important**  
-For all accounts created *after* September 15, 2017, you ***can*** use SCPs to prevent the root user in member accounts from managing root user password or access keys\.   
-However, for some accounts created *before* September 15, 2017, SCPs ***don't*** prevent that member account’s root user from creating, updating, or deleting the root user password or access keys\. Because of this, we recommend that you don’t rely on SCPs to try to restrict these operations unless you're certain that the account was created after that date\.
+You ***can't*** use SCPs to restrict the following tasks:
++ Any action performed by the master account
++ Any action performed using permissions that are attached to a service\-linked role
 + Register for the Enterprise support plan as the root user
 + Change the AWS support level as the root user
 + Manage Amazon CloudFront keys
 + Provide trusted signer functionality for CloudFront private content
 + Modify AWS account email allowance/reverse DNS
-+ Perform tasks on some AWS\-related services:
++ Tasks on some AWS\-related services:
   + Alexa Top Sites
   + Alexa Web Information Service
   + Amazon Mechanical Turk
   + Amazon Product Marketing API
+
+**Exceptions for only member accounts created before September 15, 2017**  
+For **some** accounts created *before* September 15, 2017, you ***can't ***use SCPs to prevent the root user in those member accounts from performing the following four tasks:
+
+**Important**  
+For **all** accounts created *after* September 15, 2017, these exceptions do not apply and you ***can*** use SCPs to prevent the root user in those member accounts from performing the following four tasks\. However, unless you are certain that **all** of the accounts in your organization were created after September 15, 2017, we recommend that you don’t rely on SCPs to try to restrict these operations\.
++ Enable or disable multi\-factor authentication on the root user
++ Create, update, or delete x\.509 keys for the root user
++ Change the root user's password \(only on some accounts \- see following **Important** note\)
++ Create, update, or delete root access keys \(only on some accounts \- see following **Important** note\)
