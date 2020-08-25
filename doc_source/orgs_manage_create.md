@@ -1,6 +1,6 @@
 # Creating an organization<a name="orgs_manage_create"></a>
 
-Use AWS Organizations to create your own organization to consolidate and manage your AWS accounts\. 
+Use AWS Organizations to create an organization\.
 
 You can create an organization that starts with your AWS account as the master account\. When you create an organization, you can choose whether the organization supports all features \(recommended\) or only consolidated billing features\. 
 

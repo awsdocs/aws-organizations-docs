@@ -49,7 +49,10 @@ The following functionally complete policy shows the basic backup policy syntax\
                         }
                     },
                     "copy_actions": {
-                        "arn:aws:backup:$region:$account:backup-vault:My_Secondary_Vault": {
+                        "arn:aws:backup:us-west-2:$account:backup-vault:My_Secondary_Vault": {
+                            "target_backup_vault_arn" :
+                                "@@assign" : "arn:aws:backup:us-west-2:$account:backup-vault:My_Secondary_Vault"
+                            },
                             "lifecycle": {
                                 "delete_after_days": {
                                     "@@assign": "28"
@@ -95,7 +98,7 @@ The following functionally complete policy shows the basic backup policy syntax\
                         "@@assign": "Beta"
                     }
                 }
-            }
+            },
         }
     }
 }
@@ -130,7 +133,7 @@ You can use the `$account` variable only in policy elements that can include an 
 
   The `rules` policy key maps to the `Rules` key in an AWS Backup plan\. You can have one or more rules under the `rules` key\. Each rule becomes a scheduled task to perform a backup of the selected resources\.
 
-  Each rule contains a key whose key name is the name of the rule\. In the previous example, the rule name is "My\_Hourly\_Rule"\. The value of the rule key is the following collection of rule elements:
+  Each rule contains a key whose name is the name of the rule\. In the previous example, the rule name is "My\_Hourly\_Rule"\. The value of the rule key is the following collection of rule elements:
   + `schedule_expression` – This policy key maps to the `ScheduleExpression` key in an AWS Backup plan\.
 
     Specifies the start time of the backup\. This key contains the [`@@assign` inheritance value operator](orgs_manage_policies_inheritance_mgmt.md#value-setting-operators) and a string value with a [CRON expression](https://www.wikipedia.org/wiki/Cron#CRON_expression) that specifies when AWS Backup is to initiate a backup job\. The general format of the CRON string is: "cron\( \)"\. Each is a number or wildcard\. For example, `cron(0 5 1,3,5 * * *)` starts the backup at 5 AM every Monday, Wednesday, and Friday\. `cron(0 0/1 ? * * *)` starts the backup every hour on the hour, every day of the week\. 
@@ -156,23 +159,25 @@ The vault must already exist when the backup plan is launched the first time\. W
       Specifies the number of days after the backup occurs before AWS Backup deletes the recovery point\. This key contains the [`@@assign` inheritance value operator](orgs_manage_policies_inheritance_mgmt.md#value-setting-operators) and a value with an integer number of days\. If you transition a backup to cold storage, it must stay there a minimum of 90 days, so this value must be a minimum of 90 days greater than the `move_to_cold_storage_after_days` value\.
   + `copy_actions` – This policy key maps to the `CopyActions` key in an AWS Backup plan\.
 
-    \(Optional\) Specifies that AWS Backup should copy the backup to one or more additional locations\. This key contains two child keys:
-    + An Amazon Resource Name \(ARN\) of a backup vault\. This policy key maps to the `DestinationBackupVaultArn` key in an AWS Backup plan\.
+    \(Optional\) Specifies that AWS Backup should copy the backup to one or more additional locations\. Each location is described as follows:
+    + A key whose name uniquely identifies this copy action\. At this time, the key name must be the Amazon Resource Name \(ARN\) of the backup vault\. This key contains two entries\.
+      + `target_backup_vault_arn` – This policy key maps to the `DestinationBackupVaultArn` key in an AWS Backup plan\.
 
-      Specifies the vault in which AWS Backup stores an additional copy of the backup\. 
+        \(Optional\) Specifies the vault in which AWS Backup stores an additional copy of the backup\. The value of this key contains the [`@@assign` inheritance value operator](orgs_manage_policies_inheritance_mgmt.md#value-setting-operators) and the ARN of the vault\. 
 
-      You can use the `$account` variable in the ARN in place of the account ID number\. When the backup plan is run by AWS Backup, it automatically replaces the variable with the actual account ID number of the AWS account in which the policy is running\.
+        You must use the `$account` variable in the ARN in place of the account ID number\. When AWS Backup runs the backup plan, it automatically replaces the variable with the account ID number of the AWS account in which the policy is running\.
 **Important**  
+If this key is missing then an all lower\-case version of the ARN in the parent key name is used\. Because ARNs are case sensitive, this might not match and the plan fails\. For this reason, we recommend you always supply this key and value\.
 The backup vault must already exist the first time you launch the backup plan\. We recommend that you use AWS CloudFormation stack sets and its integration with Organizations to automatically create and configure backup vaults and IAM roles for each member account in the organization\. For more information, see [Create a stack set with self\-managed permissions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-getting-started-create.html#create-stack-set-service-managed-permissions) in the *AWS CloudFormation User Guide*\.
-    + `lifecycle` – This policy key maps to the `Lifecycle` key under the `CopyAction` key in an AWS Backup plan\.
+      + `lifecycle` – This policy key maps to the `Lifecycle` key under the `CopyAction` key in an AWS Backup plan\.
 
-      \(Optional\) Specifies when AWS Backup transitions this copy of a backup to cold storage and when it expires\. 
-      + `move_to_cold_storage_after_days `– This policy key maps to the `MoveToColdStorageAfterDays` key in an AWS Backup plan\.
+        \(Optional\) Specifies when AWS Backup transitions this copy of a backup to cold storage and when it expires\. 
+        + `move_to_cold_storage_after_days `– This policy key maps to the `MoveToColdStorageAfterDays` key in an AWS Backup plan\.
 
-        Specifies the number of days after the backup occurs before AWS Backup moves the recovery point to cold storage\. This key contains the [`@@assign` inheritance value operator](orgs_manage_policies_inheritance_mgmt.md#value-setting-operators) and a value with an integer number of days\.
-      + `delete_after_days` – This policy key maps to the `DeleteAfterDays` key in an AWS Backup plan\.
+          Specifies the number of days after the backup occurs before AWS Backup moves the recovery point to cold storage\. This key contains the [`@@assign` inheritance value operator](orgs_manage_policies_inheritance_mgmt.md#value-setting-operators) and a value with an integer number of days\.
+        + `delete_after_days` – This policy key maps to the `DeleteAfterDays` key in an AWS Backup plan\.
 
-        Specifies the number of days after the backup occurs before AWS Backup deletes the recovery point\. This key contains the [`@@assign` inheritance value operator](orgs_manage_policies_inheritance_mgmt.md#value-setting-operators) and a value with an integer number of days\. If you transition a backup to cold storage, it must stay there a minimum of 90 days, so this value must be a minimum of 90 days greater than the `move_to_cold_storage_after_days` value\.
+          Specifies the number of days after the backup occurs before AWS Backup deletes the recovery point\. This key contains the [`@@assign` inheritance value operator](orgs_manage_policies_inheritance_mgmt.md#value-setting-operators) and a value with an integer number of days\. If you transition a backup to cold storage, it must stay there a minimum of 90 days, so this value must be a minimum of 90 days greater than the `move_to_cold_storage_after_days` value\.
   + `recovery_point_tags` – This policy key maps to the `RecoverPointTags` key in an AWS Backup plan\.
 
     \(Optional\) Specifies tags that AWS Backup attaches to each backup that it creates from this plan\. This key's value contains one or more of the following elements:
@@ -228,7 +233,9 @@ The following example shows a backup policy that is assigned to one of the paren
                     },
                     "target_backup_vault_name": { "@@assign": "FortKnox" },
                     "copy_actions": {
-                        "arn:aws:backup:us-east-1:$account:backup-vault:secondary_vault": {
+                        "arn:aws:backup:us-east-1:$account:backup-vault:secondary_vault": {                            "target_backup_vault_arn" :
+                                "@@assign" : "arn:aws:backup:us-east-1:$account:backup-vault:secondary_vault"
+                            },
                             "lifecycle": {
                                 "delete_after_days": { "@@assign": "100" },
                                 "move_to_cold_storage_after_days": { "@@assign": "10" }
@@ -269,6 +276,9 @@ If no other policies are inherited or attached to the accounts, the effective po
                     },
                     "copy_actions": {
                         "arn:aws:backup:us-east-1:$account:vault:secondary_vault" : {
+                            "target_backup_vault_arn" :
+                                "@@assign" : "arn:aws:backup:us-east-1:$account:vault:secondary_vault"
+                            },
                             "lifecycle": {
                                 "to_delete_after_days": "28",
                                 "move_to_cold_storage_after_days": "180"
@@ -312,7 +322,10 @@ In the following example, an inherited parent policy and a child policy either i
                         "move_to_cold_storage_after_days": { "@@assign": "180" }
                     },
                     "copy_actions": {
-                        "arn:aws:backup:us-east-1$account:vault:secondary_vault" : {
+                        "arn:aws:backup:us-east-1:$account:vault:secondary_vault" : {
+                            "target_backup_vault_arn" :
+                                "@@assign" : "arn:aws:backup:us-east-1:$account:vault:secondary_vault"
+                            },
                             "lifecycle": {
                                 "to_delete_after_days": { "@@assign": "28" },
                                 "move_to_cold_storage_after_days": { "@@assign": "180" }
@@ -353,7 +366,10 @@ In the following example, an inherited parent policy and a child policy either i
                         "move_to_cold_storage_after_days": { "@@assign": "30" }
                     },
                     "copy_actions": {
-                        "arn:aws:backup:$region:$account:vault:Default" : {
+                        "arn:aws:backup:us-east-1:$account:vault:Default" : {
+                            "target_backup_vault_arn" :
+                                "@@assign" : "arn:aws:backup:us-east-1:$account:vault:Default"
+                            },
                             "lifecycle": { 
                                 "to_delete_after_days": { "@@assign": "365" },
                                 "move_to_cold_storage_after_days": { "@@assign": "30" }
@@ -394,6 +410,9 @@ In the following example, an inherited parent policy and a child policy either i
                     },
                     "copy_actions": {
                         "arn:aws:backup:us-east-1:$account:vault:secondary_vault" : {
+                            "target_backup_vault_arn" :
+                                "@@assign" : "arn:aws:backup:us-east-1:$account:vault:secondary_vault"
+                            },
                             "lifecycle": {
                                 "to_delete_after_days": "28",
                                 "move_to_cold_storage_after_days": "180"
@@ -424,7 +443,10 @@ In the following example, an inherited parent policy and a child policy either i
                         "move_to_cold_storage_after_days": "30"
                     },
                     "copy_actions": {
-                        "arn:aws:backup:us-east-1:123456789012:vault:Default" : {
+                        "arn:aws:backup:us-east-1:$account:vault:Default" : {
+                            "target_backup_vault_arn" :
+                                "@@assign" : "arn:aws:backup:us-east-1:$account:vault:Default"
+                            },
                             "lifecycle": {
                                 "to_delete_after_days": "365",
                                 "move_to_cold_storage_after_days": "30"
@@ -494,6 +516,10 @@ In the following example, an inherited parent policy uses the [child control ope
                         "@@operators_allowed_for_child_policies": ["@@none"],
                         "arn:aws:backup:us-east-1:$account:vault:secondary_vault" : {
                             "@@operators_allowed_for_child_policies": ["@@none"],
+                            "target_backup_vault_arn" :
+                                "@@assign" : "arn:aws:backup:us-east-1:$account:vault:secondary_vault"
+                                "@@operators_allowed_for_child_policies": ["@@none"],
+                            },
                             "lifecycle": {
                                 "@@operators_allowed_for_child_policies": ["@@none"],
                                 "to_delete_after_days": {
@@ -553,11 +579,10 @@ In the following example, an inherited parent policy uses the [child control ope
                         "move_to_cold_storage_after_days": "180"
                     },
                     "copy_actions": {
-                        "arn:aws:backup:us-east-1:123456789012:vault:secondary_vault" : {
-                            "lifecycle": {
-                                "to_delete_after_days": "28",
-                                "move_to_cold_storage_after_days": "180"
-                            }
+                        "target_backup_vault_arn" : "arn:aws:backup:us-east-1:123456789012:vault:secondary_vault",
+                        "lifecycle": {
+                            "to_delete_after_days": "28",
+                            "move_to_cold_storage_after_days": "180"
                         }
                     }
                 }
@@ -656,7 +681,10 @@ In the following example, a child policy uses [value\-setting operators](orgs_ma
                         "move_to_cold_storage_after_days": { "@@assign": "180" }
                     },
                     "copy_actions": {
-                        "arn:aws:backup:$region:$account:vault:t2" : {
+                        "arn:aws:backup:us-east-1:$account:vault:t2" : {
+                            "target_backup_vault_arn" :
+                                "@@assign" : "arn:aws:backup:us-east-1:$account:vault:t2"
+                            },
                             "lifecycle": {
                                 "to_delete_after_days": { "@@assign": "28" },
                                 "move_to_cold_storage_after_days": { "@@assign": "180" }
@@ -725,6 +753,9 @@ In the following example, a child policy uses [value\-setting operators](orgs_ma
                     },
                     "copy_actions": {
                         "arn:aws:backup:us-east-1:$account:vault:secondary_vault" : {
+                            "target_backup_vault_arn" :
+                                "@@assign" : "arn:aws:backup:us-east-1:$account:vault:secondary_vault"
+                            },
                             "lifecycle": {
                                 "to_delete_after_days": "28",
                                 "move_to_cold_storage_after_days": "180"

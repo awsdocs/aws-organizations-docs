@@ -1,5 +1,10 @@
 # AI services opt\-out policies<a name="orgs_manage_policies_ai-opt-out"></a>
 
+For information and procedures common to all policy types, see the following topics:
++ [Enable and disable policy types](orgs_manage_policies_enable-disable.md)
++ [Get details about your policies](orgs_manage_policies_info-operations.md)
++ [Policy syntax and inheritance](orgs_manage_policies_inheritance_auth.md)
+
 Certain AWS artificial intelligence \(AI\) services, including Amazon CodeGuru Profiler, Amazon Comprehend, Amazon Lex, Amazon Polly, Amazon Rekognition, Amazon Textract, Amazon Transcribe, and Amazon Translate, may store and use customer content processed by those services for the development and continuous improvement of Amazon AI services and technologies\. As an AWS customer, you can choose to opt out of having your content stored or used for service improvements\. Instead of configuring this setting individually for each AWS account that your organization uses, you can configure an organization policy that enforces your setting choice on all accounts that are members of the organization\. You can choose to opt out of content storage and use for an individual AI service, or for all of the covered services at once\. You can query the effective policy applicable to each account to see the effects of your setting choices\.
 
 **Important**  

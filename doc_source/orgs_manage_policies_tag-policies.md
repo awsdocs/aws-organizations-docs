@@ -1,5 +1,10 @@
 # Tag policies<a name="orgs_manage_policies_tag-policies"></a>
 
+For information and procedures common to all policy types, see the following topics:
++ [Enable and disable policy types](orgs_manage_policies_enable-disable.md)
++ [Get details about your policies](orgs_manage_policies_info-operations.md)
++ [Policy syntax and inheritance](orgs_manage_policies_inheritance_auth.md)
+
 You can use tag policies to maintain consistent tags, including the preferred case treatment of tag keys and tag values\.
 
 ## What are tags?<a name="what-are-tags"></a>

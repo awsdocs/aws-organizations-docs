@@ -1,5 +1,10 @@
 # Backup policies<a name="orgs_manage_policies_backup"></a>
 
+For information and procedures common to all policy types, see the following topics:
++ [Enable and disable policy types](orgs_manage_policies_enable-disable.md)
++ [Get details about your policies](orgs_manage_policies_info-operations.md)
++ [Policy syntax and inheritance](orgs_manage_policies_inheritance_auth.md)
+
 [AWS Backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/) enables you to create [backup plans](https://docs.aws.amazon.com/aws-backup/latest/devguide/about-backup-plans.html) that define how to back up your AWS resources\. The rules in the plan include a variety of settings, such as the backup frequency, the time window during which the backup occurs, the AWS Region containing the resources to back up and the vault in which to store the backup\. You can then apply a backup plan to groups of AWS resources identified by using tags\. You must also identify an AWS Identity and Access Management \(IAM\) role that grants AWS Backup permission to perform the backup operation on your behalf\.
 
 Backup policies in AWS Organizations combine all of those pieces into [JSON](https://json.org) text documents\. You can attach a backup policy to any of the elements in your organization's structure, such as the root, organizational units \(OUs\), and individual accounts\. Organizations applies inheritance rules to combine the policies in the organization's root, any parent OUs, or attached to the account\. This results in an [effective backup policy](orgs_manage_policies_backup_effective.md) for each account\. This effective policy instructs AWS Backup how to automatically back up your AWS resources\.

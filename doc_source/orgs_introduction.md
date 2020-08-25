@@ -26,7 +26,7 @@ You can group your accounts into organizational units \(OUs\) and attach differe
 
 **Policies to centralize control over the AWS services and API actions that each account can access**  
 As an administrator of the master account of an organization, you can use service control policies \(SCPs\) to specify the maximum permissions for member accounts in the organization\. In SCPs, you can restrict which AWS services, resources, and individual API actions the users and roles in each member account can access\. You can also define conditions for when to restrict access to AWS services, resources, and API actions\. These restrictions even override the administrators of member accounts in the organization\. When AWS Organizations blocks access to a service, resource, or API action for a member account, a user or role in that account can't access it\. This block remains in effect even if an administrator of a member account explicitly grants such permissions in an IAM policy\.   
-For more information, see [Service Control Policies \(SCPs\)](orgs_manage_policies_type-auth.md#orgs_manage_policies_scp)\. 
+For more information, see [Service control policies](orgs_manage_policies_scps.md)\. 
 
 **Policies to standardize tags across the resources in your organization's accounts**  
 You can use tag policies to maintain consistent tags, including the preferred case treatment of tag keys and tag values\.  
@@ -35,6 +35,10 @@ For more information, see [Tag policies](orgs_manage_policies_tag-policies.md)
 **Policies to control how AWS artificial intelligence \(AI\) and machine learning services can collect and store data\.**  
 You can use AI services opt\-out policies to opt out of data collection and storage for any of the AWS AI services that you don't want to use\.  
 For more information, see [AI services opt\-out policies](orgs_manage_policies_ai-opt-out.md)
+
+**Policies that configure automatic backups for the resources in your organization's accounts**  
+You can use backup policies to configure and automatically apply AWS Backup plans to resources across all your organization's accounts\.  
+For more information, see [Backup policies](orgs_manage_policies_backup.md)
 
 **Integration and support for AWS Identity and Access Management \(IAM\)**  
 [IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) provides granular control over users and roles in individual accounts\. AWS Organizations expands that control to the account level by giving you control over what users and roles in an account or a group of accounts can do\. The resulting permissions are the logical intersection of what is allowed by AWS Organizations at the account level and the permissions that are explicitly granted by IAM at the user or role level within that account\. In other words, the user can access only what is allowed by ***both*** the AWS Organizations policies and IAM policies\. If either blocks an operation, the user can't access that operation\.

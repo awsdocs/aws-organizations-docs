@@ -13,7 +13,7 @@ In this step, you create an organization with your current AWS account as the ma
 Next, you create two organizational units \(OUs\) in your new organization and place the member accounts in those OUs\.
 
 **[Step 3: Create the service control policies](#tutorial-orgs-step3)**  
-You can apply restrictions to what actions can be delegated to users and roles in the member accounts by using [service control policies \(SCPs\)](orgs_manage_policies_type-auth.md#orgs_manage_policies_scp)\. In this step, you create two SCPs and attach them to the OUs in your organization\.
+You can apply restrictions to what actions can be delegated to users and roles in the member accounts by using [service control policies \(SCPs\)](orgs_manage_policies_scps.md)\. In this step, you create two SCPs and attach them to the OUs in your organization\.
 
 **[Step 4: Testing your organization's policies](#tutorial-orgs-step4)**  
 You can sign in as users from each of the test accounts and see the effects that the SCPs have on the accounts\.
@@ -25,7 +25,7 @@ None of the steps in this tutorial incurs costs to your AWS bill\. AWS Organizat
 This tutorial assumes that you have access to two existing AWS accounts \(you create a third as part of this tutorial\) and that you can sign in to each as an administrator\.
 
 The tutorial refers to the accounts as the following:
-+ `111111111111` – The account that you use to create the organization\. This account becomes the master account\. The owner of this account has an email address of `masteraccount@example.com`\.
++ `111111111111` – The account that you use to create the organization\. This account becomes the master account\. The owner of this account has an email address of `OrgAccount111@example.com`\.
 + `222222222222` – An account that you invite to join the organization as a member account\. The owner of this account has an email address of `member222@example.com`\.
 + `333333333333` – An account that you create as a member of the organization\. The owner of this account has an email address of `member333@example.com`\.
 
@@ -129,7 +129,7 @@ In the steps in this section, you create organizational units \(OUs\) and place 
 
 ## Step 3: Create the service control policies<a name="tutorial-orgs-step3"></a>
 
-In the steps in this section, you create three [service control policies \(SCPs\)](orgs_manage_policies_type-auth.md#orgs_manage_policies_scp) and attach them to the root and to the OUs to restrict what users in the organization's accounts can do\. The first SCP prevents anyone in any of the member accounts from creating or modifying any AWS CloudTrail logs that you configure\. The master account isn't affected by any SCP, so after you apply the CloudTrail SCP, you must create any logs from the master account\.
+In the steps in this section, you create three [service control policies \(SCPs\)](orgs_manage_policies_scps.md) and attach them to the root and to the OUs to restrict what users in the organization's accounts can do\. The first SCP prevents anyone in any of the member accounts from creating or modifying any AWS CloudTrail logs that you configure\. The master account isn't affected by any SCP, so after you apply the CloudTrail SCP, you must create any logs from the master account\.
 
 **To create the first SCP that blocks CloudTrail configuration actions**
 

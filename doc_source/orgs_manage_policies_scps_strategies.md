@@ -1,4 +1,4 @@
-# Strategies for using SCPs<a name="orgs_manage_policies_scp-strategies"></a>
+# Strategies for using SCPs<a name="orgs_manage_policies_scps_strategies"></a>
 
 You can configure the service control policies \(SCPs\) in your organization to work as either of the following:
 + A [deny list](#orgs_policies_denylist) – actions are allowed by default, and you specify what services and actions are prohibited

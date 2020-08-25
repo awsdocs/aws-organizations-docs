@@ -28,4 +28,4 @@ For security reasons, we recommend that you use the root user credentials only t
 
 ## Access control<a name="orgs-access-control"></a>
 
-You can have valid credentials to authenticate your requests, but unless you have permissions, you can't administer or access AWS Organizations resources\. For example, you must have permissions to create an OU or to attach a [service control policy \(SCP\)](orgs_manage_policies_type-auth.md#orgs_manage_policies_scp) to an account\.
+You can have valid credentials to authenticate your requests, but unless you have permissions, you can't administer or access AWS Organizations resources\. For example, you must have permissions to create an OU or to attach a [service control policy \(SCP\)](orgs_manage_policies_scps.md) to an account\.

@@ -31,7 +31,7 @@ Trusted access requires permissions for two services: AWS Organizations and the 
 When you no longer want to allow the trusted service to operate on your organization or its accounts, choose one of the following scenarios\.
 
 **Important**  
-Disabling trusted service access does ***not*** prevent users and roles with appropriate permissions from using that service\. To completely block users and roles from accessing an AWS service, you can remove the IAM permissions that grant that access, or you can use [service control policies \(SCPs\)](orgs_manage_policies_type-auth.md#orgs_manage_policies_scp) in AWS Organizations\.
+Disabling trusted service access does ***not*** prevent users and roles with appropriate permissions from using that service\. To completely block users and roles from accessing an AWS service, you can remove the IAM permissions that grant that access, or you can use [service control policies \(SCPs\)](orgs_manage_policies_scps.md) in AWS Organizations\.
 + If you have credentials with permissions in both AWS Organizations and the trusted service, disable access by using the tools \(console or AWS CLI\) that are available for the trusted service\. The service then cleans up by removing resources that are no longer required and by disabling trusted access for the service in AWS Organizations on your behalf\. 
 
   The minimum permissions for these credentials are the following:

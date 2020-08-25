@@ -1,11 +1,11 @@
-# Service control policies<a name="orgs_manage_policies_type-auth"></a>
+# Service control policies<a name="orgs_manage_policies_scps"></a>
 
 For information and procedures common to all policy types, see the following topics:
 + [Enable and disable policy types](orgs_manage_policies_enable-disable.md)
 + [Get details about your policies](orgs_manage_policies_info-operations.md)
 + [Policy syntax and inheritance](orgs_manage_policies_inheritance_auth.md)
 
-## Service Control Policies \(SCPs\)<a name="orgs_manage_policies_scp"></a>
+## Service Control Policies \(SCPs\)<a name="orgs_manage_policies_scp_overview"></a>
 
 Service control policies \(SCPs\) are a type of organization policy that you can use to manage permissions in your organization\. SCPs offer central control over the maximum available permissions for all accounts in your organization\. SCPs help you to ensure your accounts stay within your organization’s access control guidelines\. SCPs are available only in an organization that has [all features enabled](orgs_manage_org_support-all-features.md)\. SCPs aren't available if your organization has enabled only the consolidated billing features\. For instructions on enabling SCPs, see [Enabling and disabling policy types](orgs_manage_policies_enable-disable.md)\.
 
@@ -46,7 +46,7 @@ SCPs are similar to AWS Identity and Access Management \(IAM\) permission polici
 
 When signed in with master account credentials, you can view [service last accessed data](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html) for an AWS Organizations entity or policy in the **AWS Organizations** section of the IAM console\. You can also use the AWS Command Line Interface \(AWS CLI\) or AWS API in IAM to retrieve service last accessed data\. This data includes information about which allowed services that principals in an AWS Organizations account last attempted to access and when\. You can use this information to identify unused permissions so that you can refine your SCPs to better adhere to the principle of [least privilege](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#grant-least-privilege)\.
 
-For example, you might have a [deny list SCP](orgs_manage_policies_scp-strategies.md#orgs_policies_denylist) that prohibits access to three AWS services\. All services that aren't listed in the SCP's `Deny` statement are allowed\. The service last accessed data in IAM tells you which AWS services are allowed by the SCP but are never used\. With that information, you can update the SCP to deny access to services that you don't need\.
+For example, you might have a [deny list SCP](orgs_manage_policies_scps_strategies.md#orgs_policies_denylist) that prohibits access to three AWS services\. All services that aren't listed in the SCP's `Deny` statement are allowed\. The service last accessed data in IAM tells you which AWS services are allowed by the SCP but are never used\. With that information, you can update the SCP to deny access to services that you don't need\.
 
 For more information, see the following topics in the *IAM User Guide*:
 + [Viewing Organizations Service Last Accessed Data for Organizations](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor-view-data-orgs.html)

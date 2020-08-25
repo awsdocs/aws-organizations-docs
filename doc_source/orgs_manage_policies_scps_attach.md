@@ -1,4 +1,4 @@
-# Attaching SCPs<a name="orgs_manage_policies_scps-attach"></a>
+# Attaching SCPs<a name="orgs_manage_policies_scps_attach"></a>
 
 When signed in to your organization's master account, you can attach a service control policy \(SCP\) that you previously created\. You can attach an SCP to the organization root, to an organizational unit \(OU\), or directly to an account\. To attach an SCP, complete the following steps\.
 

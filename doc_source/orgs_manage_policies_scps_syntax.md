@@ -1,4 +1,4 @@
-# SCP syntax<a name="orgs_reference_scp-syntax"></a>
+# SCP syntax<a name="orgs_manage_policies_scps_syntax"></a>
 
 Service control policies \(SCPs\) use a similar syntax to that used by AWS Identity and Access Management \(IAM\) permission policies and resource\-based policies \(like Amazon S3 bucket policies\)\. For more information about IAM policies and their syntax, see [Overview of IAM Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html) in the *IAM User Guide*\.
 
@@ -7,7 +7,7 @@ An SCP is a plaintext file that is structured according to the rules of [JSON](h
 **Note**  
 All characters in your SCP count against its [maximum size](orgs_reference_limits.md#min-max-values)\. The examples in this guide show the SCPs formatted with extra white space to improve their readability\. However, to save space if your policy size approaches the maximum size, you can delete any white space, such as space characters and line breaks that are outside quotation marks\.
 
-For general information about SCPs, see [Service Control Policies \(SCPs\)](orgs_manage_policies_type-auth.md#orgs_manage_policies_scp)\.
+For general information about SCPs, see [Service control policies](orgs_manage_policies_scps.md)\.
 
 ## Elements summary<a name="scp-elements-table"></a>
 

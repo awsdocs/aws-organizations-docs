@@ -12,7 +12,7 @@ For information on removing the *master account*, see [Delete the organization b
 ## Before removing an account from an organization<a name="orgs_manage_account-before_-remove"></a>
 
 Before you remove an account, it's important to know the following:
-+ You can remove an account from your organization only if the account has the information that is required for it to operate as a standalone account\. When you create an account in an organization using the AWS Organizations console, API, or AWS CLI commands, all the information that is required of standalone accounts is not automatically collected\. For each account that you want to make standalone, you must accept the AWS Customer Agreement, choose a support plan, provide and verify the required contact information, and provide a current payment method\. AWS uses the payment method to charge for any billable \(not AWS Free Tier\) AWS activity that occurs while the account isn't attached to an organization\. 
++ You can remove an account from your organization only if the account has the information that is required for it to operate as a standalone account\. When you create an account in an organization using the AWS Organizations console, API, or AWS CLI commands, all the information that is required of standalone accounts is not automatically collected\. For each account that you want to make standalone, you must choose a support plan, provide and verify the required contact information, and provide a current payment method\. AWS uses the payment method to charge for any billable \(not AWS Free Tier\) AWS activity that occurs while the account isn't attached to an organization\. 
 + Even after the removal of created accounts \(accounts created using the AWS Organizations console or the `CreateAccount` API\) from within an organization, \(i\) created accounts are governed by the terms of the creating master account's agreement with us, and \(ii\) the creating master account remains jointly and severally liable for any actions taken by its created accounts\. Customers' agreements with us, and the rights and obligations under those agreements, cannot be assigned or transferred without our prior consent\. To obtain our consent, contact us at [https://aws\.amazon\.com/contact\-us/](https://aws.amazon.com/contact-us/)\.
 + When a member account leaves an organization, that account no longer has access to cost and usage data from the time range when the account was a member of the organization\. However, the master account of the organization can still access the data\. If the account rejoins the organization, the account can access that data again\.
 
@@ -20,7 +20,7 @@ Before you remove an account, it's important to know the following:
 
 When you remove an account from an organization, no direct changes are made to the account\. However, the following indirect effects occur:
 + The account is now responsible for paying its own charges and must have a valid payment method attached to the account\.
-+ The principals in the account are no longer affected by any [service control policies \(SCPs\)](orgs_manage_policies_type-auth.md#orgs_manage_policies_scp) that were defined in the organization\. This means that restrictions imposed by those SCPs are gone, and the users and roles in the account might have more permissions than they had before\.
++ The principals in the account are no longer affected by any [policies](orgs_manage_policies.md) that applied in the organization\. This means that restrictions imposed by SCPs are gone, and the users and roles in the account might have more permissions than they had before\. Other organization policy types can no longer enforced or processed\. 
 + Integration with other services might be disabled\. For example, AWS Single Sign\-On requires an organization to operate, so if you remove an account from an organization that supports AWS SSO, the users in that account can no longer use that service\.
 
 ## Removing a member account from your organization<a name="orgs_manage_accounts_remove-from-management-account"></a>
@@ -59,7 +59,6 @@ If you sign in as an IAM user and the account is missing payment information, th
 
    1. The browser takes you directly to the sign\-up process to complete any steps that are missing for this account\. Complete all the steps presented\. They might include the following:
       + Provide contact information
-      + Accept the AWS Customer Agreement
       + Provide a valid payment method
       + Verify the phone number
       + Select a support plan option
@@ -106,7 +105,6 @@ If an account rejoins an organization that it previously belonged to, the accoun
 
      1. Complete all the sign\-up steps that are presented\. They might include the following:
         + Provide contact information
-        + Accept the AWS Customer Agreement
         + Provide a valid payment method
         + Verify the phone number
         + Select a support plan option
