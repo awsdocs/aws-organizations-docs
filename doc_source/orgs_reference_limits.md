@@ -10,14 +10,16 @@ The following are guidelines for names that you create in AWS Organizations, inc
 
 ## Maximum and minimum values<a name="min-max-values"></a>
 
-The following are the default maximums for entities in AWS Organizations\.
+The following are the ***default*** maximums for entities in AWS Organizations\. 
+
+You can request increases for *some* of these values by using the [Service Quotas console](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/organizations/quotas)\.
 
 
 ****  
 
 |  |  | 
 | --- |--- |
-|  Number of AWS accounts in an organization  |   4  This is the default maximum number of accounts allowed in an organization\. *If you need to increase your quota, contact AWS Support\. In the upper\-right corner of the console, choose **Support** and then **Support Center**\. On the **Support Center** page, choose **Create case**\.* An invitation sent to an account counts against this quota\. The count is returned if the invited account declines, the master account cancels the invitation, or the invitation expires\.  | 
+|  Number of AWS accounts in an organization  |   4  This is the default maximum number of accounts allowed in an organization\.  An invitation sent to an account counts against this quota\. The count is returned if the invited account declines, the master account cancels the invitation, or the invitation expires\.  | 
 |  Number of roots in an organization  |  1  | 
 |  Number of OUs in an organization  |  1000  | 
 |  Number of policies of each type in an organization  |  1000 per policy type  | 
