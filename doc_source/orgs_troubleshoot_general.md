@@ -48,7 +48,7 @@ This happens when you [enable all features in your organization](orgs_manage_org
 
 ## I used an incorrect email address when I created a member account<a name="troubleshoot_incorrect-email"></a>
 
-If you created a member account in an organization with an incorrect email address, you can’t sign in to the account as the root user\. In this case, you can try to access the master account access role for the account\. For more information, see [Accessing a member account that has a master account access role](orgs_manage_accounts_access.md#orgs_manage_accounts_access-cross-account-role)\. If you can't access the role, then you must contact AWS Support to correct the email address\. Use your browser to access the [Contact Us](https://aws.amazon.com/contact-us/) page, and choose the item regarding Billing to contact AWS Support\.
+If you created a member account in an organization with an incorrect email address then you might not be able to sign in to the member account as the root user\. In that case, you can try to access the master account access role for the account\. For more information, see [Accessing a member account that has a master account access role](orgs_manage_accounts_access.md#orgs_manage_accounts_access-cross-account-role)\. If that doesn't work then you can't correct the member account's email address yourself\. Instead, contact AWS Support to correct the email address on the member account\. Use your browser to access the [Contact Us](https://aws.amazon.com/contact-us/) page, and choose the item regarding Billing to contact AWS Support\.
 
 ## Changes that I make aren't always immediately visible<a name="troubleshoot_general_eventual-consistency"></a>
 
