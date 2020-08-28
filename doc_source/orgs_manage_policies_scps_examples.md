@@ -18,6 +18,7 @@ Each of the following policies is an example of a [deny list policy](orgs_manage
 + [Example SCPs for Amazon CloudWatch](#examples_cloudwatch)
 + [Example SCPs for Amazon Elastic Compute Cloud \(Amazon EC2\)](#examples_ec2)
 + [Example SCPs for Amazon GuardDuty](#examples_guardduty)
++ [Example SCPs for AWS Resource Access Manager](#examples_ram)
 + [Example SCPs for Amazon Virtual Private Cloud \(Amazon VPC\)](#examples_vpc)
 + [Example SCPs for tagging resources](#examples_tagging)
 
@@ -348,6 +349,122 @@ This SCP prevents users or roles in any affected account from disabling GuardDut
                 "guardduty:UpdateThreatIntelSet"
             ],      
             "Resource": "*"
+        }
+    ]
+}
+```
+
+## Example SCPs for AWS Resource Access Manager<a name="examples_ram"></a>
+
+### Example: Preventing external sharing<a name="example_ram_1"></a>
+
+The following example SCP prevents users from creating resource shares that allow sharing with principals that aren't part of the organization\.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Deny",
+            "Action": [
+                "ram:CreateResourceShare",
+                "ram:UpdateResourceShare"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "Bool": {
+                    "ram:RequestedAllowsExternalPrincipals": "true"
+                }
+            }
+        }
+    ]
+}
+```
+
+### Example: Allowing specific accounts to share only specified resource types<a name="example_ram_2"></a>
+
+The following SCP allows accounts `111111111111` and `222222222222` to create resource shares that share prefix lists, and to associate prefix lists with existing resource shares\.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "OnlyNamedAccountsCanSharePrefixLists",
+            "Effect": "Deny",
+            "Action": [
+                "ram:AssociateResourceShare",
+                "ram:CreateResourceShare"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringNotEquals": {
+                    "aws:PrincipalAccount": [
+                        "111111111111",
+                        "222222222222"
+                    ]
+                },
+                "StringEquals": {
+                    "ram:RequestedResourceType": "ec2:PrefixList"
+                }
+            }
+        }
+    ]
+}
+```
+
+### Example: Prevent sharing with organizations or organizational units \(OUs\)<a name="example_ram_3"></a>
+
+The following SCP prevents users from creating resource shares that share resources with an AWS Organization or OUs\.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Deny",
+            "Action": [
+                "ram:CreateResourceShare",
+                "ram:AssociateResourceShare"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "ForAnyValue:StringLike": {
+                    "ram:Principal": [
+                        "arn:aws:organizations::*:organization/*",
+                        "arn:aws:organizations::*:ou/*"
+                    ]
+                }
+            }
+        }
+    ]
+}
+```
+
+### Example: Allow sharing with only specified principals<a name="example_ram_4"></a>
+
+The following example SCP allows users to share resources with *only* organization `o-12345abcdef`, organizational unit `ou-98765fedcba`, and account `111111111111`\.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Deny",
+            "Action": [
+                "ram:AssociateResourceShare",
+                "ram:CreateResourceShare"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "ForAnyValue:StringNotEquals": {
+                    "ram:Principal": [
+                        "arn:aws:organizations::123456789012:organization/o-12345abcdef",
+                        "arn:aws:organizations::123456789012:ou/o-12345abcdef/ou-98765fedcba",
+                        "111111111111"
+                    ]
+                }
+            }
         }
     ]
 }

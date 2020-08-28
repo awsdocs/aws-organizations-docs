@@ -12,7 +12,9 @@ The following are guidelines for names that you create in AWS Organizations, inc
 
 The following are the ***default*** maximums for entities in AWS Organizations\. 
 
-You can request increases for *some* of these values by using the [Service Quotas console](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/organizations/quotas)\.
+**Note**  
+You can request increases for *some* of these values by using the [Service Quotas console](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/organizations/quotas)\.   
+Organizations is a global service that is physically hosted in the US East \(N\. Virginia\) Region \(`us-east-1`\)\. Therefore, you must use `us-east-1` to access Organizations quotas when using the Service Quotas console, the AWS CLI, or an AWS SDK\.
 
 
 ****  
