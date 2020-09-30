@@ -142,7 +142,9 @@ Now that the required Lambda function exists in your account, you create a Cloud
 
 **To create a CloudWatch Events rule**
 
-1. Open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/)\.
+1. Open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/)\. 
+
+1. As before, you must set the console to the **US East \(N\. Virginia\)** Region or information about Organizations is not available\. On the navigation bar in the upper\-right corner of the console, choose the **US East \(N\. Virginia\)** Region\.
 
 1. In the navigation pane, choose **Rules** and then choose **Create rule**\.
 

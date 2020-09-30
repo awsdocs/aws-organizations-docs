@@ -15,9 +15,12 @@ When signed in to your organization's master account, you can attach a backup po
 To attach backup policies, you must have permission to run the following action:  
 `organizations:AttachPolicy`
 
-**To attach a backup policy to the organization root, an OU, or an account \(console\)**
+------
+#### [ AWS Management Console ]
 
-1. Sign in to the Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. In the organization's master account, sign in as an AWS Identity and Access Management \(IAM\) user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\)\.
+**To attach a backup policy to the organization root, an OU, or an account**
+
+1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\. 
 
 1. On the **Organize accounts** tab, [navigate to](orgs_manage_ous.md#navigate_tree) and select the check box for the root, OU, or account to which you want to attach the backup policy\.
 
@@ -25,10 +28,15 @@ To attach backup policies, you must have permission to run the following action:
 
 1. On the list of available backup policies, find the one that you want and choose **Attach**\.
 
-**To attach a backup policy to the organization root, OU, or account \(AWS CLI, AWS API\)**  
+------
+#### [ AWS CLI, AWS API ]
+
+**To attach a backup policy to the organization root, OU, or account**  
 You can use one of the following commands to attach a backup policy:
 + AWS CLI: [aws organizations attach\-policy](https://docs.aws.amazon.com/cli/latest/reference/organizations/attach-policy.html)
 + AWS API: [AttachPolicy](https://docs.aws.amazon.com/organizations/latest/APIReference/API_AttachPolicy.html)
+
+------
 
 ## Detaching a backup policy<a name="orgs_manage_policies_backup_detach"></a>
 
@@ -38,9 +46,12 @@ When signed in to your organization's master account, you can detach a backup po
 To detach a backup policy from the organization root, OU, or account, you must have permission to run the following action:  
 `organizations:DetachPolicy`
 
-**To detach a backup policy from the organization root, OU, or account \(console\)**
+------
+#### [ AWS Management Console ]
 
-1. Sign in to the Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. In the organization's master account, sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\)\.
+**To detach a backup policy from the organization root, OU, or account**
+
+1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\. 
 
 1. On the **Organize accounts** tab, [navigate to](orgs_manage_ous.md#navigate_tree) and select the check box for the organization root, OU, or account from which you want to detach the policy\.
 
@@ -48,7 +59,12 @@ To detach a backup policy from the organization root, OU, or account, you must h
 
 1. Find the backup policy that you want to detach and choose **Detach**\. The list of attached backup policies is updated with the chosen policy removed\. 
 
-**To detach a backup policy from the organization root, OU, or account \(AWS CLI, AWS API\)**  
+------
+#### [ AWS CLI, AWS API ]
+
+**To detach a backup policy from the organization root, OU, or account**  
 You can use one of the following commands to detach a backup policy:
 + AWS CLI: [aws organizations detach\-policy](https://docs.aws.amazon.com/cli/latest/reference/organizations/detach-policy.html)
 + AWS API: [DetachPolicy](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DetachPolicy.html)
+
+------

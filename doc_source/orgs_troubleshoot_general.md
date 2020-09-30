@@ -32,11 +32,11 @@ There is a maximum number of accounts that you can have in an organization\. Del
 
 An invitation to join counts against the maximum number of accounts in your organization\. The count is returned if the invited account declines, the master account cancels the invitation, or the invitation expires\.
 + Before you close or delete an AWS account, [remove it from your organization](orgs_manage_accounts_remove.md) so that it doesn't continue to count against your quota\.
-+ Contact [AWS Support](https://console.aws.amazon.com/support/home#/) to request a quota increase\.
++ See [Maximum and minimum values](orgs_reference_limits.md#min-max-values) for information about how to request a quota increase\.
 
 ## I get a "this operation requires a wait period" message while adding or removing accounts<a name="troubleshoot_general_error-wait-req"></a>
 
-Some actions require a wait period\. For example, you can't immediately remove newly created accounts\. Try the action again later\. If you experience issues with account quotas while adding and removing accounts, contact [AWS Support](https://console.aws.amazon.com/support/home#/) to request a quota increase\.
+Some actions require a wait period\. For example, you can't immediately remove newly created accounts\. Try the action again in a few days\. If you experience issues with account quotas while adding and removing accounts, see [Maximum and minimum values](orgs_reference_limits.md#min-max-values) for information about how to request a quota increase\.
 
 ## I get an "organization is still initializing" message when I try to add an account to my organization<a name="troubleshoot_general_error-still-init"></a>
 

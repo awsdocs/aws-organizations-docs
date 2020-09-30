@@ -9,7 +9,7 @@ Security is a shared responsibility between AWS and you\. The [shared responsibi
 This documentation helps you understand how to apply the shared responsibility model when using Organizations\. The following topics show you how to configure Organizations to meet your security and compliance objectives\. You also learn how to use other AWS services that help you to monitor and secure your Organizations resources\. 
 
 **Topics**
-+ [AWS Identity and Access Management in AWS Organizations](orgs_security_iam.md)
++ [AWS Identity and Access Management and AWS Organizations](orgs_security_iam.md)
 + [Logging and monitoring in AWS Organizations](orgs_security_incident-response.md)
 + [Compliance validation for AWS Organizations](orgs_security_compliance-validation.md)
 + [Resilience in AWS Organizations](orgs_security_disaster-recovery-resiliency.md)

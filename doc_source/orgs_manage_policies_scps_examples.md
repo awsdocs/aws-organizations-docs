@@ -79,7 +79,6 @@ By default, AWS STS is a global service and must be included in the global servi
                 "route53domains:*",
                 "s3:GetAccountPublic*",
                 "s3:ListAllMyBuckets",
-                "s3:ListBuckets",
                 "s3:PutAccountPublic*",
                 "shield:*",
                 "sts:*",
@@ -110,9 +109,9 @@ By default, AWS STS is a global service and must be included in the global servi
 }
 ```
 
-### Example: Prevent IAM principals from making certain changes<a name="example-scp-restricts-iam-principals"></a>
+### Example: Prevent IAM users and roles from making certain changes<a name="example-scp-restricts-iam-principals"></a>
 
-This SCP restricts IAM principals from making changes to the specified IAM role that you created in all accounts in your organization\.
+This SCP restricts IAM users and roles from making changes to the specified IAM role that you created in all accounts in your organization\.
 
 ```
 {    
@@ -141,9 +140,9 @@ This SCP restricts IAM principals from making changes to the specified IAM role 
 }
 ```
 
-### Example: Prevent IAM principals from making specified changes, with an exception for a specified admin role<a name="example-scp-restricts-with-exception"></a>
+### Example: Prevent IAM users and roles from making specified changes, with an exception for a specified admin role<a name="example-scp-restricts-with-exception"></a>
 
-This SCP builds on the previous example to make an exception for administrators\. It prevents IAM principals in accounts from making changes to a common administrative IAM role created in all accounts in your organization *except* for administrators using a specified role\. 
+This SCP builds on the previous example to make an exception for administrators\. It prevents IAM users and roles in affected accounts from making changes to a common administrative IAM role created in all accounts in your organization *except* for administrators using a specified role\. 
 
 ```
 {    
@@ -179,7 +178,7 @@ This SCP builds on the previous example to make an exception for administrators\
 
 ### Example 10: Require MFA to perform an API action<a name="example-ec2-mfa"></a>
 
-Use an SCP like the following to require that multi\-factor authentication \(MFA\) is enabled before a principal an perform an action\. In this example, the action is to stop an Amazon EC2 instance\.
+Use an SCP like the following to require that multi\-factor authentication \(MFA\) is enabled before an IAM user or role can perform an action\. In this example, the action is to stop an Amazon EC2 instance\.
 
 ```
 {
@@ -358,7 +357,7 @@ This SCP prevents users or roles in any affected account from disabling GuardDut
 
 ### Example: Preventing external sharing<a name="example_ram_1"></a>
 
-The following example SCP prevents users from creating resource shares that allow sharing with principals that aren't part of the organization\.
+The following example SCP prevents users from creating resource shares that allow sharing with IAM users ad roles that aren't part of the organization\.
 
 ```
 {
@@ -441,7 +440,7 @@ The following SCP prevents users from creating resource shares that share resour
 }
 ```
 
-### Example: Allow sharing with only specified principals<a name="example_ram_4"></a>
+### Example: Allow sharing with only specified IAM users and roles<a name="example_ram_4"></a>
 
 The following example SCP allows users to share resources with *only* organization `o-12345abcdef`, organizational unit `ou-98765fedcba`, and account `111111111111`\.
 
@@ -522,7 +521,7 @@ This SCP prevents users or roles in any affected account from changing the confi
 
 ### Example: Require a tag on specified created resources<a name="example-require-tag-on-create"></a>
 
-The following SCP prevents account principals from creating certain resource types if the request doesn't include the specified tags\. 
+The following SCP prevents IAM users and roles in the affected accounts from creating certain resource types if the request doesn't include the specified tags\. 
 
 ```
 {

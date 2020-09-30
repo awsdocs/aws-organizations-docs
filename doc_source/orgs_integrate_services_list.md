@@ -1,10 +1,10 @@
-# AWS services that you can use with AWS Organizations<a name="orgs_integrated-services-list"></a>
+# AWS services that you can use with AWS Organizations<a name="orgs_integrate_services_list"></a>
 
 With AWS Organizations you can perform account management activities at scale by consolidating multiple AWS accounts into a single organization\. Consolidating accounts simplifies how you use other AWS services\. You can leverage the multi\-account management services available in AWS Organizations with select AWS services to perform tasks on all accounts that are members of your organization\. 
 
 The following table lists AWS services that you can use with AWS Organizations, and the benefit of using each service on an organization\-wide level\. 
 
-**Trusted Access** – You can enable a compatible AWS service to perform operations across all of the AWS accounts in your organization\. For more information, see [Enabling trusted access with other AWS services](orgs_integrate_services.md)\.
+**Trusted Access** – You can enable a compatible AWS service to perform operations across all of the AWS accounts in your organization\. For more information, see [Using AWS Organizations with other AWS services](orgs_integrate_services.md)\.
 
 **Delegated Administrator** – A compatible AWS service can register an AWS member account in the organization as an administrator for the organization's accounts in that service\.
 

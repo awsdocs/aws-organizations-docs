@@ -1,4 +1,4 @@
-# Creating and updating tag policies<a name="orgs_manage_policies_tag-policies-create"></a>
+# Creating, updating, and deleting tag policies<a name="orgs_manage_policies_tag-policies-create"></a>
 
 After you enable tag policies for your organization, you can create a tag policy\.
 
@@ -7,12 +7,16 @@ Untagged resources don't appear as noncompliant in results\.
 
 ## Creating a tag policy<a name="create-tag-policy-procedure"></a>
 
-To create tag policies, you need permission to run the following action:
-+ `organizations:CreatePolicy`
+**Minimum permissions**  
+To create tag policies, you need permission to run the following action:  
+`organizations:CreatePolicy`
 
-**To create a tag policy \(console\)**
+------
+#### [ AWS Management Console ]
 
-1. Sign in to the Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\.
+**To create a tag policy**
+
+1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\. 
 
 1. On the **Policies** tab, choose **Tag policies**\.
 
@@ -20,13 +24,15 @@ To create tag policies, you need permission to run the following action:
 
 1. On the **Create policy** page, enter a name and description for the policy\.
 
-   You can build the tag policy using the **Visual editor** as described in this procedure\. You can also type or paste a tag policy in the **JSON** tab\. For information on tag policy syntax, see [Tag policy syntax](orgs_manage_policies_example-tag-policies.md#tag-policy-syntax-reference)\.
+   You can build the tag policy using the **Visual editor** as described in this procedure\. You can also type or paste a tag policy in the **JSON** tab\. For information about tag policy syntax, see [Tag policy syntax](orgs_manage_policies_example-tag-policies.md#tag-policy-syntax-reference)\.
 
-1. For **Tag Key**, specify the name of a tag key to add\. 
+1. \(Optional\) You can add one or more tags to the policy object itself\. These tags are not part of the policy\. To do this, choose **Add tag** and then enter a key and an optional value\. Leaving the value blank sets it to an empty string; it isn't `null`\. You can attach up to 50 tags to a policy\.
 
-1. For **Tag key capitalization compliance**, leave this option cleared \(the default\) to specify that the parent tag policy should define the case treatment for the tag key\. 
+1. For **New tag key 1**, specify the name of a tag key to add\. 
 
-   Select this option only if you want to specify different capitalization for the tag key\. If you select this option, the capitalization you specified for **Tag Key** overrides the case treatment specified in a parent policy\. 
+1. For **Tag key capitalization compliance**, leave this option cleared \(the default\) to specify that the inherited parent tag policy \(if it exists\) should define the case treatment for the tag key\. 
+
+   Select this option if you want to mandate a specific capitalization for the tag key\. If you select this option, the capitalization you specified for **Tag Key** overrides the case treatment specified in the inherited parent policy\. 
 
    If a parent policy doesn't exist and you don't select this option, tag keys in all lowercase characters are considered compliant\. For more information about parent policies, see [Understanding policy inheritance](orgs_manage_policies_inheritance.md)\.
 **Tip**  
@@ -34,37 +40,48 @@ Consider using the example tag policy shown in [Example 1: Define organization\-
 
 1. For **Tag value compliance**, select the check box if you want to add allowed values for this tag key\.
 
-   By default, this option is cleared, which means that only any values inherited from a parent policy are considered compliant\. If a parent policy doesn't exist or specify tag values, any value \(including no value at all\) is considered compliant\. 
+   By default, this option is cleared, which means that only those values defined in and inherited from a parent policy are considered compliant\. If a parent policy doesn't exist and you don't specify tag values then any value \(including no value at all\) is considered compliant\. 
 
-   To update the list of acceptable tag values, select **Specify allowed values for this tag key** and then **Specify values**\. When prompted, enter the new values and choose **Save changes**\.
+   To update the list of acceptable tag values, select **Specify allowed values for this tag key** and then choose **Specify values**\. When prompted, enter the new values and choose **Save changes**\.
 
-1. For **Prevent noncompliant operations for this tag**, leave this option cleared \(the default\) unless you are experienced with using tag policies\. Make sure that you have reviewed the recommendations in [Understanding enforcement](orgs_manage_policies_tag-policies-enforcement.md)\. Otherwise, you could prevent users in your organization's accounts from tagging the resources they need\. 
+1. For **Prevent noncompliant operations for this tag**, we recommend that you leave this option cleared \(the default\) unless you are experienced with using tag policies\. Make sure that you have reviewed the recommendations in [Understanding enforcement](orgs_manage_policies_tag-policies-enforcement.md), and test thoroughly\. Otherwise, you could prevent users in your organization's accounts from tagging the resources they need\. 
 
-   If you do want to enforce compliance with this tag key, select the check box and then **Specify allowed values**\. When prompted, enter the resource types to add\. Then choose **Save changes**\.
+   If you do want to enforce compliance with this tag key, select the check box and then **Specify resource types**\. When prompted, select the resource types to include in the policy\. Then choose **Save changes**\.
 
-1. \(Optional\) To add another tag key to this tag policy, choose **Add tag key**\. Then perform steps 5–8 to define the tag key\.
+   When you select this option, any operations that manipulate tags for resources of the specified types succeed only if the operation results in tags that are compliant with the policy\.
+
+1. \(Optional\) To add another tag key to this tag policy, choose **Add tag key**\. Then perform steps 6–9 to define the tag key\.
 
 1. When you're finished building your tag policy, choose **Save changes**\.
 
-**To create a tag policy \(AWS CLI, AWS API\)**  
+------
+#### [ AWS CLI, AWS API ]
+
+**To create a tag policy**  
 You can use one of the following to create a tag policy:
 + AWS CLI: [aws organizations create\-policy](https://docs.aws.amazon.com/cli/latest/reference/organizations/create-policy.html)
 
   For the complete procedure for using tag policies in the AWS CLI, see [Using tag policies in the AWS CLI](tag-policy-cli.md)\.
 + AWS API: [CreatePolicy](https://docs.aws.amazon.com/organizations/latest/APIReference/API_CreatePolicy.html)
 
+------
+
 **What to Do Next**  
 After you create a tag policy, you can put your tagging rules into effect\. To do that, [attach the policy ](attach-tag-policy.md) to the organization root, organizational units \(OUs\), AWS accounts within your organization, or a combination of organization entities\. 
 
 ## Updating a tag policy<a name="update-tag-policy-procedure"></a>
 
-To update a tag policy, you must have permission to run the following actions:
-+ `organizations:UpdatePolicy` with a `Resource` element in the same policy statement that includes the ARN of the specified policy \(or "\*"\)
-+ `organizations:DescribePolicy` with a `Resource` element in the same policy statement that includes the ARN of the specified policy \(or "\*"\)
+**Minimum permissions**  
+To update a tag policy, you must have permission to run the following actions:  
+`organizations:UpdatePolicy` with a `Resource` element in the same policy statement that includes the ARN of the specified policy \(or "\*"\)
+`organizations:DescribePolicy` with a `Resource` element in the same policy statement that includes the ARN of the specified policy \(or "\*"\)
 
-**To update a tag policy \(console\)**
+------
+#### [ AWS Management Console ]
 
-1. Sign in to the Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\.
+**To update a tag policy**
+
+1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\. 
 
 1. On the **Policies** tab, choose **Tag policies**\.
 
@@ -78,10 +95,54 @@ To update a tag policy, you must have permission to run the following actions:
 
 1. When you're finished updating the tag policy, choose **Save changes**\.
 
-**To update a policy \(AWS CLI, AWS API\)**  
+------
+#### [ AWS CLI, AWS API ]
+
+**To update a policy**  
 You can use one of the following to update a policy: 
 + AWS CLI: [aws organizations update\-policy](https://docs.aws.amazon.com/cli/latest/reference/organizations/update-policy.html)
 + AWS API: [UpdatePolicy](https://docs.aws.amazon.com/organizations/latest/APIReference/API_UpdatePolicy.html)
+
+------
+
+## Editing tags attached to a tag policy<a name="tag_tag-policies"></a>
+
+When signed in to your organization's master account, you can add or remove the tags attached to a tag policy\. To do this, complete the following steps\.
+
+**Minimum permissions**  
+To edit the tags attached to a tag policy in your AWS organization, you must have the following permissions:  
+`organizations:DescribeOrganization` \(console only – to navigate to the policy\)
+`organizations:DescribePolicy` \(console only – to navigate to the policy\)
+`organizations:TagResource`
+`organizations:UntagResource`
+
+------
+#### [ AWS Management Console ]
+
+**To edit the tags attached to a tag policy**
+
+1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\. 
+
+1. On the **Policies** tab, choose **Tag policies**, and then choose the name of the policy with the tags that you want to edit\.
+
+1. In the chosen policy's details pane, choose **EDIT TAGS**\.
+
+1. You can perform any of these actions on this page:
+   + Edit the value for any tag by entering a new value over the old one\. You can't modify the key\. To change a key, you must delete the tag with the old key and add a tag with the new key\. 
+   + Remove an existing tag by choosing **Remove**\.
+   + Add a new tag key and value pair\. Choose **Add tag**, then enter the new key name and optional value in the provided boxes\. If you leave the **Value** box empty, the value is an empty string; it isn't `null`\.
+
+1. Choose **Save changes** after you've made all the additions, removals, and edits you want to make\.
+
+------
+#### [ AWS CLI, AWS API ]
+
+**To edit the tags attached to a tag policy**  
+You can use one of the following commands to edit the tags attached to a tag policy:
++ AWS CLI: [aws organizations tag\-resource](https://docs.aws.amazon.com/cli/latest/reference/organizations/tag-resource.html) and [aws organizations untag\-resource](https://docs.aws.amazon.com/cli/latest/reference/organizations/untag-resource.html)
++ AWS API: [TagResource](https://docs.aws.amazon.com/organizations/latest/APIReference/API_TagResource.html) and [UntagResource](https://docs.aws.amazon.com/organizations/latest/APIReference/API_UntagResource.html)
+
+------
 
 ## Deleting a tag policy<a name="delete-tag-policy-procedure"></a>
 
@@ -89,8 +150,9 @@ When signed in to your organization's master account, you can delete a policy th
 
 Before you can delete a policy, you must first detach it from all attached entities\.
 
-To delete a tag policy, you must have permission to run the following action:
-+ `organizations:DeletePolicy`
+**Minimum permissions**  
+To delete a tag policy, you must have permission to run the following action:  
+`organizations:DeletePolicy`
 
 **To delete a tag policy \(console\)**
 

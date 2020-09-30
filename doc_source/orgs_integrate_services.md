@@ -1,4 +1,4 @@
-# Enabling trusted access with other AWS services<a name="orgs_integrate_services"></a>
+# Using AWS Organizations with other AWS services<a name="orgs_integrate_services"></a>
 
 You can use *trusted access* to enable an AWS service that you specify, called the *trusted service*, to perform tasks in your organization and its accounts on your behalf\. This involves granting permissions to the trusted service but does *not* otherwise affect the permissions for IAM users or roles\. When you enable access, the trusted service can create an IAM role called a *service\-linked role* in every account in your organization whenever that role is needed\. That role has a permissions policy that allows the trusted service to do the tasks that are described in that service's documentation\. This enables you to specify settings and configuration details that you would like the trusted service to maintain in your organization's accounts on your behalf\. The trusted serviced only creates service\-linked roles when it needs to perform management actions on accounts, and not necessarily in all accounts of the organization\. 
 
@@ -24,7 +24,7 @@ Trusted access requires permissions for two services: AWS Organizations and the 
 
      For the steps to enable trusted access in AWS Organizations, see [How to enable or disable trusted access](#orgs_how-to-enable-disable-trusted-access)\.
 
-  1. The person who has credentials with permissions in the trusted service enables that service to work with AWS Organizations\. This instructs the service to perform any required initialization, such as creating any resources that are required for the trusted service to operate in the organization\. For more information, see the service\-specific instructions at [Services that support trusted access with your organization](services-that-can-integrate.md)\.
+  1. The person who has credentials with permissions in the trusted service enables that service to work with AWS Organizations\. This instructs the service to perform any required initialization, such as creating any resources that are required for the trusted service to operate in the organization\. For more information, see the service\-specific instructions at [AWS services that you can use with AWS Organizations](orgs_integrate_services_list.md)\.
 
 ## Permissions required to disable trusted access<a name="orgs_trusted_access_disable_perms"></a>
 
@@ -40,7 +40,7 @@ Disabling trusted service access does ***not*** prevent users and roles with app
   + The minimum permissions required by the trusted service depend on the service\. For more information, see the trusted service's documentation\.
 + If the credentials with permissions in AWS Organizations aren't the credentials with permissions in the trusted service, perform these steps in the following order:
 
-  1. The person with permissions in the trusted service first disables access using that service\. This instructs the trusted service to clean up by removing the resources required for trusted access\. For more information, see the service\-specific instructions at [Services that support trusted access with your organization](services-that-can-integrate.md)\.
+  1. The person with permissions in the trusted service first disables access using that service\. This instructs the trusted service to clean up by removing the resources required for trusted access\. For more information, see the service\-specific instructions at [AWS services that you can use with AWS Organizations](orgs_integrate_services_list.md)\.
 
   1. The person with permissions in AWS Organizations can then use the AWS Organizations console, AWS CLI, or an AWS SDK to disable access for the trusted service\. This removes the permissions for the trusted service from the organization and its accounts\. 
 
@@ -54,9 +54,12 @@ Disabling trusted service access does ***not*** prevent users and roles with app
 
 If you have permissions only for AWS Organizations and you want to enable or disable trusted access to your organization on behalf of the administrator of the other AWS service, use the following procedure\.
 
-**To enable or disable trusted service access \(console\)**
+------
+#### [ AWS Management Console ]
 
-1. Sign in to the Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\.
+**To enable or disable trusted service access**
+
+1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\. 
 
 1. In the upper\-right corner, choose **Settings**\.
 
@@ -66,19 +69,23 @@ If you have permissions only for AWS Organizations and you want to enable or dis
 
 1. If you are *enabling* access, tell the administrator of the other AWS service that they can now enable the other service to work with AWS Organizations\.
 
-**To enable or disable trusted service access \(AWS CLI, AWS API\)**
+------
+#### [ AWS CLI, AWS API ]
 
+**To enable or disable trusted service access**  
 You can use the following AWS CLI commands or API operations to enable or disable trusted service access:
 + AWS CLI: aws organizations [enable\-aws\-service\-access](https://docs.aws.amazon.com/cli/latest/reference/organizations/enable-aws-service-access.html)
 + AWS CLI: aws organizations [disable\-aws\-service\-access](https://docs.aws.amazon.com/cli/latest/reference/organizations/disable-aws-service-access.html)
 + AWS API: [EnableAWSServiceAccess](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAWSServiceAccess.html)
 + AWS API: [DisableAWSServiceAccess](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DisableAWSServiceAccess.html)
 
+------
+
 ## AWS Organizations and service\-linked roles<a name="orgs_integrate_services-using_slrs"></a>
 
-AWS Organizations uses [IAM service\-linked roles](http://aws.amazon.com/blogs/security/introducing-an-easier-way-to-delegate-permissions-to-aws-services-service-linked-roles/) to enable trusted services to perform tasks on your behalf in your organization's member accounts\. When you configure a trusted service and authorize it to integrate with your organization, that service can request that AWS Organizations create a service\-linked role in its member account\. The trusted service does this asynchronously as needed and not necessarily in all accounts in the organization at the same time\. The service\-linked role has predefined IAM permissions that allow the trusted service to perform specific tasks within that account\. In general, AWS manages all service\-linked roles, which means that you typically can't alter the roles or the attached policies\. 
+AWS Organizations uses [IAM service\-linked roles](http://aws.amazon.com/blogs/security/introducing-an-easier-way-to-delegate-permissions-to-aws-services-service-linked-roles/) to enable trusted services to perform tasks on your behalf in your organization's member accounts\. When you configure a trusted service and authorize it to integrate with your organization, that service can request that AWS Organizations create a service\-linked role in its member account\. The trusted service does this asynchronously as needed and not necessarily in all accounts in the organization at the same time\. The service\-linked role has predefined IAM permissions that allow the trusted service to perform only specific tasks within that account\. In general, AWS manages all service\-linked roles, which means that you typically can't alter the roles or the attached policies\. 
 
-To make all of this possible, when you create an account in an organization or you accept an invitation to join your existing account to an organization, AWS Organizations provisions the account with a service\-linked role named `AWSServiceRoleForOrganizations`\. Only the AWS Organizations service itself can assume this role\. The role has permissions that allow only AWS Organizations to create service\-linked roles for other AWS services\. This service\-linked role is present in all organizations\.
+To make all of this possible, when you create an account in an organization or you accept an invitation to join your existing account to an organization, AWS Organizations provisions the member account with a service\-linked role named `AWSServiceRoleForOrganizations`\. Only the AWS Organizations service itself can assume this role\. The role has permissions that allow AWS Organizations to create service\-linked roles for other AWS services\. This service\-linked role is present in all organizations\.
 
 Although we don't recommend it, if your organization has only [consolidated billing features](orgs_getting-started_concepts.md#feature-set-cb-only) enabled, the service\-linked role named `AWSServiceRoleForOrganizations` is never used, and you can delete it\. If you later want to enable [all features](orgs_getting-started_concepts.md#feature-set-all) in your organization, the role is required, and you must restore it\. The following checks occur when you begin the process to enable all features:
 + **For each member account that was *invited to join* the organization** – The account administrator receives a request to agree to enable all features\. To successfully agree to the request, the administrator must have both `organizations:AcceptHandshake` *and* `iam:CreateServiceLinkedRole` permissions if the service\-linked role \(`AWSServiceRoleForOrganizations`\) doesn't already exist\. If the `AWSServiceRoleForOrganizations` role already exists, the administrator needs only the `organizations:AcceptHandshake` permission to agree to the request\. When the administrator agrees to the request, AWS Organizations creates the service\-linked role if it doesn't already exist\. 

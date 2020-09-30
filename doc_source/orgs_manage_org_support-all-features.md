@@ -25,9 +25,12 @@ When you sign in with permissions to your organization's master account, you can
 To enable all features in your organization, you must have the following permission:  
 `organizations:EnableAllFeatures`
 
-**To ask your member accounts to agree to enable all features in the organization**
+------
+#### [ AWS Management Console ]
 
-1. Sign in to the AWS Management Console and open the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\.
+**To ask your invited member accounts to agree to enable all features in the organization**
+
+1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\. 
 
 1. On the **Settings** tab, choose **Begin process to enable all features**\.
 
@@ -45,33 +48,46 @@ After you complete the process of enabling all features, you once again can invi
 
 1. After all accounts approve the requests, you can finalize the process and enable all features\. You can also immediately finalize the process if your organization doesn't have any invited member accounts\. Finalizing the process requires only a couple of clicks in the console\. See [Finalizing the process to enable all features](#finalize-migration)\. 
 
-**To ask your invited member accounts to agree to enable all features in the organization \(AWS CLI, AWS API\)**  
+------
+#### [ AWS CLI, AWS API ]
+
+**To ask your invited member accounts to agree to enable all features in the organization**  
 You can use one of the following commands to enable all features in an organization: 
 + AWS CLI: [aws organizations enable\-all\-features](https://docs.aws.amazon.com/cli/latest/reference/organizations/enable-all-features.html)
 + AWS API: [EnableAllFeatures](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAllFeatures.html)
 
+------
+
 ## Approving the request to enable all features or to recreate the service\-linked role<a name="manage-approve-all-features-invite"></a>
 
 When signed in with permissions to one of the organization's invited member accounts, you can approve a request from the master account\. If your account was originally invited to join the organization, the invitation is to enable all features and implicitly includes approval for recreating the `AWSServiceRoleForOrganizations` role, if needed\. If your account was instead created using AWS Organizations and you deleted the `AWSServiceRoleForOrganizations` service\-linked role, you receive an invitation only to recreate the role\. To do this, complete the following steps\.
+
+**Important**  
+If you perform the steps in the following procedure, the master account in the organization can apply policy\-based controls on your member account\. These controls can restrict what users and even what you as the administrator can do in your account\. Such restrictions might prevent your account from leaving the organization\.
 
 **Minimum permissions**  
 To approve a request to enable all features for your member account, you must have the following permissions:  
 `organizations:AcceptHandshake`
 `iam:CreateServiceLinkedRole` – Required only if the `AWSServiceRoleForOrganizations` role must be recreated in the member account
 
-**Important**  
-If you perform the steps in the following procedure, the master account in the organization can apply policy\-based controls on your member account\. These controls can restrict what users and even what you as the administrator can do in your account\. Additionally, the master account can apply a policy that might prevent your account from leaving the organization\.
+------
+#### [ AWS Management Console ]
 
-**To agree to the request to enable all features in the organization \(console\)**
+**To agree to the request to enable all features in the organization**
 
-1. Sign in to the AWS Management Console and open the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's member account\.
+1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the member account\. 
 
 1. Read what accepting the request for all features in the organization means for your account, and then choose **Accept**\. The page continues to show the process as incomplete until all accounts in the organization accept the requests and the administrator of the master account finalizes the process\.
 
-**To agree to the request to enable all features in the organization \(AWS CLI, AWS API\)**  
+------
+#### [ AWS CLI, AWS API ]
+
+**To agree to the request to enable all features in the organization**  
 To agree to the request, you must accept the handshake with `"Action": "APPROVE_ALL_FEATURES"`\.
 + AWS CLI: [aws organizations accept\-handshake](https://docs.aws.amazon.com/cli/latest/reference/organizations/accept-handshake.html)
 + AWS API: [AcceptHandshake](https://docs.aws.amazon.com/organizations/latest/APIReference/API_AcceptHandshake.html)
+
+------
 
 ## Finalizing the process to enable all features<a name="finalize-migration"></a>
 
@@ -81,9 +97,12 @@ All invited member accounts must approve the request to enable all features\. If
 To finalize the process to enable all features for the organization, you must have the following permission:  
 `organizations:AcceptHandshake`
 
-**To finalize the process to enable all features \(console\)**
+------
+#### [ AWS Management Console ]
 
-1. Sign in to the AWS Management Console and open the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\.
+**To finalize the process to enable all features**
+
+1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\. 
 
 1. On the **Settings** tab, under **ENABLE ALL FEATURES**, choose **View all feature request approval status**\.
 
@@ -91,7 +110,12 @@ To finalize the process to enable all features for the organization, you must ha
 
 1. The organization now has all features enabled\. The next step is to enable the policy types that you want to use\. After that, you can attach policies to administer the accounts in your organization\. For more information, see [Managing AWS Organizations policies](orgs_manage_policies.md)\.
 
-**To finalize the process to enable all features \(AWS CLI, AWS API\)**  
+------
+#### [ AWS CLI, AWS API ]
+
+**To finalize the process to enable all features**  
 To finalize the process, you must accept the handshake with `"Action": "ENABLE_ALL_FEATURES"`\.
 + AWS CLI: [aws organizations accept\-handshake](https://docs.aws.amazon.com/cli/latest/reference/organizations/accept-handshake.html)
 + AWS API: [AcceptHandshake](https://docs.aws.amazon.com/organizations/latest/APIReference/API_AcceptHandshake.html)
+
+------

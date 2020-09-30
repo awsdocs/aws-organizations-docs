@@ -43,23 +43,37 @@ The following example shows a CloudTrail log entry for a sample `CreateAccount` 
 
 ```
 {
-    "eventVersion": "1.06",
+    "eventVersion": "1.05",
     "userIdentity": {
         "type": "IAMUser",
-        "principalId": "AIDAMVNPBQA3EXAMPLE",
-        "arn": "arn:aws:iam::111122223333:user/diego",
+        "principalId": "AIDAMVNPBQA3EXAMPLE:my-admin-role",
+        "arn": "arn:aws:sts::111122223333:assumed-role/my-admin-role/my-session-id",
         "accountId": "111122223333",
         "accessKeyId": "AKIAIOSFODNN7EXAMPLE",
-        "userName": "diego"
+        "sessionContext": {
+            "sessionIssuer": {
+                "type": "Role",
+                "principalId": "AIDAMVNPBQA3EXAMPLE",
+                "arn": "arn:aws:iam::111122223333:role/my-admin-role",
+                "accountId": "111122223333",
+                "userName": "my-session-id"
+            },
+            "webIdFederationData": {},
+            "attributes": {
+                "mfaAuthenticated": "false",
+                "creationDate": "2020-09-16T21:16:45Z"
+            }
+        }
     },
     "eventTime": "2018-06-21T22:06:27Z",
     "eventSource": "organizations.amazonaws.com",
     "eventName": "CreateAccount",
     "awsRegion": "us-east-1",
     "sourceIPAddress": "192.168.0.1",
-    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.95 Safari/537.36",
+    "userAgent":  "Mozilla/5.0 (Windows NT 10.0; Win64; x64)...",
     "requestParameters": {
-        "email": "anaya@amazon.com",
+        "tags": [],
+        "email": "****",
         "accountName": "****"
     },
     "responseElements": {
@@ -67,7 +81,7 @@ The following example shows a CloudTrail log entry for a sample `CreateAccount` 
             "accountName": "****",
             "state": "IN_PROGRESS",
             "id": "car-examplecreateaccountrequestid111",
-            "requestedTimestamp": "Jun 21, 2018 10:06:27 PM"
+            "requestedTimestamp": "Sep 16, 2020 9:20:50 PM"
         }
     },
     "requestID": "EXAMPLE8-90ab-cdef-fedc-ba987EXAMPLE",
@@ -81,17 +95,17 @@ The following example shows a CloudTrail log entry for a `CreateAccount` call af
 
 ```
 {
-  "eventVersion": "1.06",
+  "eventVersion": "1.05",
   "userIdentity": {
     "accountId": "111122223333",
-    "invokedBy": "AWS Internal"
+    "invokedBy": "..."
   },
-  "eventTime": "2018-06-21T22:06:27Z",
+  "eventTime": "2020-09-16T21:20:53Z",
   "eventSource": "organizations.amazonaws.com",
   "eventName": "CreateAccountResult",
   "awsRegion": "us-east-1",
   "sourceIPAddress": "192.0.2.0",
-  "userAgent": "AWS Internal",
+  "userAgent": "....",
   "requestParameters": null,
   "responseElements": null,
   "eventID": "EXAMPLE8-90ab-cdef-fedc-ba987EXAMPLE",
@@ -104,8 +118,8 @@ The following example shows a CloudTrail log entry for a `CreateAccount` call af
       "state": "SUCCEEDED",
       "accountName": "****",
       "accountId": "444455556666",
-      "requestedTimestamp": Jun 21, 2018 10:06:27 PM,
-      "completedTimestamp": Jun 21, 2018 10:07:15 PM
+      "requestedTimestamp": "Sep 16, 2020 9:20:50 PM",
+      "completedTimestamp": "Sep 16, 2020 9:20:53 PM"
     }
   }
 }
@@ -151,7 +165,7 @@ The following example shows a CloudTrail log entry for a sample `CreateOrganizat
 
 ```
 {
-    "eventVersion": "1.06",
+    "eventVersion": "1.05",
     "userIdentity": {
         "type": "IAMUser",
         "principalId": "AIDAMVNPBQA3EXAMPLE",
@@ -190,7 +204,7 @@ The following example shows a CloudTrail log entry for a sample `InviteAccountTo
 
 ```
 {
-    "eventVersion": "1.06",
+    "eventVersion": "1.05",
     "userIdentity": {
         "type": "IAMUser",
         "principalId": "AIDAMVNPBQA3EXAMPLE",

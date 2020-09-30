@@ -19,9 +19,12 @@ To view the effective AI services opt\-out policy for an account, you must have 
 `organizations:DescribeEffectivePolicy`
 `organizations:DescribeOrganization`
 
-**To view the effective AI services opt\-out policy for an account \(console\)**
+------
+#### [ AWS Management Console ]
 
-1. Sign in to the Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. In the organization's master account, sign in as an AWS Identity and Access Management \(IAM\) user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\)\.
+**To view the effective AI services opt\-out policy for an account**
+
+1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\. 
 
 1. On the **Accounts** tab, choose the account\.
 
@@ -29,9 +32,14 @@ To view the effective AI services opt\-out policy for an account, you must have 
 
 1. Choose **View effective policy**\.
 
-**To view the effective policy for an account \(AWS CLI, AWS API\)**  
+------
+#### [ AWS CLI, AWS API ]
+
+**To view the effective policy for an account**  
 You can use one of the following to view the effective AI services opt\-out policy:
 + AWS CLI: [aws organizations describe\-effective\-policy](https://docs.aws.amazon.com/cli/latest/reference/organizations/describe-effective-policy.html)
 
   For the complete procedure for using AI services opt\-out policies in the AWS CLI, see [Using tag policies in the AWS CLI](tag-policy-cli.md)\.
 + AWS API: [DescribeEffectivePolicy](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeEffectivePolicy.html) 
+
+------

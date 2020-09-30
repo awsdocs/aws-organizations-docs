@@ -1,4 +1,4 @@
-# AWS Identity and Access Management in AWS Organizations<a name="orgs_security_iam"></a>
+# AWS Identity and Access Management and AWS Organizations<a name="orgs_security_iam"></a>
 
 Access to AWS Organizations requires credentials\. Those credentials must have permissions to access AWS resources, such as an Amazon Simple Storage Service \(Amazon S3\) bucket, an Amazon Elastic Compute Cloud \(Amazon EC2\) instance, or an AWS Organizations organizational unit \(OU\)\. The following sections provide details on how you can use AWS Identity and Access Management \(IAM\) to help secure access to your organization and control who can administer it\.
 
@@ -10,6 +10,8 @@ For most administrator operations for AWS Organizations, you need to attach perm
 + [Authentication](#orgs_permissions_authentication)
 + [Access control](#orgs-access-control)
 + [Managing access permissions for your AWS organization](orgs_permissions_overview.md)
++ [Using identity\-based policies \(IAM policies\) for AWS Organizations](orgs_permissions_iam-policies.md)
++ [Tag\-based access control and AWS Organizations](orgs_tagging_tbac.md)
 
 ## Authentication<a name="orgs_permissions_authentication"></a>
 
@@ -29,3 +31,8 @@ For security reasons, we recommend that you use the root user credentials only t
 ## Access control<a name="orgs-access-control"></a>
 
 You can have valid credentials to authenticate your requests, but unless you have permissions, you can't administer or access AWS Organizations resources\. For example, you must have permissions to create an OU or to attach a [service control policy \(SCP\)](orgs_manage_policies_scps.md) to an account\.
+
+The following sections describe how to manage permissions for AWS Organizations\.
++ [Managing access permissions for your AWS organization](orgs_permissions_overview.md)
++ [Using identity\-based policies \(IAM policies\) for AWS Organizations](orgs_permissions_iam-policies.md)
++ [Tag\-based access control and AWS Organizations](orgs_tagging_tbac.md)

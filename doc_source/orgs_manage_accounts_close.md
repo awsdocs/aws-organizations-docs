@@ -7,8 +7,8 @@ Before closing your account, back up any applications and data that you want to 
 Immediately, the account can no longer be used for any AWS activity other than signing in as the root user to view past bills or to contact AWS Support\. For more information, see [Contacting Customer Support About Your Bill](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-get-answers.html)\.
 
 **Important**  
-Accounts that are closed for 90 days are subject to permanent deletion after which the account and its resources can’t be recovered\.
-Closed accounts are visible in your organization with the "suspended" state\. After an account is permanently deleted, it's no longer visible in your organization\.
+Accounts that are closed for 90 days or more are no longer eligible for reinstatement\. At this point, any resources that were in the account can’t be recovered\.
+Closed accounts are visible in your organization with the "suspended" state\. After an account has been deleted for 90 days, it's no longer visible in your organization\.
 
 You can close an account only by using the Billing and Cost Management console, not by using the AWS Organizations console or its tools\.
 

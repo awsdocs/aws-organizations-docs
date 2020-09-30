@@ -19,9 +19,12 @@ To view the effective backup policy for an account, you must have permission to 
 `organizations:DescribeEffectivePolicy`
 `organizations:DescribeOrganization`
 
-**To view the effective backup policy for an account \(console\)**
+------
+#### [ AWS Management Console ]
 
-1. Sign in to the Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. In the organization's master account, sign in as an AWS Identity and Access Management \(IAM\) user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\)\.
+**To view the effective backup policy for an account**
+
+1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\. 
 
 1. On the **Accounts** tab, choose the account\.
 
@@ -31,9 +34,14 @@ To view the effective backup policy for an account, you must have permission to 
 **Note**  
 You can't copy and paste an effective policy and use it as the JSON for another backup policy without significant changes\. Backup policy documents must include the [inheritance operators](orgs_manage_policies_inheritance_mgmt.md#policy-operators) that specify how each setting is merged into the final effective policy\. 
 
-**To view the effective policy for an account \(AWS CLI, AWS API\)**  
+------
+#### [ AWS CLI, AWS API ]
+
+**To view the effective policy for an account**  
 You can use one of the following commands to view the effective backup policy:
 + AWS CLI: [aws organizations describe\-effective\-policy](https://docs.aws.amazon.com/cli/latest/reference/organizations/describe-effective-policy.html)
 
   For the complete procedure for using backup policies in the AWS CLI, see [Using backup policies in the AWS CLI](orgs_manage_policies_backup_cli.md)\.
 + AWS API: [DescribeEffectivePolicy](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeEffectivePolicy.html) 
+
+------

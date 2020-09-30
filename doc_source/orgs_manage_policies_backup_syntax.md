@@ -4,13 +4,13 @@ This page describes backup policy syntax and provides examples\.
 
 ## Syntax for backup policies<a name="backup-policy-syntax-reference"></a>
 
-A backup policy is a plaintext file that is structured according to the rules of [JSON](http://json.org)\. The syntax for backup policies follows the syntax for all management policy types\. For a complete discussion of that syntax, see [Policy syntax and inheritance for management policy types](http://bisdavid.corp.amazon.com/docs/orgsug/policytype-ml/orgs_manage_policies_inheritance_mgmt.html)\. This topic focuses on applying that general syntax to the specific requirements of the backup policy type\.
+A backup policy is a plaintext file that is structured according to the rules of [JSON](http://json.org)\. The syntax for backup policies follows the syntax for all management policy types\. For a complete discussion of that syntax, see [Policy syntax and inheritance for management policy types](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_inheritance_mgmt.html)\. This topic focuses on applying that general syntax to the specific requirements of the backup policy type\.
 
 The bulk of a backup policy is the backup plan and its rules\. The syntax for the backup plan within an AWS Organizations backup policy is structurally identical to the syntax used by AWS Backup, but the key names are different\. In the descriptions of the policy key names below, each includes the equivalent AWS Backup plan key name\. For more information about AWS Backup plans, see [CreateBackupPlan](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_CreateBackupPlan.html) in the *AWS Backup Developer Guide*\.
 
 To be complete and functional, an [effective backup policy](orgs_manage_policies_backup_effective.md) must include more than just a backup plan with its schedule and rules\. The policy must also identify the AWS Regions and the resources to be backed up, and the AWS Identity and Access Management \(IAM\) role that AWS Backup can use to perform the backup\.
 
-The following functionally complete policy shows the basic backup policy syntax\. If this example was attached directly to an account, AWS Backup would back up all resources for that account in the `us-east-1` and `eu-north-1` Regions that have the tag `dataType` with a value of either `PII` or `RED` \. It backs up those resources daily at 5:00 AM to `My_Backup_Vault` and also stores a copy in `My_Secondary_Vault`\. The vaults must already exist in both of the specified AWS Regions for each AWS account that receives the effective policy\. The backup applies the tag `Owner:Backup` to each recovery point\. 
+The following functionally complete policy shows the basic backup policy syntax\. If this example was attached directly to an account, AWS Backup would back up all resources for that account in the `us-east-1` and `eu-north-1` Regions that have the tag `dataType` with a value of either `PII` or `RED` \. It backs up those resources daily at 5:00 AM to `My_Backup_Vault` and also stores a copy in `My_Secondary_Vault`\. The vaults must already exist in both of the specified AWS Regions for each AWS account that receives the effective policy\. If any of the backed up resources are EC2 instances, then support for Microsoft's Volume Shadow Service \(VSS\) is enabled for the backups on those instances\. The backup applies the tag `Owner:Backup` to each recovery point\. 
 
 ```
 {
@@ -89,6 +89,13 @@ The following functionally complete policy shows the basic backup policy syntax\
                     }
                 }
             },
+            "advanced_backup_settings": {
+                "ec2": {
+                    "WindowsVSS": {
+                        "@@assign": "enabled" 
+                    }
+                }
+            },
             "backup_plan_tags": {
                 "stage": {
                     "tag_key": {
@@ -124,10 +131,11 @@ You can use the `$account` variable only in policy elements that can include an 
 
   This backup plan key name in a backup policy maps to the value of the `BackupPlanName` key in an AWS Backup plan\. 
 
-  Each plan contains four elements:
+  Each plan can contain the following elements:
   + `rules` – This key contains a collection of rules\. Each rule translates to a scheduled task, with a start time and window in which to back up the resources identified by the `selections` and `regions` elements in the effective backup policy\.
   + `regions` – This key contains an array list of AWS Regions whose resources can be backed up by this policy\.
   + `selections` – This key contains one or more collections of resources \(within the specified `regions`\) that are backed up by the specified `rules`\. 
+  + `advanced_backup_settings` – This key contains settings specific to backups running on certain resources\.
   + `backup_plan_tags` – This specifies tags that are attached to the backup plan itself\.
 + `rules`
 
@@ -137,7 +145,7 @@ You can use the `$account` variable only in policy elements that can include an 
   + `schedule_expression` – This policy key maps to the `ScheduleExpression` key in an AWS Backup plan\.
 
     Specifies the start time of the backup\. This key contains the [`@@assign` inheritance value operator](orgs_manage_policies_inheritance_mgmt.md#value-setting-operators) and a string value with a [CRON expression](https://www.wikipedia.org/wiki/Cron#CRON_expression) that specifies when AWS Backup is to initiate a backup job\. The general format of the CRON string is: "cron\( \)"\. Each is a number or wildcard\. For example, `cron(0 5 1,3,5 * * *)` starts the backup at 5 AM every Monday, Wednesday, and Friday\. `cron(0 0/1 ? * * *)` starts the backup every hour on the hour, every day of the week\. 
-  + `target_backup_vault_name` – This policy key maps to the `TarbetBackupVaultName` key in an AWS Backup plan\.
+  + `target_backup_vault_name` – This policy key maps to the `TargetBackupVaultName` key in an AWS Backup plan\.
 
     Specifies the name of the backup vault in which to store the backup\. You create the value by using AWS Backup\. This key contains the [`@@assign` inheritance value operator](orgs_manage_policies_inheritance_mgmt.md#value-setting-operators) and a string value with a vault name\.
 **Important**  
@@ -147,7 +155,7 @@ The vault must already exist when the backup plan is launched the first time\. W
      \(Optional\) Specifies the number of minutes to wait before canceling a job that does not start successfully\. This key contains the [`@@assign` inheritance value operator](orgs_manage_policies_inheritance_mgmt.md#value-setting-operators) and a value with an integer number of minutes\.
   + `complete_backup_window_minutes` – This policy key maps to the `CompletionWindowMinutes` key in an AWS Backup plan\.
 
-    \(Optional\) Specifies the number of minutes after a backup job successfully starts before it must complete or it is cancelled by AWS Backup\. This key contains the [`@@assign` inheritance value operator](orgs_manage_policies_inheritance_mgmt.md#value-setting-operators) and a value with an integer number of minutes\.
+    \(Optional\) Specifies the number of minutes after a backup job successfully starts before it must complete or it is canceled by AWS Backup\. This key contains the [`@@assign` inheritance value operator](orgs_manage_policies_inheritance_mgmt.md#value-setting-operators) and a value with an integer number of minutes\.
   + `lifecycle` – This policy key maps to the `Lifecycle` key in an AWS Backup plan\.
 
     \(Optional\) Specifies when AWS Backup transitions this backup to cold storage and when it expires\. 
@@ -167,7 +175,7 @@ The vault must already exist when the backup plan is launched the first time\. W
 
         You must use the `$account` variable in the ARN in place of the account ID number\. When AWS Backup runs the backup plan, it automatically replaces the variable with the account ID number of the AWS account in which the policy is running\.
 **Important**  
-If this key is missing then an all lower\-case version of the ARN in the parent key name is used\. Because ARNs are case sensitive, this might not match and the plan fails\. For this reason, we recommend you always supply this key and value\.
+If this key is missing, then an all lower\-case version of the ARN in the parent key name is used\. Because ARNs are case sensitive, this string might not match the actual ARN of the fault and the plan fails\. For this reason, we recommend you always supply this key and value\.
 The backup vault must already exist the first time you launch the backup plan\. We recommend that you use AWS CloudFormation stack sets and its integration with Organizations to automatically create and configure backup vaults and IAM roles for each member account in the organization\. For more information, see [Create a stack set with self\-managed permissions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-getting-started-create.html#create-stack-set-service-managed-permissions) in the *AWS CloudFormation User Guide*\.
       + `lifecycle` – This policy key maps to the `Lifecycle` key under the `CopyAction` key in an AWS Backup plan\.
 
@@ -178,7 +186,7 @@ The backup vault must already exist the first time you launch the backup plan\. 
         + `delete_after_days` – This policy key maps to the `DeleteAfterDays` key in an AWS Backup plan\.
 
           Specifies the number of days after the backup occurs before AWS Backup deletes the recovery point\. This key contains the [`@@assign` inheritance value operator](orgs_manage_policies_inheritance_mgmt.md#value-setting-operators) and a value with an integer number of days\. If you transition a backup to cold storage, it must stay there a minimum of 90 days, so this value must be a minimum of 90 days greater than the `move_to_cold_storage_after_days` value\.
-  + `recovery_point_tags` – This policy key maps to the `RecoverPointTags` key in an AWS Backup plan\.
+  + `recovery_point_tags` – This policy key maps to the `RecoveryPointTags` key in an AWS Backup plan\.
 
     \(Optional\) Specifies tags that AWS Backup attaches to each backup that it creates from this plan\. This key's value contains one or more of the following elements:
     + An identifier for this key name and value pair\. This name for each element under `recovery_point_tags` is the tag key name in all lower case, even if the `tag_key` has a different case treatment\. This identifier is ***not*** case sensitive\. In the previous example, this key pair was identified by the name `Owner`\. Each key pair contains the following elements:
@@ -199,6 +207,21 @@ The backup vault must already exist the first time you launch the backup plan\. 
 The role must already exist when you launch the backup plan the first time\. We recommend that you use AWS CloudFormation stack sets and its integration with Organizations to automatically create and configure backup vaults and IAM roles for each member account in the organization\. For more information, see [Create a stack set with self\-managed permissions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-getting-started-create.html#create-stack-set-service-managed-permissions) in the *AWS CloudFormation User Guide*\.
       + `tag_key` – Specifies the tag key name to search for\. This key contains the [`@@assign` inheritance value operator](orgs_manage_policies_inheritance_mgmt.md#value-setting-operators) and a string value\. The value is case sensitive\. 
       + `tag_value` – Specifies the value that must be associated with a key name that matches `tag_key`\. AWS Backup includes the resource in the backup only if both the `tag_key` and `tag_value` match\. This key contains any of the [inheritance value operators](orgs_manage_policies_inheritance_mgmt.md#value-setting-operators) and one or more values to replace, append, or remove from the effective policy\. The values are case sensitive\.
++ `advanced_backup_settings` – Specifies settings for specific backkup scenarios\. This key contains one or more settings\. Each setting is a JSON object string with the following elements: 
+  + Object key name – A string that specifies the type of resource to which the following advanced settings apply\.
+  + Object value – A JSON object string that contains one or more backup settings specific to the associated resource type\.
+
+  At this time, the only advanced backup setting that is supported enables Microsoft Volume Snapshot Service \(VSS\) backups for Windows or SQL Server running on an Amazon EC2 instance\. The key name must be the `"ec2"` resource type, and the value specifies that `"WindowsVSS"` support is either `enabled` or `disabled` for backups performed on those Amazon EC2 instances\. For more information about this feature, see [Creating a VSS\-Enabled Windows Backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/windows-backup.html) in the *AWS Backup Developer Guide*\.
+
+  ```
+  "advanced_backup_settings": {
+      "ec2": { 
+          "WindowsVSS": {
+              "@@assign": "enabled" 
+          }
+      }
+  }
+  ```
 + `backup_plan_tags` – Specifies tags that are attached to the backup plan itself\. This does not impact the tags specified in any rules or selections\.
 
   \(Optional\) You can attach tags to your backup plans\. This key's value is a collection of elements\. 
@@ -252,6 +275,13 @@ The following example shows a backup policy that is assigned to one of the paren
                         "tag_value": { "@@assign": [ "PII", "RED" ] }
                     }
                 }
+            },
+            "advanced_backup_settings": {
+                "ec2": { 
+                    "WindowsVSS": {
+                        "@@assign": "enabled" 
+                    }
+                }
             }
         }
     }
@@ -294,6 +324,11 @@ If no other policies are inherited or attached to the accounts, the effective po
                         "tag_key": "dataType",
                         "tag_value": [ "PII", "RED" ]
                     }
+                }
+            }
+            "advanced_backup_settings": {
+                "ec2": { 
+                    "WindowsVSS": "enabled" 
                 }
             }
         }
@@ -556,6 +591,16 @@ In the following example, an inherited parent policy uses the [child control ope
                         }
                     }
                 }
+            },
+            "advanced_backup_settings": {
+                "@@operators_allowed_for_child_policies": ["@@none"],
+                "ec2": { 
+                    "@@operators_allowed_for_child_policies": ["@@none"],
+                    "WindowsVSS": {
+                        "@@assign": "enabled" 
+                        "@@operators_allowed_for_child_policies": ["@@none"],
+                    }
+                }
             }
         }
     }
@@ -594,6 +639,11 @@ In the following example, an inherited parent policy uses the [child control ope
                         "tag_key": "dataType",
                         "tag_value": [ "PII", "RED" ]
                     }
+                }
+            },
+            "advanced_backup_settings": {
+                "ec2": { 
+                    "WindowsVSS": "enabled" 
                 }
             }
         }

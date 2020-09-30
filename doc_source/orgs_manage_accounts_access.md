@@ -21,7 +21,7 @@ As a [best practice](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-pract
 We also recommend that you set [multi\-factor authentication](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa.html) \(MFA\) on the root user\. Reset the password, and [assign an MFA device to the root user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_enable.html)\. 
 If you created a member account in an organization with an incorrect email address, you can’t sign in to the account as the root user\. Contact [AWS Billing and Support](https://aws.amazon.com/contact-us/) for assistance\. 
 
-**To request a new password for the root user of the member account \(console\)**
+**To request a new password for the root user of the member account**
 
 1. Go to the **Sign in** page of the AWS console at [https://console\.aws\.amazon\.com/](https://console.aws.amazon.com/)\. If you are already signed in to AWS, you have to sign out to see the sign\-in page\.
 

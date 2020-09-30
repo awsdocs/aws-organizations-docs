@@ -31,13 +31,16 @@ To invite an AWS account to join your organization, you must have the following 
 `organizations:DescribeOrganization` \(console only\)
 `organizations:InviteAccountToOrganization`
 
+------
+#### [ AWS Management Console ]
+
 **To invite another account to join your organization \(console\)**
 
-1. Sign in to the Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\.
+1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\. 
 
 1. If your email address is already verified, skip this step\.
 
-   If your email address isn't verified yet, follow the instructions in the [verification email](orgs_manage_create.md#about-email-verification) within 24 hours\. There might be a delay before you receive the verification email\. You can't invite an account until your email address is verified\. 
+   If your email address isn't verified yet, follow the instructions in the [verification email](orgs_manage_create.md#about-email-verification) within 24 hours\. There might be a delay before you receive the verification email message\. You can't invite an account until your email address is verified\. 
 
 1. On the **Accounts** tab, choose **Add account**\.
 
@@ -47,20 +50,27 @@ To invite an AWS account to join your organization, you must have the following 
 
 1. \(Optional\) For **Notes**, enter any message that you want included in the email invitation to the other account owners\.
 
+1. \(Optional\) You can specify one or more tags that are applied to the account when its administrator accepts the invitation\. To do this, choose **Add tag** and then enter a key and an optional value\. Leaving the value blank sets it to an empty string; it isn't `null`\. You can attach up to 50 tags to an AWS account\.
+
 1. Choose **Invite**\.
 **Important**  
 If you get a message that you exceeded your account quotas for the organization or that you can't add an account because your organization is still initializing, contact [AWS Support](https://console.aws.amazon.com/support/home#/)\.
 
 1. The console redirects you to the **Invitations** tab\. View all open and accepted invitations here\. The invitation that you just created appears at the top of the list with its status set to **OPEN**\.
 
-   AWS Organizations sends an invitation to the email address of the owner of the account that you invited to the organization\. This email includes a link to the AWS Organizations console, where the account owner can view the details and choose to accept or decline the invitation\. Alternatively, the owner of the invited account can bypass the email, go directly to the AWS Organizations console, view the invitation, and accept or decline it\.
+   AWS Organizations sends an invitation to the email address of the owner of the account that you invited to the organization\. This email message includes a link to the AWS Organizations console, where the account owner can view the details and choose to accept or decline the invitation\. Alternatively, the owner of the invited account can bypass the email message, go directly to the AWS Organizations console, view the invitation, and accept or decline it\.
 
    The invitation to this account immediately counts against the maximum number of accounts that you can have in your organization\. AWS Organizations doesn't wait until the account accepts the invitation\. If the invited account declines, the master account cancels the invitation\. If the invited account doesn't respond within the specified time period, the invitation expires\. In either case, the invitation no longer counts against your quota\.
 
-**To invite another account to join your organization \(AWS CLI, AWS API\)**  
+------
+#### [ AWS CLI, AWS API ]
+
+**To invite another account to join your organization**  
 You can use one of the following commands to invite another account to join your organization:
 + AWS CLI: [aws organizations invite\-account\-to\-organization](https://docs.aws.amazon.com/cli/latest/reference/organizations/invite-account-to-organization.html) 
 + AWS API: [InviteAccountToOrganization](https://docs.aws.amazon.com/organizations/latest/APIReference/API_InviteAccountToOrganization.html)
+
+------
 
 ## Managing pending invitations for your organization<a name="orgs_manage_accounts_manage-invites"></a>
 
@@ -72,9 +82,12 @@ To manage pending invitations for your organization, you must have the following
 `organizations:ListHandshakesForOrganization`
 `organizations:CancelHandshake`
 
-**To view or cancel invitations that are sent from your organization to other accounts \(console\)**
+------
+#### [ AWS Management Console ]
 
-1. Sign in to the Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\.
+**To view or cancel invitations that are sent from your organization to other accounts**
+
+1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\. 
 
 1. Choose the **Invitations** tab\. All invitations that are sent from your organization and their current status are listed here\.
 **Note**  
@@ -84,23 +97,21 @@ Accepted, canceled, and declined invitations continue to appear in the list for 
 
    The status of the invitation changes from **Open** to **Canceled**\.
 
-   AWS sends an email to the account owner stating that you canceled the invitation\. The account can no longer join the organization unless you send a new invitation\.
+   AWS sends an email message to the account owner stating that you canceled the invitation\. The account can no longer join the organization unless you send a new invitation\.
 
-**To view or cancel invitations that are sent from your organization to other accounts \(AWS CLI, AWS API\)**  
+------
+#### [ AWS CLI, AWS API ]
+
+**To view or cancel invitations that are sent from your organization to other accounts \(\)**  
 You can use the following commands to view or cancel invitations:
 + AWS CLI: [aws organizations list\-handshakes\-for\-organization](https://docs.aws.amazon.com/cli/latest/reference/organizations/list-handshakes-for-organization.html), [aws organizations cancel\-handshake](https://docs.aws.amazon.com/cli/latest/reference/organizations/cancel-handshake.html) 
 + AWS API: [ListHandshakesForOrganization](https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListHandshakesForOrganization.html), [CancelHandshake](https://docs.aws.amazon.com/organizations/latest/APIReference/API_CancelHandshake.html)
 
+------
+
 ## Accepting or declining an invitation from an organization<a name="orgs_manage_accounts_accept-decline-invite"></a>
 
 Your AWS account might receive an invitation to join an organization\. You can accept or decline the invitation\. To do this, complete the following steps\.
-
-**Minimum permissions**  
-To accept or decline an invitation to join an AWS organization, you must have the following permissions:  
-`organizations:ListHandshakesForAccount` – Required to see the list of invitations in the AWS Organizations console\.
-`organizations:AcceptHandshake`\.
-`organizations:DeclineHandshake`\.
-`iam:CreateServiceLinkedRole` – Required only when accepting the invitation requires the creation of a service\-linked role to support integration with other AWS services\. For more information, see [AWS Organizations and service\-linked roles](orgs_integrate_services.md#orgs_integrate_services-using_slrs)\.
 
 **Note**  
 An account’s status with an organization affects what cost and usage data is visible:  
@@ -109,9 +120,19 @@ If a member account leaves an organization and becomes a standalone account, the
 If a member account leaves organization A to join organization B, the account no longer has access to cost and usage data from the time range when the account was a member of organization A\. The account has access only to the data that is generated as a member of organization B\. 
 If an account rejoins an organization that it previously belonged to, the account regains access to its historical cost and usage data\.
 
-**To accept or decline an invitation \(console\)**
+**Minimum permissions**  
+To accept or decline an invitation to join an AWS organization, you must have the following permissions:  
+`organizations:ListHandshakesForAccount` – Required to see the list of invitations in the AWS Organizations console\.
+`organizations:AcceptHandshake`\.
+`organizations:DeclineHandshake`\.
+`iam:CreateServiceLinkedRole` – Required only when accepting the invitation requires the creation of a service\-linked role to support integration with other AWS services\. For more information, see [AWS Organizations and service\-linked roles](orgs_integrate_services.md#orgs_integrate_services-using_slrs)\.
 
-1. An invitation to join an organization is sent to the email address of the account owner\. If you are an account owner and you receive an invitation email, follow the instructions in the email invitation or go to [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/) in your browser, and then choose **Respond to invitations**\.
+------
+#### [ AWS Management Console ]
+
+**To accept or decline an invitation**
+
+1. An invitation to join an organization is sent to the email address of the account owner\. If you are an account owner and you receive an invitation email message, follow the instructions in the email invitation or go to [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/) in your browser, and then choose **Respond to invitations**\.
 
 1. If prompted, sign in to the invited account as an IAM user, assume an IAM role, or sign in as the account's root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\)\.
 
@@ -124,14 +145,19 @@ Accepted invitations continue to appear in the list for 30 days\. After that, th
 
      AWS Organizations automatically creates a service\-linked role in the new member account to support integration between AWS Organizations and other AWS services\. For more information, see [AWS Organizations and service\-linked roles](orgs_integrate_services.md#orgs_integrate_services-using_slrs)\.
 
-     AWS sends an email to the owner of the organization's master account stating that you accepted the invitation\. It also sends an email to the member account owner stating that the account is now a member of the organization\.
+     AWS sends an email message to the owner of the organization's master account stating that you accepted the invitation\. It also sends an email message to the member account owner stating that the account is now a member of the organization\.
    + If you choose **Decline** in the preceding step, your account remains on the **Invitations** page that lists any other pending invitations\.
 
-     AWS sends an email to the organization's master account owner stating that you declined the invitation\.
+     AWS sends an email message to the organization's master account owner stating that you declined the invitation\.
 **Note**  
 Declined invitations continue to appear in the list for 30 days\. After that, they are deleted and no longer appear in the list\.
 
-**To accept or decline an invitation \(AWS CLI, AWS API\)**  
+------
+#### [ AWS CLI, AWS API ]
+
+**To accept or decline an invitation**  
 You can use the following commands to accept or decline an invitation:
 + AWS CLI: [aws organizations accept\-handshake](https://docs.aws.amazon.com/cli/latest/reference/organizations/accept-handshake.html), [aws organizations decline\-handshake](https://docs.aws.amazon.com/cli/latest/reference/organizations/decline-handshake.html) 
 + AWS API: [AcceptHandshake](https://docs.aws.amazon.com/organizations/latest/APIReference/API_AcceptHandshake.html), [DeclineHandshake](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DeclineHandshake.html)
+
+------

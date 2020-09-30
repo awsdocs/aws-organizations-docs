@@ -14,13 +14,17 @@ For more information and more advanced examples of how effective tag policies ar
 
 You can view the effective tag policy for an account from the AWS Management Console, AWS API, or AWS Command Line Interface\.
 
-To view the effective tag policy for an account, you must have permission to run the following actions:
-+ `organizations:DescribeEffectivePolicy`
-+ `organizations:DescribeOrganization`
+**Minimum permissions**  
+To view the effective tag policy for an account, you must have permission to run the following actions:  
+`organizations:DescribeEffectivePolicy`
+`organizations:DescribeOrganization`
 
-**To view the effective policy for an account \(console\)**
+------
+#### [ AWS Management Console ]
 
-1. Sign in to the organization's master account\.
+**To view the effective policy for an account**
+
+1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\. 
 **Note**  
 When you are signed in to a member account, the procedure for viewing the effective policy is different\. When signed in to an account, you can view the effective tag policy in the context of evaluating compliance for the account\. For more information, see [ Evaluating Compliance for an Account](https://docs.aws.amazon.com/ARG/latest/userguide/tag-policies-arg-finding-noncompliant-tags.html) in the *AWS Resource Groups User Guide\.*
 
@@ -30,9 +34,14 @@ When you are signed in to a member account, the procedure for viewing the effect
 
 1. Choose **View effective policy**\.
 
-**To view the effective policy for an account \(AWS CLI, AWS API\)**  
+------
+#### [ AWS CLI, AWS API ]
+
+**To view the effective policy for an account**  
 You can use one of the following to view the effective tag policy:
 + AWS CLI: [aws organizations describe\-effective\-policy](https://docs.aws.amazon.com/cli/latest/reference/organizations/describe-effective-policy.html)
 
   For the complete procedure for using tag policies in the AWS CLI, see [Using tag policies in the AWS CLI](tag-policy-cli.md)\.
 + AWS API: [DescribeEffectivePolicy](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeEffectivePolicy.html)
+
+------

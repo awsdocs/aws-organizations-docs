@@ -1,15 +1,17 @@
 # Creating an organization<a name="orgs_manage_create"></a>
 
-Use AWS Organizations to create an organization\.
-
 You can create an organization that starts with your AWS account as the master account\. When you create an organization, you can choose whether the organization supports all features \(recommended\) or only consolidated billing features\. 
 
 **Note**  
 Currently, you can have only one root in your organization\.
 
 After creating an organization, you can add accounts to your organization in these ways from the master account:
-+ Create other AWS accounts that are automatically added to your organization as member accounts
-+ After verifying your email address, invite existing AWS accounts to join your organization as member accounts
++ [Create other AWS accounts](orgs_manage_accounts_create.md) that are automatically added to your organization as member accounts
++ After verifying your email address, [invite existing AWS accounts](orgs_manage_accounts_invites.md#orgs_manage_accounts_invite-account) to join your organization as member accounts
+
+## Create an organization<a name="create-org"></a>
+
+You can create an organization by using either the AWS Management Console or by using a command from the AWS CLI or one of the SDK APIs\.
 
 **Minimum permissions**  
 To create an organization with your current AWS account, you must have the following permissions:  
@@ -17,9 +19,12 @@ To create an organization with your current AWS account, you must have the follo
 `iam:CreateServiceLinkedRole`   
 You can restrict this permission to only the service principal `organizations.amazonaws.com`\. 
 
-**To create an organization \(console\)**
+------
+#### [ AWS Management Console ]
 
-1. Sign in to the AWS Management Console and open the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the account that you want to be the organization's master account\.
+**To create an organization**
+
+1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\. 
 
 1. On the introduction page, choose **Create organization**\.
 
@@ -39,10 +44,15 @@ By default, the organization is created with all features enabled\. You can also
 **Note**  
 You can add new accounts to your organization without verifying your master account's email address\. To invite existing accounts, you must first verify that email address\.
 
-**To create an organization \(AWS CLI, AWS API\)**  
+------
+#### [ AWS CLI, AWS API ]
+
+**To create an organization**  
 You can use one of the following commands to create an organization:
 + AWS CLI: [aws organizations create\-organization](https://docs.aws.amazon.com/cli/latest/reference/organizations/create-organization.html)
 + AWS API: [CreateOrganization](https://docs.aws.amazon.com/organizations/latest/APIReference/API_CreateOrganization.html)
+
+------
 
 ## Email address verification<a name="about-email-verification"></a>
 
@@ -58,7 +68,7 @@ If you don't verify your email address within 24 hours, you can resend the verif
 
 **To resend the verification request**
 
-1. Sign in to the AWS Management Console and open the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the account that you want to be the organization's master account\.
+1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\. 
 
 1. Choose the Settings tab and then choose ** Send verification request**\. 
 

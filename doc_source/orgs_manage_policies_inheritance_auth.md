@@ -1,7 +1,7 @@
 # Inheritance for service control policies<a name="orgs_manage_policies_inheritance_auth"></a>
 
 **Important**  
-The information in this section does ***not*** apply to management policy types, such as tag policies\. See the next section [Policy syntax and inheritance for management policy types](orgs_manage_policies_inheritance_mgmt.md)\.
+The information in this section does ***not*** apply to management policy types, including AI services opt\-out policies, backup policies, or tag policies\. See the next section [Policy syntax and inheritance for management policy types](orgs_manage_policies_inheritance_mgmt.md)\.
 
 ## Service control policies \(SCPs\)<a name="orgs_manage_policies_inheritance_auth_scps"></a>
 
@@ -9,6 +9,6 @@ Inheritance for service control policies behaves like a filter through which per
 
 SCPs do not support inheritance operators that alter how elements of the policy are inherited by child OUs and accounts\.
 
-You can see a list of all policies applied to an account and where that policy comes from\. To do this,choose an account in the AWS Organizations console\. On the account details page, choose **Policies** and then choose **Service Control Policies** in the right\-hand details pane\. The same policy might apply to the account multiple times because the policy can be attached to any or all of the parent containers of the account\. The effective policy that applies to the account is the intersection of allowed permissions of all applicable policies\.
+You can see a list of all policies applied to an account and where that policy comes from\. To do this, choose an account in the AWS Organizations console\. On the account details page, choose **Policies** and then choose **Service Control Policies** in the right\-hand details pane\. The same policy might apply to the account multiple times because the policy can be attached to any or all of the parent containers of the account\. The effective policy that applies to the account is the intersection of allowed permissions of all applicable policies\.
 
 For more information about how to use SCPs, see [Service control policies](orgs_manage_policies_scps.md)\.

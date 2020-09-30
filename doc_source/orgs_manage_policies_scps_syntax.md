@@ -19,7 +19,7 @@ The following table summarizes the policy elements that you can use in SCPs\. So
 | [Version](#scp-syntax-version) | Specifies the language syntax rules to use for processing the policy\. |  `Allow`, `Deny`  | 
 | [Statement](#scp-syntax-statement) | Serves as the container for policy elements\. You can have multiple statements in SCPs\. | Allow, Deny | 
 | [Statement ID \(Sid\)](#scp-syntax-sid) | \(Optional\) Provides a friendly name for the statement\. | Allow, Deny | 
-| [Effect](#scp-syntax-effect) | Defines whether the SCP statement [allows](orgs_getting-started_concepts.md#allowlist) or [denies](orgs_getting-started_concepts.md#denylist) principal and root access in an account\. | Allow, Deny | 
+| [Effect](#scp-syntax-effect) | Defines whether the SCP statement [allows](orgs_getting-started_concepts.md#allowlist) or [denies](orgs_getting-started_concepts.md#denylist) access to the IAM users and roles in an account\. | Allow, Deny | 
 |  [Action](#scp-syntax-action)  |  Specifies AWS service and actions that the SCP allows or denies\.  |  `Allow`, `Deny`  | 
 |  [NotAction](#scp-syntax-action)  |  Specifies AWS service and actions that are exempt from the SCP\. Used instead of the `Action` element\.  |  `Deny`  | 
 | [Resource](#scp-syntax-resource) | Specifies the AWS resources that the SCP applies to\. | Deny | 
@@ -101,7 +101,8 @@ The following example shows an SCP with a statement that contains an `Effect` el
 {
     "Statement": {
         "Effect": "Allow",
-        "Action": "s3:*"
+        "Action": "s3:*",
+        "Resource": "*"
     }
 }
 ```
@@ -241,7 +242,7 @@ In statements where the `Effect` element has a value of `Deny`, you *can* specif
 }
 ```
 
-This SCP restricts IAM principals in accounts from making changes to a common administrative IAM role created in all accounts in your organization\.
+This SCP restricts IAM users and roles in affected accounts from making changes to a common administrative IAM role created in all accounts in your organization\.
 
 For more information, see [IAM JSON Policy Elements: Resource](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_resource.html) in the *IAM User Guide*\.
 

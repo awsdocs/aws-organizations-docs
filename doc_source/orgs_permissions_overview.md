@@ -56,10 +56,12 @@ This global condition also applies to the master account of an organization\.
 + `organizations:PolicyType` – You can use this condition key to restrict the Organizations policy\-related API operations to work on only Organizations policies of the specified type\. You can apply this condition key to any policy statement that includes an action that interacts with Organizations policies\.
 
   You can use the following values with this condition key:
+  + `AISERVICES_OPT_OUT_POLICY`
+  + `BACKUP_POLICY`
   + `SERVICE_CONTROL_POLICY`
   + `TAG_POLICY`
 
-  For example, the following example policy allows the user to perform any Organizations operation\. However, if the user performs an operation that takes a policy argument, the operation is allowed only if the specified policy is a tagging policy\. The operation fails if the user specifies a service control policy \(SCP\)\.
+  For example, the following example policy allows the user to perform any Organizations operation\. However, if the user performs an operation that takes a policy argument, the operation is allowed only if the specified policy is a tagging policy\. The operation fails if the user specifies any other type of policy\.
 
   ```
   {
