@@ -88,7 +88,6 @@ If you leave an organization, you are no longer covered by organization agreemen
 
 **Note**  
 An account’s status with an organization affects what cost and usage data is visible:  
-When a standalone account joins an organization, the account no longer has access to cost and usage data from the time range when the account was a standalone account\.
 If a member account leaves an organization and becomes a standalone account, the account no longer has access to cost and usage data from the time range when the account was a member of the organization\. The account has access only to the data that is generated as a standalone account\. 
 If a member account leaves organization A to join organization B, the account no longer has access to cost and usage data from the time range when the account was a member of organization A\. The account has access only to the data that is generated as a member of organization B\. 
 If an account rejoins an organization that it previously belonged to, the account regains access to its historical cost and usage data\.
