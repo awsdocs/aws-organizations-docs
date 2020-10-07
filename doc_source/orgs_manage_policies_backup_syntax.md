@@ -41,24 +41,37 @@ The following functionally complete policy shows the basic backup policy syntax\
                         }
                     },
                     "lifecycle": {
-                        "delete_after_days": {
-                            "@@assign": "2"
-                        },
                         "move_to_cold_storage_after_days": {
                             "@@assign": "180"
+                        },
+                        "delete_after_days": {
+                            "@@assign": "270"
                         }
                     },
                     "copy_actions": {
                         "arn:aws:backup:us-west-2:$account:backup-vault:My_Secondary_Vault": {
-                            "target_backup_vault_arn" :
-                                "@@assign" : "arn:aws:backup:us-west-2:$account:backup-vault:My_Secondary_Vault"
+                            "target_backup_vault_arn": {
+                                "@@assign": "arn:aws:backup:us-west-2:$account:backup-vault:My_Secondary_Vault"
                             },
                             "lifecycle": {
-                                "delete_after_days": {
-                                    "@@assign": "28"
-                                },
                                 "move_to_cold_storage_after_days": {
                                     "@@assign": "180"
+                                },
+                                "delete_after_days": {
+                                    "@@assign": "270"
+                                }
+                            }
+                        },
+                        "arn:aws:backup:us-east-1:$account:backup-vault:My_Tertiary_Vault": {
+                            "target_backup_vault_arn": {
+                                "@@assign": "arn:aws:backup:us-east-1:$account:backup-vault:My_Tertiary_Vault"
+                            },
+                            "lifecycle": {
+                                "move_to_cold_storage_after_days": {
+                                    "@@assign": "180"
+                                },
+                                "delete_after_days": {
+                                    "@@assign": "270"
                                 }
                             }
                         }
@@ -92,7 +105,7 @@ The following functionally complete policy shows the basic backup policy syntax\
             "advanced_backup_settings": {
                 "ec2": {
                     "WindowsVSS": {
-                        "@@assign": "enabled" 
+                        "@@assign": "enabled"
                     }
                 }
             },
@@ -105,7 +118,7 @@ The following functionally complete policy shows the basic backup policy syntax\
                         "@@assign": "Beta"
                     }
                 }
-            },
+            }
         }
     }
 }
@@ -167,16 +180,16 @@ The vault must already exist when the backup plan is launched the first time\. W
       Specifies the number of days after the backup occurs before AWS Backup deletes the recovery point\. This key contains the [`@@assign` inheritance value operator](orgs_manage_policies_inheritance_mgmt.md#value-setting-operators) and a value with an integer number of days\. If you transition a backup to cold storage, it must stay there a minimum of 90 days, so this value must be a minimum of 90 days greater than the `move_to_cold_storage_after_days` value\.
   + `copy_actions` – This policy key maps to the `CopyActions` key in an AWS Backup plan\.
 
-    \(Optional\) Specifies that AWS Backup should copy the backup to one or more additional locations\. Each location is described as follows:
+    \(Optional\) Specifies that AWS Backup should copy the backup to one or more additional locations\. Each backup copy location is described as follows:
     + A key whose name uniquely identifies this copy action\. At this time, the key name must be the Amazon Resource Name \(ARN\) of the backup vault\. This key contains two entries\.
       + `target_backup_vault_arn` – This policy key maps to the `DestinationBackupVaultArn` key in an AWS Backup plan\.
 
         \(Optional\) Specifies the vault in which AWS Backup stores an additional copy of the backup\. The value of this key contains the [`@@assign` inheritance value operator](orgs_manage_policies_inheritance_mgmt.md#value-setting-operators) and the ARN of the vault\. 
 
-        You must use the `$account` variable in the ARN in place of the account ID number\. When AWS Backup runs the backup plan, it automatically replaces the variable with the account ID number of the AWS account in which the policy is running\.
+        You must use the `$account` variable in the ARN in place of the account ID number\. When AWS Backup runs the backup plan, it automatically replaces the variable with the account ID number of the AWS account in which the policy is running\. While you can only copy within the same account, you each backup copy be stored in a different Region\.
 **Important**  
 If this key is missing, then an all lower\-case version of the ARN in the parent key name is used\. Because ARNs are case sensitive, this string might not match the actual ARN of the fault and the plan fails\. For this reason, we recommend you always supply this key and value\.
-The backup vault must already exist the first time you launch the backup plan\. We recommend that you use AWS CloudFormation stack sets and its integration with Organizations to automatically create and configure backup vaults and IAM roles for each member account in the organization\. For more information, see [Create a stack set with self\-managed permissions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-getting-started-create.html#create-stack-set-service-managed-permissions) in the *AWS CloudFormation User Guide*\.
+The backup vault that you want to copy the backup to must already exist the first time you launch the backup plan\. We recommend that you use AWS CloudFormation stack sets and its integration with Organizations to automatically create and configure backup vaults and IAM roles for each member account in the organization\. For more information, see [Create a stack set with self\-managed permissions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-getting-started-create.html#create-stack-set-service-managed-permissions) in the *AWS CloudFormation User Guide*\.
       + `lifecycle` – This policy key maps to the `Lifecycle` key under the `CopyAction` key in an AWS Backup plan\.
 
         \(Optional\) Specifies when AWS Backup transitions this copy of a backup to cold storage and when it expires\. 
@@ -244,42 +257,86 @@ The following example shows a backup policy that is assigned to one of the paren
 {
     "plans": {
         "PII_Backup_Plan": {
-            "regions": { "@@assign": [ "ap-northeast-2", "us-east-1", "eu-north-1" ] },
+            "regions": {
+                "@@assign": [
+                    "ap-northeast-2",
+                    "us-east-1",
+                    "eu-north-1"
+                ]
+            },
             "rules": {
                 "Hourly": {
-                    "schedule_expression": { "@@assign": "cron(0 5/1 ? * * *)" },
-                    "start_backup_window_minutes": { "@@assign": "480" },
-                    "complete_backup_window_minutes": { "@@assign": "10080" },
-                    "lifecycle": {
-                        "move_to_cold_storage_after_days": { "@@assign": "180" },
-                        "delete_after_days": { "@@assign": "270" }
+                    "schedule_expression": {
+                        "@@assign": "cron(0 5/1 ? * * *)"
                     },
-                    "target_backup_vault_name": { "@@assign": "FortKnox" },
+                    "start_backup_window_minutes": {
+                        "@@assign": "480"
+                    },
+                    "complete_backup_window_minutes": {
+                        "@@assign": "10080"
+                    },
+                    "lifecycle": {
+                        "move_to_cold_storage_after_days": {
+                            "@@assign": "180"
+                        },
+                        "delete_after_days": {
+                            "@@assign": "270"
+                        }
+                    },
+                    "target_backup_vault_name": {
+                        "@@assign": "FortKnox"
+                    },
                     "copy_actions": {
-                        "arn:aws:backup:us-east-1:$account:backup-vault:secondary_vault": {                            "target_backup_vault_arn" :
-                                "@@assign" : "arn:aws:backup:us-east-1:$account:backup-vault:secondary_vault"
+                        "arn:aws:backup:us-east-1:$account:backup-vault:secondary_vault": {
+                            "target_backup_vault_arn": {
+                                "@@assign": "arn:aws:backup:us-east-1:$account:backup-vault:secondary_vault"
                             },
                             "lifecycle": {
-                                "delete_after_days": { "@@assign": "100" },
-                                "move_to_cold_storage_after_days": { "@@assign": "10" }
+                                "move_to_cold_storage_after_days": {
+                                    "@@assign": "30"
+                                },
+                                "delete_after_days": {
+                                    "@@assign": "120"
+                                }
                             }
-                        }
-                    }
+                        },
+                        "arn:aws:backup:us-west-1:$account:backup-vault:tertiary_vault": {
+                            "target_backup_vault_arn": {
+                                "@@assign": "arn:aws:backup:us-west-1:$account:backup-vault:tertiary_vault"
+                            },
+                            "lifecycle": {
+                                "move_to_cold_storage_after_days": {
+                                    "@@assign": "30"
+                                },
+                                "delete_after_days": {
+                                    "@@assign": "120"
+                                }
+                            }
+                        }                    }
                 }
             },
             "selections": {
                 "tags": {
                     "datatype": {
-                        "iam_role_arn": { "@@assign": "arn:aws:iam::$account:role/MyIamRole" },
-                        "tag_key": { "@@assign": "dataType" },
-                        "tag_value": { "@@assign": [ "PII", "RED" ] }
+                        "iam_role_arn": {
+                            "@@assign": "arn:aws:iam::$account:role/MyIamRole"
+                        },
+                        "tag_key": {
+                            "@@assign": "dataType"
+                        },
+                        "tag_value": {
+                            "@@assign": [
+                                "PII",
+                                "RED"
+                            ]
+                        }
                     }
                 }
             },
             "advanced_backup_settings": {
-                "ec2": { 
+                "ec2": {
                     "WindowsVSS": {
-                        "@@assign": "enabled" 
+                        "@@assign": "enabled"
                     }
                 }
             }
@@ -293,8 +350,12 @@ If no other policies are inherited or attached to the accounts, the effective po
 ```
 {
     "plans": {
-       "PII_Backup_Plan": {
-            "regions": [ "us-east-1", "ap-northeast-3", "eu-north-1" ],
+        "PII_Backup_Plan": {
+            "regions": [
+                "us-east-1",
+                "ap-northeast-3",
+                "eu-north-1"
+            ],
             "rules": {
                 "hourly": {
                     "schedule_expression": "cron(0 0/1 ? * * *)",
@@ -305,9 +366,18 @@ If no other policies are inherited or attached to the accounts, the effective po
                         "move_to_cold_storage_after_days": "180"
                     },
                     "copy_actions": {
-                        "arn:aws:backup:us-east-1:$account:vault:secondary_vault" : {
-                            "target_backup_vault_arn" :
-                                "@@assign" : "arn:aws:backup:us-east-1:$account:vault:secondary_vault"
+                        "arn:aws:backup:us-east-1:$account:vault:secondary_vault": {
+                            "target_backup_vault_arn": {
+                                "@@assign": "arn:aws:backup:us-east-1:$account:vault:secondary_vault"
+                            },
+                            "lifecycle": {
+                                "to_delete_after_days": "28",
+                                "move_to_cold_storage_after_days": "180"
+                            }
+                        },
+                        "arn:aws:backup:us-west-1:$account:vault:tertiary_vault": {
+                            "target_backup_vault_arn": {
+                                "@@assign": "arn:aws:backup:us-west-1:$account:vault:tertiary_vault"
                             },
                             "lifecycle": {
                                 "to_delete_after_days": "28",
@@ -322,13 +392,16 @@ If no other policies are inherited or attached to the accounts, the effective po
                     "datatype": {
                         "iam_role_arn": "arn:aws:iam::123456789012:role/MyIamRole",
                         "tag_key": "dataType",
-                        "tag_value": [ "PII", "RED" ]
+                        "tag_value": [
+                            "PII",
+                            "RED"
+                        ]
                     }
                 }
-            }
+            },
             "advanced_backup_settings": {
-                "ec2": { 
-                    "WindowsVSS": "enabled" 
+                "ec2": {
+                    "WindowsVSS": "enabled"
                 }
             }
         }
@@ -353,17 +426,17 @@ In the following example, an inherited parent policy and a child policy either i
                     "start_backup_window_minutes": { "@@assign": "60" },
                     "target_backup_vault_name": { "@@assign": "FortKnox" },
                     "lifecycle": {
-                        "to_delete_after_days": { "@@assign": "2" },
-                        "move_to_cold_storage_after_days": { "@@assign": "180" }
+                        "move_to_cold_storage_after_days": { "@@assign": "28" },
+                        "to_delete_after_days": { "@@assign": "180" }
                     },
                     "copy_actions": {
                         "arn:aws:backup:us-east-1:$account:vault:secondary_vault" : {
-                            "target_backup_vault_arn" :
+                            "target_backup_vault_arn" : {
                                 "@@assign" : "arn:aws:backup:us-east-1:$account:vault:secondary_vault"
                             },
                             "lifecycle": {
-                                "to_delete_after_days": { "@@assign": "28" },
-                                "move_to_cold_storage_after_days": { "@@assign": "180" }
+                                "move_to_cold_storage_after_days": { "@@assign": "28" },
+                                "to_delete_after_days": { "@@assign": "180" }
                             }
                         }
                     }
@@ -397,17 +470,17 @@ In the following example, an inherited parent policy and a child policy either i
                     "start_backup_window_minutes": { "@@assign": "480" },
                     "target_backup_vault_name": { "@@assign": "Default" },
                     "lifecycle": {
-                        "to_delete_after_days": { "@@assign": "365" },
-                        "move_to_cold_storage_after_days": { "@@assign": "30" }
+                        "move_to_cold_storage_after_days": { "@@assign": "30" },
+                        "to_delete_after_days": { "@@assign": "365" }
                     },
                     "copy_actions": {
                         "arn:aws:backup:us-east-1:$account:vault:Default" : {
-                            "target_backup_vault_arn" :
+                            "target_backup_vault_arn" : {
                                 "@@assign" : "arn:aws:backup:us-east-1:$account:vault:Default"
                             },
                             "lifecycle": { 
-                                "to_delete_after_days": { "@@assign": "365" },
-                                "move_to_cold_storage_after_days": { "@@assign": "30" }
+                                "move_to_cold_storage_after_days": { "@@assign": "30" },
+                                "to_delete_after_days": { "@@assign": "365" }
                             }
                         }
                     }
@@ -445,12 +518,12 @@ In the following example, an inherited parent policy and a child policy either i
                     },
                     "copy_actions": {
                         "arn:aws:backup:us-east-1:$account:vault:secondary_vault" : {
-                            "target_backup_vault_arn" :
+                            "target_backup_vault_arn" : {
                                 "@@assign" : "arn:aws:backup:us-east-1:$account:vault:secondary_vault"
                             },
                             "lifecycle": {
-                                "to_delete_after_days": "28",
-                                "move_to_cold_storage_after_days": "180"
+                                "move_to_cold_storage_after_days": "28",
+                                "to_delete_after_days": "180"
                             }
                         }
                     }
@@ -479,12 +552,12 @@ In the following example, an inherited parent policy and a child policy either i
                     },
                     "copy_actions": {
                         "arn:aws:backup:us-east-1:$account:vault:Default" : {
-                            "target_backup_vault_arn" :
+                            "target_backup_vault_arn": {
                                 "@@assign" : "arn:aws:backup:us-east-1:$account:vault:Default"
                             },
                             "lifecycle": {
-                                "to_delete_after_days": "365",
-                                "move_to_cold_storage_after_days": "30"
+                                "move_to_cold_storage_after_days": "30",
+                                "to_delete_after_days": "365"
                             }
                         }
                     }
@@ -493,7 +566,7 @@ In the following example, an inherited parent policy and a child policy either i
             "selections": {
                 "tags": {
                     "monthlydatatype": {
-                        "iam_role_arn": "arn:aws:iam::123456789012:role/MyMonthlyBackupIamRole",
+                        "iam_role_arn": "arn:aws:iam::&ExampleAWSAccountNo3;:role/MyMonthlyBackupIamRole",
                         "tag_key": "BackupType",
                         "tag_value": [ "MONTHLY", "RED" ]
                     }
@@ -513,18 +586,22 @@ In the following example, an inherited parent policy uses the [child control ope
 ```
 {
     "plans": {
-       "@@operators_allowed_for_child_policies": ["@@none"],
-       "PII_Backup_Plan": {
-           "@@operators_allowed_for_child_policies": ["@@none"],
-           "regions": {
-               "@@operators_allowed_for_child_policies": ["@@none"],
-               "@@append":[ "us-east-1", "ap-northeast-3", "eu-north-1" ]
-           },
-           "rules": {
-               "@@operators_allowed_for_child_policies": ["@@none"],
-               "Hourly": {
-                   "@@operators_allowed_for_child_policies": ["@@none"],
-                   "schedule_expression": {
+        "@@operators_allowed_for_child_policies": ["@@none"],
+        "PII_Backup_Plan": {
+            "@@operators_allowed_for_child_policies": ["@@none"],
+            "regions": {
+                "@@operators_allowed_for_child_policies": ["@@none"],
+                "@@append": [
+                    "us-east-1",
+                    "ap-northeast-3",
+                    "eu-north-1"
+                ]
+            },
+            "rules": {
+                "@@operators_allowed_for_child_policies": ["@@none"],
+                "Hourly": {
+                    "@@operators_allowed_for_child_policies": ["@@none"],
+                    "schedule_expression": {
                         "@@operators_allowed_for_child_policies": ["@@none"],
                         "@@assign": "cron(0 0/1 ? * * *)"
                     },
@@ -538,22 +615,22 @@ In the following example, an inherited parent policy uses the [child control ope
                     },
                     "lifecycle": {
                         "@@operators_allowed_for_child_policies": ["@@none"],
-                        "to_delete_after_days": {
-                            "@@operators_allowed_for_child_policies": ["@@none"],
-                            "@@assign": "2"
-                        },
                         "move_to_cold_storage_after_days": {
+                            "@@operators_allowed_for_child_policies": ["@@none"],
+                            "@@assign": "28"
+                        },
+                        "to_delete_after_days": {
                             "@@operators_allowed_for_child_policies": ["@@none"],
                             "@@assign": "180"
                         }
                     },
                     "copy_actions": {
                         "@@operators_allowed_for_child_policies": ["@@none"],
-                        "arn:aws:backup:us-east-1:$account:vault:secondary_vault" : {
+                        "arn:aws:backup:us-east-1:$account:vault:secondary_vault": {
                             "@@operators_allowed_for_child_policies": ["@@none"],
-                            "target_backup_vault_arn" :
-                                "@@assign" : "arn:aws:backup:us-east-1:$account:vault:secondary_vault"
-                                "@@operators_allowed_for_child_policies": ["@@none"],
+                            "target_backup_vault_arn": {
+                                "@@assign": "arn:aws:backup:us-east-1:$account:vault:secondary_vault",
+                                "@@operators_allowed_for_child_policies": ["@@none"]
                             },
                             "lifecycle": {
                                 "@@operators_allowed_for_child_policies": ["@@none"],
@@ -580,25 +657,27 @@ In the following example, an inherited parent policy uses the [child control ope
                             "@@operators_allowed_for_child_policies": ["@@none"],
                             "@@assign": "arn:aws:iam::$account:role/MyIamRole"
                         },
-                        "@@operators_allowed_for_child_policies": ["@@none"],
                         "tag_key": {
                             "@@operators_allowed_for_child_policies": ["@@none"],
                             "@@assign": "dataType"
                         },
                         "tag_value": {
                             "@@operators_allowed_for_child_policies": ["@@none"],
-                            "@@assign": [ "PII", "RED" ]
+                            "@@assign": [
+                                "PII",
+                                "RED"
+                            ]
                         }
                     }
                 }
             },
             "advanced_backup_settings": {
                 "@@operators_allowed_for_child_policies": ["@@none"],
-                "ec2": { 
+                "ec2": {
                     "@@operators_allowed_for_child_policies": ["@@none"],
                     "WindowsVSS": {
-                        "@@assign": "enabled" 
-                        "@@operators_allowed_for_child_policies": ["@@none"],
+                        "@@assign": "enabled",
+                        "@@operators_allowed_for_child_policies": ["@@none"]
                     }
                 }
             }
@@ -612,8 +691,12 @@ In the following example, an inherited parent policy uses the [child control ope
 ```
 {
     "plans": {
-       "PII_Backup_Plan": {
-            "regions": [ "us-east-1", "ap-northeast-3", "eu-north-1" ],
+        "PII_Backup_Plan": {
+            "regions": [
+                "us-east-1",
+                "ap-northeast-3",
+                "eu-north-1"
+            ],
             "rules": {
                 "hourly": {
                     "schedule_expression": "cron(0 0/1 ? * * *)",
@@ -624,10 +707,10 @@ In the following example, an inherited parent policy uses the [child control ope
                         "move_to_cold_storage_after_days": "180"
                     },
                     "copy_actions": {
-                        "target_backup_vault_arn" : "arn:aws:backup:us-east-1:123456789012:vault:secondary_vault",
+                        "target_backup_vault_arn": "arn:aws:backup:us-east-1:123456789012:vault:secondary_vault",
                         "lifecycle": {
-                            "to_delete_after_days": "28",
-                            "move_to_cold_storage_after_days": "180"
+                            "move_to_cold_storage_after_days": "28",
+                            "to_delete_after_days": "180"
                         }
                     }
                 }
@@ -637,14 +720,15 @@ In the following example, an inherited parent policy uses the [child control ope
                     "datatype": {
                         "iam_role_arn": "arn:aws:iam::123456789012:role/MyIamRole",
                         "tag_key": "dataType",
-                        "tag_value": [ "PII", "RED" ]
+                        "tag_value": [
+                            "PII",
+                            "RED"
+                        ]
                     }
                 }
             },
             "advanced_backup_settings": {
-                "ec2": { 
-                    "WindowsVSS": "enabled" 
-                }
+                "ec2": {"WindowsVSS": "enabled"}
             }
         }
     }
@@ -717,27 +801,29 @@ In the following example, a child policy uses [value\-setting operators](orgs_ma
 ```
 {
     "plans": {
-       "PII_Backup_Plan": {
+        "PII_Backup_Plan": {
             "regions": {
-                "@@append":[ "us-east-1", "ap-northeast-3", "eu-north-1" ]
+                "@@append": [
+                    "us-east-1",
+                    "ap-northeast-3",
+                    "eu-north-1"
+                ]
             },
             "rules": {
                 "Hourly": {
-                    "schedule_expression": { "@@assign": "cron(0 0/1 ? * * *)" },
-                    "start_backup_window_minutes": { "@@assign": "60" },
-                    "target_backup_vault_name": { "@@assign": "FortKnox" },
+                    "schedule_expression": {"@@assign": "cron(0 0/1 ? * * *)"},
+                    "start_backup_window_minutes": {"@@assign": "60"},
+                    "target_backup_vault_name": {"@@assign": "FortKnox"},
                     "lifecycle": {
-                        "to_delete_after_days": { "@@assign": "2" },
-                        "move_to_cold_storage_after_days": { "@@assign": "180" }
+                        "to_delete_after_days": {"@@assign": "2"},
+                        "move_to_cold_storage_after_days": {"@@assign": "180"}
                     },
                     "copy_actions": {
-                        "arn:aws:backup:us-east-1:$account:vault:t2" : {
-                            "target_backup_vault_arn" :
-                                "@@assign" : "arn:aws:backup:us-east-1:$account:vault:t2"
-                            },
+                        "arn:aws:backup:us-east-1:$account:vault:t2": {
+                            "target_backup_vault_arn": {"@@assign": "arn:aws:backup:us-east-1:$account:vault:t2"},
                             "lifecycle": {
-                                "to_delete_after_days": { "@@assign": "28" },
-                                "move_to_cold_storage_after_days": { "@@assign": "180" }
+                                "move_to_cold_storage_after_days": {"@@assign": "28"},
+                                "to_delete_after_days": {"@@assign": "180"}
                             }
                         }
                     }
@@ -746,9 +832,14 @@ In the following example, a child policy uses [value\-setting operators](orgs_ma
             "selections": {
                 "tags": {
                     "datatype": {
-                        "iam_role_arn": { "@@assign": "arn:aws:iam::$account:role/MyIamRole" },
-                        "tag_key": { "@@assign": "dataType" },
-                        "tag_value": { "@@assign": [ "PII", "RED" ] }
+                        "iam_role_arn": {"@@assign": "arn:aws:iam::$account:role/MyIamRole"},
+                        "tag_key": {"@@assign": "dataType"},
+                        "tag_value": {
+                            "@@assign": [
+                                "PII",
+                                "RED"
+                            ]
+                        }
                     }
                 }
             }
@@ -762,16 +853,21 @@ In the following example, a child policy uses [value\-setting operators](orgs_ma
 ```
 {
     "plans": {
-       "PII_Backup_Plan": {
-            "regions": { "@@assign":[ "us-west-2", "eu-central-1" ] },
+        "PII_Backup_Plan": {
+            "regions": {
+                "@@assign": [
+                    "us-west-2",
+                    "eu-central-1"
+                ]
+            },
             "rules": {
                 "Hourly": {
-                    "schedule_expression": { "@@assign": "cron(0 0/2 ? * * *)" },
-                    "start_backup_window_minutes": { "@@assign": "80" },
-                    "target_backup_vault_name": { "@@assign": "Default" },
+                    "schedule_expression": {"@@assign": "cron(0 0/2 ? * * *)"},
+                    "start_backup_window_minutes": {"@@assign": "80"},
+                    "target_backup_vault_name": {"@@assign": "Default"},
                     "lifecycle": {
-                        "to_delete_after_days": { "@@assign": "365" },
-                        "move_to_cold_storage_after_days": { "@@assign": "30" }
+                        "move_to_cold_storage_after_days": {"@@assign": "30"},
+                        "to_delete_after_days": {"@@assign": "365"}
                     }
                 }
             }
@@ -790,8 +886,11 @@ In the following example, a child policy uses [value\-setting operators](orgs_ma
 ```
 {
     "plans": {
-       "PII_Backup_Plan": {
-            "regions": [ "us-west-2", "eu-central-1" ],
+        "PII_Backup_Plan": {
+            "regions": [
+                "us-west-2",
+                "eu-central-1"
+            ],
             "rules": {
                 "hourly": {
                     "schedule_expression": "cron(0 0/2 ? * * *)",
@@ -802,13 +901,11 @@ In the following example, a child policy uses [value\-setting operators](orgs_ma
                         "move_to_cold_storage_after_days": "30"
                     },
                     "copy_actions": {
-                        "arn:aws:backup:us-east-1:$account:vault:secondary_vault" : {
-                            "target_backup_vault_arn" :
-                                "@@assign" : "arn:aws:backup:us-east-1:$account:vault:secondary_vault"
-                            },
+                        "arn:aws:backup:us-east-1:$account:vault:secondary_vault": {
+                            "target_backup_vault_arn": {"@@assign": "arn:aws:backup:us-east-1:$account:vault:secondary_vault"},
                             "lifecycle": {
-                                "to_delete_after_days": "28",
-                                "move_to_cold_storage_after_days": "180"
+                                "move_to_cold_storage_after_days": "28",
+                                "to_delete_after_days": "180"
                             }
                         }
                     }
@@ -819,7 +916,10 @@ In the following example, a child policy uses [value\-setting operators](orgs_ma
                     "datatype": {
                         "iam_role_arn": "arn:aws:iam::$account:role/MyIamRole",
                         "tag_key": "dataType",
-                        "tag_value": [ "PII", "RED" ]
+                        "tag_value": [
+                            "PII",
+                            "RED"
+                        ]
                     }
                 }
             }
