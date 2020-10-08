@@ -5,11 +5,11 @@ Part of managing accounts in an organization is removing *member* accounts that 
 For information on removing the *master account*, see [Deleting the organization by removing the master account](orgs_manage_org_delete.md)\.
 
 **Topics**
-+ [Before removing an account from an organization](#orgs_manage_account-before_-remove)
++ [Before removing an account from an organization](#orgs_manage_account-before-remove)
 + [Removing a member account from your organization](#orgs_manage_accounts_remove-from-management-account)
 + [Leaving an organization as a member account](#orgs_manage_accounts_leave-as-member)
 
-## Before removing an account from an organization<a name="orgs_manage_account-before_-remove"></a>
+## Before removing an account from an organization<a name="orgs_manage_account-before-remove"></a>
 
 Before you remove an account, it's important to know the following:
 + You can remove an account from your organization only if the account has the information that is required for it to operate as a standalone account\. When you create an account in an organization using the AWS Organizations console, API, or AWS CLI commands, all the information that is required of standalone accounts is not automatically collected\. For each account that you want to make standalone, you must choose a support plan, provide and verify the required contact information, and provide a current payment method\. AWS uses the payment method to charge for any billable \(not AWS Free Tier\) AWS activity that occurs while the account isn't attached to an organization\. 
