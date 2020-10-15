@@ -4,7 +4,7 @@ To help you get started with AWS Organizations, this topic explains some of the 
 
 The following diagram shows a basic organization that consists of seven accounts that are organized into four organizational units \(OUs\) under the root\. The organization also has several policies that are attached to some of the OUs or directly to accounts\. For a description of each of these items, refer to the definitions in this topic\.
 
-![\[Diagram of basic organization\]](http://docs.aws.amazon.com/organizations/latest/userguide/images/BasicOrganization.png)
+![\[Diagram of basic organization\]](http://docs.aws.amazon.com/organizations/latest/userguide/images/BasicOrganization-MASTER.png)
 
 **Organization**  <a name="org"></a>
 An entity that you create to consolidate your AWS [accounts](#account) so that you can administer them as a single unit\. You can use the [AWS Organizations console](https://console.aws.amazon.com/organizations/) to centrally view and manage all of your accounts within your organization\. An organization has one master account along with zero or more member accounts\. You can organize the accounts in a hierarchical, tree\-like structure with a [root](#root) at the top and [organizational units](#organizationalunit) nested under the root\. Each account can be directly in the root, or placed in one of the OUs in the hierarchy\. An organization has the functionality that is determined by the [feature set](#feature-set) that you enable\. 
@@ -19,7 +19,7 @@ A container for [accounts](#account) within a [root](#root)\. An OU also can con
 **Account**  <a name="account"></a>
 A standard AWS account that contains your AWS resources\. You can attach a policy to an account to apply controls to only that one account\.  
 There are two types of accounts in an organization: a single account that is designated as the master account, and member accounts\.  
-+ The **master account** is the account that creates the organization\. From the organization's master account, you can do the following:
++ The **master account** is the account that you use to create the organization\. From the organization's master account, you can do the following:
   + Create accounts in the organization
   + Invite other existing accounts to the organization
   + Remove accounts from the organization
