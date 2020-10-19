@@ -44,7 +44,6 @@ Amazon's trademarks and trade dress may not be used in
    + [Service control policies](orgs_manage_policies_scps.md)
       + [Creating, updating, and deleting service control policies](orgs_manage_policies_scps_create.md)
       + [Attaching and detaching service control policies](orgs_manage_policies_scps_attach.md)
-      + [How SCPs work](orgs_manage_policies_scps_about.md)
       + [Strategies for using SCPs](orgs_manage_policies_scps_strategies.md)
       + [SCP syntax](orgs_manage_policies_scps_syntax.md)
       + [Example service control policies](orgs_manage_policies_scps_examples.md)

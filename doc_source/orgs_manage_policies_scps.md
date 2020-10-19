@@ -9,7 +9,7 @@ For information and procedures common to all policy types, see the following top
 
 Service control policies \(SCPs\) are a type of organization policy that you can use to manage permissions in your organization\. SCPs offer central control over the maximum available permissions for all accounts in your organization\. SCPs help you to ensure your accounts stay within your organization’s access control guidelines\. SCPs are available only in an organization that has [all features enabled](orgs_manage_org_support-all-features.md)\. SCPs aren't available if your organization has enabled only the consolidated billing features\. For instructions on enabling SCPs, see [Enabling and disabling policy types](orgs_manage_policies_enable-disable.md)\.
 
-SCPs alone are not sufficient to granting permissions to the accounts in your organization\. No permissions are granted by an SCP\. An SCP defines a guardrail, or sets limits, on the actions that the account's administrator can delegate to the IAM users and roles in the affected accounts\. The administrator must still attach [identity\-based or resource\-based policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html) to IAM users or roles, or to the resources in your accounts to actually grant permissions\. The [effective permissions](#scp-effects-on-permissions) are the logical union between what is allowed by the SCP and what is allowed by the IAM and resource\-based policies\.
+SCPs alone are not sufficient to granting permissions to the accounts in your organization\. No permissions are granted by an SCP\. An SCP defines a guardrail, or sets limits, on the actions that the account's administrator can delegate to the IAM users and roles in the affected accounts\. The administrator must still attach [identity\-based or resource\-based policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html) to IAM users or roles, or to the resources in your accounts to actually grant permissions\. The [effective permissions](#scp-effects-on-permissions) are the logical intersection between what is allowed by the SCP and what is allowed by the IAM and resource\-based policies\.
 
 **Important**  
 SCPs don't affect users or roles in the master account\. They affect only the member accounts in your organization\.
@@ -17,6 +17,7 @@ SCPs don't affect users or roles in the master account\. They affect only the me
 ****Topics on this page****
 + [Testing effects of SCPs](#scp-warning-testing-effect)
 + [Maximum size of SCPs](#scp-size-limit)
++ [Inheritance of SCPs in the OU hierachy](#scp-about-inheritance)
 + [Effects on permissions](#scp-effects-on-permissions)
 + [Using access data to improve SCPs](#data-from-iam)
 + [Tasks and entities not restricted by SCPs](#not-restricted-by-scp)
@@ -32,12 +33,16 @@ All characters in your SCP count against its [maximum size](orgs_reference_limit
 **Tip**  
 Use the visual editor to build your SCP\. It automatically removes extra white space\.
 
+### Inheritance of SCPs in the OU hierachy<a name="scp-about-inheritance"></a>
+
+For a detailed explanation of how SCP inheritance works, see [Inheritance for service control policies](orgs_manage_policies_inheritance_auth.md)
+
 ### Effects on permissions<a name="scp-effects-on-permissions"></a>
 
 SCPs are similar to AWS Identity and Access Management \(IAM\) permission policies and use almost the same syntax\. However, an SCP never grants permissions\. Instead, SCPs are JSON policies that specify the maximum permissions for the affected accounts\. For more information, see [Policy Evaluation Logic](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html) in the *IAM User Guide*\. 
 + SCPs ***affect only IAM users and roles*** that are managed by accounts that are part of the organization\. SCPs don't affect resource\-based policies directly\. They also don't affect users or roles from accounts outside the organization\. For example, consider an Amazon S3 bucket that's owned by account A in an organization\. The bucket policy \(a resource\-based policy\) grants access to users from account B outside the organization\. Account A has an SCP attached\. That SCP doesn't apply to those outside users in account B\. The SCP applies only to users that are managed by account A in the organization\. 
 + An SCP restricts permissions for IAM users and roles in member accounts, including the member account's root user\. Any account has only those permissions permitted by ***every*** parent above it\. If a permission is blocked at any level above the account, either implicitly \(by not being included in an `Allow` policy statement\) or explicitly \(by being included in a `Deny` policy statement\), a user or role in the affected account can't use that permission, even if the account administrator attaches the `AdministratorAccess` IAM policy with \*/\* permissions to the user\.
-+ SCPs affect only ***member*** accounts in the organization\. They have no effect on users or roles in the master account\.
++ SCPs affect only ***member*** accounts in the organization\. They have no effect on users or roles in the master account\. 
 + Users and roles must still be granted permissions with appropriate IAM permission policies\. A user without any IAM permission policies has no access, even if the applicable SCPs allow all services and all actions\.
 + If a user or role has an IAM permission policy that grants access to an action that is also allowed by the applicable SCPs, the user or role can perform that action\.
 + If a user or role has an IAM permission policy that grants access to an action that is either not allowed or explicitly denied by the applicable SCPs, the user or role can't perform that action\.

@@ -18,19 +18,35 @@ The following functionally complete policy shows the basic backup policy syntax\
         "PII_Backup_Plan": {
             "rules": {
                 "My_Hourly_Rule": {
-                    "schedule_expression": {"@@assign": "cron(0 5 ? * * *)"},
-                    "start_backup_window_minutes": {"@@assign": "60"},
-                    "complete_backup_window_minutes": {"@@assign": "604800"},
-                    "target_backup_vault_name": {"@@assign": "My_Backup_Vault"},
+                    "schedule_expression": {
+                        "@@assign": "cron(0 5 ? * * *)"
+                    },
+                    "start_backup_window_minutes": {
+                        "@@assign": "60"
+                    },
+                    "complete_backup_window_minutes": {
+                        "@@assign": "604800"
+                    },
+                    "target_backup_vault_name": {
+                        "@@assign": "My_Backup_Vault"
+                    },
                     "recovery_point_tags": {
                         "Owner": {
-                            "tag_key": {"@@assign": "Owner"},
-                            "tag_value": {"@@assign": "Backup"}
+                            "tag_key": {
+                                "@@assign": "Owner"
+                            },
+                            "tag_value": {
+                                "@@assign": "Backup"
+                            }
                         }
                     },
                     "lifecycle": {
-                        "move_to_cold_storage_after_days": {"@@assign": "180"},
-                        "delete_after_days": {"@@assign": "270"}
+                        "move_to_cold_storage_after_days": {
+                            "@@assign": "180"
+                        },
+                        "delete_after_days": {
+                            "@@assign": "270"
+                        }
                     },
                     "copy_actions": {
                         "arn:aws:backup:us-west-2:$account:backup-vault:My_Secondary_Vault": {
@@ -38,17 +54,25 @@ The following functionally complete policy shows the basic backup policy syntax\
                                 "@@assign": "arn:aws:backup:us-west-2:$account:backup-vault:My_Secondary_Vault"
                             },
                             "lifecycle": {
-                                "move_to_cold_storage_after_days": {"@@assign": "180"},
-                                "delete_after_days": {"@@assign": "270"}
+                                "move_to_cold_storage_after_days": {
+                                    "@@assign": "180"
+                                },
+                                "delete_after_days": {
+                                    "@@assign": "270"
+                                }
                             }
                         },
                         "arn:aws:backup:us-east-1:$account:backup-vault:My_Tertiary_Vault": {
                             "target_backup_vault_arn": {
-                                "@@assign": "arn:aws:backup:us-east-1:111111111111:backup-vault:My_Tertiary_Vault"
+                                "@@assign": "arn:aws:backup:us-east-1:$account:backup-vault:My_Tertiary_Vault"
                             },
                             "lifecycle": {
-                                "move_to_cold_storage_after_days": {"@@assign": "180"},
-                                "delete_after_days": {"@@assign": "270"}
+                                "move_to_cold_storage_after_days": {
+                                    "@@assign": "180"
+                                },
+                                "delete_after_days": {
+                                    "@@assign": "270"
+                                }
                             }
                         }
                     }
@@ -63,8 +87,12 @@ The following functionally complete policy shows the basic backup policy syntax\
             "selections": {
                 "tags": {
                     "My_Backup_Assignment": {
-                        "iam_role_arn": {"@@assign": "arn:aws:iam::$account:role/MyIamRole"},
-                        "tag_key": {"@@assign": "dataType"},
+                        "iam_role_arn": {
+                            "@@assign": "arn:aws:iam::$account:role/MyIamRole"
+                        },
+                        "tag_key": {
+                            "@@assign": "dataType"
+                        },
                         "tag_value": {
                             "@@assign": [
                                 "PII",
@@ -76,13 +104,19 @@ The following functionally complete policy shows the basic backup policy syntax\
             },
             "advanced_backup_settings": {
                 "ec2": {
-                    "WindowsVSS": {"@@assign": "enabled"}
+                    "WindowsVSS": {
+                        "@@assign": "enabled"
+                    }
                 }
             },
             "backup_plan_tags": {
                 "stage": {
-                    "tag_key": {"@@assign": "Stage"},
-                    "tag_value": {"@@assign": "Beta"}
+                    "tag_key": {
+                        "@@assign": "Stage"
+                    },
+                    "tag_value": {
+                        "@@assign": "Beta"
+                    }
                 }
             }
         }
@@ -151,8 +185,8 @@ The vault must already exist when the backup plan is launched the first time\. W
       + `target_backup_vault_arn` – This policy key maps to the `DestinationBackupVaultArn` key in an AWS Backup plan\.
 
         \(Optional\) Specifies the vault in which AWS Backup stores an additional copy of the backup\. The value of this key contains the [`@@assign` inheritance value operator](orgs_manage_policies_inheritance_mgmt.md#value-setting-operators) and the ARN of the vault\. 
-        + To reference a vault in the AWS account that the backup policy is running in, use the `$account` variable in the ARN in place of the account ID number\. When AWS Backup runs the backup plan, it automatically replaces the variable with the account ID number of the AWS account in which the policy is running\. This enables the backup to run correctly when the backup policy applies to more than one account in an organization\.
-        + To reference a vault in a different AWS account in the same organization, use the actual account ID number in the ARN\.
+
+        You must use the `$account` variable in the ARN in place of the account ID number\. When AWS Backup runs the backup plan, it automatically replaces the variable with the account ID number of the AWS account in which the policy is running\. While you can only copy within the same account, you each backup copy be stored in a different Region\.
 **Important**  
 If this key is missing, then an all lower\-case version of the ARN in the parent key name is used\. Because ARNs are case sensitive, this string might not match the actual ARN of the fault and the plan fails\. For this reason, we recommend you always supply this key and value\.
 The backup vault that you want to copy the backup to must already exist the first time you launch the backup plan\. We recommend that you use AWS CloudFormation stack sets and its integration with Organizations to automatically create and configure backup vaults and IAM roles for each member account in the organization\. For more information, see [Create a stack set with self\-managed permissions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-getting-started-create.html#create-stack-set-service-managed-permissions) in the *AWS CloudFormation User Guide*\.
@@ -266,9 +300,9 @@ The following example shows a backup policy that is assigned to one of the paren
                                 }
                             }
                         },
-                        "arn:aws:backup:us-west-1:111111111111:backup-vault:tertiary_vault": {
+                        "arn:aws:backup:us-west-1:$account:backup-vault:tertiary_vault": {
                             "target_backup_vault_arn": {
-                                "@@assign": "arn:aws:backup:us-west-1:111111111111:backup-vault:tertiary_vault"
+                                "@@assign": "arn:aws:backup:us-west-1:$account:backup-vault:tertiary_vault"
                             },
                             "lifecycle": {
                                 "move_to_cold_storage_after_days": {
@@ -341,9 +375,9 @@ If no other policies are inherited or attached to the accounts, the effective po
                                 "move_to_cold_storage_after_days": "180"
                             }
                         },
-                        "arn:aws:backup:us-west-1:111111111111:vault:tertiary_vault": {
+                        "arn:aws:backup:us-west-1:$account:vault:tertiary_vault": {
                             "target_backup_vault_arn": {
-                                "@@assign": "arn:aws:backup:us-west-1:111111111111:vault:tertiary_vault"
+                                "@@assign": "arn:aws:backup:us-west-1:$account:vault:tertiary_vault"
                             },
                             "lifecycle": {
                                 "to_delete_after_days": "28",
