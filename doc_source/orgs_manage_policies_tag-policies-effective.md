@@ -24,7 +24,7 @@ To view the effective tag policy for an account, you must have permission to run
 
 **To view the effective policy for an account**
 
-1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\. 
+1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's management account\. 
 **Note**  
 When you are signed in to a member account, the procedure for viewing the effective policy is different\. When signed in to an account, you can view the effective tag policy in the context of evaluating compliance for the account\. For more information, see [ Evaluating Compliance for an Account](https://docs.aws.amazon.com/ARG/latest/userguide/tag-policies-arg-finding-noncompliant-tags.html) in the *AWS Resource Groups User Guide\.*
 

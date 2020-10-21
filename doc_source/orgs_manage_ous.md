@@ -18,7 +18,7 @@ To navigate to different OUs or to the root when moving accounts or attaching po
 
 **To enable and use the tree view of the organization**
 
-1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\. 
+1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's management account\. 
 
 1. Choose the **Organize accounts** tab\.
 
@@ -34,7 +34,7 @@ To navigate to different OUs or to the root when moving accounts or attaching po
 
 **To navigate without using the tree view**
 
-1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\. 
+1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's management account\. 
 
 1. Choose the **Organize accounts** tab\.
 
@@ -44,7 +44,7 @@ To navigate to different OUs or to the root when moving accounts or attaching po
 
 ## Creating an OU<a name="create_ou"></a>
 
-When signed in to your organization's master account, you can create an OU in your organization's root\. OUs can be nested up to five levels deep\. To create an OU, complete the following steps\.
+When signed in to your organization's management account \(formerly known as the "master account"\), you can create an OU in your organization's root\. OUs can be nested up to five levels deep\. To create an OU, complete the following steps\.
 
 **Important**  
 If this organization is managed with AWS Control Tower, then create your OUs with the AWS Control Tower console or APIs\. If you create the OU in Organizations, then that OU isn't registered with AWS Control Tower\. For more information, see [Referring to Resources Outside of AWS Control Tower](https://docs.aws.amazon.com/controltower/latest/userguide/external-resources.html#ungoverned-resources) in the *AWS Control Tower User Guide*\.
@@ -59,7 +59,7 @@ To create an OU within a root in your organization, you must have the following 
 
 **To create an OU**
 
-1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\. 
+1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's management account\. 
 
    The console displays the contents of the root\. The first time you visit a root, the console displays all of your AWS accounts in that top\-level view\. If you previously created OUs and moved accounts into them, the console shows only the top\-level OUs and any accounts that you have not yet moved into an OU\.
 
@@ -87,7 +87,7 @@ You can use one of the following commands to create an OU:
 
 ## Renaming an OU<a name="rename_ou"></a>
 
-When signed in to your organization's master account, you can rename an OU\. To do this, complete the following steps\.
+When signed in to your organization's management account, you can rename an OU\. To do this, complete the following steps\.
 
 **Minimum permissions**  
 To rename an OU within a root in your AWS organization, you must have the following permissions:  
@@ -99,7 +99,7 @@ To rename an OU within a root in your AWS organization, you must have the follow
 
 **To rename an OU**
 
-1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\. 
+1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's management account\. 
 
 1. On the **Organize accounts** tab, [navigate to the parent of the OU](#navigate_tree) that you want to rename\. Select the check box for the child OU that you want to rename\.
 
@@ -133,7 +133,7 @@ To edit the tags attached to an OU within a root in your AWS organization, you m
 
 **To edit the tags attached to an OU**
 
-1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\. 
+1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's management account\. 
 
 1. On the **Organize accounts** tab, [navigate to and choose the OU](#navigate_tree) whose tags you want to edit\.
 
@@ -158,7 +158,7 @@ You can use one of the following commands to rename an OU:
 
 ## Moving an account to an OU or between the root and OUs<a name="move_account_to_ou"></a>
 
-When signed in to your organization's master account, you can move accounts in your organization from the root to an OU, from one OU to another, or back to the root from an OU\. Placing an account inside an OU makes it subject to any policies that are attached to the parent OU and any other OUs in the parent chain up to the root\. If an account isn't in an OU, it's subject to only the policies that are attached to the root and any that are attached directly to the account\. To move an account, complete the following steps\.
+When signed in to your organization's management account, you can move accounts in your organization from the root to an OU, from one OU to another, or back to the root from an OU\. Placing an account inside an OU makes it subject to any policies that are attached to the parent OU and any other OUs in the parent chain up to the root\. If an account isn't in an OU, it's subject to only the policies that are attached to the root and any that are attached directly to the account\. To move an account, complete the following steps\.
 
 **Minimum permissions**  
 To move an account to a new location in the OU hierarchy, you must have the following permissions:  
@@ -170,7 +170,7 @@ To move an account to a new location in the OU hierarchy, you must have the foll
 
 **To move an account to an OU**
 
-1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\. 
+1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's management account\. 
 
 1. Choose the **Organize accounts** tab and then [navigate to the OU](#navigate_tree) that contains the account that you want to move\. When you find the account, select its check box\. Select multiple check boxes if you want to move multiple accounts\.
 
@@ -190,7 +190,7 @@ You can use one of the following commands to move an account:
 
 ## Deleting an OU<a name="delete-ou"></a>
 
-When signed in to your organization's master account, you can delete OUs that you no longer need\. First, you must move all accounts out of the OU and any child OUs, and then you can delete the child OUs\.
+When signed in to your organization's management account, you can delete OUs that you no longer need\. First, you must move all accounts out of the OU and any child OUs, and then you can delete the child OUs\.
 
 **Minimum permissions**  
 To delete an OU, you must have the following permissions:  
@@ -202,7 +202,7 @@ To delete an OU, you must have the following permissions:
 
 **To delete an OU**
 
-1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\. 
+1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's management account\. 
 
 1. On the **Organize accounts** tab, [navigate to the parent container](#navigate_tree) of the OU that you want to delete\. Select the OU's check box\. You can select check boxes for multiple OUs if you want to delete more than one\.
 

@@ -10,7 +10,7 @@ This page describes the prerequisites and required permissions to manage backup 
 
 To manage backup policies in an organization requires the following:
 + Your organization must have [all features enabled](orgs_manage_org_support-all-features.md)\. 
-+ You must be signed in to your organization's master account\. 
++ You must be signed in to your organization's management account \(formerly known as the "master account"\)\. 
 + Your AWS Identity and Access Management \(IAM\) user or role must have the permissions that are listed in the following section\.
 
 ## Permissions for managing backup policies<a name="backup-policies-permissions-manage-policies"></a>

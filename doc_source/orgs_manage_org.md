@@ -1,7 +1,7 @@
 # Creating and managing an organization<a name="orgs_manage_org"></a>
 
 You can perform the following tasks using the AWS Organizations console:
-+ **[Create an organization](orgs_manage_create.md)**\. Create your organization with your current account as its master account\. Create member accounts within your organization, and invite other accounts to join your organization\.
++ **[Create an organization](orgs_manage_create.md)**\. Create your organization with your current account as its management account \(formerly known as the "master account"\)\. Create member accounts within your organization, and invite other accounts to join your organization\.
 + **[Enable all features in your organization](orgs_manage_org_support-all-features.md)**\. Enabling all features is the preferred way to work with AWS Organizations\. When you create an organization, you have the option to enable all features or a subset of features for consolidating billing\. Enabling all features is the default, and it includes consolidated billing features\. 
 
   With all features enabled, you can use the advanced account management features available in AWS Organizations such as [service control policies \(SCPs\)](orgs_manage_policies_scps.md)\. SCPs offer central control over the maximum available permissions for all accounts in your organization, enabling you to ensure your accounts stay within your organization’s access control guidelines\.

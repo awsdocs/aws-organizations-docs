@@ -151,7 +151,7 @@ The following procedure shows how to attach the backup policy you just created t
 
 ## Determining the effective backup policy for an account<a name="backup-get-effective-cli"></a>
 
-To determine what backup policies apply to an account, run the following command from that account\. From the master account, you can use the `--target-id` parameter to get the effective policy of any member account\. If you are signed in to a member account, you can use the command without the `--target-id` parameter to get the effective policy of the AWS account you're signed in to\.
+To determine what backup policies apply to an account, run the following command from that account\. From the management account \(formerly known as the "master account"\), you can use the `--target-id` parameter to get the effective policy of any member account\. If you are signed in to a member account, you can use the command without the `--target-id` parameter to get the effective policy of the AWS account you're signed in to\.
 
 The output displays the merged combination of all backup policies that apply to the specified AWS account: attached directly to the account, attached to the organization root, or attached to one or more of the OUs the account is in\.
 

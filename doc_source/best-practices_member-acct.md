@@ -19,12 +19,12 @@ Follow these recommendations to help protect the security of the member accounts
 ## Use a complex password for member account root users<a name="best-practices_mbr-acct_complex-password"></a>
 + The security of your account's root user depends on the strength of its password\. We recommend that you use a password that is long, complex, and not used anywhere else\. Numerous password managers and complex password generation algorithms and tools can help you achieve these goals\.
 + If you are using a strong password, as described in the previous point, and you rarely access the root user, we recommend that you do ***not*** periodically change the password\. Changing the password more frequently than you use it increases the risk of compromise\.
-+ Rely on your business' information security policy for managing long\-term storage and access to the passwords for your member account root users\. Unlike the master account, however, it's reasonable to consider storing the password in a credible and business\-approved password manager system or tool\.
++ Rely on your business' information security policy for managing long\-term storage and access to the passwords for your member account root users\. Unlike the management account \(formerly known as the "master account"\), however, it's reasonable to consider storing the password in a credible and business\-approved password manager system or tool\.
 
   Store the password in a password manager system or tool under further controls and processes\. If you do use a password manager, we recommend that it be offline\. To avoid creating a circular dependency, do not store the password with tools that depend on AWS services that you sign in to with the protected account\. 
 
   Whatever method you choose, we recommend that the method is resilient and requires multiple actors to be involved to reduce collusion risks\.
-+ Alternatively, you can store the password for a member account root user in a safe, [using the guidance we provide for the master account root user](orgs_best-practices_mgmt-acct.md#best-practices_mgmt-acct_complex-password)\.
++ Alternatively, you can store the password for a member account root user in a safe, [using the guidance we provide for the management account root user](orgs_best-practices_mgmt-acct.md#best-practices_mgmt-acct_complex-password)\.
 + Consider not enabling credentials for the root user in created member accounts\. By default, Organizations assigns a random, complex, and very long password that you can't use\. To access the root user, you must perform the steps for password recovery\. We recommend that you don't do this unless you need to perform a task that can only be performed by the root user in the account\. For more information, see [Accessing a member account as the root user](orgs_manage_accounts_access.md#orgs_manage_accounts_access-as-root)\.
 + However you choose to handle the root user's password, you can apply a service control policy \(SCP\) that prevents the member account root users from calling any AWS APIs\. However, if you need to respond to a significant security event in a member account, you might need rapid access to that account's root user\. Therefore, using a complex password for the member account root user and creating procedures for access and use in advance is still the recommended approach, as described in the previous points\.
 
@@ -34,20 +34,20 @@ For instructions on how to enable multi\-factor authentication \(MFA\), see [Usi
 + Use a hardware\-based device that does not rely on a battery to generate the one\-time password \(OTP\)\. This approach helps ensure that the MFA is impossible to duplicate and isn't subject to battery fade risks while in long\-term storage 
   + If you do decide to use a battery\-based MFA, be sure to add processes to check the device periodically, and replace it when the expiry date approaches\.
   + Create a plan to handle the logistics of needing to maintain 24/7 access to the token in case it is needed\.
-+ Unlike our [recommendation for the master account root user](orgs_best-practices_mgmt-acct.md#best-practices_mgmt-acct_mfa), for member accounts you can re\-use that physical MFA device for multiple member accounts\. However, reusing this MFA device can create issues when teams are geographically distributed\. In those instances where you need 24/7 access to credentials protected by this MFA device, we recommend that you print and store the QR code\. Document the QR code's purpose, and seal and store it in accessible safes across the time zones you operate in, according to your information security policy\. 
++ Unlike our [recommendation for the management account root user](orgs_best-practices_mgmt-acct.md#best-practices_mgmt-acct_mfa), for member accounts you can re\-use that physical MFA device for multiple member accounts\. However, reusing this MFA device can create issues when teams are geographically distributed\. In those instances where you need 24/7 access to credentials protected by this MFA device, we recommend that you print and store the QR code\. Document the QR code's purpose, and seal and store it in accessible safes across the time zones you operate in, according to your information security policy\. 
 + Store the MFA device according to your information security policy but ***not*** in the same place as the associated password for the root user\. Make sure that the process to access the password and the process to access the MFA require different access to different resources \(people, data and tools\)\. 
 + Any access of the MFA device or its storage location should be logged and monitored\. 
 
 ## Don't add a phone number to the account contact information<a name="best-practices_mbr-acct_phone-number"></a>
-+ You can normally rely on the [phone number from the organization's master account](orgs_best-practices_mgmt-acct.md#best-practices_mgmt-acct_phone-number) for any critical account recovery\. Therefore, we believe it’s unnecessary operational overhead to add a telephone number to the contact information for a member account\. Therefore, we recommend that you don't add a phone number to the account contact information\.
++ You can normally rely on the [phone number from the organization's management account](orgs_best-practices_mgmt-acct.md#best-practices_mgmt-acct_phone-number) for any critical account recovery\. Therefore, we believe it’s unnecessary operational overhead to add a telephone number to the contact information for a member account\. Therefore, we recommend that you don't add a phone number to the account contact information\.
 
 ## Review and keep track of who has access<a name="best-practices_mbr-acct_review-access"></a>
-+ [As we recommended for the master account](orgs_best-practices_mgmt-acct.md#best-practices_mgmt-acct_review-access), you should periodically review the personnel within your business who have access to the email address, password, MFA, and phone number to ensure you maintain access to the member account's root user\. Align your review with existing business procedures\. However, it’s worth adding a monthly or quarterly review of this information to ensure that only the correct people have access\.
++ [As we recommended for the management account](orgs_best-practices_mgmt-acct.md#best-practices_mgmt-acct_review-access), you should periodically review the personnel within your business who have access to the email address, password, MFA, and phone number to ensure you maintain access to the member account's root user\. Align your review with existing business procedures\. However, it’s worth adding a monthly or quarterly review of this information to ensure that only the correct people have access\.
 + Ensure that the process to recover or reset access to the root user credentials is not reliant on any specific individual to complete\. All processes should address the prospect of people being unavailable\.
 + Ensure that the process to recover or reset access to the root user credentials can't be completed by a single individual\. It’s important that this process require the cooperation of multiple personnel to complete\.
 
 ## Document the processes for using the root user credentials<a name="best-practices_mbr-acct_document-processes"></a>
-+ It’s common for important processes, such as the creation of the organization's master account, to be a planned process including multiple steps with multiple personnel\. We recommend that you document and publish that plan, including the steps to be performed and their sequence of completion\. This approach helps ensure that the decisions made are followed correctly\.
++ It’s common for important processes, such as the creation of the organization's management account, to be a planned process including multiple steps with multiple personnel\. We recommend that you document and publish that plan, including the steps to be performed and their sequence of completion\. This approach helps ensure that the decisions made are followed correctly\.
 + Document the performance of important processes as they are performed to ensure you have a record of the individuals involved in each step and the values used\. It’s also important to provide documentation about any exceptions and unforeseen events that occur\.
 
   If an exception or unforeseen event does occur, document the time it occurred, who left the room, and what was taken out\. You should then also document who returned to the room and what was brought back in\. 
@@ -63,7 +63,7 @@ For instructions on how to enable multi\-factor authentication \(MFA\), see [Usi
   + Changing the root user email address when you still have access\.
   + Resetting the root user phone number when you lose access to the phone number\.
   + Changing the root user phone number when you still have access\.
-  + Deleting the organization's master account\.
+  + Deleting the organization's management account\.
 + Test and validate that you continue to have access to the root user and that the mobile phone number for the member account \(if you assigned one\) is operational on at least a quarterly basis\. This schedules helps assure the business that the process works and that you maintain access\. It also demonstrates that those custodians of the access understand the steps they need to perform for the process to be successful\. You never want to be in a position where the personnel involved in a process don’t understand what they are supposed to do\. As with fire drills, practice develops competency and reduces surprises\.
 
   With each test, take the opportunity to reflect on the experience and propose improvements to the process\. Especially examine any steps that were performed incorrectly or resulted in unexpected results\. How could you change the process to improve it the next time?
@@ -79,7 +79,6 @@ We recommend that you create a service control policy \(SCP\) in the organizatio
     "Version": "2012-10-17",
     "Statement": [
         {
-            "Sid": "RestrictEC2ForRoot",
             "Effect": "Deny",
             "Action": "*",
             "Resource": "*",

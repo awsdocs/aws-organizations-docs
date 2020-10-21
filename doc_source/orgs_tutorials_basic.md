@@ -7,7 +7,7 @@ The following illustration shows the main steps of the tutorial\.
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/organizations/latest/userguide/images/tutorialorgs.png)
 
 **[Step 1: Create your organization](#tutorial-orgs-step1)**  
-In this step, you create an organization with your current AWS account as the master account\. You also invite one AWS account to join your organization, and you create a second account as a member account\.
+In this step, you create an organization with your current AWS account as the management account \(formerly known as the "master account"\)\. You also invite one AWS account to join your organization, and you create a second account as a member account\.
 
 **[Step 2: Create the organizational units ](#tutorial-orgs-step2)**  
 Next, you create two organizational units \(OUs\) in your new organization and place the member accounts in those OUs\.
@@ -25,7 +25,7 @@ None of the steps in this tutorial incurs costs to your AWS bill\. AWS Organizat
 This tutorial assumes that you have access to two existing AWS accounts \(you create a third as part of this tutorial\) and that you can sign in to each as an administrator\.
 
 The tutorial refers to the accounts as the following:
-+ `111111111111` – The account that you use to create the organization\. This account becomes the master account\. The owner of this account has an email address of `OrgAccount111@example.com`\.
++ `111111111111` – The account that you use to create the organization\. This account becomes the management account\. The owner of this account has an email address of `OrgAccount111@example.com`\.
 + `222222222222` – An account that you invite to join the organization as a member account\. The owner of this account has an email address of `member222@example.com`\.
 + `333333333333` – An account that you create as a member of the organization\. The owner of this account has an email address of `member333@example.com`\.
 
@@ -33,7 +33,7 @@ Substitute the values above with the values that are associated with your test a
 
 ## Step 1: Create your organization<a name="tutorial-orgs-step1"></a>
 
-In this step, you sign in to account 111111111111 as an administrator, create an organization with that account as the master account, and invite an existing account, 222222222222, to join as a member account\.
+In this step, you sign in to account 111111111111 as an administrator, create an organization with that account as the management account, and invite an existing account, 222222222222, to join as a member account\.
 
 1. Sign in to AWS as an administrator of account 111111111111 and open the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\.
 
@@ -43,13 +43,13 @@ In this step, you sign in to account 111111111111 as an administrator, create an
 **Note**  
 By default, the organization is created with all features enabled\. You can also create the organization with only [consolidated billing features](orgs_getting-started_concepts.md#feature-set-cb-only) enabled\.
 
-   The organization is created\. You're now on the **Accounts** tab\. The star next to the account email indicates that it's the master account\.
+   The organization is created\. You're now on the **Accounts** tab\. The star next to the account email indicates that it's the management account\.
 
-   A verification email is automatically sent to the address that is associated with your master account\. There might be a delay before you receive the verification email\.
+   A verification email is automatically sent to the address that is associated with your management account\. There might be a delay before you receive the verification email\.
 
 1. Verify your email address within 24 hours\. For more information, see [Email address verification](orgs_manage_create.md#about-email-verification)\.
 
-You now have an organization with your account as its only member\. This is the master account of the organization\.
+You now have an organization with your account as its only member\. This is the management account of the organization\.
 
 ### Invite an existing account to join your organization<a name="tut-basic-invite-existing"></a>
 
@@ -59,7 +59,7 @@ Now that you have an organization, you can begin to populate it with accounts\. 
 
 1. Open the Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\.
 
-1. Choose the **Accounts** tab\. The star next to the account name indicates that it is the master account\.
+1. Choose the **Accounts** tab\. The star next to the account name indicates that it is the management account\.
 
    Now you can invite other accounts to join as member accounts\.
 
@@ -74,12 +74,12 @@ Now that you have an organization, you can begin to populate it with accounts\. 
 If you get an error that indicates that you exceeded your account limits for the organization or that you can't add an account because your organization is still initializing, wait until one hour after you created the organization and try again\. If the error persists, contact [AWS Support](https://console.aws.amazon.com/support/home#/)\.
 
 1. For the purposes of this tutorial, you now need to accept your own invitation\. Do one of the following to get to the **Invitations** page in the console:
-   + Open the email that AWS sent from the master account and choose the link to accept the invitation\. When prompted to sign in, do so as an administrator in the invited member account\. 
+   + Open the email that AWS sent from the management account and choose the link to accept the invitation\. When prompted to sign in, do so as an administrator in the invited member account\. 
    + Open the AWS Organizations console \([https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\) and sign in as an administrator of the member account\. Choose **Invitations**\. The number beside the link indicates how many invitations this account has\.
 
 1. On the **Invitations** page, choose **Accept** and then choose **Confirm**\.
 
-1. Sign out of your member account and sign in again as an administrator in your master account\. 
+1. Sign out of your member account and sign in again as an administrator in your management account\. 
 
 ### Create a member account<a name="tut-basic-create-new"></a>
 
@@ -93,7 +93,7 @@ In the steps in this section, you create an AWS account that is automatically a 
 
 1. For **Email**, enter the email address of the individual who is to receive communications on behalf of the account\. This value must be globally unique\. No two accounts can have the same email address\. For example, you might use something like **mainapp@example\.com**\.
 
-1. For **IAM role name**, you can leave this blank to automatically use the default role name of `OrganizationAccountAccessRole`, or you can supply your own name\. This role enables you to access the new member account when signed in as an IAM user in the master account\. For this tutorial, leave it blank to instruct AWS Organizations to create the role with the default name\.
+1. For **IAM role name**, you can leave this blank to automatically use the default role name of `OrganizationAccountAccessRole`, or you can supply your own name\. This role enables you to access the new member account when signed in as an IAM user in the management account\. For this tutorial, leave it blank to instruct AWS Organizations to create the role with the default name\.
 
 1. Choose **Create**\. You might need to wait a short while and refresh the page to see the new account appear on the **Accounts** tab\.
 **Important**  
@@ -101,7 +101,7 @@ If you get an error that indicates that you exceeded your account limits for the
 
 ## Step 2: Create the organizational units<a name="tutorial-orgs-step2"></a>
 
-In the steps in this section, you create organizational units \(OUs\) and place your member accounts in them\. Your hierarchy looks like the following illustration when you're done\. The master account remains in the root\. One member account is moved to the Production OU, and the other member account is moved to the MainApp OU, which is a child of Production\. 
+In the steps in this section, you create organizational units \(OUs\) and place your member accounts in them\. Your hierarchy looks like the following illustration when you're done\. The management account remains in the root\. One member account is moved to the Production OU, and the other member account is moved to the MainApp OU, which is a child of Production\. 
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/organizations/latest/userguide/images/orgs-lab-structure.jpg)
 
@@ -129,7 +129,7 @@ In the steps in this section, you create organizational units \(OUs\) and place 
 
 ## Step 3: Create the service control policies<a name="tutorial-orgs-step3"></a>
 
-In the steps in this section, you create three [service control policies \(SCPs\)](orgs_manage_policies_scps.md) and attach them to the root and to the OUs to restrict what users in the organization's accounts can do\. The first SCP prevents anyone in any of the member accounts from creating or modifying any AWS CloudTrail logs that you configure\. The master account isn't affected by any SCP, so after you apply the CloudTrail SCP, you must create any logs from the master account\.
+In the steps in this section, you create three [service control policies \(SCPs\)](orgs_manage_policies_scps.md) and attach them to the root and to the OUs to restrict what users in the organization's accounts can do\. The first SCP prevents anyone in any of the member accounts from creating or modifying any AWS CloudTrail logs that you configure\. The management account isn't affected by any SCP, so after you apply the CloudTrail SCP, you must create any logs from the management account\.
 
 **To create the first SCP that blocks CloudTrail configuration actions**
 
@@ -272,6 +272,6 @@ Now that the SCPs exist and are enabled for your root, you can attach them to th
 ## Step 4: Testing your organization's policies<a name="tutorial-orgs-step4"></a>
 
 You now can sign in as a user in any of the member accounts and try to perform various AWS actions:
-+ If you sign in as a user in the master account, you can perform any operation that is allowed by your IAM permissions policies\. The SCPs don't affect any user or role in the master account, no matter which root or OU the account is located in\.
++ If you sign in as a user in the management account, you can perform any operation that is allowed by your IAM permissions policies\. The SCPs don't affect any user or role in the management account, no matter which root or OU the account is located in\.
 + If you sign in as the root user or an IAM user in account 222222222222, you can perform any actions that are allowed by the allow list\. AWS Organizations denies any attempt to perform an action in any service that isn't in the allow list\. Also, AWS Organizations denies any attempt to perform one of the CloudTrail configuration actions\.
 + If you sign in as a user in account 333333333333, you can perform any actions that are allowed by the allow list and not blocked by the deny list\. AWS Organizations denies any attempt to perform an action that isn't in the allow list policy and any action that is in the deny list policy\. Also, AWS Organizations denies any attempt to perform one of the CloudTrail configuration actions\.

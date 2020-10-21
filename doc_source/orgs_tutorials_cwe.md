@@ -27,7 +27,7 @@ You can also use this tutorial as a guide in configuring similar operations, suc
 ## Prerequisites<a name="tutorial-cwe-prereqs"></a>
 
 This tutorial assumes the following:
-+ You can sign in to the AWS Management Console as an IAM user from the master account in your organization\. The IAM user must have permissions to create and configure a log in CloudTrail, a function in Lambda, a topic in Amazon SNS, and a rule in CloudWatch\. For more information about granting permissions, see [Access Management](https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html) in the *IAM User Guide*, or the guide for the service for which you want to configure access\.
++ You can sign in to the AWS Management Console as an IAM user from the management account \(formerly known as the "master account"\) in your organization\. The IAM user must have permissions to create and configure a log in CloudTrail, a function in Lambda, a topic in Amazon SNS, and a rule in CloudWatch\. For more information about granting permissions, see [Access Management](https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html) in the *IAM User Guide*, or the guide for the service for which you want to configure access\.
 + You have access to an existing Amazon Simple Storage Service \(Amazon S3\) bucket \(or you have permissions to create a bucket\) to receive the CloudTrail log that you configure in step 1\.
 
 **Important**  
@@ -35,11 +35,11 @@ Currently, AWS Organizations is hosted in only the US East \(N\. Virginia\) Regi
 
 ## Step 1: Configure a trail and event selector<a name="tutorial-cwe-step1"></a>
 
-In this step, you sign in to the master account and configure a log \(called a *trail*\) in AWS CloudTrail\. You also configure an event selector on the trail to capture all read/write API calls so that CloudWatch Events has calls to trigger on\.
+In this step, you sign in to the management account and configure a log \(called a *trail*\) in AWS CloudTrail\. You also configure an event selector on the trail to capture all read/write API calls so that CloudWatch Events has calls to trigger on\.
 
 **To create a trail**
 
-1. Sign in to AWS as an administrator of the organization's master account and then open the CloudTrail console at [https://console.aws.amazon.com/cloudtrail/](https://console.aws.amazon.com/cloudtrail/)\.
+1. Sign in to AWS as an administrator of the organization's management account and then open the CloudTrail console at [https://console.aws.amazon.com/cloudtrail/](https://console.aws.amazon.com/cloudtrail/)\.
 
 1. On the navigation bar in the upper\-right corner of the console, choose the **US East \(N\. Virginia\)** Region\. If you choose a different region, AWS Organizations doesn't appear as an option in the CloudWatch Events configuration settings, and CloudTrail doesn't capture information about AWS Organizations\.
 

@@ -15,7 +15,7 @@ Closed accounts are visible in your organization with the "suspended" state\. Af
 
 You can close an account only by using the Billing and Cost Management console, not by using the AWS Organizations console or its tools\.
 
-To close a master account, first [delete the organization](orgs_manage_org_delete.md), and then close it using the steps in the following procedure\.
+To close a management account \(formerly known as the "master account"\), first [delete the organization](orgs_manage_org_delete.md), and then close it using the steps in the following procedure\.
 
 **To close an AWS account \(console\)**
 

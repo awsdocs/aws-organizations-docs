@@ -22,7 +22,7 @@ The visual editor makes the process easy, but it limits your flexibility\. It's 
 
 **To create a backup policy \(console\)**
 
-1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\. 
+1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's management account\. 
 
 1. On the **Policies** tab, choose **Backup policies**\.
 
@@ -75,7 +75,7 @@ After you create a backup policy, you can put your policy into effect\. To do th
 
 ## Updating a backup policy<a name="update-backup-policy-procedure"></a>
 
-When signed in to your organization's master account, you can edit a policy that requires changes in your organization\. 
+When signed in to your organization's management account, you can edit a policy that requires changes in your organization\. 
 
 **Minimum permissions**  
 To update a backup policy, you must have permission to run the following actions:  
@@ -87,7 +87,7 @@ To update a backup policy, you must have permission to run the following actions
 
 **To update a backup policy**
 
-1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\. 
+1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's management account\. 
 
 1. On the **Policies** tab, choose **Backup policies**\.
 
@@ -113,7 +113,7 @@ You can use one of the following to update a backup policy:
 
 ## Editing tags attached to a backup policy<a name="tag-backup-policy-procedure"></a>
 
-When signed in to your organization's master account, you can add or remove the tags attached to a backup policy\. To do this, complete the following steps\.
+When signed in to your organization's management account, you can add or remove the tags attached to a backup policy\. To do this, complete the following steps\.
 
 **Minimum permissions**  
 To edit the tags attached to a backup policy in your AWS organization, you must have the following permissions:  
@@ -127,7 +127,7 @@ To edit the tags attached to a backup policy in your AWS organization, you must 
 
 **To edit the tags attached to a backup policy**
 
-1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\. 
+1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's management account\. 
 
 1. On the **Policies** tab, choose **Backup policies**, and then choose the name of the policy with the tags that you want to edit\.
 
@@ -152,7 +152,7 @@ You can use one of the following commands to edit the tags attached to a backup 
 
 ## Deleting a backup policy<a name="delete-backup-policy-procedure"></a>
 
-When signed in to your organization's master account, you can delete a policy that you no longer need in your organization\. 
+When signed in to your organization's management account, you can delete a policy that you no longer need in your organization\. 
 
 Before you can delete a policy, you must first detach it from all attached entities\.
 
@@ -165,7 +165,7 @@ To delete a policy, you must have permission to run the following action:
 
 **To delete a backup policy**
 
-1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\. 
+1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's management account\. 
 
 1. The policy that you want to delete must first be detached from all roots, OUs, and accounts\. Follow the steps in [Detaching a backup policy](orgs_manage_policies_backup_attach-detach.md#orgs_manage_policies_backup_detach) to detach the policy from all entities in the organization\.
 

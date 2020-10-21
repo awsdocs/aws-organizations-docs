@@ -9,7 +9,7 @@ The aggregation of any backup policies the account inherits from the root and pa
 
 ## Attaching a backup policy<a name="orgs_manage_policies_backup_attach"></a>
 
-When signed in to your organization's master account, you can attach a backup policy to the organization's root, OU, or directly to an account\.
+When signed in to your organization's management account \(formerly known as the "master account"\), you can attach a backup policy to the organization's root, OU, or directly to an account\.
 
 **Minimum permissions**  
 To attach backup policies, you must have permission to run the following action:  
@@ -20,7 +20,7 @@ To attach backup policies, you must have permission to run the following action:
 
 **To attach a backup policy to the organization root, an OU, or an account**
 
-1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\. 
+1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's management account\. 
 
 1. On the **Organize accounts** tab, [navigate to](orgs_manage_ous.md#navigate_tree) and select the check box for the root, OU, or account to which you want to attach the backup policy\.
 
@@ -40,7 +40,7 @@ You can use one of the following commands to attach a backup policy:
 
 ## Detaching a backup policy<a name="orgs_manage_policies_backup_detach"></a>
 
-When signed in to your organization's master account, you can detach a backup policy from the organization's root, OU, or account that it is attached to\. After you detach a backup policy from an entity, that policy no longer applies to any account that was previously affected by the now detached entity\. To detach a policy, complete the following steps\. 
+When signed in to your organization's management account, you can detach a backup policy from the organization's root, OU, or account that it is attached to\. After you detach a backup policy from an entity, that policy no longer applies to any account that was previously affected by the now detached entity\. To detach a policy, complete the following steps\. 
 
 **Minimum permissions**  
 To detach a backup policy from the organization root, OU, or account, you must have permission to run the following action:  
@@ -51,7 +51,7 @@ To detach a backup policy from the organization root, OU, or account, you must h
 
 **To detach a backup policy from the organization root, OU, or account**
 
-1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\. 
+1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's management account\. 
 
 1. On the **Organize accounts** tab, [navigate to](orgs_manage_ous.md#navigate_tree) and select the check box for the organization root, OU, or account from which you want to detach the policy\.
 

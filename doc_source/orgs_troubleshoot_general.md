@@ -5,7 +5,7 @@ Use the information here to help you diagnose and fix access\-denied or other co
 **Topics**
 + [I get an "access denied" message when I make a request to AWS Organizations](#troubleshoot_general_access-denied-service)
 + [I get an "access denied" message when I make a request with temporary security credentials](#troubleshoot_general_access-denied-temp-creds)
-+ [I get an "access denied" message when I try to leave an organization as a member account or remove a member account as the master account](#troubleshoot_general_error-leaving-org)
++ [I get an "access denied" message when I try to leave an organization as a member account or remove a member account as the management account \(formerly known as the "master account"\)](#troubleshoot_general_error-leaving-org)
 + [I get a "quota exceeded" message when I try to add an account to my organization](#troubleshoot_general_error-adding-account)
 + [I get a "this operation requires a wait period" message while adding or removing accounts](#troubleshoot_general_error-wait-req)
 + [I get an "organization is still initializing" message when I try to add an account to my organization](#troubleshoot_general_error-still-init)
@@ -22,7 +22,7 @@ Use the information here to help you diagnose and fix access\-denied or other co
 + Verify that your requests are being signed correctly and that the request is well formed\. For details, see the [toolkit](http://aws.amazon.com/tools/) documentation for your chosen SDK or [Using Temporary Security Credentials to Request Access to AWS Resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html) in the *IAM User Guide*\.
 + Verify that your temporary security credentials haven't expired\. For more information, see [Requesting Temporary Security Credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html) in the *IAM User Guide*\. 
 
-## I get an "access denied" message when I try to leave an organization as a member account or remove a member account as the master account<a name="troubleshoot_general_error-leaving-org"></a>
+## I get an "access denied" message when I try to leave an organization as a member account or remove a member account as the management account \(formerly known as the "master account"\)<a name="troubleshoot_general_error-leaving-org"></a>
 + You can remove a member account only after you enable IAM user access to billing in the member account\. For more information, see [Activating Access to the Billing and Cost Management Console](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate) in the *AWS Billing and Cost Management User Guide*\.
 + You can remove an account from your organization only if the account has the information required for it to operate as a standalone account\. When you create an account in an organization using the AWS Organizations console, API, or AWS CLI commands, that information isn't automatically collected\. For an account that you want to make standalone, you must accept the AWS Customer Agreement, choose a support plan, provide and verify the required contact information, and provide a current payment method\. AWS uses the payment method to charge for any billable \(not AWS Free Tier\) AWS activity that occurs while the account isn't attached to an organization\. For more information, see [Leaving an organization as a member account](orgs_manage_accounts_remove.md#orgs_manage_accounts_leave-as-member)\.
 
@@ -30,7 +30,7 @@ Use the information here to help you diagnose and fix access\-denied or other co
 
 There is a maximum number of accounts that you can have in an organization\. Deleted or closed accounts continue to count against this quota\.
 
-An invitation to join counts against the maximum number of accounts in your organization\. The count is returned if the invited account declines, the master account cancels the invitation, or the invitation expires\.
+An invitation to join counts against the maximum number of accounts in your organization\. The count is returned if the invited account declines, the management account cancels the invitation, or the invitation expires\.
 + Before you close or delete an AWS account, [remove it from your organization](orgs_manage_accounts_remove.md) so that it doesn't continue to count against your quota\.
 + See [Maximum and minimum values](orgs_reference_limits.md#min-max-values) for information about how to request a quota increase\.
 
@@ -48,7 +48,7 @@ This happens when you [enable all features in your organization](orgs_manage_org
 
 ## I used an incorrect email address when I created a member account<a name="troubleshoot_incorrect-email"></a>
 
-If you created a member account in an organization with an incorrect email address then you might not be able to sign in to the member account as the root user\. In that case, you can try to access the master account access role for the account\. For more information, see [Accessing a member account that has a master account access role](orgs_manage_accounts_access.md#orgs_manage_accounts_access-cross-account-role)\. If that doesn't work then you can't correct the member account's email address yourself\. Instead, contact AWS Support to correct the email address on the member account\. Use your browser to access the [Contact Us](https://aws.amazon.com/contact-us/) page, and choose the item regarding Billing to contact AWS Support\.
+If you created a member account in an organization with an incorrect email address then you might not be able to sign in to the member account as the root user\. In that case, you can try to access the management account access role for the account\. For more information, see [Accessing a member account that has a management account access role](orgs_manage_accounts_access.md#orgs_manage_accounts_access-cross-account-role)\. If that doesn't work then you can't correct the member account's email address yourself\. Instead, contact AWS Support to correct the email address on the member account\. Use your browser to access the [Contact Us](https://aws.amazon.com/contact-us/) page, and choose the item regarding Billing to contact AWS Support\.
 
 ## Changes that I make aren't always immediately visible<a name="troubleshoot_general_eventual-consistency"></a>
 

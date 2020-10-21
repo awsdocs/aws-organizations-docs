@@ -12,14 +12,14 @@ Before changing from an organization that supports only consolidated billing fea
 + When you start the process to enable all features, AWS Organizations sends a request to every member account that you *invited* to join your organization\. Every invited account must approve enabling all features by accepting the request\. Only then can you complete the process to enable all features in your organization\. If an account declines the request, you must either remove the account from your organization or resend the request\. The request must be accepted before you can complete the process to enable all features\. Accounts that you *created* using AWS Organizations don't get a request because they don't need to approve the additional control\. 
 + Organizations also verifies that every account has a service\-linked role named `AWSServiceRoleForOrganizations`\. This role is mandatory in all accounts to enable all features\. If you deleted the role in an invited account, accepting the invitation to enable all features recreates the role\. If you deleted the role in an account that was created using AWS Organizations, that account receives an invitation specifically to recreate that role\. All of these invitations must be accepted for the organization to complete the process of enabling all features\.
 + While enabling all features is in progress, you can continue to *create* accounts within the organization but you can't *invite* existing accounts to join the organization\. To invite accounts, you must wait until the process to enable all features is complete\. Alternatively, you can cancel the process to enable all features, invite the accounts, and then restart the process to enable all features\.
-+ Because enabling all features makes it possible to use [SCPs](orgs_manage_policies_scps.md), be sure that your account administrators understand the effects of attaching SCPs to the organization, organizational units, or accounts\. SCPs can restrict what users and even administrators can do in affected accounts\. For example, the master account can apply SCPs that can prevent member accounts from leaving the organization\.
-+ The master account isn't affected by any SCP\. You can't limit what users and roles in the master account can do by applying SCPs\. SCPs affect only member accounts\.
++ Because enabling all features makes it possible to use [SCPs](orgs_manage_policies_scps.md), be sure that your account administrators understand the effects of attaching SCPs to the organization, organizational units, or accounts\. SCPs can restrict what users and even administrators can do in affected accounts\. For example, the management account \(formerly known as the "master account"\) can apply SCPs that can prevent member accounts from leaving the organization\.
++ The management account isn't affected by any SCP\. You can't limit what users and roles in the management account can do by applying SCPs\. SCPs affect only member accounts\.
 + The migration from consolidated billing features to all features is one\-way\. You can't switch an organization with all features enabled back to consolidated billing features only\.
 + If your organization has only consolidated billing features enabled, member account administrators can choose to delete the service\-linked role named `AWSServiceRoleForOrganizations`\. However, when you enable all features in an organization, this role is required and is recreated in all accounts as part of accepting the invitation to enable all features\. For more information about how AWS Organizations uses this role, see [AWS Organizations and service\-linked roles](orgs_integrate_services.md#orgs_integrate_services-using_slrs)\.
 
 ## Beginning the process to enable all features<a name="manage-begin-all-features"></a>
 
-When you sign in with permissions to your organization's master account, you can begin the process to enable all features\. To do this, complete the following steps\.
+When you sign in with permissions to your organization's management account, you can begin the process to enable all features\. To do this, complete the following steps\.
 
 **Minimum permissions**  
 To enable all features in your organization, you must have the following permission:  
@@ -30,7 +30,7 @@ To enable all features in your organization, you must have the following permiss
 
 **To ask your invited member accounts to agree to enable all features in the organization**
 
-1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\. 
+1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's management account\. 
 
 1. On the **Settings** tab, choose **Begin process to enable all features**\.
 
@@ -60,10 +60,10 @@ You can use one of the following commands to enable all features in an organizat
 
 ## Approving the request to enable all features or to recreate the service\-linked role<a name="manage-approve-all-features-invite"></a>
 
-When signed in with permissions to one of the organization's invited member accounts, you can approve a request from the master account\. If your account was originally invited to join the organization, the invitation is to enable all features and implicitly includes approval for recreating the `AWSServiceRoleForOrganizations` role, if needed\. If your account was instead created using AWS Organizations and you deleted the `AWSServiceRoleForOrganizations` service\-linked role, you receive an invitation only to recreate the role\. To do this, complete the following steps\.
+When signed in with permissions to one of the organization's invited member accounts, you can approve a request from the management account\. If your account was originally invited to join the organization, the invitation is to enable all features and implicitly includes approval for recreating the `AWSServiceRoleForOrganizations` role, if needed\. If your account was instead created using AWS Organizations and you deleted the `AWSServiceRoleForOrganizations` service\-linked role, you receive an invitation only to recreate the role\. To do this, complete the following steps\.
 
 **Important**  
-If you perform the steps in the following procedure, the master account in the organization can apply policy\-based controls on your member account\. These controls can restrict what users and even what you as the administrator can do in your account\. Such restrictions might prevent your account from leaving the organization\.
+If you perform the steps in the following procedure, the management account in the organization can apply policy\-based controls on your member account\. These controls can restrict what users and even what you as the administrator can do in your account\. Such restrictions might prevent your account from leaving the organization\.
 
 **Minimum permissions**  
 To approve a request to enable all features for your member account, you must have the following permissions:  
@@ -77,7 +77,7 @@ To approve a request to enable all features for your member account, you must ha
 
 1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the member account\. 
 
-1. Read what accepting the request for all features in the organization means for your account, and then choose **Accept**\. The page continues to show the process as incomplete until all accounts in the organization accept the requests and the administrator of the master account finalizes the process\.
+1. Read what accepting the request for all features in the organization means for your account, and then choose **Accept**\. The page continues to show the process as incomplete until all accounts in the organization accept the requests and the administrator of the management account finalizes the process\.
 
 ------
 #### [ AWS CLI, AWS API ]
@@ -102,7 +102,7 @@ To finalize the process to enable all features for the organization, you must ha
 
 **To finalize the process to enable all features**
 
-1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\. 
+1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's management account\. 
 
 1. On the **Settings** tab, under **ENABLE ALL FEATURES**, choose **View all feature request approval status**\.
 

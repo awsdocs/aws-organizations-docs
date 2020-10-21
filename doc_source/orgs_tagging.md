@@ -9,7 +9,7 @@ You can use tags to categorize resources by purpose, owner, environment, or othe
 **Tip**  
 Use [tag policies](orgs_manage_policies_tag-policies.md) to help standardize your implementation of tags across the resources in your organization's accounts\.
 
-Currently, AWS Organizations supports the following tagging operations when you are logged in to the master account:
+Currently, AWS Organizations supports the following tagging operations when you are logged in to the management account:
 + Tag operations are supported on the following taggable resources in an organization:
   + AWS accounts
   + Organizational units
@@ -32,7 +32,7 @@ Tags help you to organize your resources by enabling you to group them by things
 
 ## Adding tags<a name="add-tag"></a>
 
-When signed in with permissions to your organization's master account, you can add tags to the resources in your organization\. 
+When signed in with permissions to your organization's management account, you can add tags to the resources in your organization\. 
 
 ### Add a tag to a resource when you create it<a name="add-tag-new"></a>
 
@@ -65,7 +65,7 @@ To add tags to resources in your organization, you need the following permission
 ------
 #### [ AWS Management Console ]
 
-1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\. 
+1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's management account\. 
 
 1. Navigate to and choose the account, root, organizational unit \(OU\), or policy\.
 
@@ -92,7 +92,7 @@ You can use one of the following commands to add tags to the taggable resources 
 
 ## Viewing tags on resources in your organization<a name="view-tag"></a>
 
-When signed in with permissions to your organization's master account, you can view tags on taggable resources in your organization\.
+When signed in with permissions to your organization's management account, you can view tags on taggable resources in your organization\.
 
 **To view tags on a resource in your organization**  
 To view a resource's tags, you need the following permissions:
@@ -101,7 +101,7 @@ To view a resource's tags, you need the following permissions:
 ------
 #### [ AWS Management Console ]
 
-1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\. 
+1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's management account\. 
 
 1. Navigate to and choose the account, root, organizational unit \(OU\), or policy\.
 
@@ -122,7 +122,7 @@ You can use one of the following commands to view tags on a resource in your org
 
 ## Editing tag values<a name="edit-tag"></a>
 
-When signed in with permissions to your organization's master account, you can edit the *tag values* for tags that are attached to your taggable resources\.
+When signed in with permissions to your organization's management account, you can edit the *tag values* for tags that are attached to your taggable resources\.
 
 **Note**  
 You can't change a tag **key**\. You can delete the tag with the old key and then add a tag with the new key\. For more information, see [Deleting tags](#delete-tag) and [Adding tags](#add-tag)\.
@@ -136,7 +136,7 @@ To edit tag **values** on tags that are attached to your taggable resources, you
 ------
 #### [ AWS Management Console ]
 
-1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\. 
+1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's management account\. 
 
 1. Navigate to and choose the account, root, organizational unit \(OU\), or policy\.
 
@@ -161,7 +161,7 @@ You can use one of the following commands to modify the value for a tag attached
 
 ## Deleting tags<a name="delete-tag"></a>
 
-When signed in with permissions to your organization's master account, you can delete tags that are attached to taggable resources in your organization\. 
+When signed in with permissions to your organization's management account, you can delete tags that are attached to taggable resources in your organization\. 
 
 **To delete a tag from a resource in your organization**  
 To delete tags, you need the following permissions:
@@ -171,7 +171,7 @@ To delete tags, you need the following permissions:
 ------
 #### [ AWS Management Console ]
 
-1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\. 
+1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's management account\. 
 
 1. Navigate to and choose the account, root, organizational unit \(OU\), or policy\.
 

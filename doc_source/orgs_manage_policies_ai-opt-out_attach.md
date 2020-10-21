@@ -16,7 +16,7 @@ To attach AI services opt\-out policies, you must have permission to run the fol
 
 **To attach an AI services opt\-out policy to the organization root, an OU, or an account**
 
-1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\. 
+1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's management account\. 
 
 1. On the **Organize accounts** tab, [navigate to](orgs_manage_ous.md#navigate_tree) and select the check box for the root, OU, or account to which you want to attach the AI services opt\-out policy\.
 
@@ -36,7 +36,7 @@ You can use one of the following to attach an AI services opt\-out policy:
 
 ## Detaching an AI services opt\-out policy<a name="orgs_manage_policies_ai-opt-out_detach"></a>
 
-When signed in to your organization's master account, you can detach an AI services opt\-out policy from the organization root, OU, or account that it is attached to\. After you detach an AI services opt\-out policy from an entity, that policy no longer applies to any account that was previously affected by the now detached entity\. To detach a policy, complete the following steps\. 
+When signed in to your organization's management account, you can detach an AI services opt\-out policy from the organization root, OU, or account that it is attached to\. After you detach an AI services opt\-out policy from an entity, that policy no longer applies to any account that was previously affected by the now detached entity\. To detach a policy, complete the following steps\. 
 
 **Minimum permissions**  
 To detach an AI services opt\-out policy from the organization root, OU, or account, you must have permission to run the following action:  
@@ -47,7 +47,7 @@ To detach an AI services opt\-out policy from the organization root, OU, or acco
 
 **To detach an AI services opt\-out policy from the organization root, OU, or account**
 
-1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\. 
+1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's management account\. 
 
 1. On the **Organize accounts** tab, [navigate to](orgs_manage_ous.md#navigate_tree) and select the check box for the organization root, OU, or account from which you want to detach the policy\.
 

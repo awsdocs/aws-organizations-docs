@@ -1,6 +1,6 @@
 # Enabling and disabling policy types<a name="orgs_manage_policies_enable-disable"></a>
 
-Before you can create and attach a policy to your organization, you must enable that policy type for use\. Enabling a policy type is a one\-time task on the organization root\. You can enable a policy type from only the organization's master account\.
+Before you can create and attach a policy to your organization, you must enable that policy type for use\. Enabling a policy type is a one\-time task on the organization root\. You can enable a policy type from only the organization's management account \(formerly known as the "master account"\)\.
 
 **Minimum permissions**  
 To enable a policy type, you need permission to run the following actions:  
@@ -13,7 +13,7 @@ To enable a policy type, you need permission to run the following actions:
 
 **To enable a policy type**
 
-1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\. 
+1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's management account\. 
 
 1. On the **Organize accounts** tab, choose **Root** in the left navigation pane\.
 
@@ -31,7 +31,7 @@ You can use one of the following commands to enable a policy type:
 
 ## Disabling a policy type<a name="disable-policy-type"></a>
 
-If you no longer want to use a certain policy type in your organization, you can disable that type to prevent its accidental use\. You can disable a policy type from only the organization's master account\.
+If you no longer want to use a certain policy type in your organization, you can disable that type to prevent its accidental use\. You can disable a policy type from only the organization's management account\.
 
 **Important**  
 When you disable a policy type, all policies of the specified type are automatically detached from all entities in the organization root\. The policies are ***not*** deleted\.
@@ -48,7 +48,7 @@ To disable SCPs, you need permission to run the following actions:
 
 **To disable a policy type**
 
-1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\. 
+1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's management account\. 
 
 1. On the **Organize accounts** tab, choose **Root** in the left navigation pane\.
 

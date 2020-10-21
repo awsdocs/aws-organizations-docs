@@ -16,7 +16,7 @@ To create tag policies, you need permission to run the following action:
 
 **To create a tag policy**
 
-1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\. 
+1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's management account\. 
 
 1. On the **Policies** tab, choose **Tag policies**\.
 
@@ -81,7 +81,7 @@ To update a tag policy, you must have permission to run the following actions:
 
 **To update a tag policy**
 
-1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\. 
+1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's management account\. 
 
 1. On the **Policies** tab, choose **Tag policies**\.
 
@@ -107,7 +107,7 @@ You can use one of the following to update a policy:
 
 ## Editing tags attached to a tag policy<a name="tag_tag-policies"></a>
 
-When signed in to your organization's master account, you can add or remove the tags attached to a tag policy\. To do this, complete the following steps\.
+When signed in to your organization's management account, you can add or remove the tags attached to a tag policy\. To do this, complete the following steps\.
 
 **Minimum permissions**  
 To edit the tags attached to a tag policy in your AWS organization, you must have the following permissions:  
@@ -121,7 +121,7 @@ To edit the tags attached to a tag policy in your AWS organization, you must hav
 
 **To edit the tags attached to a tag policy**
 
-1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\. 
+1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's management account\. 
 
 1. On the **Policies** tab, choose **Tag policies**, and then choose the name of the policy with the tags that you want to edit\.
 
@@ -146,7 +146,7 @@ You can use one of the following commands to edit the tags attached to a tag pol
 
 ## Deleting a tag policy<a name="delete-tag-policy-procedure"></a>
 
-When signed in to your organization's master account, you can delete a policy that you no longer need in your organization\. 
+When signed in to your organization's management account, you can delete a policy that you no longer need in your organization\. 
 
 Before you can delete a policy, you must first detach it from all attached entities\.
 
@@ -156,7 +156,7 @@ To delete a tag policy, you must have permission to run the following action:
 
 **To delete a tag policy \(console\)**
 
-1. Sign in to the Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\.
+1. Sign in to the Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's management account\.
 
 1. The tag policy that you want to delete must first be detached from all roots, OUs, and accounts\. Follow the steps in [Detaching a tag policy](attach-tag-policy.md#detach-tag-policy) to detach the tag policy from all entities in the organization\.
 

@@ -13,7 +13,7 @@ To create an AI services opt\-out policy, you need permission to run the followi
 
 **To create an AI services opt\-out policy**
 
-1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\. 
+1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's management account\. 
 
 1. On the **Policies** tab, choose **AI services opt\-out policies**\.
 
@@ -54,7 +54,7 @@ To update an AI services opt\-out policy, you must have permission to run the fo
 
 **To update an AI services opt\-out policy**
 
-1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\. 
+1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's management account\. 
 
 1. On the **Policies** tab, choose **AI services opt\-out policies**\.
 
@@ -80,7 +80,7 @@ You can use one of the following to update a policy:
 
 ## Editing tags attached to an AI services opt\-out policy<a name="tag-ai-opt-out-policy-procedure"></a>
 
-When signed in to your organization's master account, you can add or remove the tags attached to an AI services opt\-out policy\. To do this, complete the following steps\.
+When signed in to your organization's management account, you can add or remove the tags attached to an AI services opt\-out policy\. To do this, complete the following steps\.
 
 **Minimum permissions**  
 To edit the tags attached to an AI services opt\-out policy in your AWS organization, you must have the following permissions:  
@@ -94,7 +94,7 @@ To edit the tags attached to an AI services opt\-out policy in your AWS organiza
 
 **To edit the tags attached to an AI services opt\-out policy**
 
-1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\. 
+1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's management account\. 
 
 1. On the **Policies** tab, choose **AI services opt\-out policies**, and then choose the name of the policy with the tags that you want to edit\.
 
@@ -119,7 +119,7 @@ You can use one of the following commands to edit the tags attached to a AI serv
 
 ## Deleting an AI services opt\-out policy<a name="delete-ai-opt-out-policy-procedure"></a>
 
-When signed in to your organization's master account, you can delete a policy that you no longer need in your organization\. 
+When signed in to your organization's management account, you can delete a policy that you no longer need in your organization\. 
 
 Before you can delete a policy, you must first detach it from all attached entities\.
 
@@ -133,7 +133,7 @@ To delete a policy, you must have permission to run the following action:
 
 **To delete an AI services opt\-out policy**
 
-1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\. 
+1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's management account\. 
 
 1. The policy that you want to delete must first be detached from all roots, OUs, and accounts\. Follow the steps in [Detaching an AI services opt\-out policy](orgs_manage_policies_ai-opt-out_attach.md#orgs_manage_policies_ai-opt-out_detach) to detach the policy from all entities in the organization\.
 

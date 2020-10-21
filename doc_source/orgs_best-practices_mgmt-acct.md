@@ -1,9 +1,12 @@
-# Best practices for the master account<a name="orgs_best-practices_mgmt-acct"></a>
+# Best practices for the management account<a name="orgs_best-practices_mgmt-acct"></a>
 
-Follow these recommendations to help protect the security of the master account in AWS Organizations\. These recommendations assume that you also adhere to the[ best practice of using the root user only for those tasks that truly require it](https://docs.aws.amazon.com/general/latest/gr/root-vs-iam.html)\.
+Follow these recommendations to help protect the security of the management account \(formerly known as the "master account"\) in AWS Organizations\. These recommendations assume that you also adhere to the[ best practice of using the root user only for those tasks that truly require it](https://docs.aws.amazon.com/general/latest/gr/root-vs-iam.html)\.
+
+**Note**  
+AWS Organizations is changing the name of the “master account” to “management account”\. This is a name change only, and there is no change in functionality\. You might continue to see a few instances of the old term while we complete the work to transition to the newer term\. If you see one we missed, please use the **Feedback** link at the top of that page to let us know\.
 
 **Topics**
-+ [Use a group email address for the master account's root user](#best-practices_mgmt-acct_email-address)
++ [Use a group email address for the management account's root user](#best-practices_mgmt-acct_email-address)
 + [Use a complex password for the root user](#best-practices_mgmt-acct_complex-password)
 + [Enable MFA for your root user credentials](#best-practices_mgmt-acct_mfa)
 + [Add a phone number to the account contact information](#best-practices_mgmt-acct_phone-number)
@@ -11,7 +14,7 @@ Follow these recommendations to help protect the security of the master account 
 + [Document the processes for using the root user credentials](#best-practices_mgmt-acct_document-processes)
 + [Apply controls to monitor access to the root user credentials](#best-practices_mgmt-acct_monitor-access)
 
-## Use a group email address for the master account's root user<a name="best-practices_mgmt-acct_email-address"></a>
+## Use a group email address for the management account's root user<a name="best-practices_mgmt-acct_email-address"></a>
 + Use an email address that is managed by your business\. Do not use a public email provider or one that is managed by a third party\.
 + Use an email address that forwards received messages directly to a list of senior business managers\. In the event that AWS needs to contact the owner of the account, for example, to confirm access, the email message is distributed to multiple parties\. This approach helps to reduce the risk of delays in responding, even if individuals are on vacation, out sick, or leave the business\.
 
@@ -32,7 +35,7 @@ For instructions on how to enable multi\-factor authentication \(MFA\), see [Usi
 + Use a hardware\-based device that does not rely on a battery to generate the one\-time password \(OTP\)\. This approach helps ensure that the MFA is impossible to duplicate and isn't subject to battery fade risks while in long\-term storage\. 
   + If you do decide to use a battery\-based MFA, be sure to add processes to check the device periodically, and replace it when the expiry date approaches\.
   + Create a plan to handle the logistics of needing to maintain 24/7 access to the token in case it is needed\.
-+ We strongly recommend that you ***don't*** re\-use that physical MFA for any other purpose than protecting this master account\. If you reuse the physical MFA, it can create both operational confusion and unnecessary exposure of the MFA\.
++ We strongly recommend that you ***don't*** re\-use that physical MFA for any other purpose than protecting this management account\. If you reuse the physical MFA, it can create both operational confusion and unnecessary exposure of the MFA\.
 + Store the MFA device according to your information security policy but ***not*** in the same place as the associated password for the root user\. Make sure that the process to access the password and the process to access the MFA require different access to different resources \(people, data, and tools\)\. 
 + Any access of the MFA device or its storage location should be logged and monitored\. 
 
@@ -44,12 +47,12 @@ For instructions on how to enable multi\-factor authentication \(MFA\), see [Usi
 + Any access of the phone or its storage location should be logged and monitored\.
 
 ## Review and keep track of who has access<a name="best-practices_mgmt-acct_review-access"></a>
-+ To ensure you maintain access to the master account, periodically review the personnel within your business who have access to the email address, password, MFA, and phone number associated with it\. Align your review with existing business procedures\. However, it’s worth adding a monthly or quarterly review of this information to ensure that only the correct people have access\.
++ To ensure you maintain access to the management account, periodically review the personnel within your business who have access to the email address, password, MFA, and phone number associated with it\. Align your review with existing business procedures\. However, it’s worth adding a monthly or quarterly review of this information to ensure that only the correct people have access\.
 + Ensure that the process to recover or reset access to the root user credentials is not reliant on any specific individual to complete\. All processes should address the prospect of people being unavailable\.
 + Ensure that the process to recover or reset access to the root user credentials can't be completed by a single individual\. It’s important that this process require the cooperation of multiple personnel to complete\.
 
 ## Document the processes for using the root user credentials<a name="best-practices_mgmt-acct_document-processes"></a>
-+ It’s common for important processes, such as the creation of the organization's master account, to be a planned process including multiple steps with multiple personnel\. We recommend that you document and publish that plan, including the steps to be performed and their sequence of completion\. This approach helps ensure that the decisions made are followed correctly\.
++ It’s common for important processes, such as the creation of the organization's management account, to be a planned process including multiple steps with multiple personnel\. We recommend that you document and publish that plan, including the steps to be performed and their sequence of completion\. This approach helps ensure that the decisions made are followed correctly\.
 + Document the performance of important processes as they are performed to ensure you have a record of the individuals involved in each step and the values used\. It’s also important to provide documentation about any exceptions and unforeseen events that occur\.
 
   If an exception or unforeseen event does occur, document the time it occurred, who left the room, and what was taken out\. You should then also document who returned to the room and what was brought back in\. 
@@ -65,7 +68,7 @@ For instructions on how to enable multi\-factor authentication \(MFA\), see [Usi
   + Changing the root user email address when you still have access\.
   + Resetting the root user phone number when you lose access to the phone number\.
   + Changing the root user phone number when you still have access\.
-  + Deleting the organization's master account\.
+  + Deleting the organization's management account\.
 + Test and validate that you continue to have access to the root user and that the mobile phone number is operational on at least a quarterly basis\. This schedule helps to assure the business that the process works and that you maintain access\. It also demonstrates that those custodians of the access understand the steps they need to perform for the process to succeed\. You never want to be in a position where the personnel involved in a process don’t understand what they are supposed to do\. As with fire drills, practice develops competency and reduces surprises\.
 
   With each test, take the opportunity to reflect on the experience and propose improvements to the process\. Especially examine any steps that were performed incorrectly or resulted in unexpected results\. How could you change the process to improve it the next time?
@@ -73,5 +76,5 @@ For instructions on how to enable multi\-factor authentication \(MFA\), see [Usi
   Some customers use these tests as an opportunity to rotate passwords\. Our recommendation is not to rotate passwords\. Instead, maintain the same complex password\. You should only consider updating the password if you suspect it was compromised\.
 
 ## Apply controls to monitor access to the root user credentials<a name="best-practices_mgmt-acct_monitor-access"></a>
-+ Access to the root user credentials should be a rare event\. Create alerts using tools like Amazon CloudWatch Events to announce the login and use of the master account root user credentials\. This announcement should include, but should not be limited to, the email address used for the root user itself\. This announcement should be significant and hard to miss, whether the use is valid or malicious\. For an example, see [Monitor and notify on AWS account root user activity](https://aws.amazon.com/blogs/mt/monitor-and-notify-on-aws-account-root-user-activity/)\.
++ Access to the root user credentials should be a rare event\. Create alerts using tools like Amazon CloudWatch Events to announce the login and use of the management account root user credentials\. This announcement should include, but should not be limited to, the email address used for the root user itself\. This announcement should be significant and hard to miss, whether the use is valid or malicious\. For an example, see [Monitor and notify on AWS account root user activity](https://aws.amazon.com/blogs/mt/monitor-and-notify-on-aws-account-root-user-activity/)\.
 + Ensure that personnel who receive such an announcement understand how to validate that the root user access is expected, and how to escalate if they believe that a security incident is in progress\.

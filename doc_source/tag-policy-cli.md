@@ -204,7 +204,7 @@ Finding and correcting compliance issues is an iterative process\.
 
 At any time, you can generate a report that lists all tagged resources in accounts across your organization\. The report shows whether each resource is compliant with the effective tag policy\. Note that it can take up to 48 hours for changes you make to a tag policy or resources to be reflected in the organization\-wide compliance report\. For example, assume that you have a tag policy that defines a new standardized tag for a resource type\. Resources of that type that don't have this tag are shown as compliant in the report for up to 48 hours\. 
 
-You can generate the report from your organization's master account in the `us-east-1` Region, provided that it has access to an Amazon S3 bucket\. The bucket must have an attached bucket policy as shown in [Amazon S3 Bucket Policy for Storing Report](https://docs.aws.amazon.com/ARG/latest/userguide/tag-policies-prereqs.html#bucket-policy)\. To generate the report, run the following command:
+You can generate the report from your organization's management account \(formerly known as the "master account"\) in the `us-east-1` Region, provided that it has access to an Amazon S3 bucket\. The bucket must have an attached bucket policy as shown in [Amazon S3 Bucket Policy for Storing Report](https://docs.aws.amazon.com/ARG/latest/userguide/tag-policies-prereqs.html#bucket-policy)\. To generate the report, run the following command:
 
 ```
 $ aws resourcegroupstaggingapi get-compliance-summary

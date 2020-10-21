@@ -1,6 +1,6 @@
 # Creating, updating, and deleting service control policies<a name="orgs_manage_policies_scps_create"></a>
 
-When signed in with permissions to your organization's master account, you can create and update [service control policies \(SCPs\)](orgs_manage_policies_scps.md)\. You create SCPs by building statements that deny or allow access to services and actions that you specify\.
+When signed in with permissions to your organization's management account \(formerly known as the "master account"\), you can create and update [service control policies \(SCPs\)](orgs_manage_policies_scps.md)\. You create SCPs by building statements that deny or allow access to services and actions that you specify\.
 
 The default configuration for working with SCPs is to create statements that deny access\. With deny statements, you can also specify resources and conditions for the statement and use the [NotAction](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_notaction.html) element\. For allow statements, you can specify services and actions only\.
 
@@ -20,7 +20,7 @@ To create SCPs, you need permission to run the following action:
 
 **To create a service control policy**
 
-1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\. 
+1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's management account\. 
 
 1. On the **Policies** tab, choose **Service control policies**\. 
 
@@ -88,11 +88,11 @@ You can use one of the following commands to create an SCP:
 ------
 
 **Note**  
-SCPs don't take effect on the master account and in a few other situations\. For more information, see [Tasks and entities not restricted by SCPs](orgs_manage_policies_scps.md#not-restricted-by-scp)\.
+SCPs don't take effect on the management account and in a few other situations\. For more information, see [Tasks and entities not restricted by SCPs](orgs_manage_policies_scps.md#not-restricted-by-scp)\.
 
 ## Updating an SCP<a name="update_policy"></a>
 
-When signed in to your organization's master account, you can rename or change the contents of a policy\. Changing the contents of an SCP immediately affects any users, groups, and roles in all attached accounts\.
+When signed in to your organization's management account, you can rename or change the contents of a policy\. Changing the contents of an SCP immediately affects any users, groups, and roles in all attached accounts\.
 
 **Minimum permissions**  
 To update an SCP, you need permission to run the following actions:  
@@ -104,7 +104,7 @@ To update an SCP, you need permission to run the following actions:
 
 **To update a policy**
 
-1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\. 
+1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's management account\. 
 
 1. Choose the **Policies** tab\. 
 
@@ -136,7 +136,7 @@ For more information about creating SCPs, see the following topics:
 
 ## Editing tags attached to an SCP<a name="tag_policy_scp"></a>
 
-When signed in to your organization's master account, you can add or remove the tags attached to an SCP\. To do this, complete the following steps\.
+When signed in to your organization's management account, you can add or remove the tags attached to an SCP\. To do this, complete the following steps\.
 
 **Minimum permissions**  
 To edit the tags attached to an SCP in your AWS organization, you must have the following permissions:  
@@ -150,7 +150,7 @@ To edit the tags attached to an SCP in your AWS organization, you must have the 
 
 **To edit the tags attached to an SCP**
 
-1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\. 
+1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's management account\. 
 
 1. On the **Policies** tab, choose **Service control policies**, and then choose the name of the policy with the tags that you want to edit\.
 
@@ -175,7 +175,7 @@ You can use one of the following commands to edit the tags attached to an SCP:
 
 ## Deleting a policy<a name="delete_policy"></a>
 
-When signed in to your organization's master account, you can delete a policy that you no longer need in your organization\. 
+When signed in to your organization's management account, you can delete a policy that you no longer need in your organization\. 
 
 **Notes**  
 Before you can delete a policy, you must first detach it from all attached entities\. 
@@ -190,7 +190,7 @@ To delete an SCP, you need permission to run the following action:
 
 **To delete a policy**
 
-1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's master account\. 
+1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's management account\. 
 
 1. The policy that you want to delete must first be detached from all roots, OUs, and accounts\. Follow the steps in [Detaching an SCP from the organization root, OUs, or accounts](orgs_manage_policies_scps_attach.md#detach_policy) to detach the policy from all entities in the organization\.
 

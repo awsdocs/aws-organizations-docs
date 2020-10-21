@@ -12,7 +12,7 @@ Service control policies \(SCPs\) are a type of organization policy that you can
 SCPs alone are not sufficient to granting permissions to the accounts in your organization\. No permissions are granted by an SCP\. An SCP defines a guardrail, or sets limits, on the actions that the account's administrator can delegate to the IAM users and roles in the affected accounts\. The administrator must still attach [identity\-based or resource\-based policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html) to IAM users or roles, or to the resources in your accounts to actually grant permissions\. The [effective permissions](#scp-effects-on-permissions) are the logical intersection between what is allowed by the SCP and what is allowed by the IAM and resource\-based policies\.
 
 **Important**  
-SCPs don't affect users or roles in the master account\. They affect only the member accounts in your organization\.
+SCPs don't affect users or roles in the management account\. They affect only the member accounts in your organization\.
 
 ****Topics on this page****
 + [Testing effects of SCPs](#scp-warning-testing-effect)
@@ -42,7 +42,7 @@ For a detailed explanation of how SCP inheritance works, see [Inheritance for se
 SCPs are similar to AWS Identity and Access Management \(IAM\) permission policies and use almost the same syntax\. However, an SCP never grants permissions\. Instead, SCPs are JSON policies that specify the maximum permissions for the affected accounts\. For more information, see [Policy Evaluation Logic](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html) in the *IAM User Guide*\. 
 + SCPs ***affect only IAM users and roles*** that are managed by accounts that are part of the organization\. SCPs don't affect resource\-based policies directly\. They also don't affect users or roles from accounts outside the organization\. For example, consider an Amazon S3 bucket that's owned by account A in an organization\. The bucket policy \(a resource\-based policy\) grants access to users from account B outside the organization\. Account A has an SCP attached\. That SCP doesn't apply to those outside users in account B\. The SCP applies only to users that are managed by account A in the organization\. 
 + An SCP restricts permissions for IAM users and roles in member accounts, including the member account's root user\. Any account has only those permissions permitted by ***every*** parent above it\. If a permission is blocked at any level above the account, either implicitly \(by not being included in an `Allow` policy statement\) or explicitly \(by being included in a `Deny` policy statement\), a user or role in the affected account can't use that permission, even if the account administrator attaches the `AdministratorAccess` IAM policy with \*/\* permissions to the user\.
-+ SCPs affect only ***member*** accounts in the organization\. They have no effect on users or roles in the master account\. 
++ SCPs affect only ***member*** accounts in the organization\. They have no effect on users or roles in the management account\. 
 + Users and roles must still be granted permissions with appropriate IAM permission policies\. A user without any IAM permission policies has no access, even if the applicable SCPs allow all services and all actions\.
 + If a user or role has an IAM permission policy that grants access to an action that is also allowed by the applicable SCPs, the user or role can perform that action\.
 + If a user or role has an IAM permission policy that grants access to an action that is either not allowed or explicitly denied by the applicable SCPs, the user or role can't perform that action\.
@@ -53,7 +53,7 @@ SCPs are similar to AWS Identity and Access Management \(IAM\) permission polici
 
 ### Using access data to improve SCPs<a name="data-from-iam"></a>
 
-When signed in with master account credentials, you can view [service last accessed data](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html) for an AWS Organizations entity or policy in the **AWS Organizations** section of the IAM console\. You can also use the AWS Command Line Interface \(AWS CLI\) or AWS API in IAM to retrieve service last accessed data\. This data includes information about which allowed services that the IAM users and roles in an AWS Organizations account last attempted to access and when\. You can use this information to identify unused permissions so that you can refine your SCPs to better adhere to the principle of [least privilege](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#grant-least-privilege)\.
+When signed in with management account \(formerly known as the "master account"\) credentials, you can view [service last accessed data](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html) for an AWS Organizations entity or policy in the **AWS Organizations** section of the IAM console\. You can also use the AWS Command Line Interface \(AWS CLI\) or AWS API in IAM to retrieve service last accessed data\. This data includes information about which allowed services that the IAM users and roles in an AWS Organizations account last attempted to access and when\. You can use this information to identify unused permissions so that you can refine your SCPs to better adhere to the principle of [least privilege](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#grant-least-privilege)\.
 
 For example, you might have a [deny list SCP](orgs_manage_policies_scps_strategies.md#orgs_policies_denylist) that prohibits access to three AWS services\. All services that aren't listed in the SCP's `Deny` statement are allowed\. The service last accessed data in IAM tells you which AWS services are allowed by the SCP but are never used\. With that information, you can update the SCP to deny access to services that you don't need\.
 
@@ -64,7 +64,7 @@ For more information, see the following topics in the *IAM User Guide*:
 ### Tasks and entities not restricted by SCPs<a name="not-restricted-by-scp"></a>
 
 You ***can't*** use SCPs to restrict the following tasks:
-+ Any action performed by the master account
++ Any action performed by the management account
 + Any action performed using permissions that are attached to a service\-linked role
 + Register for the Enterprise support plan as the root user
 + Change the AWS support level as the root user

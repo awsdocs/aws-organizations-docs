@@ -253,7 +253,7 @@ The following example shows a CloudTrail log entry for a sample `InviteAccountTo
                         },
                         {
                             "type": "MASTER_NAME",
-                            "value": "Master account for organization"
+                            "value": "Management account for organization"
                         },
                         {
                             "type": "ORGANIZATION_FEATURE_SET",

@@ -23,7 +23,7 @@ Management policies enable you to centrally configure and manage AWS services an
 The following table summarizes some of the characteristics of each policy type:
 
 
-| Policy type | Affects master account | Maximum number you can attach to a root, OU, or account | Maximum size | Supports viewing effective policy for OU or account | 
+| Policy type | Affects management account | Maximum number you can attach to a root, OU, or account | Maximum size | Supports viewing effective policy for OU or account | 
 | --- | --- | --- | --- | --- | 
 | SCP | ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/organizations/latest/userguide/images/icon-no.png) No | 5 | 5120 bytes | ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/organizations/latest/userguide/images/icon-no.png) No | 
 | AI services opt\-out policy | ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/organizations/latest/userguide/images/icon-yes.png) Yes | 5 | 2500 characters | ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/organizations/latest/userguide/images/icon-yes.png) Yes | 

@@ -21,7 +21,7 @@ Organizations is a global service that is physically hosted in the US East \(N\.
 
 |  |  | 
 | --- |--- |
-|  Number of AWS accounts in an organization  |   4  This is the default maximum number of accounts allowed in an organization\.  An invitation sent to an account counts against this quota\. The count is returned if the invited account declines, the master account cancels the invitation, or the invitation expires\.  | 
+|  Number of AWS accounts in an organization  |   4  This is the default maximum number of accounts allowed in an organization\.  An invitation sent to an account counts against this quota\. The count is returned if the invited account declines, the management account \(formerly known as the "master account"\) cancels the invitation, or the invitation expires\.  | 
 |  Number of roots in an organization  |  1  | 
 |  Number of OUs in an organization  |  1000  | 
 |  Number of policies of each type in an organization  |  1000 per policy type  | 
