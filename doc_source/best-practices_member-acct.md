@@ -6,7 +6,7 @@ Follow these recommendations to help protect the security of the member accounts
 + [Use a group email address for all member account root users](#best-practices_member-acct_email-address)
 + [Use a complex password for member account root users](#best-practices_mbr-acct_complex-password)
 + [Enable MFA for your root user credentials](#best-practices_mbr-acct_mfa)
-+ [Don't add a phone number to the account contact information](#best-practices_mbr-acct_phone-number)
++ [Add the management account's phone number to the member account contact information](#best-practices_mbr-acct_phone-number)
 + [Review and keep track of who has access](#best-practices_mbr-acct_review-access)
 + [Document the processes for using the root user credentials](#best-practices_mbr-acct_document-processes)
 + [Use an SCP to restrict what the root user in your member accounts can do](#best-practices_mbr-acct_scp)
@@ -38,8 +38,8 @@ For instructions on how to enable multi\-factor authentication \(MFA\), see [Usi
 + Store the MFA device according to your information security policy but ***not*** in the same place as the associated password for the root user\. Make sure that the process to access the password and the process to access the MFA require different access to different resources \(people, data and tools\)\. 
 + Any access of the MFA device or its storage location should be logged and monitored\. 
 
-## Don't add a phone number to the account contact information<a name="best-practices_mbr-acct_phone-number"></a>
-+ You can normally rely on the [phone number from the organization's management account](orgs_best-practices_mgmt-acct.md#best-practices_mgmt-acct_phone-number) for any critical account recovery\. Therefore, we believe it’s unnecessary operational overhead to add a telephone number to the contact information for a member account\. Therefore, we recommend that you don't add a phone number to the account contact information\.
+## Add the management account's phone number to the member account contact information<a name="best-practices_mbr-acct_phone-number"></a>
++ You can normally rely on the [phone number from the organization's management account](orgs_best-practices_mgmt-acct.md#best-practices_mgmt-acct_phone-number) for any critical account recovery\. Therefore, we believe it’s unnecessary operational overhead to manage a separate telephone number to the contact information for a member account\. Therefore, we recommend that you add the same phone number as the management account\.
 
 ## Review and keep track of who has access<a name="best-practices_mbr-acct_review-access"></a>
 + [As we recommended for the management account](orgs_best-practices_mgmt-acct.md#best-practices_mgmt-acct_review-access), you should periodically review the personnel within your business who have access to the email address, password, MFA, and phone number to ensure you maintain access to the member account's root user\. Align your review with existing business procedures\. However, it’s worth adding a monthly or quarterly review of this information to ensure that only the correct people have access\.
