@@ -1,8 +1,0 @@
-# AWS Directory Service and AWS Organizations<a name="services-that-can-integrate-ads"></a>
-
-AWS Directory Service for Microsoft Active Directory, or AWS Managed Microsoft AD, lets you run Microsoft Active Directory \(AD\) as a managed service\. AWS Directory Service makes it easy to set up and run directories in the AWS Cloud or connect your AWS resources with an existing on\-premises Microsoft Active Directory\. AWS Managed Microsoft AD also integrates tightly with AWS Organizations to allow seamless directory sharing across multiple AWS accounts and any VPC in a Region\. For more information, see the [AWS Directory Service Administration Guide](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/)\.
-
-The following list provides information that is useful to know when you want to integrate AWS Directory Service for Microsoft Active Directory and AWS Organizations:
-+ **To enable trusted access with AWS Organizations:** AWS Directory Service requires trusted access to AWS Organizations before you can share a Microsoft AD directory with an account inside your organization\. For more information, see [Share Your Directory](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_directory_sharing.html) in the *AWS Directory Service Administration Guide*\.
-+ **To disable trusted access with AWS Organizations:** If you disable trusted access using AWS Organizations while you are using AWS Directory Service, all previously shared directories continue to operate as normal\. However, you will no longer be able to share new directories within the organization until you have reenabled trusted access\.
-+ **Service principal name for AWS Directory Service: ** `ds.amazonaws.com`

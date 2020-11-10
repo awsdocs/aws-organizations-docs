@@ -95,7 +95,7 @@ You can use any basic text editor to create a tag policy\. Use JSON syntax and s
 
    ```
    $ aws organizations create-policy \
-       --type AI_OPT_OUT_POLICY \
+       --type AISERVICES_OPT_OUT_POLICY \
        --name "MyTestPolicy" \
        --description "My test policy" \
        --content file://policy.json
@@ -103,10 +103,10 @@ You can use any basic text editor to create a tag policy\. Use JSON syntax and s
        "Policy": {
            "Content": "{\"service\":{\"default\":{\"@@assign\":\"OptOut\"},\"rekognition\":{\"@@assign\":\"OptIn\"}}}",
            "PolicySummary": {
-               "Arn": "arn:aws:organizations::o-exampleorgid:policy/ai_opt_out_policy/p-examplepolicyid123",
+               "Arn": "arn:aws:organizations::o-exampleorgid:policy/aiservices_opt_out_policy/p-examplepolicyid123",
                "Description": "My test policy",
                "Name": "MyTestPolicy",
-               "Type": "AI_OPT_OUT_POLICY"
+               "Type": "AISERVICES_OPT_OUT_POLICY"
            }
        }
    }
@@ -136,7 +136,7 @@ $ aws organizations describe-effective-policy
         "PolicyContent": "{\"service\":{\"default\":{\"@@assign\":\"OptOut\"},\"rekognition\":{\"@@assign\":\"OptIn\"}}}",
         "LastUpdatedTimestamp": "2020-05-07T15:18:44.404000-07:00",
         "TargetId": "123456789012,
-        "PolicyType": "AI_OPT_OUT_POLICY"
+        "PolicyType": "AISERVICES_OPT_OUT_POLICY"
     }
 }
 ```

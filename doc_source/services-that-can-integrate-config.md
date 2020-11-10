@@ -4,11 +4,29 @@ Multi\-account, multi\-region data aggregation in AWS Config enables you to aggr
 
 You can also use [AWS Config APIs](https://docs.aws.amazon.com/config/latest/APIReference/welcome.html) to manage AWS Config rules across all AWS accounts in your organization\. For more information, see [Enabling AWS Config Rules Across All Accounts in Your Organization](https://docs.aws.amazon.com/config/latest/developerguide/config-rule-multi-account-deployment.html) in the *AWS Config Developer Guide*\.
 
-The following list provides information that is useful to know when you want to integrate AWS Config and AWS Organizations:
-+ **To enable trusted access with AWS Organizations:** To enable trusted access to AWS Organizations from AWS Config, you create a multi\-account aggregator and add the organization\. For information on how to configure a multi\-account aggregator, see [Setting Up an Aggregator Using the Console](https://docs.aws.amazon.com/config/latest/developerguide/setup-aggregator-console.html) in the *AWS Config Developer Guide*\.
-+ **Service principal name**
-  + For AWS Config: `config.amazonaws.com`
-  + For AWS Config rules: `config-multiaccountsetup.amazonaws.com`
-+ **Name of the IAM service\-linked role that can be created in accounts** when trusted access is enabled
-  + For AWS Config: `AWSConfigRoleForOrganizations`
-  + For AWS Config rules: `AWSServiceRoleForConfigMultiAccountSetup` 
+Use the following information to help you to help you integrate AWS Config with AWS Organizations\.
+
+**Topics**
++ [Service\-linked roles created when you enable integration](#integrate-enable-slr-config)
++ [Service principals used by the service\-linked roles](#integrate-enable-svcprin-config)
++ [Enabling trusted access with AWS Config](#integrate-enable-ta-config)
+
+## Service\-linked roles created when you enable integration<a name="integrate-enable-slr-config"></a>
+
+The following [service\-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html) are automatically created in your organization's accounts when you enable trusted access\. These roles allow AWS Config to perform supported operations within the accounts in your organization\.
+
+You can delete or modify these roles only if you disable trusted access between AWS Config and Organizations or if the account is removed from the organization\.
++ For AWS Config: `AWSConfigRoleForOrganizations`
++ For AWS Config rules: `AWSServiceRoleForConfigMultiAccountSetup` 
+
+## Service principals used by the service\-linked roles<a name="integrate-enable-svcprin-config"></a>
+
+The service\-linked roles in the previous section can be assumed only by the service principals authorized by the trust relationships defined for the role\. The service\-linked roles used by AWS Config grant access to the following service principals:
++ For AWS Config: `config.amazonaws.com`
++ For AWS Config rules: `config-multiaccountsetup.amazonaws.com`
+
+## Enabling trusted access with AWS Config<a name="integrate-enable-ta-config"></a>
+
+For information about the permissions needed to enable trusted access, see [Permissions required to enable trusted access](orgs_integrate_services.md#orgs_trusted_access_perms)\.
+
+To enable trusted access to AWS Organizations from AWS Config, create a multi\-account aggregator and add the organization\. For information on how to configure a multi\-account aggregator, see [Setting Up an Aggregator Using the Console](https://docs.aws.amazon.com/config/latest/developerguide/setup-aggregator-console.html) in the *AWS Config Developer Guide*\.

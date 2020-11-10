@@ -22,7 +22,7 @@ You can add tags to taggable resources at the following times:
 
 You can view the tags on any of the taggable resources in AWS Organizations by using the console or by calling the `[ListTagsForResource](https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListTagsForResource.html)` operation\.
 
-You can remove tags from a resource by specifying the keys to remove by using the console or by calling the `[UntagResource](https://docs.aws.amazon.com/organizations/latest/APIReference/API_UntagResource.html)` operation\.\.
+You can remove tags from a resource by specifying the keys to remove by using the console or by calling the `[UntagResource](https://docs.aws.amazon.com/organizations/latest/APIReference/API_UntagResource.html)` operation\.
 
 ## Using tags<a name="use-tags"></a>
 

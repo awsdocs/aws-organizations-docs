@@ -1,9 +1,39 @@
 # AWS Firewall Manager and AWS Organizations<a name="services-that-can-integrate-fms"></a>
 
-AWS Firewall Manager is a security management service that centrally configures and manages firewall rules for web applications across your accounts and applications\. Using AWS Firewall Manager, you can roll out AWS WAF rules all at once for your Application Load Balancers and Amazon CloudFront distributions across all of the accounts in your AWS organization\. Use AWS Firewall Manager to set up your firewall rules just once and have them automatically applied across all accounts and resources within your organization, even as new resources and accounts are added\. For more information about AWS Firewall Manager, see the [AWS Firewall Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/%5E-fms-chapter.html)\.
+AWS Firewall Manager is a security management service that centrally configures and manages firewall rules for web applications across your accounts and applications\. Using AWS Firewall Manager, you can roll out AWS WAF rules all at once for your Application Load Balancers and Amazon CloudFront distributions across all of the accounts in your AWS organization\. Use AWS Firewall Manager to set up your firewall rules just once and have them automatically applied across all accounts and resources within your organization, even as new resources and accounts are added\. For more information about AWS Firewall Manager, see the [AWS Firewall Manager Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/fms-chapter.html)\.
 
-The following list provides information that is useful to know when you want to integrate AWS Firewall Manager and AWS Organizations:
-+ **To enable trusted access with AWS Organizations:** You must sign in with your AWS Organizations management account \(formerly known as the "master account"\) to configure an account within the organization as the AWS Firewall Manager administrator account\. For information, see [Step 2: Set the AWS Firewall Manager Administrator Account](https://docs.aws.amazon.com/waf/latest/developerguide/enable-integration.html) in the *AWS Firewall Manager Developer Guide*\.
-+ **To disable trusted access with AWS Organizations:** You can change or revoke the AWS Firewall Manager administrator account by following the instructions in [Designating a Different Account as the AWS Firewall Manager Administrator Account](https://docs.aws.amazon.com/waf/latest/developerguide/fms-change-administrator.html) in the *AWS Firewall Manager Developer Guide*\. If you revoke the administrator account, you must sign in to the AWS Organizations management account and set a new administrator account for AWS Firewall Manager\.
-+ **Service principal name for AWS Firewall Manager: ** `fms.amazonaws.com`
-+ **Name of the IAM service\-linked role that can be created in accounts** when trusted access is enabled:  `AWSServiceRoleForFMS`
+Use the following information to help you to help you integrate AWS Firewall Manager with AWS Organizations\.
+
+**Topics**
++ [Service\-linked roles created when you enable integration](#integrate-enable-slr-fms)
++ [Service principals used by the service\-linked roles](#integrate-enable-svcprin-fms)
++ [Enabling trusted access with Firewall Manager](#integrate-enable-ta-fms)
++ [Disabling trusted access with Firewall Manager](#integrate-disable-ta-fms)
+
+## Service\-linked roles created when you enable integration<a name="integrate-enable-slr-fms"></a>
+
+The following [service\-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html) are automatically created in your organization's accounts when you enable trusted access\. These roles allow Firewall Manager to perform supported operations within the accounts in your organization\.
+
+You can delete or modify these roles only if you disable trusted access between Firewall Manager and Organizations or if the account is removed from the organization\.
++ `AWSServiceRoleForFMS`
+
+## Service principals used by the service\-linked roles<a name="integrate-enable-svcprin-fms"></a>
+
+The service\-linked roles in the previous section can be assumed only by the service principals authorized by the trust relationships defined for the role\. The service\-linked roles used by Firewall Manager grant access to the following service principals:
++ `fms.amazonaws.com`
+
+## Enabling trusted access with Firewall Manager<a name="integrate-enable-ta-fms"></a>
+
+For information about the permissions needed to enable trusted access, see [Permissions required to enable trusted access](orgs_integrate_services.md#orgs_trusted_access_perms)\.
+
+You must enable trusted access using the AWS Firewall Manager console\.
+
+You must sign in with your AWS Organizations management account and configure an account within the organization as the AWS Firewall Manager administrator account\. For more information, see [Step 2: Set the AWS Firewall Manager Administrator Account](https://docs.aws.amazon.com/waf/latest/developerguide/enable-integration.html) in the *AWS Firewall Manager Developer Guide*\.
+
+## Disabling trusted access with Firewall Manager<a name="integrate-disable-ta-fms"></a>
+
+For information about the permissions needed to disable trusted access, see [Permissions required to disable trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms)\.
+
+You can change or revoke the AWS Firewall Manager administrator account by following the instructions in [Designating a Different Account as the AWS Firewall Manager Administrator Account](https://docs.aws.amazon.com/waf/latest/developerguide/fms-change-administrator.html) in the *AWS Firewall Manager Developer Guide*\.
+
+If you revoke the administrator account, you must sign in to the AWS Organizations management account and set a new administrator account for AWS Firewall Manager\.

@@ -68,7 +68,7 @@ You ***can't*** use SCPs to restrict the following tasks:
 + Any action performed using permissions that are attached to a service\-linked role
 + Register for the Enterprise support plan as the root user
 + Change the AWS support level as the root user
-+ Manage Amazon CloudFront keys
++ Manage Amazon CloudFront keys as the root user
 + Provide trusted signer functionality for CloudFront private content
 + Modify AWS account email allowance/reverse DNS
 + Tasks on some AWS\-related services:

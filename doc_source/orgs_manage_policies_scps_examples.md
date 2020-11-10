@@ -34,7 +34,7 @@ If you use AWS Control Tower in your organization, we recommend that you do not 
 This policy uses the `Deny` effect to deny access to all requests for operations that don't target one of the two approved regions \(`eu-central-1` and `eu-west-1`\)\. The [NotAction](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_notaction.html) element enables you to list services whose operations \(or individual operations\) are exempted from this restriction\. Because global services have endpoints that are physically hosted by the `us-east-1` Region , they must be exempted in this way\. With an SCP structured this way, requests made to global services in the `us-east-1` Region are allowed if the requested service is included in the `NotAction` element\. Any other requests to services in the `us-east-1` Region are denied by this example policy\.
 
 **Note**  
-***This example might not include all of the latest global AWS services or operations\.*** Replace the list of services and operations in red italicized text with the global services used by accounts in your organization\.   
+***This example might not include all of the latest global AWS services or operations\.*** Replace the list of services and operations with the global services used by accounts in your organization\.   
 You can view the[ service last accessed data in the IAM console](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html) to determine what global services your organization uses\. The **Access Advisor** tab on the details page for an IAM user, group, or role displays the AWS services that have been used by that entity, sorted by most recent access\. 
 
 **Considerations**  
