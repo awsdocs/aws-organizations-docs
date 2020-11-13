@@ -29,7 +29,7 @@ The following example IAM policy provides permissions to manage all aspects of b
                 "organizations:CreatePolicy",
                 "organizations:DeletePolicy",
                 "organizations:DescribeAccount",
-                "organizations:DescribeCreateAccountStatus"
+                "organizations:DescribeCreateAccountStatus",
                 "organizations:DescribeEffectivePolicy",
                 "organizations:DescribeOrganization",
                 "organizations:DescribeOrganizationalUnit",
@@ -49,7 +49,7 @@ The following example IAM policy provides permissions to manage all aspects of b
                 "organizations:ListPoliciesForTarget",
                 "organizations:ListRoots",
                 "organizations:ListTargetsForPolicy",
-                "organizations:UpdatePolicy",
+                "organizations:UpdatePolicy"
             ],
             "Resource": "*"
         }
