@@ -69,6 +69,8 @@ If you perform the steps in the following procedure, the management account in t
 To approve a request to enable all features for your member account, you must have the following permissions:  
 `organizations:AcceptHandshake`
 `iam:CreateServiceLinkedRole` – Required only if the `AWSServiceRoleForOrganizations` role must be recreated in the member account
+`organizations:DescribeOrganization` – Required only if you want to accept the handshake by using the Organizations console
+`organizations:ListHandshakesForOrganization`– Required only if you want to accept the handshake by using the Organizations console
 
 ------
 #### [ AWS Management Console ]
