@@ -4,7 +4,7 @@ AWS License Manager streamlines the process of bringing software vendor licenses
 
 By linking License Manager with AWS Organizations, you can enable cross\-account discovery of computing resources throughout your organization\.
 
-For more information about License Manager, see the [License Manager User Guide](https://docs.aws.amazon.com/license-manger/latest/userguide/)\.
+For more information about License Manager, see the [License Manager User Guide](https://docs.aws.amazon.com/license-manager/latest/userguide/)\.
 
 Use the following information to help you to help you integrate AWS License Manager with AWS Organizations\.
 
@@ -22,7 +22,7 @@ You can delete or modify these roles only if you disable trusted access between 
 + `AWSLicenseManagerMemberAccountRole`
 + `AWSServiceRoleForAWSLicenseManagerRole`
 
-For more information, see [Using the License Manager–management account role](https://docs.aws.amazon.com/license-manger/latest/userguide/master-role.html) and [Using the License Manager–member account role](https://docs.aws.amazon.com/license-manger/latest/userguide/member-role.html)\.
+For more information, see [Using the License Manager–management account role](https://docs.aws.amazon.com/license-manager/latest/userguide/master-role.html) and [Using the License Manager–member account role](https://docs.aws.amazon.com/license-manager/latest/userguide/member-role.html)\.
 
 ## Service principals used by the service\-linked roles<a name="integrate-enable-svcprin-license-manager"></a>
 
@@ -35,4 +35,4 @@ The service\-linked roles in the previous section can be assumed only by the ser
 For information about the permissions needed to enable trusted access, see [Permissions required to enable trusted access](orgs_integrate_services.md#orgs_trusted_access_perms)\.
 
 **To enable trusted access with License Manager**  
-You must sign in to the License Manager console using your AWS Organizations management account and associate it with your License Manager account\. Then you can configure your License Manager settings\. For information, see [Configuring AWS License Manager Guide Settings](https://docs.aws.amazon.com/license-manger/latest/userguide/settings.html)\.
+You must sign in to the License Manager console using your AWS Organizations management account and associate it with your License Manager account\. Then you can configure your License Manager settings\. For information, see [Configuring AWS License Manager Guide Settings](https://docs.aws.amazon.com/license-manager/latest/userguide/settings.html)\.

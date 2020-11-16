@@ -33,11 +33,11 @@ For information about the permissions needed to enable trusted access, see [Perm
 You can enable trusted access using either the Service Quotas console or the AWS Organizations console\.
 
 **To enable trusted access using the Service Quotas console**  
-Sign in with your AWS Organizations management account and then configure the template on the Service Quotas console\. For more information, see [Using the Service Quota Template](https://docs.aws.amazon.com/servicequotas/latest/userguide/organization-templates.html) in the *Service Quotas User Guide*\. 
+Sign in with your AWS Organizations management account and then configure the template on the Service Quotas console\. For more information, see [Using the Service Quota Template](servicequotas/latest/userguide/organization-templates.html) in the *Service Quotas User Guide*\. 
 
 **To enable trusted access using the Service Quotas AWS CLI or SDK**  
 Call the following command or operation:
-+ AWS CLI: [aws service\-quotas associate\-service\-quota\-template](https://docs.aws.amazon.com/cli/latest/reference/servicequotas/API_AssociateServiceQuotaTemplate.html)
++ AWS CLI: [aws service\-quotas associate\-service\-quota\-template](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/API_AssociateServiceQuotaTemplate.html)
 + AWS API: []()
 
 On the Organizations side, you can enable trusted access by using either the AWS Organizations console, by running a AWS CLI command, or by calling an API operation in one of the AWS SDKs\.
