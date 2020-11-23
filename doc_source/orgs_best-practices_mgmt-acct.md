@@ -6,6 +6,7 @@ Follow these recommendations to help protect the security of the management acco
 AWS Organizations is changing the name of the “master account” to “management account”\. This is a name change only, and there is no change in functionality\. You might continue to see a few instances of the old term while we complete the work to transition to the newer term\. If you see one we missed, please use the **Feedback** link at the top of that page to let us know\.
 
 **Topics**
++ [Use the management account only for tasks that ***require*** the management account](#best-practices_mgmt-use)
 + [Use a group email address for the management account's root user](#best-practices_mgmt-acct_email-address)
 + [Use a complex password for the management account's root user](#best-practices_mgmt-acct_complex-password)
 + [Enable MFA for your root user credentials](#best-practices_mgmt-acct_mfa)
@@ -13,6 +14,14 @@ AWS Organizations is changing the name of the “master account” to “managem
 + [Review and keep track of who has access](#best-practices_mgmt-acct_review-access)
 + [Document the processes for using the root user credentials](#best-practices_mgmt-acct_document-processes)
 + [Apply controls to monitor access to the root user credentials](#best-practices_mgmt-acct_monitor-access)
+
+## Use the management account only for tasks that ***require*** the management account<a name="best-practices_mgmt-use"></a>
+
+We recommend that you use the management account and its users and roles only for tasks that can be done performed only by that account\. Store all of your AWS resources in *other* AWS accounts in the organization and keep them out of the management account\. The one exception is that we do recommend that you enable AWS CloudTrail and keep relevant CloudTrail trails and logs in the management account\.
+
+One important reason to keep your resources in other accounts is because Organizations service control policies \(SCPs\) do not work to restrict any users or roles in the management account\.
+
+Separating your resources from your management account also help you to understand the charges on your invoices\.
 
 ## Use a group email address for the management account's root user<a name="best-practices_mgmt-acct_email-address"></a>
 + Use an email address that is managed by your business\. Do not use a public email provider or one that is managed by a third party\.
