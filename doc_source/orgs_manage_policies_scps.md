@@ -70,7 +70,7 @@ You ***can't*** use SCPs to restrict the following tasks:
 + Change the AWS support level as the root user
 + Manage Amazon CloudFront keys as the root user
 + Provide trusted signer functionality for CloudFront private content
-+ Modify AWS account email allowance/reverse DNS
++ Configure reverse DNS for an Amazon Lightsail email server as the root user
 + Tasks on some AWS\-related services:
   + Alexa Top Sites
   + Alexa Web Information Service

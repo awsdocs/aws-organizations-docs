@@ -90,6 +90,7 @@ Amazon's trademarks and trade dress may not be used in
       + [AWS License Manager and AWS Organizations](services-that-can-integrate-license-manager.md)
       + [Amazon Macie and AWS Organizations](services-that-can-integrate-macie.md)
       + [AWS Resource Access Manager and AWS Organizations](services-that-can-integrate-ram.md)
+      + [Amazon S3 Storage Lens and AWS Organizations](services-that-can-integrate-s3lens.md)
       + [AWS Service Catalog and AWS Organizations](services-that-can-integrate-servicecatalog.md)
       + [Service Quotas and AWS Organizations](services-that-can-integrate-servicequotas.md)
       + [AWS Single Sign-On and AWS Organizations](services-that-can-integrate-sso.md)

@@ -4,7 +4,7 @@ Follow these recommendations to help protect the security of the member accounts
 
 **Topics**
 + [Use a group email address for all member account root users](#best-practices_member-acct_email-address)
-+ [Use a complex password for member account root users](#best-practices_mbr-acct_complex-password)
++ [Use a complex password for member account root user](#best-practices_mbr-acct_complex-password)
 + [Enable MFA for your root user credentials](#best-practices_mbr-acct_mfa)
 + [Add the management account's phone number to the member account contact information](#best-practices_mbr-acct_phone-number)
 + [Review and keep track of who has access](#best-practices_mbr-acct_review-access)
@@ -16,7 +16,7 @@ Follow these recommendations to help protect the security of the member accounts
 + Use an email address that is managed by your business\. Do not use a public email provider or one that is managed by a third party\.
 + Use an email address that forwards received messages directly to a list of senior business managers\. In the event that AWS needs to contact the owner of the account, for example, to confirm access, the email is distributed to multiple parties\. This approach helps to reduce the risk of delays in responding, even if individuals are on vacation, out sick, or leave the business\.
 
-## Use a complex password for member account root users<a name="best-practices_mbr-acct_complex-password"></a>
+## Use a complex password for member account root user<a name="best-practices_mbr-acct_complex-password"></a>
 + The security of your account's root user depends on the strength of its password\. We recommend that you use a password that is long, complex, and not used anywhere else\. Numerous password managers and complex password generation algorithms and tools can help you achieve these goals\.
 + If you are using a strong password, as described in the previous point, and you rarely access the root user, we recommend that you do ***not*** periodically change the password\. Changing the password more frequently than you use it increases the risk of compromise\.
 + Rely on your business' information security policy for managing long\-term storage and access to the passwords for your member account root users\. Unlike the management account \(formerly known as the "master account"\), however, it's reasonable to consider storing the password in a credible and business\-approved password manager system or tool\.
@@ -42,8 +42,8 @@ For instructions on how to enable multi\-factor authentication \(MFA\), see [Usi
 + You can normally rely on the [phone number from the organization's management account](orgs_best-practices_mgmt-acct.md#best-practices_mgmt-acct_phone-number) for any critical account recovery\. Therefore, we believe it’s unnecessary operational overhead to manage a separate telephone number to the contact information for a member account\. Therefore, we recommend that you add the same phone number as the management account\.
 
 ## Review and keep track of who has access<a name="best-practices_mbr-acct_review-access"></a>
-+ [As we recommended for the management account](orgs_best-practices_mgmt-acct.md#best-practices_mgmt-acct_review-access), you should periodically review the personnel within your business who have access to the email address, password, MFA, and phone number to ensure you maintain access to the member account's root user\. Align your review with existing business procedures\. However, it’s worth adding a monthly or quarterly review of this information to ensure that only the correct people have access\.
-+ Ensure that the process to recover or reset access to the root user credentials is not reliant on any specific individual to complete\. All processes should address the prospect of people being unavailable\.
++ [As we recommended for the management account](orgs_best-practices_mgmt-acct.md#best-practices_mgmt-acct_review-access), you should periodically review the personnel within your business who have access to the email address, password, MFA, and phone number for your member account's root user\. Align your review with existing business procedures\. However, it’s worth adding a monthly or quarterly review of this information to ensure that only the correct people have access\.
++ Ensure that the process to recover or reset access to the root user credentials is not reliant on any specific individual to complete\. All processes should address the possibility of people being unavailable\.
 + Ensure that the process to recover or reset access to the root user credentials can't be completed by a single individual\. It’s important that this process require the cooperation of multiple personnel to complete\.
 
 ## Document the processes for using the root user credentials<a name="best-practices_mbr-acct_document-processes"></a>

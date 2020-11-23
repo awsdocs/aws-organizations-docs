@@ -7,7 +7,7 @@ AWS Organizations is changing the name of the “master account” to “managem
 
 **Topics**
 + [Use a group email address for the management account's root user](#best-practices_mgmt-acct_email-address)
-+ [Use a complex password for the root user](#best-practices_mgmt-acct_complex-password)
++ [Use a complex password for the management account's root user](#best-practices_mgmt-acct_complex-password)
 + [Enable MFA for your root user credentials](#best-practices_mgmt-acct_mfa)
 + [Add a phone number to the account contact information](#best-practices_mgmt-acct_phone-number)
 + [Review and keep track of who has access](#best-practices_mgmt-acct_review-access)
@@ -18,7 +18,7 @@ AWS Organizations is changing the name of the “master account” to “managem
 + Use an email address that is managed by your business\. Do not use a public email provider or one that is managed by a third party\.
 + Use an email address that forwards received messages directly to a list of senior business managers\. In the event that AWS needs to contact the owner of the account, for example, to confirm access, the email message is distributed to multiple parties\. This approach helps to reduce the risk of delays in responding, even if individuals are on vacation, out sick, or leave the business\.
 
-## Use a complex password for the root user<a name="best-practices_mgmt-acct_complex-password"></a>
+## Use a complex password for the management account's root user<a name="best-practices_mgmt-acct_complex-password"></a>
 + The security of your account's root user depends on the strength of its password\. We recommend that you use a password that is long, complex, and not used anywhere else\. Numerous password managers and complex password generation algorithms and tools can help you achieve these goals\.
 + If you are using a strong password, as described in the previous point, and you rarely access the root user, we recommend that you do ***not*** periodically change the password\. Changing the password more frequently than you use it increases the risk of compromise\.
 + Rely on your business' information security policy for managing long\-term storage and access to the root user password\. This approach might mean that you do any of the following:
@@ -36,13 +36,13 @@ For instructions on how to enable multi\-factor authentication \(MFA\), see [Usi
   + If you do decide to use a battery\-based MFA, be sure to add processes to check the device periodically, and replace it when the expiry date approaches\.
   + Create a plan to handle the logistics of needing to maintain 24/7 access to the token in case it is needed\.
 + We strongly recommend that you ***don't*** re\-use that physical MFA for any other purpose than protecting this management account\. If you reuse the physical MFA, it can create both operational confusion and unnecessary exposure of the MFA\.
-+ Store the MFA device according to your information security policy but ***not*** in the same place as the associated password for the root user\. Make sure that the process to access the password and the process to access the MFA require different access to different resources \(people, data, and tools\)\. 
++ Store the MFA device according to your information security policy but ***not*** in the same place as the associated password for the user\. Make sure that the process to access the password and the process to access the MFA require different access to different resources \(people, data, and tools\)\. 
 + Any access of the MFA device or its storage location should be logged and monitored\. 
 
 ## Add a phone number to the account contact information<a name="best-practices_mgmt-acct_phone-number"></a>
 + Although there are some credible attack vectors against landline, SIP, and mobile phone numbers, overall the risks are outweighed by the complexity of these vectors\. If you use this mechanism to recover root access, other factors are available to the AWS Support representative to manage these risks\. Therefore, we recommend adding a phone number as a useful additional barrier to the process\.
 + There are several options for provisioning a phone number, but the one we recommend is a dedicated SIM card and phone, stored long\-term in a safe\. It’s important to ensure that the team responsible for paying the mobile bill for this phone contract understand the importance of the number even though there will be apparently no calls sent or received by it over long periods of time\.
-+ It’s important that this phone number not be well known within the business\. Document it in the **AWS Contact Informatio**n console page, and share its details with your billing team\. Do not document it anywhere else\. This approach helps to reduce the risk of the attack vectors associated with moving the phone number tied to the SIM to another SIM\.
++ It’s important that this phone number not be well known within the business\. Document it in the **AWS Contact Information** console page, and share its details with your billing team\. Do not document it anywhere else\. This approach helps to reduce the risk of the attack vectors associated with moving the phone number tied to the SIM to another SIM\.
 + Store the phone according to your existing information security policy\. However, do not store the phone in the same location as the other related credential information\.
 + Any access of the phone or its storage location should be logged and monitored\.
 

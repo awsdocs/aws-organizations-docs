@@ -10,7 +10,7 @@ The bulk of a backup policy is the backup plan and its rules\. The syntax for th
 
 To be complete and functional, an [effective backup policy](orgs_manage_policies_backup_effective.md) must include more than just a backup plan with its schedule and rules\. The policy must also identify the AWS Regions and the resources to be backed up, and the AWS Identity and Access Management \(IAM\) role that AWS Backup can use to perform the backup\.
 
-The following functionally complete policy shows the basic backup policy syntax\. If this example was attached directly to an account, AWS Backup would back up all resources for that account in the `us-east-1` and `eu-north-1` Regions that have the tag `dataType` with a value of either `PII` or `RED` \. It backs up those resources daily at 5:00 AM to `My_Backup_Vault` and also stores a copy in `My_Secondary_Vault`\. The vaults must already exist in both of the specified AWS Regions for each AWS account that receives the effective policy\. If any of the backed up resources are EC2 instances, then support for Microsoft's Volume Shadow Service \(VSS\) is enabled for the backups on those instances\. The backup applies the tag `Owner:Backup` to each recovery point\. 
+The following functionally complete policy shows the basic backup policy syntax\. If this example was attached directly to an account, AWS Backup would back up all resources for that account in the `us-east-1` and `eu-north-1` Regions that have the tag `dataType` with a value of either `PII` or `RED` \. It backs up those resources daily at 5:00 AM to `My_Backup_Vault` and also stores a copy in `My_Secondary_Vault`\. Both of those vaults are in the same account as the resource\. It also stores a copy of the backup in the `My_Tertiary_Vault` in a different, explilcitly specified account\. The vaults must already exist in each of the specified AWS Regions for each AWS account that receives the effective policy\. If any of the backed up resources are EC2 instances, then support for Microsoft Volume Shadow Copy Service \(VSS\) is enabled for the backups on those instances\.The backup applies the tag `Owner:Backup` to each recovery point\. 
 
 ```
 {
@@ -18,35 +18,19 @@ The following functionally complete policy shows the basic backup policy syntax\
         "PII_Backup_Plan": {
             "rules": {
                 "My_Hourly_Rule": {
-                    "schedule_expression": {
-                        "@@assign": "cron(0 5 ? * * *)"
-                    },
-                    "start_backup_window_minutes": {
-                        "@@assign": "60"
-                    },
-                    "complete_backup_window_minutes": {
-                        "@@assign": "604800"
-                    },
-                    "target_backup_vault_name": {
-                        "@@assign": "My_Backup_Vault"
-                    },
+                    "schedule_expression": {"@@assign": "cron(0 5 ? * * *)"},
+                    "start_backup_window_minutes": {"@@assign": "60"},
+                    "complete_backup_window_minutes": {"@@assign": "604800"},
+                    "target_backup_vault_name": {"@@assign": "My_Backup_Vault"},
                     "recovery_point_tags": {
                         "Owner": {
-                            "tag_key": {
-                                "@@assign": "Owner"
-                            },
-                            "tag_value": {
-                                "@@assign": "Backup"
-                            }
+                            "tag_key": {"@@assign": "Owner"},
+                            "tag_value": {"@@assign": "Backup"}
                         }
                     },
                     "lifecycle": {
-                        "move_to_cold_storage_after_days": {
-                            "@@assign": "180"
-                        },
-                        "delete_after_days": {
-                            "@@assign": "270"
-                        }
+                        "move_to_cold_storage_after_days": {"@@assign": "180"},
+                        "delete_after_days": {"@@assign": "270"}
                     },
                     "copy_actions": {
                         "arn:aws:backup:us-west-2:$account:backup-vault:My_Secondary_Vault": {
@@ -54,25 +38,17 @@ The following functionally complete policy shows the basic backup policy syntax\
                                 "@@assign": "arn:aws:backup:us-west-2:$account:backup-vault:My_Secondary_Vault"
                             },
                             "lifecycle": {
-                                "move_to_cold_storage_after_days": {
-                                    "@@assign": "180"
-                                },
-                                "delete_after_days": {
-                                    "@@assign": "270"
-                                }
+                                "move_to_cold_storage_after_days": {"@@assign": "180"},
+                                "delete_after_days": {"@@assign": "270"}
                             }
                         },
                         "arn:aws:backup:us-east-1:$account:backup-vault:My_Tertiary_Vault": {
                             "target_backup_vault_arn": {
-                                "@@assign": "arn:aws:backup:us-east-1:$account:backup-vault:My_Tertiary_Vault"
+                                "@@assign": "arn:aws:backup:us-east-1:111111111111:backup-vault:My_Tertiary_Vault"
                             },
                             "lifecycle": {
-                                "move_to_cold_storage_after_days": {
-                                    "@@assign": "180"
-                                },
-                                "delete_after_days": {
-                                    "@@assign": "270"
-                                }
+                                "move_to_cold_storage_after_days": {"@@assign": "180"},
+                                "delete_after_days": {"@@assign": "270"}
                             }
                         }
                     }
@@ -87,12 +63,8 @@ The following functionally complete policy shows the basic backup policy syntax\
             "selections": {
                 "tags": {
                     "My_Backup_Assignment": {
-                        "iam_role_arn": {
-                            "@@assign": "arn:aws:iam::$account:role/MyIamRole"
-                        },
-                        "tag_key": {
-                            "@@assign": "dataType"
-                        },
+                        "iam_role_arn": {"@@assign": "arn:aws:iam::$account:role/MyIamRole"},
+                        "tag_key": {"@@assign": "dataType"},
                         "tag_value": {
                             "@@assign": [
                                 "PII",
@@ -104,19 +76,13 @@ The following functionally complete policy shows the basic backup policy syntax\
             },
             "advanced_backup_settings": {
                 "ec2": {
-                    "WindowsVSS": {
-                        "@@assign": "enabled"
-                    }
+                    "WindowsVSS": {"@@assign": "enabled"}
                 }
             },
             "backup_plan_tags": {
                 "stage": {
-                    "tag_key": {
-                        "@@assign": "Stage"
-                    },
-                    "tag_value": {
-                        "@@assign": "Beta"
-                    }
+                    "tag_key": {"@@assign": "Stage"},
+                    "tag_value": {"@@assign": "Beta"}
                 }
             }
         }
@@ -185,8 +151,8 @@ The vault must already exist when the backup plan is launched the first time\. W
       + `target_backup_vault_arn` – This policy key maps to the `DestinationBackupVaultArn` key in an AWS Backup plan\.
 
         \(Optional\) Specifies the vault in which AWS Backup stores an additional copy of the backup\. The value of this key contains the [`@@assign` inheritance value operator](orgs_manage_policies_inheritance_mgmt.md#value-setting-operators) and the ARN of the vault\. 
-
-        You must use the `$account` variable in the ARN in place of the account ID number\. When AWS Backup runs the backup plan, it automatically replaces the variable with the account ID number of the AWS account in which the policy is running\. While you can only copy within the same account, you each backup copy be stored in a different Region\.
+        + To reference a vault in the AWS account that the backup policy is running in, use the `$account` variable in the ARN in place of the account ID number\. When AWS Backup runs the backup plan, it automatically replaces the variable with the account ID number of the AWS account in which the policy is running\. This enables the backup to run correctly when the backup policy applies to more than one account in an organization\.
+        + To reference a vault in a different AWS account in the same organization, use the actual account ID number in the ARN\.
 **Important**  
 If this key is missing, then an all lower\-case version of the ARN in the parent key name is used\. Because ARNs are case sensitive, this string might not match the actual ARN of the fault and the plan fails\. For this reason, we recommend you always supply this key and value\.
 The backup vault that you want to copy the backup to must already exist the first time you launch the backup plan\. We recommend that you use AWS CloudFormation stack sets and its integration with Organizations to automatically create and configure backup vaults and IAM roles for each member account in the organization\. For more information, see [Create a stack set with self\-managed permissions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-getting-started-create.html#create-stack-set-service-managed-permissions) in the *AWS CloudFormation User Guide*\.
@@ -224,7 +190,7 @@ The role must already exist when you launch the backup plan the first time\. We 
   + Object key name – A string that specifies the type of resource to which the following advanced settings apply\.
   + Object value – A JSON object string that contains one or more backup settings specific to the associated resource type\.
 
-  At this time, the only advanced backup setting that is supported enables Microsoft Volume Snapshot Service \(VSS\) backups for Windows or SQL Server running on an Amazon EC2 instance\. The key name must be the `"ec2"` resource type, and the value specifies that `"WindowsVSS"` support is either `enabled` or `disabled` for backups performed on those Amazon EC2 instances\. For more information about this feature, see [Creating a VSS\-Enabled Windows Backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/windows-backup.html) in the *AWS Backup Developer Guide*\.
+  At this time, the only advanced backup setting that is supported enables Microsoft Volume Shadow Copy Service \(VSS\) backups for Windows or SQL Server running on an Amazon EC2 instance\. The key name must be the `"ec2"` resource type, and the value specifies that `"WindowsVSS"` support is either `enabled` or `disabled` for backups performed on those Amazon EC2 instances\. For more information about this feature, see [Creating a VSS\-Enabled Windows Backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/windows-backup.html) in the *AWS Backup Developer Guide*\.
 
   ```
   "advanced_backup_settings": {
@@ -300,9 +266,9 @@ The following example shows a backup policy that is assigned to one of the paren
                                 }
                             }
                         },
-                        "arn:aws:backup:us-west-1:$account:backup-vault:tertiary_vault": {
+                        "arn:aws:backup:us-west-1:111111111111:backup-vault:tertiary_vault": {
                             "target_backup_vault_arn": {
-                                "@@assign": "arn:aws:backup:us-west-1:$account:backup-vault:tertiary_vault"
+                                "@@assign": "arn:aws:backup:us-west-1:111111111111:backup-vault:tertiary_vault"
                             },
                             "lifecycle": {
                                 "move_to_cold_storage_after_days": {
@@ -375,9 +341,9 @@ If no other policies are inherited or attached to the accounts, the effective po
                                 "move_to_cold_storage_after_days": "180"
                             }
                         },
-                        "arn:aws:backup:us-west-1:$account:vault:tertiary_vault": {
+                        "arn:aws:backup:us-west-1:111111111111:vault:tertiary_vault": {
                             "target_backup_vault_arn": {
-                                "@@assign": "arn:aws:backup:us-west-1:$account:vault:tertiary_vault"
+                                "@@assign": "arn:aws:backup:us-west-1:111111111111:vault:tertiary_vault"
                             },
                             "lifecycle": {
                                 "to_delete_after_days": "28",
