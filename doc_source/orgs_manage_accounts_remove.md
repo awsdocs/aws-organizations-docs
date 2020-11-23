@@ -127,7 +127,7 @@ If you sign in as an IAM user and the account is missing payment information, th
 
 1. Remove the IAM roles that grant access to your account from the organization\.
 **Important**  
-If your account was created in the organization, then Organizations automatically created an IAM role in the account that enabled access by the organization's management account\. If the account was invited to join, then Organizations did not automatically create such a role, but you or another administrator might have created one to get the same benefits\. In either case, when you remove the account from the organization, any such role isn't automatically deleted\. If you want to terminate this access from the former organization's management account, then you must manually delete this IAM role\.
+If your account was created in the organization, then Organizations automatically created an IAM role in the account that enabled access by the organization's management account\. If the account was invited to join, then Organizations did not automatically create such a role, but you or another administrator might have created one to get the same benefits\. In either case, when you remove the account from the organization, any such role isn't automatically deleted\. If you want to terminate this access from the former organization's management account, then you must manually delete this IAM role\. For information about how to delete a role, see [Deleting roles or instance profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_manage_delete.html) in the *IAM User Guide*\.
 
 ------
 #### [ AWS CLI, AWS API ]
