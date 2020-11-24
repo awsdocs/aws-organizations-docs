@@ -27,7 +27,7 @@ You can enable trusted access using the AWS Organizations console or by using th
 **To enable trusted access using the AWS Service Catalog CLI or AWS SDK**  
 Call one of the following commands or operations:
 + AWS CLI: [aws servicecatalog enable\-aws\-organizations\-access](https://docs.aws.amazon.com/cli/latest/reference/servicecatalog/enable-aws-organizations-access.html)
-+ AWS API: [AWSServiceCatalog::EnableAWSOrganizationsAccess](servicecatalog/latest/dg/API_EnableAWSOrganizationsAccess.html)
++ AWS API: [AWSServiceCatalog::EnableAWSOrganizationsAccess](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_EnableAWSOrganizationsAccess.html)
 
 On the Organizations side, you can enable trusted access by using either the AWS Organizations console, by running a AWS CLI command, or by calling an API operation in one of the AWS SDKs\.
 
@@ -65,7 +65,7 @@ You can disable trusted access using the AWS Organizations console, or by using 
 **To disable trusted access using the AWS Service Catalog CLI or AWS SDK**  
 Call one of the following commands or operations:
 + AWS CLI: [aws servicecatalog enable\-aws\-organizations\-access](https://docs.aws.amazon.com/cli/latest/reference/servicecatalog/enable-aws-organizations-access.html)
-+ AWS API: [DisableAWSOrganizationsAccess](servicecatalog/latest/dg/API_DisableAWSOrganizationsAccess.html)
++ AWS API: [DisableAWSOrganizationsAccess](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_DisableAWSOrganizationsAccess.html)
 
 On the Organizations side, you can disable trusted access by using either the AWS Organizations console, by running a AWS CLI command, or by calling an API operation in one of the AWS SDKs\.
 
