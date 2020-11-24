@@ -63,6 +63,14 @@ On the Organizations side, you can disable trusted access by using either the AW
 **To disable trusted service access using an Organizations AWS CLI command or API**  
 You can use the following AWS CLI commands or API operations to disable trusted service access:
 + AWS CLI: [aws organizations disable\-aws\-service\-access](https://docs.aws.amazon.com/cli/latest/reference/organizations/disable-aws-service-access.html)
+
+  You can run the following command to disable AWS Backup as a trusted service with Organizations\.
+
+  ```
+  $ aws organizations disable-aws-service-access --service-principle backup.amazonaws.com
+  ```
+
+  The previous command produces no output when successful\.
 + AWS API: [DisableAWSServiceAccess](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DisableAWSServiceAccess.html)
 
 ------
