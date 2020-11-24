@@ -63,7 +63,7 @@ You can use the following AWS CLI commands or API operations to disable trusted 
   You can run the following command to disable AWS Systems Manager as a trusted service with Organizations\.
 
   ```
-  $ aws organizations disable-aws-service-access --service-principle 
+  $ aws organizations disable-aws-service-access --service-principle ssm.amazonaws.com
   ```
 
   The previous command produces no output when successful\.
