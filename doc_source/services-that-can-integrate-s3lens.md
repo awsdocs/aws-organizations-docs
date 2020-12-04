@@ -41,7 +41,7 @@ For information about the permissions needed to disable trusted access, see [Per
 You can disable trusted access using the Amazon S3 console, the AWS CLI or any of the AWS SDKs\. 
 
 **To disable trusted access using the Amazon S3 console**  
-See [How to disable Trusted Access](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/storage_lens_console_organizations_deregistering_delegated_admins.html ) in the *Amazon Simple Storage Service Developer Guide*\.
+See [How to disable Trusted Access](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/storage_lens_console_organizations_disabling_trusted_access.html) in the *Amazon Simple Storage Service Developer Guide*\.
 
 ## Enabling a delegated administrator account for Amazon S3 Storage Lens<a name="integrate-disable-da-s3lens"></a>
 
@@ -58,4 +58,4 @@ Amazon S3 Storage Lens supports a maximum of 5 delegated administrator accounts 
 You can register a delegated administrator using the Amazon S3 console, the AWS CLI or any of the AWS SDKs\. To register a member account as a delegated administrator account for your organization using the Amazon S3 console, see [How to register a Delegated Administrator](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/storage_lens_console_organizations_registering_delegated_admins.html) in the *Amazon Simple Storage Service Developer Guide*\.
 
 **To deregister a delegated administrator for Amazon S3 Storage Lens**  
-You can deregister a delegated administrator using the Amazon S3 console, the AWS CLI or any of the AWS SDKs\. To deregister a delegated administrator using the Amazon S3 console, see [How to unregister a Delegated Administrator](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/storage_lens_console_organizations_disabling_trusted_access.html ) in the *Amazon Simple Storage Service Developer Guide*\.
+You can deregister a delegated administrator using the Amazon S3 console, the AWS CLI or any of the AWS SDKs\. To deregister a delegated administrator using the Amazon S3 console, see [How to unregister a Delegated Administrator](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/storage_lens_console_organizations_deregistering_delegated_admins.html) in the *Amazon Simple Storage Service Developer Guide*\.

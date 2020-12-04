@@ -5,6 +5,7 @@ The following table describes major documentation updates for AWS Organizations\
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Organizations now supports integration with AWS Marketplace](https://docs.aws.amazon.com/organizations/latest/userguide/services-that-can-integrate-marketplace.html) | You can now enable AWS Marketplace to more easily share your software licenses across all of the accounts in your organization\. | December 3, 2020 | 
 | [Organizations now supports integration with Amazon S3 Lens](https://docs.aws.amazon.com/organizations/latest/userguide/services_that_can_integrate-s3lens.html) | Amazon S3 Lens supports both trusted access and delegated administrator with Organizations\. For details, see [Amazon S3 Storage Lens](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html) in the *Amazon Simple Storage Service Developer Guide*\. | November 18, 2020 | 
 | [Cross\-account backup copies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_backup_syntax.html) | When you use backup policies to backup the resources in your organization, you can now store copies of your backup in other AWS accounts in the organization\. | November 18, 2020 | 
 | [AWS Regions in China now support AWS Resource Access Manager as an Organizations trusted service\.](#document-history) | You can now use AWS RAM features that integrate with Organizations as a trusted service when you use Organizations and AWS RAM in China\. | November 18, 2020 | 

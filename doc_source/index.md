@@ -89,6 +89,7 @@ Amazon's trademarks and trade dress may not be used in
       + [AWS Health and AWS Organizations](services-that-can-integrate-health.md)
       + [AWS License Manager and AWS Organizations](services-that-can-integrate-license-manager.md)
       + [Amazon Macie and AWS Organizations](services-that-can-integrate-macie.md)
+      + [AWS Marketplace and AWS Organizations](services-that-can-integrate-marketplace.md)
       + [AWS Resource Access Manager and AWS Organizations](services-that-can-integrate-ram.md)
       + [AWS Security Hub and AWS Organizations](services-that-can-integrate-securityhub.md)
       + [Amazon S3 Storage Lens and AWS Organizations](services-that-can-integrate-s3lens.md)

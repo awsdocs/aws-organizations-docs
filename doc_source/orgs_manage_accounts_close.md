@@ -12,10 +12,8 @@ Immediately, the account can no longer be used for any AWS activity other than s
 **Important**  
 Accounts that are closed for 90 days or more are no longer eligible for reinstatement\. At this point, any resources that were in the account can’t be recovered\.
 Closed accounts are visible in your organization with the "suspended" state\. After an account has been deleted for 90 days, it's no longer visible in your organization\.
-
 You can close an account only by using the Billing and Cost Management console, not by using the AWS Organizations console or its tools\.
-
-To close a management account \(formerly known as the "master account"\), first [delete the organization](orgs_manage_org_delete.md), and then close it using the steps in the following procedure\.
+To close the management account for the organization, you must first either [remove ](orgs_manage_accounts_remove.md#orgs_manage_accounts_remove-member-account) or close all member accounts in the organization\. This is because closing the management account automatically deletes the organization, which succeeds only if there are no member accounts in the organization\.
 
 **To close an AWS account \(console\)**
 

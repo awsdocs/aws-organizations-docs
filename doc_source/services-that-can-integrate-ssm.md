@@ -36,7 +36,7 @@ Systems Manager requires trusted access with AWS Organizations to synchronize op
 For information about the permissions needed to disable trusted access, see [Permissions required to disable trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms)\.
 
 **To disable trusted access using the Systems Manager console**  
-See [https://docs.aws.amazon.com/systems-manager/latest/userguide/Explorer-using-resource-data-sync-delete.html](https://docs.aws.amazon.com/systems-manager/latest/userguide/Explorer-using-resource-data-sync-delete.html) in the *AWS Systems Manager User Guide*\. To reenable trusted access, you must create a new Resource Data Sync for Systems Manager Explorer\.
+See [Deleting a Systems Manager Explorer Resource Data Sync](https://docs.aws.amazon.com/systems-manager/latest/userguide/Explorer-using-resource-data-sync-delete.html) in the *AWS Systems Manager User Guide*\. To reenable trusted access, you must create a new Resource Data Sync for Systems Manager Explorer\.
 
 On the Organizations side, you can disable trusted access by using either the AWS Organizations console, by running a AWS CLI command, or by calling an API operation in one of the AWS SDKs\.
 

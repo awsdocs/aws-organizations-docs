@@ -6,13 +6,14 @@ For information on removing the *management account \(formerly known as the "mas
 
 **Topics**
 + [Before removing an account from an organization](#orgs_manage_account-before-remove)
-+ [Removing a member account from your organization](#orgs_manage_accounts_remove-from-management-account)
++ [Removing a member account from your organization](#orgs_manage_accounts_remove-member-account)
 + [Leaving an organization as a member account](#orgs_manage_accounts_leave-as-member)
 
 ## Before removing an account from an organization<a name="orgs_manage_account-before-remove"></a>
 
 Before you remove an account, it's important to know the following:
 + You can remove an account from your organization only if the account has the information that is required for it to operate as a standalone account\. When you create an account in an organization using the AWS Organizations console, API, or AWS CLI commands, all the information that is required of standalone accounts is not automatically collected\. For each account that you want to make standalone, you must choose a support plan, provide and verify the required contact information, and provide a current payment method\. AWS uses the payment method to charge for any billable \(not AWS Free Tier\) AWS activity that occurs while the account isn't attached to an organization\. 
++ The account that you want to remove must not be a delegated administrator account for any AWS service enabled for your organization\. If the account is a delegated administrator, you must first change the delegated administrator account to another account that is remaining in the organization\. For more information about how to disable or change the delegated administrator account for an AWS service, see the documentation for that service
 + Even after the removal of created accounts \(accounts created using the AWS Organizations console or the `CreateAccount` API\) from within an organization, \(i\) created accounts are governed by the terms of the creating management account's agreement with us, and \(ii\) the creating management account remains jointly and severally liable for any actions taken by its created accounts\. Customers' agreements with us, and the rights and obligations under those agreements, cannot be assigned or transferred without our prior consent\. To obtain our consent, contact us at [https://aws\.amazon\.com/contact\-us/](https://aws.amazon.com/contact-us/)\.
 + When a member account leaves an organization, that account no longer has access to cost and usage data from the time range when the account was a member of the organization\. However, the management account of the organization can still access the data\. If the account rejoins the organization, the account can access that data again\.
 + When a member account leaves an organization, all tags attached to the account are deleted\.
@@ -24,7 +25,7 @@ When you remove an account from an organization, no direct changes are made to t
 + The principals in the account are no longer affected by any [policies](orgs_manage_policies.md) that applied in the organization\. This means that restrictions imposed by SCPs are gone, and the users and roles in the account might have more permissions than they had before\. Other organization policy types can no longer enforced or processed\. 
 + Integration with other services might be disabled\. For example, AWS Single Sign\-On requires an organization to operate, so if you remove an account from an organization that supports AWS SSO, the users in that account can no longer use that service\.
 
-## Removing a member account from your organization<a name="orgs_manage_accounts_remove-from-management-account"></a>
+## Removing a member account from your organization<a name="orgs_manage_accounts_remove-member-account"></a>
 
 When you sign in to the organization's management account, you can remove member accounts from the organization that you no longer need\. To do this, complete the following procedure\. These procedures apply only to member accounts\. To remove the management account, you must [delete the organization]()\.
 
@@ -82,6 +83,8 @@ You can use one of the following commands to remove a member account:
 ## Leaving an organization as a member account<a name="orgs_manage_accounts_leave-as-member"></a>
 
 When signed in to a member account, you can remove that one account from its organization\. To do this, complete the following procedure\. The management account can't leave the organization using this technique\. To remove the management account, you must [delete the organization]()\.
+
+The account that you want to remove must not be a delegated administrator account for any AWS service enabled for your organization\. If the account is a delegated administrator, you must first change the delegated administrator account to another account that is remaining in the organization\. For more information about how to disable or change the delegated administrator account for an AWS service, see the documentation for that service
 
 **Important**  
 If you leave an organization, you are no longer covered by organization agreements that were accepted on your behalf by the management account of the organization\. You can view a list of these organization agreements in [AWS Artifact Organization Agreements](http://console.aws.amazon.com/artifact/home?#!/agreements?tab=organizationAgreements)\. Before leaving the organization, you should determine \(with the assistance of your legal, privacy, or compliance teams where appropriate\) whether it is necessary for you to have new agreement\(s\) in place\.

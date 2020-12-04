@@ -17,7 +17,7 @@ AWS Organizations is changing the name of the “master account” to “managem
 
 ## Use the management account only for tasks that ***require*** the management account<a name="best-practices_mgmt-use"></a>
 
-We recommend that you use the management account and its users and roles only for tasks that can be done performed only by that account\. Store all of your AWS resources in *other* AWS accounts in the organization and keep them out of the management account\. The one exception is that we do recommend that you enable AWS CloudTrail and keep relevant CloudTrail trails and logs in the management account\.
+We recommend that you use the management account and its users and roles only for tasks that can be performed only by that account\. Store all of your AWS resources in *other* AWS accounts in the organization and keep them out of the management account\. The one exception is that we do recommend that you enable AWS CloudTrail and keep relevant CloudTrail trails and logs in the management account\.
 
 One important reason to keep your resources in other accounts is because Organizations service control policies \(SCPs\) do not work to restrict any users or roles in the management account\.
 
