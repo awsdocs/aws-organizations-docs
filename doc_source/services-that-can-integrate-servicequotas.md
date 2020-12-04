@@ -65,7 +65,8 @@ You can use the following AWS CLI commands or API operations to enable trusted s
   You can run the following command to enable Service Quotas as a trusted service with Organizations\.
 
   ```
-  $ aws organizations enable-aws-service-access --service-principle servicequotas.amazonaws.com
+  $ aws organizations enable-aws-service-access \ 
+      --service-principle servicequotas.amazonaws.com
   ```
 
   The previous command produces no output when successful\.
@@ -104,7 +105,8 @@ You can use the following AWS CLI commands or API operations to disable trusted 
   You can run the following command to disable Service Quotas as a trusted service with Organizations\.
 
   ```
-  $ aws organizations disable-aws-service-access --service-principle servicequotas.amazonaws.com
+  $ aws organizations disable-aws-service-access \
+      --service-principle servicequotas.amazonaws.com
   ```
 
   The previous command produces no output when successful\.

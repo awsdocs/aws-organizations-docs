@@ -12,6 +12,7 @@ Use the following information to help you to help you integrate AWS License Mana
 + [Service\-linked roles created when you enable integration](#integrate-enable-slr-license-manager)
 + [Service principals used by the service\-linked roles](#integrate-enable-svcprin-license-manager)
 + [Enabling trusted access with License Manager](#integrate-enable-ta-license-manager)
++ [Disabling trusted access with License Manager](#integrate-disable-ta-license-manager)
 
 ## Service\-linked roles created when you enable integration<a name="integrate-enable-slr-license-manager"></a>
 
@@ -36,3 +37,28 @@ For information about the permissions needed to enable trusted access, see [Perm
 
 **To enable trusted access with License Manager**  
 You must sign in to the License Manager console using your AWS Organizations management account and associate it with your License Manager account\. Then you can configure your License Manager settings\. For information, see [Configuring AWS License Manager Guide Settings](https://docs.aws.amazon.com/license-manager/latest/userguide/settings.html)\.
+
+## Disabling trusted access with License Manager<a name="integrate-disable-ta-license-manager"></a>
+
+For information about the permissions needed to disable trusted access, see [Permissions required to disable trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms)\.
+
+On the Organizations side, you can disable trusted access by running a AWS CLI command, or by calling an API operation in one of the AWS SDKs\.
+
+------
+#### [ AWS CLI, AWS API ]
+
+**To disable trusted service access using an Organizations AWS CLI command or API**  
+You can use the following AWS CLI commands or API operations to disable trusted service access:
++ AWS CLI: [aws organizations disable\-aws\-service\-access](https://docs.aws.amazon.com/cli/latest/reference/organizations/disable-aws-service-access.html)
+
+  You can run the following command to disable AWS License Manager as a trusted service with Organizations\.
+
+  ```
+  $ aws organizations disable-aws-service-access \
+      --service-principle license-manager.amazonaws.com
+  ```
+
+  The previous command produces no output when successful\.
++ AWS API: [DisableAWSServiceAccess](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DisableAWSServiceAccess.html)
+
+------

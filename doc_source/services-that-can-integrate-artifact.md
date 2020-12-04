@@ -51,7 +51,8 @@ You can use the following AWS CLI commands or API operations to enable trusted s
   You can run the following command to enable AWS Artifact as a trusted service with Organizations\.
 
   ```
-  $ aws organizations enable-aws-service-access --service-principle AWSArtifactAccountSync
+  $ aws organizations enable-aws-service-access \ 
+      --service-principle AWSArtifactAccountSync
   ```
 
   The previous command produces no output when successful\.
@@ -92,7 +93,8 @@ You can use the following AWS CLI commands or API operations to disable trusted 
   You can run the following command to disable AWS Artifact as a trusted service with Organizations\.
 
   ```
-  $ aws organizations disable-aws-service-access --service-principle AWSArtifactAccountSync
+  $ aws organizations disable-aws-service-access \
+      --service-principle AWSArtifactAccountSync
   ```
 
   The previous command produces no output when successful\.

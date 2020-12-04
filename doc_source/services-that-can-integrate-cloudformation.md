@@ -60,8 +60,10 @@ You can use the following AWS CLI commands or API operations to enable trusted s
   You can run the following commands to enable AWS CloudFormation StackSets as a trusted service with Organizations\.
 
   ```
-  $ aws organizations enable-aws-service-access --service-principle stacksets.cloudformation.amazonaws.com
-  $ aws organizations enable-aws-service-access --service-principle member.org.stacksets.cloudformation.amazonaws.com
+  $ aws organizations enable-aws-service-access \
+      --service-principle stacksets.cloudformation.amazonaws.com
+  $ aws organizations enable-aws-service-access \
+      --service-principle member.org.stacksets.cloudformation.amazonaws.com
   ```
 
   These commands produce no output when successful\.
@@ -100,8 +102,10 @@ You can use the following AWS CLI commands or API operations to disable trusted 
   You can run the following commands to disable AWS CloudFormation StackSets as a trusted service with Organizations\.
 
   ```
-  $ aws organizations disable-aws-service-access --service-principle stacksets.cloudformation.amazonaws.com
-  $ aws organizations disable-aws-service-access --service-principle member.org.stacksets.cloudformation.amazonaws.com
+  $ aws organizations disable-aws-service-access \
+      --service-principle stacksets.cloudformation.amazonaws.com
+  $ aws organizations disable-aws-service-access \
+      --service-principle member.org.stacksets.cloudformation.amazonaws.com
   ```
 
   These commands produce no output when successful\.

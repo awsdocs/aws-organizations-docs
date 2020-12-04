@@ -28,6 +28,27 @@ For information about the permissions needed to enable trusted access, see [Perm
 
 You must sign in with your AWS Organizations management account to create an organization trail\. If you create the trail from the AWS CloudTrail console, trusted access is configured automatically for you\. If you choose to create an organization trail using the AWS CLI or the AWS API, you must manually configure trusted access\. For more information, see [ Enabling CloudTrail as a trusted service in AWS Organizations](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-and-update-an-organizational-trail-by-using-the-aws-cli.html#cloudtrail-create-organization-trail-by-using-the-cli-enable-trusted-service) in the *AWS CloudTrail User Guide\.*
 
+On the Organizations side, you can enable trusted access by running a AWS CLI command, or by calling an API operation in one of the AWS SDKs\.
+
+------
+#### [ AWS CLI, AWS API ]
+
+**To enable trusted service access using an Organizations AWS CLI command or API**  
+You can use the following AWS CLI commands or API operations to enable trusted service access:
++ AWS CLI: [aws organizations enable\-aws\-service\-access](https://docs.aws.amazon.com/cli/latest/reference/organizations/enable-aws-service-access.html)
+
+  You can run the following command to enable AWS CloudTrail as a trusted service with Organizations\.
+
+  ```
+  $ aws organizations enable-aws-service-access \
+      --service-principle cloudtrail.amazonaws.com
+  ```
+
+  The previous command produces no output when successful\.
++ AWS API: [EnableAWSServiceAccess](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAWSServiceAccess.html)
+
+------
+
 ## Disabling trusted access with CloudTrail<a name="integrate-disable-ta-cloudtrail"></a>
 
 For information about the permissions needed to disable trusted access, see [Permissions required to disable trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms)\.
@@ -59,7 +80,8 @@ You can use the following AWS CLI commands or API operations to disable trusted 
   You can run the following command to disable AWS CloudTrail as a trusted service with Organizations\.
 
   ```
-  $ aws organizations disable-aws-service-access --service-principle cloudtrail.amazonaws.com
+  $ aws organizations disable-aws-service-access \
+      --service-principle cloudtrail.amazonaws.com
   ```
 
   The previous command produces no output when successful\.

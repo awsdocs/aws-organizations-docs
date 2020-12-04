@@ -37,3 +37,24 @@ For information about the permissions needed to disable trusted access, see [Per
 You can change or revoke the AWS Firewall Manager administrator account by following the instructions in [Designating a Different Account as the AWS Firewall Manager Administrator Account](https://docs.aws.amazon.com/waf/latest/developerguide/fms-change-administrator.html) in the *AWS Firewall Manager Developer Guide*\.
 
 If you revoke the administrator account, you must sign in to the AWS Organizations management account and set a new administrator account for AWS Firewall Manager\.
+
+On the Organizations side, you can disable trusted access by running a AWS CLI command, or by calling an API operation in one of the AWS SDKs\.
+
+------
+#### [ AWS CLI, AWS API ]
+
+**To disable trusted service access using an Organizations AWS CLI command or API**  
+You can use the following AWS CLI commands or API operations to disable trusted service access:
++ AWS CLI: [aws organizations disable\-aws\-service\-access](https://docs.aws.amazon.com/cli/latest/reference/organizations/disable-aws-service-access.html)
+
+  You can run the following command to disable AWS Firewall Manager as a trusted service with Organizations\.
+
+  ```
+  $ aws organizations disable-aws-service-access \
+      --service-principle fms.amazonaws.com
+  ```
+
+  The previous command produces no output when successful\.
++ AWS API: [DisableAWSServiceAccess](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DisableAWSServiceAccess.html)
+
+------
