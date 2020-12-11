@@ -1,13 +1,11 @@
 # Creating, updating, and deleting service control policies<a name="orgs_manage_policies_scps_create"></a>
 
-When signed in with permissions to your organization's management account \(formerly known as the "master account"\), you can create and update [service control policies \(SCPs\)](orgs_manage_policies_scps.md)\. You create SCPs by building statements that deny or allow access to services and actions that you specify\.
+When signed in with permissions to your organization's management account, you can create and update [service control policies \(SCPs\)](orgs_manage_policies_scps.md)\. You create SCPs by building statements that deny or allow access to services and actions that you specify\.
 
-The default configuration for working with SCPs is to create statements that deny access\. With deny statements, you can also specify resources and conditions for the statement and use the [NotAction](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_notaction.html) element\. For allow statements, you can specify services and actions only\.
-
-For more information about statements that deny access and allow access, see [Strategies for using SCPs](orgs_manage_policies_scps_strategies.md)\.
+The default configuration for working with SCPs is to use a "block list" strategy where you create statements that deny access\. With deny statements, you can also specify resources and conditions for the statement and use the [NotAction](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_notaction.html) element\. For allow statements, you can specify services and actions only\. For more information about statements that deny access and allow access, see [Strategies for using SCPs](orgs_manage_policies_scps_strategies.md)\.
 
 **Tip**  
-You can use [service last accessed data](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html) in [IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) to update your SCPs to restrict access to only the AWS services that you need\. For more information, see [Viewing Organizations Service Last Accessed Data for Organizations](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor-view-data-orgs.html) in the *IAM User Guide\.* 
+You can use [service last accessed data](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html) in [IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) as a data point for updating your SCPs to restrict access to only the AWS services that you need\. For more information, see [Viewing Organizations Service Last Accessed Data for Organizations](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor-view-data-orgs.html) in the *IAM User Guide\.* 
 
 ## Creating an SCP<a name="create-an-scp"></a>
 
@@ -20,13 +18,13 @@ To create SCPs, you need permission to run the following action:
 
 **To create a service control policy**
 
-1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's management account\. 
+1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
 
-1. On the **Policies** tab, choose **Service control policies**\. 
+1. Navigate to the **[Service control policies](https://console.aws.amazon.com/organizations/home/policies/service-control-policy)** page in the console\.
 
-1. On the **Service control policies** page, choose **Create policy**\.
+1. On the **Service control policies policies** page, choose **Create policy**\. 
 
-1. On the **Create policy** page, enter a name and description for the policy\.
+1. On the **Create policy** page, enter a **Policy name** and an optional **Policy description**\.
 
    To build the policy, your next steps vary depending on whether you want to add a statement that denies or allows access\. With deny statements, you have additional control because you can restrict access to specific resources, define conditions for when SCPs are in effect, and use the [NotAction](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_notaction.html) element\. For more information, see [SCP syntax](orgs_manage_policies_scps_syntax.md)\.
 
@@ -78,12 +76,35 @@ The resource element is required\. If you want to specify all resources for the 
 Your new SCP appears in the list of the organization's policies\. You can now [attach your SCP to the root, OUs, or accounts](orgs_manage_policies_scps_attach.md)\.
 
 ------
-#### [ AWS CLI, AWS API ]
+#### [ AWS CLI & AWS SDKs ]
 
 **To create a service control policy**  
 You can use one of the following commands to create an SCP:
 + AWS CLI: [aws organizations create\-policy](https://docs.aws.amazon.com/cli/latest/reference/organizations/create-policy.html)
-+ AWS API: [CreatePolicy](https://docs.aws.amazon.com/organizations/latest/APIReference/API_CreatePolicy.html)
+
+  The following example assumes that you have a file named `Deny-IAM.json` with the JSON policy text in it\. It uses that file to create a new service control policy\.
+
+  ```
+  $ aws organizations create-policy \
+      --content file://Deny-IAM.json \
+      --description "Deny all IAM actions" \
+      --name DenyIAMSCP \
+      --type SERVICE_CONTROL_POLICY
+  {
+      "Policy": {
+          "PolicySummary": {
+              "Id": "p-i9j8k7l6m5",
+              "Arn": "arn:aws:organizations::123456789012:policy/o-aa111bb222/service_control_policy/p-i9j8k7l6m5",
+              "Name": "DenyIAMSCP",
+              "Description": "Deny all IAM actions",
+              "Type": "SERVICE_CONTROL_POLICY",
+              "AwsManaged": false
+          },
+           "Content": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Sid\":\"Statement1\",\"Effect\":\"Deny\",\"Action\":[\"iam:*\"],\"Resource\":[\"*\"]}]}"
+      }
+  }
+  ```
++ AWS SDKs: [CreatePolicy](https://docs.aws.amazon.com/organizations/latest/APIReference/API_CreatePolicy.html)
 
 ------
 
@@ -104,27 +125,91 @@ To update an SCP, you need permission to run the following actions:
 
 **To update a policy**
 
-1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's management account\. 
+1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
 
-1. Choose the **Policies** tab\. 
+1. Navigate to the **[Service control policies](https://console.aws.amazon.com/organizations/home/policies/service-control-policy)** page in the console\.
 
-1. On the **Policies** tab, choose **Service control policies**\.
+1. Choose the name of the policy that you want to update\.
 
-1. Choose the policy that you want to update\.
+1. On the policy's detail page, choose **Edit policy**\.
 
-1. In the details pane on the right, choose **Policy editor**\.
+1. Make any or all of the following changes:
+   + You can rename the policy by entering a new name in **Policy name**\.
+   + You can change the description by entering new text in **Policy description**\.
+   + You can edit the policy text by editing the policy in JSON format in the right pane\. For `Deny` statements, you can use the visual editor in the left pane to make changes\.
 
-1. Choose **Edit** to enable making changes to the policy\.
-
-1. Make your changes by editing the policy in the right pane\. For deny statements, you can also use the visual editor in the left pane to make changes\. When you're finished, choose **Save changes**\.
+1. When you're finished, choose **Save changes**\.
 
 ------
-#### [ AWS CLI, AWS API ]
+#### [ AWS CLI & AWS SDKs ]
 
 **To update a policy**  
 You can use one of the following commands to update a policy: 
 + AWS CLI: [aws organizations update\-policy](https://docs.aws.amazon.com/cli/latest/reference/organizations/update-policy.html)
-+ AWS API: [UpdatePolicy](https://docs.aws.amazon.com/organizations/latest/APIReference/API_UpdatePolicy.html)
+
+  The following example renames a policy\.
+
+  ```
+  $ aws organizations update-policy \
+      --policy-id p-i9j8k7l6m5 \
+      --name "MyRenamedPolicy"
+  {
+      "Policy": {
+          "PolicySummary": {
+              "Id": "p-i9j8k7l6m5",
+              "Arn": "arn:aws:organizations::123456789012:policy/o-aa111bb222/service_control_policy/p-i9j8k7l6m5",
+              "Name": "MyRenamedPolicy",
+              "Description": "Blocks all IAM actions",
+              "Type": "SERVICE_CONTROL_POLICY",
+              "AwsManaged": false
+          },
+          "Content": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Sid\":\"Statement1\",\"Effect\":\"Deny\",\"Action\":[\"iam:*\"],\"Resource\":[\"*\"]}]}"
+      }
+  }
+  ```
+
+  The following example adds or changes the description for a service control policy\.
+
+  ```
+  $ aws organizations update-policy \
+      --policy-id p-i9j8k7l6m5 \
+      --description "My new policy description"
+  {
+      "Policy": {
+          "PolicySummary": {
+              "Id": "p-i9j8k7l6m5",
+              "Arn": "arn:aws:organizations::123456789012:policy/o-aa111bb222/service_control_policy/p-i9j8k7l6m5",
+              "Name": "MyRenamedPolicy",
+              "Description": "My new policy description",
+              "Type": "SERVICE_CONTROL_POLICY",
+              "AwsManaged": false
+          },
+          "Content": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Sid\":\"Statement1\",\"Effect\":\"Deny\",\"Action\":[\"iam:*\"],\"Resource\":[\"*\"]}]}"
+      }
+  }
+  ```
+
+  The following example changes the policy document of the SCP by specifying a file that contains the new JSON policy text\.
+
+  ```
+  $ aws organizations update-policy \
+      --policy-id p-zlfw1r64 
+      --content file://MyNewPolicyText.json
+  {
+      "Policy": {
+          "PolicySummary": {
+              "Id": "p-i9j8k7l6m5",
+              "Arn": "arn:aws:organizations::123456789012:policy/o-aa111bb222/service_control_policy/p-i9j8k7l6m5",
+              "Name": "MyRenamedPolicy",
+              "Description": "My new policy description",
+              "Type": "SERVICE_CONTROL_POLICY",
+              "AwsManaged": false
+          },
+          "Content": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Sid\":\"AModifiedPolicy\",\"Effect\":\"Deny\",\"Action\":[\"iam:*\"],\"Resource\":[\"*\"]}]}"
+      }
+  }
+  ```
++ AWS SDKs: [UpdatePolicy](https://docs.aws.amazon.com/organizations/latest/APIReference/API_UpdatePolicy.html)
 
 ------
 
@@ -140,8 +225,8 @@ When signed in to your organization's management account, you can add or remove 
 
 **Minimum permissions**  
 To edit the tags attached to an SCP in your AWS organization, you must have the following permissions:  
-`organizations:DescribeOrganization` \(console only – to navigate to the policy\)
-`organizations:DescribePolicy` \(console only – to navigate to the policy\)
+`organizations:DescribeOrganization` – required only when using the Organizations console
+`organizations:DescribePolicy` – required only when using the Organizations console
 `organizations:TagResource`
 `organizations:UntagResource`
 
@@ -150,30 +235,32 @@ To edit the tags attached to an SCP in your AWS organization, you must have the 
 
 **To edit the tags attached to an SCP**
 
-1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's management account\. 
+1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
 
-1. On the **Policies** tab, choose **Service control policies**, and then choose the name of the policy with the tags that you want to edit\.
+1. Navigate to the **[Service control policies](https://console.aws.amazon.com/organizations/home/policies/service-control-policy)** page in the console\.
 
-1. In the chosen policy's details pane, choose **EDIT TAGS**\.
+1. Choose the name of the policy with the tags that you want to edit\.
 
-1. You can perform any of these actions on this page:
-   + Edit the value for any tag by entering a new value over the old one\. You can't modify the key\. To change a key, you must delete the tag with the old key and add a tag with the new key\. 
+1. On the policy details page, choose the **Tags** tab, and then choose**Manage tags**\.
+
+1. Make any or all of the following changes:
+   + Change the value of a tag by entering a new value over the old one\. You can't directly modify the tag key\. To change a key, you must delete the tag with the old key and then add a tag with the new key\. 
    + Remove an existing tag by choosing **Remove**\.
    + Add a new tag key and value pair\. Choose **Add tag**, then enter the new key name and optional value in the provided boxes\. If you leave the **Value** box empty, the value is an empty string; it isn't `null`\.
 
-1. Choose **Save changes** after you've made all the additions, removals, and edits you want to make\.
+1. When you're finished, choose **Save changes**\.
 
 ------
-#### [ AWS CLI, AWS API ]
+#### [ AWS CLI & AWS SDKs ]
 
 **To edit the tags attached to an SCP**  
 You can use one of the following commands to edit the tags attached to an SCP:
 + AWS CLI: [aws organizations tag\-resource](https://docs.aws.amazon.com/cli/latest/reference/organizations/tag-resource.html) and [aws organizations untag\-resource](https://docs.aws.amazon.com/cli/latest/reference/organizations/untag-resource.html)
-+ AWS API: [TagResource](https://docs.aws.amazon.com/organizations/latest/APIReference/API_TagResource.html) and [UntagResource](https://docs.aws.amazon.com/organizations/latest/APIReference/API_UntagResource.html)
++ AWS SDKs: [TagResource](https://docs.aws.amazon.com/organizations/latest/APIReference/API_TagResource.html) and [UntagResource](https://docs.aws.amazon.com/organizations/latest/APIReference/API_UntagResource.html)
 
 ------
 
-## Deleting a policy<a name="delete_policy"></a>
+## Deleting an SCP<a name="delete_policy"></a>
 
 When signed in to your organization's management account, you can delete a policy that you no longer need in your organization\. 
 
@@ -188,24 +275,35 @@ To delete an SCP, you need permission to run the following action:
 ------
 #### [ AWS Management Console ]
 
-**To delete a policy**
+**To delete an SCP**
 
-1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's management account\. 
+1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
 
-1. The policy that you want to delete must first be detached from all roots, OUs, and accounts\. Follow the steps in [Detaching an SCP from the organization root, OUs, or accounts](orgs_manage_policies_scps_attach.md#detach_policy) to detach the policy from all entities in the organization\.
+1. Navigate to the **[Service control policies](https://console.aws.amazon.com/organizations/home/policies/service-control-policy)** page in the console\.
 
-1. On the **Policies** tab, choose **Service control policies**\.
+1. Choose the name of the SCP that you want to delete\.
 
-1. On the **Service control policies** page, choose the SCP to delete\.
+1. The SCP that you want to delete must first be detached from all roots, OUs, and accounts\. Choose the **Targets** tab, choose the radio button next to each root, OU, or account that is shown in the **Targets** list, and then choose **Detach**\. In the confirmation dialog box, choose **Detach**\.
 
-1. Choose **Delete policy**\.
+1. Choose **Delete** at the top of the page\.
+
+1. On the confirmation dialog box, enter the name of the policy, and then choose **Delete**\.
 
 ------
-#### [ AWS CLI, AWS API ]
+#### [ AWS CLI & AWS SDKs ]
 
-**To delete a policy**  
+**To delete an SCP**  
 You can use one of the following commands to delete a policy:
 + AWS CLI: [aws organizations delete\-policy](https://docs.aws.amazon.com/cli/latest/reference/organizations/delete-policy.html)
-+ AWS API: [DeletePolicy](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DeletePolicy.html)
+
+  The following example deletes the specified SCP\.
+
+  ```
+  $ aws organizations delete-policy \
+      --policy-id p-i9j8k7l6m5
+  ```
+
+  This command produces no output when successful\.
++ AWS SDKs: [DeletePolicy](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DeletePolicy.html)
 
 ------

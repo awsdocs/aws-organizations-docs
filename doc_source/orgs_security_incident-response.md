@@ -182,11 +182,11 @@ The following example shows a CloudTrail log entry for a sample `CreateOrganizat
     "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.95 Safari/537.36",
     "requestParameters": {
         "name": "OU-Developers-1",
-        "parentId": "r-examplerootid111"
+        "parentId": "r-a1b2"
     },
     "responseElements": {
         "organizationalUnit": {
-            "arn": "arn:aws:organizations::111111111111:ou/o-exampleorgid/ou-examplerootid111-exampleouid111",
+            "arn": "arn:aws:organizations::111111111111:ou/o-aa111bb222/ou-examplerootid111-exampleouid111",
             "id": "ou-examplerootid111-exampleouid111",
             "name": "test-cloud-trail"
         }
@@ -230,12 +230,12 @@ The following example shows a CloudTrail log entry for a sample `InviteAccountTo
         "handshake": {
             "requestedTimestamp": "Jan 18, 2017 9:41:16 PM",
             "state": "OPEN",
-            "arn": "arn:aws:organizations::111111111111:handshake/o-exampleorgid/invite/h-examplehandshakeid111",
+            "arn": "arn:aws:organizations::111111111111:handshake/o-aa111bb222/invite/h-examplehandshakeid111",
             "id": "h-examplehandshakeid111",
             "parties": [
                 {
                     "type": "ORGANIZATION",
-                    "id": "o-exampleorgid"
+                    "id": "o-aa111bb222"
                 },
                 {
                     "type": "ACCOUNT",
@@ -261,7 +261,7 @@ The following example shows a CloudTrail log entry for a sample `InviteAccountTo
                         }
                     ],
                     "type": "ORGANIZATION",
-                    "value": "o-exampleorgid"
+                    "value": "o-aa111bb222"
                 },
                 {
                     "type": "ACCOUNT",

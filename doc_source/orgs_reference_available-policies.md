@@ -14,4 +14,4 @@ Every root, OU, and account must have at least one SCP attached at all times\.
 
 | Policy name | Description | ARN | 
 | --- | --- | --- | 
-| [FullAWSAccess](https://console.aws.amazon.com/organizations/?#/policies/p-FullAWSAccess) | Provides AWS Organizations management account \(formerly known as the "master account"\) access to member accounts\. | arn:aws:iam::aws:policy/AWSFullAccess | 
+| [FullAWSAccess](https://console.aws.amazon.com/organizations/?#/policies/p-FullAWSAccess) | Provides AWS Organizations management account access to member accounts\. | arn:aws:iam::aws:policy/AWSFullAccess | 

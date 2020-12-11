@@ -1,6 +1,6 @@
 # Best practices for the management account<a name="orgs_best-practices_mgmt-acct"></a>
 
-Follow these recommendations to help protect the security of the management account \(formerly known as the "master account"\) in AWS Organizations\. These recommendations assume that you also adhere to the[ best practice of using the root user only for those tasks that truly require it](https://docs.aws.amazon.com/general/latest/gr/root-vs-iam.html)\.
+Follow these recommendations to help protect the security of the management account in AWS Organizations\. These recommendations assume that you also adhere to the[ best practice of using the root user only for those tasks that truly require it](https://docs.aws.amazon.com/general/latest/gr/root-vs-iam.html)\.
 
 **Note**  
 AWS Organizations is changing the name of the “master account” to “management account”\. This is a name change only, and there is no change in functionality\. You might continue to see a few instances of the old term while we complete the work to transition to the newer term\. If you see one we missed, please use the **Feedback** link at the top of that page to let us know\.

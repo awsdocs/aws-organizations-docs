@@ -13,13 +13,13 @@ To create an AI services opt\-out policy, you need permission to run the followi
 
 **To create an AI services opt\-out policy**
 
-1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's management account\. 
+1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
 
-1. On the **Policies** tab, choose **AI services opt\-out policies**\.
+1. Navigate to the **[AI services opt\-out policies](https://console.aws.amazon.com/organizations/home/policies/aiservices-opt-out-policy)** page in the console\.
 
 1. On the **AI services opt\-out policies** page, choose **Create policy**\. 
 
-1. On the **Create policy** page, enter a name and description for the policy\.
+1. On the **Create policy** page, enter a **Policy name** and an optional **Policy description**\.
 
 1. \(Optional\)You can add one or more tags to the policy by choosing **Add tag** and then entering a key and an optional value\. Leaving the value blank sets it to an empty string; it isn't `null`\. You can attach up to 50 tags to a policy\.
 
@@ -28,19 +28,60 @@ To create an AI services opt\-out policy, you need permission to run the followi
 1. When you're finished editing your policy, choose **Create policy** at the lower\-right corner of the page\.
 
 ------
-#### [ AWS CLI, AWS API ]
+#### [ AWS CLI & AWS SDKs ]
 
 **To create an AI services opt\-out policy**  
 You can use one of the following to create a tag policy:
 + AWS CLI: [aws organizations create\-policy](https://docs.aws.amazon.com/cli/latest/reference/organizations/create-policy.html)
 
-  For examples that use the AWS Command Line Interface \(AWS CLI\) to create an AI services opt\-out policy, see [Using the AWS CLI to manage AI services opt\-out policies](orgs_manage_policies_ai-opt-out_cli.md)\.
-+ AWS API: [CreatePolicy](https://docs.aws.amazon.com/organizations/latest/APIReference/API_CreatePolicy.html)
+  1. Create an AI services opt\-out policy like the following, and store it in a text file\. Note that "`optOut`" and "`optIn`" are case\-sensitive\.
+
+     ```
+     {
+         "services": {
+             "default": {
+                 "opt_out_policy": {
+                     "@@assign": "optOut"
+                 }
+             },
+             "rekognition": {
+                 "opt_out_policy": {
+                     "@@assign": "optIn"
+                 }
+             }
+         }
+     }
+     ```
+
+     This AI services opt\-out policy specifies that all accounts affected by the policy are opted out of all AI services except for Amazon Rekognition\. 
+
+  1. Import the JSON policy file to create a new policy in the organization\. In this example, the previous JSON file was named `policy.json`\.
+
+     ```
+     $ aws organizations create-policy \
+         --type AISERVICES_OPT_OUT_POLICY \
+         --name "MyTestPolicy" \
+         --description "My test policy" \
+         --content file://policy.json
+     {
+         "Policy": {
+             "Content": "{\"services\":{\"default\":{\"opt_out_policy\":{\"@@assign\":\"optOut\"}},\"rekognition\":{\"opt_out_policy\":{\"@@assign\":\"optIn\"}}}}",
+             "PolicySummary": {
+                 "Id": "p-i9j8k7l6m5"
+                 "Arn": "arn:aws:organizations::o-aa111bb222:policy/aiservices_opt_out_policy/p-i9j8k7l6m5",
+                 "Description": "My test policy",
+                 "Name": "MyTestPolicy",
+                 "Type": "AISERVICES_OPT_OUT_POLICY"
+             }
+         }
+     }
+     ```
++ AWS SDKs: [CreatePolicy](https://docs.aws.amazon.com/organizations/latest/APIReference/API_CreatePolicy.html)
 
 ------
 
 **What to do next**  
-After you create an AI services opt\-out policy, you can put your opt\-out choices into effect\. To do that, you can [attach the policy ](attach-tag-policy.md) to the organization root, organizational units \(OUs\), AWS accounts within your organization, or a combination of all of those\. 
+After you create an AI services opt\-out policy, you can put your opt\-out choices into effect\. To do that, you can [attach the policy](attach-tag-policy.md) to the organization root, organizational units \(OUs\), AWS accounts within your organization, or a combination of all of those\. 
 
 ## Updating an AI services opt\-out policy<a name="update-tag-policy-procedure"></a>
 
@@ -54,27 +95,109 @@ To update an AI services opt\-out policy, you must have permission to run the fo
 
 **To update an AI services opt\-out policy**
 
-1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's management account\. 
+1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
 
-1. On the **Policies** tab, choose **AI services opt\-out policies**\.
+1. Navigate to the **[AI services opt\-out policies](https://console.aws.amazon.com/organizations/home/policies/aiservices-opt-out-policy)** page in the console\.
 
-1. On the **AI services opt\-out policies** page, choose the policy that you want to update\.
+1. Choose the name of the policy that you want to update\.
 
-1. In the details pane on the right, choose **View details**\. 
+1. On the policy's detail page, choose **Edit policy**\.
 
-1. On the page that shows the tag policy, choose **Edit policy**\.
-
-1. Make your changes either by editing the JSON\. 
+1. You can enter a new **Policy name**, **Policy description**, or edit the **JSON** policy text\. 
 
 1. When you're finished updating the policy, choose **Save changes**\.
 
 ------
-#### [ AWS CLI, AWS API ]
+#### [ AWS CLI & AWS SDKs ]
 
 **To update a policy**  
 You can use one of the following to update a policy: 
 + AWS CLI: [aws organizations update\-policy](https://docs.aws.amazon.com/cli/latest/reference/organizations/update-policy.html)
-+ AWS API: [UpdatePolicy](https://docs.aws.amazon.com/organizations/latest/APIReference/API_UpdatePolicy.html)
+
+  The following example renames an AI services opt\-out policy\.
+
+  ```
+  $  aws organizations update-policy \
+      --policy-id p-i9j8k7l6m5 \
+      --name "Renamed policy"
+  {
+      "Policy": {
+          "PolicySummary": {
+              "Id": "p-i9j8k7l6m5",
+              "Arn": "arn:aws:organizations::123456789012:policy/o-aa111bb222/aiservices_opt_out_policy/p-i9j8k7l6m5",
+              "Name": "Renamed policy",
+              "Type": "AISERVICES_OPT_OUT_POLICY",
+              "AwsManaged": false
+          },
+          "Content": "{\"services\":{\"default\":{\"opt_out_policy\":   ....TRUNCATED FOR BREVITY...   :{\"@@assign\":\"optIn\"}}}}"
+      }
+  }
+  ```
+
+  The following example adds or changes the description for an AI services opt\-out policy\.
+
+  ```
+  $  aws organizations update-policy \
+      --policy-id p-i9j8k7l6m5 \
+      --description "My new description"
+  {
+      "Policy": {
+          "PolicySummary": {
+              "Id": "p-i9j8k7l6m5",
+              "Arn": "arn:aws:organizations::123456789012:policy/o-aa111bb222/aiservices_opt_out_policy/p-i9j8k7l6m5",
+              "Name": "Renamed policy",
+              "Description": "My new description",
+              "Type": "AISERVICES_OPT_OUT_POLICY",
+              "AwsManaged": false
+          },
+          "Content": "{\"services\":{\"default\":{\"opt_out_policy\":   ....TRUNCATED FOR BREVITY...   :{\"@@assign\":\"optIn\"}}}}"
+      }
+  }
+  ```
+
+  The following example changes the JSON policy document attached to an AI services opt\-out policy\. In this example, the content is taken from a file called `policy.json` with the following text:
+
+  ```
+  {
+      "services": {
+          "default": {
+              "opt_out_policy": {
+                  "@@assign": "optOut"
+              }
+          },
+          "comprehend": {
+              "opt_out_policy": {
+                  "@@operators_allowed_for_child_policies": ["@@none"],
+                  "@@assign": "optOut"
+              }
+          },
+          "rekognition": {
+              "opt_out_policy": {
+                  "@@assign": "optIn"
+              }
+          }
+      }
+  }
+  ```
+
+  ```
+  $ aws organizations update-policy \
+      --policy-id p-i9j8k7l6m5 \
+      --content file://policy.json
+  {
+      "Policy": {
+          "PolicySummary": {
+              "Id": "p-i9j8k7l6m5",
+              "Arn": "arn:aws:organizations::123456789012:policy/o-aa111bb222/aiservices_opt_out_policy/p-i9j8k7l6m5",
+              "Name": "Renamed policy",
+              "Description": "My new description",
+              "Type": "AISERVICES_OPT_OUT_POLICY",
+              "AwsManaged": false
+          },
+           "Content": "{\n\"services\": {\n\"default\": {\n\"   ....TRUNCATED FOR BREVITY....    ": \"optIn\"\n}\n}\n}\n}\n"}
+  }
+  ```
++ AWS SDKs: [UpdatePolicy](https://docs.aws.amazon.com/organizations/latest/APIReference/API_UpdatePolicy.html)
 
 ------
 
@@ -84,8 +207,8 @@ When signed in to your organization's management account, you can add or remove 
 
 **Minimum permissions**  
 To edit the tags attached to an AI services opt\-out policy in your AWS organization, you must have the following permissions:  
-`organizations:DescribeOrganization` \(console only – to navigate to the policy\)
-`organizations:DescribePolicy` \(console only – to navigate to the policy\)
+`organizations:DescribeOrganization`– required only when using the Organizations console
+`organizations:DescribePolicy`– required only when using the Organizations console
 `organizations:TagResource`
 `organizations:UntagResource`
 
@@ -94,11 +217,13 @@ To edit the tags attached to an AI services opt\-out policy in your AWS organiza
 
 **To edit the tags attached to an AI services opt\-out policy**
 
-1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's management account\. 
+1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
 
-1. On the **Policies** tab, choose **AI services opt\-out policies**, and then choose the name of the policy with the tags that you want to edit\.
+1. Navigate to the **[AI services opt\-out policies](https://console.aws.amazon.com/organizations/home/policies/aiservices-opt-out-policy)** page in the console\.
 
-1. In the chosen policy's details pane, choose **EDIT TAGS**\.
+1. Choose the name of the policy with the tags that you want to edit\.
+
+1. On the chosen policy's detail page, choose the **Tags** tab, and then choose **Manage tags**\.
 
 1. You can perform any of these actions on this page:
    + Edit the value for any tag by entering a new value over the old one\. You can't modify the key\. To change a key, you must delete the tag with the old key and add a tag with the new key\. 
@@ -108,12 +233,12 @@ To edit the tags attached to an AI services opt\-out policy in your AWS organiza
 1. Choose **Save changes** after you've made all the additions, removals, and edits you want to make\.
 
 ------
-#### [ AWS CLI, AWS API ]
+#### [ AWS CLI & AWS SDKs ]
 
 **To edit the tags attached to a AI services opt\-out policy**  
 You can use one of the following commands to edit the tags attached to a AI services opt\-out policy:
 + AWS CLI: [aws organizations tag\-resource](https://docs.aws.amazon.com/cli/latest/reference/organizations/tag-resource.html) and [aws organizations untag\-resource](https://docs.aws.amazon.com/cli/latest/reference/organizations/untag-resource.html)
-+ AWS API: [TagResource](https://docs.aws.amazon.com/organizations/latest/APIReference/API_TagResource.html) and [UntagResource](https://docs.aws.amazon.com/organizations/latest/APIReference/API_UntagResource.html)
++ AWS SDKs: [TagResource](https://docs.aws.amazon.com/organizations/latest/APIReference/API_TagResource.html) and [UntagResource](https://docs.aws.amazon.com/organizations/latest/APIReference/API_UntagResource.html)
 
 ------
 
@@ -133,22 +258,33 @@ To delete a policy, you must have permission to run the following action:
 
 **To delete an AI services opt\-out policy**
 
-1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's management account\. 
+1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
 
-1. The policy that you want to delete must first be detached from all roots, OUs, and accounts\. Follow the steps in [Detaching an AI services opt\-out policy](orgs_manage_policies_ai-opt-out_attach.md#orgs_manage_policies_ai-opt-out_detach) to detach the policy from all entities in the organization\.
+1. Navigate to the **[AI services opt\-out policies](https://console.aws.amazon.com/organizations/home/policies/aiservices-opt-out-policy)** page in the console\.
 
-1. On the **Policies** tab, choose **AI services opt\-out policies**\.
+1. Choose the policy that you want to delete\. 
 
-1. From the **AI services opt\-out policies** page, choose the policy that you want to delete\. 
+1. You must first detach the policy that you want to delete from all roots, OUs, and accounts\. Choose the **Targets** tab, choose the radio button next to each root, OU, or account that is shown in the **Targets** list, and then choose **Detach**\. In the confirmation dialog box, choose **Detach**\.
 
-1. Choose **Delete policy**\.
+1. Choose **Delete** at the top of the page\.
+
+1. On the confirmation dialog box, enter the name of the policy, and then choose **Delete**\.
 
 ------
-#### [ AWS CLI, AWS API ]
+#### [ AWS CLI & AWS SDKs ]
 
 **To delete an AI services opt\-out policy**  
 You can use one of the following to delete a policy:
 + AWS CLI: [aws organizations delete\-policy](https://docs.aws.amazon.com/cli/latest/reference/organizations/delete-policy.html)
-+ AWS API: [DeletePolicy](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DeletePolicy.html)
+
+  The following example deletes the specified policy\. It works only if the policy is not attached to any root, OU, or account\.
+
+  ```
+  $ aws organizations delete-policy \
+      --policy-id p-i9j8k7l6m5
+  ```
+
+  This command produces no output when successful\.
++ AWS SDKs: [DeletePolicy](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DeletePolicy.html)
 
 ------

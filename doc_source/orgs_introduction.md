@@ -21,7 +21,7 @@ AWS Organizations offers the following features:
 You can combine your existing accounts into an organization that enables you to manage the accounts centrally\. You can create accounts that automatically are a part of your organization, and you can invite other accounts to join your organization\. You also can attach policies that affect some or all of your accounts\. 
 
 **Consolidated billing for all member accounts**  
-Consolidated billing is a feature of AWS Organizations\. You can use the management account \(formerly known as the "master account"\) of your organization to consolidate and pay for all member accounts\. In consolidated billing, management accounts can also access the billing information, account information, and account activity of member accounts in their organization\. This information may be used for services such as Cost Explorer, which can help management accounts improve their organization’s cost performance\. 
+Consolidated billing is a feature of AWS Organizations\. You can use the management account of your organization to consolidate and pay for all member accounts\. In consolidated billing, management accounts can also access the billing information, account information, and account activity of member accounts in their organization\. This information may be used for services such as Cost Explorer, which can help management accounts improve their organization’s cost performance\. 
 
 **Hierarchical grouping of your accounts to meet your budgetary, security, or compliance needs**  
 You can group your accounts into organizational units \(OUs\) and attach different access policies to each OU\. For example, if you have accounts that must access only the AWS services that meet certain regulatory requirements, you can put those accounts into one OU\. You then can attach a policy to that OU that blocks access to services that do not meet those regulatory requirements\. You can nest OUs within other OUs to a depth of five levels, providing flexibility in how you structure your account groups\.
@@ -86,6 +86,8 @@ The AWS Organizations HTTPS Query API gives you programmatic access to AWS Organ
 We welcome your feedback\. You can send your comments to [feedback\-awsorganizations@amazon\.com](mailto:feedback-awsorganizations@amazon.com)\. You also can post your feedback and questions in [AWS Organizations support forum](https://forums.aws.amazon.com/forum.jspa?forumID=219)\. For more information about the AWS Support forums, see [Forums Help](https://forums.aws.amazon.com/help.jspa)\.
 
 ### Other AWS resources<a name="other-resources"></a>
+
+
 + **[AWS Training and Courses](https://aws.amazon.com/training/course-descriptions/)** – Links to role\-based and specialty courses as well as self\-paced labs to help sharpen your AWS skills and gain practical experience\.
 + **[AWS Developer Tools](https://aws.amazon.com/developertools/)** – Links to developer tools and resources that provide documentation, code examples, release notes, and other information to help you build innovative applications with AWS\.
 + **[AWS Support Center](https://console.aws.amazon.com/support/home#/)** – The hub for creating and managing your AWS Support cases\. Also includes links to other helpful resources, such as forums, technical FAQs, service health status, and AWS Trusted Advisor\.

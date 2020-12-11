@@ -1,6 +1,6 @@
 # Deleting the organization by removing the management account<a name="orgs_manage_org_delete"></a>
 
-When you no longer need your organization, you can delete it\. This removes the management account \(formerly known as the "master account"\) from the organization and deletes the organization itself\. The former management account becomes a standalone AWS account\. You then have three options: You can continue to use it as a standalone account, you can use it to create a different organization, or you can accept an invitation from another organization to add the account to that organization as a member account\. 
+When you no longer need your organization, you can delete it\. This removes the management account from the organization and deletes the organization itself\. The former management account becomes a standalone AWS account\. You then have three options: You can continue to use it as a standalone account, you can use it to create a different organization, or you can accept an invitation from another organization to add the account to that organization as a member account\. 
 
 **Important**  
 If you delete an organization, you can't recover it\. If you created any policies inside of the organization, they are also deleted and can't be recovered\.
@@ -16,7 +16,7 @@ The management account of an organization is never affected by service control p
 **Minimum permissions**  
 To delete an organization, you must sign in as an IAM user or role in the management account, and you must have the following permissions:  
 `organizations:DeleteOrganization`
-`organizations:DescribeOrganization` \(console only\)
+`organizations:DescribeOrganization` – required only when using the Organizations console
 
 ------
 #### [ AWS Management Console ]
@@ -34,11 +34,19 @@ To delete an organization, you must sign in as an IAM user or role in the manage
 1. \(Optional\) If you also want to close this account, you can follow the steps at [Closing an AWS account](orgs_manage_accounts_close.md)\.
 
 ------
-#### [ AWS CLI, AWS API ]
+#### [ AWS CLI & AWS SDKs ]
 
-**To delete an organization**  
+**To remove the management account from an organization and delete the organization**  
 You can use one of the following commands to delete an organization: 
 + AWS CLI: [aws organizations delete\-organization](https://docs.aws.amazon.com/cli/latest/reference/organizations/delete-organization.html)
-+ AWS API: [DeleteOrganization](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DeleteOrganization.html)
+
+  The following example deletes the organization for which the AWS account whose credentials are used is the management account\.
+
+  ```
+  $ aws organizations delete-organizations
+  ```
+
+  This command produces no output when successful\.
++ AWS SDKs: [DeleteOrganization](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DeleteOrganization.html)
 
 ------

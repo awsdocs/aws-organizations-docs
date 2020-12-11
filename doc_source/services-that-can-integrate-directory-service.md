@@ -25,17 +25,23 @@ For information about the permissions needed to disable trusted access, see [Per
 
 On the Organizations side, you can disable trusted access by using the AWS Organizations console\.
 
+**Important**  
+We recommend that where possible, you use the AWS Directory Service console or tools to disable integration with Organizations so that AWS Directory Service can perform any cleanup steps that it requires\. Proceed with these steps only if you can’t disable integration using the other service’s tools\.  
+If you are the administrator of only AWS Organizations and not AWS Directory Service, wait until the administrator of AWS Directory Service tells you that they disabled integration with that service’s console or tools, and that any resources have been cleaned up\.
+
 ------
 #### [ AWS Management Console ]
 
 **To disable trusted service access using the Organizations console**
 
-1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's management account\. 
+1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
 
-1. In the upper\-right corner, choose **Settings**\.
+1. Navigate to the **[Services](https://console.aws.amazon.com/organizations/home/services)** page in the console\.
 
-1. If you are the administrator of only AWS Organizations and not AWS Directory Service, wait until the administrator of AWS Directory Service tells you that they disabled integration with that service's console or tools, and that any resources have been cleaned up\.
+1. In the **Integrated services** section, find the row for **AWS Directory Service** and then choose the service’s name\.
 
-1. In the **Trusted access for AWS services** section, find the entry for **AWS Directory Service**, and then choose **Disable access**\.
+1. In the confirmation dialog box, check the box **Show the option to disable trusted access**, enter **disable** in the box, and then choose **Disable trusted access**\.
+
+1. If you are the administrator of only AWS Organizations, tell the administrator of AWS Directory Service that they can now disable that service using its console or tools from working with AWS Organizations\.
 
 ------

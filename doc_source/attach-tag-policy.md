@@ -8,7 +8,7 @@ You can use tag policies on an entire organization as well as on organizational 
 The aggregation of any tag policies the account inherits, plus any tag policy directly attached to the account is the [*effective tag policy*](orgs_manage_policies_tag-policies-effective.md)\. For more information, see [Understanding policy inheritance](orgs_manage_policies_inheritance.md)\.
 
 **Important**  
-Untagged resources don't appear as noncompliant in results\.
+Untagged resources don’t appear as noncompliant in results\.
 
 **Minimum permissions**  
 To attach tag policies, you must have permission to run the following action:  
@@ -19,7 +19,7 @@ To attach tag policies, you must have permission to run the following action:
 
 **To attach a tag policy to the organization root, OU, or account**
 
-1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's management account\. 
+1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
 
 1. On the **Organize accounts** tab, [navigate to](orgs_manage_ous.md#navigate_tree) and select the check box for the root, OU, or account you want to attach the tag policy to\.
 
@@ -28,12 +28,23 @@ To attach tag policies, you must have permission to run the following action:
 1. On the list of available tag policies, find the one that you want and choose **Attach**\.
 
 ------
-#### [ AWS CLI, AWS API ]
+#### [ AWS CLI & AWS SDKs ]
 
 **To attach a tag policy to the organization root, OU, or account**  
 You can use one of the following to attach a tag policy:
 + AWS CLI: [aws organizations attach\-policy](https://docs.aws.amazon.com/cli/latest/reference/organizations/attach-policy.html)
-+ AWS API: [AttachPolicy](https://docs.aws.amazon.com/organizations/latest/APIReference/API_AttachPolicy.html)
+
+  The following procedure shows how to attach the tag policy you just created to a single test account\.
+  + Attach the tag policy to your test account by running a command like the following:
+
+    ```
+    $ aws organizations attach-policy \
+        --target-id <account-id> \
+        --policy-id p-a1b2c3d4e5
+    ```
+
+    This command has no output if it is successful\.
++ AWS SDKs: [AttachPolicy](https://docs.aws.amazon.com/organizations/latest/APIReference/API_AttachPolicy.html)
 
 ------
 
@@ -53,7 +64,7 @@ To detach a tag policy from the organization root, OU, or account, you must have
 
 **To detach a tag policy from the organization root, OU, or account**
 
-1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's management account\. 
+1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
 
 1. On the **Organize accounts** tab, [navigate to](orgs_manage_ous.md#navigate_tree) and select the check box for the organization root, OU, or account from which you want to detach the policy\.
 
@@ -62,11 +73,11 @@ To detach a tag policy from the organization root, OU, or account, you must have
 1. Find the tag policy that you want to detach and choose **Detach**\. The list of attached tag policies is updated with the chosen policy removed\. 
 
 ------
-#### [ AWS CLI, AWS API ]
+#### [ AWS CLI & AWS SDKs ]
 
 **To detach a tag policy from the organization root, OU, or account**  
 You can use one of the following to detach a tag policy:
 + AWS CLI: [aws organizations detach\-policy](https://docs.aws.amazon.com/cli/latest/reference/organizations/detach-policy.html)
-+ AWS API: [DetachPolicy](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DetachPolicy.html)
++ AWS SDKs: [DetachPolicy](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DetachPolicy.html)
 
 ------

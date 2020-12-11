@@ -22,26 +22,45 @@ To view the effective tag policy for an account, you must have permission to run
 ------
 #### [ AWS Management Console ]
 
-**To view the effective policy for an account**
+**To view the effective tag policy for an account**
 
-1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's management account\. 
+1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
+
+1. Navigate to the **[AWS accounts](https://console.aws.amazon.com/organizations/home/accounts)** page in the console\.
+
+1. Choose the name of the account for which you want to view the effective AI services opt\-out policy\. You might have to expand OUs \(choose the ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/organizations/latest/userguide/images/console-expand.png) to expand an OU\) to find the account that you want\.
+
+1. Choose the **Policies** tab\.
+
+1. In the **Tag policies** section, and just above the list of **Attached policies**, choose **View the effective tag policy for this AWS account**\.
+
+   The console displays the effective policy applied to the specified account\.
 **Note**  
-When you are signed in to a member account, the procedure for viewing the effective policy is different\. When signed in to an account, you can view the effective tag policy in the context of evaluating compliance for the account\. For more information, see [ Evaluating Compliance for an Account](https://docs.aws.amazon.com/ARG/latest/userguide/tag-policies-arg-finding-noncompliant-tags.html) in the *AWS Resource Groups User Guide\.*
-
-1. On the **Accounts** tab, choose the account\.
-
-1. In the details pane on the right, expand the **Tag policies** section\.
-
-1. Choose **View effective policy**\.
+You can't copy and paste an effective policy and use it as the JSON for another AI services opt\-out policy without significant changes\. Tag policy documents must include the [inheritance operators](orgs_manage_policies_inheritance_mgmt.md#policy-operators) that specify how each setting is merged into the final effective policy\. 
 
 ------
-#### [ AWS CLI, AWS API ]
+#### [ AWS CLI & AWS SDKs ]
 
-**To view the effective policy for an account**  
+**To view the effective tag policy for an account**  
 You can use one of the following to view the effective tag policy:
 + AWS CLI: [aws organizations describe\-effective\-policy](https://docs.aws.amazon.com/cli/latest/reference/organizations/describe-effective-policy.html)
 
-  For the complete procedure for using tag policies in the AWS CLI, see [Using tag policies in the AWS CLI](tag-policy-cli.md)\.
-+ AWS API: [DescribeEffectivePolicy](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeEffectivePolicy.html)
+  To determine what tagging rules are inherited by or attached to an account, run the following from the account and save the results to a file:
+
+  ```
+  $ aws organizations describe-effective-policy \
+      --policy-type TAG_POLICY
+  {
+      "EffectivePolicy": {
+          "PolicyContent": "{\"tags\":{\"costcenter\":{\"tag_value\":[\"*\"],\"tag_key\":\"CostCenter\"}}}",
+          "LastUpdatedTimestamp": "2020-06-09T08:34:25.103000-07:00",
+          "TargetId": "123456789012",
+          "PolicyType": "TAG_POLICY"
+      }
+  }
+  ```
+
+  If a tag policy is attached to the account as well as to the root or any OUs, the combination of all of the inherited policies defines the account's effective tag policy\. In these cases, running `describe-effective-policy` from the account returns the merged content of all tag policies in the account's hierarchy\. 
++ AWS SDKs: [DescribeEffectivePolicy](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeEffectivePolicy.html)
 
 ------
