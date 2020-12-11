@@ -54,39 +54,20 @@ Disabling trusted service access does ***not*** prevent users and roles with app
 
 If you have permissions only for AWS Organizations and you want to enable or disable trusted access to your organization on behalf of the administrator of the other AWS service, use the following procedure\.
 
-**Important**  
-We recommend that where possible, you use the other service's console or tools to enable or disable integration with Organizations so that the other service can perform any configuration or cleanup steps that it requires\. Proceed with these steps only if you can’t enable or disable integration using the other service’s tools\.
-
 ------
 #### [ AWS Management Console ]
 
-**To enable trusted service access**
+**To enable or disable trusted service access**
 
-1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
+1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's management account\. 
 
-1. Navigate to the **[Services](https://console.aws.amazon.com/organizations/home/services)** page in the console\.
+1. In the upper\-right corner, choose **Settings**\.
 
-1. In the **Integrated services** section, find the row for the service that you want to enable, and choose its name\.
+1. If you are *enabling* access, proceed to the next step\. If you are *disabling* access, wait until the administrator tells you that the service is disabled and the resources have been cleaned up\.
 
-1. Choose **Enable trusted access**\.
-
-1. In the confirmation dialog box, check the box to **Show the option to enable trusted access**, enter **enable** in the box, and then choose **Enable trusted access**\.
+1. In the **Trusted access for AWS services** section, find the service that you want and then choose either **Enable access** or **Disable access** as appropriate\.
 
 1. If you are *enabling* access, tell the administrator of the other AWS service that they can now enable the other service to work with AWS Organizations\.
-
-**To disable trusted service access**
-
-1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
-
-1. Navigate to the **[Services](https://console.aws.amazon.com/organizations/home/services)** page in the console\.
-
-1. In the **Integrated services** section, find the row for the service that you want to enable, and choose its name\.
-
-1. Wait until the administrator of the other service tells you that the service is disabled and that its resources have been cleaned up\.
-
-1. Choose **Disable trusted access**\.
-
-1. In the confirmation dialog box, check the box to **Show the option to disable trusted access**, enter **disable** in the box, and then choose **Disable trusted access**\.
 
 ------
 #### [ AWS CLI, AWS API ]

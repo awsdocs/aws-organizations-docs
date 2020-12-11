@@ -10,7 +10,7 @@ This page describes the prerequisites and required permissions for managing tag 
 
 Using tag policies requires the following:
 + Your organization must have [all features enabled](orgs_manage_org_support-all-features.md)\. 
-+ You must be signed in to your organization's management account\. 
++ You must be signed in to your organization's management account \(formerly known as the "master account"\)\. 
 + You need the permissions that are listed in [Permissions for managing tag policies](#tag-policies-permissions-manage-policies)\.
 
 To evaluate compliance with tag policies, you use AWS Resource Groups\. For information on requirements for evaluating compliance, see [Prerequisites and Permissions](https://docs.aws.amazon.com/ARG/latest/userguide/tag-policies-prereqs.html) in the *AWS Resource Groups User Guide*\.

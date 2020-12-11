@@ -52,7 +52,7 @@ $ aws macie2 enable-organization-admin-account \
     --admin-account-id 123456789012
 ```
 
-This command produces no output when successful\.
+This account produces no output when successful\.
 
 For more information, see [Enable Trusted Access with AWS Organizations](https://docs.aws.amazon.com/macie/latest/user/macie-organizations.html#register-delegated-admin) in the *Amazon Macie User Guide*\.
 

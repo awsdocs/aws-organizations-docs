@@ -35,10 +35,6 @@ For information about the permissions needed to disable trusted access, see [Per
 
 On the Organizations side, you can disable trusted access by running a AWS CLI command, or by calling an API operation in one of the AWS SDKs\.
 
-**Important**  
-We recommend that where possible, you use the AWS Compute Optimizer console or tools to disable integration with Organizations so that AWS Compute Optimizer can perform any cleanup steps that it requires\. Proceed with these steps only if you can’t disable integration using the other service’s tools\.  
-If you are the administrator of only AWS Organizations and not AWS Compute Optimizer, wait until the administrator of AWS Compute Optimizer tells you that they disabled integration with that service’s console or tools, and that any resources have been cleaned up\.
-
 ------
 #### [ AWS CLI, AWS API ]
 
@@ -53,7 +49,7 @@ You can use the following AWS CLI commands or API operations to disable trusted 
       --service-principle compute-optimizer.amazonaws.com
   ```
 
-  This command produces no output when successful\.
+  The previous command produces no output when successful\.
 + AWS API: [DisableAWSServiceAccess](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DisableAWSServiceAccess.html)
 
 ------

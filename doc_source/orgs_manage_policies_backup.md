@@ -19,7 +19,7 @@ Although a partial policy strategy as described earlier can work, if an effectiv
 
 The effective backup plan for each AWS account in the organization appears in the AWS Backup console as an immutable plan for that account\. You can view it, but not change it\.
 
-When AWS Backup begins a backup based on a policy\-created backup plan, you can see the status of the backup job in the AWS Backup console\. A user in a member account can see the status and any errors for the backup jobs in that member account\. If you also enable trusted service access with AWS Backup, a user in the organization's management account can see the status and errors for all backup jobs in the organization\. For more information, see [Enabling cross\-account management](https://docs.aws.amazon.com/aws-backup/latest/devguide/manage-cross-account.html#enable-cross-account) in the *AWS Backup Developer Guide*\.
+When AWS Backup begins a backup based on a policy\-created backup plan, you can see the status of the backup job in the AWS Backup console\. A user in a member account can see the status and any errors for the backup jobs in that member account\. If you also enable trusted service access with AWS Backup, a user in the organization's management account \(formerly known as the "master account"\) can see the status and errors for all backup jobs in the organization\. For more information, see [Enabling cross\-account management](https://docs.aws.amazon.com/aws-backup/latest/devguide/manage-cross-account.html#enable-cross-account) in the *AWS Backup Developer Guide*\.
 
 ## Getting started with backup policies<a name="orgs_manage_policies-backup_getting-started"></a>
 
@@ -41,3 +41,4 @@ For all of these steps, you sign in as an IAM user, assume an IAM role, or sign 
 
 **Other information**
 + [Learn backup policy syntax and see example policies](orgs_manage_policies_backup_syntax.md)
++ [Use the AWS CLI to manage your backup policies](orgs_manage_policies_backup_cli.md)

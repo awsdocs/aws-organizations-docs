@@ -1,15 +1,17 @@
-# Tag\-based access control and AWS Organizations<a name="orgs_tagging_tbac"></a>
+# Attribute\-based access control with tags and AWS Organizations<a name="orgs_tagging_abac"></a>
 
-AWS Organizations taggable resources include AWS accounts, the organization's root, organizational units \(OUs\), or policies\. When you attach tags to Organizations resources, you can then use those tags to control who can access those resources\. You do this by adding `Condition` elements to your AWS Identity and Access Management \(IAM\) permissions policy statements that check whether certain tag keys and values are present before allowing the action\. This enables you to create an IAM policy that effectively says "Allow the user to manage only those OUs that have the key `X` with the value `Y`\."
+*[Attribute\-based access control](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction_attribute-based-access-control.html)* let you use administrator\-managed attributes such as [tags](https://docs.aws.amazon.com/ARG/latest/userguide/tag-editor.html) attached to both AWS resources and AWS identities to control access to those resources\. For example, you can specify that a user can access a resource when both the user and the resource have the same value for a certain tag\. 
+
+AWS Organizations taggable resources include AWS accounts, the organization's root, organizational units \(OUs\), or policies\. When you attach tags to Organizations resources, you can then use those tags to control who can access those resources\. You do this by adding `Condition` elements to your AWS Identity and Access Management \(IAM\) permissions policy statements that check whether certain tag keys and values are present before allowing the action\. This enables you to create an IAM policy that effectively says "Allow the user to manage only those OUs that have a tag with a key `X` and a value `Y`" or "Allow the user to manage only those OUs that are tagged with a key `Z` that has the same value as the user's attached tag key `Z`\." 
 
 You can base your `Condition` tests on different types of tag references in an IAM policy\.
-+ [Check the tags that are attached to resources specified in the request](#tbac-resource)
-+ [Check the tags that are attached to the IAM user or role who is making the request](#tbac-prin)
-+ [Check the tags that are included as parameters in the request](#tbac-request)
++ [Checking the tags that are attached to resources specified in the request](#abac-resource)
++ [Checking the tags that are attached to the IAM user or role who is making the request](#abac-prin)
++ [Check the tags that are included as parameters in the request](#abac-request)
 
 For more information about using tags for access control in policies, see [Controlling access to and for IAM users and roles using resource tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html)\. For complete syntax of IAM permission policies, see the [IAM JSON Policy Reference](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html)
 
-## Check the tags that are attached to resources specified in the request<a name="tbac-resource"></a>
+## Checking the tags that are attached to resources specified in the request<a name="abac-resource"></a>
 
 When you make a request by using the AWS Management Console, the AWS Command Line Interface \(AWS CLI\), or one of the AWS SDKs, you specify what resources you want to access with that request\. Whether you are trying to list available resources of a given type, read a resource, or write to, modify, or update a resource, you specify the resource to access as a parameter in the request\. Such requests are controlled by IAM permissions policies that you attach to your users and roles\. In these policies, you can compare the tags attached to the requested resource and choose to allow or deny access based on the keys and values of those tags\.
 
@@ -43,7 +45,7 @@ For example, the following sample policy allows the user or role to perform any 
 
 For more information about how to use this element, see [Controlling access to resource](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html#access_iam-tags_control-resources) and [aws:ResourceTag](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag) in the *IAM User Guide*\.
 
-## Check the tags that are attached to the IAM user or role who is making the request<a name="tbac-prin"></a>
+## Checking the tags that are attached to the IAM user or role who is making the request<a name="abac-prin"></a>
 
 You can control what the person making the request \(the principal\) is allowed to do based on the tags that are attached to that person's IAM user or role\. To do this, use the `aws:PrincipalTag/key-name` condition key to specify which tag and value must be attached to the calling user or role\.
 
@@ -67,9 +69,9 @@ The following example shows how to allow an action only when the specified tag \
 
 For more information about how to use this element, see [Controlling access for IAM principals](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html#access_iam-tags_control-principals) and [https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-principaltag](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-principaltag) in the *IAM User Guide*\.
 
-## Check the tags that are included as parameters in the request<a name="tbac-request"></a>
+## Check the tags that are included as parameters in the request<a name="abac-request"></a>
 
-Several operations enable you to specify tags in the request\. For example, when you create a resource you can specify the tags that are attached to the new resource\. You can specify a `Condition` element that uses `aws:TagKeys` to allow or deny the operation based on whether a specific tag key, or a set of keys, is included in the request\. This comparison operator doesn't care what value the tag contains\. It only checks whether a tag with the specified key is present\. 
+Several operations enable you to specify tags as part of the request\. For example, when you create a resource you can specify the tags that are attached to the new resource\. You can specify a `Condition` element that uses `aws:TagKeys` to allow or deny the operation based on whether a specific tag key, or a set of keys, is included in the request\. This comparison operator doesn't care what value the tag contains\. It only checks whether a tag with the specified key is present\. 
 
 To check the tag key, or a list of keys, specify a `Condition` element with the following syntax:
 

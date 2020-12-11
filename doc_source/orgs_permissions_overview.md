@@ -1,6 +1,6 @@
 # Managing access permissions for your AWS organization<a name="orgs_permissions_overview"></a>
 
-All AWS resources, including the roots, OUs, accounts, and policies in an organization, are owned by an AWS account, and permissions to create or access a resource are governed by permissions policies\. For an organization, its management account owns all resources\. An account administrator can control access to AWS resources by attaching permissions policies to IAM identities \(users, groups, and roles\)\.
+All AWS resources, including the roots, OUs, accounts, and policies in an organization, are owned by an AWS account, and permissions to create or access a resource are governed by permissions policies\. For an organization, its management account \(formerly known as the "master account"\) owns all resources\. An account administrator can control access to AWS resources by attaching permissions policies to IAM identities \(users, groups, and roles\)\.
 
 **Note**  
 An *account administrator* \(or administrator user\) is a user with administrator permissions\. For more information, see [IAM Best Practices](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html) in the *IAM User Guide*\.

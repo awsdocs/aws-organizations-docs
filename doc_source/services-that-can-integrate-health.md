@@ -47,24 +47,18 @@ For more information, see [Disabling organizational view](https://docs.aws.amazo
 
 On the Organizations side, you can disable trusted access by using either the AWS Organizations console, by running a AWS CLI command, or by calling an API operation in one of the AWS SDKs\.
 
-**Important**  
-We recommend that where possible, you use the AWS Health console or tools to disable integration with Organizations so that AWS Health can perform any cleanup steps that it requires\. Proceed with these steps only if you can’t disable integration using the other service’s tools\.  
-If you are the administrator of only AWS Organizations and not AWS Health, wait until the administrator of AWS Health tells you that they disabled integration with that service’s console or tools, and that any resources have been cleaned up\.
-
 ------
 #### [ AWS Management Console ]
 
 **To disable trusted service access using the Organizations console**
 
-1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
+1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's management account\. 
 
-1. Navigate to the **[Services](https://console.aws.amazon.com/organizations/home/services)** page in the console\.
+1. In the upper\-right corner, choose **Settings**\.
 
-1. In the **Integrated services** section, find the row for **AWS Health** and then choose the service’s name\.
+1. If you are the administrator of only AWS Organizations and not AWS Health, wait until the administrator of AWS Health tells you that they disabled integration with that service's console or tools, and that any resources have been cleaned up\.
 
-1. In the confirmation dialog box, check the box for **Show the option to disable trusted access**, enter **disable** in the box, and then choose **Disable trusted access**\.
-
-1. If you are the administrator of only AWS Organizations, tell the administrator of AWS Health that they can now disable that service using its console or tools from working with AWS Organizations\.
+1. In the **Trusted access for AWS services** section, find the entry for **AWS Health**, and then choose **Disable access**\.
 
 ------
 #### [ AWS CLI, AWS API ]
@@ -80,7 +74,7 @@ You can use the following AWS CLI commands or API operations to disable trusted 
       --service-principle health.amazonaws.com
   ```
 
-  This command produces no output when successful\.
+  The previous command produces no output when successful\.
 + AWS API: [DisableAWSServiceAccess](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DisableAWSServiceAccess.html)
 
 ------

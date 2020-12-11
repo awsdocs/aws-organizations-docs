@@ -19,7 +19,7 @@ Follow these recommendations to help protect the security of the member accounts
 ## Use a complex password for member account root user<a name="best-practices_mbr-acct_complex-password"></a>
 + The security of your account's root user depends on the strength of its password\. We recommend that you use a password that is long, complex, and not used anywhere else\. Numerous password managers and complex password generation algorithms and tools can help you achieve these goals\.
 + If you are using a strong password, as described in the previous point, and you rarely access the root user, we recommend that you do ***not*** periodically change the password\. Changing the password more frequently than you use it increases the risk of compromise\.
-+ Rely on your business' information security policy for managing long\-term storage and access to the passwords for your member account root users\. Unlike the management account, however, it's reasonable to consider storing the password in a credible and business\-approved password manager system or tool\.
++ Rely on your business' information security policy for managing long\-term storage and access to the passwords for your member account root users\. Unlike the management account \(formerly known as the "master account"\), however, it's reasonable to consider storing the password in a credible and business\-approved password manager system or tool\.
 
   Store the password in a password manager system or tool under further controls and processes\. If you do use a password manager, we recommend that it be offline\. To avoid creating a circular dependency, do not store the password with tools that depend on AWS services that you sign in to with the protected account\. 
 

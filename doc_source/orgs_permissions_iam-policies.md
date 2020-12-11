@@ -1,10 +1,10 @@
 # Using identity\-based policies \(IAM policies\) for AWS Organizations<a name="orgs_permissions_iam-policies"></a>
 
-As an administrator of the management account of an organization, you can control access to AWS resources by attaching permissions policies to AWS Identity and Access Management \(IAM\) identities \(users, groups, and roles\) within the organization\. When granting permissions, you decide who is getting the permissions, the resources they get permissions for, and the specific actions that you want to allow on those resources\. If the permissions are granted to a role, that role can be assumed by users in other accounts in the organization\.
+As an administrator of the management account \(formerly known as the "master account"\) of an organization, you can control access to AWS resources by attaching permissions policies to AWS Identity and Access Management \(IAM\) identities \(users, groups, and roles\) within the organization\. When granting permissions, you decide who is getting the permissions, the resources they get permissions for, and the specific actions that you want to allow on those resources\. If the permissions are granted to a role, that role can be assumed by users in other accounts in the organization\.
 
 By default, a user has no permissions of any kind\. All permissions must be explicitly granted by a policy\. If a permission isn't explicitly granted, it's implicitly denied\. If a permission is explicitly denied, that overrules any other policy that might have allowed it\. In other words, a user has only those permissions that are explicitly granted and that aren't explicitly denied\.
 
-In addition to the basic techniques desribed in this topic, you can control access to your organization by using the tags applied to the resources in your organization: the organization root, organizational units \(OU\), accounts, and policies\. For more information, see [Tag\-based access control and AWS Organizations](orgs_tagging_tbac.md)\.
+In addition to the basic techniques desribed in this topic, you can control access to your organization by using the tags applied to the resources in your organization: the organization root, organizational units \(OU\), accounts, and policies\. For more information, see [Attribute\-based access control with tags and AWS Organizations](orgs_tagging_abac.md)\.
 
 ## Granting full admin permissions to a user<a name="orgs_permissions_grant-admin-actions"></a>
 

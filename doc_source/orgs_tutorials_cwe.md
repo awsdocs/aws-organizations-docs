@@ -27,7 +27,7 @@ You can also use this tutorial as a guide in configuring similar operations, suc
 ## Prerequisites<a name="tutorial-cwe-prereqs"></a>
 
 This tutorial assumes the following:
-+ You can sign in to the AWS Management Console as an IAM user from the management account in your organization\. The IAM user must have permissions to create and configure a log in CloudTrail, a function in Lambda, a topic in Amazon SNS, and a rule in CloudWatch\. For more information about granting permissions, see [Access Management](https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html) in the *IAM User Guide*, or the guide for the service for which you want to configure access\.
++ You can sign in to the AWS Management Console as an IAM user from the management account \(formerly known as the "master account"\) in your organization\. The IAM user must have permissions to create and configure a log in CloudTrail, a function in Lambda, a topic in Amazon SNS, and a rule in CloudWatch\. For more information about granting permissions, see [Access Management](https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html) in the *IAM User Guide*, or the guide for the service for which you want to configure access\.
 + You have access to an existing Amazon Simple Storage Service \(Amazon S3\) bucket \(or you have permissions to create a bucket\) to receive the CloudTrail log that you configure in step 1\.
 
 **Important**  
@@ -178,9 +178,9 @@ In this step, you create an organizational unit \(OU\) and observe the CloudWatc
 
 **To create an OU**
 
-1. Open the AWS Organizations console to the **AWS accounts** page at [https://console.aws.amazon.com/organizations/home/accounts](https://console.aws.amazon.com/organizations/home/accounts)\. 
+1. Open the AWS Organizations console at [https://console.aws.amazon.com/organizations/](https://console.aws.amazon.com/organizations/)\. 
 
-1.  Choose the **Root** OU, choose **Actions**, and then under **Organizational unit** choose **Create new**\.
+1. Choose the **Organize accounts** tab and then choose **New organizational unit**\.
 
 1. For the name of the OU, enter **TestCWEOU** and then choose **Create organizational unit**\.
 
@@ -256,7 +256,5 @@ To avoid incurring charges, you should delete any AWS resources that you created
 1. Use the Amazon SNS console at [https://console.aws.amazon.com/sns/](https://console.aws.amazon.com/sns/) to delete the Amazon SNS topic named **OrganizationsCloudWatchTopic** that you created in step 3\.
 
 1. Use the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/) to delete the CloudWatch rule named **OrgsMonitorRule** that you created in step 4\.
-
-1. Finally, use the Organizations console at [https://console.aws.amazon.com/organizations/](https://console.aws.amazon.com/organizations/) to delete the OU named **TestCWEOU** that you created in step 5\.
 
 That's it\. In this tutorial, you configured CloudWatch Events to monitor your organization for changes\. You configured a rule that is triggered when users invoke specific AWS Organizations operations\. The rule ran a Lambda function that logged the event and sent an email that contains details about the event\.

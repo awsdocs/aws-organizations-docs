@@ -6,9 +6,6 @@ This topic describes Artificial Intelligence \(AI\) services opt\-out policy syn
 
 An AI services opt\-out policy is a plaintext file that is structured according to the rules of [JSON](http://json.org)\. The syntax for AI services opt\-out policies follows the syntax for management policy types\. For a complete discussion of that syntax, see [Policy syntax and inheritance for management policy types](orgs_manage_policies_inheritance_mgmt.md)\. This topic focuses on applying that general syntax to the specific requirements of the AI services opt\-out policy type\.
 
-**Important**  
-The capitalization of the values discussed in this section are important\. Enter the values with upper and lower case letters as shown in this topic\. The policies do not work if you use unexpected capitalization\.
-
 The following policy shows the basic AI services opt\-out policy syntax\. If this example was attached directly to an account, that account would be explicitly opted out of one service and opted in to another\. Other services could be opted in or opted out by policies inherited from higher levels \(OU or root policies\)\.
 
 ```
@@ -54,11 +51,11 @@ Imagine the following example policy attached to the organization's root\. It se
 ```
 
 AI services opt\-out policy syntax includes the following elements: 
-+ The `services` element\. An AI services opt\-out policy is identified by this fixed name as the outermost JSON containing element\.
++ The `services` element\. An AI services opt\-out policy is identified by this fixed filed name name as the outermost JSON containing element\.
 
   An AI services opt\-out policy can have one or more statements under the `services` element\. Each statement contains the following elements: 
-  + A *service name key* that identifies an AWS AI service\. The following key names are valid values for this field:
-    + **`default`** – represents **all** currently available AI services and implicitly and automatically includes any AI services that might be added in the future\.
+  + A *service name key* that identifies and AWS AI service\. The following key names are the valid values for this field:
+    + **`default`** – represents **all** currently available AI services and implicitly includes any AI services that might be added in the future\.
     + `codeguruprofiler`
     + `comprehend`
     + `lex`

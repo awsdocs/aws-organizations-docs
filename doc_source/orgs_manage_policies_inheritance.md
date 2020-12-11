@@ -10,6 +10,5 @@ Because you can attach policies to multiple levels in the organization, accounts
 Exactly how policies affect the OUs and accounts that inherit them depends on the type of policy:
 + [Service control policies \(SCPs\)](orgs_manage_policies_inheritance_auth.md)
 + [Management policy types](orgs_manage_policies_inheritance_mgmt.md)
-  + AI services opt\-out policies
-  + Backup policies
-  + Tag policies
+  + [Backup policies](orgs_manage_policies_backup.md)
+  + [Tag policies](orgs_manage_policies_tag-policies.md)
