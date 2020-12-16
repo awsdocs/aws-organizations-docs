@@ -2,10 +2,9 @@
 
 AWS Health provides ongoing visibility into your resource performance and the availability of your AWS services and accounts\. AWS Health delivers events when your AWS resources and services are impacted by an issue or will be affected by upcoming changes\. After you enable organizational view, a user in the organization’s management account can aggregate AWS Health events across all accounts in the organization\. Organizational view only shows AWS Health events delivered after the feature is enabled and retains them for 90 days\. 
 
-For more information, see [Aggregating AWS Health events](https://docs.aws.amazon.com/health/latest/ug/aggregate-events.html) in the *AWS Health User Guide*\.
+You can enable organizational view by using the AWS Health console, the AWS Command Line Interface \(AWS CLI\), or the AWS Health API\. 
 
-**Note**  
-Currently, the organizational view feature is available only through the AWS Health API\. For more information, see the [AWS Health API Reference](https://docs.aws.amazon.com/health/latest/APIReference/Welcome.html)\.
+For more information, see [Aggregating AWS Health events](https://docs.aws.amazon.com/health/latest/ug/aggregate-events.html) in the *AWS Health User Guide*\.
 
 Use the following information to help you to help you integrate AWS Health with AWS Organizations\.
 
@@ -29,21 +28,25 @@ The service\-linked roles in the previous section can be assumed only by the ser
 
 ## Enabling trusted access with AWS Health<a name="integrate-enable-ta-health"></a>
 
+When you the enable organizational view feature for AWS Health, trusted access is also enabled for you automatically\.
+
 For information about the permissions needed to enable trusted access, see [Permissions required to enable trusted access](orgs_integrate_services.md#orgs_trusted_access_perms)\.
 
-You can enable trusted access using only the AWS Health commands in the AWS CLI or the equivalent API operations in any of the AWS SDKs\.
-
-Call the [EnableHealthServiceAccessForOrganization](https://docs.aws.amazon.com/health/latest/APIReference/API_EnableHealthServiceAccessForOrganization.html) API operation\.
-
-For more information, see [Enabling organizational view](https://docs.aws.amazon.com/health/latest/ug/aggregate-events.html#enable-organizational-view) in the *AWS Health User Guide*\.
+You can enable trusted access by using one of the following options:
++ Use the AWS Health console\. For more information, see [Organizational view \(console\) ](https://docs.aws.amazon.com/health/latest/ug/enable-organizational-view-in-health-console.html) in the *AWS Health User Guide*\. 
++ Use the AWS CLI\. For more information, see [Organizational view \(CLI\) ](https://docs.aws.amazon.com/health/latest/ug/enable-organizational-view-from-aws-command-line.html) in the *AWS Health User Guide*\. 
++ Call the [EnableHealthServiceAccessForOrganization](https://docs.aws.amazon.com/health/latest/APIReference/API_EnableHealthServiceAccessForOrganization.html) API operation\.
 
 ## Disabling trusted access with AWS Health<a name="integrate-disable-ta-health"></a>
 
+After you disable the organizational view feature, AWS Health stops aggregating events for all other accounts in your organization\. This also disables trusted access for you automatically\. 
+
 For information about the permissions needed to disable trusted access, see [Permissions required to disable trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms)\.
 
-After you disable this feature, AWS Health stops aggregating events for all other accounts in your organization\.
-
-For more information, see [Disabling organizational view](https://docs.aws.amazon.com/health/latest/ug/aggregate-events.html#disabling-organizational-view) in the *AWS Health User Guide*\.
+You can disable trusted access with one of the following options:
++ Use the AWS Health console\. For more information, see [Disabling organizational view \(console\) ](https://docs.aws.amazon.com/health/latest/ug/enable-organizational-view-in-health-console.html#disabling-organizational-view-console) in the *AWS Health User Guide*\.
++ Use the AWS CLI\. For more information, see [Disabling organizational view \(CLI\) ](https://docs.aws.amazon.com/health/latest/ug/enable-organizational-view-from-aws-command-line.html#disabling-organizational-view) in the *AWS Health User Guide*\. 
++ Call the [DisableHealthServiceAccessForOrganization](https://docs.aws.amazon.com/health/latest/APIReference/API_DisableHealthServiceAccessForOrganization.html) API operation\.
 
 On the Organizations side, you can disable trusted access by using either the AWS Organizations console, by running a AWS CLI command, or by calling an API operation in one of the AWS SDKs\.
 

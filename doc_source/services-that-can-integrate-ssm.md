@@ -1,6 +1,8 @@
 # AWS Systems Manager and AWS Organizations<a name="services-that-can-integrate-ssm"></a>
 
-AWS Systems Manager is a collection of capabilities that enable visibility and control of your AWS resources\. One of these capabilities, Systems Manager Explorer, is a customizable operations dashboard that reports information about your AWS resources\. You can synchronize operations data across all AWS accounts in your organization by using Organizations and Systems Manager Explorer\. For more information, see [Systems Manager Explorer](https://docs.aws.amazon.com/systems-manager/latest/userguide/Explorer.html) in the *AWS Systems Manager User Guide*\.
+AWS Systems Manager is a collection of capabilities that enable visibility and control of your AWS resources\. Two of the features that are part of Systems Manager can work with Organizations to work across all of the AWS accounts in your organization\.
++ Systems Manager Explorer, is a customizable operations dashboard that reports information about your AWS resources\. You can synchronize operations data across all AWS accounts in your organization by using Organizations and Systems Manager Explorer\. For more information, see [Systems Manager Explorer](https://docs.aws.amazon.com/systems-manager/latest/userguide/Explorer.html) in the *AWS Systems Manager User Guide*\.
++ Systems Manager Change Manager is an enterprise change management framework for requesting, approving, implementing, and reporting on operational changes to your application configuration and infrastructure\. For more information, see [AWS Systems Manager Change Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/change-manager.html) in the *AWS Systems Manager User Guide*\.
 
 Use the following information to help you to help you integrate AWS Systems Manager with AWS Organizations\.
 
@@ -76,5 +78,9 @@ You can use the following AWS CLI commands or API operations to disable trusted 
 
 When you designate a member account as a delegated administrator for the organization, users and roles from that account can perform administrative actions for Systems Manager that otherwise can be performed only by users or roles in the organization's management account\. This helps you to separate management of the organization from management of Systems Manager\.
 
+If you use Change Manager across an organization, you use a delegated administrator account\. This is the AWS account that has been designated as the account for managing change templates, change requests, change runbooks and approval workflows in Change Manager\. The delegated account manages change activities across your organization\. When you set up your organization for use with Change Manager, you specify which of your accounts serves in this role\. It does not have to be the organization's management account\. The delegated administrator account is not required if you use Change Manager with a single account only\.”
+
 **To designate a member account as a delegated administrator for Systems Manager**  
-See [Configuring a Delegated Administrator](https://docs.aws.amazon.com/systems-manager/latest/userguide/Explorer-setup-delegated-administrator.html) in the *AWS Systems Manager User Guide*\.
+For Systems Manager Explorer, see [Configuring a Delegated Administrator](https://docs.aws.amazon.com/systems-manager/latest/userguide/Explorer-setup-delegated-administrator.html) in the *AWS Systems Manager User Guide*\.
+
+For Systems Manager Change Manager, see [Setting up an organization and delegated account for Change Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/change-manager-organization-setup.html) in the *AWS Systems Manager User Guide*\.
