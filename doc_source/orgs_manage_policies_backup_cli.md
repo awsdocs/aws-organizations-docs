@@ -22,7 +22,7 @@ Enabling the use of backup policies is a one\-time task\. You enable backup poli
                        "Status": "ENABLED"
                    },
                    {
-                       "Type": "BACKUP_POLICY",
+                       "Type": "TAG_POLICY",
                        "Status": "ENABLED"
                    }
                ]
