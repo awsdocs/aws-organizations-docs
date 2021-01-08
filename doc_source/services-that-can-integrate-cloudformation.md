@@ -32,6 +32,9 @@ For information about the permissions needed to enable trusted access, see [Perm
 
 You can enable trusted access using either the AWS CloudFormation StackSets console or the AWS Organizations console\.
 
+**Important**  
+We strongly recommend that you enable trusted access by using the AWS CloudFormation Stacksets console\. This enables AWS CloudFormation Stacksets to perform required setup tasks\.
+
 **To enable trusted access using the AWS CloudFormation Stacksets console**  
 See [Enable Trusted Access with AWS Organizations](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-enable-trusted-access.html) in the AWS CloudFormation User Guide\.
 

@@ -26,6 +26,11 @@ The service\-linked roles in the previous section can be assumed only by the ser
 
 For information about the permissions needed to enable trusted access, see [Permissions required to enable trusted access](orgs_integrate_services.md#orgs_trusted_access_perms)\.
 
+You can enable trusted access using either the AWS CloudTrail console or the AWS Organizations console\.
+
+**Important**  
+We strongly recommend that you enable trusted access by using the CloudTrail console\. This enables CloudTrail to perform required setup tasks\.
+
 You must sign in with your AWS Organizations management account to create an organization trail\. If you create the trail from the AWS CloudTrail console, trusted access is configured automatically for you\. If you choose to create an organization trail using the AWS CLI or the AWS API, you must manually configure trusted access\. For more information, see [ Enabling CloudTrail as a trusted service in AWS Organizations](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-and-update-an-organizational-trail-by-using-the-aws-cli.html#cloudtrail-create-organization-trail-by-using-the-cli-enable-trusted-service) in the *AWS CloudTrail User Guide\.*
 
 On the Organizations side, you can enable trusted access by running a AWS CLI command, or by calling an API operation in one of the AWS SDKs\.

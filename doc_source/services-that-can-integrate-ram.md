@@ -30,6 +30,9 @@ For information about the permissions needed to enable trusted access, see [Perm
 
 You can enable trusted access using either the AWS Resource Access Manager console or the AWS Organizations console\.
 
+**Important**  
+We strongly recommend that you enable trusted access by using the AWS RAM console\. This enables AWS RAM to perform required setup tasks\.
+
 **To enable trusted access using the AWS RAM console or CLI**  
 See [Enable Sharing with AWS Organizations](https://docs.aws.amazon.com/ram/latest/userguide/getting-started-sharing.html#getting-started-sharing-orgs) in the *AWS RAM User Guide*\.
 

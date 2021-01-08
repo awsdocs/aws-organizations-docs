@@ -22,7 +22,10 @@ To enable trusted access, you must specify the following service principal:
 
 For information about the permissions needed to enable trusted access, see [Permissions required to enable trusted access](orgs_integrate_services.md#orgs_trusted_access_perms)\.
 
-You can enable trusted access using the AWS Organizations console or by using the CLI or AWS SDK\.
+You can enable trusted access using either the AWS Service Catalog console or the AWS Organizations console\.
+
+**Important**  
+We strongly recommend that you enable trusted access by using the AWS Service Catalog console\. This enables AWS Service Catalog to perform required setup tasks\.
 
 **To enable trusted access using the AWS Service Catalog CLI or AWS SDK**  
 Call one of the following commands or operations:
