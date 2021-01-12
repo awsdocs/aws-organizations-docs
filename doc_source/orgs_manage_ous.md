@@ -29,7 +29,10 @@ To navigate to different OUs or to the root when moving accounts or attaching po
 1. Choose the OU or root that you want to navigate to\. The node in the tree view that is displayed in bold text is the one that you are currently viewing in the center pane\.
 
 **Notes**  
-**Rename, Delete, and Move operations in the center pane**: When you view the contents of a root or OU in the console, you can interact with the child entities of that root or OU\. For example, if you select the check box for a child OU or account, you can choose the **Rename**, **Delete**, or **Move** links above that section to perform those operations on the selected entity\. The operations apply *only* to the child entities that you select\. They don't apply to the containing root or OU\. To perform the same operations for the containing OU, you must navigate to the OU's parent OU or root, and then select the check box for the child OU that you want to manage\.
+**Rename, Delete, and Move operations in the center pane**: When you view the contents of a root or OU in the console, you can interact with the child entities of that root or OU\.   
+If you select the check box for a child account, you can choose the **Rename**, **Delete**, or **Move** links above that section to perform those operations on the selected account\.
+If you select the check box for a child OU, you can choose the **Rename** or **Delete** links above that section to perform those operations on the selected OU\. You can't move an OU from one parent to another\.
+The operations apply *only* to the child entities that you select\. They don't apply to the containing root or OU\. To perform the same operations for the containing OU, you must navigate to the OU's parent OU or root, and then select the check box for the child OU that you want to manage\.
 **Details pane**: The details pane on the right side of the console shows information about the root or OU that you are viewing\. If you select a check box for a child entity, the details pane switches to show information about the selected entity\. To see the details of the containing root or OU again, you must clear the check box\. Alternatively, you can navigate to the parent root or OU, and then select the check box for the OU whose information you want to see\.
 
 **To navigate without using the tree view**
