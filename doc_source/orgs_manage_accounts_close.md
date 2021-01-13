@@ -1,7 +1,7 @@
 # Closing an AWS account<a name="orgs_manage_accounts_close"></a>
 
 **This topic applies to ***only*** AWS accounts that are managed by the AWS Organizations service**  
-If you are looking for instructions to close your **Amazon\.com shopping account**, see [https://www\.amazon\.com/gp/help/customer/display\.html?nodeId=GDK92DNLSGWTV6MP]()\.
+If you are looking for instructions to close your **Amazon\.com shopping account**, see [https://www\.amazon\.com/gp/help/customer/display\.html?nodeId=GDK92DNLSGWTV6MP](https://www.amazon.com/gp/help/customer/display.html?nodeId=GDK92DNLSGWTV6MP)\.
 
 If you no longer need a member account in your organization, and want to ensure that no one can accrue charges for it, you can close the account\. 
 
