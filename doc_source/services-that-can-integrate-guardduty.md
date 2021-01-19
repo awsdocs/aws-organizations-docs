@@ -6,7 +6,7 @@ You can help simplify management of GuardDuty by using Organizations to manage G
 
 For more information, see [Managing GuardDuty accounts with AWS Organizations](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_organizations.htm) in the *Amazon GuardDuty User Guide*
 
-Use the following information to help you to help you integrate Amazon GuardDuty with AWS Organizations\.
+Use the following information to help you integrate Amazon GuardDuty with AWS Organizations\.
 
 **Topics**
 + [Service\-linked roles created when you enable integration](#integrate-enable-slr-guardduty)
@@ -67,10 +67,10 @@ You can use the following AWS CLI commands or API operations to disable trusted 
 
   ```
   $ aws organizations disable-aws-service-access \
-      --service-principle guardduty.amazonaws.com
+      --service-principal guardduty.amazonaws.com
   ```
 
-  The previous command produces no output when successful\.
+  This command produces no output if successful\.
 + AWS API: [DisableAWSServiceAccess](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DisableAWSServiceAccess.html)
 
 ------

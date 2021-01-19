@@ -63,10 +63,10 @@ You can use the following AWS CLI commands or API operations to enable trusted s
 
   ```
   $ aws organizations enable-aws-service-access \ 
-      --service-principle storage-lens.s3.amazonaws.com
+      --service-principal storage-lens.s3.amazonaws.com
   ```
 
-  The previous command produces no output when successful\.
+  This command produces no output if successful\.
 + AWS API: [EnableAWSServiceAccess](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAWSServiceAccess.html)
 
 ------

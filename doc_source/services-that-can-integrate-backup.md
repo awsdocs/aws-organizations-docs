@@ -67,10 +67,10 @@ You can use the following AWS CLI commands or API operations to enable trusted s
 
   ```
   $ aws organizations enable-aws-service-access \ 
-      --service-principle backup.amazonaws.com
+      --service-principal backup.amazonaws.com
   ```
 
-  The previous command produces no output when successful\.
+  This command produces no output if successful\.
 + AWS API: [EnableAWSServiceAccess](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAWSServiceAccess.html)
 
 ------
@@ -107,10 +107,10 @@ You can use the following AWS CLI commands or API operations to disable trusted 
 
   ```
   $ aws organizations disable-aws-service-access \
-      --service-principle backup.amazonaws.com
+      --service-principal backup.amazonaws.com
   ```
 
-  The previous command produces no output when successful\.
+  This command produces no output if successful\.
 + AWS API: [DisableAWSServiceAccess](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DisableAWSServiceAccess.html)
 
 ------
