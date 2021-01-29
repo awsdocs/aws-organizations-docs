@@ -1,6 +1,6 @@
 # AWS CloudTrail and AWS Organizations<a name="services-that-can-integrate-cloudtrail"></a>
 
-AWS CloudTrail is an AWS service that helps you enable governance, compliance, and operational and risk auditing of your AWS account\. Using AWS CloudTrail, a user in a management account \(formerly known as the "master account"\) can create an organization trail that logs all events for all AWS accounts in that organization\. Organization trails are automatically applied to all member accounts in the organization\. Member accounts can see the organization trail, but can't modify or delete it\. By default, member accounts don't have access to the log files for the organization trail in the Amazon S3 bucket\. This helps you uniformly apply and enforce your event logging strategy across the accounts in your organization\. For more information, see [ Creating a Trail for an Organization](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-trail-organization.html) in the *AWS CloudTrail User Guide*\. 
+AWS CloudTrail is an AWS service that helps you enable governance, compliance, and operational and risk auditing of your AWS account\. Using AWS CloudTrail, a user in a management account can create an organization trail that logs all events for all AWS accounts in that organization\. Organization trails are automatically applied to all member accounts in the organization\. Member accounts can see the organization trail, but can't modify or delete it\. By default, member accounts don't have access to the log files for the organization trail in the Amazon S3 bucket\. This helps you uniformly apply and enforce your event logging strategy across the accounts in your organization\. For more information, see [ Creating a Trail for an Organization](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-trail-organization.html) in the *AWS CloudTrail User Guide*\. 
 
 Use the following information to help you to help you integrate AWS CloudTrail with AWS Organizations\.
 
@@ -35,6 +35,10 @@ You must sign in with your AWS Organizations management account to create an org
 
 On the Organizations side, you can enable trusted access by running a AWS CLI command, or by calling an API operation in one of the AWS SDKs\.
 
+**Important**  
+We stongly recommend that where possible, you use the AWS CloudTrail console or tools to enable integration with Organizations so that AWS CloudTrail can perform any configuration that it requires\. Proceed with these steps only if you can’t enable integration using the tools provided by AWS CloudTrail\.  
+If you enable trusted access by using the tools provided by AWS CloudTrail then you don’t need to complete these steps\.
+
 ------
 #### [ AWS CLI, AWS API ]
 
@@ -49,7 +53,7 @@ You can use the following AWS CLI commands or API operations to enable trusted s
       --service-principal cloudtrail.amazonaws.com
   ```
 
-  This command produces no output if successful\.
+  This command produces no output when successful\.
 + AWS API: [EnableAWSServiceAccess](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAWSServiceAccess.html)
 
 ------
@@ -62,18 +66,37 @@ AWS CloudTrail requires trusted access with AWS Organizations to work with organ
 
 On the Organizations side, you can disable trusted access by using either the AWS Organizations console, by running a AWS CLI command, or by calling an API operation in one of the AWS SDKs\.
 
+**Important**  
+We strongly recommend that where possible, you use the AWS CloudTrail console or tools to disable integration with Organizations so that AWS CloudTrail can perform any cleanup steps that it requires\. Proceed with these steps only if you can’t disable integration using the other service’s tools\.  
+If you are the administrator of only AWS Organizations and not AWS CloudTrail, wait until the administrator of AWS CloudTrail tells you that they disabled integration with that service’s console or tools, and that any resources have been cleaned up\.
+
 ------
-#### [ AWS Management Console ]
+#### [ Old console ]
 
-**To disable trusted service access using the Organizations console**
+**To disable trusted service access**
 
-1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's management account\. 
+1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
 
-1. In the upper\-right corner, choose **Settings**\.
+1. On the **[Settings](https://console.aws.amazon.com/organizations/home#/organization/settings)** tab under **Trusted access for AWS services**, find the row for **AWS CloudTrail** and then choose **Disable access**\.
 
-1. If you are the administrator of only AWS Organizations and not AWS CloudTrail, wait until the administrator of AWS CloudTrail tells you that they disabled integration with that service's console or tools, and that any resources have been cleaned up\.
+1. In the dialog box, choose **Disable access for *service\-name***\.
 
-1. In the **Trusted access for AWS services** section, find the entry for **AWS CloudTrail**, and then choose **Disable access**\.
+1. If you are the administrator of only AWS Organizations, tell the administrator of AWS CloudTrail that they can now disable that service using its console or tools from working with AWS Organizations\.
+
+------
+#### [ New console ]
+
+**To disable trusted service access**
+
+1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
+
+1. On the **[Services](https://console.aws.amazon.com/organizations/v2/home/services)** page, find the row for **AWS CloudTrail** and then choose the service’s name\.
+
+1. Choose **Enable trusted access**\.
+
+1. In the confirmation dialog box, enter **disable** in the box, and then choose **Disable trusted access**\.
+
+1. If you are the administrator of only AWS Organizations, tell the administrator of AWS CloudTrail that they can now disable that service using its console or tools from working with AWS Organizations\.
 
 ------
 #### [ AWS CLI, AWS API ]
@@ -89,7 +112,7 @@ You can use the following AWS CLI commands or API operations to disable trusted 
       --service-principal cloudtrail.amazonaws.com
   ```
 
-  This command produces no output if successful\.
+  This command produces no output when successful\.
 + AWS API: [DisableAWSServiceAccess](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DisableAWSServiceAccess.html)
 
 ------

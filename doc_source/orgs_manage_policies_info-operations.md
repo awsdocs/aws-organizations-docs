@@ -1,5 +1,8 @@
 # Getting information about your organization's policies<a name="orgs_manage_policies_info-operations"></a>
 
+**Note**  
+AWS Organizations is introducing a new version of the Organizations management console\. You can switch between the old console and the new console by choosing the link in the notice boxes at the top of the console\. We encourage you to try the new version and let us know what you think\. We want your feedback and read each submission\.
+
 This section describes various ways to get details about the policies in your organization\. These procedures apply to *all* policy types\. You must enable a policy type on the organization root before you can attach policies of that type to any entities in that organization root\. 
 
 ## Listing all policies<a name="list-all-pols-in-org"></a>
@@ -8,59 +11,124 @@ This section describes various ways to get details about the policies in your or
 To list the policies within your organization, you must have the following permission:  
 `organizations:ListPolicies`
 
-------
-#### [ AWS Management Console ]<a name="proc-list-all-pols-in-org"></a>
-
-**To list all policies in your organization**
-
-1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's management account\. 
-
-1. Choose the **Policies** tab\.
-
-1.  Choose the policy type: **Service control policies** or **Tag policies**\. 
-
-   The displayed list includes all policies of that type that are currently defined in the organization\.
+You can view the policies in your organization in the AWS Management Console or by using an AWS Command Line Interface \(AWS CLI\) command or an AWS SDK operation\.
 
 ------
-#### [ AWS CLI, AWS API ]
+#### [ Old console ]<a name="proc-list-all-pols-in-org"></a>
 
-**To list all policies in your organization**  
+**To list all of the policies in your organization**
+
+1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
+
+1. On the **[Policies](https://console.aws.amazon.com/organizations/home#/policies)** tab, Choose the policy type that you want to list\.
+
+   If the chosen policy type is enabled, the console displays a list of all of the policies of that type that are currently available in the organization\.
+
+1. Return to the **[Policies](https://console.aws.amazon.com/organizations/home#/policies)** tab and repeat for each policy type\.
+
+------
+#### [ New console ]<a name="proc-list-all-pols-in-org-v2"></a>
+
+**To list all of the policies in your organization**
+
+1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
+
+1. On the **[Policies](https://console.aws.amazon.com/organizations/v2/home/policies)** page, choose the policy type that you want to list\.
+
+   If the specified policy type is enabled, the console displays a list of all of the policies of that type that are currently available in the organization\.
+
+1. Return to the **[Policies](https://console.aws.amazon.com/organizations/v2/home/policies)** page and repeat for each policy type\.
+
+------
+#### [ AWS CLI & AWS SDKs ]
+
+**To list all of the policies in your organization**  
 You can use one of the following commands to list policies in an organization:
 + AWS CLI: [aws organizations list\-policies](https://docs.aws.amazon.com/cli/latest/reference/organizations/list-policies.html)
-+ AWS API: [ListPolicies](https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListPolicies.html)
+
+  The following example shows how to get a list of all of the service control policies in your organization\. You must specify the type of policy you want see\. Repeat the command for each policy type you want to include\.
+
+  ```
+  $ aws organizations list-policies \
+      --filter SERVICE_CONTROL_POLICY
+  {
+      "Policies": [
+          {
+              "Id": "p-FullAWSAccess",
+              "Arn": "arn:aws:organizations::aws:policy/service_control_policy/p-FullAWSAccess",
+              "Name": "FullAWSAccess",
+              "Description": "Allows access to every operation",
+              "Type": "SERVICE_CONTROL_POLICY",
+              "AwsManaged": true
+          }
+      ]
+  }
+  ```
++ AWS SDKs: [ListPolicies](https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListPolicies.html)
 
 ------
 
-## Listing all policies attached to a root, OU, or account<a name="list-all-pols-in-entity"></a>
+## Listing the policies attached to a root, OU, or account<a name="list-all-pols-in-entity"></a>
 
 **Minimum permissions**  
 To list the policies that are attached to a root, organizational unit \(OU\), or account within your organization, you must have the following permission:  
 `organizations:ListPoliciesForTarget` with a `Resource` element in the same policy statement that includes the Amazon Resource Name \(ARN\) of the specified target \(or "\*"\)
 
 ------
-#### [ AWS Management Console ]
+#### [ Old console ]
 
 **To list all policies that are attached directly to a specified root, OU, or account**
 
-1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's management account\. 
+1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
 
-1. On the **Organize accounts** tab, [navigate](orgs_manage_ous.md#navigate_tree) to the root, OU, or account whose policy attachments you want to see\.
+1. On the **[Organize accounts](https://console.aws.amazon.com/organizations/home#/browse)** tab, navigate to and choose name of the **Root**, OU, or AWS account whose policies you want to list\. You might have to expand OUs \(choose the \+ next to an OU name\) in the navigation pane to find the OU or account that you want\.
 
-   1. For a root or OU, don't select any check boxes\. This way, the details pane on the right shows the information about the root or OU that you are viewing\. Alternatively, you can navigate to the parent of the OU, and then select the check box for the OU whose information you want to see\.
+1. On the Root, OU, or account page, in the details pane on the right, choose policy type\.
 
-   1. For an account, select the check box for the account\.
+   The details pane displays all of the policies of the specified type that are attached to that root, OU, or account\.
 
-1. In the details pane on the right, expand the **Service control policies** or **Tag policies** section\.
-
-   The displayed list shows all policies of that type that are attached directly to this entity\. It also shows policies that affect this entity because of inheritance from the root or a parent OU\.
+1. Repeat the previous step for each policy type\.
 
 ------
-#### [ AWS CLI, AWS API ]
+#### [ New console ]
+
+**To list all policies that are attached directly to a specified root, OU, or account**
+
+1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
+
+1. On the **[AWS accounts](https://console.aws.amazon.com/organizations/v2/home/accounts)** page, choose the name of the root, OU, or account whose policies you want to view\. You might have to expand OUs \(choose the ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/organizations/latest/userguide/images/console-expand.png)\) to find the OU that you want\.
+
+1. On the Root, OU, or account page, choose the **Policies** tab\.
+
+   The **Policies** tab displays all of the policies attached to that root, OU, or account, grouped by policy type\.
+
+------
+#### [ AWS CLI & AWS SDKs ]
 
 **To list all policies that are attached directly to a specified root, OU, or account**  
 You can use one of the following commands to list policies that are attached to an entity:
 + AWS CLI: [aws organizations list\-policies\-for\-target](https://docs.aws.amazon.com/cli/latest/reference/organizations/list-policies-for-target.html)
-+ AWS API: [ListPoliciesForTarget](https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListPoliciesForTarget.html)
+
+  The following example lists all of the service control policies attached to the specified OU\. You must specify both the ID of the root, OU, or account, and the type of policy that you want to list\.
+
+  ```
+  $  aws organizations list-policies-for-target \
+      --target-id ou-a1b2-f6g7h222 \
+      --filter SERVICE_CONTROL_POLICY
+  {
+      "Policies": [
+          {
+              "Id": "p-FullAWSAccess",
+              "Arn": "arn:aws:organizations::aws:policy/service_control_policy/p-FullAWSAccess",
+              "Name": "FullAWSAccess",
+              "Description": "Allows access to every operation",
+              "Type": "SERVICE_CONTROL_POLICY",
+              "AwsManaged": true
+          }
+      ]
+  }
+  ```
++ AWS SDKs: [ListPoliciesForTarget](https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListPoliciesForTarget.html)
 
 ------
 
@@ -71,32 +139,71 @@ To list the entities that a policy is attached to, you must have the following p
 `organizations:ListTargetsForPolicy` with a `Resource` element in the same policy statement that includes the ARN of the specified policy \(or "\*"\)
 
 ------
-#### [ AWS Management Console ]
+#### [ Old console ]
 
 **To list all roots, OUs, and accounts that have a specified policy attached**
 
-1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's management account\. 
+1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
 
-1. Choose the **Policies** tab\.
+1. On the **[Policies](https://console.aws.amazon.com/organizations/home#/policies)** tab, choose the policy type of the policy that you want to examine, and then choose the policy\.
 
-1. Choose the policy type: **Service control polices** or **Tag policies**\.
+1. In the Details pane, choose **View details**\.
 
-1. Select the check box next to the policy that you're interested in\.
-
-1. In the details pane on the right, choose one of the following:
-   +  **Accounts** to see the list of accounts that the policy is directly attached to
-   + **Organizational units** to see the list of OUs that the policy is directly attached to
-   + **Roots** to see the list of roots that the policy is directly attached to
-
-   
+   The policy detail page includes the **Targets** section, which contains a list of all entities to which the policy is attached\.
 
 ------
-#### [ AWS CLI, AWS API ]
+#### [ New console ]
+
+**To list all roots, OUs, and accounts that have a specified policy attached**
+
+1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
+
+1. On the **[Policies](https://console.aws.amazon.com/organizations/v2/home/policies)** page, choose the policy type, and then choose the name of the policy whose attachments you want to examine\.
+
+1. Choose the **Targets** tab, to display a table of every root, OU, and account that the chosen policy is attached to\.
+
+------
+#### [ AWS CLI & AWS SDKs ]
 
 **To list all roots, OUs, and accounts that have a specified policy attached**  
 You can use one of the following commands to list entities that have a policy:
 + AWS CLI: [aws organizations list\-targets\-for\-policy](https://docs.aws.amazon.com/cli/latest/reference/organizations/list-targets-for-policy.html)
-+ AWS API: [ListTargetsForPolicy](https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListTargetsForPolicy.html)
+
+  The following example shows all of the attachments to root, OUs, and accounts for the specified policy\.
+
+  ```
+  $ aws organizations list-targets-for-policy \
+      --policy-id p-FullAWSAccess
+  {
+      "Targets": [
+          {
+              "TargetId": "ou-a1b2-f6g7h111",
+              "Arn": "arn:aws:organizations::123456789012:ou/o-aa111bb222/ou-a1b2-f6g7h111",
+              "Name": "testou2",
+              "Type": "ORGANIZATIONAL_UNIT"
+          },
+          {
+              "TargetId": "ou-a1b2-f6g7h222",
+              "Arn": "arn:aws:organizations::123456789012:ou/o-aa111bb222/ou-a1b2-f6g7h222",
+              "Name": "testou1",
+              "Type": "ORGANIZATIONAL_UNIT"
+          },
+          {
+              "TargetId": "123456789012",
+              "Arn": "arn:aws:organizations::123456789012:account/o-aa111bb222/123456789012",
+              "Name": "My Management Account (bisdavid)",
+              "Type": "ACCOUNT"
+          },
+          {
+              "TargetId": "r-a1b2",
+              "Arn": "arn:aws:organizations::123456789012:root/o-aa111bb222/r-a1b2",
+              "Name": "Root",
+              "Type": "ROOT"
+          }
+      ]
+  }
+  ```
++ AWS SDKs: [ListTargetsForPolicy](https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListTargetsForPolicy.html)
 
 ------
 
@@ -107,37 +214,62 @@ To display the details of a policy, you must have the following permission:
 `organizations:DescribePolicy` with a `Resource` element in the same policy statement that includes the ARN of the specified policy \(or "\*"\)
 
 ------
-#### [ AWS Management Console ]
+#### [ Old console ]
 
 **To get details about a policy**
 
-1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's management account\. 
+1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
 
-1. Choose the **Policies** tab\.
+1. On the **[Policies](https://console.aws.amazon.com/organizations/home#/policies)** tab, choose the policy type of the policy that you want to examine, and then choose the policy\.
 
-1. Choose the policy type: **Service control policies** or **Tag policies**\.
+1. In the Details pane, choose **View details**\.
 
-1. Select the check box next to the policy that you're interested in\.
+   The policy page shows the available information the policy, including its name, description, ID, ARN, and type\. It lists all of the entities to which the policy is attached\. It also displays the JSON policy document stored in the policy\.
 
-   The details pane on the right displays the available information about the policy, including its ARN, description, and attachments\.
-
-1. To view the content of the policy, choose **Policy editor**\.
-
-   The center pane shows the following information:
-   + The details about the policy: its name, description, unique ID, and ARN\.
-   + The list of roots, OUs, and accounts that the policy is attached to\. Choose each item to see the individual entities of each type\.
-   + The policy's content \(specific to the type of policy\):
-     + For service control policies \(SCPs\), the JSON text that defines the permissions that are allowed in attached accounts\.
-     + For tag policies, the JSON text that defines compliant tags for specified resource types\.
-
-     To update the contents of the policy document, choose **Edit**\. Choose **Save** when you are done\.
+   To edit the policy, choose **Edit policy**\. Because each policy type has different editing requirements, see the instructions for creating and updating policies of your specified policy type\.
 
 ------
-#### [ AWS CLI, AWS API ]
+#### [ New console ]
+
+**To get details about a policy**
+
+1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
+
+1. On the **[Policies](https://console.aws.amazon.com/organizations/v2/home/policies)** page, choose the policy type of the policy that you want to examine, and then choose the name of the policy\.
+
+   The policy page displays the available information about the policy, including its ARN, description, and attached targets\. 
+   + The **Content** tab shows the current contents of the policy in JSON format\.
+   + The **Targets** tab shows a list of the roots, OUs, and accounts to which the policy is attached\.
+   + The **Tags** tab shows the tags attached to the policy\. Note: the Tags tab is not available for AWS managed policies\.
+
+   To edit the policy, choose **Edit policy**\. Because each policy type has different editing requirements, see the instructions for creating and updating policies of your specified policy type\.
+
+------
+#### [ AWS CLI & AWS SDKs ]
 
 **To get details about a policy**  
 You can use one of the following commands to get details about a policy:
 + AWS CLI: [aws organizations describe\-policy](https://docs.aws.amazon.com/cli/latest/reference/organizations/describe-policy.html)
-+ AWS API: [DescribePolicy](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribePolicy.html)
+
+  The following example displays the details for the specified policy\.
+
+  ```
+  $  aws organizations describe-policy \
+      --policy-id p-FullAWSAccess
+  {
+      "Policy": {
+          "PolicySummary": {
+              "Id": "p-FullAWSAccess",
+              "Arn": "arn:aws:organizations::aws:policy/service_control_policy/p-FullAWSAccess",
+              "Name": "FullAWSAccess",
+              "Description": "Allows access to every operation",
+              "Type": "SERVICE_CONTROL_POLICY",
+              "AwsManaged": true
+          },
+          "Content": "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Effect\": \"Allow\",\n      \"Action\": \"*\",\n      \"Resource\": \"*\"\n    }\n  ]\n}"
+      }
+  }
+  ```
++ AWS SDKs: [DescribePolicy](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribePolicy.html)
 
 ------

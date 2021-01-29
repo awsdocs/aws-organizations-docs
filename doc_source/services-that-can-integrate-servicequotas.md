@@ -37,4 +37,4 @@ Sign in with your AWS Organizations management account and then configure the te
 **To enable trusted access using the Service Quotas AWS CLI or SDK**  
 Call the following command or operation:
 + AWS CLI: [aws service\-quotas associate\-service\-quota\-template](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/API_AssociateServiceQuotaTemplate.html)
-+ AWS API: [AssociateServiceQuotaTemplate](https://docs.aws.amazon.com/servicequotas/2019-06-24/apireference/API_AssociateServiceQuotaTemplate.html)
++ AWS SDKs: [AssociateServiceQuotaTemplate](https://docs.aws.amazon.com/servicequotas/2019-06-24/apireference/API_AssociateServiceQuotaTemplate.html)

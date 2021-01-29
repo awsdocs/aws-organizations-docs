@@ -1,6 +1,6 @@
 # AWS Backup and AWS Organizations<a name="services-that-can-integrate-backup"></a>
 
-AWS Backup is a service that allows you to manage and monitor the AWS Backup jobs in your organization\. Using AWS Backup, if you sign\-in as a user in the organization's management account \(formerly known as the "master account"\), you can enable organization\-wide backup protection and monitoring\. It helps you to achieve compliance by using [backup policies](orgs_manage_policies_backup.md) to centrally apply AWS Backup plans to resources across all of the accounts in your organization\. When you use both AWS Backup and AWS Organizations together, you can get the following benefits:
+AWS Backup is a service that allows you to manage and monitor the AWS Backup jobs in your organization\. Using AWS Backup, if you sign\-in as a user in the organization's management account, you can enable organization\-wide backup protection and monitoring\. It helps you to achieve compliance by using [backup policies](orgs_manage_policies_backup.md) to centrally apply AWS Backup plans to resources across all of the accounts in your organization\. When you use both AWS Backup and AWS Organizations together, you can get the following benefits:
 
 **Protection**  
 You can [enable the backup policy type](orgs_manage_policies_enable-disable.md) in your organization and then [create backup policies](orgs_manage_policies_backup_create.md) to attach to the organization's root, OUs, or accounts\. A backup policy combines an AWS Backup plan with the other details required to apply the plan automatically to your accounts\.Policies that are directly attached to an account are merged with policies [inherited](orgs_manage_policies_inheritance_mgmt.md) from the organization's root and any parent OUs to create an [effective policy](orgs_manage_policies_backup_effective.md) that applies to the account\. The policy includes the ID of an IAM role that has permissions to run AWS Backup on the resources in your accounts\. AWS Backup uses the IAM role to perform the backup on your behalf as specified by the backup plan in the effective policy\.
@@ -43,18 +43,35 @@ To enabled trusted access using AWS Backup, see [Enabling Backup in Multiple AWS
 
 On the Organizations side, you can enable trusted access by using either the AWS Organizations console, by running a AWS CLI command, or by calling an API operation in one of the AWS SDKs\.
 
+**Important**  
+We strongly recommend that where possible, you use the AWS Backup console or tools to enable integration with Organizations so that AWS Backup can perform any configuration that it requires\. Proceed with these steps only if you can’t enable integration using the tools provided by AWS Backup\.  
+If you enable trusted access by using the tools provided by AWS Backup then you don’t need to complete these steps\.
+
 ------
-#### [ AWS Management Console ]
+#### [ Old console ]
 
-**To enable trusted service access using the Organizations console**
+**To enable trusted service access**
 
-1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's management account\. 
+1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
 
-1. In the upper\-right corner, choose **Settings**\.
+1. On the **[Settings](https://console.aws.amazon.com/organizations/home#/organization/settings)** tab under **Trusted access for AWS services**, find the row for **AWS Backup**, and then choose **Enable trusted access**\.
 
-1. In the **Trusted access for AWS services** section, find the row for **AWS Backup** and then choose **Enable access**\.
+1. In the confirmation dialog box, choose **Enable access for *service\-name***\.
 
-1. If you are the administrator of only AWS Organizations, tell the administrator of AWS Backup that they can now enable that service to work with AWS Organizations\.
+1. If you are the administrator of only AWS Organizations, tell the administrator of AWS Backup that they can now enable that service using its console to work with AWS Organizations\.
+
+------
+#### [ New console ]
+
+**To enable trusted service access**
+
+1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
+
+1. On the **[Services](https://console.aws.amazon.com/organizations/v2/home/services)** page, find the row for **AWS Backup**, choose the service’s name, and then choose **Enable trusted access**\.
+
+1. In the confirmation dialog box, enable **Show the option to enable trusted access**, enter **enable** in the box, and then choose **Enable trusted access**\.
+
+1. If you are the administrator of only AWS Organizations, tell the administrator of AWS Backup that they can now enable that service using its console to work with AWS Organizations\.
 
 ------
 #### [ AWS CLI, AWS API ]
@@ -70,7 +87,7 @@ You can use the following AWS CLI commands or API operations to enable trusted s
       --service-principal backup.amazonaws.com
   ```
 
-  This command produces no output if successful\.
+  This command produces no output when successful\.
 + AWS API: [EnableAWSServiceAccess](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAWSServiceAccess.html)
 
 ------
@@ -83,18 +100,37 @@ AWS Backup requires trusted access with AWS Organizations to enable monitoring o
 
 On the Organizations side, you can disable trusted access by using either the AWS Organizations console, by running a AWS CLI command, or by calling an API operation in one of the AWS SDKs\.
 
+**Important**  
+We strongly recommend that where possible, you use the AWS Backup console or tools to disable integration with Organizations so that AWS Backup can perform any cleanup steps that it requires\. Proceed with these steps only if you can’t disable integration using the other service’s tools\.  
+If you are the administrator of only AWS Organizations and not AWS Backup, wait until the administrator of AWS Backup tells you that they disabled integration with that service’s console or tools, and that any resources have been cleaned up\.
+
 ------
-#### [ AWS Management Console ]
+#### [ Old console ]
 
-**To disable trusted service access using the Organizations console**
+**To disable trusted service access**
 
-1. Sign in to the AWS Organizations console at [https://console\.aws\.amazon\.com/organizations/](https://console.aws.amazon.com/organizations/)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's management account\. 
+1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
 
-1. In the upper\-right corner, choose **Settings**\.
+1. On the **[Settings](https://console.aws.amazon.com/organizations/home#/organization/settings)** tab under **Trusted access for AWS services**, find the row for **AWS Backup** and then choose **Disable access**\.
 
-1. If you are the administrator of only AWS Organizations and not AWS Backup, wait until the administrator of AWS Backup tells you that they disabled integration with that service's console or tools, and that any resources have been cleaned up\.
+1. In the dialog box, choose **Disable access for *service\-name***\.
 
-1. In the **Trusted access for AWS services** section, find the entry for **AWS Backup**, and then choose **Disable access**\.
+1. If you are the administrator of only AWS Organizations, tell the administrator of AWS Backup that they can now disable that service using its console or tools from working with AWS Organizations\.
+
+------
+#### [ New console ]
+
+**To disable trusted service access**
+
+1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
+
+1. On the **[Services](https://console.aws.amazon.com/organizations/v2/home/services)** page, find the row for **AWS Backup** and then choose the service’s name\.
+
+1. Choose **Enable trusted access**\.
+
+1. In the confirmation dialog box, enter **disable** in the box, and then choose **Disable trusted access**\.
+
+1. If you are the administrator of only AWS Organizations, tell the administrator of AWS Backup that they can now disable that service using its console or tools from working with AWS Organizations\.
 
 ------
 #### [ AWS CLI, AWS API ]
@@ -110,7 +146,7 @@ You can use the following AWS CLI commands or API operations to disable trusted 
       --service-principal backup.amazonaws.com
   ```
 
-  This command produces no output if successful\.
+  This command produces no output when successful\.
 + AWS API: [DisableAWSServiceAccess](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DisableAWSServiceAccess.html)
 
 ------

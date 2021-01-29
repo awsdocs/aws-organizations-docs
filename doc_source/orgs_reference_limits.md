@@ -21,15 +21,15 @@ Organizations is a global service that is physically hosted in the US East \(N\.
 
 |  |  | 
 | --- |--- |
-|  Number of AWS accounts in an organization  |   4  This is the default maximum number of accounts allowed in an organization\.  An invitation sent to an account counts against this quota\. The count is returned if the invited account declines, the management account \(formerly known as the "master account"\) cancels the invitation, or the invitation expires\.  | 
+|  Number of AWS accounts in an organization  |   4  This is the default maximum number of accounts allowed in an organization\.  An invitation sent to an account counts against this quota\. The count is returned if the invited account declines, the management account cancels the invitation, or the invitation expires\.  | 
 |  Number of roots in an organization  |  1  | 
 |  Number of OUs in an organization  |  1000  | 
 |  Number of policies of each type in an organization  |  1000 per policy type  | 
 |  Maximum size of a policy document  |  Service control policies: 5120 bytes *\(not characters\)* AI services opt\-out policies: 2500 characters Backup policies: 10,000 characters Tag policies: 2500 characters **Note:** If you save the policy by using the AWS Management Console, extra white space \(such as spaces and line breaks\) between JSON elements and outside of quotation marks, is removed and not counted\. If you save the policy using an SDK operation or the AWS CLI, then the policy is saved exactly as you provided and no automatic removal of characters occurs\.   | 
 |  OU maximum nesting in a root  |  Five levels of OUs deep under a root\.  | 
-|  Number of open invitations you can add in a 24\-hour period  |  20 — Accepted invitations don't count against this quota\. As soon as one invitation is accepted, you can send another invitation that same day\.  | 
+|  Number of open invitations you can add in a 24\-hour period  |  Either 20 or the maximum number of accounts allowed in your organization, whichever is greater\. Accepted invitations don't count against this quota\. As soon as one invitation is accepted, you can send another invitation that same day\.  | 
 |  Number of member accounts you can create concurrently  |  5 — As soon as one finishes, you can start another, but only five can be in progress at a time\.  | 
-|  Number of entities that you can attach a policy to  |  Unlimited  | 
+|  Number of entities to which you can attach a policy  |  Unlimited  | 
 |  Number of tags that you can attach to an account  |  50  | 
 
 ### Expiration times for handshakes<a name="min-max-handshakes"></a>

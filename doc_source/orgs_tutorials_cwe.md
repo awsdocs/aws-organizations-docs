@@ -1,5 +1,8 @@
 # Tutorial: Monitor important changes to your organization with CloudWatch Events<a name="orgs_tutorials_cwe"></a>
 
+**Note**  
+AWS Organizations is introducing a new version of the Organizations management console\. You can switch between the old console and the new console by choosing the link in the notice boxes at the top of the console\. We encourage you to try the new version and let us know what you think\. We want your feedback and read each submission\.
+
 This tutorial shows how to configure CloudWatch Events to monitor your organization for changes\. You start by configuring a rule that is triggered when users invoke specific AWS Organizations operations\. Next, you configure CloudWatch Events to run an AWS Lambda function when the rule is triggered, and you configure Amazon SNS to send an email with details about the event\. 
 
 The following illustration shows the main steps of the tutorial\.
@@ -27,7 +30,7 @@ You can also use this tutorial as a guide in configuring similar operations, suc
 ## Prerequisites<a name="tutorial-cwe-prereqs"></a>
 
 This tutorial assumes the following:
-+ You can sign in to the AWS Management Console as an IAM user from the management account \(formerly known as the "master account"\) in your organization\. The IAM user must have permissions to create and configure a log in CloudTrail, a function in Lambda, a topic in Amazon SNS, and a rule in CloudWatch\. For more information about granting permissions, see [Access Management](https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html) in the *IAM User Guide*, or the guide for the service for which you want to configure access\.
++ You can sign in to the AWS Management Console as an IAM user from the management account in your organization\. The IAM user must have permissions to create and configure a log in CloudTrail, a function in Lambda, a topic in Amazon SNS, and a rule in CloudWatch\. For more information about granting permissions, see [Access Management](https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html) in the *IAM User Guide*, or the guide for the service for which you want to configure access\.
 + You have access to an existing Amazon Simple Storage Service \(Amazon S3\) bucket \(or you have permissions to create a bucket\) to receive the CloudTrail log that you configure in step 1\.
 
 **Important**  
@@ -176,13 +179,29 @@ Now that the required Lambda function exists in your account, you create a Cloud
 
 In this step, you create an organizational unit \(OU\) and observe the CloudWatch Events rule generate a log entry and send an email to you with details about the event\.
 
+------
+#### [ Old console ]
+
 **To create an OU**
 
-1. Open the AWS Organizations console at [https://console.aws.amazon.com/organizations/](https://console.aws.amazon.com/organizations/)\. 
+1. Open the AWS Organizations console to the [**Organize accounts** tab](https://console.aws.amazon.com/organizations/home#/browse/), and then navigate to the Root OU detail page\. 
 
-1. Choose the **Organize accounts** tab and then choose **New organizational unit**\.
+1. Choose **\+ New organizational unit**\.
 
 1. For the name of the OU, enter **TestCWEOU** and then choose **Create organizational unit**\.
+
+------
+#### [ New console ]
+
+**To create an OU**
+
+1. Open the AWS Organizations console to the [**AWS accounts** page](https://console.aws.amazon.com/organizations/v2/home/accounts)\. 
+
+1.  Choose the **Root** OU \(the radio button ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/organizations/latest/userguide/images/radio-button-selected.png), not its name\), choose **Actions**, and then under **Organizational unit** choose **Create new**\.
+
+1. For the name of the OU, enter **TestCWEOU** and then choose **Create organizational unit**\.
+
+------
 
 **To see the CloudWatch Events log entry**
 
@@ -256,5 +275,7 @@ To avoid incurring charges, you should delete any AWS resources that you created
 1. Use the Amazon SNS console at [https://console.aws.amazon.com/sns/](https://console.aws.amazon.com/sns/) to delete the Amazon SNS topic named **OrganizationsCloudWatchTopic** that you created in step 3\.
 
 1. Use the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/) to delete the CloudWatch rule named **OrgsMonitorRule** that you created in step 4\.
+
+1. Finally, use the Organizations console at [https://console.aws.amazon.com/organizations/](https://console.aws.amazon.com/organizations/) to delete the OU named **TestCWEOU** that you created in step 5\.
 
 That's it\. In this tutorial, you configured CloudWatch Events to monitor your organization for changes\. You configured a rule that is triggered when users invoke specific AWS Organizations operations\. The rule ran a Lambda function that logged the event and sent an email that contains details about the event\.

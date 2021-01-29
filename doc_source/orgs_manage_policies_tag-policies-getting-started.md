@@ -11,8 +11,8 @@ Follow these steps to get started using tag policies for the first time\.
 
 | Task | Account to sign in to | AWS service console to use | 
 | --- | --- | --- | 
-|  Step 1: [Enable tag policies for your organization\.](orgs_manage_policies_enable-disable.md)  |  The organization's management account \(formerly known as the "master account"\)\.¹  |  [AWS Organizations](https://console.aws.amazon.com/organizations/)  | 
-| Step 2: [Create a tag policy](orgs_manage_policies_tag-policies-create.md)\. Keep your first tag policy simple\. Enter one tag key in the case treatment you want to use and leave all other options at their defaults\.  |  The organization's management account\.¹  |  [AWS Organizations](https://console.aws.amazon.com/organizations/)  | 
+|  Step 1: [Enable tag policies for your organization\.](orgs_manage_policies_enable-disable.md)  |  The organization's management account\.¹  |  [AWS Organizations](https://console.aws.amazon.com/organizations/)  | 
+|  Step 2: [Create a tag policy](orgs_manage_policies_tag-policies-create.md)\. Keep your first tag policy simple\. Enter one tag key in the case treatment you want to use and leave all other options at their defaults\.  |  The organization's management account\.¹  |  [AWS Organizations](https://console.aws.amazon.com/organizations/)  | 
 |  Step 3: [Attach a tag policy to a single member account that you can use for testing\.](attach-tag-policy.md) You'll need to sign in to this account in the next step\.  |  The organization's management account\.¹  |  [AWS Organizations](https://console.aws.amazon.com/organizations/)  | 
 |  Step 4: Create some resources with compliant tags and some with noncompliant tags\.  |  The member account that you're using for testing purposes\.  |  Any AWS service that you are comfortable with\. For example, you can use [AWS Secrets Manager](https://console.aws.amazon.com/secretsmanager/) and follow the procedure in [Creating a Basic Secret](https://docs.aws.amazon.com/secretsmanager/latest/userguide/manage_create-basic-secret.html) to create secrets with compliant and non\-compliant secrets\.  | 
 |  Step 5: [ View the effective tag policy and evaluate the compliance status of the account\.](https://docs.aws.amazon.com/ARG/latest/userguide/tag-policies-arg-finding-noncompliant-tags.html)  |  The member account that you're using for testing purposes\.  |  [Resource Groups](https://console.aws.amazon.com/resource-groups/) and the AWS service where the resource was created\. If you created resources with compliant and non\-compliant tags, you should see the non\-compliant tags in the results\.  | 
@@ -20,8 +20,6 @@ Follow these steps to get started using tag policies for the first time\.
 |  At any time, you can [ evaluate organization\-wide compliance](https://docs.aws.amazon.com/ARG/latest/userguide/tag-policies-arg-evaluating-org-wide-compliance.html)\.  |  The organization's management account\.¹  |  [Resource Groups](https://console.aws.amazon.com/resource-groups/)  | 
 
 ¹ You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization's management account\.
-
-If you're using the AWS Command Line Interface, the complete process and examples are described in [Using tag policies in the AWS CLI](tag-policy-cli.md)\. 
 
 ## Expanding use of tag policies<a name="getting-started-more-advanced"></a>
 
