@@ -8,16 +8,13 @@ For more information about Service Quotas, see the [Service Quotas User Guide](h
 
 Use the following information to help you to help you integrate Service Quotas with AWS Organizations\.
 
-**Topics**
-+ [Service\-linked roles created when you enable integration](#integrate-enable-slr-servicequotas)
-+ [Service principals used by the service\-linked roles](#integrate-enable-svcprin-servicequotas)
-+ [Enabling trusted access with Service Quotas](#integrate-enable-ta-servicequotas)
+
 
 ## Service\-linked roles created when you enable integration<a name="integrate-enable-slr-servicequotas"></a>
 
-The following [service\-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html) are automatically created in your organization's accounts when you enable trusted access\. These roles allow Service Quotas to perform supported operations within the accounts in your organization\.
+The following [service\-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html) is automatically created in your organization's accounts when you enable trusted access\. These roles allow Service Quotas to perform supported operations within the accounts in your organization\.
 
-You can delete or modify these roles only if you disable trusted access between Service Quotas and Organizations or if the account is removed from the organization\.
+You can delete or modify these roles only if you disable trusted access between Service Quotas and Organizations, or if you remove the member account from the organization\.
 + `AWSServiceRoleForServiceQuotas`
 
 ## Service principals used by the service\-linked roles<a name="integrate-enable-svcprin-servicequotas"></a>
@@ -28,6 +25,8 @@ The service\-linked roles in the previous section can be assumed only by the ser
 ## Enabling trusted access with Service Quotas<a name="integrate-enable-ta-servicequotas"></a>
 
 For information about the permissions needed to enable trusted access, see [Permissions required to enable trusted access](orgs_integrate_services.md#orgs_trusted_access_perms)\.
+
+You can enable trusted access using only the Service Quotas console or tools\.
 
 You can enable trusted access using the Service Quotas console
 

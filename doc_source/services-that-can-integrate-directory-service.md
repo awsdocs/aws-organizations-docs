@@ -4,9 +4,7 @@ AWS Directory Service for Microsoft Active Directory, or AWS Managed Microsoft A
 
 Use the following information to help you to help you integrate AWS Directory Service with AWS Organizations\.
 
-**Topics**
-+ [Enabling trusted access with AWS Directory Service](#integrate-enable-ta-directory-service)
-+ [Disabling trusted access with AWS Directory Service](#integrate-disable-ta-directory-service)
+
 
 ## Enabling trusted access with AWS Directory Service<a name="integrate-enable-ta-directory-service"></a>
 
@@ -15,21 +13,18 @@ For information about the permissions needed to enable trusted access, see [Perm
 You can enable trusted access using either the AWS Directory Service console or the AWS Organizations console\.
 
 **Important**  
-We strongly recommend that you enable trusted access by using the AWS Directory Service console\. This enables AWS Directory Service to perform required setup tasks\.
+We strongly recommend that whenever possible, you use the AWS Directory Service console or tools to enable integration with Organizations\. This lets AWS Directory Service perform any configuration that it requires, such as creating resources needed by the service\. Proceed with these steps only if you can’t enable integration using the tools provided by AWS Directory Service\.For more information, see [this note](orgs_integrate_services.md#important-note-about-integration)\.   
+If you enable trusted access by using the AWS Directory Service console or tools then you don’t need to complete these steps\.
 
 **To enable trusted access using the AWS Directory Service console**  
 To share a directory, which automatically enables trusted access, see [Share Your Directory](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_directory_sharing.html) in the *AWS Directory Service Administration Guide*\. For step\-by\-step instructions, see [Tutorial: Sharing Your AWS Managed Microsoft AD Directory](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_tutorial_directory_sharing.html)\.
 
-On the Organizations side, you can enable trusted access by using either the AWS Organizations console, by running a AWS CLI command, or by calling an API operation in one of the AWS SDKs\.
-
-**Important**  
-We strongly recommend that where possible, you use the AWS Directory Service console or tools to enable integration with Organizations so that AWS Directory Service can perform any configuration that it requires\. Proceed with these steps only if you can’t enable integration using the tools provided by AWS Directory Service\.  
-If you enable trusted access by using the tools provided by AWS Directory Service then you don’t need to complete these steps\.
+You can enable trusted access by using either the AWS Organizations console, by running a AWS CLI command, or by calling an API operation in one of the AWS SDKs\.
 
 ------
 #### [ Old console ]
 
-**To enable trusted service access**
+**To enable trusted service access using the Organizations console**
 
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
 
@@ -42,7 +37,7 @@ If you enable trusted access by using the tools provided by AWS Directory Servic
 ------
 #### [ New console ]
 
-**To enable trusted service access**
+**To enable trusted service access using the Organizations console**
 
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
 
@@ -55,7 +50,7 @@ If you enable trusted access by using the tools provided by AWS Directory Servic
 ------
 #### [ AWS CLI, AWS API ]
 
-**To enable trusted service access using an Organizations AWS CLI command or API**  
+**To enable trusted service access using the OrganizationsCLI/SDK**  
 You can use the following AWS CLI commands or API operations to enable trusted service access:
 + AWS CLI: [aws organizations enable\-aws\-service\-access](https://docs.aws.amazon.com/cli/latest/reference/organizations/enable-aws-service-access.html)
 
@@ -77,16 +72,14 @@ For information about the permissions needed to disable trusted access, see [Per
 
  If you disable trusted access using AWS Organizations while you are using AWS Directory Service, all previously shared directories continue to operate as normal\. However, you can no longer share new directories within the organization until you enable trusted access again\.
 
-On the Organizations side, you can disable trusted access by using the AWS Organizations console\.
+You can disable trusted access using only the Organizations console or tools\.
 
-**Important**  
-We strongly recommend that where possible, you use the AWS Directory Service console or tools to disable integration with Organizations so that AWS Directory Service can perform any cleanup steps that it requires\. Proceed with these steps only if you can’t disable integration using the other service’s tools\.  
-If you are the administrator of only AWS Organizations and not AWS Directory Service, wait until the administrator of AWS Directory Service tells you that they disabled integration with that service’s console or tools, and that any resources have been cleaned up\.
+You can disable trusted access by using the AWS Organizations console\.
 
 ------
 #### [ Old console ]
 
-**To disable trusted service access**
+**To disable trusted service access using the Organizations console**
 
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
 
@@ -99,7 +92,7 @@ If you are the administrator of only AWS Organizations and not AWS Directory Ser
 ------
 #### [ New console ]
 
-**To disable trusted service access**
+**To disable trusted service access using the Organizations console**
 
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
 

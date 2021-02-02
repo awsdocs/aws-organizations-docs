@@ -6,17 +6,13 @@ You can also use [AWS Config APIs](https://docs.aws.amazon.com/config/latest/API
 
 Use the following information to help you to help you integrate AWS Config with AWS Organizations\.
 
-**Topics**
-+ [Service\-linked roles created when you enable integration](#integrate-enable-slr-config)
-+ [Service principals used by the service\-linked roles](#integrate-enable-svcprin-config)
-+ [Enabling trusted access with AWS Config](#integrate-enable-ta-config)
-+ [Disabling trusted access with AWS Config](#integrate-disable-ta-config)
+
 
 ## Service\-linked roles created when you enable integration<a name="integrate-enable-slr-config"></a>
 
-The following [service\-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html) are automatically created in your organization's accounts when you enable trusted access\. These roles allow AWS Config to perform supported operations within the accounts in your organization\.
+The following [service\-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html) is automatically created in your organization's accounts when you enable trusted access\. These roles allow AWS Config to perform supported operations within the accounts in your organization\.
 
-You can delete or modify these roles only if you disable trusted access between AWS Config and Organizations or if the account is removed from the organization\.
+You can delete or modify these roles only if you disable trusted access between AWS Config and Organizations, or if you remove the member account from the organization\.
 + For AWS Config: `AWSConfigRoleForOrganizations`
 + For AWS Config rules: `AWSServiceRoleForConfigMultiAccountSetup` 
 
@@ -33,21 +29,18 @@ For information about the permissions needed to enable trusted access, see [Perm
 You can enable trusted access using either the AWS Config console or the AWS Organizations console\.
 
 **Important**  
-We strongly recommend that you enable trusted access by using the AWS Config console\. This enables AWS Config to perform required setup tasks\.
+We strongly recommend that whenever possible, you use the AWS Config console or tools to enable integration with Organizations\. This lets AWS Config perform any configuration that it requires, such as creating resources needed by the service\. Proceed with these steps only if you can’t enable integration using the tools provided by AWS Config\.For more information, see [this note](orgs_integrate_services.md#important-note-about-integration)\.   
+If you enable trusted access by using the AWS Config console or tools then you don’t need to complete these steps\.
 
 **To enable trusted access using the AWS Config console**  
 To enable trusted access to AWS Organizations using AWS Config, create a multi\-account aggregator and add the organization\. For information on how to configure a multi\-account aggregator, see [Setting up an aggregator using the console](https://docs.aws.amazon.com/config/latest/developerguide/setup-aggregator-console.html) in the *AWS Config Developer Guide*\.
 
-On the Organizations side, you can enable trusted access by using either the AWS Organizations console, by running a AWS CLI command, or by calling an API operation in one of the AWS SDKs\.
-
-**Important**  
-We strongly recommend that where possible, you use the AWS Config console or tools to enable integration with Organizations so that AWS Config can perform any configuration that it requires\. Proceed with these steps only if you can’t enable integration using the tools provided by AWS Config\.  
-If you enable trusted access by using the tools provided by AWS Config then you don’t need to complete these steps\.
+You can enable trusted access by using either the AWS Organizations console, by running a AWS CLI command, or by calling an API operation in one of the AWS SDKs\.
 
 ------
 #### [ Old console ]
 
-**To enable trusted service access**
+**To enable trusted service access using the Organizations console**
 
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
 
@@ -60,7 +53,7 @@ If you enable trusted access by using the tools provided by AWS Config then you 
 ------
 #### [ New console ]
 
-**To enable trusted service access**
+**To enable trusted service access using the Organizations console**
 
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
 
@@ -73,7 +66,7 @@ If you enable trusted access by using the tools provided by AWS Config then you 
 ------
 #### [ AWS CLI, AWS API ]
 
-**To enable trusted service access using an Organizations AWS CLI command or API**  
+**To enable trusted service access using the OrganizationsCLI/SDK**  
 You can use the following AWS CLI commands or API operations to enable trusted service access:
 + AWS CLI: [aws organizations enable\-aws\-service\-access](https://docs.aws.amazon.com/cli/latest/reference/organizations/enable-aws-service-access.html)
 
@@ -93,16 +86,14 @@ You can use the following AWS CLI commands or API operations to enable trusted s
 
 For information about the permissions needed to disable trusted access, see [Permissions required to disable trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms)\.
 
-On the Organizations side, you can disable trusted access by running a AWS CLI command, or by calling an API operation in one of the AWS SDKs\.
+You can disable trusted access using only the Organizations console or tools\.
 
-**Important**  
-We strongly recommend that where possible, you use the AWS Config console or tools to disable integration with Organizations so that AWS Config can perform any cleanup steps that it requires\. Proceed with these steps only if you can’t disable integration using the other service’s tools\.  
-If you are the administrator of only AWS Organizations and not AWS Config, wait until the administrator of AWS Config tells you that they disabled integration with that service’s console or tools, and that any resources have been cleaned up\.
+You can disable trusted access by running a Organizations AWS CLI command, or by calling an Organizations API operation in one of the AWS SDKs\.
 
 ------
 #### [ AWS CLI, AWS API ]
 
-**To disable trusted service access using an Organizations AWS CLI command or API**  
+**To disable trusted service access using the Organizations CLI/SDK**  
 You can use the following AWS CLI commands or API operations to disable trusted service access:
 + AWS CLI: [aws organizations disable\-aws\-service\-access](https://docs.aws.amazon.com/cli/latest/reference/organizations/disable-aws-service-access.html)
 

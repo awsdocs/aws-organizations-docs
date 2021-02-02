@@ -6,17 +6,13 @@ For more information, see [Managing multiple Amazon Macie accounts with AWS Orga
 
 Use the following information to help you to help you integrate Amazon Macie with AWS Organizations\.
 
-**Topics**
-+ [Service\-linked roles created when you enable integration](#integrate-enable-slr-macie)
-+ [Service principals used by the servie\-linked roles](#integrate-enable-svcprin-macie)
-+ [Enabling trusted access with Macie](#integrate-enable-ta-macie)
-+ [Enabling a delegated administrator account for Macie](#integrate-enable-da-macie)
+
 
 ## Service\-linked roles created when you enable integration<a name="integrate-enable-slr-macie"></a>
 
-The following [service\-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html) are automatically created in your organization's accounts when you enable trusted access\. These roles allow Macie to perform supported operations within the accounts in your organization\.
+The following [service\-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html) is automatically created in your organization's accounts when you enable trusted access\. These roles allow Macie to perform supported operations within the accounts in your organization\.
 
-You can delete or modify these roles only if you disable trusted access between Macie and Organizations or if the account is removed from the organization\.
+You can delete or modify these roles only if you disable trusted access between Macie and Organizations, or if you remove the member account from the organization\.
 + `AWSServiceRoleRorAmazonMacie`
 
 ## Service principals used by the servie\-linked roles<a name="integrate-enable-svcprin-macie"></a>
@@ -28,33 +24,37 @@ The service\-linked roles in the previous section can be assumed only by the ser
 
 For information about the permissions needed to enable trusted access, see [Permissions required to enable trusted access](orgs_integrate_services.md#orgs_trusted_access_perms)\.
 
+You can enable trusted access using either the Amazon Macie console or the AWS Organizations console\.
+
+**Important**  
+We strongly recommend that whenever possible, you use the Amazon Macie console or tools to enable integration with Organizations\. This lets Amazon Macie perform any configuration that it requires, such as creating resources needed by the service\. Proceed with these steps only if you can’t enable integration using the tools provided by Amazon Macie\.For more information, see [this note](orgs_integrate_services.md#important-note-about-integration)\.   
+If you enable trusted access by using the Amazon Macie console or tools then you don’t need to complete these steps\.
+
 **To enable trusted access using the Macie console**  
 Amazon Macie requires trusted access to AWS Organizations to designate a member account to be the Macie administrator for your organization\. If you configure a delegated administrator using the Macie management console, then Macie automatically enables trusted access for you\.
 
-For more information, see [https://docs.aws.amazon.com/macie/latest/user/macie-organizations.html#register-delegated-admin](https://docs.aws.amazon.com/macie/latest/user/macie-organizations.html#register-delegated-admin)
-
-**To enable trusted access using the AWS CLI or AWS SDK**  
-If you want to configure a delegated administrator account using the AWS CLI or one of the AWS SDKs, then you must explicitly call the [EnableAWSServiceAccess](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAWSServiceAccess.html) operation and provide the service principal as a parameter\. Then you can call [EnableOrganizationAdminAccount](https://docs.aws.amazon.com/macie/latest/APIReference/admin.html#EnableOrganizationAdminAccount) to delegate the Macie administrator account\.
-
-As an example:
-
-```
-$ aws organizations enable-aws-service-access \
-    --service-principal macie.amazonaws.com>
-```
-
-This command produces no output when successful\.
-
-Follow that command with this one to complete the process:
-
-```
-$ aws macie2 enable-organization-admin-account \
-    --admin-account-id 123456789012
-```
-
-This command produces no output when successful\.
-
 For more information, see [Enable Trusted Access with AWS Organizations](https://docs.aws.amazon.com/macie/latest/user/macie-organizations.html#register-delegated-admin) in the *Amazon Macie User Guide*\.
+
+You can enable trusted access by running a Organizations AWS CLI command, or by calling an Organizations API operation in one of the AWS SDKs\.
+
+------
+#### [ AWS CLI, AWS API ]
+
+**To enable trusted service access using the Organizations CLI/SDK**  
+You can use the following AWS CLI commands or API operations to enable trusted service access:
++ AWS CLI: [aws organizations enable\-aws\-service\-access](https://docs.aws.amazon.com/cli/latest/reference/organizations/enable-aws-service-access.html)
+
+  You can run the following command to enable Amazon Macie as a trusted service with Organizations\.
+
+  ```
+  $ aws organizations enable-aws-service-access \
+      --service-principal macie.amazonaws.com
+  ```
+
+  This command produces no output when successful\.
++ AWS API: [EnableAWSServiceAccess](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAWSServiceAccess.html)
+
+------
 
 ## Enabling a delegated administrator account for Macie<a name="integrate-enable-da-macie"></a>
 

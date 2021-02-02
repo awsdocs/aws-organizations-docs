@@ -6,18 +6,13 @@ AWS Systems Manager is a collection of capabilities that enable visibility and c
 
 Use the following information to help you to help you integrate AWS Systems Manager with AWS Organizations\.
 
-**Topics**
-+ [Service\-linked roles created when you enable integration](#integrate-enable-slr-ssm)
-+ [Service principals used by the service\-linked roles](#integrate-enable-svcprin-ssm)
-+ [Enabling trusted access with Systems Manager](#integrate-enable-ta-ssm)
-+ [Disabling trusted access with Systems Manager](#integrate-disable-ta-ssm)
-+ [Enabling a delegated administrator account for Systems Manager](#integrate-disable-da-ssm)
+
 
 ## Service\-linked roles created when you enable integration<a name="integrate-enable-slr-ssm"></a>
 
-The following [service\-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html) are automatically created in your organization's accounts when you enable trusted access\. These roles allow Systems Manager to perform supported operations within the accounts in your organization\.
+The following [service\-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html) is automatically created in your organization's accounts when you enable trusted access\. These roles allow Systems Manager to perform supported operations within the accounts in your organization\.
 
-You can delete or modify these roles only if you disable trusted access between Systems Manager and Organizations or if the account is removed from the organization\.
+You can delete or modify these roles only if you disable trusted access between Systems Manager and Organizations, or if you remove the member account from the organization\.
 + `AWSServiceRoleForAmazonSSM_AccountDiscovery`
 
 ## Service principals used by the service\-linked roles<a name="integrate-enable-svcprin-ssm"></a>
@@ -32,21 +27,18 @@ For information about the permissions needed to enable trusted access, see [Perm
 You can enable trusted access using either the AWS Systems Manager console or the AWS Organizations console\.
 
 **Important**  
-We strongly recommend that you enable trusted access by using the Systems Manager console\. This enables Systems Manager to perform required setup tasks\.
+We strongly recommend that whenever possible, you use the AWS Systems Manager console or tools to enable integration with Organizations\. This lets AWS Systems Manager perform any configuration that it requires, such as creating resources needed by the service\. Proceed with these steps only if you can’t enable integration using the tools provided by AWS Systems Manager\.For more information, see [this note](orgs_integrate_services.md#important-note-about-integration)\.   
+If you enable trusted access by using the AWS Systems Manager console or tools then you don’t need to complete these steps\.
 
 **To enable trusted access by using the Systems Manager console**  
 You must sign in with your AWS Organizations management account and create a Resource Data Sync\. For information, see [Setting Up Explorer to Display Data from Multiple Accounts and Regions](https://docs.aws.amazon.com/systems-manager/latest/userguide/Explorer-resource-data-sync.html) in the *AWS Systems Manager User Guide*\.
 
-On the Organizations side, you can enable trusted access by using either the AWS Organizations console, by running a AWS CLI command, or by calling an API operation in one of the AWS SDKs\.
-
-**Important**  
-We strongly recommend that where possible, you use the AWS Systems Manager console or tools to enable integration with Organizations so that AWS Systems Manager can perform any configuration that it requires\. Proceed with these steps only if you can’t enable integration using the tools provided by AWS Systems Manager\.  
-If you enable trusted access by using the tools provided by AWS Systems Manager then you don’t need to complete these steps\.
+You can enable trusted access by using either the AWS Organizations console, by running a AWS CLI command, or by calling an API operation in one of the AWS SDKs\.
 
 ------
 #### [ Old console ]
 
-**To enable trusted service access**
+**To enable trusted service access using the Organizations console**
 
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
 
@@ -59,7 +51,7 @@ If you enable trusted access by using the tools provided by AWS Systems Manager 
 ------
 #### [ New console ]
 
-**To enable trusted service access**
+**To enable trusted service access using the Organizations console**
 
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
 
@@ -72,7 +64,7 @@ If you enable trusted access by using the tools provided by AWS Systems Manager 
 ------
 #### [ AWS CLI, AWS API ]
 
-**To enable trusted service access using an Organizations AWS CLI command or API**  
+**To enable trusted service access using the OrganizationsCLI/SDK**  
 You can use the following AWS CLI commands or API operations to enable trusted service access:
 + AWS CLI: [aws organizations enable\-aws\-service\-access](https://docs.aws.amazon.com/cli/latest/reference/organizations/enable-aws-service-access.html)
 
@@ -90,23 +82,25 @@ You can use the following AWS CLI commands or API operations to enable trusted s
 
 ## Disabling trusted access with Systems Manager<a name="integrate-disable-ta-ssm"></a>
 
+For information about the permissions needed to disable trusted access, see [Permissions required to disable trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms)\.
+
 Systems Manager requires trusted access with AWS Organizations to synchronize operations data across AWS accounts in your organization\. If you disable trusted access, then Systems Manager fails to synchronize operations data and reports an error\.
 
-For information about the permissions needed to disable trusted access, see [Permissions required to disable trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms)\.
+You can disable trusted access using either the AWS Systems Manager console or the AWS Organizations console\.
+
+**Important**  
+We strongly recommend that whenever possible, you use the AWS Systems Manager console or tools to disable integration with Organizations\. This lets AWS Systems Manager perform any clean up that it requires, such as deleting resources or access roles that are no longer needed by the service\. Proceed with these steps only if you can’t disable integration using the tools provided by AWS Systems Manager\.  
+If you disable trusted access by using the AWS Systems Manager console or tools then you don’t need to complete these steps\.
 
 **To disable trusted access using the Systems Manager console**  
 See [Deleting a Systems Manager Explorer Resource Data Sync](https://docs.aws.amazon.com/systems-manager/latest/userguide/Explorer-using-resource-data-sync-delete.html) in the *AWS Systems Manager User Guide*\. To reenable trusted access, you must create a new Resource Data Sync for Systems Manager Explorer\.
 
-On the Organizations side, you can disable trusted access by using either the AWS Organizations console, by running a AWS CLI command, or by calling an API operation in one of the AWS SDKs\.
-
-**Important**  
-We strongly recommend that where possible, you use the AWS Systems Manager console or tools to disable integration with Organizations so that AWS Systems Manager can perform any cleanup steps that it requires\. Proceed with these steps only if you can’t disable integration using the other service’s tools\.  
-If you are the administrator of only AWS Organizations and not AWS Systems Manager, wait until the administrator of AWS Systems Manager tells you that they disabled integration with that service’s console or tools, and that any resources have been cleaned up\.
+You can disable trusted access by using either the AWS Organizations console, by running an Organizations AWS CLI command, or by calling an Organizations API operation in one of the AWS SDKs\.
 
 ------
 #### [ Old console ]
 
-**To disable trusted service access**
+**To disable trusted service access using the Organizations console**
 
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
 
@@ -119,7 +113,7 @@ If you are the administrator of only AWS Organizations and not AWS Systems Manag
 ------
 #### [ New console ]
 
-**To disable trusted service access**
+**To disable trusted service access using the Organizations console**
 
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
 
@@ -134,7 +128,7 @@ If you are the administrator of only AWS Organizations and not AWS Systems Manag
 ------
 #### [ AWS CLI, AWS API ]
 
-**To disable trusted service access using an Organizations AWS CLI command or API**  
+**To disable trusted service access using the Organizations CLI/SDK**  
 You can use the following AWS CLI commands or API operations to disable trusted service access:
 + AWS CLI: [aws organizations disable\-aws\-service\-access](https://docs.aws.amazon.com/cli/latest/reference/organizations/disable-aws-service-access.html)
 

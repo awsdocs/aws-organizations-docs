@@ -8,21 +8,15 @@ When you use both Security Hub and AWS Organizations together, you can automatic
 
 For more information about Security Hub, see the *[AWS Security Hub User Guide](https://docs.aws.amazon.com/securityhub/latest/userguide/)*\.
 
-The following list provides information that is useful to know when you want to integrate Security Hub and Organizations:
-
 Use the following information to help you to help you integrate AWS Security Hub with AWS Organizations\.
 
-**Topics**
-+ [Service\-linked roles created when you enable integration](#integrate-enable-slr-securityhub)
-+ [Service principals used by the service\-linked roles](#integrate-enable-svcprin-securityhub)
-+ [Enabling trusted access with Security Hub](#integrate-enable-ta-securityhub)
-+ [Enabling a delegated administrator account for Security Hub](#integrate-disable-da-securityhub)
+
 
 ## Service\-linked roles created when you enable integration<a name="integrate-enable-slr-securityhub"></a>
 
-The following [service\-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html) are automatically created in your organization's accounts when you enable trusted access\. These roles allow Security Hub to perform supported operations within the accounts in your organization\.
+The following [service\-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html) is automatically created in your organization's accounts when you enable trusted access\. These roles allow Security Hub to perform supported operations within the accounts in your organization\.
 
-You can delete or modify these roles only if you disable trusted access between Security Hub and Organizations or if the account is removed from the organization\.
+You can delete or modify these roles only if you disable trusted access between Security Hub and Organizations, or if you remove the member account from the organization\.
 + `AWSServiceRoleForSecurityHub`
 
 ## Service principals used by the service\-linked roles<a name="integrate-enable-svcprin-securityhub"></a>
