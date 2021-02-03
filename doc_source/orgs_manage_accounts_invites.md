@@ -25,7 +25,9 @@ An invitation that is sent to an account counts against the quota of accounts in
 To create an account that automatically is part of your organization, see [Creating an AWS account in your organization](orgs_manage_accounts_create.md)\.
 
 **Important**  
-Because of legal and billing constraints, you can invite AWS accounts only from the same AWS seller as the management account\. You can't mix accounts from AWS, Amazon Internet Services Pvt\. Ltd \(AISPL, an AWS seller in India\), or Amazon Connect Technology Services \(Beijing\) Co\. \(ACTS, an AWS seller in China\) in the same organization\. You can add accounts from an AWS seller only to an organization with accounts from the same AWS seller\.
+Because of legal and billing constraints, you can invite AWS accounts only from the same AWS seller and AWS partition as the management account\.  
+All accounts in an organization must come from the same seller of record as the management account\. If one account comes from AWS in the United States, and another account comes from an AWS reseller in the European Union, and another from an AWS reseller in India, then they can't be in the same organization\.
+All accounts in an organization must come from the same AWS partition as the management account\. Accounts in the commercial AWS Regions partition can't be in an organization with accounts from the China Regions partition or accounts in the AWS GovCloud \(US\) Regions partition\.
 
 ## Sending invitations to AWS accounts<a name="orgs_manage_accounts_invite-account"></a>
 
