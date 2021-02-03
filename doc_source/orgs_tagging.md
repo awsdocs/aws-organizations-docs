@@ -1,8 +1,10 @@
 # Tagging AWS Organizations resources<a name="orgs_tagging"></a>
 
 A *tag* is a custom attribute label that you add to an AWS resource to make it easier to identify, organize, and search for resources\. Each tag has two parts:
-+ A *tag key* \(for example, `CostCenter`, `Environment`, or `Project`\)\. Tag keys are case sensitive\.
-+ A *tag value* \(for example, `111122223333` or `Production`\)\. You can set the value of a tag to an empty string, but you can't set the value of a tag to null\. Omitting the tag value is the same as using an empty string\. Like tag keys, tag values are case sensitive\.
++ A *tag key* \(for example, `CostCenter`, `Environment`, or `Project`\)\. Tag keys can be up to 128 characters in length and are case sensitive\.
++ A *tag value* \(for example, `111122223333` or `Production`\)\. Tag values can be up to 256 characters in length, and like tag keys, are case sensitive\. You can set the value of a tag to an empty string, but you can't set the value of a tag to null\. Omitting the tag value is the same as using an empty string\. 
+
+For more information about what characters are allowed in a tag key or value, see the [Tags parameter of the Tag API](https://docs.aws.amazon.com/ARG/latest/APIReference/API_Tag.html#ARG-Tag-request-Tags) in the *Resource Groups Tagging API Reference*\.
 
 You can use tags to categorize resources by purpose, owner, environment, or other criteria\. For more information, see [AWS Tagging Strategies](https://aws.amazon.com/answers/account-management/aws-tagging-strategies/)\.
 
@@ -30,7 +32,7 @@ Tags help you to organize your resources by enabling you to group them by things
 + You can [enforce tagging standards on your resources by using tag policies](orgs_manage_policies_tag-policies.md)\.
 + Tags can help you to [control who can access and manage the components that make up your organization](orgs_tagging_abac.md)\. 
 
-## Adding, updating, and removiing tags<a name="add-tag"></a>
+## Adding, updating, and removing tags<a name="add-tag"></a>
 
 When you sign in to your organization's management account, you can add tags to the resources in your organization\. 
 

@@ -42,45 +42,19 @@ For instructions about enabling trusted access, see [Setting Up](https://docs.aw
 **Note**  
 If you configure a delegated administrator using the AWS Audit Manager console, then AWS Audit Manager automatically enables trusted access for you\.
 
-You can enable trusted access by using either the AWS Organizations console, by running a AWS CLI command, or by calling an API operation in one of the AWS SDKs\.
-
-------
-#### [ Old console ]
-
-**To enable trusted service access using the Organizations console**
-
-1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
-
-1. On the **[Settings](https://console.aws.amazon.com/organizations/home#/organization/settings)** tab under **Trusted access for AWS services**, find the row for **AWS Audit Manager**, and then choose **Enable trusted access**\.
-
-1. In the confirmation dialog box, choose **Enable access for *service\-name***\.
-
-1. If you are the administrator of only AWS Organizations, tell the administrator of AWS Audit Manager that they can now enable that service using its console to work with AWS Organizations\.
-
-------
-#### [ New console ]
-
-**To enable trusted service access using the Organizations console**
-
-1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
-
-1. On the **[Services](https://console.aws.amazon.com/organizations/v2/home/services)** page, find the row for **AWS Audit Manager**, choose the service’s name, and then choose **Enable trusted access**\.
-
-1. In the confirmation dialog box, enable **Show the option to enable trusted access**, enter **enable** in the box, and then choose **Enable trusted access**\.
-
-1. If you are the administrator of only AWS Organizations, tell the administrator of AWS Audit Manager that they can now enable that service using its console to work with AWS Organizations\.
+You can enable trusted access by running a Organizations AWS CLI command, or by calling an Organizations API operation in one of the AWS SDKs\.
 
 ------
 #### [ AWS CLI, AWS API ]
 
-**To enable trusted service access using the OrganizationsCLI/SDK**  
+**To enable trusted service access using the Organizations CLI/SDK**  
 You can use the following AWS CLI commands or API operations to enable trusted service access:
 + AWS CLI: [aws organizations enable\-aws\-service\-access](https://docs.aws.amazon.com/cli/latest/reference/organizations/enable-aws-service-access.html)
 
   You can run the following command to enable AWS Audit Manager as a trusted service with Organizations\.
 
   ```
-  $ aws organizations enable-aws-service-access \ 
+  $ aws organizations enable-aws-service-access \
       --service-principal auditmanager.amazonaws.com
   ```
 
