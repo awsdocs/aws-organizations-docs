@@ -149,9 +149,3 @@ You can use the following AWS CLI commands or API operations to disable trusted 
 + AWS API: [DisableAWSServiceAccess](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DisableAWSServiceAccess.html)
 
 ------
-
-## Enabling a delegated administrator account for AWS CloudFormation Stacksets<a name="integrate-enable-da-cloudformation"></a>
-
-When you designate a member account as a delegated administrator for the organization, users and roles from that account can perform administrative actions for AWS CloudFormation Stacksets that otherwise can be performed only by users or roles in the organization's management account\. This helps you to separate management of the organization from management of AWS CloudFormation Stacksets\.
-
-See [Register a delegated administrator](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html) in the *AWS CloudFormation User Guide*\.
