@@ -144,7 +144,7 @@ You can use the following AWS CLI commands or API operations to disable trusted 
 
 ------
 
-## Enabling a delegated administrator account for Systems Manager<a name="integrate-disable-da-ssm"></a>
+## Enabling a delegated administrator account for Systems Manager<a name="integrate-enable-da-ssm"></a>
 
 When you designate a member account as a delegated administrator for the organization, users and roles from that account can perform administrative actions for Systems Manager that otherwise can be performed only by users or roles in the organization's management account\. This helps you to separate management of the organization from management of Systems Manager\.
 

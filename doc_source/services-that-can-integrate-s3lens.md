@@ -91,7 +91,7 @@ You can disable trusted access using the Amazon S3 console, the AWS CLI or any o
 **To disable trusted access using the Amazon S3 console**  
 See [How to disable Trusted Access](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/storage_lens_console_organizations_disabling_trusted_access.html) in the *Amazon Simple Storage Service Developer Guide*\.
 
-## Enabling a delegated administrator account for Amazon S3 Storage Lens<a name="integrate-disable-da-s3lens"></a>
+## Enabling a delegated administrator account for Amazon S3 Storage Lens<a name="integrate-enable-da-s3lens"></a>
 
 When you designate a member account as a delegated administrator for the organization, users and roles from that account can perform administrative actions for Amazon S3 Storage Lens that otherwise can be performed only by users or roles in the organization's management account\. This helps you to separate management of the organization from management of Amazon S3 Storage Lens\.
 

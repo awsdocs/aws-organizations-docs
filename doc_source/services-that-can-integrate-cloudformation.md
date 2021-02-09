@@ -2,10 +2,7 @@
 
 AWS CloudFormation StackSets enables you to create, update, or delete stacks across multiple AWS accounts and AWS Regions with a single operation\. StackSets integration with AWS Organizations enables you to create stack sets with service\-managed permissions, using a service\-linked role that has the relevant permission in each member account\. This lets you deploy stack instances to member accounts in your organization\. You don't have to create the necessary AWS Identity and Access Management roles; StackSets creates the IAM role in each member account on your behalf\. You can also choose to enable automatic deployments to accounts that are added to your organization in the future\.
 
-With trusted access between StackSets and Organizations enabled, the management account has permissions to create and manage stack sets for your organization\. The management account can register up to five member accounts as delegated administrators\. With trusted access enabled, delegated administrators also have permissions to create and manage stack sets for your organization\. Stack sets with service\-managed permissions are created in the management account, including stack sets that are created by delegated administrators\.
-
-**Important**  
-Delegated administrators have full permissions to deploy to accounts in your organization\. The management account cannot limit delegated administrator permissions to deploy to specific OUs or to perform specific stack set operations\.
+With trusted access between StackSets and Organizations enabled, the management account has permissions to create and manage stack sets for your organization\.  
 
  For more information about integrating StackSets with Organizations, see [Working with AWS CloudFormation StackSets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.html) in the *AWS CloudFormation User Guide*\.
 
@@ -97,7 +94,7 @@ You can use the following AWS CLI commands or API operations to enable trusted s
 
 For information about the permissions needed to disable trusted access, see [Permissions required to disable trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms)\.
 
-Only an administrator in an Organizations management account has permissions to disable trusted access with another AWS service\. You can disable trusted access only by using the Organizations console\. If you disable trusted access with Organizations while you are using StackSets, all previously created stack instances are retained\. However, stack sets deployed using the service\-linked role's permissions can no longer perform deployments to accounts managed by Organizations\. Before you can disable trusted access with AWS Organizations, you must deregister all delegated administrators\. For details, see [Register a delegated administrator](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html)\.
+Only an administrator in an Organizations management account has permissions to disable trusted access with another AWS service\. You can disable trusted access only by using the Organizations console\. If you disable trusted access with Organizations while you are using StackSets, all previously created stack instances are retained\. However, stack sets deployed using the service\-linked role's permissions can no longer perform deployments to accounts managed by Organizations\. 
 
 You can disable trusted access using only the Organizations console or tools\.
 

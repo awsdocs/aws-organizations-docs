@@ -33,7 +33,7 @@ The following tag policy shows basic tag policy syntax:
 
 Tag policy syntax includes the following elements: 
 + The `tags` field key name\. Tag policies always start with this fixed key name\. It's the top line in the example policy above\.
-+ A *policy key* that uniquely identifies the policy statement\. It must match the value for the *tag key*, except for the case treatment\. Unlike the tag key \(described next\), the policy key *is not* case sensitive\. 
++ A *policy key* that uniquely identifies the policy statement\. It must match the value for the *tag key*, except for the case treatment\. Unlike the tag key \(described next\), the policy value *is not* case sensitive\. 
 
   In this example, `costcenter` is the policy key\.
 + At least one *tag key* that specifies the allowed tag key with the capitalization that you want resources to be compliant with\. If case treatment isn't defined, lowercase is the default case treatment for tag keys\. The value for the tag key must match the value for the policy key\. But since the policy key value is case insensitive, the capitalization can be different\. 

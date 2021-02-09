@@ -30,7 +30,7 @@ For information about the permissions needed to enable trusted access, see [Perm
 
 When you designate a delegated administrator for Security Hub, Security Hub automatically enables trusted access for Security Hub in your organization\.
 
-## Enabling a delegated administrator account for Security Hub<a name="integrate-disable-da-securityhub"></a>
+## Enabling a delegated administrator account for Security Hub<a name="integrate-enable-da-securityhub"></a>
 
 When you designate a member account as a delegated administrator for the organization, users and roles from that account can perform administrative actions for Security Hub that otherwise can be performed only by users or roles in the organization's management account\. This helps you to separate management of the organization from management of Security Hub\.
 
