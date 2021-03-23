@@ -27,10 +27,10 @@ Organizations is a global service that is physically hosted in the US East \(N\.
 |  Number of policies of each type in an organization  |  1000 per policy type  | 
 |  Maximum size of a policy document  |  Service control policies: 5120 bytes *\(not characters\)* AI services opt\-out policies: 2500 characters Backup policies: 10,000 characters Tag policies: 2500 characters **Note:** If you save the policy by using the AWS Management Console, extra white space \(such as spaces and line breaks\) between JSON elements and outside of quotation marks, is removed and not counted\. If you save the policy using an SDK operation or the AWS CLI, then the policy is saved exactly as you provided and no automatic removal of characters occurs\.   | 
 |  OU maximum nesting in a root  |  Five levels of OUs deep under a root\.  | 
-|  Number of open invitations you can add in a 24\-hour period  |  Either 20 or the maximum number of accounts allowed in your organization, whichever is greater\. Accepted invitations don't count against this quota\. As soon as one invitation is accepted, you can send another invitation that same day\.  | 
+|  Maximum number of invitation attempts you can perform in a 24\-hour period  |  Either 20 or the maximum number of accounts allowed in your organization, whichever is greater\. Accepted invitations don't count against this quota\. As soon as one invitation is accepted, you can send another invitation that same day\. If the maximum number of accounts allowed in your organization is less than 20, then you get an "account limit exceeded" exception if you attempt to invite more accounts than your organization can contain\. However, you can cancel invitations and send new ones up to the maximum of 20 attempts in one day\.  | 
 |  Number of member accounts you can create concurrently  |  5 — As soon as one finishes, you can start another, but only five can be in progress at a time\.  | 
 |  Number of entities to which you can attach a policy  |  Unlimited  | 
-|  Number of tags that you can attach to an account  |  50  | 
+|  Number of tags that you can attach to a root, OU, or account  |  50  | 
 
 ### Expiration times for handshakes<a name="min-max-handshakes"></a>
 

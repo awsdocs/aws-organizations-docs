@@ -15,7 +15,7 @@ The following [service\-linked role](https://docs.aws.amazon.com/IAM/latest/User
 You can delete or modify these roles only if you disable trusted access between Macie and Organizations, or if you remove the member account from the organization\.
 + `AWSServiceRoleRorAmazonMacie`
 
-## Service principals used by the servie\-linked roles<a name="integrate-enable-svcprin-macie"></a>
+## Service principals used by the service\-linked roles<a name="integrate-enable-svcprin-macie"></a>
 
 The service\-linked roles in the previous section can be assumed only by the service principals authorized by the trust relationships defined for the role\. The service\-linked roles used by Macie grant access to the following service principals:
 + `macie.amazonaws.com`

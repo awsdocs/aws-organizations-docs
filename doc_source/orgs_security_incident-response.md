@@ -39,7 +39,7 @@ A trail is a configuration that enables delivery of events as log files to an Am
 
 #### Example log entries: CreateAccount<a name="Log-entries-create-account"></a>
 
-The following example shows a CloudTrail log entry for a sample `CreateAccount` call that is generated when the API is called\.
+The following example shows a CloudTrail log entry for a sample `CreateAccount` call that is generated when the API is called and the workflow to create the account starts processing in the background\.
 
 ```
 {
@@ -91,7 +91,7 @@ The following example shows a CloudTrail log entry for a sample `CreateAccount` 
 }
 ```
 
-The following example shows a CloudTrail log entry for a `CreateAccount` call after it successfully completed\.
+The following example shows a CloudTrail log entry for a `CreateAccount` call after the background workflow to create the account successfully completes\.
 
 ```
 {
@@ -125,7 +125,7 @@ The following example shows a CloudTrail log entry for a `CreateAccount` call af
 }
 ```
 
- The following example shows a CloudTrail log entry that is generated after a `CreateAccount` call failed\.
+ The following example shows a CloudTrail log entry that is generated after a `CreateAccount` background workflow fails to create the account\.
 
 ```
   {

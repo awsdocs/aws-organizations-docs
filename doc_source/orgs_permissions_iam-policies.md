@@ -71,7 +71,7 @@ For a list of all the permissions that are available to assign in an IAM policy,
 In addition to restricting access to specific actions, you can restrict access to specific entities in your organization\. The `Resource` elements in the examples in the preceding sections both specify the wildcard character \("\*"\), which means "any resource that the action can access\." Instead, you can replace the "\*" with the Amazon Resource Name \(ARN\) of specific entities to which you want to allow access\. 
 
 **Example: Granting permissions to a single OU**  
-The first statement of the following policy allows an IAM user read access to the entire organization, but the second statement allows the user to perform AWS Organizations administrative actions only within a single, specified organizational unit \(OU\) and its child OUs\. No billing access is granted\. Note that this doesn't give you administrative access to the AWS accounts in the OU\. It grants only permissions to perform AWS Organizations operations on the accounts and child OUs within the specified OU:
+The first statement of the following policy allows an IAM user read access to the entire organization, but the second statement allows the user to perform AWS Organizations administrative actions only within a single, specified organizational unit \(OU\)\. This does not extend to any child OUs\. No billing access is granted\. Note that this doesn't give you administrative access to the AWS accounts in the OU\. It grants only permissions to perform AWS Organizations operations on the accounts within the specified OU:
 
 ```
 {
@@ -94,7 +94,7 @@ The first statement of the following policy allows an IAM user read access to th
 }
 ```
 
-You get the IDs for the OU and the organization from the AWS Organizations console or by calling the `List*` APIs\. The user or group that you apply this policy to can perform any action \(`"organizations:*"`\) on any entity that is contained by the OU\. The OU is identified by the Amazon Resource Name \(ARN\)\. 
+You get the IDs for the OU and the organization from the AWS Organizations console or by calling the `List*` APIs\. The user or group that you apply this policy to can perform any action \(`"organizations:*"`\) on any entity that is directly contained in the specified OU\. The OU is identified by the Amazon Resource Name \(ARN\)\. 
 
 For more information about the ARNs for various resources, see [Resources Defined by AWS Organizations](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awsorganizations.html#awsorganizations-resources-for-iam-policies) in the *IAM User Guide*\. 
 

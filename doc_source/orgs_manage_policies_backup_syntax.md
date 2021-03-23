@@ -21,6 +21,7 @@ The following functionally complete policy shows the basic backup policy syntax\
                     "schedule_expression": {"@@assign": "cron(0 5 ? * * *)"},
                     "start_backup_window_minutes": {"@@assign": "60"},
                     "complete_backup_window_minutes": {"@@assign": "604800"},
+                    "enable_continuous_backup": {"@@assign": "false"},
                     "target_backup_vault_name": {"@@assign": "My_Backup_Vault"},
                     "recovery_point_tags": {
                         "Owner": {
@@ -106,7 +107,7 @@ You can use the `$account` variable only in policy elements that can include an 
 + `plans`
 
   At the top level key of the policy is the `plans` key\. A backup policy must always start with this fixed key name at the top of the policy file\. You can have one or more backup plans under this key\.
-+ Each plan under the `plans` top level key has a key name that consists of the backup plan name assigned by the user\. In the preceding example, the backup plan name is `PII_Backup_Plan`\. You can have multiple plans in a policy, each with its own rules, Regions, selections, and tags\.
++ Each plan under the `plans` top level key has a key name that consists of the backup plan name assigned by the user\. In the preceding example, the backup plan name is `PII_Backup_Plan`\. You can have multiple plans in a policy, each with its own `rules`, `regions`, `selections`, and `tags`\.
 
   This backup plan key name in a backup policy maps to the value of the `BackupPlanName` key in an AWS Backup plan\. 
 
@@ -135,6 +136,9 @@ The vault must already exist when the backup plan is launched the first time\. W
   + `complete_backup_window_minutes` – This policy key maps to the `CompletionWindowMinutes` key in an AWS Backup plan\.
 
     \(Optional\) Specifies the number of minutes after a backup job successfully starts before it must complete or it is canceled by AWS Backup\. This key contains the [`@@assign` inheritance value operator](orgs_manage_policies_inheritance_mgmt.md#value-setting-operators) and a value with an integer number of minutes\.
+  + `enable_continuous_backup` – This policy key maps to the `EnableContinuousBackup` key in an AWS Backup plan\.
+
+    \(Optional\) Specifies whether AWS Backup creates continuous backups\. `True` causes AWS Backup to create continuous backups capable of point\-in\-time restore \(PITR\)\. `False` \(or not specified\) causes AWS Backup to create snapshot backups\. For more information about continuous backups, see [Point\-in\-time recovery](https://docs.aws.amazon.com/aws-backup/latest/devguide/point-in-time-recovery.html) in the *AWS Backup Developer Guide*\.
   + `lifecycle` – This policy key maps to the `Lifecycle` key in an AWS Backup plan\.
 
     \(Optional\) Specifies when AWS Backup transitions this backup to cold storage and when it expires\. 

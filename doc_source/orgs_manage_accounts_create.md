@@ -14,6 +14,9 @@ When you create a member account in your organization, AWS Organizations automat
 AWS Organizations also automatically creates a service\-linked role named `AWSServiceRoleForOrganizations` that enables integration with select AWS services\. You must configure the other services to allow the integration\. For more information, see [AWS Organizations and service\-linked roles](orgs_integrate_services.md#orgs_integrate_services-using_slrs)\.
 If this organization is managed with AWS Control Tower, then create your accounts by using the AWS Control Tower account factory in the AWS Control Tower console or APIs\. If you create an account in Organizations, then that account isn't enrolled with AWS Control Tower\. For more information, see [Referring to Resources Outside of AWS Control Tower](https://docs.aws.amazon.com/controltower/latest/userguide/external-resources.html#ungoverned-resources) in the *AWS Control Tower User Guide*\.
 
+**Note**  
+AWS accounts that you create as part of an organization are not automatically subscribed to AWS marketing emails\. To opt\-in your accounts to receive marketing emails, see [https://pages.awscloud.com/communication-preferences](https://pages.awscloud.com/communication-preferences)\.
+
 ## Creating an AWS account that is part of your organization<a name="orgs_manage_accounts_create-new"></a>
 
 When you sign in to the organization's management account, you can create member accounts that are automatically part of your organization\. To do this, complete the following steps\.

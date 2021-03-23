@@ -2,7 +2,10 @@
 
 AWS CloudFormation StackSets enables you to create, update, or delete stacks across multiple AWS accounts and AWS Regions with a single operation\. StackSets integration with AWS Organizations enables you to create stack sets with service\-managed permissions, using a service\-linked role that has the relevant permission in each member account\. This lets you deploy stack instances to member accounts in your organization\. You don't have to create the necessary AWS Identity and Access Management roles; StackSets creates the IAM role in each member account on your behalf\. You can also choose to enable automatic deployments to accounts that are added to your organization in the future\.
 
-With trusted access between StackSets and Organizations enabled, the management account has permissions to create and manage stack sets for your organization\.  
+With trusted access between StackSets and Organizations enabled, the management account has permissions to create and manage stack sets for your organization\. The management account can register up to five member accounts as delegated administrators\. With trusted access enabled, delegated administrators also have permissions to create and manage stack sets for your organization\. Stack sets with service\-managed permissions are created in the management account, including stack sets that are created by delegated administrators\.
+
+**Important**  
+Delegated administrators have full permissions to deploy to accounts in your organization\. The management account cannot limit delegated administrator permissions to deploy to specific OUs or to perform specific stack set operations\.
 
  For more information about integrating StackSets with Organizations, see [Working with AWS CloudFormation StackSets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.html) in the *AWS CloudFormation User Guide*\.
 
@@ -146,3 +149,9 @@ You can use the following AWS CLI commands or API operations to disable trusted 
 + AWS API: [DisableAWSServiceAccess](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DisableAWSServiceAccess.html)
 
 ------
+
+## Enabling a delegated administrator account for AWS CloudFormation Stacksets<a name="integrate-enable-da-cloudformation"></a>
+
+When you designate a member account as a delegated administrator for the organization, users and roles from that account can perform administrative actions for AWS CloudFormation Stacksets that otherwise can be performed only by users or roles in the organization's management account\. This helps you to separate management of the organization from management of AWS CloudFormation Stacksets\.
+
+For instructions on how to designate a member account as a delegated administrator of AWS CloudFormation Stacksets in the organization, see [Register a delegated administrator](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html) in the *AWS CloudFormation User Guide*\.

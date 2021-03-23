@@ -11,7 +11,7 @@ Tag policy features are available in the following Regions:
 |  US West \(Oregon\) Region  |  `us-west-2`  | 
 |  Asia Pacific \(Hong Kong\) Region²  |  `ap-east-1`  | 
 |  Asia Pacific \(Mumbai\) Region  |  `ap-south-1`  | 
-|  Asia Pacific \(Osaka\-Local\) Region³  |  `ap-northeast-3`  | 
+|  Asia Pacific \(Osaka\) Region³  |  `ap-northeast-3`  | 
 |  Asia Pacific \(Seoul\) Region  |  `ap-northeast-2`  | 
 |  Asia Pacific \(Singapore\) Region  |  `ap-southeast-1`  | 
 |  Asia Pacific \(Sydney\) Region  |  `ap-southeast-2`  | 

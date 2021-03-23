@@ -5,7 +5,9 @@ The example [service control policies \(SCPs\)](orgs_manage_policies_scps.md) di
 **Before using these examples**  
 Before you use these example SCPs in your organization, do the following:  
 Carefully review and customize the SCPs for your unique requirements\.
-Test your SCPs before using them in a production capacity\. Remember that an SCP affects every user and role and even the root user in every account that it's attached to\. 
+Thoroughly test the SCPs in your environment with the AWS services that you use\.   
+The example policies in this section demonstrate the implementation and use of SCPs\. They're ***not*** intended to be interpreted as official AWS recommendations or best practices to be implemented exactly as shown\. It is your responsibility to carefully test any deny\-based policies for its suitability to solve the business requirements of your environment\. Deny\-based service control policies can unintentionally limit or block your use of AWS services unless you add the necessary exceptions to the policy\. For an example of such an exception, see the first example that exempts global services from the rules that block access to unwanted &AWS; Regions\. 
+Remember that an SCP affects every user and role in every account that it's attached to\. 
 
 **Tip**  
 You can use [service last accessed data](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html) in [IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) to update your SCPs to restrict access to only the AWS services that you need\. For more information, see [Viewing Organizations Service Last Accessed Data for Organizations](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor-view-data-orgs.html) in the *IAM User Guide\.* 
@@ -522,6 +524,10 @@ This SCP prevents users or roles in any affected account from changing the confi
 ### Example: Require a tag on specified created resources<a name="example-require-tag-on-create"></a>
 
 The following SCP prevents IAM users and roles in the affected accounts from creating certain resource types if the request doesn't include the specified tags\. 
+
+**Important**  
+Remember to test Deny\-based policies with the services you use in your environment\. The following example is a simple block of creating untagged secrets or running untagged Amazon EC2 instances, and doesn't include any exceptions\.  
+The following example policy is not compatible with AWS CloudFormation as written, because that service creates a secret and then tags it as two separate steps\. This example policy effectively blocks AWS CloudFormation from creating a secret as part of a stack, because such an action would result, however briefly, in a secret that is not tagged as required\.
 
 ```
 {
