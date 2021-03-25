@@ -49,6 +49,9 @@ The following are the timeouts for handshakes in AWS Organizations\.
 
 The minimum and maximum depend on the policy type and the entity that you're attaching the policy to\. The following table shows each policy type and the number of entities that you can attach each type to\.
 
+**Note**  
+These numbers apply to only those policies that are directly attached to an OU or an account\. Policies that affect an OU or account by inheritance do ***not*** count against these limits\.
+
 
 ****  
 

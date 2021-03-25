@@ -112,7 +112,7 @@ You can use one of the following commands to list policies that are attached to 
   The following example lists all of the service control policies attached to the specified OU\. You must specify both the ID of the root, OU, or account, and the type of policy that you want to list\.
 
   ```
-  $  aws organizations list-policies-for-target \
+  $  AWS organizations list-policies-for-target \
       --target-id ou-a1b2-f6g7h222 \
       --filter SERVICE_CONTROL_POLICY
   {
@@ -254,7 +254,7 @@ You can use one of the following commands to get details about a policy:
   The following example displays the details for the specified policy\.
 
   ```
-  $  aws organizations describe-policy \
+  $  AWS organizations describe-policy \
       --policy-id p-FullAWSAccess
   {
       "Policy": {

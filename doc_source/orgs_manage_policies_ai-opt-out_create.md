@@ -151,7 +151,7 @@ You can use one of the following to update a policy:
   The following example renames an AI services opt\-out policy\.
 
   ```
-  $  aws organizations update-policy \
+  $  AWS organizations update-policy \
       --policy-id p-i9j8k7l6m5 \
       --name "Renamed policy"
   {
@@ -171,7 +171,7 @@ You can use one of the following to update a policy:
   The following example adds or changes the description for an AI services opt\-out policy\.
 
   ```
-  $  aws organizations update-policy \
+  $  AWS organizations update-policy \
       --policy-id p-i9j8k7l6m5 \
       --description "My new description"
   {

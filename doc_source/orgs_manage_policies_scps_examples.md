@@ -359,7 +359,7 @@ This SCP prevents users or roles in any affected account from disabling GuardDut
 
 ### Example: Preventing external sharing<a name="example_ram_1"></a>
 
-The following example SCP prevents users from creating resource shares that allow sharing with IAM users ad roles that aren't part of the organization\.
+The following example SCP prevents users from creating resource shares that allow sharing with IAM users and roles that aren't part of the organization\.
 
 ```
 {

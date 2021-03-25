@@ -1,6 +1,11 @@
 # AWS Firewall Manager and AWS Organizations<a name="services-that-can-integrate-fms"></a>
 
-AWS Firewall Manager is a security management service that centrally configures and manages firewall rules for web applications across your accounts and applications\. Using AWS Firewall Manager, you can roll out AWS WAF rules all at once for your Application Load Balancers and Amazon CloudFront distributions across all of the accounts in your AWS organization\. Use AWS Firewall Manager to set up your firewall rules just once and have them automatically applied across all accounts and resources within your organization, even as new resources and accounts are added\. For more information about AWS Firewall Manager, see the [AWS Firewall Manager Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/fms-chapter.html)\.
+AWS Firewall Manager is a security management service that centrally configures and manages firewall rules for web applications across your accounts and applications\. Using AWS Firewall Manager, you can roll out AWS WAF rules all at once for your Application Load Balancers and Amazon CloudFront distributions across all of the accounts in your AWS organization\. Use AWS Firewall Manager to set up your firewall rules just once and have them automatically applied across all accounts and resources within your organization, even as new resources and accounts are added\. 
+
+**Note**  
+Although Firewall Manager doesn't use an Organizations delegated administrator, it does have its own ability to delegate another account as administrator of the Firewall Manager service in the accounts in your organization\. For more information, see [Set the AWS Firewall Manager administrator account](https://docs.aws.amazon.com/waf/latest/developerguide/enable-integration.html)
+
+For more information about AWS Firewall Manager, see the [AWS Firewall Manager Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/fms-chapter.html)\.
 
 Use the following information to help you to help you integrate AWS Firewall Manager with AWS Organizations\.
 
