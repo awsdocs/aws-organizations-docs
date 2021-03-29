@@ -14,18 +14,6 @@ Use the following information to help you to help you integrate AWS Backup with 
 
 
 
-## Service\-linked roles created when you enable integration<a name="integrate-enable-slr-backup"></a>
-
-The following [service\-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html) is automatically created in your organization's accounts when you enable trusted access\. These roles allow AWS Backup to perform supported operations within the accounts in your organization\.
-
-You can delete or modify these roles only if you disable trusted access between AWS Backup and Organizations, or if you remove the member account from the organization\.
-+ `AWSBackupDefaultServiceRole`
-
-## Service principals used by the service\-linked roles<a name="integrate-enable-svcprin-backup"></a>
-
-The service\-linked roles in the previous section can be assumed only by the service principals authorized by the trust relationships defined for the role\. The service\-linked roles used by AWS Backup grant access to the following service principals:
-+ `backup.amazonaws.com`
-
 ## Enabling trusted access with AWS Backup<a name="integrate-enable-ta-backup"></a>
 
 For information about the permissions needed to enable trusted access, see [Permissions required to enable trusted access](orgs_integrate_services.md#orgs_trusted_access_perms)\.
