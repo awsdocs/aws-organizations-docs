@@ -37,61 +37,9 @@ For information about the permissions needed to enable trusted access, see [Perm
 
 Only an administrator in the Organizations management account has permissions to enable trusted access with another AWS service\. You can enable trusted access using either the AWS CloudFormation console or the Organizations console\.
 
-You can enable trusted access using either the AWS CloudFormation StackSets console or the AWS Organizations console\.
+You can enable trusted access using only the AWS CloudFormation StackSets console or tools\.
 
-**Important**  
-We strongly recommend that whenever possible, you use the AWS CloudFormation StackSets console or tools to enable integration with Organizations\. This lets AWS CloudFormation StackSets perform any configuration that it requires, such as creating resources needed by the service\. Proceed with these steps only if you can’t enable integration using the tools provided by AWS CloudFormation StackSets\.For more information, see [this note](orgs_integrate_services.md#important-note-about-integration)\.   
-If you enable trusted access by using the AWS CloudFormation StackSets console or tools then you don’t need to complete these steps\.
-
-**To enable trusted access using the AWS CloudFormation Stacksets console**  
-See [Enable Trusted Access with AWS Organizations](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-enable-trusted-access.html) in the AWS CloudFormation User Guide\.
-
-You can enable trusted access by using either the AWS Organizations console, by running a AWS CLI command, or by calling an API operation in one of the AWS SDKs\.
-
-------
-#### [ Old console ]
-
-**To enable trusted service access using the Organizations console**
-
-1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
-
-1. On the **[Settings](https://console.aws.amazon.com/organizations/home#/organization/settings)** tab under **Trusted access for AWS services**, find the row for **AWS CloudFormation StackSets**, and then choose **Enable trusted access**\.
-
-1. In the confirmation dialog box, choose **Enable access for *service\-name***\.
-
-1. If you are the administrator of only AWS Organizations, tell the administrator of AWS CloudFormation StackSets that they can now enable that service using its console to work with AWS Organizations\.
-
-------
-#### [ New console ]
-
-**To enable trusted service access using the Organizations console**
-
-1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
-
-1. On the **[Services](https://console.aws.amazon.com/organizations/v2/home/services)** page, find the row for **AWS CloudFormation StackSets**, choose the service’s name, and then choose **Enable trusted access**\.
-
-1. In the confirmation dialog box, enable **Show the option to enable trusted access**, enter **enable** in the box, and then choose **Enable trusted access**\.
-
-1. If you are the administrator of only AWS Organizations, tell the administrator of AWS CloudFormation StackSets that they can now enable that service using its console to work with AWS Organizations\.
-
-------
-#### [ AWS CLI, AWS API ]
-
-**To enable trusted service access using the OrganizationsCLI/SDK**  
-You can use the following AWS CLI commands or API operations to enable trusted service access:
-+ AWS CLI: [aws organizations enable\-aws\-service\-access](https://docs.aws.amazon.com/cli/latest/reference/organizations/enable-aws-service-access.html)
-
-  You can run the following command to enable AWS CloudFormation StackSets as a trusted service with Organizations\.
-
-  ```
-  $ aws organizations enable-aws-service-access \ 
-      --service-principal stacksets.cloudformation.amazonaws.com
-  ```
-
-  This command produces no output when successful\.
-+ AWS API: [EnableAWSServiceAccess](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAWSServiceAccess.html)
-
-------
+To enable trusted access using the AWS CloudFormation Stacksets console, see [Enable Trusted Access with AWS Organizations](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-enable-trusted-access.html) in the AWS CloudFormation User Guide\.
 
 ## Disabling trusted access with AWS CloudFormation Stacksets<a name="integrate-disable-ta-cloudformation"></a>
 

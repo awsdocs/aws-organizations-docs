@@ -16,7 +16,7 @@ You can delete or modify these roles only if you disable trusted access between 
 ## Service principals used by the service\-linked roles<a name="integrate-enable-svcprin-artifact"></a>
 
 The service\-linked roles in the previous section can be assumed only by the service principals authorized by the trust relationships defined for the role\. The service\-linked roles used by AWS Artifact grant access to the following service principals:
-+ `aws-artifact-acount-sync.amazonaws.com`
++ `aws-artifact-account-sync.amazonaws.com`
 
 ## Enabling trusted access with AWS Artifact<a name="integrate-enable-ta-artifact"></a>
 
@@ -63,7 +63,7 @@ You can use the following AWS CLI commands or API operations to enable trusted s
 
   ```
   $ aws organizations enable-aws-service-access \ 
-      --service-principal aws-artifact-acount-sync.amazonaws.com
+      --service-principal aws-artifact-account-sync.amazonaws.com
   ```
 
   This command produces no output when successful\.
@@ -124,7 +124,7 @@ You can use the following AWS CLI commands or API operations to disable trusted 
 
   ```
   $ aws organizations disable-aws-service-access \
-      --service-principal aws-artifact-acount-sync.amazonaws.com
+      --service-principal aws-artifact-account-sync.amazonaws.com
   ```
 
   This command produces no output when successful\.
