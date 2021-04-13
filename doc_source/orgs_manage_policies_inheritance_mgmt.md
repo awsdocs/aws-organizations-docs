@@ -487,8 +487,7 @@ You can't directly use the contents of a displayed effective policy as the conte
         "project": {
             "tag_key": " PROJECT",
             "tag_value": [
-                "Maintenance",
-                "Escalations"
+                "Maintenance"
             ]
         }
     }
