@@ -6,9 +6,10 @@ Tag policy features are available in the following Regions:
 | Region name | Region parameter | 
 | --- | --- | 
 |  US East \(Ohio\) Region  |  `us-east-2`  | 
-| US East \(N\. Virginia\) Region¹ |  **`us-east-1`**  | 
+|  US East \(N\. Virginia\) Region¹ |  **`us-east-1`**  | 
 |  US West \(N\. California\) Region  |  `us-west-1`  | 
 |  US West \(Oregon\) Region  |  `us-west-2`  | 
+|  Africa \(Cape Town\) Region | `af-south-1` |
 |  Asia Pacific \(Hong Kong\) Region²  |  `ap-east-1`  | 
 |  Asia Pacific \(Mumbai\) Region  |  `ap-south-1`  | 
 |  Asia Pacific \(Osaka\) Region³  |  `ap-northeast-3`  | 
@@ -20,6 +21,7 @@ Tag policy features are available in the following Regions:
 |  Europe \(Frankfurt\) Region  |  `eu-central-1`  | 
 |  Europe \(Ireland\) Region  |  `eu-west-1`  | 
 |  Europe \(London\) Region  |  `eu-west-2`  | 
+|  Europe \(Milan\) Region | `eu-south-1` |
 |  Europe \(Paris\) Region  |  `eu-west-3`  | 
 |  Europe \(Stockholm\) Region  |  `eu-north-1`  | 
 |  Middle East \(Bahrain\) Region²  |  `me-south-1`  | 
