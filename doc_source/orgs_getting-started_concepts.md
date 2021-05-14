@@ -16,7 +16,7 @@ An entity that you create to consolidate your AWS [accounts](#account) so that y
 The parent container for all the accounts for your organization\. If you apply a policy to the root, it applies to all [organizational units \(OUs\)](#organizationalunit) and [accounts](#account) in the organization\.  
 Currently, you can have only one root\. AWS Organizations automatically creates it for you when you create an organization\.
 
-**Organization unit \(OU\)**  <a name="organizationalunit"></a>
+**Organizational unit \(OU\)**  <a name="organizationalunit"></a>
 A container for [accounts](#account) within a [root](#root)\. An OU also can contain other OUs, enabling you to create a hierarchy that resembles an upside\-down tree, with a root at the top and branches of OUs that reach down, ending in accounts that are the leaves of the tree\. When you attach a policy to one of the nodes in the hierarchy, it flows down and affects all the branches \(OUs\) and leaves \(accounts\) beneath it\. An OU can have exactly one parent, and currently each account can be a member of exactly one OU\.
 
 **Account**  <a name="account"></a>
