@@ -9,7 +9,7 @@ Delegated administrators have full permissions to deploy to accounts in your org
 
  For more information about integrating StackSets with Organizations, see [Working with AWS CloudFormation StackSets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.html) in the *AWS CloudFormation User Guide*\.
 
-Use the following information to help you to help you integrate AWS CloudFormation StackSets with AWS Organizations\.
+Use the following information to help you integrate AWS CloudFormation StackSets with AWS Organizations\.
 
 
 
@@ -37,7 +37,7 @@ For information about the permissions needed to enable trusted access, see [Perm
 
 Only an administrator in the Organizations management account has permissions to enable trusted access with another AWS service\. You can enable trusted access using either the AWS CloudFormation console or the Organizations console\.
 
-You can enable trusted access using only the AWS CloudFormation StackSets console or tools\.
+You can enable trusted access using only the AWS CloudFormation StackSets tools\.
 
 To enable trusted access using the AWS CloudFormation Stacksets console, see [Enable Trusted Access with AWS Organizations](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-enable-trusted-access.html) in the AWS CloudFormation User Guide\.
 
@@ -47,25 +47,12 @@ For information about the permissions needed to disable trusted access, see [Per
 
 Only an administrator in an Organizations management account has permissions to disable trusted access with another AWS service\. You can disable trusted access only by using the Organizations console\. If you disable trusted access with Organizations while you are using StackSets, all previously created stack instances are retained\. However, stack sets deployed using the service\-linked role's permissions can no longer perform deployments to accounts managed by Organizations\. 
 
-You can disable trusted access using only the Organizations console or tools\.
+You can disable trusted access using only the Organizations tools\.
 
 You can disable trusted access by using either the AWS Organizations console, by running an Organizations AWS CLI command, or by calling an Organizations API operation in one of the AWS SDKs\.
 
 ------
-#### [ Old console ]
-
-**To disable trusted service access using the Organizations console**
-
-1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
-
-1. On the **[Settings](https://console.aws.amazon.com/organizations/home#/organization/settings)** tab under **Trusted access for AWS services**, find the row for **AWS CloudFormation StackSets** and then choose **Disable access**\.
-
-1. In the dialog box, choose **Disable access for *service\-name***\.
-
-1. If you are the administrator of only AWS Organizations, tell the administrator of AWS CloudFormation StackSets that they can now disable that service using its console or tools from working with AWS Organizations\.
-
-------
-#### [ New console ]
+#### [ AWS Management Console ]
 
 **To disable trusted service access using the Organizations console**
 
@@ -73,7 +60,7 @@ You can disable trusted access by using either the AWS Organizations console, by
 
 1. On the **[Services](https://console.aws.amazon.com/organizations/v2/home/services)** page, find the row for **AWS CloudFormation StackSets** and then choose the service’s name\.
 
-1. Choose **Enable trusted access**\.
+1. Choose **Disable trusted access**\.
 
 1. In the confirmation dialog box, enter **disable** in the box, and then choose **Disable trusted access**\.
 
@@ -84,7 +71,7 @@ You can disable trusted access by using either the AWS Organizations console, by
 
 **To disable trusted service access using the Organizations CLI/SDK**  
 You can use the following AWS CLI commands or API operations to disable trusted service access:
-+ AWS CLI: [aws organizations disable\-aws\-service\-access](https://docs.aws.amazon.com/cli/latest/reference/organizations/disable-aws-service-access.html)
++ AWS CLI: [disable\-aws\-service\-access](https://docs.aws.amazon.com/cli/latest/reference/organizations/disable-aws-service-access.html)
 
   You can run the following command to disable AWS CloudFormation StackSets as a trusted service with Organizations\.
 

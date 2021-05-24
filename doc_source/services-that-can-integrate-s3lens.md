@@ -4,7 +4,7 @@ By giving Amazon S3 Storage Lens trusted access to your organization, you allow 
 
 For more information, see \. For more information, see the [Using service\-linked roles for Amazon S3 Storage Lens](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-service-linked-roles.html) in the *Amazon S3 Storage Lens User Guide*\. 
 
-Use the following information to help you to help you integrate Amazon S3 Storage Lens with AWS Organizations\.
+Use the following information to help you integrate Amazon S3 Storage Lens with AWS Organizations\.
 
 
 
@@ -36,20 +36,7 @@ See [How to enable Trusted Access](https://docs.aws.amazon.com/AmazonS3/latest/u
 You can enable trusted access by using either the AWS Organizations console, by running a AWS CLI command, or by calling an API operation in one of the AWS SDKs\.
 
 ------
-#### [ Old console ]
-
-**To enable trusted service access using the Organizations console**
-
-1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
-
-1. On the **[Settings](https://console.aws.amazon.com/organizations/home#/organization/settings)** tab under **Trusted access for AWS services**, find the row for **Amazon S3 Storage Lens**, and then choose **Enable trusted access**\.
-
-1. In the confirmation dialog box, choose **Enable access for *service\-name***\.
-
-1. If you are the administrator of only AWS Organizations, tell the administrator of Amazon S3 Storage Lens that they can now enable that service using its console to work with AWS Organizations\.
-
-------
-#### [ New console ]
+#### [ AWS Management Console ]
 
 **To enable trusted service access using the Organizations console**
 
@@ -66,7 +53,7 @@ You can enable trusted access by using either the AWS Organizations console, by 
 
 **To enable trusted service access using the OrganizationsCLI/SDK**  
 You can use the following AWS CLI commands or API operations to enable trusted service access:
-+ AWS CLI: [aws organizations enable\-aws\-service\-access](https://docs.aws.amazon.com/cli/latest/reference/organizations/enable-aws-service-access.html)
++ AWS CLI: [enable\-aws\-service\-access](https://docs.aws.amazon.com/cli/latest/reference/organizations/enable-aws-service-access.html)
 
   You can run the following command to enable Amazon S3 Storage Lens as a trusted service with Organizations\.
 
@@ -84,7 +71,7 @@ You can use the following AWS CLI commands or API operations to enable trusted s
 
 For information about the permissions needed to disable trusted access, see [Permissions required to disable trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms)\.
 
-You can disable trusted access using only the Amazon S3 Storage Lens console or tools\.
+You can disable trusted access using only the Amazon S3 Storage Lens tools\.
 
 You can disable trusted access using the Amazon S3 console, the AWS CLI or any of the AWS SDKs\. 
 

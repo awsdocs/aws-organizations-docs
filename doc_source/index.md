@@ -1,7 +1,7 @@
 # AWS Organizations User Guide
 
 -----
-*****Copyright &copy;  Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
+*****Copyright &copy; Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
 
 -----
 Amazon's trademarks and trade dress may not be used in 
@@ -95,8 +95,8 @@ Amazon's trademarks and trade dress may not be used in
       + [Service Quotas and AWS Organizations](services-that-can-integrate-servicequotas.md)
       + [AWS Single Sign-On and AWS Organizations](services-that-can-integrate-sso.md)
       + [AWS Systems Manager and AWS Organizations](services-that-can-integrate-ssm.md)
-      + [AWS Trusted Advisor and AWS Organizations](services-that-can-integrate-ta.md)
       + [Tag policies and AWS Organizations](services-that-can-integrate-tag-policies.md)
+      + [AWS Trusted Advisor and AWS Organizations](services-that-can-integrate-ta.md)
 + [Security in AWS Organizations](security.md)
    + [AWS Identity and Access Management and AWS Organizations](orgs_security_iam.md)
       + [Managing access permissions for your AWS organization](orgs_permissions_overview.md)

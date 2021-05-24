@@ -1,8 +1,5 @@
 # Tutorial: Creating and configuring an organization<a name="orgs_tutorials_basic"></a>
 
-**Note**  
-AWS Organizations is introducing a new version of the Organizations management console\. You can switch between the old console and the new console by choosing the link in the notice boxes at the top of the console\. We encourage you to try the new version and let us know what you think\. We want your feedback and read each submission\.
-
 In this tutorial, you create your organization and configure it with two AWS member accounts\. You create one of the member accounts in your organization, and you invite the other account to join your organization\. Next, you use the [allow list](orgs_getting-started_concepts.md#allowlist) technique to specify that account administrators can delegate only explicitly listed services and actions\. This allows administrators to validate any new service that AWS introduces before they permit its use by anyone else in your company\. That way, if AWS introduces a new service, it remains prohibited until an administrator adds the service to the allow list in the appropriate policy\. The tutorial also shows you how to use a [deny list](orgs_getting-started_concepts.md#denylist) to ensure that no users in a member account can change the configuration for the auditing logs that AWS CloudTrail creates\.
 
 The following illustration shows the main steps of the tutorial\.
@@ -39,24 +36,7 @@ Substitute the values above with the values that are associated with your test a
 In this step, you sign in to account 111111111111 as an administrator, create an organization with that account as the management account, and invite an existing account, 222222222222, to join as a member account\.
 
 ------
-#### [ Old console ]
-
-1. Sign in to AWS as an administrator of account 111111111111 and open the [AWS Organizations console](https://console.aws.amazon.com/organizations)\.
-
-1. On the introduction page, choose **Create an organization**\.
-
-1. In the confirmation dialog box, choose **Create an organization**\.
-**Note**  
-By default, the organization is created with all features enabled\. You can also create the organization with only [consolidated billing features](orgs_getting-started_concepts.md#feature-set-cb-only) enabled\.
-
-   AWS creates the organization and shows you your organization's **Dashboard**\. If you're on a different page then choose **Dashboard** in the navigation pane on the left\.
-
-   A verification email is automatically sent to the address that is associated with your management account\. There might be a delay before you receive the verification email\.
-
-1. Verify your email address within 24 hours\. For more information, see [Email address verification](orgs_manage_org_create.md#about-email-verification)\.
-
-------
-#### [ New console ]
+#### [ AWS Management Console ]
 
 1. Sign in to AWS as an administrator of account 111111111111 and open the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2)\.
 
@@ -81,32 +61,7 @@ You now have an organization with your account as its only member\. This is the 
 Now that you have an organization, you can begin to populate it with accounts\. In the steps in this section, you invite an existing account to join as a member of your organization\.
 
 ------
-#### [ Old console ]
-
-**To invite an existing account to join**
-
-1. On the **[Accounts](https://console.aws.amazon.com/organizations/home#/accounts)** tab, choose **Add account**
-
-    and then choose **Invite account**\.
-
-1. In the **Account ID or email** box, enter the email address of the owner of the account that you want to invite, similar to the following: **member222@example\.com**\.
-
-1. Type any text that you want into the **Notes** box\. This text is included in the email that is sent to the owner of the account\.
-
-1. Choose **Invite**\. AWS Organizations sends the invitation to the account owner\.
-**Important**  
-If you get an error that indicates that you exceeded your account limits for the organization or that you can't add an account because your organization is still initializing, wait until one hour after you created the organization and try again\. If the error persists, contact [AWS Support](https://console.aws.amazon.com/support/home#/)\.
-
-1. For the purposes of this tutorial, you now need to accept your own invitation\. Do one of the following to get to the **[Invitations](https://console.aws.amazon.com/organizations/home#/invites)** page in the console:
-   + Open the email that AWS sent from the management account and choose the link to accept the invitation\. When prompted to sign in, do so as an administrator in the invited member account\. 
-   + Open the [AWS Organizations console](https://console.aws.amazon.com/organizations)\. Choose **Invitations**\. The number beside the link indicates how many invitations this account has\.
-
-1. On the **[Invitations](https://console.aws.amazon.com/organizations/home#/invites)** page, choose **Accept** and then choose **Confirm**\.
-
-1. Sign out of your member account and sign in again as an administrator in your management account\. 
-
-------
-#### [ New console ]
+#### [ AWS Management Console ]
 
 **To invite an existing account to join**
 
@@ -137,26 +92,7 @@ If you get an error that indicates that you exceeded your account limits for the
 In the steps in this section, you create an AWS account that is automatically a member of the organization\. We refer to this account in the tutorial as 333333333333\.
 
 ------
-#### [ Old console ]
-
-**To create a member account**
-
-1. On the AWS Organizations console, on the **[Accounts](https://console.aws.amazon.com/organizations/home#/accounts)** tab, choose **Add account**\.
-
-1. On the **[Add account](https://console.aws.amazon.com/organizations/home#/accounts/add)** page, choose **Create account**\.
-
-1. For **Account name**, enter a name for the account, such as **MainApp Account**\.
-
-1. For **Email address associated with the account**, enter the email address of the individual who is to receive communications on behalf of the account\. This value must be globally unique\. No two accounts can have the same email address\. For example, you might use something like **mainapp@example\.com**\.
-
-1. For **IAM role name**, leave this set to the default role name of `OrganizationAccountAccessRole`, or you can supply your own name\. This role enables you to access the new member account when signed in as an IAM user in the management account\. For this tutorial, leave it blank to instruct AWS Organizations to create the role with the default name\.
-
-1. Choose **Create**\. You might need to wait a short while and refresh the page to see the new account appear on the **Accounts** tab\.
-**Important**  
-If you get an error that indicates that you exceeded your account limits for the organization or that you can't add an account because your organization is still initializing, wait until one hour after you created the organization and try again\. If the error persists, contact [AWS Support](https://console.aws.amazon.com/support/home#/)\.
-
-------
-#### [ New console ]
+#### [ AWS Management Console ]
 
 **To create a member account**
 
@@ -183,36 +119,7 @@ In the steps in this section, you create organizational units \(OUs\) and place 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/organizations/latest/userguide/images/orgs-lab-structure.jpg)
 
 ------
-#### [ Old console ]
-
-**To create and populate the OUs**
-
-1. On the [AWS Organizations console](https://console.aws.amazon.com/organizations), and choose the **[Organize accounts](https://console.aws.amazon.com/organizations/home#/browse)** tab\.
-
-1. Navigate to your **Root** OU details page by clicking its name, and then choose **\+ New organizational unit**\.
-
-1. For the name of the OU, enter **Production** and then choose **Create organizational unit**\.
-
-1. Choose your new **Production** OU to navigate into it
-
-    and then choose **\+ New organizational unit**\.
-
-1. For the name of the second OU, enter **MainApp** and then choose **Create organizational unit**\.
-
-   Now you can move your member accounts into these OUs\.
-
-1. 
-
-1. Select the first member account that you invited to join, 222222222222, and then choose **Move**\.
-
-1. In the **Move accounts** dialog box, choose **Production** and then choose **Move**\.
-
-1. Select the second member account that you created, 333333333333, and then choose **Move**\.
-
-1. In the **Move accounts** dialog box, choose **Production** to expose **MainApp**\. Choose **MainApp** and then choose **Move**\.
-
-------
-#### [ New console ]
+#### [ AWS Management Console ]
 
 **To create and populate the OUs**
 **Note**  
@@ -264,16 +171,7 @@ In the steps in this section, you create three [service control policies \(SCPs\
 Before you can attach a policy of any type to a root or to any OU within a root, you must enable the policy type for the organization\. Policy types aren't enabled by default\. The steps in this section show you how to enable the service control policy \(SCP\) type for your organization\.
 
 ------
-#### [ Old console ]
-
-**To enable SCPs for your organization**
-
-1. On the **[Organize accounts](https://console.aws.amazon.com/organizations/home#/browse)** tab, choose your **Root** OU\.
-
-1. In the **Details** pane on the right, under **ENABLE/DISABLE POLICY TYPES** and next to **Service control policies**, choose **Enable**\.
-
-------
-#### [ New console ]
+#### [ AWS Management Console ]
 
 **To enable SCPs for your organization**
 
@@ -290,48 +188,7 @@ Before you can attach a policy of any type to a root or to any OU within a root,
 Now that service control policies are enabled in your organization, you can create the three policies that you need for this tutorial\.
 
 ------
-#### [ Old console ]
-
-**To create the first SCP that blocks CloudTrail configuration actions**
-
-1. Choose the **[Policies](https://console.aws.amazon.com/organizations/home#/policies)** tab and then choose **Create policy**\.
-
-1. For **Policy name**, enter **Block CloudTrail Configuration Actions**\.
-
-1. In the **Policy** section, in the list of services on the left, select CloudTrail for the service\. Then choose the following actions: **AddTags**, **CreateTrail**, **DeleteTrail**, **RemoveTags**, **StartLogging**, **StopLogging**, and **UpdateTrail**\.
-
-1. Still in the left pane, choose **Add resource** and specify **CloudTrail** and **All Resources**\. Then choose **Add resource**\.
-
-   The policy statement on the right updates to look similar to the following\.
-
-   ```
-   {
-       "Version": "2012-10-17",
-       "Statement": [
-           {
-               "Sid": "Stmt1234567890123",
-               "Effect": "Deny",
-               "Action": [       
-                   "cloudtrail:AddTags",    
-                   "cloudtrail:CreateTrail",       
-                   "cloudtrail:DeleteTrail",       
-                   "cloudtrail:RemoveTags",       
-                   "cloudtrail:StartLogging",       
-                   "cloudtrail:StopLogging",       
-                   "cloudtrail:UpdateTrail"
-               ],
-               "Resource": [
-                   "*"
-               ]
-           }
-       ]
-   }
-   ```
-
-1. Choose **Create policy**\.
-
-------
-#### [ New console ]
+#### [ AWS Management Console ]
 
 **To create the first SCP that blocks CloudTrail configuration actions**
 
@@ -380,40 +237,7 @@ The service control policy editor is currently available only in the original ve
 The second policy defines an [allow list](orgs_getting-started_concepts.md#allowlist) of all the services and actions that you want to enable for users and roles in the Production OU\. When you're done, users in the Production OU can access ***only*** the listed services and actions\.
 
 ------
-#### [ Old console ]
-
-**To create the second policy that allows approved services for the production OU**
-
-1. From the list of policies, choose **Create policy**\.
-
-1. For **Policy name**, enter **Allow List for All Approved Services**\.
-
-1. Position your cursor in the right pane of the **Policy** section and paste in a policy like the following\.
-
-   ```
-   {
-       "Version": "2012-10-17",
-       "Statement": [
-           {
-               "Sid": "Stmt1111111111111",
-               "Effect": "Allow",
-               "Action": [ 
-                   "ec2:*",
-                   "elasticloadbalancing:*",
-                   "codecommit:*",
-                   "cloudtrail:*",
-                   "codedeploy:*"
-                 ],
-               "Resource": [ "*" ]
-           }
-       ]
-   }
-   ```
-
-1. Choose **Create policy**\.
-
-------
-#### [ New console ]
+#### [ AWS Management Console ]
 
 **To create the second policy that allows approved services for the production OU**
 
@@ -450,37 +274,7 @@ The second policy defines an [allow list](orgs_getting-started_concepts.md#allow
 The final policy provides a [deny list](orgs_getting-started_concepts.md#denylist) of services that are blocked from use in the MainApp OU\. For this tutorial, you block access to Amazon DynamoDB in any accounts that are in the **MainApp** OU\.
 
 ------
-#### [ Old console ]
-
-**To create the third policy that denies access to services that can't be used in the MainApp OU**
-
-1. From the **Policies** tab, choose **Create policy**\.
-
-1. For **Policy name**, enter **Deny List for MainApp Prohibited Services**\.
-
-1. In the **Policy** section on the left, select **Amazon DynamoDB** for the service\. For the action, choose **All actions**\.
-
-1. Still in the left pane, choose **Add resource** and specify **DynamoDB** and **All Resources**\. Then choose **Add resource**\.
-
-   The policy statement on the right updates to look similar to the following\.
-
-   ```
-   {
-     "Version": "2012-10-17",
-     "Statement": [
-       {
-         "Effect": "Deny",
-         "Action": [ "dynamodb:*" ],
-         "Resource": [ "*" ]
-       }
-     ]
-   }
-   ```
-
-1. Choose **Create policy** to save the SCP\.
-
-------
-#### [ New console ]
+#### [ AWS Management Console ]
 
 **To create the third policy that denies access to services that can't be used in the MainApp OU**
 
@@ -516,40 +310,7 @@ The final policy provides a [deny list](orgs_getting-started_concepts.md#denylis
 Now that the SCPs exist and are enabled for your root, you can attach them to the root and OUs\.
 
 ------
-#### [ Old console ]
-
-**To attach the policies to the root and the OUs**
-
-1. Still on the **[Organize accounts](https://console.aws.amazon.com/organizations/home#/browse)** tab, in the **Details** pane on the right, under **POLICIES**, choose **SERVICE CONTROL POLICIES**\.
-
-1. Choose **Attach** next to the SCP named `Block CloudTrail Configuration Actions`\. In this tutorial, you attach it to the root so that it affects all member accounts\. 
-
-   The **Details** pane now shows by highlighting that two SCPs are attached to the root: the one you just created and the default `FullAWSAccess` SCP\. 
-
-1. Choose the **Production** OU \(not the check box\) to navigate to its contents\.
-
-1. Under **POLICIES**,
-
-    choose **SERVICE CONTROL POLICIES** and then choose **Attach**
-
-    next to `Allow List for All Approved Services` to enable users or roles in member accounts in the Production OU to access the approved services\.
-
-1. The information pane now shows that two SCPs are attached to the OU: the one that you just attached and the default `FullAWSAccess` SCP\. However, because the `FullAWSAccess` SCP is also an allow list that allows all services and actions, you must detach this SCP to ensure that only your approved services are allowed\.
-
-1. To remove the default policy from the Production OU, next to **FullAWSAccess**, choose **Detach**\.
-
-    After you remove this default policy, all member accounts under the **Production** OU immediately lose access to all actions and services that are not on the allow list SCP that you attached in the preceding step\. Any requests to use actions that aren't included in the **Allow List for All Approved Services** SCP are denied\. This is true even if an administrator in an account grants access to another service by attaching an IAM permissions policy to a user in one of the member accounts\.
-
-1. Now you can attach the SCP named `Deny List for MainApp Prohibited services` to prevent anyone in the accounts in the MainApp OU from using any of the restricted services\.
-
-   To do this, choose the **MainApp** OU \(it's name, not the check box\) to navigate to its contents\.
-
-1. In the **Details** pane, under **POLICIES**, expand the **Service control policies** section\.
-
-    In the list of available policies, next to **Deny List for MainApp Prohibited Services**, choose **Attach**\.
-
-------
-#### [ New console ]
+#### [ AWS Management Console ]
 
 **To attach the policies to the root and the OUs**
 

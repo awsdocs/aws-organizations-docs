@@ -6,7 +6,7 @@ A tag policy can specify that noncompliant tagging operations on specified resou
 Enforcement has no effect on resources that are created without tags\.
 
 To enforce compliance with tag policies, do one of the following when you [create a tag policy](orgs_manage_policies_tag-policies-create.md):
-+ From the **Visual editor** tab, select [**Prevent noncompliant operations for this tag**](orgs_manage_policies_tag-policies-create.md#prevent-noncompliant-operations-v2)\.
++ From the **Visual editor** tab, select [**Prevent noncompliant operations for this tag**](orgs_manage_policies_tag-policies-create.md#prevent-noncompliant-operations)\.
 + From the **JSON** tab, use the `enforced_for` field\. For information on tag policy syntax, see [Tag policy syntax and examples](orgs_manage_policies_example-tag-policies.md)\.
 
 Follow these best practices for enforcing compliance with tag policies:

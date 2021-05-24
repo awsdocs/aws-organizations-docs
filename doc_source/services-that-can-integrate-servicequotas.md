@@ -6,7 +6,7 @@ When Service Quotas is associated with AWS Organizations, you can create a quota
 
 For more information about Service Quotas, see the [Service Quotas User Guide](https://docs.aws.amazon.com/servicequotas/latest/userguide/)\.
 
-Use the following information to help you to help you integrate Service Quotas with AWS Organizations\.
+Use the following information to help you integrate Service Quotas with AWS Organizations\.
 
 
 
@@ -26,7 +26,7 @@ The service\-linked roles in the previous section can be assumed only by the ser
 
 For information about the permissions needed to enable trusted access, see [Permissions required to enable trusted access](orgs_integrate_services.md#orgs_trusted_access_perms)\.
 
-You can enable trusted access using only the Service Quotas console or tools\.
+You can enable trusted access using only the Service Quotas tools\.
 
 You can enable trusted access using the Service Quotas console
 

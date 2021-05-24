@@ -6,7 +6,7 @@ The example [service control policies \(SCPs\)](orgs_manage_policies_scps.md) di
 Before you use these example SCPs in your organization, do the following:  
 Carefully review and customize the SCPs for your unique requirements\.
 Thoroughly test the SCPs in your environment with the AWS services that you use\.   
-The example policies in this section demonstrate the implementation and use of SCPs\. They're ***not*** intended to be interpreted as official AWS recommendations or best practices to be implemented exactly as shown\. It is your responsibility to carefully test any deny\-based policies for its suitability to solve the business requirements of your environment\. Deny\-based service control policies can unintentionally limit or block your use of AWS services unless you add the necessary exceptions to the policy\. For an example of such an exception, see the first example that exempts global services from the rules that block access to unwanted &AWS; Regions\. 
+The example policies in this section demonstrate the implementation and use of SCPs\. They're ***not*** intended to be interpreted as official AWS recommendations or best practices to be implemented exactly as shown\. It is your responsibility to carefully test any deny\-based policies for its suitability to solve the business requirements of your environment\. Deny\-based service control policies can unintentionally limit or block your use of AWS services unless you add the necessary exceptions to the policy\. For an example of such an exception, see the first example that exempts global services from the rules that block access to unwanted AWS Regions\. 
 Remember that an SCP affects every user and role in every account that it's attached to\. 
 
 **Tip**  
@@ -178,7 +178,7 @@ This SCP builds on the previous example to make an exception for administrators\
 }
 ```
 
-### Example 10: Require MFA to perform an API action<a name="example-ec2-mfa"></a>
+### Example: Require MFA to perform an API action<a name="example-ec2-mfa"></a>
 
 Use an SCP like the following to require that multi\-factor authentication \(MFA\) is enabled before an IAM user or role can perform an action\. In this example, the action is to stop an Amazon EC2 instance\.
 
@@ -293,10 +293,12 @@ With this SCP, any instance launches not using the `t2.micro` instance type are 
       "Sid": "RequireMicroInstanceType",
       "Effect": "Deny",
       "Action": "ec2:RunInstances",
-      "Resource": "arn:aws:ec2:*:*:instance/*",
+      "Resource": [
+        "arn:aws:ec2:*:*:instance/*"
+      ],
       "Condition": {
-        "StringNotEquals":{               	
-          "ec2:InstanceType":"t2.micro"
+        "StringNotEquals": {
+          "ec2:InstanceType": "t2.micro"
         }
       }
     }

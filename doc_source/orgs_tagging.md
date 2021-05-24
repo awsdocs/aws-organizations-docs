@@ -69,30 +69,7 @@ To remove tags from resources in your organization, you need the following permi
 `organizations:UntagResource`
 
 ------
-#### [ Old console ]
-
-**To add, update, or remove tags for an existing resource**
-
-1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
-
-1. Navigate to and choose the account, Root, OU, or policy that you want to tag\.
-
-1. In the details pane, in the **TAGS** section, choose **EDIT TAGS**\.
-
-1. You can add new tags, modify the values of existing tags, or remove tags\.
-
-   To add a tag, choose **Add tag**, and then enter a **Key** and, optionally, a **Value** for the tag\.
-
-   To remove a tag, choose **Remove**\.
-
-   Tag keys and values are case sensitive\. Use the capitalization that you want to standardize on\. You must also comply with the requirements of any tag policies that apply\.
-
-1. Repeat the previous step as many times as you need\.
-
-1. Choose **Save changes**\.
-
-------
-#### [ New console ]
+#### [ AWS Management Console ]
 
 **To add, update, or remove tags for an existing resource**
 
@@ -119,12 +96,12 @@ To remove tags from resources in your organization, you need the following permi
 
 **To add or update tags to an existing resource**  
 You can use one of the following commands to add tags to the taggable resources in your organization:
-+ AWS CLI: [aws organizations tag\-resource](https://docs.aws.amazon.com/cli/latest/reference/organizations/tag-resource.html)
++ AWS CLI: [tag\-resource](https://docs.aws.amazon.com/cli/latest/reference/organizations/tag-resource.html)
 + AWS SDKs: [TagResource](https://docs.aws.amazon.com/organizations/latest/APIReference/API_TagResource.html)
 
 **To delete tags from a resource in your organization**  
 You can use one of the following commands to delete tags:
-+ AWS CLI: [aws organizations untag\-resource](https://docs.aws.amazon.com/cli/latest/reference/organizations/untag-resource.html)
++ AWS CLI: [untag\-resource](https://docs.aws.amazon.com/cli/latest/reference/organizations/untag-resource.html)
 + AWS SDKs: [UntagResource](https://docs.aws.amazon.com/organizations/latest/APIReference/API_UntagResource.html)
 
 ------

@@ -9,6 +9,7 @@ Tag policy features are available in the following Regions:
 | US East \(N\. Virginia\) Region¹ |  **`us-east-1`**  | 
 |  US West \(N\. California\) Region  |  `us-west-1`  | 
 |  US West \(Oregon\) Region  |  `us-west-2`  | 
+|  Africa \(Cape Town\) Region²  |  `af-south-1`  | 
 |  Asia Pacific \(Hong Kong\) Region²  |  `ap-east-1`  | 
 |  Asia Pacific \(Mumbai\) Region  |  `ap-south-1`  | 
 |  Asia Pacific \(Osaka\) Region³  |  `ap-northeast-3`  | 
@@ -16,8 +17,10 @@ Tag policy features are available in the following Regions:
 |  Asia Pacific \(Singapore\) Region  |  `ap-southeast-1`  | 
 |  Asia Pacific \(Sydney\) Region  |  `ap-southeast-2`  | 
 |  Asia Pacific \(Tokyo\) Region  |  `ap-northeast-1`  | 
+|  Asia Pacific \(Osaka\) Region  |  `ap-northeast-3`  | 
 |  Canada \(Central\) Region  |  `ca-central-1`  | 
 |  Europe \(Frankfurt\) Region  |  `eu-central-1`  | 
+|  Europe \(Milan\) Region²  |  `eu-south-1`  | 
 |  Europe \(Ireland\) Region  |  `eu-west-1`  | 
 |  Europe \(London\) Region  |  `eu-west-2`  | 
 |  Europe \(Paris\) Region  |  `eu-west-3`  | 
@@ -40,6 +43,6 @@ Tag policy features are available in the following Regions:
 **Note**  
 To evaluate organization\-wide compliance with tag policies, you must also have access to an Amazon S3 bucket in the US East \(N\. Virginia\) Region for report storage\. For more information, see [Amazon S3 Bucket Policy for Storing Report](https://docs.aws.amazon.com/ARG/latest/userguide/tag-policies-prereqs.html#bucket-policy)\.
 
-²These Regions must be manually enabled\. To learn more about enabling and disabling AWS Regions, see [Managing AWS Regions](https://docs.aws.amazon.com/general/latest/gr/rande-manage.html) in the *AWS General Reference*\. The Resource Groups console is not available in these Regions\.
+²These Regions must be manually enabled\. To learn more about enabling and disabling AWS Regions, see [Managing AWS Regions](https://docs.aws.amazon.com/general/latest/gr/rande-manage.html) in the *AWS General Reference*\. The Resource Groups console isn't available in these Regions\.
 
 ³This Region doesn't support reporting on resources\.

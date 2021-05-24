@@ -1,8 +1,5 @@
 # Attaching and detaching service control policies<a name="orgs_manage_policies_scps_attach"></a>
 
-**Note**  
-AWS Organizations is introducing a new version of the Organizations management console\. You can switch between the old console and the new console by choosing the link in the notice boxes at the top of the console\. We encourage you to try the new version and let us know what you think\. We want your feedback and read each submission\.
-
 When you sign in to your organization's management account, you can attach a service control policy \(SCP\) that you previously created\. You can attach an SCP to the organization root, to an organizational unit \(OU\), or directly to an account\. To attach an SCP, complete the following steps\.
 
 **Minimum permissions**  
@@ -10,36 +7,7 @@ To attach an SCP to a root, OU, or account, you need permission to run the follo
 `organizations:AttachPolicy` with a `Resource` element in the same policy statement that includes "\*" or the Amazon Resource Name \(ARN\) of the specified policy and the ARN of the root, OU, or account that you want to attach the policy to
 
 ------
-#### [ Old console ]
-
-You can attach an SCP by either navigating to the policy or to the root, OU, or account that you want to attach the policy to\.
-
-**To attach an SCP by navigating to the root, OU, or account**
-
-1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
-
-1. On the **[Organize accounts](https://console.aws.amazon.com/organizations/home#/browse)** tab, navigate to and then choose the check box next to the root, OU, or account that you want to attach an SCP to\. You might have to expand OUs \(choose the \+ next to an OU name\) in the navigation pane to find the OU or account that you want\.
-
-1. In the details pane on the right, under **POLICIES**, expand the entry for **Service control policies** by choosing it\.
-
-1. Find the policy that you want and choose **Attach**\.
-
-   A blue box appears around the policy name to indicate that this policy is now attached to the specified entity\.
-
-**To attach an SCP by navigating to the policy**
-
-1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
-
-1. On the **[Service control policies](https://console.aws.amazon.com/organizations/home#/policies/service-control)** page, choose the policy that you want to attach\.
-
-1. In the details pane on the right, expand **Accounts**, **Organizational units**, or **Roots**, depending on what kind of entity you want to attach the policy to\.
-
-1. Next to the account, OU, or root that you want to attach the policy to, choose **Attach**\.
-
-   A blue box appears around the entity to indicate that this entity now has the specified policy attached\. The policy change takes effect immediately, affecting the permissions of IAM users and roles in the attached account or all accounts under the attached root or OU\.
-
-------
-#### [ New console ]
+#### [ AWS Management Console ]
 
 You can attach an SCP by either navigating to the policy or to the root, OU, or account that you want to attach the policy to\.
 
@@ -74,7 +42,7 @@ You can attach an SCP by either navigating to the policy or to the root, OU, or 
 
 **To attach an SCP by navigating to the root, OU, or account**  
 You can use one of the following commands to attach an SCP:
-+ AWS CLI: [aws organizations attach\-policy](https://docs.aws.amazon.com/cli/latest/reference/organizations/attach-policy.html)
++ AWS CLI: [attach\-policy](https://docs.aws.amazon.com/cli/latest/reference/organizations/attach-policy.html)
 
   The following example attaches an SCP to an OU\.
 
@@ -103,36 +71,7 @@ To detach an SCP from the root, OU, or account, you need permission to run the f
 `organizations:DetachPolicy`
 
 ------
-#### [ Old console ]
-
-You can detach an SCP by either navigating to the policy or to the root, OU, or account that you want to attach the policy from\.
-
-**To detach an SCP by navigating to the root, OU, or account it's attached to**
-
-1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
-
-1. On the **[Organize accounts](https://console.aws.amazon.com/organizations/home#/browse)** tab, navigate to and then choose the check box next to the root, OU, or account that you want to detach an SCP from\. You might have to expand OUs \(choose the \+ next to an OU name\) in the navigation pane to find the OU or account that you want\.
-
-1. In the details pane, under **POLICIES**, expand the entry for **Service control policies** by choosing it\.
-
-1. Find the policy that you want and choose **Detach**\.
-
-   The blue box disappears from around the policy name to indicate that this policy is no longer attached to the specified entity\. The policy change caused by detaching the SCP takes effect immediately\. For example, detaching an SCP immediately affects the permissions of IAM users and roles in the formerly attached account or accounts under the formerly attached organization root or OU\.
-
-**To detach an SCP by navigating to the policy**
-
-1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
-
-1. On the **[Service control policies](https://console.aws.amazon.com/organizations/home#/policies/service-control)** page, choose the name of the policy that you want to detach from a Root, OU, or account\.
-
-1. In the details pane, expand the relevant **Accounts**, **Organizational units**, or **Roots** section, depending on the kind of entity you want to detach the policy from\.
-
-1. Next to the account, OU, or root that you want to attach the policy to, choose **Detach**\.
-
-   The entity disappears from the list to indicate that the policy is no longer attached\. The policy change caused by detaching the SCP takes effect immediately\. For example, detaching an SCP immediately affects the permissions of IAM users and roles in the formerly attached account or accounts under the formerly attached organization root or OU\.
-
-------
-#### [ New console ]
+#### [ AWS Management Console ]
 
 You can detach an SCP by either navigating to the policy or to the root, OU, or account that you want to attach the policy from\.
 
@@ -167,7 +106,7 @@ You can detach an SCP by either navigating to the policy or to the root, OU, or 
 
 **To detach an SCP from a root, OU, or account**  
 You can use one of the following commands to detach an SCP:
-+ AWS CLI: [aws organizations detach\-policy](https://docs.aws.amazon.com/cli/latest/reference/organizations/detach-policy.html)
++ AWS CLI: [detach\-policy](https://docs.aws.amazon.com/cli/latest/reference/organizations/detach-policy.html)
 
   The following example detaches the specified SCP from the specified OU\.
 

@@ -1,8 +1,5 @@
 # Enabling and disabling policy types<a name="orgs_manage_policies_enable-disable"></a>
 
-**Note**  
-AWS Organizations is introducing a new version of the Organizations management console\. You can switch between the old console and the new console by choosing the link in the notice boxes at the top of the console\. We encourage you to try the new version and let us know what you think\. We want your feedback and read each submission\.
-
 ## Enabling a policy type<a name="enable-policy-type"></a>
 
 Before you can create and attach a policy to your organization, you must enable that policy type for use\. Enabling a policy type is a one\-time task on the organization root\. You can enable a policy type from only the organization's management account\.
@@ -14,32 +11,7 @@ To enable a policy type, you need permission to run the following actions:
 `organizations:ListRoots` – required only when using the Organizations console
 
 ------
-#### [ Old console ]
-
-**To enable a policy type**
-
-1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
-
-1. On the **[Policies](https://console.aws.amazon.com/organizations/home#/policies)** tab, choose the name of policy type that you want to enable\.
-
-1. On the policy type page, choose **Enable *policy type***\.
-
-   The page is replaced by a list of the available policies of the specified type\.
-
-You can alternatively use the following steps\.
-
-**To enable a policy type \(alternate method\)**
-
-1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
-
-1. On the **[Organize accounts](https://console.aws.amazon.com/organizations/home#/browse)** tab, in the navigation pane, choose the **Root** OU\.
-
-1. On the **Root** page, in the details pane on the right, under **ENABLE/DISABLE POLICY TYPES**, next to the relevant policy type, choose **Enable**\.
-
-   A light blue box appears around the policy type's name to indicate that shows it is enabled\.
-
-------
-#### [ New console ]
+#### [ AWS Management Console ]
 
 **To enable a policy type**
 
@@ -56,7 +28,7 @@ You can alternatively use the following steps\.
 
 **To enable a policy type**  
 You can use one of the following commands to enable a policy type:
-+ AWS CLI: [aws organizations enable\-policy\-type](https://docs.aws.amazon.com/cli/latest/reference/organizations/enable-policy-type.html)
++ AWS CLI: [enable\-policy\-type](https://docs.aws.amazon.com/cli/latest/reference/organizations/enable-policy-type.html)
 
   The following example shows how to enable backup policies for your organization\. Note that you must specify the ID of your organization's root\.
 
@@ -99,18 +71,7 @@ To disable SCPs, you need permission to run the following actions:
 `organizations:ListRoots` – required only when using the Organizations console
 
 ------
-#### [ Old console ]
-
-**To disable a policy type**
-
-1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
-
-1. On the **[Organize accounts](https://console.aws.amazon.com/organizations/home#/browse)** tab, choose **Root** in the left navigation pane\. 
-
-1. In the details pane on the right side, under **ENABLE/DISABLE POLICY TYPES**, and next to the policy type you want to disable, choose **Disable**\.
-
-------
-#### [ New console ]
+#### [ AWS Management Console ]
 
 **To disable a policy type**
 
@@ -129,7 +90,7 @@ To disable SCPs, you need permission to run the following actions:
 
 **To disable a policy type**  
 You can use one of the following commands to disable a policy type:
-+ AWS CLI: [aws organizations disable\-policy\-type](https://docs.aws.amazon.com/cli/latest/reference/organizations/disable-policy-type.html)
++ AWS CLI: [disable\-policy\-type](https://docs.aws.amazon.com/cli/latest/reference/organizations/disable-policy-type.html)
 
   The following example shows how to disable backup policies for your organization\. Note that you must specify the ID of your organization's root\.
 

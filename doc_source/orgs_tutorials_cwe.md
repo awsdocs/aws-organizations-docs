@@ -1,8 +1,5 @@
 # Tutorial: Monitor important changes to your organization with CloudWatch Events<a name="orgs_tutorials_cwe"></a>
 
-**Note**  
-AWS Organizations is introducing a new version of the Organizations management console\. You can switch between the old console and the new console by choosing the link in the notice boxes at the top of the console\. We encourage you to try the new version and let us know what you think\. We want your feedback and read each submission\.
-
 This tutorial shows how to configure CloudWatch Events to monitor your organization for changes\. You start by configuring a rule that is triggered when users invoke specific AWS Organizations operations\. Next, you configure CloudWatch Events to run an AWS Lambda function when the rule is triggered, and you configure Amazon SNS to send an email with details about the event\. 
 
 The following illustration shows the main steps of the tutorial\.
@@ -180,18 +177,7 @@ Now that the required Lambda function exists in your account, you create a Cloud
 In this step, you create an organizational unit \(OU\) and observe the CloudWatch Events rule generate a log entry and send an email to you with details about the event\.
 
 ------
-#### [ Old console ]
-
-**To create an OU**
-
-1. Open the AWS Organizations console to the [**Organize accounts** tab](https://console.aws.amazon.com/organizations/home#/browse/), and then navigate to the Root OU detail page\. 
-
-1. Choose **\+ New organizational unit**\.
-
-1. For the name of the OU, enter **TestCWEOU** and then choose **Create organizational unit**\.
-
-------
-#### [ New console ]
+#### [ AWS Management Console ]
 
 **To create an OU**
 

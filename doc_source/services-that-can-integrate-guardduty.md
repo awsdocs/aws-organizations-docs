@@ -6,7 +6,7 @@ You can help simplify management of GuardDuty by using Organizations to manage G
 
 For more information, see [Managing GuardDuty accounts with AWS Organizations](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_organizations.htm) in the *Amazon GuardDuty User Guide*
 
-Use the following information to help you to help you integrate Amazon GuardDuty with AWS Organizations\.
+Use the following information to help you integrate Amazon GuardDuty with AWS Organizations\.
 
 
 
@@ -26,7 +26,7 @@ The service\-linked roles in the previous section can be assumed only by the ser
 
 For information about the permissions needed to enable trusted access, see [Permissions required to enable trusted access](orgs_integrate_services.md#orgs_trusted_access_perms)\.
 
-You can enable trusted access using only the Amazon GuardDuty console or tools\.
+You can enable trusted access using only the Amazon GuardDuty tools\.
 
 You can enable trusted access using the Amazon GuardDuty console\.
 
@@ -36,44 +36,16 @@ Amazon GuardDuty requires trusted access to AWS Organizations before you can des
 
 For information about the permissions needed to disable trusted access, see [Permissions required to disable trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms)\.
 
-You can disable trusted access using only the Organizations console or tools\.
+You can disable trusted access using only the Organizations tools\.
 
-You can disable trusted access by using either the AWS Organizations console, by running an Organizations AWS CLI command, or by calling an Organizations API operation in one of the AWS SDKs\.
-
-------
-#### [ Old console ]
-
-**To disable trusted service access using the Organizations console**
-
-1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
-
-1. On the **[Settings](https://console.aws.amazon.com/organizations/home#/organization/settings)** tab under **Trusted access for AWS services**, find the row for **Amazon GuardDuty** and then choose **Disable access**\.
-
-1. In the dialog box, choose **Disable access for *service\-name***\.
-
-1. If you are the administrator of only AWS Organizations, tell the administrator of Amazon GuardDuty that they can now disable that service using its console or tools from working with AWS Organizations\.
-
-------
-#### [ New console ]
-
-**To disable trusted service access using the Organizations console**
-
-1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
-
-1. On the **[Services](https://console.aws.amazon.com/organizations/v2/home/services)** page, find the row for **Amazon GuardDuty** and then choose the service’s name\.
-
-1. Choose **Enable trusted access**\.
-
-1. In the confirmation dialog box, enter **disable** in the box, and then choose **Disable trusted access**\.
-
-1. If you are the administrator of only AWS Organizations, tell the administrator of Amazon GuardDuty that they can now disable that service using its console or tools from working with AWS Organizations\.
+You can disable trusted access by running a Organizations AWS CLI command, or by calling an Organizations API operation in one of the AWS SDKs\.
 
 ------
 #### [ AWS CLI, AWS API ]
 
 **To disable trusted service access using the Organizations CLI/SDK**  
 You can use the following AWS CLI commands or API operations to disable trusted service access:
-+ AWS CLI: [aws organizations disable\-aws\-service\-access](https://docs.aws.amazon.com/cli/latest/reference/organizations/disable-aws-service-access.html)
++ AWS CLI: [disable\-aws\-service\-access](https://docs.aws.amazon.com/cli/latest/reference/organizations/disable-aws-service-access.html)
 
   You can run the following command to disable Amazon GuardDuty as a trusted service with Organizations\.
 

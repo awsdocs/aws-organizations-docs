@@ -1,8 +1,5 @@
 # Viewing effective AI services opt\-out policies<a name="orgs_manage_policies_ai-opt-out_effective"></a>
 
-**Note**  
-AWS Organizations is introducing a new version of the Organizations management console\. You can switch between the old console and the new console by choosing the link in the notice boxes at the top of the console\. We encourage you to try the new version and let us know what you think\. We want your feedback and read each submission\.
-
 Determine the effective Artificial Intelligence \(AI\) services opt\-out policy for an account in your organization\.
 
 ## What is the effective AI services opt\-out policy?<a name="effective-ai-opt-out-policy-defined"></a>
@@ -23,24 +20,7 @@ To view the effective AI services opt\-out policy for an account, you must have 
 `organizations:DescribeOrganization` – required only when using the Organizations console
 
 ------
-#### [ Old console ]
-
-**To view the effective AI services opt\-out policy for an account**
-
-1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
-
-1. On the **[Accounts](https://console.aws.amazon.com/organizations/home#/accounts)** tab, choose the account for which you want to view the effective AI services opt\-out policy\. 
-
-   Alternatively, you can use the **[Organize accounts](https://console.aws.amazon.com/organizations/home#/browse)** tab, You might have to expand OUs \(choose the \+ next to an OU name\) in the navigation pane to find the account that you want\. Choose the account for which you want to view the effective AI services opt\-out policy\. 
-
-1. In the details pane, choose **View effective AI service opt\-out policy**\.
-
-   The console displays the effective policy applied to the selected account\.
-**Note**  
-You can't copy and paste an effective policy and use it as the JSON for another AI services opt\-out policy without significant changes\. AI services opt\-out policy documents must include the [inheritance operators](orgs_manage_policies_inheritance_mgmt.md#policy-operators) that specify how each setting is merged into the final effective policy\. 
-
-------
-#### [ New console ]
+#### [ AWS Management Console ]
 
 **To view the effective AI services opt\-out policy for an account**
 
@@ -59,7 +39,7 @@ You can't copy and paste an effective policy and use it as the JSON for another 
 
 **To view the effective AI services opt\-out policy for an account**  
 You can use one of the following to view the effective AI services opt\-out policy:
-+ AWS CLI: [aws organizations describe\-effective\-policy](https://docs.aws.amazon.com/cli/latest/reference/organizations/describe-effective-policy.html)
++ AWS CLI: [describe\-effective\-policy](https://docs.aws.amazon.com/cli/latest/reference/organizations/describe-effective-policy.html)
 
   The following example shows the effective AI services opt\-out policy for an account\.
 

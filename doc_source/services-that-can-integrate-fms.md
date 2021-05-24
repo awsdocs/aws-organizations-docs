@@ -1,13 +1,8 @@
 # AWS Firewall Manager and AWS Organizations<a name="services-that-can-integrate-fms"></a>
 
-AWS Firewall Manager is a security management service that centrally configures and manages firewall rules for web applications across your accounts and applications\. Using AWS Firewall Manager, you can roll out AWS WAF rules all at once for your Application Load Balancers and Amazon CloudFront distributions across all of the accounts in your AWS organization\. Use AWS Firewall Manager to set up your firewall rules just once and have them automatically applied across all accounts and resources within your organization, even as new resources and accounts are added\. 
+AWS Firewall Manager is a security management service you use to centrally configure and manage firewall rules and other protections across the AWS accounts and applications in your organization\. Using Firewall Manager, you can roll out AWS WAF rules, create AWS Shield Advanced protections, configure and audit Amazon Virtual Private Cloud \(Amazon VPC\) security groups, and deploy AWS Network Firewalls\. Use Firewall Manager to set up your protections just once and have them automatically applied across all accounts and resources within your organization, even as new resources and accounts are added\. For more information about AWS Firewall Manager, see the *[AWS Firewall Manager Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/fms-chapter.html)*\.
 
-**Note**  
-Although Firewall Manager doesn't use an Organizations delegated administrator, it does have its own ability to delegate another account as administrator of the Firewall Manager service in the accounts in your organization\. For more information, see [Set the AWS Firewall Manager administrator account](https://docs.aws.amazon.com/waf/latest/developerguide/enable-integration.html)
-
-For more information about AWS Firewall Manager, see the [AWS Firewall Manager Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/fms-chapter.html)\.
-
-Use the following information to help you to help you integrate AWS Firewall Manager with AWS Organizations\.
+Use the following information to help you integrate AWS Firewall Manager with AWS Organizations\.
 
 
 
@@ -33,25 +28,12 @@ You can enable trusted access using either the AWS Firewall Manager console or t
 We strongly recommend that whenever possible, you use the AWS Firewall Manager console or tools to enable integration with Organizations\. This lets AWS Firewall Manager perform any configuration that it requires, such as creating resources needed by the service\. Proceed with these steps only if you can’t enable integration using the tools provided by AWS Firewall Manager\.For more information, see [this note](orgs_integrate_services.md#important-note-about-integration)\.   
 If you enable trusted access by using the AWS Firewall Manager console or tools then you don’t need to complete these steps\.
 
-You must sign in with your AWS Organizations management account and configure an account within the organization as the AWS Firewall Manager administrator account\. For more information, see [Step 2: Set the AWS Firewall Manager Administrator Account](https://docs.aws.amazon.com/waf/latest/developerguide/enable-integration.html) in the *AWS Firewall Manager Developer Guide*\.
+You must sign in with your AWS Organizations management account and configure an account within the organization as the AWS Firewall Manager administrator account\. For more information, see [Set the AWS Firewall Manager Administrator Account](https://docs.aws.amazon.com/waf/latest/developerguide/enable-integration.html) in the *AWS Firewall Manager Developer Guide*\.
 
 You can enable trusted access by using either the AWS Organizations console, by running a AWS CLI command, or by calling an API operation in one of the AWS SDKs\.
 
 ------
-#### [ Old console ]
-
-**To enable trusted service access using the Organizations console**
-
-1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
-
-1. On the **[Settings](https://console.aws.amazon.com/organizations/home#/organization/settings)** tab under **Trusted access for AWS services**, find the row for **AWS Firewall Manager**, and then choose **Enable trusted access**\.
-
-1. In the confirmation dialog box, choose **Enable access for *service\-name***\.
-
-1. If you are the administrator of only AWS Organizations, tell the administrator of AWS Firewall Manager that they can now enable that service using its console to work with AWS Organizations\.
-
-------
-#### [ New console ]
+#### [ AWS Management Console ]
 
 **To enable trusted service access using the Organizations console**
 
@@ -68,7 +50,7 @@ You can enable trusted access by using either the AWS Organizations console, by 
 
 **To enable trusted service access using the OrganizationsCLI/SDK**  
 You can use the following AWS CLI commands or API operations to enable trusted service access:
-+ AWS CLI: [aws organizations enable\-aws\-service\-access](https://docs.aws.amazon.com/cli/latest/reference/organizations/enable-aws-service-access.html)
++ AWS CLI: [enable\-aws\-service\-access](https://docs.aws.amazon.com/cli/latest/reference/organizations/enable-aws-service-access.html)
 
   You can run the following command to enable AWS Firewall Manager as a trusted service with Organizations\.
 
@@ -86,7 +68,7 @@ You can use the following AWS CLI commands or API operations to enable trusted s
 
 For information about the permissions needed to disable trusted access, see [Permissions required to disable trusted access](orgs_integrate_services.md#orgs_trusted_access_disable_perms)\.
 
-You can disable trusted access using either the AWS Firewall Manager console or the AWS Organizations console\.
+You can disable trusted access using either the AWS Firewall Manager or AWS Organizations tools\.
 
 **Important**  
 We strongly recommend that whenever possible, you use the AWS Firewall Manager console or tools to disable integration with Organizations\. This lets AWS Firewall Manager perform any clean up that it requires, such as deleting resources or access roles that are no longer needed by the service\. Proceed with these steps only if you can’t disable integration using the tools provided by AWS Firewall Manager\.  
@@ -100,20 +82,7 @@ If you revoke the administrator account, you must sign in to the AWS Organizatio
 You can disable trusted access by using either the AWS Organizations console, by running an Organizations AWS CLI command, or by calling an Organizations API operation in one of the AWS SDKs\.
 
 ------
-#### [ Old console ]
-
-**To disable trusted service access using the Organizations console**
-
-1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
-
-1. On the **[Settings](https://console.aws.amazon.com/organizations/home#/organization/settings)** tab under **Trusted access for AWS services**, find the row for **AWS Firewall Manager** and then choose **Disable access**\.
-
-1. In the dialog box, choose **Disable access for *service\-name***\.
-
-1. If you are the administrator of only AWS Organizations, tell the administrator of AWS Firewall Manager that they can now disable that service using its console or tools from working with AWS Organizations\.
-
-------
-#### [ New console ]
+#### [ AWS Management Console ]
 
 **To disable trusted service access using the Organizations console**
 
@@ -121,7 +90,7 @@ You can disable trusted access by using either the AWS Organizations console, by
 
 1. On the **[Services](https://console.aws.amazon.com/organizations/v2/home/services)** page, find the row for **AWS Firewall Manager** and then choose the service’s name\.
 
-1. Choose **Enable trusted access**\.
+1. Choose **Disable trusted access**\.
 
 1. In the confirmation dialog box, enter **disable** in the box, and then choose **Disable trusted access**\.
 
@@ -132,7 +101,7 @@ You can disable trusted access by using either the AWS Organizations console, by
 
 **To disable trusted service access using the Organizations CLI/SDK**  
 You can use the following AWS CLI commands or API operations to disable trusted service access:
-+ AWS CLI: [aws organizations disable\-aws\-service\-access](https://docs.aws.amazon.com/cli/latest/reference/organizations/disable-aws-service-access.html)
++ AWS CLI: [disable\-aws\-service\-access](https://docs.aws.amazon.com/cli/latest/reference/organizations/disable-aws-service-access.html)
 
   You can run the following command to disable AWS Firewall Manager as a trusted service with Organizations\.
 
@@ -145,3 +114,12 @@ You can use the following AWS CLI commands or API operations to disable trusted 
 + AWS API: [DisableAWSServiceAccess](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DisableAWSServiceAccess.html)
 
 ------
+
+## Enabling a delegated administrator account for Firewall Manager<a name="integrate-enable-da-fms"></a>
+
+When you designate a member account as a delegated administrator for the organization, users and roles from that account can perform administrative actions for Firewall Manager that otherwise can be performed only by users or roles in the organization's management account\. This helps you to separate management of the organization from management of Firewall Manager\.
+
+**Minimum permissions**  
+Only an IAM user or role in the Organizations management account can configure a member account as a delegated administrator for Firewall Manager in the organization\.
+
+For instructions on how to designate a member account as the Firewall Manager administrator for the organization, see [Set the AWS Firewall Manager Administrator Account](https://docs.aws.amazon.com/waf/latest/developerguide/enable-integration.html) in the *AWS Firewall Manager Developer Guide*\.

@@ -1,8 +1,5 @@
 # Viewing details about your organization<a name="orgs_manage_org_details"></a>
 
-**Note**  
-AWS Organizations is introducing a new version of the Organizations management console\. You can switch between the old console and the new console by choosing the link in the notice boxes at the top of the console\. We encourage you to try the new version and let us know what you think\. We want your feedback and read each submission\.
-
 You can perform the following tasks to view details about elements of your organization\.
 
 **Topics**
@@ -14,23 +11,14 @@ You can perform the following tasks to view details about elements of your organ
 
 ## Viewing the details of an organization from the management account<a name="orgs_view_org"></a>
 
-When you sign in to the organization's management account in the [AWS Organizations console](https://console.aws.amazon.com/organizations), you can view details of the organization\.
+When you sign in to the organization's management account in the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2), you can view details of the organization\.
 
 **Minimum permissions**  
 To view the details of an organization, you must have the following permission:  
 `organizations:DescribeOrganization`
 
 ------
-#### [ Old console ]
-
-**To view the details for your organization**
-
-1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
-
-1. Choose the **[Settings](https://console.aws.amazon.com/organizations/home#/organization/settings)** tab\. This tab displays details about the organization, including the organization ID and the account name and email address assigned to the organization's management account\.
-
-------
-#### [ New console ]
+#### [ AWS Management Console ]
 
 **To view the details for your organization**
 
@@ -43,7 +31,7 @@ To view the details of an organization, you must have the following permission:
 
 **To view the details for your organization**  
 You can use one of the following commands to view details of an organization:
-+ AWS CLI: [aws organizations describe\-organization](https://docs.aws.amazon.com/cli/latest/reference/organizations/describe-organization.html) 
++ AWS CLI: [describe\-organization](https://docs.aws.amazon.com/cli/latest/reference/organizations/describe-organization.html) 
 
   The following example shows the information included in the output of this command\.
 
@@ -69,7 +57,7 @@ The `AvailablePolicyTypes` field is deprecated and doesn't contain accurate info
 
 ## Viewing the details of the root<a name="orgs_view_root"></a>
 
-When you sign in to the organization's management account in the [AWS Organizations console](https://console.aws.amazon.com/organizations), you can view details of the root\.
+When you sign in to the organization's management account in the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2), you can view details of the root\.
 
 **Minimum permissions**  
 To view the details of the root, you must have the following permissions:  
@@ -79,18 +67,7 @@ To view the details of the root, you must have the following permissions:
 The root is the topmost container in the hierarchy of organizational units \(OUs\) and generally behaves as an OU\. However, as the container at the very top of the hierarchy, changes to the root affect every other OU and every AWS account in the organization\.
 
 ------
-#### [ Old console ]<a name="view_details_root_v1"></a>
-
-**To view the details of the root**
-
-1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
-
-1. On the **[Accounts](https://console.aws.amazon.com/organizations/home#/accounts)** tab, choose the **Root** OU \(its name, not the radio button\)\. 
-
-1. The **Root** details page appears and displays the details of the root\.
-
-------
-#### [ New console ]<a name="view_details_root_v2"></a>
+#### [ AWS Management Console ]<a name="view_details_root_v2"></a>
 
 **To view the details of the root**
 
@@ -105,7 +82,7 @@ The root is the topmost container in the hierarchy of organizational units \(OUs
 
 **To view the details of the root**  
 You can use one of the following commands to view details of a root: 
-+ AWS CLI: [aws organizations list\-roots](https://docs.aws.amazon.com/cli/latest/reference/organizations/list-roots.html) 
++ AWS CLI: [list\-roots](https://docs.aws.amazon.com/cli/latest/reference/organizations/list-roots.html) 
 
   The following example shows how to retrieve the details of the root, including which policy types are currently enabled in the organization:
 
@@ -133,7 +110,7 @@ You can use one of the following commands to view details of a root:
 
 ## Viewing the details of an OU<a name="orgs_view_ou"></a>
 
-When you sign in to the organization's management account in the [AWS Organizations console](https://console.aws.amazon.com/organizations), you can view details of the OUs in your organization\.
+When you sign in to the organization's management account in the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2), you can view details of the OUs in your organization\.
 
 **Minimum permissions**  
 To view the details of an organizational unit \(OU\), you must have the following permissions:  
@@ -143,22 +120,11 @@ To view the details of an organizational unit \(OU\), you must have the followin
 `organizations:ListRoots` – required only when using the Organizations console
 
 ------
-#### [ Old console ]<a name="view_details_ou_v1"></a>
+#### [ AWS Management Console ]<a name="view_details_ou_v2"></a>
 
 **To view details of an OU**
 
-1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
-
-1. Choose the **[Organize accounts](https://console.aws.amazon.com/organizations/home#/browse)** tab, and then choose the name of the OU \(not the radio button\) that you want to examine\. If the OU that you want is a child of another OU, navigate to it by choosing the name of an OU to see those in the next level of the hierarchy\. Repeat until you find the OU that you want\.
-
-   The **Organizational unit details** box shows the information about the OU\.
-
-------
-#### [ New console ]<a name="view_details_ou_v2"></a>
-
-**To view details of an OU**
-
-1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
+1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
 
 1. On the **[AWS accounts](https://console.aws.amazon.com/organizations/v2/home/accounts)** page, choose the name of the OU \(not its radio button\) that you want to examine\. If the OU that you want is a child of another OU, choose the triangle icon next to its parent OU to expand it and see those in the next level of the hierarchy\. Repeat until you find the OU that you want\.
 
@@ -170,9 +136,9 @@ To view the details of an organizational unit \(OU\), you must have the followin
 **To view details of an OU**  
 You can use the following commands to view details of an OU:
 + AWS CLI, AWS SDKs: 
-  + [aws organizations list\-roots](https://docs.aws.amazon.com/cli/latest/reference/organizations/list-roots.html) 
-  + [aws organizations list\-children](https://docs.aws.amazon.com/cli/latest/reference/organizations/list-children.html) 
-  + [aws organizations describe\-organizational\-unit](https://docs.aws.amazon.com/cli/latest/reference/organizations/describe-organizational-unit.html) 
+  + [list\-roots](https://docs.aws.amazon.com/cli/latest/reference/organizations/list-roots.html) 
+  + [list\-children](https://docs.aws.amazon.com/cli/latest/reference/organizations/list-children.html) 
+  + [describe\-organizational\-unit](https://docs.aws.amazon.com/cli/latest/reference/organizations/describe-organizational-unit.html) 
 
   The following example shows how to find the ID of on OU using the AWS CLI\. You find the OU ID by traversing the hierarchy starting with the `list-roots` command and then performing `list-children` on the root and iteratively on each of its children until you find the one you want\.
 
@@ -220,7 +186,7 @@ You can use the following commands to view details of an OU:
 
 ## Viewing details of an account<a name="orgs_view_account"></a>
 
-When you sign in to the organization's management account in the [AWS Organizations console](https://console.aws.amazon.com/organizations), you can view details about your accounts\.
+When you sign in to the organization's management account in the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2), you can view details about your accounts\.
 
 **Minimum permissions**  
 To view the details of an AWS account, you must have the following permissions:  
@@ -229,18 +195,7 @@ To view the details of an AWS account, you must have the following permissions:
 `organizations:ListAccounts` – required only when using the Organizations console
 
 ------
-#### [ Old console ]<a name="view_details_account_v1"></a>
-
-**To view details of an AWS account**
-
-1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
-
-1. On the **[Accounts](https://console.aws.amazon.com/organizations/home#/accounts)** tab, choose the name of the name of the account \(not its check box\) that you want to examine\.
-
-   The details pane on the right shows the information about the account\.
-
-------
-#### [ New console ]<a name="view_details_account_v2"></a>
+#### [ AWS Management Console ]<a name="view_details_account_v2"></a>
 
 **To view details of an AWS account**
 
@@ -256,8 +211,8 @@ To view the details of an AWS account, you must have the following permissions:
 **To view details of an AWS account**  
 You can use the following commands to view details of an account:
 + AWS CLI:
-  +  [aws organizations list\-accounts](https://docs.aws.amazon.com/cli/latest/reference/organizations/list-accounts.html) – lists the details of *all* accounts in the organization
-  +  [aws organizations describe\-account](https://docs.aws.amazon.com/cli/latest/reference/organizations/describe-account.html) – lists the details of only the specified account
+  +  [list\-accounts](https://docs.aws.amazon.com/cli/latest/reference/organizations/list-accounts.html) – lists the details of *all* accounts in the organization
+  +  [describe\-account](https://docs.aws.amazon.com/cli/latest/reference/organizations/describe-account.html) – lists the details of only the specified account
 
   Both commands return the same details for each account included in the response\.
 
@@ -286,7 +241,7 @@ You can use the following commands to view details of an account:
 
 ## Viewing details of a policy<a name="orgs_view_policy"></a>
 
-When you sign in to the organization's management account in the [AWS Organizations console](https://console.aws.amazon.com/organizations), you can view details about your policies\.
+When you sign in to the organization's management account in the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2), you can view details about your policies\.
 
 **Minimum permissions**  
 To view the details of a policy, you must have the following permissions:  
@@ -294,24 +249,7 @@ To view the details of a policy, you must have the following permissions:
 `organizations:ListPolicies`
 
 ------
-#### [ Old console ]<a name="view_details_policy_v1"></a>
-
-**To view the details of a policy**
-
-1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
-
-1. Choose the **[Policies](https://console.aws.amazon.com/organizations/home#/policies)** tab, and then choose the policy type for the policy that you want to examine\.
-
-1. Choose the policy that you want to examine\.
-
-   Some details are shown in the details pane on the far right\.
-
-1. More details are available by choosing the **View details** button\.
-
-   On the **Details** page for the policy, you can view all of the information about the policy, including the JSON policy text, and the list of OUs and accounts that the policy is attached to\.
-
-------
-#### [ New console ]<a name="view_details_policy_v2"></a>
+#### [ AWS Management Console ]<a name="view_details_policy_v2"></a>
 
 **To view the details of a policy**
 
@@ -331,8 +269,8 @@ To view the details of a policy, you must have the following permissions:
 **To view the details of a policy**  
 You can use one of the following commands to view details of a policy:
 + AWS CLI:
-  +  [aws organizations list\-policies](https://docs.aws.amazon.com/cli/latest/reference/organizations/list-policies.html)
-  +  [aws organizations describe\-policy](https://docs.aws.amazon.com/cli/latest/reference/organizations/describe-policy.html) – lists the details of only the specified policy
+  +  [list\-policies](https://docs.aws.amazon.com/cli/latest/reference/organizations/list-policies.html)
+  +  [describe\-policy](https://docs.aws.amazon.com/cli/latest/reference/organizations/describe-policy.html) – lists the details of only the specified policy
 
   The following example shows how to find the policy ID of the policy that you want to examine\. You must specify a policy type, and the command returns all policies of only that type\.
 

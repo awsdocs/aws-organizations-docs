@@ -1,8 +1,5 @@
 # Creating an organization<a name="orgs_manage_org_create"></a>
 
-**Note**  
-AWS Organizations is introducing a new version of the Organizations management console\. You can switch between the old console and the new console by choosing the link in the notice boxes at the top of the console\. We encourage you to try the new version and let us know what you think\. We want your feedback and read each submission\.
-
 You can create an organization that starts with your AWS account as the management account\. When you create an organization, you can choose whether the organization supports all features \(recommended\) or only consolidated billing features\. 
 
 After creating an organization, you can add accounts to your organization in these ways from the management account:
@@ -20,26 +17,7 @@ To create an organization with your current AWS account, you must have the follo
 You can restrict this permission to only the service principal `organizations.amazonaws.com`\. 
 
 ------
-#### [ Old console ]
-
-**To create an organization**
-
-1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
-
-1. By default, the organization is created with all features enabled\. However, you can choose either the following steps:
-   + To create an organization with all features enabled, on the introduction page, choose **Create an organization**\.
-   + To create an organization with Consolidated Billing features only, on the introduction page and under **Create an organization**, choose **consolidated billing features**, and then in the confirmation dialog box, choose **Create an organization**\.
-
-   If you accidentally choose the wrong option, you can immediately go to the **[Settings](https://console.aws.amazon.com/organizations/home#/organization/settings)** tab, and then choose **Delete organization** and start over\.
-
-1. The organization is created and the **[Accounts](https://console.aws.amazon.com/organizations/home#/accounts)** tab appears\. The only account present is your management account, and it's currently contained by the [root organizational unit \(OU\)](orgs_getting-started_concepts.md#root)\.
-
-   If required, Organizations automatically sends a verification email to the address that is associated with your management account\. There might be a delay before you receive the verification email\. Verify your email address within 24 hours\. For more information, see [Email address verification](#about-email-verification)\. You can create accounts to grow your organization without verifying your management account's email address\. However, to invite existing accounts, you must first complete email verification\.
-**Note**  
-If this account previously verified its email address, then it doesn't happen again when you use the account to create an organization\. 
-
-------
-#### [ New console ]
+#### [ AWS Management Console ]
 
 **To create an organization**
 
@@ -62,7 +40,7 @@ If this account previously verified its email address, then it doesn't happen ag
 
 **To create an organization**  
 You can use one of the following commands to create an organization:
-+ AWS CLI: [aws organizations create\-organization](https://docs.aws.amazon.com/cli/latest/reference/organizations/create-organization.html)
++ AWS CLI: [create\-organization](https://docs.aws.amazon.com/cli/latest/reference/organizations/create-organization.html)
 
   The following example creates an organization and makes the currently signed\-in AWS account the management account for the organization\.
 
@@ -103,20 +81,7 @@ If you don't verify your email address within 24 hours, you can resend the verif
 + To change the email address that is associated with your management account, see [Managing an AWS Account](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/manage-account-payment.html) in the *AWS Billing and Cost Management User Guide*\.
 
 ------
-#### [ Old console ]
-
-**To resend the verification request**
-
-1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
-
-1. Choose the **[Settings](https://console.aws.amazon.com/organizations/home#/organization/settings)** tab and then choose **Send verification request**\. The option is only present if the management account is not verified\.
-
-1. Verify your email address within 24 hours\.
-
-   After verifying your email address, you can invite other AWS accounts to your organization\. For more information, see [Inviting an AWS account to join your organization](orgs_manage_accounts_invites.md)\.
-
-------
-#### [ New console ]
+#### [ AWS Management Console ]
 
 **To resend the verification request**
 

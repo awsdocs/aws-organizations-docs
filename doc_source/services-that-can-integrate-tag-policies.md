@@ -2,7 +2,7 @@
 
 *Tag policies* are a type of policy in AWS Organizations that can help you standardize tags across resources in your organization's accounts\. For more information about tag policies, see [Tag policies](orgs_manage_policies_tag-policies.md)\. 
 
-Use the following information to help you to help you integrate tag policies with AWS Organizations\.
+Use the following information to help you integrate tag policies with AWS Organizations\.
 
 
 
@@ -23,20 +23,7 @@ You can enable trusted access for tag policies by enabling the tag policy type i
 You can enable trusted access by using either the AWS Organizations console, by running a AWS CLI command, or by calling an API operation in one of the AWS SDKs\.
 
 ------
-#### [ Old console ]
-
-**To enable trusted service access using the Organizations console**
-
-1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
-
-1. On the **[Settings](https://console.aws.amazon.com/organizations/home#/organization/settings)** tab under **Trusted access for AWS services**, find the row for **tag policies**, and then choose **Enable trusted access**\.
-
-1. In the confirmation dialog box, choose **Enable access for *service\-name***\.
-
-1. If you are the administrator of only AWS Organizations, tell the administrator of tag policies that they can now enable that service using its console to work with AWS Organizations\.
-
-------
-#### [ New console ]
+#### [ AWS Management Console ]
 
 **To enable trusted service access using the Organizations console**
 
@@ -53,7 +40,7 @@ You can enable trusted access by using either the AWS Organizations console, by 
 
 **To enable trusted service access using the OrganizationsCLI/SDK**  
 You can use the following AWS CLI commands or API operations to enable trusted service access:
-+ AWS CLI: [aws organizations enable\-aws\-service\-access](https://docs.aws.amazon.com/cli/latest/reference/organizations/enable-aws-service-access.html)
++ AWS CLI: [enable\-aws\-service\-access](https://docs.aws.amazon.com/cli/latest/reference/organizations/enable-aws-service-access.html)
 
   You can run the following command to enable tag policies as a trusted service with Organizations\.
 

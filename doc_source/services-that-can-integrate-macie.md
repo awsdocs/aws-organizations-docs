@@ -4,7 +4,7 @@ Amazon Macie is a fully managed data security and data privacy service that uses
 
 For more information, see [Managing multiple Amazon Macie accounts with AWS Organizations](https://docs.aws.amazon.com/macie/latest/user/macie-organizations.html) in the *[Amazon Macie User Guide](https://docs.aws.amazon.com/macie/latest/userguide/)*\.
 
-Use the following information to help you to help you integrate Amazon Macie with AWS Organizations\.
+Use the following information to help you integrate Amazon Macie with AWS Organizations\.
 
 
 
@@ -42,7 +42,7 @@ You can enable trusted access by running a Organizations AWS CLI command, or by 
 
 **To enable trusted service access using the Organizations CLI/SDK**  
 You can use the following AWS CLI commands or API operations to enable trusted service access:
-+ AWS CLI: [aws organizations enable\-aws\-service\-access](https://docs.aws.amazon.com/cli/latest/reference/organizations/enable-aws-service-access.html)
++ AWS CLI: [enable\-aws\-service\-access](https://docs.aws.amazon.com/cli/latest/reference/organizations/enable-aws-service-access.html)
 
   You can run the following command to enable Amazon Macie as a trusted service with Organizations\.
 

@@ -1,8 +1,5 @@
 # Removing a member account from your organization<a name="orgs_manage_accounts_remove"></a>
 
-**Note**  
-AWS Organizations is introducing a new version of the Organizations management console\. You can switch between the old console and the new console by choosing the link in the notice boxes at the top of the console\. We encourage you to try the new version and let us know what you think\. We want your feedback and read each submission\.
-
 Part of managing accounts in an organization is removing *member* accounts that you no longer need\. This page describes what you need to know before removing an account and provides procedures for removing accounts\.
 
 For information on removing the *management account*, see [Deleting the organization by removing the management account](orgs_manage_org_delete.md)\.
@@ -48,32 +45,7 @@ If you choose to sign in as an IAM user or role in a member account in step 6, t
 If you sign in as an IAM user and the account is missing payment information, the IAM user must have the permissions `aws-portal:ModifyBilling` and `aws-portal:ModifyPaymentMethods`\. Also, the member account must have IAM user access to billing enabled\. If this isn't already enabled, see [Activating Access to the Billing and Cost Management Console](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate) in the *AWS Billing and Cost Management User Guide*\.
 
 ------
-#### [ Old console ]
-
-**To remove a member account from your organization**
-
-1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
-
-1. On the **[Accounts](https://console.aws.amazon.com/organizations/home#/accounts)** tab, find and choose the member account that you want to remove from your organization\.
-
-1. Choose **Remove**\.
-
-1. In the **Remove account** dialog box, choose **Remove account**\.
-
-1. If AWS Organizations fails to remove one or more of the accounts, it's typically because you have not provided all the required information for the account to operate as a standalone account\. Perform the following steps:
-
-   1. Sign in to the failed accounts\. We recommend that you sign in to the member account by choosing **Copy link**, and then pasting it into the address bar of a new incognito browser window\. If you don't use an incognito window, you're signed out of the management account and won't be able to navigate back to this dialog box\.
-
-   1. The browser takes you directly to the sign\-up process to complete any steps that are missing for this account\. Complete all the steps presented\. They might include the following:
-      + Provide contact information
-      + Provide a valid payment method
-      + Verify the phone number
-      + Select a support plan option
-
-   1. After you complete the last sign\-up step, AWS automatically redirects your browser to the AWS Organizations console for the member account\. Choose **Leave organization**, and then confirm your choice in the confirmation dialog box\. You are redirected to the **Getting Started** page of the AWS Organizations console, where you can view any pending invitations for your account to join other organizations\.
-
-------
-#### [ New console ]
+#### [ AWS Management Console ]
 
 **To remove a member account from your organization**
 
@@ -102,7 +74,7 @@ If you sign in as an IAM user and the account is missing payment information, th
 
 **To remove a member account from your organization**  
 You can use one of the following commands to remove a member account:
-+ AWS CLI: [aws organizations remove\-account\-from\-organization](https://docs.aws.amazon.com/cli/latest/reference/organizations/remove-account-from-organization.html)
++ AWS CLI: [remove\-account\-from\-organization](https://docs.aws.amazon.com/cli/latest/reference/organizations/remove-account-from-organization.html)
 
   ```
   $ aws organizations remove-account-from-organization \
@@ -136,38 +108,7 @@ To leave an AWS organization, you must have the following permissions:
 If you sign in as an IAM user and the account is missing payment information, the IAM user must have the permissions `aws-portal:ModifyBilling` and `aws-portal:ModifyPaymentMethods`\. Also, the member account must have IAM user access to billing enabled\. If this isn't already enabled, see [Activating Access to the Billing and Cost Management Console](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate) in the *AWS Billing and Cost Management User Guide*\. 
 
 ------
-#### [ Old console ]
-
-**To leave an organization as a member account**
-
-1. Sign in to the AWS Organizations console at [AWS Organizations console](https://console.aws.amazon.com/organizations)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in a member account\. 
-
-   By default, you don't have access to the root user password in a member account that was created using AWS Organizations\. If required, recover the root user password by following the steps at [Accessing a member account as the root user](orgs_manage_accounts_access.md#orgs_manage_accounts_access-as-root)\.
-
-1. On the **[Organizations Overview](https://console.aws.amazon.com/organizations/home#/organization/overview)** page, choose **Leave organization**\.
-
-1. Perform one of the following steps:
-   + If your account has all the required information to operate as a standalone account, a confirmation dialog box appears\. Confirm your choice to remove the account\. You are redirected to the **Getting Started** page of the AWS Organizations console, where you can view any pending invitations for your account to join other organizations\.
-   + If your account doesn't have all the required information, a dialog box appears to explain that you must complete some additional steps:
-
-     1.  Click the link to start the process\.
-
-     1. Complete all the sign\-up steps that are presented\. They might include the following:
-        + Provide contact information
-        + Provide a valid payment method
-        + Verify the phone number
-        + Select a support plan option
-
-     1. When you see the dialog box stating that the sign\-up process is complete, choose **Leave organization**\.
-
-     1. A confirmation dialog box appears\. Confirm your choice to remove the account\. You are redirected to the **Getting Started** page of the AWS Organizations console, where you can view any pending invitations for your account to join other organizations\.
-
-1. Remove the IAM roles that grant access to your account from the organization\.
-**Important**  
-If your account was created in the organization, then Organizations automatically created an IAM role in the account that enabled access by the organization's management account\. If the account was invited to join, then Organizations did not automatically create such a role, but you or another administrator might have created one to get the same benefits\. In either case, when you remove the account from the organization, any such role isn't automatically deleted\. If you want to terminate this access from the former organization's management account, then you must manually delete this IAM role\. For information about how to delete a role, see [Deleting roles or instance profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_manage_delete.html) in the *IAM User Guide*\.
-
-------
-#### [ New console ]
+#### [ AWS Management Console ]
 
 **To leave an organization as a member account**
 
@@ -202,7 +143,7 @@ If your account was created in the organization, then Organizations automaticall
 
 **To leave an organization as a member account**  
 You can use one of the following commands to leave an organization:
-+ AWS CLI: [aws organizations leave\-organization](https://docs.aws.amazon.com/cli/latest/reference/organizations/leave-organization.html)
++ AWS CLI: [leave\-organization](https://docs.aws.amazon.com/cli/latest/reference/organizations/leave-organization.html)
 
   The following example causes the account whose credentials are used to run the command to leave the organizatio\.\.
 

@@ -1,8 +1,5 @@
 # Enabling all features in your organization<a name="orgs_manage_org_support-all-features"></a>
 
-**Note**  
-AWS Organizations is introducing a new version of the Organizations management console\. You can switch between the old console and the new console by choosing the link in the notice boxes at the top of the console\. We encourage you to try the new version and let us know what you think\. We want your feedback and read each submission\.
-
 AWS Organizations has two available feature sets:
 + [All features](orgs_getting-started_concepts.md#feature-set-all) – This feature set is the preferred way to work with AWS Organizations, and it includes Consolidating Billing features\. When you create an organization, enabling all features is the default\. With all features enabled, you can use the advanced account management features available in AWS Organizations such as [integration with supported AWS services](orgs_integrate_services_list.md) and [organization management policies](orgs_manage_policies.md)\.
 + [Consolidated Billing features](orgs_getting-started_concepts.md#feature-set-cb-only) – All organizations support this subset of features, which provides basic management tools that you can use to centrally manage the accounts in your organization\. 
@@ -33,26 +30,7 @@ To enable all features in your organization, you must have the following permiss
 `organizations:DescribeOrganization` – required only when using the Organizations console
 
 ------
-#### [ Old console ]
-
-**To ask your invited member accounts to agree to enable all features in the organization**
-
-1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
-
-1. On the **[Settings](https://console.aws.amazon.com/organizations/home#/organization/settings)** tab, choose **Enable all features**\.
-
-1. On the **Enable all features** page, acknowledge your understanding that you cannot return to only consolidated billing features after you switch by choosing **Begin the process to enable all features**\. 
-
-   AWS Organizations sends a request to every invited \(not created\) account in the organization asking for approval to enable all features in the organization\. If you have any accounts that were created using AWS Organizations and the member account administrator deleted the service\-linked role named `AWSServiceRoleForOrganizations`, AWS Organizations sends that account a request to recreate the role\.
-
-   The console displays the **Request approval status** list for the invited accounts\.
-**Tip**  
-To get back to this page later, navigate to the **[Settings](https://console.aws.amazon.com/organizations/home#/organization/settings)** tab, then in the **Requests sent** box, choose **View status**\.
-
-1. This page shows the current request status for each account in the organization\. Accounts that have agreed to the request show a status of **Accepted**\. Accounts that haven't yet agreed show a status of **Open**\.
-
-------
-#### [ New console ]
+#### [ AWS Management Console ]
 
 **To ask your invited member accounts to agree to enable all features in the organization**
 
@@ -75,7 +53,7 @@ To get back to this page later, open the **[Settings](https://console.aws.amazon
 
 **To ask your invited member accounts to agree to enable all features in the organization**  
 You can use one of the following commands to enable all features in an organization: 
-+ AWS CLI: [aws organizations enable\-all\-features](https://docs.aws.amazon.com/cli/latest/reference/organizations/enable-all-features.html)
++ AWS CLI: [enable\-all\-features](https://docs.aws.amazon.com/cli/latest/reference/organizations/enable-all-features.html)
 
   The following command begins the process to enable all features in the organization\.
 
@@ -132,16 +110,7 @@ To approve a request to enable all features for your member account, you must ha
 `iam:CreateServiceLinkedRole` – required only if the `AWSServiceRoleForOrganizations` role must be recreated in the member account
 
 ------
-#### [ Old console ]
-
-**To agree to the request to enable all features in the organization**
-
-1. Sign in to the AWS Organizations console at [AWS Organizations console](https://console.aws.amazon.com/organizations)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in a member account\. 
-
-1. Read what accepting the request for all features in the organization means for your account, and then choose **Accept**\. The page continues to show the process as incomplete until all accounts in the organization accept the requests and the administrator of the management account finalizes the process\.
-
-------
-#### [ New console ]
+#### [ AWS Management Console ]
 
 **To agree to the request to enable all features in the organization**
 
@@ -155,8 +124,8 @@ To approve a request to enable all features for your member account, you must ha
 **To agree to the request to enable all features in the organization**  
 To agree to the request, you must accept the handshake with `"Action": "APPROVE_ALL_FEATURES"`\.
 + AWS CLI:
-  +  [aws organizations accept\-handshake](https://docs.aws.amazon.com/cli/latest/reference/organizations/accept-handshake.html)
-  + [aws organizations list\-handshakes\-for\-account](https://docs.aws.amazon.com/cli/latest/reference/organizations/list-handshakes-for-account.html)
+  +  [accept\-handshake](https://docs.aws.amazon.com/cli/latest/reference/organizations/accept-handshake.html)
+  + [list\-handshakes\-for\-account](https://docs.aws.amazon.com/cli/latest/reference/organizations/list-handshakes-for-account.html)
 
   The following example shows how to list the handshakes available for your account\. The value of `"Id"` in the fourth line of the output is the value you need for the next command\.
 
@@ -240,7 +209,7 @@ To agree to the request, you must accept the handshake with `"Action": "APPROVE_
   }
   ```
 + AWS SDKs:
-  + [aws organizations list\-handshakes\-for\-account](https://docs.aws.amazon.com/cli/latest/reference/organizations/list-handshakes-for-account.html)
+  + [list\-handshakes\-for\-account](https://docs.aws.amazon.com/cli/latest/reference/organizations/list-handshakes-for-account.html)
   + [AcceptHandshake](https://docs.aws.amazon.com/organizations/latest/APIReference/API_AcceptHandshake.html)
 
 ------
@@ -256,22 +225,7 @@ To finalize the process to enable all features for the organization, you must ha
 `organizations:DescribeOrganization` – required only when using the Organizations console
 
 ------
-#### [ Old console ]
-
-**To finalize the process to enable all features**
-
-1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
-
-1. On the **Settings** tab, under **The process to enable all features has started**, choose **View 'enable all features' request status**\.
-
-   If all invited accounts accept the request to enable all features, a green box appears at the top of the page\.
-
-1. In the green box, choose **Finalize process to enable all features**\. When asked to confirm, choose **Finalize process to enable all features** again\.
-
-1. The organization now has all features enabled\.
-
-------
-#### [ New console ]
+#### [ AWS Management Console ]
 
 **To finalize the process to enable all features**
 
@@ -289,8 +243,8 @@ To finalize the process to enable all features for the organization, you must ha
 **To finalize the process to enable all features**  
 To finalize the process, you must accept the handshake with `"Action": "ENABLE_ALL_FEATURES"`\.
 + AWS CLI:
-  + [aws organizations list\-handshakes\-for\-organization](https://docs.aws.amazon.com/cli/latest/reference/organizations/list-handshakes-for-organization.html)
-  +  [aws organizations accept\-handshake](https://docs.aws.amazon.com/cli/latest/reference/organizations/accept-handshake.html)
+  + [list\-handshakes\-for\-organization](https://docs.aws.amazon.com/cli/latest/reference/organizations/list-handshakes-for-organization.html)
+  +  [accept\-handshake](https://docs.aws.amazon.com/cli/latest/reference/organizations/accept-handshake.html)
 
   ```
   $ aws organizations list-handshakes-for-organization

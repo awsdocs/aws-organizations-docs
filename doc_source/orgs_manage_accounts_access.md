@@ -1,8 +1,5 @@
 # Accessing and administering the member accounts in your organization<a name="orgs_manage_accounts_access"></a>
 
-**Note**  
-AWS Organizations is introducing a new version of the Organizations management console\. You can switch between the old console and the new console by choosing the link in the notice boxes at the top of the console\. We encourage you to try the new version and let us know what you think\. We want your feedback and read each submission\.
-
 When you create an account in your organization, in addition to the root user, AWS Organizations automatically creates an IAM role that is by default named `OrganizationAccountAccessRole`\. You can specify a different name when you create it, however we recommend that you name it consistently across all of your accounts\. We refer to the role in this guide by the default name\. AWS Organizations doesn't create any other IAM users, groups, or other roles\. To access the accounts in your organization, you must use one of the following methods:
 + The account has a root user that you can use to sign in\. We recommend that you use the root user only to create IAM users, groups, and roles and then always sign in with one of those\. See [Accessing a member account as the root user](#orgs_manage_accounts_access-as-root)\. 
 + If you create an account by using the tools provided as part of AWS Organizations, you can access the account by using the preconfigured role named `OrganizationAccountAccessRole` that exists in all new accounts that you create this way\. See [Accessing a member account that has a management account access role](#orgs_manage_accounts_access-cross-account-role)\.

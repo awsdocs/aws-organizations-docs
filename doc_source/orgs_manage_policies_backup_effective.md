@@ -1,8 +1,5 @@
 # Viewing effective backup policies<a name="orgs_manage_policies_backup_effective"></a>
 
-**Note**  
-AWS Organizations is introducing a new version of the Organizations management console\. You can switch between the old console and the new console by choosing the link in the notice boxes at the top of the console\. We encourage you to try the new version and let us know what you think\. We want your feedback and read each submission\.
-
 You can view the effective backup policy for an account from the AWS Management Console, AWS API, or AWS Command Line Interface\. The following section provides a brief overview of the effective backup policy, including an example\.
 
 ## What is the effective backup policy?<a name="effective-backup-policy-defined"></a>
@@ -23,24 +20,7 @@ To view the effective backup policy for an account, you must have permission to 
 `organizations:DescribeOrganization` – required only when using the Organizations console
 
 ------
-#### [ Old console ]
-
-**To view the effective backup policy for an account**
-
-1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
-
-1. On the **[Accounts](https://console.aws.amazon.com/organizations/home#/accounts)** tab, choose the account for which you want to view the effective backup policy\. 
-
-   Alternatively, you can use the **[Organize accounts](https://console.aws.amazon.com/organizations/home#/browse)** tab, You might have to expand OUs \(choose the \+ next to an OU name\) in the navigation pane to find the account that you want\. Choose the account for which you want to view the effective backup policy\. 
-
-1. In the details pane, choose **View effective backup policy**\.
-
-   The console displays the effective policy applied to the selected account\.
-**Note**  
-You can't copy and paste an effective policy and use it as the JSON for another backup policy without significant changes\. Tackup policy documents must include the [inheritance operators](orgs_manage_policies_inheritance_mgmt.md#policy-operators) that specify how each setting is merged into the final effective policy\. 
-
-------
-#### [ New console ]
+#### [ AWS Management Console ]
 
 **To view the effective backup policy for an account**
 
@@ -59,7 +39,7 @@ You can't copy and paste an effective policy and use it as the JSON for another 
 
 **To view the effective backup policy for an account**  
 You can use one of the following commands to view the effective backup policy:
-+ AWS CLI: [aws organizations describe\-effective\-policy](https://docs.aws.amazon.com/cli/latest/reference/organizations/describe-effective-policy.html)
++ AWS CLI: [describe\-effective\-policy](https://docs.aws.amazon.com/cli/latest/reference/organizations/describe-effective-policy.html)
 
   The following example displays the details of a backup policy\.
 

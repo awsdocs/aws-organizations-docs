@@ -8,7 +8,7 @@ When you use both Security Hub and AWS Organizations together, you can automatic
 
 For more information about Security Hub, see the *[AWS Security Hub User Guide](https://docs.aws.amazon.com/securityhub/latest/userguide/)*\.
 
-Use the following information to help you to help you integrate AWS Security Hub with AWS Organizations\.
+Use the following information to help you integrate AWS Security Hub with AWS Organizations\.
 
 
 
