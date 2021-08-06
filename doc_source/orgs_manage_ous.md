@@ -31,7 +31,7 @@ To navigate to different OUs or to the root when moving accounts or attaching po
 
 ------
 
-You can also view the list of all accounts in your organization in tabular form, without having to first navigate to an OU to find them\. In this view you can't see any of the OUs or manipulate the policies attached to them\.
+You can also view the list of only the accounts in your organization in tabular form, without having to first navigate to an OU to find them\. In this view you can't see any of the OUs or manipulate the policies attached to them\.
 
 ------
 #### [ AWS Management Console ]
@@ -238,25 +238,27 @@ You can use one of the following commands to change the tags attached to an OU:
 
 ------
 
-## Moving an account to an OU or between the root and OUs<a name="move_account_to_ou"></a>
+## Moving accounts to an OU or between the root and OUs<a name="move_account_to_ou"></a>
 
-When you sign in to your organization's management account, you can move accounts in your organization from the root to an OU, from one OU to another, or back to the root from an OU\. Placing an account inside an OU makes it subject to any policies that are attached to the parent OU and any other OUs in the parent chain up to the root\. If an account isn't in an OU, it's subject to only the policies that are attached to the root and any that are attached directly to the account\. To move an account, complete the following steps\.
+When you sign in to your organization's management account, you can move accounts in your organization from the root to an OU, from one OU to another, or back to the root from an OU\. Placing an account inside an OU makes it subject to any policies that are attached to the parent OU and any OUs in the parent chain up to the root\. If an account isn't in an OU, it's subject to only the policies that are attached directly to the root and any policies that are attached directly to the account\. To move accounts, complete the following steps\.
 
 **Minimum permissions**  
-To move an account to a new location in the OU hierarchy, you must have the following permissions:  
+To move accounts to a new location in the OU hierarchy, you must have the following permissions:  
 `organizations:DescribeOrganization` – required only when using the Organizations console
 `organizations:MoveAccount`
 
 ------
 #### [ AWS Management Console ]
 
-**To move an account to an OU**
+**To move accounts to an OU**
 
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
 
-1. On the **[AWS accounts](https://console.aws.amazon.com/organizations/v2/home/accounts)** page, [navigate to the OU](#navigate_tree) that contains the account that you want to move\. 
+1. On the **[AWS accounts](https://console.aws.amazon.com/organizations/v2/home/accounts)** page, find the account or accounts that you want to move\. You can navigate the OU hierarchy or enable **View AWS accounts only** to see a flat list of accounts without the OU structure\. If you have a lot of accounts, you might have to choose **Load more accounts in '*ou\-name*'** at the bottom of the list to find all of those you want to move\.
 
-1. Choose the radio button next to the account's name, and then on the **Actions** menu, under **AWS account**, choose **Move **\.
+1. Choose the check box ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/organizations/latest/userguide/images/checkbox-selected.png) next to the name of each account that you want to move\.
+
+1. On the **Actions** menu, under **AWS account**, choose **Move **\.
 
 1. In the **Move AWS account** dialog box, navigate to and then choose the OU or root that you want to move the account to, and then choose **Move AWS account**\.
 
@@ -281,9 +283,9 @@ You can use one of the following commands to move an account:
 
 ------
 
-## Deleting an OU<a name="delete-ou"></a>
+## Deleting OUs<a name="delete-ou"></a>
 
-When you sign in to your organization's management account, you can delete OUs that you no longer need\. 
+When you sign in to your organization's management account, you can delete any OUs that you no longer need\. 
 
 You must first move all accounts out of the OU and any child OUs, and then you can delete the child OUs\.
 
@@ -299,13 +301,13 @@ To delete an OU, you must have the following permissions:
 
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
 
-1. On the **[AWS accounts](https://console.aws.amazon.com/organizations/v2/home/accounts)** page, [navigate to the OU](#navigate_tree) that you want to delete and perform one of the following steps:
-   + Choose the radio button next to the OUs name, and then on the **Actions** menu, under **Organizational unit**, choose **Delete**\.
-   + Choose the name of the OU to go to its Details page, and then choose **Delete**\.
+1. On the **[AWS accounts](https://console.aws.amazon.com/organizations/v2/home/accounts)** page, find the OUs that you want to delete and choose the check box ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/organizations/latest/userguide/images/checkbox-selected.png) next to each OU's name\.
 
-1. To confirm that you want to delete the OU, enter its name, and then choose **Delete**\.
+1. Choose **Actions**, and then under **Organizational unit**, choose **Delete**\.
 
-   AWS Organizations deletes the OU and removes it from the list\.
+1. To confirm that you want to delete the OUs, enter the OU's name \(if you chose to delete only one\) or the word 'delete' \(if you chose more than one\), and then choose **Delete**\.
+
+   AWS Organizations deletes the OUs and removes them from the list\.
 
 ------
 #### [ AWS CLI & AWS SDKs ]

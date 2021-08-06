@@ -78,7 +78,7 @@ Within 24 hours, follow the instructions in the email to verify your email addre
 
 If you don't verify your email address within 24 hours, you can resend the verification request so that you can invite other AWS accounts to your organization\. If you don't receive the verification email, check that your email address is correct and, if necessary, modify it\.
 + To find out what email address is associated with your management account, see [Viewing the details of an organization from the management account](orgs_manage_org_details.md#orgs_view_org)\.
-+ To change the email address that is associated with your management account, see [Managing an AWS Account](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/manage-account-payment.html) in the *AWS Billing and Cost Management User Guide*\.
++ To change the email address that is associated with your management account, see [Managing an AWS account](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/manage-account-payment.html) in the *AWS Billing and Cost Management User Guide*\.
 
 ------
 #### [ AWS Management Console ]
@@ -95,4 +95,7 @@ If you don't verify your email address within 24 hours, you can resend the verif
 
 ------
 
-If you change the email address of the management account, the account's status reverts to "email unverified," and you must complete the verification process for your new email address\.
+If you change the email address of the management account, the account's status reverts to "email unverified," and you must complete the verification process for your new email address\. 
+
+**Note**  
+If you invited accounts to join your organization before you changed the management account's email address and those invitations have not yet been accepted, they can’t be accepted until you verify the management account’s new email address\. Use the previous procedure to resend the verification request\. After you complete the process by responding to the email, your invited accounts can accept the invitations\.

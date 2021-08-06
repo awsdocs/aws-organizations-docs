@@ -12,25 +12,25 @@ Use the following information to help you integrate Amazon GuardDuty with AWS Or
 
 ## Service\-linked roles created when you enable integration<a name="integrate-enable-slr-guardduty"></a>
 
-The following [service\-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html) is automatically created in your organization's accounts when you enable trusted access\. These roles allow GuardDuty to perform supported operations within the accounts in your organization\.
+The following [service\-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html) is automatically created in your organization's management account when you enable trusted access\. This role allows GuardDuty to perform supported operations within your organization's accounts in your organization\.
 
-You can delete or modify these roles only if you disable trusted access between GuardDuty and Organizations, or if you remove the member account from the organization\.
+You can delete or modify this role only if you disable trusted access between GuardDuty and Organizations, or if you remove the member account from the organization\.
 + `AWSServiceRoleForAmazonGuardDuty`
 
 ## Service principals used by the service\-linked roles<a name="integrate-enable-svcprin-guardduty"></a>
 
-The service\-linked roles in the previous section can be assumed only by the service principals authorized by the trust relationships defined for the role\. The service\-linked roles used by GuardDuty grant access to the following service principals:
+The service\-linked role in the previous section can be assumed only by the service principals authorized by the trust relationships defined for the role\. The service\-linked roles used by GuardDuty grant access to the following service principals:
 + `guardduty.amazonaws.com`
 
 ## Enabling trusted access with GuardDuty<a name="integrate-enable-ta-guardduty"></a>
 
 For information about the permissions needed to enable trusted access, see [Permissions required to enable trusted access](orgs_integrate_services.md#orgs_trusted_access_perms)\.
 
-You can enable trusted access using only the Amazon GuardDuty tools\.
+You can enable trusted access using only Amazon GuardDuty\.
 
-You can enable trusted access using the Amazon GuardDuty console\.
+Amazon GuardDuty requires trusted access to AWS Organizations before you can designate a member account to be the GuardDuty administrator for your organization\. If you configure a delegated administrator using the GuardDuty console, then GuardDuty automatically enables trusted access for you\. 
 
-Amazon GuardDuty requires trusted access to AWS Organizations before you can designate a member account to be the GuardDuty administrator for your organization\. If you configure a delegated administrator using the AWS Management Console, then GuardDuty automatically enables trusted access for you\. However, if you want to configure a delegated administrator account using the AWS CLI or one of the AWS SDKs, then you must explicitly call the [EnableAWSServiceAccess](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAWSServiceAccess.html) operation and provide the service principal as a parameter\. Then you can call [EnableOrganizationAdminAccount](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_EnableOrganizationAdminAccount.html) to delegate the GuardDuty administrator account\.
+However, if you want to configure a delegated administrator account using the AWS CLI or one of the AWS SDKs, then you must explicitly call the [EnableAWSServiceAccess](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAWSServiceAccess.html) operation and provide the service principal as a parameter\. Then you can call [EnableOrganizationAdminAccount](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_EnableOrganizationAdminAccount.html) to delegate the GuardDuty administrator account\.
 
 ## Disabling trusted access with GuardDuty<a name="integrate-disable-ta-guardduty"></a>
 

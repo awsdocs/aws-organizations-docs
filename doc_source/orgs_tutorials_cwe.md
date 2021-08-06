@@ -183,7 +183,7 @@ In this step, you create an organizational unit \(OU\) and observe the CloudWatc
 
 1. Open the AWS Organizations console to the [**AWS accounts** page](https://console.aws.amazon.com/organizations/v2/home/accounts)\. 
 
-1.  Choose the **Root** OU \(the radio button ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/organizations/latest/userguide/images/radio-button-selected.png), not its name\), choose **Actions**, and then under **Organizational unit** choose **Create new**\.
+1.  Choose the check box ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/organizations/latest/userguide/images/checkbox-selected.png) **Root** OU, choose **Actions**, and then under **Organizational unit** choose **Create new**\.
 
 1. For the name of the OU, enter **TestCWEOU** and then choose **Create organizational unit**\.
 
@@ -252,16 +252,16 @@ To avoid incurring charges, you should delete any AWS resources that you created
 
 **To clean up your AWS environment**
 
-1. Use the CloudTrail console at [https://console.aws.amazon.com/cloudtrail/](https://console.aws.amazon.com/cloudtrail/) to delete the trail named **My\-Test\-Trail** that you created in step 1\.
+1. Use the [CloudTrail console](https://console.aws.amazon.com/cloudtrail/) to delete the trail named **My\-Test\-Trail** that you created in step 1\.
 
-1. If you created an Amazon S3 bucket in step 1, use the Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/) to delete it\.
+1. If you created an Amazon S3 bucket in step 1, use the [Amazon S3 console](https://console.aws.amazon.com/s3/) to delete it\.
 
-1. Use the Lambda console at [https://console.aws.amazon.com/lambda/](https://console.aws.amazon.com/lambda/) to delete the function named **LogOrganizationEvents** that you created in step 2\.
+1. Use the [Lambda console](https://console.aws.amazon.com/lambda/) to delete the function named **LogOrganizationEvents** that you created in step 2\.
 
-1. Use the Amazon SNS console at [https://console.aws.amazon.com/sns/](https://console.aws.amazon.com/sns/) to delete the Amazon SNS topic named **OrganizationsCloudWatchTopic** that you created in step 3\.
+1. Use the [Amazon SNS console](https://console.aws.amazon.com/sns/) to delete the Amazon SNS topic named **OrganizationsCloudWatchTopic** that you created in step 3\.
 
-1. Use the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/) to delete the CloudWatch rule named **OrgsMonitorRule** that you created in step 4\.
+1. Use the [CloudWatch console](https://console.aws.amazon.com/cloudwatch/) to delete the CloudWatch rule named **OrgsMonitorRule** that you created in step 4\.
 
-1. Finally, use the Organizations console at [https://console.aws.amazon.com/organizations/](https://console.aws.amazon.com/organizations/) to delete the OU named **TestCWEOU** that you created in step 5\.
+1. Finally, use the [Organizations console](https://console.aws.amazon.com/organizations/) to delete the OU named **TestCWEOU** that you created in step 5\.
 
 That's it\. In this tutorial, you configured CloudWatch Events to monitor your organization for changes\. You configured a rule that is triggered when users invoke specific AWS Organizations operations\. The rule ran a Lambda function that logged the event and sent an email that contains details about the event\.

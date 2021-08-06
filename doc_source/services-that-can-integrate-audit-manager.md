@@ -12,16 +12,16 @@ Use the following information to help you integrate AWS Audit Manager with AWS O
 
 ## Service\-linked roles created when you enable integration<a name="integrate-enable-slr-audit-manager"></a>
 
-The following [service\-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html) is automatically created in your organization's accounts when you enable trusted access\. These roles allow Audit Manager to perform supported operations within the accounts in your organization\.
+The following [service\-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html) is automatically created in your organization's management account when you enable trusted access\. This role allows Audit Manager to perform supported operations within your organization's accounts in your organization\.
 
-You can delete or modify these roles only if you disable trusted access between Audit Manager and Organizations, or if you remove the member account from the organization\.
+You can delete or modify this role only if you disable trusted access between Audit Manager and Organizations, or if you remove the member account from the organization\.
 
 For more information about how Audit Manager uses this role, see [Using service\-linked roles](https://docs.aws.amazon.com/audit-manager/latest/userguide/using-service-linked-roles.html) in the *AWS Audit Manager Users Guide*\.
 + `AWSServiceRoleForAuditManager`
 
 ## Service principals used by the service\-linked roles<a name="integrate-enable-svcprin-audit-manager"></a>
 
-The service\-linked roles in the previous section can be assumed only by the service principals authorized by the trust relationships defined for the role\. The service\-linked roles used by Audit Manager grant access to the following service principals:
+The service\-linked role in the previous section can be assumed only by the service principals authorized by the trust relationships defined for the role\. The service\-linked roles used by Audit Manager grant access to the following service principals:
 + `auditmanager.amazonaws.com`
 
 ## To enable trusted access with Audit Manager<a name="integrate-enable-ta-audit-manager"></a>

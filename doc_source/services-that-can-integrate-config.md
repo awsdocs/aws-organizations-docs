@@ -10,17 +10,11 @@ Use the following information to help you integrate AWS Config with AWS Organiza
 
 ## Service\-linked roles created when you enable integration<a name="integrate-enable-slr-config"></a>
 
-The following [service\-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html) is automatically created in your organization's accounts when you enable trusted access\. These roles allow AWS Config to perform supported operations within the accounts in your organization\.
+The following [service\-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html) is created in your organization's accounts when you enable trusted access\. This role allows AWS Config to perform supported operations within the accounts in your organization\. 
 
-You can delete or modify these roles only if you disable trusted access between AWS Config and Organizations, or if you remove the member account from the organization\.
-+ For AWS Config: `AWSConfigRoleForOrganizations`
-+ For AWS Config rules: `AWSServiceRoleForConfigMultiAccountSetup` 
+This role is created when you enable AWS Config in your organization by creating a multi\-account aggregator\. AWS Config asks you to select or create a role and for you to provide the name\. There is no automatically generated name\.
 
-## Service principals used by the service\-linked roles<a name="integrate-enable-svcprin-config"></a>
-
-The service\-linked roles in the previous section can be assumed only by the service principals authorized by the trust relationships defined for the role\. The service\-linked roles used by AWS Config grant access to the following service principals:
-+ For AWS Config: `config.amazonaws.com`
-+ For AWS Config rules: `config-multiaccountsetup.amazonaws.com`
+You can delete or modify this role only if you disable trusted access between AWS Config and Organizations, or if you remove the member account from the organization\.
 
 ## Enabling trusted access with AWS Config<a name="integrate-enable-ta-config"></a>
 

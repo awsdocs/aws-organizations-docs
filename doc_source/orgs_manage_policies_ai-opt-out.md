@@ -9,7 +9,7 @@ Certain AWS artificial intelligence \(AI\) services, including Amazon CodeGuru P
 
 **Important**  
 When you specify an opt in or opt out preference for a service, that setting is global and applied to all AWS Regions\. Setting the value from within one AWS Region replicates to all other Regions\.
-When you opt out of content use by an AWS AI service, that service deletes all of the associated historical content that was stored prior to setting the option\.
+When you opt out of content use by an AWS AI service, that service deletes all of the associated historical content that was shared with AWS before you set the option\.
 
 ## Getting started with AI services opt\-out policies<a name="orgs_manage_policies-ai-opt-out_getting-started"></a>
 

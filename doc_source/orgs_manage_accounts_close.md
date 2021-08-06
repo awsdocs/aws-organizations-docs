@@ -4,9 +4,9 @@
 If you want to close an **Amazon\.com shopping account**, see [http://www\.amazon\.com/gp/help/customer/display\.html?nodeId=GDK92DNLSGWTV6MP](http://www.amazon.com/gp/help/customer/display.html?nodeId=GDK92DNLSGWTV6MP)\.
 If you want to close an Amazon Web Services \(AWS\) account that is not part of an AWS Organization, see [https://aws\.amazon\.com/premiumsupport/knowledge\-center/close\-aws\-account/](https://aws.amazon.com/premiumsupport/knowledge-center/close-aws-account/)\.
 
-If you no longer need a member account in your organization, and want to ensure that no one can accrue charges for it, you can close the account\. 
+If you no longer need a member account in your organization, and want to ensure that no one can accrue charges for it, you can close the account\.
 
-Before closing your account, back up any applications and data that you want to retain\. All resources and data that were stored in the account are lost and cannot be recovered\. For more information, see the KB article [ "How do I close my Amazon Web Services account?"](https://aws.amazon.com/premiumsupport/knowledge-center/close-aws-account/)
+Before closing your account, back up any applications and data that you want to retain and delete all remaining AWS resources\. All resources and data that were stored in the account are lost and cannot be recovered\. For more information, see the KB article [ "How do I close my Amazon Web Services account?"](https://aws.amazon.com/premiumsupport/knowledge-center/close-aws-account/)
 
 Immediately, the account can no longer be used for any AWS activity other than signing in as the root user to view past bills or to contact AWS Support\. For more information, see [Contacting Customer Support About Your Bill](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-get-answers.html)\.
 
@@ -25,7 +25,7 @@ To close a management account, you must first [delete the organization](orgs_man
 
 **To close an AWS account**
 
-***Recommended:*** Before closing your account, back up any applications and data that you want to retain\. AWS can't recover or restore your account resources and data after your account is closed\. 
+***Recommended:*** Before closing your account, back up any applications and data that you want to retain and delete all remaining AWS resources\. AWS can't recover or restore your account resources and data after your account is closed\.
 
 1. [Sign in as the root user of the account](https://docs.aws.amazon.com/general/latest/gr/aws_tasks-that-require-root.html) that you want to close, using the email address and password that are associated with the account\. If you sign in as an IAM user or role, you can't close an account\.
 **Note**  

@@ -6,7 +6,7 @@ Before you start checking compliance status for tagged resources in an account, 
 
 The *effective tag policy* specifies the tagging rules that apply to an account\. It is the aggregation of any tag policies the account inherits, plus any tag policy directly attached to the account\. When you attach a tag policy to the organization root, it applies to all accounts in your organization\. When you attach a tag policy to an OU, it applies to all accounts and OUs that belong to the OU\. 
 
-For example, the tag policy attached to the organization root may define a `CostCenter` tag with five compliant values\. A separate tag policy attached to the account may restrict the `CostCenter` key to only two of the four compliant values\. The combination of these tag policies comprises the effective tag policy\. The result is that only two of the four compliant tag values defined in the organization root tag policy are compliant for the account\.
+For example, the tag policy attached to the organization root may define a `CostCenter` tag with four compliant values\. A separate tag policy attached to the account may restrict the `CostCenter` key to only two of the four compliant values\. The combination of these tag policies comprises the effective tag policy\. The result is that only two of the four compliant tag values defined in the organization root tag policy are compliant for the account\.
 
 For more information and more advanced examples of how effective tag policies are generated, see [Understanding policy inheritance](orgs_manage_policies_inheritance.md)\.
 

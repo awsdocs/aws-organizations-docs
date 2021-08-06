@@ -10,21 +10,21 @@ Use the following information to help you integrate AWS Trusted Advisor with AWS
 
 ## Service\-linked roles created when you enable integration<a name="integrate-enable-slr-ta"></a>
 
-The following [service\-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html) is automatically created in your organization's accounts when you enable trusted access\. These roles allow Trusted Advisor to perform supported operations within the accounts in your organization\.
+The following [service\-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html) is automatically created in your organization's management account when you enable trusted access\. This role allows Trusted Advisor to perform supported operations within your organization's accounts in your organization\.
 
-You can delete or modify these roles only if you disable trusted access between Trusted Advisor and Organizations, or if you remove the member account from the organization\.
+You can delete or modify this role only if you disable trusted access between Trusted Advisor and Organizations, or if you remove the member account from the organization\.
 + `AWSServiceRoleForTrustedAdvisorReporting`
 
 ## Service principals used by the service\-linked roles<a name="integrate-enable-svcprin-ta"></a>
 
-The service\-linked roles in the previous section can be assumed only by the service principals authorized by the trust relationships defined for the role\. The service\-linked roles used by Trusted Advisor grant access to the following service principals:
+The service\-linked role in the previous section can be assumed only by the service principals authorized by the trust relationships defined for the role\. The service\-linked roles used by Trusted Advisor grant access to the following service principals:
 + `reporting.trustedadvisor.amazonaws.com`
 
 ## Enabling trusted access with Trusted Advisor<a name="integrate-enable-ta-ta"></a>
 
 For information about the permissions needed to enable trusted access, see [Permissions required to enable trusted access](orgs_integrate_services.md#orgs_trusted_access_perms)\.
 
-You can enable trusted access using only the AWS Trusted Advisor tools\.
+You can enable trusted access using only AWS Trusted Advisor\.
 
 **To enable trusted access using the Trusted Advisor console**  
 See [Enable organizational view](https://docs.aws.amazon.com/awssupport/latest/user/organizational-view.html#enable-organizational-view) in the *AWS Support User Guide*\.

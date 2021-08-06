@@ -14,14 +14,14 @@ Use the following information to help you integrate AWS Security Hub with AWS Or
 
 ## Service\-linked roles created when you enable integration<a name="integrate-enable-slr-securityhub"></a>
 
-The following [service\-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html) is automatically created in your organization's accounts when you enable trusted access\. These roles allow Security Hub to perform supported operations within the accounts in your organization\.
+The following [service\-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html) is automatically created in your organization's management account when you enable trusted access\. This role allows Security Hub to perform supported operations within your organization's accounts in your organization\.
 
-You can delete or modify these roles only if you disable trusted access between Security Hub and Organizations, or if you remove the member account from the organization\.
+You can delete or modify this role only if you disable trusted access between Security Hub and Organizations, or if you remove the member account from the organization\.
 + `AWSServiceRoleForSecurityHub`
 
 ## Service principals used by the service\-linked roles<a name="integrate-enable-svcprin-securityhub"></a>
 
-The service\-linked roles in the previous section can be assumed only by the service principals authorized by the trust relationships defined for the role\. The service\-linked roles used by Security Hub grant access to the following service principals:
+The service\-linked role in the previous section can be assumed only by the service principals authorized by the trust relationships defined for the role\. The service\-linked roles used by Security Hub grant access to the following service principals:
 + `securityhub.amazonaws.com`
 
 ## Enabling trusted access with Security Hub<a name="integrate-enable-ta-securityhub"></a>

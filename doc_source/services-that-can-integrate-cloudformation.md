@@ -15,15 +15,15 @@ Use the following information to help you integrate AWS CloudFormation StackSets
 
 ## Service\-linked roles created when you enable integration<a name="integrate-enable-slr-cloudformation"></a>
 
-The following [service\-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html) is automatically created in your organization's accounts when you enable trusted access\. These roles allow AWS CloudFormation Stacksets to perform supported operations within the accounts in your organization\.
+The following [service\-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html) is automatically created in your organization's management account when you enable trusted access\. This role allows AWS CloudFormation Stacksets to perform supported operations within your organization's accounts in your organization\.
 
-You can delete or modify these roles only if you disable trusted access between AWS CloudFormation Stacksets and Organizations, or if you remove the member account from the organization\.
+You can delete or modify this role only if you disable trusted access between AWS CloudFormation Stacksets and Organizations, or if you remove the member account from the organization\.
 + Management account: `CloudFormationStackSetsOrgAdmin`
 + Member accounts: `CloudFormationStackSetsOrgMember`
 
 ## Service principals used by the service\-linked roles<a name="integrate-enable-svcprin-cloudformation"></a>
 
-The service\-linked roles in the previous section can be assumed only by the service principals authorized by the trust relationships defined for the role\. The service\-linked roles used by AWS CloudFormation Stacksets grant access to the following service principals:
+The service\-linked role in the previous section can be assumed only by the service principals authorized by the trust relationships defined for the role\. The service\-linked roles used by AWS CloudFormation Stacksets grant access to the following service principals:
 + Management account: `stacksets.cloudformation.amazonaws.com`
 
   You can modify or delete this role only if you disabled trusted access between StackSets and Organizations\.
@@ -37,7 +37,7 @@ For information about the permissions needed to enable trusted access, see [Perm
 
 Only an administrator in the Organizations management account has permissions to enable trusted access with another AWS service\. You can enable trusted access using either the AWS CloudFormation console or the Organizations console\.
 
-You can enable trusted access using only the AWS CloudFormation StackSets tools\.
+You can enable trusted access using only AWS CloudFormation StackSets\.
 
 To enable trusted access using the AWS CloudFormation Stacksets console, see [Enable Trusted Access with AWS Organizations](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-enable-trusted-access.html) in the AWS CloudFormation User Guide\.
 

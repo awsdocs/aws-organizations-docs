@@ -48,7 +48,7 @@ To invite an AWS account to join your organization, you must have the following 
 
 1. Navigate to the **[AWS accounts](https://console.aws.amazon.com/organizations/v2/home/accounts)** page, and choose **Add an AWS account**\.
 
-1. On the**[Add an AWS account](https://console.aws.amazon.com/organizations/v2/home/accounts/add/create)** page, choose **Invite an existing AWS account**\.
+1. On the **[Add an AWS account](https://console.aws.amazon.com/organizations/v2/home/accounts/add/create)** page, choose **Invite an existing AWS account**\.
 
 1. On the **[Invite an existing AWS](https://console.aws.amazon.com/organizations/v2/home/accounts/add/invite)** page, for **Email address or account ID of the AWS account to invite** enter either the email address associated with the account to be invited, or its account ID number\. 
 

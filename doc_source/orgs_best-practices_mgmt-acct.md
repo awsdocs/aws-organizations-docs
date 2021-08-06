@@ -58,7 +58,6 @@ For instructions on how to enable multi\-factor authentication \(MFA\), see [Usi
 ## Review and keep track of who has access<a name="best-practices_mgmt-acct_review-access"></a>
 + To ensure you maintain access to the management account, periodically review the personnel within your business who have access to the email address, password, MFA, and phone number associated with it\. Align your review with existing business procedures\. However, it’s worth adding a monthly or quarterly review of this information to ensure that only the correct people have access\.
 + Ensure that the process to recover or reset access to the root user credentials is not reliant on any specific individual to complete\. All processes should address the prospect of people being unavailable\.
-+ Ensure that the process to recover or reset access to the root user credentials can't be completed by a single individual\. It’s important that this process require the cooperation of multiple personnel to complete\.
 
 ## Document the processes for using the root user credentials<a name="best-practices_mgmt-acct_document-processes"></a>
 + It’s common for important processes, such as the creation of the organization's management account, to be a planned process including multiple steps with multiple personnel\. We recommend that you document and publish that plan, including the steps to be performed and their sequence of completion\. This approach helps ensure that the decisions made are followed correctly\.

@@ -66,7 +66,8 @@ Remember this role name\. You need it later to grant access to the new account f
 
 1. Now that the account exists and has an IAM role that grants administrator access to users in the management account, you can access the account by following the steps in [Accessing and administering the member accounts in your organization](orgs_manage_accounts_access.md)\.
 
-   When you create an account, AWS Organizations initially assigns a long \(64 characters\), complex, randomly generated password to the root user\. You can't retrieve this initial password\. To access the account as the root user for the first time, you must go through the process for password recovery\. For more information, see [Accessing a member account as the root user](orgs_manage_accounts_access.md#orgs_manage_accounts_access-as-root)\.
+**Note**  
+When you create an account, AWS Organizations initially assigns a long \(64 characters\), complex, randomly generated password to the root user\. You can't retrieve this initial password\. To access the account as the root user for the first time, you must go through the process for password recovery\. For more information, see [Accessing a member account as the root user](orgs_manage_accounts_access.md#orgs_manage_accounts_access-as-root)\.
 
 ------
 #### [ AWS CLI & AWS SDKs ]

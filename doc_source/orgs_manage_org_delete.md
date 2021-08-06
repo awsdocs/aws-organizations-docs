@@ -5,7 +5,7 @@ When you no longer need your organization, you can delete it\. This removes the 
 **Important**  
 If you delete an organization, you can't recover it\. If you created any policies inside of the organization, they're also deleted and you can't recover them\.
 You can delete an organization only after you remove all member accounts from the organization\. If you created some of your member accounts using AWS Organizations, you might be blocked from removing those accounts\. You can remove a member account only if it has all the information that's required to operate as a standalone AWS account\. For more information about how to provide that information and then remove the account, see [Leaving an organization as a member account](orgs_manage_accounts_remove.md#orgs_manage_accounts_leave-as-member)\.
-If any member accounts are in a suspended state because you closed them before removing them from the organization, you can't remove them from the organization until they're finally closed\. This can take up to 90 days, and can prevent you from deleting the organization until then\.
+If you closed a member account before you remove it from the organization, it enters a 'suspended' state for a period of time and you can't remove the account from the organization until it is finally closed\.  This can take up to 90 days and can prevent you from deleting the organization until all member accounts are completely closed\.  
 
 When you remove the management account from an organization by deleting the organization, it can affect the account in the following ways:
 + The account is responsible for paying only its own charges and is no longer responsible for the charges incurred by any other account\.
@@ -43,7 +43,7 @@ You can use one of the following commands to delete an organization:
   The following example deletes the organization for which the AWS account whose credentials are used is the management account\.
 
   ```
-  $ aws organizations delete-organizations
+  $ aws organizations delete-organization
   ```
 
   This command produces no output when successful\.

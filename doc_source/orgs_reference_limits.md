@@ -25,7 +25,7 @@ Organizations is a global service that is physically hosted in the US East \(N\.
 |  Number of roots in an organization  |  1  | 
 |  Number of OUs in an organization  |  1000  | 
 |  Number of policies of each type in an organization  |  1000 per policy type  | 
-|  Maximum size of a policy document  |  Service control policies: 5120 bytes *\(not characters\)* AI services opt\-out policies: 2500 characters Backup policies: 10,000 characters Tag policies: 2500 characters **Note:** If you save the policy by using the AWS Management Console, extra white space \(such as spaces and line breaks\) between JSON elements and outside of quotation marks, is removed and not counted\. If you save the policy using an SDK operation or the AWS CLI, then the policy is saved exactly as you provided and no automatic removal of characters occurs\.   | 
+|  Maximum size of a policy document  |  Service control policies: 5120 bytes *\(not characters\)* AI services opt\-out policies: 2500 characters Backup policies: 10,000 characters Tag policies: 10,000 characters **Note:** If you save the policy by using the AWS Management Console, extra white space \(such as spaces and line breaks\) between JSON elements and outside of quotation marks, is removed and not counted\. If you save the policy using an SDK operation or the AWS CLI, then the policy is saved exactly as you provided and no automatic removal of characters occurs\.   | 
 |  OU maximum nesting in a root  |  Five levels of OUs deep under a root\.  | 
 |  Maximum number of invitation attempts you can perform in a 24\-hour period  |  Either 20 or the maximum number of accounts allowed in your organization, whichever is greater\. Accepted invitations don't count against this quota\. As soon as one invitation is accepted, you can send another invitation that same day\. If the maximum number of accounts allowed in your organization is less than 20, then you get an "account limit exceeded" exception if you attempt to invite more accounts than your organization can contain\. However, you can cancel invitations and send new ones up to the maximum of 20 attempts in one day\.  | 
 |  Number of member accounts you can create concurrently  |  5 — As soon as one finishes, you can start another, but only five can be in progress at a time\.  | 
@@ -60,7 +60,7 @@ These numbers apply to only those policies that are directly attached to an OU o
 | Service control policy | 1 — Every entity must have at least one SCP attached at all times\. You can't remove the last SCP from an entity\. | 5 | 5 | 5 | 
 | AI services opt\-out policy | 0 | 5 | 5 | 5 | 
 | Backup policy | 0 | 10 | 10 | 10 | 
-| Tag policy | 0 | 5 | 5 | 5 | 
+| Tag policy | 0 | 10 | 10 | 10 | 
 
 **Note**  
 Currently, you can have only one root in an organization\.

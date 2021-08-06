@@ -12,9 +12,9 @@ Use the following information to help you integrate AWS License Manager with AWS
 
 ## Service\-linked roles created when you enable integration<a name="integrate-enable-slr-license-manager"></a>
 
-The following [service\-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html) is automatically created in your organization's accounts when you enable trusted access\. These roles allow License Manager to perform supported operations within the accounts in your organization\.
+The following [service\-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html) is automatically created in your organization's management account when you enable trusted access\. This role allows License Manager to perform supported operations within your organization's accounts in your organization\.
 
-You can delete or modify these roles only if you disable trusted access between License Manager and Organizations, or if you remove the member account from the organization\.
+You can delete or modify this role only if you disable trusted access between License Manager and Organizations, or if you remove the member account from the organization\.
 + `AWSLicenseManagerMasterAccountRole`
 + `AWSLicenseManagerMemberAccountRole`
 + `AWSServiceRoleForAWSLicenseManagerRole`
@@ -23,7 +23,7 @@ For more information, see [Using the License Manager–management account role](
 
 ## Service principals used by the service\-linked roles<a name="integrate-enable-svcprin-license-manager"></a>
 
-The service\-linked roles in the previous section can be assumed only by the service principals authorized by the trust relationships defined for the role\. The service\-linked roles used by License Manager grant access to the following service principals:
+The service\-linked role in the previous section can be assumed only by the service principals authorized by the trust relationships defined for the role\. The service\-linked roles used by License Manager grant access to the following service principals:
 + `license-manager.amazonaws.com`
 + `license-manager.member-account.amazonaws.com`
 
@@ -31,48 +31,23 @@ The service\-linked roles in the previous section can be assumed only by the ser
 
 For information about the permissions needed to enable trusted access, see [Permissions required to enable trusted access](orgs_integrate_services.md#orgs_trusted_access_perms)\.
 
-You can enable trusted access using either the AWS License Manager console or the AWS Organizations console\.
-
-**Important**  
-We strongly recommend that whenever possible, you use the AWS License Manager console or tools to enable integration with Organizations\. This lets AWS License Manager perform any configuration that it requires, such as creating resources needed by the service\. Proceed with these steps only if you can’t enable integration using the tools provided by AWS License Manager\.For more information, see [this note](orgs_integrate_services.md#important-note-about-integration)\.   
-If you enable trusted access by using the AWS License Manager console or tools then you don’t need to complete these steps\.
+You can enable trusted access using only AWS License Manager\.
 
 **To enable trusted access with License Manager**  
-You must sign in to the License Manager console using your AWS Organizations management account and associate it with your License Manager account\. Then you can configure your License Manager settings\. For information, see [Configuring AWS License Manager Guide Settings](https://docs.aws.amazon.com/license-manager/latest/userguide/settings.html)\.
+You must sign in to the License Manager console using your AWS Organizations management account and associate it with your License Manager account\. For more information, see [Configuring AWS License Manager Guide Settings](https://docs.aws.amazon.com/license-manager/latest/userguide/settings.html)\. It is also summarized here for your convenience\.
 
-You can enable trusted access by using either the AWS Organizations console, by running a AWS CLI command, or by calling an API operation in one of the AWS SDKs\.
+**Important**  
+This procedure is a one\-way door\. You can't undo this\.
 
-------
-#### [ AWS Management Console ]
+**To enable trusted access between Organizations and License Manager**
 
-**To enable trusted service access using the Organizations console**
+1. Sign in to the [AWS Management Console](https://console.aws.amazon.com/) using your organization's management account\.
 
-1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
+1. Navigate to the [License Manager console](https://console.aws.amazon.com/license-manager) and choose **Settings**\.
 
-1. On the **[Services](https://console.aws.amazon.com/organizations/v2/home/services)** page, find the row for **AWS License Manager**, choose the service’s name, and then choose **Enable trusted access**\.
+1. Choose **Edit**\.
 
-1. In the confirmation dialog box, enable **Show the option to enable trusted access**, enter **enable** in the box, and then choose **Enable trusted access**\.
-
-1. If you are the administrator of only AWS Organizations, tell the administrator of AWS License Manager that they can now enable that service using its console to work with AWS Organizations\.
-
-------
-#### [ AWS CLI, AWS API ]
-
-**To enable trusted service access using the OrganizationsCLI/SDK**  
-You can use the following AWS CLI commands or API operations to enable trusted service access:
-+ AWS CLI: [enable\-aws\-service\-access](https://docs.aws.amazon.com/cli/latest/reference/organizations/enable-aws-service-access.html)
-
-  You can run the following command to enable AWS License Manager as a trusted service with Organizations\.
-
-  ```
-  $ aws organizations enable-aws-service-access \ 
-      --service-principal license-manager.amazonaws.com
-  ```
-
-  This command produces no output when successful\.
-+ AWS API: [EnableAWSServiceAccess](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAWSServiceAccess.html)
-
-------
+1. Choose **Link AWS Organizations accounts**\.
 
 ## Disabling trusted access with License Manager<a name="integrate-disable-ta-license-manager"></a>
 
@@ -100,3 +75,19 @@ You can use the following AWS CLI commands or API operations to disable trusted 
 + AWS API: [DisableAWSServiceAccess](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DisableAWSServiceAccess.html)
 
 ------
+
+## Enabling a delegated administrator account for License Manager<a name="integrate-enable-da-license-manager"></a>
+
+When you designate a member account as a delegated administrator for the organization, users and roles from that account can perform administrative actions for License Manager that otherwise can be performed only by users or roles in the organization's management account\. This helps you to separate management of the organization from management of License Manager\.
+
+To delegate a member account as an administrator for License Manager, follow the steps at [Register a delegated administrator](https://docs.aws.amazon.com/license-manager/latest/userguide/delegated-administrator.html) in the *License Manager User Guide*\. They are also summarized here for your convenience\.
+
+**To register a delegated administrator account for License Manager**
+
+1. Sign in to the [AWS Management Console](https://console.aws.amazon.com/) using your organization's management account\.
+
+1. Navigate to the [License Manager console](https://console.aws.amazon.com/license-manager) and choose **Settings**\.
+
+1. Under **Delegated administrator**, choose **Delegate administrator**\.
+
+1. Enter the account ID number for the AWS account that you want to assign, and then choose **Delegate**\. You can't use the ID for the management account\. It must be a member account\.

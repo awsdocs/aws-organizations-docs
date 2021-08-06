@@ -295,7 +295,7 @@ You can use one of the following commands to view details of a policy:
   The following example shows how to retrieve the details of only the specified policy, including the JSON policy document\.
 
   ```
-  $ aws organizations list-policies --policy-id p-i9j8k7l6m5
+  $ aws organizations describe-policy --policy-id p-i9j8k7l6m5
   {
       "Policies": [
           {

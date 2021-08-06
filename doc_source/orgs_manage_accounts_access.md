@@ -6,7 +6,7 @@ When you create an account in your organization, in addition to the root user, A
 + If you invite an existing account to join your organization and the account accepts the invitation, you can then choose to create an IAM role that allows the management account to access the invited member account\. This role is intended to be identical to the role automatically added to an account that is created with AWS Organizations\. To create this role, see [Creating the OrganizationAccountAccessRole in an invited member account](#orgs_manage_accounts_create-cross-account-role)\. After you create the role, you can access it using the steps in [Accessing a member account that has a management account access role](#orgs_manage_accounts_access-cross-account-role)\.
 + Use [AWS Single Sign\-On](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html) and enable trusted access for AWS SSO with AWS Organizations\. This allows users to sign in to the AWS SSO user portal with their corporate credentials and access resources in their assigned management account or member accounts\.
 
-  For more information, see [Manage SSO to Your AWS Accounts](https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-accounts.html) in the *AWS Single Sign\-On User Guide\.* For information about setting up trusted access for AWS SSO, see [AWS Single Sign\-On and AWS Organizations](services-that-can-integrate-sso.md)\.
+  For more information, see [Manage SSO to Your AWS accounts](https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-accounts.html) in the *AWS Single Sign\-On User Guide\.* For information about setting up trusted access for AWS SSO, see [AWS Single Sign\-On and AWS Organizations](services-that-can-integrate-sso.md)\.
 
 **Minimum permissions**  
 To access an AWS account from any other account in your organization, you must have the following permission:  
@@ -162,5 +162,5 @@ When using the role, the user has administrator permissions in the new member ac
 ### Additional resources<a name="orgs-resources-switching"></a>
 + For more information about granting permissions to switch roles, see [Granting a User Permissions to Switch Roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_permissions-to-switch.html) in the *IAM User Guide*\.
 + For more information about using a role that you have been granted permissions to assume, see [Switching to a Role \(AWS Management Console\)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-console.html) in the *IAM User Guide*\.
-+ For a tutorial about using roles for cross\-account access, see [Tutorial: Delegate Access Across AWS Accounts Using IAM Roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html) in the *IAM User Guide*\.
++ For a tutorial about using roles for cross\-account access, see [Tutorial: Delegate Access Across AWS accounts Using IAM Roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html) in the *IAM User Guide*\.
 + For information about closing AWS accounts, see [Closing an AWS account](orgs_manage_accounts_close.md)\. 

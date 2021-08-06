@@ -1,4 +1,4 @@
-# Supported Regions<a name="tag-policies-regions"></a>
+# Supported Regions<a name="orgs_manage_policies_tag-policies-supported-regions"></a>
 
 Tag policy features are available in the following Regions: 
 
@@ -12,7 +12,7 @@ Tag policy features are available in the following Regions:
 |  Africa \(Cape Town\) Region²  |  `af-south-1`  | 
 |  Asia Pacific \(Hong Kong\) Region²  |  `ap-east-1`  | 
 |  Asia Pacific \(Mumbai\) Region  |  `ap-south-1`  | 
-|  Asia Pacific \(Osaka\) Region³  |  `ap-northeast-3`  | 
+|  Asia Pacific \(Osaka\) Region  |  `ap-northeast-3`  | 
 |  Asia Pacific \(Seoul\) Region  |  `ap-northeast-2`  | 
 |  Asia Pacific \(Singapore\) Region  |  `ap-southeast-1`  | 
 |  Asia Pacific \(Sydney\) Region  |  `ap-southeast-2`  | 
@@ -44,5 +44,3 @@ Tag policy features are available in the following Regions:
 To evaluate organization\-wide compliance with tag policies, you must also have access to an Amazon S3 bucket in the US East \(N\. Virginia\) Region for report storage\. For more information, see [Amazon S3 Bucket Policy for Storing Report](https://docs.aws.amazon.com/ARG/latest/userguide/tag-policies-prereqs.html#bucket-policy)\.
 
 ²These Regions must be manually enabled\. To learn more about enabling and disabling AWS Regions, see [Managing AWS Regions](https://docs.aws.amazon.com/general/latest/gr/rande-manage.html) in the *AWS General Reference*\. The Resource Groups console isn't available in these Regions\.
-
-³This Region doesn't support reporting on resources\.

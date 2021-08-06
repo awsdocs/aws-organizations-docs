@@ -51,11 +51,13 @@ If you sign in as an IAM user and the account is missing payment information, th
 
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
 
-1. On the **[AWS accounts](https://console.aws.amazon.com/organizations/v2/home/accounts)** page, find and choose the name of the member account that you want to remove from your organization\. You might have to expand OUs \(choose the ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/organizations/latest/userguide/images/console-expand.png)\) to find the account that you want\.
+1. On the **[AWS accounts](https://console.aws.amazon.com/organizations/v2/home/accounts)** page, find and choose the check box![\[Image NOT FOUND\]](http://docs.aws.amazon.com/organizations/latest/userguide/images/checkbox-selected.png) next to each member account that you want to remove from your organization\. You can navigate the OU hierarchy or enable **View AWS accounts only** to see a flat list of accounts without the OU structure\. If you have a lot of accounts, you might have to choose **Load more accounts in '*ou\-name*'** at the bottom of the list to find all of those you want to move\.
 
-1. On the account's details page, choose **Remove**\.
+   On the **[AWS accounts](https://console.aws.amazon.com/organizations/v2/home/accounts)** page, find and choose the name of the member account that you want to remove from your organization\. You might have to expand OUs \(choose the ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/organizations/latest/userguide/images/console-expand.png)\) to find the account that you want\.
 
-1. In the **Remove account 'account\-name' \(\#account\-id\) from organization?** dialog box, choose **Remove account**\.
+1. Choose **Actions**, then under **AWS account**, choose **Remove from organization**\.
+
+1. In the **Remove account '*account\-name*' \(\#*account\-id\-num*\) from organization?** dialog box, choose **Remove account**\.
 
 1. If AWS Organizations fails to remove one or more of the accounts, it's typically because you have not provided all the required information for the account to operate as a standalone account\. Perform the following steps:
 

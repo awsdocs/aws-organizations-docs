@@ -10,7 +10,7 @@ The bulk of a backup policy is the backup plan and its rules\. The syntax for th
 
 To be complete and functional, an [effective backup policy](orgs_manage_policies_backup_effective.md) must include more than just a backup plan with its schedule and rules\. The policy must also identify the AWS Regions and the resources to be backed up, and the AWS Identity and Access Management \(IAM\) role that AWS Backup can use to perform the backup\.
 
-The following functionally complete policy shows the basic backup policy syntax\. If this example was attached directly to an account, AWS Backup would back up all resources for that account in the `us-east-1` and `eu-north-1` Regions that have the tag `dataType` with a value of either `PII` or `RED` \. It backs up those resources daily at 5:00 AM to `My_Backup_Vault` and also stores a copy in `My_Secondary_Vault`\. Both of those vaults are in the same account as the resource\. It also stores a copy of the backup in the `My_Tertiary_Vault` in a different, explicitly specified account\. The vaults must already exist in each of the specified AWS Regions for each AWS account that receives the effective policy\. If any of the backed up resources are EC2 instances, then support for Microsoft Volume Shadow Copy Service \(VSS\) is enabled for the backups on those instances\.The backup applies the tag `Owner:Backup` to each recovery point\. 
+The following functionally complete policy shows the basic backup policy syntax\. If this example was attached directly to an account, AWS Backup would back up all resources for that account in the `us-east-1` and `eu-north-1` Regions that have the tag `dataType` with a value of either `PII` or `RED` \. It backs up those resources daily at 5:00 AM to `My_Backup_Vault` and also stores a copy in `My_Secondary_Vault`\. Both of those vaults are in the same account as the resource\. It also stores a copy of the backup in the `My_Tertiary_Vault` in a different, explicitly specified account\. The vaults must already exist in each of the specified AWS Regions for each AWS account that receives the effective policy\. If any of the backed up resources are EC2 instances, then support for Microsoft Volume Shadow Copy Service \(VSS\) is enabled for the backups on those instances\. The backup applies the tag `Owner:Backup` to each recovery point\. 
 
 ```
 {
@@ -21,7 +21,7 @@ The following functionally complete policy shows the basic backup policy syntax\
                     "schedule_expression": {"@@assign": "cron(0 5 ? * * *)"},
                     "start_backup_window_minutes": {"@@assign": "60"},
                     "complete_backup_window_minutes": {"@@assign": "604800"},
-                    "enable_continuous_backup": {"@@assign": "false"},
+                    "enable_continuous_backup": {"@@assign": false},
                     "target_backup_vault_name": {"@@assign": "My_Backup_Vault"},
                     "recovery_point_tags": {
                         "Owner": {
@@ -77,7 +77,7 @@ The following functionally complete policy shows the basic backup policy syntax\
             },
             "advanced_backup_settings": {
                 "ec2": {
-                    "WindowsVSS": {"@@assign": "enabled"}
+                    "windows_vss": {"@@assign": "enabled"}
                 }
             },
             "backup_plan_tags": {
@@ -138,7 +138,13 @@ The vault must already exist when the backup plan is launched the first time\. W
     \(Optional\) Specifies the number of minutes after a backup job successfully starts before it must complete or it is canceled by AWS Backup\. This key contains the [`@@assign` inheritance value operator](orgs_manage_policies_inheritance_mgmt.md#value-setting-operators) and a value with an integer number of minutes\.
   + `enable_continuous_backup` – This policy key maps to the `EnableContinuousBackup` key in an AWS Backup plan\.
 
-    \(Optional\) Specifies whether AWS Backup creates continuous backups\. `True` causes AWS Backup to create continuous backups capable of point\-in\-time restore \(PITR\)\. `False` \(or not specified\) causes AWS Backup to create snapshot backups\. For more information about continuous backups, see [Point\-in\-time recovery](https://docs.aws.amazon.com/aws-backup/latest/devguide/point-in-time-recovery.html) in the *AWS Backup Developer Guide*\.
+    \(Optional\) Specifies whether AWS Backup creates continuous backups\. `True` causes AWS Backup to create continuous backups capable of point\-in\-time restore \(PITR\)\. `False` \(or not specified\) causes AWS Backup to create snapshot backups\.
+**Note**  
+ Because PITR\-enabled backups can be retained for a maximum of 35 days, you must either choose `False` or don't specify a value ***if*** you set either of the following options:  
+Set `delete_after_days` to greater than 35\.
+Set `move_to_code_storage_after_days` to any value\.
+
+     For more information about continuous backups, see [Point\-in\-time recovery](https://docs.aws.amazon.com/aws-backup/latest/devguide/point-in-time-recovery.html) in the *AWS Backup Developer Guide*\.
   + `lifecycle` – This policy key maps to the `Lifecycle` key in an AWS Backup plan\.
 
     \(Optional\) Specifies when AWS Backup transitions this backup to cold storage and when it expires\. 
@@ -194,12 +200,12 @@ The role must already exist when you launch the backup plan the first time\. We 
   + Object key name – A string that specifies the type of resource to which the following advanced settings apply\.
   + Object value – A JSON object string that contains one or more backup settings specific to the associated resource type\.
 
-  At this time, the only advanced backup setting that is supported enables Microsoft Volume Shadow Copy Service \(VSS\) backups for Windows or SQL Server running on an Amazon EC2 instance\. The key name must be the `"ec2"` resource type, and the value specifies that `"WindowsVSS"` support is either `enabled` or `disabled` for backups performed on those Amazon EC2 instances\. For more information about this feature, see [Creating a VSS\-Enabled Windows Backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/windows-backup.html) in the *AWS Backup Developer Guide*\.
+  At this time, the only advanced backup setting that is supported enables Microsoft Volume Shadow Copy Service \(VSS\) backups for Windows or SQL Server running on an Amazon EC2 instance\. The key name must be the `"ec2"` resource type, and the value specifies that `"windows_vss"` support is either `enabled` or `disabled` for backups performed on those Amazon EC2 instances\. For more information about this feature, see [Creating a VSS\-Enabled Windows Backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/windows-backup.html) in the *AWS Backup Developer Guide*\.
 
   ```
   "advanced_backup_settings": {
       "ec2": { 
-          "WindowsVSS": {
+          "windows_vss": {
               "@@assign": "enabled" 
           }
       }
@@ -305,7 +311,7 @@ The following example shows a backup policy that is assigned to one of the paren
             },
             "advanced_backup_settings": {
                 "ec2": {
-                    "WindowsVSS": {
+                    "windows_vss": {
                         "@@assign": "enabled"
                     }
                 }
@@ -371,7 +377,7 @@ If no other policies are inherited or attached to the accounts, the effective po
             },
             "advanced_backup_settings": {
                 "ec2": {
-                    "WindowsVSS": "enabled"
+                    "windows_vss": "enabled"
                 }
             }
         }
@@ -645,7 +651,7 @@ In the following example, an inherited parent policy uses the [child control ope
                 "@@operators_allowed_for_child_policies": ["@@none"],
                 "ec2": {
                     "@@operators_allowed_for_child_policies": ["@@none"],
-                    "WindowsVSS": {
+                    "windows_vss": {
                         "@@assign": "enabled",
                         "@@operators_allowed_for_child_policies": ["@@none"]
                     }
@@ -698,7 +704,7 @@ In the following example, an inherited parent policy uses the [child control ope
                 }
             },
             "advanced_backup_settings": {
-                "ec2": {"WindowsVSS": "enabled"}
+                "ec2": {"windows_vss": "enabled"}
             }
         }
     }

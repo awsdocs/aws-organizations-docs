@@ -132,13 +132,13 @@ The steps that follow have you choose the radio button so that you can then act 
 
 1. Ensure that the switch **View AWS accounts only** is turned *off* ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/organizations/latest/userguide/images/console-switch-off.png)\.
 
-1. Select the **Root** container \(the radio button ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/organizations/latest/userguide/images/radio-button-selected.png), not its name\)\.
+1. Choose the check box ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/organizations/latest/userguide/images/checkbox-selected.png) next to the **Root** container\.
 
-1. Choose **Actions**, and then under **Organizational unit**, choose **Create new**\.
+1. On the **Children** tab, choose **Actions**, and then under **Organizational unit**, choose **Create new**\.
 
 1. On the **Create organizational unit in Root** page, for the **Organizational unit name**, enter **Production** and then choose **Create organizational unit**\.
 
-1. Choose your new **Production** OU \(the radio button ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/organizations/latest/userguide/images/radio-button-selected.png), not its name\)\.
+1. Choose the check box ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/organizations/latest/userguide/images/checkbox-selected.png) next to your new **Production** OU\.
 
 1. Choose **Actions**, and then under **Organizational unit**, choose **Create new**\.
 
@@ -150,15 +150,15 @@ The steps that follow have you choose the radio button so that you can then act 
 
    This displays the **MainApp** OU as a child of **Production**\.
 
-1. Select the member account that you just invited, 222222222222 \(the radio button ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/organizations/latest/userguide/images/radio-button-selected.png), not its name\), choose **Actions**, and then under **AWS account**, choose **Move**\.
+1. Choose the check box ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/organizations/latest/userguide/images/checkbox-selected.png), not its name\), choose **Actions**, and then under **AWS account**, choose **Move**\.
 
-1. On the **Move AWS account '*member\-account\-name*'** page, choose **Production** \(the radio button ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/organizations/latest/userguide/images/radio-button-selected.png), not its name\) and then choose **Move AWS account**\.
+1. On the **Move AWS account '*member\-account\-name*'** page, choose the radio button ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/organizations/latest/userguide/images/radio-button-selected.png), not its name\) and then choose **Move AWS account**\.
 
-1. Choose the second member account, 333333333333, \(the radio button ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/organizations/latest/userguide/images/radio-button-selected.png), not its name\), choose **Actions**, and then under **AWS account**, choose **Move**\.
+1. Choose the check box ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/organizations/latest/userguide/images/checkbox-selected.png), not its name\), choose **Actions**, and then under **AWS account**, choose **Move**\.
 
 1. On the **Move AWS account '*member\-account\-name*'** dialog box, the triangle next to **Production** to expand that branch and expose **MainApp**\.
 
-1. Choose **MainApp** \(the radio button ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/organizations/latest/userguide/images/radio-button-selected.png), not its name\) and then under **AWS account**, choose **Move AWS account**\.
+1. Choose the radio button ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/organizations/latest/userguide/images/radio-button-selected.png), not its name\) and then under **AWS account**, choose **Move AWS account**\.
 
 ------
 
@@ -213,13 +213,13 @@ The service control policy editor is currently available only in the original ve
            {
                "Sid": "Stmt1234567890123",
                "Effect": "Deny",
-               "Action": [       
-                   "cloudtrail:AddTags",    
-                   "cloudtrail:CreateTrail",       
-                   "cloudtrail:DeleteTrail",       
-                   "cloudtrail:RemoveTags",       
-                   "cloudtrail:StartLogging",       
-                   "cloudtrail:StopLogging",       
+               "Action": [
+                   "cloudtrail:AddTags",
+                   "cloudtrail:CreateTrail",
+                   "cloudtrail:DeleteTrail",
+                   "cloudtrail:RemoveTags",
+                   "cloudtrail:StartLogging",
+                   "cloudtrail:StopLogging",
                    "cloudtrail:UpdateTrail"
                ],
                "Resource": [
