@@ -98,7 +98,7 @@ When you designate a member account to be a delegated administrator for the orga
 
 **Minimum permissions**  
 Only an IAM user or role in the Organizations management account with the following permission can configure a member account as a delegated administrator for Audit Manager in the organization:  
-`audit-manager:RegisterAccount`
+`auditmanager:RegisterAccount`
 
 For instruction about enabling a delegated administrator account for Audit Manager, see [Setting Up](https://docs.aws.amazon.com/audit-manager/latest/userguide/console-settings.html#settings-ao) in the *AWS Audit Manager User Guide*\.
 
@@ -111,7 +111,7 @@ If you want to configure a delegated administrator account using the AWS CLI or 
 + AWS CLI: 
 
   ```
-  $  aws audit-manager register-account \
+  $  aws auditmanager register-account \
       --delegated-admin-account 123456789012
   ```
 + AWS SDK: Call the `RegisterAccount` operation and provide `delegatedAdminAccount` as a parameter to delegate the administrator account\. 
