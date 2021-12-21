@@ -111,7 +111,7 @@ If you want to configure a delegated administrator account using the AWS CLI or 
 + AWS CLI: 
 
   ```
-  $  aws audit-manager register-account \
+  $  aws auditmanager register-account \
       --delegated-admin-account 123456789012
   ```
 + AWS SDK: Call the `RegisterAccount` operation and provide `delegatedAdminAccount` as a parameter to delegate the administrator account\. 
