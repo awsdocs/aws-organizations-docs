@@ -36,7 +36,7 @@ Tag policy syntax includes the following elements:
 + A *policy key* that uniquely identifies the policy statement\. It must match the value for the *tag key*, except for the case treatment\. Unlike the tag key \(described next\), the policy value *is not* case sensitive\. 
 
   In this example, `costcenter` is the policy key\.
-+ At least one *tag key* that specifies the allowed tag key with the capitalization that you want resources to be compliant with\. If case treatment isn't defined, lowercase is the default case treatment for tag keys\. The value for the tag key must match the value for the policy key\. But since the policy key value is case insensitive, the capitalization can be different\. 
++ \(Optional\) Specifies the allowed tag key with the capitalization that you want resources to be compliant with\. If case treatment section isn't defined, lowercase value of the *policy key* is the default case treatment for tag keys\. The value for the tag key must match the value for the policy key\. But since the policy key value is case insensitive, the capitalization can be different\. 
 
   In this example, `CostCenter` is the tag key\. This is the case treatment that is required for compliance with the tag policy\. Resources with alternate case treatment for this tag key are noncompliant with the tag policy\. 
 
