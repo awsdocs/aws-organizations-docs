@@ -1,8 +1,9 @@
 # AWS Systems Manager and AWS Organizations<a name="services-that-can-integrate-ssm"></a>
 
-AWS Systems Manager is a collection of capabilities that enable visibility and control of your AWS resources\. Two of the features that are part of Systems Manager can work with Organizations to work across all of the AWS accounts in your organization\.
+AWS Systems Manager is a collection of capabilities that enable visibility and control of your AWS resources\. Only three of the features that are part of Systems Manager can work with Organizations to work across all of the AWS accounts in your organization\.
 + Systems Manager Explorer, is a customizable operations dashboard that reports information about your AWS resources\. You can synchronize operations data across all AWS accounts in your organization by using Organizations and Systems Manager Explorer\. For more information, see [Systems Manager Explorer](https://docs.aws.amazon.com/systems-manager/latest/userguide/Explorer.html) in the *AWS Systems Manager User Guide*\.
 + Systems Manager Change Manager is an enterprise change management framework for requesting, approving, implementing, and reporting on operational changes to your application configuration and infrastructure\. For more information, see [AWS Systems Manager Change Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/change-manager.html) in the *AWS Systems Manager User Guide*\.
++  Systems Manager Quick Setup, a capability of AWS Systems Manager, to quickly configure frequently used Amazon Web Services services and features with recommended best practices. https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-quick-setup.html
 
 Use the following information to help you integrate AWS Systems Manager with AWS Organizations\.
 
