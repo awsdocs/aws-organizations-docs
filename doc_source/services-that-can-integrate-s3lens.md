@@ -2,7 +2,7 @@
 
 By giving Amazon S3 Storage Lens trusted access to your organization, you allow it to collect and aggregate metrics across all of the AWS accounts in your organization\. S3 Storage Lens does this by accessing the list of accounts that belong to your organization and collects and analyzes the storage and usage and activity metrics for all of them\. 
 
-For more information, see \. For more information, see the [Using service\-linked roles for Amazon S3 Storage Lens](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-service-linked-roles.html) in the *Amazon S3 Storage Lens User Guide*\. 
+For more information, see the [Using service\-linked roles for Amazon S3 Storage Lens](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-service-linked-roles.html) in the *Amazon S3 Storage Lens User Guide*\. 
 
 Use the following information to help you integrate Amazon S3 Storage Lens with AWS Organizations\.
 
