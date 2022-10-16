@@ -20,7 +20,7 @@ This topic uses the following terms when discussing policy inheritance\.
 
 Policy inheritance  
 The interaction of policies at differing levels of an organization, moving from the top\-level root of the organization, down through the organizational unit \(OU\) hierarchy to individual accounts\.  
-You can attach policies to the organization root, OUs, individual accounts, and to any combination of these organization entities\. Policy inheritance refers to policies that are attached to the organization root or to an OU\. All accounts that are members of the organization root or OU where a policy is attached *inherit*that policy\.  
+You can attach policies to the organization root, OUs, individual accounts, and to any combination of these organization entities\. Policy inheritance refers to policies that are attached to the organization root or to an OU\. All accounts that are members of the organization root or OU where a policy is attached *inherit* that policy\.  
 For example, when policies are attached to the organization root, all accounts in the organization inherit that policy\. That's because all accounts in an organization are always under the organization root\. When you attach a policy to a specific OU, accounts that are directly under that OU or any child OU inherit that policy\. Because you can attach policies to multiple levels in the organization, accounts might inherit multiple policy documents for a single policy type\. 
 
 Parent policies  
