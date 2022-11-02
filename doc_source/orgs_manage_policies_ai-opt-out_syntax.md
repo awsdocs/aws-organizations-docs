@@ -94,22 +94,19 @@ The example policies that follow are for information purposes only\.
 
 The following example shows a policy that you could attach to your organization's root to opt out of AI services for accounts in your organization\. 
 
-**Tip**  
-If you copy the following example using the copy button in the example's upper\-right corner, the copy doesn't include the line numbers\. It's ready to paste\.
-
 ```
-    | {
-    |     "services": {
-[1] |         "@@operators_allowed_for_child_policies": ["@@none"],
-    |         "default": {
-[2] |             "@@operators_allowed_for_child_policies": ["@@none"],
-    |             "opt_out_policy": {
-[3] |                 "@@operators_allowed_for_child_policies": ["@@none"],
-    |                 "@@assign": "optOut"
-    |             }
-    |         }
-    |     }
-    | }
+{
+    "services": {
+        "@@operators_allowed_for_child_policies": ["@@none"],
+        "default": {
+            "@@operators_allowed_for_child_policies": ["@@none"],
+            "opt_out_policy": {
+                "@@operators_allowed_for_child_policies": ["@@none"],
+                "@@assign": "optOut"
+            }
+        }
+    }
+}
 ```
 + \[1\] – The `"@@operators_allowed_for_child_policies": ["@@none"]` that is under `services` prevents any child policy from adding any new sections for individual services other than the `default` section that is already there\. `Default` is the placeholder that represents "all AI services"\.
 + \[2\] – The `"@@operators_allowed_for_child_policies": ["@@none"]` that is under `default` prevents any child policy from adding any new sections other than the `opt_out_policy` section that is already there\.
