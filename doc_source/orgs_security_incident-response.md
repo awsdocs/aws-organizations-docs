@@ -37,6 +37,90 @@ For more information, see the [CloudTrail userIdentity Element](https://docs.aws
 
 A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket that you specify\. CloudTrail log files contain one or more log entries\. An event represents a single request from any source and includes information about the requested action, the date and time of the action, request parameters, and so on\. CloudTrail log files aren't an ordered stack trace of the public API calls, so they don't appear in any specific order\.
 
+#### Example log entries: CloseAccount<a name="Log-entries-close-account"></a>
+
+The following example shows a CloudTrail log entry for a sample `CloseAccount` call that is generated when the API is called and the workflow to close the account starts processing in the background\.
+
+```
+{
+    "eventVersion": "1.08",
+    "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDAMVNPBQA3EXAMPLE:my-admin-role",
+        "arn": "arn:aws:sts::111122223333:assumed-role/my-admin-role/my-session-id",
+        "accountId": "111122223333",
+        "accessKeyId": "AKIAIOSFODNN7EXAMPLE",
+        "sessionContext": {
+            "sessionIssuer": {
+                "type": "Role",
+                "principalId": "AIDAMVNPBQA3EXAMPLE",
+                "arn": "arn:aws:iam::111122223333:role/my-admin-role",
+                "accountId": "111122223333",
+                "userName": "my-session-id"
+            },
+            "webIdFederationData": {},
+            "attributes": {
+                "mfaAuthenticated": "false",
+                "creationDate": "2022-03-18T18:17:06Z"
+            }
+        }
+    },
+    "eventTime": "2022-03-18T18:17:06Z",
+    "eventSource": "organizations.amazonaws.com",
+    "eventName": "CloseAccount",
+    "awsRegion": "us-east-1",
+    "sourceIPAddress": "192.168.0.1",
+    "userAgent":  "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)...",
+    "requestParameters": {
+        "accountId": "555555555555"
+    },
+    "responseElements": null,
+    "requestID": "e28932f8-d5da-4d7a-8238-ef74f3d5c09a",
+    "eventID": "19fe4c10-f57e-4cb7-a2bc-6b5c30233592",
+    "readOnly": false,
+    "eventType": "AwsApiCall",
+    "managementEvent": true,
+    "recipientAccountId": "111122223333",
+    "eventCategory": "Management"
+}
+```
+
+The following example shows a CloudTrail log entry for a `CloseAccountResult` call after the background workflow to close the account successfully completes\.
+
+```
+{
+  "eventVersion": "1.08",
+  "userIdentity": {
+    "accountId": "111122223333",
+    "invokedBy": "organizations.amazonaws.com"
+  },
+  "eventTime": "2022-03-18T18:17:06Z",
+  "eventSource": "organizations.amazonaws.com",
+  "eventName": "CloseAccountResult",
+  "awsRegion": "us-east-1",
+  "sourceIPAddress": "organizations.amazonaws.com",
+  "userAgent": "organizations.amazonaws.com",
+  "requestParameters": null,
+  "responseElements": null,
+  "eventID": "EXAMPLE8-90ab-cdef-fedc-ba987EXAMPLE",
+  "readOnly": false,
+  "eventType": "AwsServiceEvent",
+  "readOnly": false,
+  "eventType": "AwsServiceEvent",
+  "managementEvent": true,
+  "recipientAccountId": "111122223333",
+  "serviceEventDetails": {
+    "closeAccountStatus": {
+      "accountId": "555555555555",
+      "state": "SUCCEEDED",
+      "requestedTimestamp": "Mar 18, 2022 6:16:58 PM",
+      "completedTimestamp": "Mar 18, 2022 6:16:58 PM"
+    }
+   },
+   "eventCategory": "Management"
+}
+```
+
 #### Example log entries: CreateAccount<a name="Log-entries-create-account"></a>
 
 The following example shows a CloudTrail log entry for a sample `CreateAccount` call that is generated when the API is called and the workflow to create the account starts processing in the background\.

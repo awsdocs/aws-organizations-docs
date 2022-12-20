@@ -34,7 +34,7 @@ The following table summarizes some of the characteristics of each policy type:
 + [Enabling and disabling policy types](orgs_manage_policies_enable-disable.md)
 + [Getting information about your organization's policies](orgs_manage_policies_info-operations.md)
 + [Understanding policy inheritance](orgs_manage_policies_inheritance.md)
-+ [Service control policies](orgs_manage_policies_scps.md)
++ [Service control policies \(SCPs\)](orgs_manage_policies_scps.md)
 + [AI services opt\-out policies](orgs_manage_policies_ai-opt-out.md)
 + [Backup policies](orgs_manage_policies_backup.md)
 + [Tag policies](orgs_manage_policies_tag-policies.md)

@@ -22,7 +22,7 @@ To view the details of an organization, you must have the following permission:
 
 **To view the details for your organization**
 
-1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
+1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\.
 
 1. Navigate to the **[Settings](https://console.aws.amazon.com/organizations/v2/home/settings)** page\. This page displays details about the organization, including the organization ID and the account name and email address assigned to the organization's management account\.
 
@@ -71,7 +71,7 @@ The root is the topmost container in the hierarchy of organizational units \(OUs
 
 **To view the details of the root**
 
-1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
+1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\.
 
 1. Navigate to the **[AWS accounts](https://console.aws.amazon.com/organizations/v2/home/accounts)** page, and choose the **Root** OU \(its name, not the radio button\)\. 
 
@@ -124,7 +124,7 @@ To view the details of an organizational unit \(OU\), you must have the followin
 
 **To view details of an OU**
 
-1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
+1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\.
 
 1. On the **[AWS accounts](https://console.aws.amazon.com/organizations/v2/home/accounts)** page, choose the name of the OU \(not its radio button\) that you want to examine\. If the OU that you want is a child of another OU, choose the triangle icon next to its parent OU to expand it and see those in the next level of the hierarchy\. Repeat until you find the OU that you want\.
 
@@ -199,7 +199,7 @@ To view the details of an AWS account, you must have the following permissions:
 
 **To view details of an AWS account**
 
-1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
+1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\.
 
 1. Navigate to the **[AWS accounts](https://console.aws.amazon.com/organizations/v2/home/accounts)** page and choose the name of the name of the account \(not the radio button\) that you want to examine\. If the account that you want is a child of an OU, you might have to choose the triangle icon ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/organizations/latest/userguide/images/console-expand.png)next to an OU to expand it and see its children\. Repeat until you find the account\.
 
@@ -253,7 +253,7 @@ To view the details of a policy, you must have the following permissions:
 
 **To view the details of a policy**
 
-1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
+1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\.
 
 1. Perform one of the following:
    + Navigate to the **[Policies](https://console.aws.amazon.com/organizations/v2/home/policies)** page, and then choose the policy type for the policy that you want to examine\.

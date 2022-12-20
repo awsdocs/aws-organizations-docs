@@ -75,13 +75,15 @@ Now that you have an organization, you can begin to populate it with accounts\. 
 
 1. Choose **Send invitation**\. AWS Organizations sends the invitation to the account owner\.
 **Important**  
-If you get an error that indicates that you exceeded your account limits for the organization or that you can't add an account because your organization is still initializing, wait until one hour after you created the organization and try again\. If the error persists, contact [AWS Support](https://console.aws.amazon.com/support/home#/)\.
+Expand the error message if indicated\. If the error indicates that you exceeded your account limits for the organization or that you can't add an account because your organization is still initializing, wait until one hour after you created the organization and try again\. If the error persists, contact [AWS Support](https://console.aws.amazon.com/support/home#/)\.
 
 1. For the purposes of this tutorial, you now need to accept your own invitation\. Do one of the following to get to the **Invitations** page in the console:
    + Open the email that AWS sent from the management account and choose the link to accept the invitation\. When prompted to sign in, do so as an administrator in the invited member account\. 
    + Open the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2) and navigate to the **[Invitations](https://console.aws.amazon.com/organizations/v2/home/accounts/invitations)** page\.
 
 1. On the **[AWS accounts](https://console.aws.amazon.com/organizations/v2/home/accounts)** page, choose **Accept** and then choose **Confirm**\.
+**Tip**  
+The invitation receipt could be delayed and you might need to wait before you can accept the invitation\.
 
 1. Sign out of your member account and sign in again as an administrator in your management account\. 
 
@@ -129,8 +131,6 @@ If you choose the radio button next to the object, you are identifying that obje
 The steps that follow have you choose the radio button so that you can then act on the associated object by making menu choices\.
 
 1. On the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2) navigate to the **[AWS accounts](https://console.aws.amazon.com/organizations/v2/home/accounts)** page\.
-
-1. Ensure that the switch **View AWS accounts only** is turned *off* ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/organizations/latest/userguide/images/console-switch-off.png)\.
 
 1. Choose the check box ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/organizations/latest/userguide/images/checkbox-selected.png) next to the **Root** container\.
 
@@ -350,7 +350,7 @@ Now that the SCPs exist and are enabled for your root, you can attach them to th
 
 ## Step 4: Testing your organization's policies<a name="tutorial-orgs-step4"></a>
 
-You now can sign in as a user in any of the member accounts and try to perform various AWS actions:
+You now can [sign in](https://docs.aws.amazon.com/signin/latest/userguide/what-is-sign-in.html) as a user in any of the member accounts and try to perform various AWS actions:
 + If you sign in as a user in the management account, you can perform any operation that is allowed by your IAM permissions policies\. The SCPs don't affect any user or role in the management account, no matter which root or OU the account is located in\.
 + If you sign in as the root user or an IAM user in account 222222222222, you can perform any actions that are allowed by the allow list\. AWS Organizations denies any attempt to perform an action in any service that isn't in the allow list\. Also, AWS Organizations denies any attempt to perform one of the CloudTrail configuration actions\.
 + If you sign in as a user in account 333333333333, you can perform any actions that are allowed by the allow list and not blocked by the deny list\. AWS Organizations denies any attempt to perform an action that isn't in the allow list policy and any action that is in the deny list policy\. Also, AWS Organizations denies any attempt to perform one of the CloudTrail configuration actions\.

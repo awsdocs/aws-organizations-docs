@@ -27,7 +27,7 @@ You can enable trusted access by using either the AWS Organizations console, by 
 
 **To enable trusted service access using the Organizations console**
 
-1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
+1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\.
 
 1. On the **[Services](https://console.aws.amazon.com/organizations/v2/home/services)** page, find the row for **tag policies**, choose the service’s name, and then choose **Enable trusted access**\.
 

@@ -25,7 +25,7 @@ For information about the permissions needed to enable trusted access, see [Perm
 You can enable trusted access using either the AWS Compute Optimizer console or the AWS Organizations console\.
 
 **Important**  
-We strongly recommend that whenever possible, you use the AWS Compute Optimizer console or tools to enable integration with Organizations\. This lets AWS Compute Optimizer perform any configuration that it requires, such as creating resources needed by the service\. Proceed with these steps only if you can’t enable integration using the tools provided by AWS Compute Optimizer\.For more information, see [this note](orgs_integrate_services.md#important-note-about-integration)\.   
+We strongly recommend that whenever possible, you use the AWS Compute Optimizer console or tools to enable integration with Organizations\. This lets AWS Compute Optimizer perform any configuration that it requires, such as creating resources needed by the service\. Proceed with these steps only if you can’t enable integration using the tools provided by AWS Compute Optimizer\. For more information, see [this note](orgs_integrate_services.md#important-note-about-integration)\.   
 If you enable trusted access by using the AWS Compute Optimizer console or tools then you don’t need to complete these steps\.
 
 **To enable trusted access using the Compute Optimizer console**  
@@ -38,7 +38,7 @@ You can enable trusted access by using either the AWS Organizations console, by 
 
 **To enable trusted service access using the Organizations console**
 
-1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
+1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\.
 
 1. On the **[Services](https://console.aws.amazon.com/organizations/v2/home/services)** page, find the row for **AWS Compute Optimizer**, choose the service’s name, and then choose **Enable trusted access**\.
 
@@ -91,3 +91,35 @@ You can use the following AWS CLI commands or API operations to disable trusted 
 + AWS API: [DisableAWSServiceAccess](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DisableAWSServiceAccess.html)
 
 ------
+
+## Enabling a delegated administrator account for Compute Optimizer<a name="integrate-enable-da-compute-optimizer"></a>
+
+When you designate a member account to be a delegated administrator for the organization, users and roles from the designated account can manage the AWS account metadata for other member accounts in the organization\. If you don't enable a delegated admin account, then these tasks can be performed only by the organization's management account\. This helps you to separate management of the organization from management of your account details\.
+
+**Minimum permissions**  
+Only an IAM user or role in the Organizations management account can configure a member account as a delegated administrator for Compute Optimizer in the organization
+
+For instructions about enabling a delegated administrator account for Compute Optimizer, see [https://docs.aws.amazon.com/compute-optimizer/latest/ug/delegate-administrator-account.html](https://docs.aws.amazon.com/compute-optimizer/latest/ug/delegate-administrator-account.html) in the *AWS Compute Optimizer User Guide*\.
+
+------
+#### [ AWS CLI, AWS API ]
+
+If you want to configure a delegated administrator account using the AWS CLI or one of the AWS SDKs, you can use the following commands:
++ AWS CLI: 
+
+  ```
+  $  aws organizations register-delegated-administrator \
+      --account-id 123456789012 \
+      --service-principal compute-optimizer.amazonaws.com
+  ```
++ AWS SDK: Call the Organizations `RegisterDelegatedAdministrator` operation and the member account's ID number and identify the account service `principal account.amazonaws.com` as parameters\. 
+
+------
+
+## Disabling a delegated administrator for Compute Optimizer<a name="integrate-disable-da-compute-optimizer"></a>
+
+Only an administrator in the organization management account can configure a delegated administrator for Compute Optimizer\.
+
+ To disable the delegated admin Compute Optimizer account using the Compute Optimizer console, see [https://docs.aws.amazon.com/compute-optimizer/latest/ug/delegate-administrator-account.html](https://docs.aws.amazon.com/compute-optimizer/latest/ug/delegate-administrator-account.html) in the *AWS Compute Optimizer User Guide*\.
+
+ To remove a delegated administrator using the AWS AWS CLI, see [deregister\-delegated\-administrator](https://docs.aws.amazon.com/cli/latest/reference/organizations/deregister-delegated-administrator.html) in the *AWS AWS CLI Command Reference*\.

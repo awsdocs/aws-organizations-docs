@@ -22,7 +22,7 @@ Use the information here to help you diagnose and fix access\-denied or other co
 + Verify that your temporary security credentials haven't expired\. For more information, see [Requesting Temporary Security Credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html) in the *IAM User Guide*\. 
 
 ## I get an "access denied" message when I try to leave an organization as a member account or remove a member account as the management account<a name="troubleshoot_general_error-leaving-org"></a>
-+ You can remove a member account only after you enable IAM user access to billing in the member account\. For more information, see [Activating Access to the Billing and Cost Management Console](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate) in the *AWS Billing and Cost Management User Guide*\.
++ You can remove a member account only after you enable IAM user access to billing in the member account\. For more information, see [Activating Access to the Billing and Cost Management Console](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate) in the *AWS Billing User Guide*\.
 + You can remove an account from your organization only if the account has the information required for it to operate as a standalone account\. When you create an account in an organization using the AWS Organizations console, API, or AWS CLI commands, that information isn't automatically collected\. For an account that you want to make standalone, you must accept the AWS Customer Agreement, choose a support plan, provide and verify the required contact information, and provide a current payment method\. AWS uses the payment method to charge for any billable \(not AWS Free Tier\) AWS activity that occurs while the account isn't attached to an organization\. For more information, see [Leaving an organization as a member account](orgs_manage_accounts_remove.md#orgs_manage_accounts_leave-as-member)\.
 
 ## I get a "quota exceeded" message when I try to add an account to my organization<a name="troubleshoot_general_error-adding-account"></a>
@@ -53,6 +53,6 @@ Design your global applications to account for these potential delays and ensure
 
 For more information about how some other AWS services are affected by this, consult the following resources:
 + [Managing Data Consistency](https://docs.aws.amazon.com/redshift/latest/dg/managing-data-consistency.html) in the *Amazon Redshift Database Developer Guide*
-+ [Amazon S3 Data Consistency Model](https://docs.aws.amazon.com/AmazonS3/latest/dev/Introduction.html#ConsistencyModel) in the *Amazon Simple Storage Service Developer Guide*
++ [Amazon S3 Data Consistency Model](https://docs.aws.amazon.com/AmazonS3/latest/dev/Introduction.html#ConsistencyModel) in the *Amazon Simple Storage Service User Guide*
 + [Ensuring Consistency When Using Amazon S3 and Amazon Elastic MapReduce for ETL Workflows](http://aws.amazon.com/blogs/big-data/ensuring-consistency-when-using-amazon-s3-and-amazon-elastic-mapreduce-for-etl-workflows/) in the AWS Big Data Blog
 + [EC2 Eventual Consistency](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/query-api-troubleshooting.html#eventual-consistency) in the *Amazon EC2 API Reference*\.

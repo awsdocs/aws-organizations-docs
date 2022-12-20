@@ -10,7 +10,7 @@ Use the following information to help you integrate Amazon S3 Storage Lens with 
 
 ## Service\-linked role created when you enable integration<a name="integrate-enable-slr-s3lens"></a>
 
-The following [service\-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html) is automatically created in your organization's management account when you enable trusted access\. This role allows Amazon S3 Storage Lens to perform supported operations within your organization's accounts in your organization\.
+The following [service\-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html) is automatically created in your organization's delegated administrator account when you enable trusted access and the Storage Lens configuration has been applied to your organization\. This role allows Amazon S3 Storage Lens to perform supported operations within your organization's accounts in your organization\.
 
 You can delete or modify this role only if you disable trusted access between Amazon S3 Storage Lens and Organizations, or if you remove the member account from the organization\.
 + `AWSServiceRoleForS3StorageLens` 
@@ -27,11 +27,11 @@ For information about the permissions needed to enable trusted access, see [Perm
 You can enable trusted access using either the Amazon S3 Storage Lens console or the AWS Organizations console\.
 
 **Important**  
-We strongly recommend that whenever possible, you use the Amazon S3 Storage Lens console or tools to enable integration with Organizations\. This lets Amazon S3 Storage Lens perform any configuration that it requires, such as creating resources needed by the service\. Proceed with these steps only if you can’t enable integration using the tools provided by Amazon S3 Storage Lens\.For more information, see [this note](orgs_integrate_services.md#important-note-about-integration)\.   
+We strongly recommend that whenever possible, you use the Amazon S3 Storage Lens console or tools to enable integration with Organizations\. This lets Amazon S3 Storage Lens perform any configuration that it requires, such as creating resources needed by the service\. Proceed with these steps only if you can’t enable integration using the tools provided by Amazon S3 Storage Lens\. For more information, see [this note](orgs_integrate_services.md#important-note-about-integration)\.   
 If you enable trusted access by using the Amazon S3 Storage Lens console or tools then you don’t need to complete these steps\.
 
 **To enable trusted access using the Amazon S3 console**  
-See [How to enable Trusted Access](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/storage_lens_console_organizations_enabling_trusted_access.html ) in the *Amazon Simple Storage Service Developer Guide*\.
+See [How to enable Trusted Access](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/storage_lens_console_organizations_enabling_trusted_access.html ) in the *Amazon Simple Storage Service User Guide*\.
 
 You can enable trusted access by using either the AWS Organizations console, by running a AWS CLI command, or by calling an API operation in one of the AWS SDKs\.
 
@@ -40,7 +40,7 @@ You can enable trusted access by using either the AWS Organizations console, by 
 
 **To enable trusted service access using the Organizations console**
 
-1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
+1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\.
 
 1. On the **[Services](https://console.aws.amazon.com/organizations/v2/home/services)** page, find the row for **Amazon S3 Storage Lens**, choose the service’s name, and then choose **Enable trusted access**\.
 
@@ -76,7 +76,7 @@ You can disable trusted access using only the Amazon S3 Storage Lens tools\.
 You can disable trusted access using the Amazon S3 console, the AWS CLI or any of the AWS SDKs\. 
 
 **To disable trusted access using the Amazon S3 console**  
-See [How to disable Trusted Access](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/storage_lens_console_organizations_disabling_trusted_access.html) in the *Amazon Simple Storage Service Developer Guide*\.
+See [How to disable Trusted Access](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/storage_lens_console_organizations_disabling_trusted_access.html) in the *Amazon Simple Storage Service User Guide*\.
 
 ## Enabling a delegated administrator account for Amazon S3 Storage Lens<a name="integrate-enable-da-s3lens"></a>
 
@@ -90,7 +90,7 @@ Only an IAM user or role in the Organizations management account with the follow
 Amazon S3 Storage Lens supports a maximum of 5 delegated administrator accounts in your organization\.
 
 **To designate a member account as a delegated administrator for Amazon S3 Storage Lens**  
-You can register a delegated administrator using the Amazon S3 console, the AWS CLI or any of the AWS SDKs\. To register a member account as a delegated administrator account for your organization using the Amazon S3 console, see [How to register a Delegated Administrator](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/storage_lens_console_organizations_registering_delegated_admins.html) in the *Amazon Simple Storage Service Developer Guide*\.
+You can register a delegated administrator using the Amazon S3 console, the AWS CLI or any of the AWS SDKs\. To register a member account as a delegated administrator account for your organization using the Amazon S3 console, see [How to register a Delegated Administrator](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/storage_lens_console_organizations_registering_delegated_admins.html) in the *Amazon Simple Storage Service User Guide*\.
 
 **To deregister a delegated administrator for Amazon S3 Storage Lens**  
-You can deregister a delegated administrator using the Amazon S3 console, the AWS CLI or any of the AWS SDKs\. To deregister a delegated administrator using the Amazon S3 console, see [How to unregister a Delegated Administrator](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/storage_lens_console_organizations_deregistering_delegated_admins.html) in the *Amazon Simple Storage Service Developer Guide*\.
+You can deregister a delegated administrator using the Amazon S3 console, the AWS CLI or any of the AWS SDKs\. To deregister a delegated administrator using the Amazon S3 console, see [How to unregister a Delegated Administrator](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/storage_lens_console_organizations_deregistering_delegated_admins.html) in the *Amazon Simple Storage Service User Guide*\.

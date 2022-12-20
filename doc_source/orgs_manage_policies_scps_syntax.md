@@ -7,7 +7,7 @@ An SCP is a plaintext file that is structured according to the rules of [JSON](h
 **Note**  
 All characters in your SCP count against its [maximum size](orgs_reference_limits.md#min-max-values)\. The examples in this guide show the SCPs formatted with extra white space to improve their readability\. However, to save space if your policy size approaches the maximum size, you can delete any white space, such as space characters and line breaks that are outside quotation marks\.
 
-For general information about SCPs, see [Service control policies](orgs_manage_policies_scps.md)\.
+For general information about SCPs, see [Service control policies \(SCPs\)](orgs_manage_policies_scps.md)\.
 
 ## Elements summary<a name="scp-elements-table"></a>
 
@@ -143,10 +143,12 @@ The value for the `Action` or `NotAction` element is a list \(a JSON array\) of 
 
 Each string consists of the abbreviation for the service \(such as "s3", "ec2", "iam", or "organizations"\), in all lowercase, followed by a colon and then an action from that service\. The actions and notactions are case sensitive and must be typed as shown in each service's documentation\. Generally, they are all typed with each word starting with an uppercase letter and the rest lowercase\. For example: `"s3:ListAllMyBuckets"`\.
 
-You also can use an asterisk as a wildcard to match multiple actions that share part of a name\. The value `"s3:*"` means all actions in the Amazon S3 service\. The value `"ec2:Describe*"` matches only the EC2 actions that begin with "Describe"\.
+You also can use wildcard characters such as asterisk \(\*\) or question mark \(?\) in an SCP:
++ Use an asterisk \(\*\) as a wildcard to match multiple actions that share part of a name\. The value `"s3:*"` means all actions in the Amazon S3 service\. The value `"ec2:Describe*"` matches only the EC2 actions that begin with "Describe"\.
++ Use the question mark \(?\) wildcard to match a single character\. 
 
 **Note**  
-In an SCP, the wildcard \(\*\) character in an `Action` or `NotAction` element can be used only by itself or at the end of the string\. It can't appear at the beginning or middle of the string\. Therefore, `"servicename:action*"` is valid, but `"servicename:*action"` and `"servicename:some*action"` are both invalid in SCPs\.
+In an SCP, the wildcard characters \(\*\) and \(?\) in an `Action` or `NotAction` element can be used only by itself or at the end of the string\. It can't appear at the beginning or middle of the string\. Therefore, `"servicename:action*"` is valid, but `"servicename:*action"` and `"servicename:some*action"` are both invalid in SCPs\.
 
 For a list of all the services and the actions that they support in both AWS Organizations SCPs and IAM permission policies, see [Actions, Resources, and Condition Keys for AWS Services](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actionsconditions.html) in the *IAM User Guide*\.
 
@@ -212,6 +214,10 @@ With this statement, affected accounts are limited to taking actions in the spec
 ## `Resource` element<a name="scp-syntax-resource"></a>
 
 In statements where the `Effect` element has a value of `Allow`, you can specify only "\*" in the `Resource` element of an SCP\. You can't specify individual resource Amazon Resource Names \(ARNs\)\. 
+
+You also can use wildcard characters such as asterisk \(\*\) or question mark \(?\) in the resource element:
++ Use an asterisk \(\*\) as a wildcard to match multiple actions that share part of a name\. 
++ Use the question mark \(?\) wildcard to match a single character\. 
 
 In statements where the `Effect` element has a value of `Deny`, you *can* specify individual ARNs, as shown in the following example\.
 

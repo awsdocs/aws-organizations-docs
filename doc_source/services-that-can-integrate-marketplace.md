@@ -29,7 +29,7 @@ For information about the permissions needed to enable trusted access, see [Perm
 You can enable trusted access using either the AWS Marketplace console or the AWS Organizations console\.
 
 **Important**  
-We strongly recommend that whenever possible, you use the AWS Marketplace console or tools to enable integration with Organizations\. This lets AWS Marketplace perform any configuration that it requires, such as creating resources needed by the service\. Proceed with these steps only if you can’t enable integration using the tools provided by AWS Marketplace\.For more information, see [this note](orgs_integrate_services.md#important-note-about-integration)\.   
+We strongly recommend that whenever possible, you use the AWS Marketplace console or tools to enable integration with Organizations\. This lets AWS Marketplace perform any configuration that it requires, such as creating resources needed by the service\. Proceed with these steps only if you can’t enable integration using the tools provided by AWS Marketplace\. For more information, see [this note](orgs_integrate_services.md#important-note-about-integration)\.   
 If you enable trusted access by using the AWS Marketplace console or tools then you don’t need to complete these steps\.
 
 **To enable trusted access using the AWS Marketplace console**  
@@ -42,7 +42,7 @@ You can enable trusted access by using either the AWS Organizations console, by 
 
 **To enable trusted service access using the Organizations console**
 
-1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
+1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\.
 
 1. On the **[Services](https://console.aws.amazon.com/organizations/v2/home/services)** page, find the row for **AWS Marketplace**, choose the service’s name, and then choose **Enable trusted access**\.
 

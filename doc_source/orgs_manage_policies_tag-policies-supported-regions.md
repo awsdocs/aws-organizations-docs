@@ -16,6 +16,7 @@ Tag policy features are available in the following Regions:
 |  Asia Pacific \(Seoul\) Region  |  `ap-northeast-2`  | 
 |  Asia Pacific \(Singapore\) Region  |  `ap-southeast-1`  | 
 |  Asia Pacific \(Sydney\) Region  |  `ap-southeast-2`  | 
+|  Asia Pacific \(Jakarta\) Region  |  `ap-southeast-3`  | 
 |  Asia Pacific \(Tokyo\) Region  |  `ap-northeast-1`  | 
 |  Asia Pacific \(Osaka\) Region  |  `ap-northeast-3`  | 
 |  Canada \(Central\) Region  |  `ca-central-1`  | 

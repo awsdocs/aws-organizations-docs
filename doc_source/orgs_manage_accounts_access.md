@@ -4,9 +4,9 @@ When you create an account in your organization, in addition to the root user, A
 + The account has a root user that you can use to sign in\. We recommend that you use the root user only to create IAM users, groups, and roles and then always sign in with one of those\. See [Accessing a member account as the root user](#orgs_manage_accounts_access-as-root)\. 
 + If you create an account by using the tools provided as part of AWS Organizations, you can access the account by using the preconfigured role named `OrganizationAccountAccessRole` that exists in all new accounts that you create this way\. See [Accessing a member account that has a management account access role](#orgs_manage_accounts_access-cross-account-role)\.
 + If you invite an existing account to join your organization and the account accepts the invitation, you can then choose to create an IAM role that allows the management account to access the invited member account\. This role is intended to be identical to the role automatically added to an account that is created with AWS Organizations\. To create this role, see [Creating the OrganizationAccountAccessRole in an invited member account](#orgs_manage_accounts_create-cross-account-role)\. After you create the role, you can access it using the steps in [Accessing a member account that has a management account access role](#orgs_manage_accounts_access-cross-account-role)\.
-+ Use [AWS Single Sign\-On](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html) and enable trusted access for AWS SSO with AWS Organizations\. This allows users to sign in to the AWS SSO user portal with their corporate credentials and access resources in their assigned management account or member accounts\.
++ Use [AWS IAM Identity Center \(successor to AWS Single Sign\-On\)](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html) and enable trusted access for IAM Identity Center with AWS Organizations\. This allows users to sign in to the AWS access portal with their corporate credentials and access resources in their assigned management account or member accounts\.
 
-  For more information, see [Manage SSO to Your AWS accounts](https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-accounts.html) in the *AWS Single Sign\-On User Guide\.* For information about setting up trusted access for AWS SSO, see [AWS Single Sign\-On and AWS Organizations](services-that-can-integrate-sso.md)\.
+  For more information, see [Multi\-account permissions](https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-accounts.html) in the *AWS IAM Identity Center \(successor to AWS Single Sign\-On\) User Guide\.* For information about setting up trusted access for IAM Identity Center, see [AWS IAM Identity Center \(successor to AWS Single Sign\-On\) and AWS Organizations](services-that-can-integrate-sso.md)\.
 
 **Minimum permissions**  
 To access an AWS account from any other account in your organization, you must have the following permission:  
@@ -22,7 +22,7 @@ We also recommend that you set [multi\-factor authentication](https://docs.aws.a
 If you created a member account in an organization with an incorrect email address, you can’t sign in to the account as the root user\. Contact [AWS Billing and Support](https://aws.amazon.com/contact-us/) for assistance\. 
 
 ------
-#### [ Console ]
+#### [ AWS Management Console ]
 
 **To request a new password for the root user of the member account**
 
@@ -43,7 +43,7 @@ By default, if you create a member account as part of your organization, AWS aut
 However, member accounts that you *invite* to join your organization ***do not*** automatically get an administrator role created\. You have to do this manually, as shown in the following procedure\. This essentially duplicates the role automatically set up for created accounts\. We recommend that you use the same name, `OrganizationAccountAccessRole`, for your manually created roles for consistency and ease of remembering\.
 
 ------
-#### [ Console ]
+#### [ AWS Management Console ]
 
 **To create an AWS Organizations administrator role in a member account**
 
@@ -97,10 +97,10 @@ The users who are members of the selected group now can use the URLs that you ca
 
 ## Accessing a member account that has a management account access role<a name="orgs_manage_accounts_access-cross-account-role"></a>
 
-When you create a member account using the AWS Organizations console, AWS Organizations *automatically* creates an IAM role named `OrganizationAccountAccessRole` in the account\. This role has full administrative permissions in the member account\. The role is also configured to grant that access to the organization's management account\. You can create an identical role for an invited member account by following the steps in [Creating the OrganizationAccountAccessRole in an invited member account](#orgs_manage_accounts_create-cross-account-role)\. To use this role to access the member account, you must sign in as a user from the management account that has permissions to assume the role\. To configure these permissions, perform the following procedure\. We recommend that you grant permissions to groups instead of users for ease of maintenance\.
+When you create a member account using the AWS Organizations console, AWS Organizations *automatically* creates an IAM role named `OrganizationAccountAccessRole` in the account\. This role has full administrative permissions in the member account\. The scope of access for this role includes all principals in the management account, such that the role is configured to grant that access to the organization's management account\. You can create an identical role for an invited member account by following the steps in [Creating the OrganizationAccountAccessRole in an invited member account](#orgs_manage_accounts_create-cross-account-role)\. To use this role to access the member account, you must sign in as a user from the management account that has permissions to assume the role\. To configure these permissions, perform the following procedure\. We recommend that you grant permissions to groups instead of users for ease of maintenance\.
 
 ------
-#### [ Console ]
+#### [ AWS Management Console ]
 
 **To grant permissions to members of an IAM group in the management account to access the role**
 
@@ -141,7 +141,7 @@ When you create a member account using the AWS Organizations console, AWS Organi
 IAM users that are members of the group now have permissions to switch to the new role in the AWS Organizations console by using the following procedure\.
 
 ------
-#### [ Console ]
+#### [ AWS Management Console ]
 
 **To switch to the role for the member account**
 

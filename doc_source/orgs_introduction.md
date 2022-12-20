@@ -25,7 +25,7 @@ You can group your accounts into organizational units \(OUs\) and attach differe
 
 **Policies to centralize control over the AWS services and API actions that each account can access**  
 As an administrator of the management account of an organization, you can use service control policies \(SCPs\) to specify the maximum permissions for member accounts in the organization\. In SCPs, you can restrict which AWS services, resources, and individual API actions the users and roles in each member account can access\. You can also define conditions for when to restrict access to AWS services, resources, and API actions\. These restrictions even override the administrators of member accounts in the organization\. When AWS Organizations blocks access to a service, resource, or API action for a member account, a user or role in that account can't access it\. This block remains in effect even if an administrator of a member account explicitly grants such permissions in an IAM policy\.   
-For more information, see [Service control policies](orgs_manage_policies_scps.md)\. 
+For more information, see [Service control policies \(SCPs\)](orgs_manage_policies_scps.md)\. 
 
 **Policies to standardize tags across the resources in your organization's accounts**  
 You can use tag policies to maintain consistent tags, including the preferred case treatment of tag keys and tag values\.  

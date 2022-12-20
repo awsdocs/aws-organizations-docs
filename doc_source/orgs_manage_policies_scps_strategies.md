@@ -72,7 +72,7 @@ The combination of the `FullAWSAccess` policy and the `Deny` statement in the pr
 To use SCPs as an allow list, you must replace the AWS managed `FullAWSAccess` SCP with an SCP that explicitly permits only those services and actions that you want to allow\. By removing the default `FullAWSAccess` SCP, all actions for all services are now implicitly denied\. Your custom SCP then overrides the implicit `Deny` with an explicit `Allow` for only those actions that you want to permit\. For a permission to be enabled for a specified account, every SCP from the root through each OU in the direct path to the account, and even attached to the account itself, must allow that permission\.
 
 **Notes**  
-An `Allow` statement in an SCP can't have a `Resource` element with anything except a `"*"`\.
+An `Allow` statement in an SCP permits the `Resource` element to only have a `"*"` entry\.
 An `Allow` statement in an SCP can't have a `Condition` element at all\. 
 
 An allow list policy might look like the following example, which enables account users to perform operations for Amazon Elastic Compute Cloud \(Amazon EC2\) and Amazon CloudWatch, but no other service\. All SCPs in parent OUs and the root also must explicitly allow these permissions\.

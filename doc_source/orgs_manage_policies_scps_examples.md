@@ -7,7 +7,7 @@ Before you use these example SCPs in your organization, do the following:
 Carefully review and customize the SCPs for your unique requirements\.
 Thoroughly test the SCPs in your environment with the AWS services that you use\.   
 The example policies in this section demonstrate the implementation and use of SCPs\. They're ***not*** intended to be interpreted as official AWS recommendations or best practices to be implemented exactly as shown\. It is your responsibility to carefully test any deny\-based policies for its suitability to solve the business requirements of your environment\. Deny\-based service control policies can unintentionally limit or block your use of AWS services unless you add the necessary exceptions to the policy\. For an example of such an exception, see the first example that exempts global services from the rules that block access to unwanted AWS Regions\. 
-Remember that an SCP affects every user and role in every account that it's attached to\. 
+Remember that an SCP affects every user and role, including the root user, in every account that it's attached to\. 
 
 **Tip**  
 You can use [service last accessed data](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html) in [IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) to update your SCPs to restrict access to only the AWS services that you need\. For more information, see [Viewing Organizations Service Last Accessed Data for Organizations](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor-view-data-orgs.html) in the *IAM User Guide\.* 

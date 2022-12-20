@@ -34,7 +34,7 @@ To enable all features in your organization, you must have the following permiss
 
 **To ask your invited member accounts to agree to enable all features in the organization**
 
-1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
+1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\.
 
 1. On the **[Settings](https://console.aws.amazon.com/organizations/v2/home/settings)** page choose **Begin process**\.
 
@@ -114,7 +114,7 @@ To approve a request to enable all features for your member account, you must ha
 
 **To agree to the request to enable all features in the organization**
 
-1. Sign in to the AWS Organizations console at [AWS Organizations console](https://console.aws.amazon.com/organizations/v2)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in a member account\. 
+1. Sign in to the AWS Organizations console at [AWS Organizations console](https://console.aws.amazon.com/organizations/v2)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in a member account\.
 
 1. Read what accepting the request for all features in the organization means for your account, and then choose **Accept**\. The page continues to show the process as incomplete until all accounts in the organization accept the requests and the administrator of the management account finalizes the process\.
 
@@ -229,7 +229,7 @@ To finalize the process to enable all features for the organization, you must ha
 
 **To finalize the process to enable all features**
 
-1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
+1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\.
 
 1. On the **[Settings](https://console.aws.amazon.com/organizations/v2/home/settings)** page, if all invited accounts accept the request to enable all features, a green box appears at the top of the page to inform you\. In the green box, choose **Go to finalize**\.
 

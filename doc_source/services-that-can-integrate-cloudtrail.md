@@ -27,7 +27,7 @@ For information about the permissions needed to enable trusted access, see [Perm
 You can enable trusted access using either the AWS CloudTrail console or the AWS Organizations console\.
 
 **Important**  
-We strongly recommend that whenever possible, you use the AWS CloudTrail console or tools to enable integration with Organizations\. This lets AWS CloudTrail perform any configuration that it requires, such as creating resources needed by the service\. Proceed with these steps only if you can’t enable integration using the tools provided by AWS CloudTrail\.For more information, see [this note](orgs_integrate_services.md#important-note-about-integration)\.   
+We strongly recommend that whenever possible, you use the AWS CloudTrail console or tools to enable integration with Organizations\. This lets AWS CloudTrail perform any configuration that it requires, such as creating resources needed by the service\. Proceed with these steps only if you can’t enable integration using the tools provided by AWS CloudTrail\. For more information, see [this note](orgs_integrate_services.md#important-note-about-integration)\.   
 If you enable trusted access by using the AWS CloudTrail console or tools then you don’t need to complete these steps\.
 
 You must sign in with your AWS Organizations management account to create an organization trail\. If you create the trail from the AWS CloudTrail console, trusted access is configured automatically for you\. If you choose to create an organization trail using the AWS CLI or the AWS API, you must manually configure trusted access\. For more information, see [ Enabling CloudTrail as a trusted service in AWS Organizations](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-and-update-an-organizational-trail-by-using-the-aws-cli.html#cloudtrail-create-organization-trail-by-using-the-cli-enable-trusted-service) in the *AWS CloudTrail User Guide\.*
@@ -70,7 +70,7 @@ You can disable trusted access by using either the AWS Organizations console, by
 
 **To disable trusted service access using the Organizations console**
 
-1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
+1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\.
 
 1. On the **[Services](https://console.aws.amazon.com/organizations/v2/home/services)** page, find the row for **AWS CloudTrail** and then choose the service’s name\.
 
@@ -98,3 +98,16 @@ You can use the following AWS CLI commands or API operations to disable trusted 
 + AWS API: [DisableAWSServiceAccess](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DisableAWSServiceAccess.html)
 
 ------
+
+## Enabling a delegated administrator account for CloudTrail<a name="integrate-enable-da-cloudtrail"></a>
+
+When you use CloudTrail with Organizations, you can register any account within the organization to act as a CloudTrail delegated administrator to manage the organization's trails and event data stores on behalf of the organization\. A delegated administrator is a member account in an organization that can perform the same administrative tasks in CloudTrail as the management account\. 
+
+**Minimum permissions**  
+Only an administrator in the Organizations management account can register a delegated administrator for CloudTrail\.
+
+You can register a delegated administrator account using the CloudTrail console, or by using the Organizations `RegisterDelegatedAdministrator` CLI or SDK operation\. To register a delegated administrator using the CloudTrail console, see [ Add a CloudTrail delegated administrator](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-add-delegated-administrator.html)\. 
+
+## Disabling a delegated administrator for CloudTrail<a name="integrate-disable-da-cloudtrail"></a>
+
+ Only an administrator in the Organizations management account can remove a delegated administrator for CloudTrail\. You can remove the delegated administrator using either the CloudTrail console, or by using the Organizations `DeregisterDelegatedAdministrator` CLI or SDK operation\. For information on how to remove a delegated administrator using the CloudTrail console, see [Remove a CloudTrail delegated administrator](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-remove-delegated-administrator.html) \. 

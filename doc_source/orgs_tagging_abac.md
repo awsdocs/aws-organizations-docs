@@ -108,7 +108,7 @@ Alternatively, you can use [https://docs.aws.amazon.com/IAM/latest/UserGuide/ref
     "Version": "2012-10-17",
     "Statement": {
         "Effect": "Allow",
-        "Action": "*",
+        "Action": "organizations:*",
         "Resource": "*",
         "Condition": {
             "ForAnyValue:StringEquals": {

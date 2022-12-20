@@ -13,7 +13,7 @@ The following are guidelines for names that you create in AWS Organizations, inc
 The following are the ***default*** maximums for entities in AWS Organizations\. 
 
 **Note**  
-You can request increases for *some* of these values by using the [Service Quotas console](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/organizations/quotas)\.   
+You can request increases for some of these values by using the [Service Quotas console](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/organizations/quotas)\.   
 Organizations is a global service that is physically hosted in the US East \(N\. Virginia\) Region \(`us-east-1`\)\. Therefore, you must use `us-east-1` to access Organizations quotas when using the Service Quotas console, the AWS CLI, or an AWS SDK\.
 
 
@@ -21,7 +21,7 @@ Organizations is a global service that is physically hosted in the US East \(N\.
 
 |  |  | 
 | --- |--- |
-|  Number of AWS accounts in an organization  |   4  This is the default maximum number of accounts allowed in an organization\.  An invitation sent to an account counts against this quota\. The count is returned if the invited account declines, the management account cancels the invitation, or the invitation expires\.  | 
+|  Number of AWS accounts in an organization  |  10 — The default maximum number of accounts allowed in an organization\. If you need more, you can request an increase by using the [Service Quotas console](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/organizations/quotas)\.An invitation sent to an account counts against this quota\. The count is returned if the invited account declines, the management account cancels the invitation, or the invitation expires\. | 
 |  Number of roots in an organization  |  1  | 
 |  Number of OUs in an organization  |  1000  | 
 |  Number of policies of each type in an organization  |  1000 per policy type  | 
@@ -29,8 +29,11 @@ Organizations is a global service that is physically hosted in the US East \(N\.
 |  OU maximum nesting in a root  |  Five levels of OUs deep under a root\.  | 
 |  Maximum number of invitation attempts you can perform in a 24\-hour period  |  Either 20 or the maximum number of accounts allowed in your organization, whichever is greater\. Accepted invitations don't count against this quota\. As soon as one invitation is accepted, you can send another invitation that same day\. If the maximum number of accounts allowed in your organization is less than 20, then you get an "account limit exceeded" exception if you attempt to invite more accounts than your organization can contain\. However, you can cancel invitations and send new ones up to the maximum of 20 attempts in one day\.  | 
 |  Number of member accounts you can create concurrently  |  5 — As soon as one finishes, you can start another, but only five can be in progress at a time\.  | 
+| Number of member accounts you can close in a 30 day period | 10% of active member accounts in an organization can be closed within a 30 day period\. The maximum account closure is 200, even if 10% active accounts exceeds 200\. | 
+| Number of member accounts you can close concurrently | 3 — Only three account closures can be in progress at the same time\. As soon as one finishes, you can close another account\.  | 
 |  Number of entities to which you can attach a policy  |  Unlimited  | 
 |  Number of tags that you can attach to a root, OU, or account  |  50  | 
+| Maximum size of the resource\-based delegation policy |  40,000 characters | 
 
 ### Expiration times for handshakes<a name="min-max-handshakes"></a>
 

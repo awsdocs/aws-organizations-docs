@@ -1,8 +1,14 @@
 # AWS Systems Manager and AWS Organizations<a name="services-that-can-integrate-ssm"></a>
 
-AWS Systems Manager is a collection of capabilities that enable visibility and control of your AWS resources\. Two of the features that are part of Systems Manager can work with Organizations to work across all of the AWS accounts in your organization\.
+AWS Systems Manager is a collection of capabilities that enable visibility and control of your AWS resources\. The following Systems Manager capabilities work with Organizations across all of the AWS accounts in your organization:
 + Systems Manager Explorer, is a customizable operations dashboard that reports information about your AWS resources\. You can synchronize operations data across all AWS accounts in your organization by using Organizations and Systems Manager Explorer\. For more information, see [Systems Manager Explorer](https://docs.aws.amazon.com/systems-manager/latest/userguide/Explorer.html) in the *AWS Systems Manager User Guide*\.
 + Systems Manager Change Manager is an enterprise change management framework for requesting, approving, implementing, and reporting on operational changes to your application configuration and infrastructure\. For more information, see [AWS Systems Manager Change Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/change-manager.html) in the *AWS Systems Manager User Guide*\.
++ Systems Manager OpsCenter provides a central location where operations engineers and IT professionals can view, investigate, and resolve operational work items \(OpsItems\) related to AWS resources\. When you use OpsCenter with Organizations it supports working with OpsItems from a management account \(either an Organizations management account or a Systems Manager delegated administrator account\) and one other account during a single session\. Once configured, users can perform the following types of actions:
+  + Create, view, and update OpsItems in another account\.
+  + View detailed information about AWS resources that are specified in OpsItems in another account\.
+  + Start Systems Manager Automation runbooks to remediate issues with AWS resources in another account\.
+
+  For more information, see [AWS Systems Manager OpsCenter](https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started-multiple-accounts.html) in the *AWS Systems Manager User Guide*\.
 
 Use the following information to help you integrate AWS Systems Manager with AWS Organizations\.
 
@@ -27,11 +33,13 @@ For information about the permissions needed to enable trusted access, see [Perm
 You can enable trusted access using either the AWS Systems Manager console or the AWS Organizations console\.
 
 **Important**  
-We strongly recommend that whenever possible, you use the AWS Systems Manager console or tools to enable integration with Organizations\. This lets AWS Systems Manager perform any configuration that it requires, such as creating resources needed by the service\. Proceed with these steps only if you can’t enable integration using the tools provided by AWS Systems Manager\.For more information, see [this note](orgs_integrate_services.md#important-note-about-integration)\.   
+We strongly recommend that whenever possible, you use the AWS Systems Manager console or tools to enable integration with Organizations\. This lets AWS Systems Manager perform any configuration that it requires, such as creating resources needed by the service\. Proceed with these steps only if you can’t enable integration using the tools provided by AWS Systems Manager\. For more information, see [this note](orgs_integrate_services.md#important-note-about-integration)\.   
 If you enable trusted access by using the AWS Systems Manager console or tools then you don’t need to complete these steps\.
 
 **To enable trusted access by using the Systems Manager console**  
-You must sign in with your AWS Organizations management account and create a Resource Data Sync\. For information, see [Setting Up Explorer to Display Data from Multiple Accounts and Regions](https://docs.aws.amazon.com/systems-manager/latest/userguide/Explorer-resource-data-sync.html) in the *AWS Systems Manager User Guide*\.
+You must sign in with your AWS Organizations management account and configure trusted access\. For more information, see the following topics in the *AWS Systems Manager User Guide*:
++  [Setting Up Explorer to Display Data from Multiple Accounts and Regions](https://docs.aws.amazon.com/systems-manager/latest/userguide/Explorer-resource-data-sync.html)\.
++  [Setting up OpsCenter to work with OpsItems across accounts](https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started-multiple-accounts.html)\.
 
 You can enable trusted access by using either the AWS Organizations console, by running a AWS CLI command, or by calling an API operation in one of the AWS SDKs\.
 
@@ -40,7 +48,7 @@ You can enable trusted access by using either the AWS Organizations console, by 
 
 **To enable trusted service access using the Organizations console**
 
-1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
+1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\.
 
 1. On the **[Services](https://console.aws.amazon.com/organizations/v2/home/services)** page, find the row for **AWS Systems Manager**, choose the service’s name, and then choose **Enable trusted access**\.
 
@@ -89,7 +97,7 @@ You can disable trusted access by using either the AWS Organizations console, by
 
 **To disable trusted service access using the Organizations console**
 
-1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
+1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\.
 
 1. On the **[Services](https://console.aws.amazon.com/organizations/v2/home/services)** page, find the row for **AWS Systems Manager** and then choose the service’s name\.
 
@@ -122,9 +130,9 @@ You can use the following AWS CLI commands or API operations to disable trusted 
 
 When you designate a member account as a delegated administrator for the organization, users and roles from that account can perform administrative actions for Systems Manager that otherwise can be performed only by users or roles in the organization's management account\. This helps you to separate management of the organization from management of Systems Manager\.
 
-If you use Change Manager across an organization, you use a delegated administrator account\. This is the AWS account that has been designated as the account for managing change templates, change requests, change runbooks and approval workflows in Change Manager\. The delegated account manages change activities across your organization\. When you set up your organization for use with Change Manager, you specify which of your accounts serves in this role\. It does not have to be the organization's management account\. The delegated administrator account is not required if you use Change Manager with a single account only\.”
+If you use Change Manager across an organization, you use a delegated administrator account\. This is the AWS account that has been designated as the account for managing change templates, change requests, change runbooks and approval workflows in Change Manager\. The delegated account manages change activities across your organization\. When you set up your organization for use with Change Manager, you specify which of your accounts serves in this role\. It does not have to be the organization's management account\. The delegated administrator account is not required if you use Change Manager with a single account only\.
 
-**To designate a member account as a delegated administrator for Systems Manager**  
-For Systems Manager Explorer, see [Configuring a Delegated Administrator](https://docs.aws.amazon.com/systems-manager/latest/userguide/Explorer-setup-delegated-administrator.html) in the *AWS Systems Manager User Guide*\.
+**To designate a member account as a delegated administrator see the following topics in the *AWS Systems Manager User Guide*:**  
 
-For Systems Manager Change Manager, see [Setting up an organization and delegated account for Change Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/change-manager-organization-setup.html) in the *AWS Systems Manager User Guide*\.
++ For Explorer and OpsCenter, see [Configuring a Delegated Administrator](https://docs.aws.amazon.com/systems-manager/latest/userguide/Explorer-setup-delegated-administrator.html)\.
++ For Change Manager, see [Setting up an organization and delegated account for Change Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/change-manager-organization-setup.html)\.

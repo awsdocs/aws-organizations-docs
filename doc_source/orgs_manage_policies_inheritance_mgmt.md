@@ -385,7 +385,7 @@ You can't directly use the contents of a displayed effective policy as the conte
 {
     "tags": {
         "project": {
-            "tag_key": "project",
+            "tag_key": "Project",
             "tag_value": [
                 "Maintenance",
                 "Escalations",
@@ -485,10 +485,9 @@ You can't directly use the contents of a displayed effective policy as the conte
 {
     "tags": {
         "project": {
-            "tag_key": " PROJECT",
+            "tag_key": "PROJECT",
             "tag_value": [
-                "Maintenance",
-                "Escalations"
+                "Maintenance"
             ]
         }
     }

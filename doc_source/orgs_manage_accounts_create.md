@@ -7,7 +7,8 @@ An organization is a collection of AWS accounts that you centrally manage\. You 
 + [Accessing a member account that has a management account access role](orgs_manage_accounts_access.md#orgs_manage_accounts_access-cross-account-role)
 
 **Important**  
-When you create a member account in your organization, AWS Organizations automatically creates an AWS Identity and Access Management \(IAM\) role in the member account\. This role enables IAM users in the management account who assume the role to exercise full administrative control over the member account\. This role is subject to any [service control policies \(SCPs\)](orgs_manage_policies_scps.md) that apply to the member account\.  
+When you create a member account in your organization, AWS Organizations automatically creates an AWS Identity and Access Management \(IAM\) role `OrganizationAccountAccessRole` in the member account that enables IAM users in the management account to exercise full administrative control over the member account\. This role is subject to any [service control policies \(SCPs\)](orgs_manage_policies_scps.md) that apply to the member account\.  
+AWS Organizations also automatically adds a managed policy with the `OrganizationAccountAccessRole` role to the member account\. This allows centralized control, so that any additional accounts attached to the same managed policy will be updated automatically whenever the policy gets updated\. Previously, new accounts created within an organization got an inline policy added that only applied to that single account\. To learn more about inline and managed policies, see [Managed policies and inline policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html) in the *IAM User Guide*\.  
 AWS Organizations also automatically creates a service\-linked role named `AWSServiceRoleForOrganizations` that enables integration with select AWS services\. You must configure the other services to allow the integration\. For more information, see [AWS Organizations and service\-linked roles](orgs_integrate_services.md#orgs_integrate_services-using_slrs)\.
 If this organization is managed with AWS Control Tower, then create your accounts by using the AWS Control Tower account factory in the AWS Control Tower console or APIs\. If you create an account in Organizations, then that account isn't enrolled with AWS Control Tower\. For more information, see [Referring to Resources Outside of AWS Control Tower](https://docs.aws.amazon.com/controltower/latest/userguide/external-resources.html#ungoverned-resources) in the *AWS Control Tower User Guide*\.
 
@@ -40,7 +41,7 @@ To create a member account in your organization, you must have the following per
 
 **To create an AWS account that is automatically part of your organization**
 
-1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
+1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\.
 
 1. On the **[AWS accounts](https://console.aws.amazon.com/organizations/v2/home/accounts)** page, choose **Add an AWS account**\.
 

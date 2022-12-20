@@ -143,21 +143,58 @@ You can attach policies to IAM identities to allow those identities to perform o
 
   For more information about using IAM to delegate permissions, see [Access Management](https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html) in the *IAM User Guide*\.
 
-The following is an example policy that allows a user to perform the `CreateAccount` action in your organization\.
+The following are examples of policies that allows a user to perform the `CreateAccount` action in your organization\.
 
 ```
 {
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid" : "Stmt1OrgPermissions",  
-            "Effect": "Allow",
-            "Action": [
-                "organizations:CreateAccount"
-            ],
-            "Resource": "*"
-        }
-    ]
+   "Version":"2012-10-17",
+   "Statement":[
+      {
+         "Sid":"Stmt1OrgPermissions",
+         "Effect":"Allow",
+         "Action":[
+            "organizations:CreateAccount"
+         ],
+         "Resource":"*"
+      }
+   ]
+}
+```
+
+You can also provide a partial ARN in the `Resource` element of the policy to indicate the type of resource\.
+
+```
+{
+   "Version":"2012-10-17",
+   "Statement":[
+      {
+         "Sid":"AllowCreatingAccountsOnResource",
+         "Effect":"Allow",
+         "Action":"organizations:CreateAccount",
+         "Resource":"arn:aws:organizations::*:account/*"
+      }
+   ]
+}
+```
+
+You can also deny the creation of accounts that do not include specific tags to the account being created\.
+
+```
+{
+   "Version":"2012-10-17",
+   "Statement":[
+      {
+         "Sid":"DenyCreatingAccountsOnResourceBasedOnTag",
+         "Effect":"Deny",
+         "Action":"organizations:CreateAccount",
+         "Resource":"*",
+         "Condition":{
+            "StringEquals":{
+               "aws:ResourceTag/key":"value"
+            }
+         }
+      }
+   ]
 }
 ```
 

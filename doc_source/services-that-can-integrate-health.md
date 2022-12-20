@@ -31,12 +31,10 @@ When you the enable organizational view feature for AWS Health, trusted access i
 You can enable trusted access using either the AWS Health console or the AWS Organizations console\.
 
 **Important**  
-We strongly recommend that whenever possible, you use the AWS Health console or tools to enable integration with Organizations\. This lets AWS Health perform any configuration that it requires, such as creating resources needed by the service\. Proceed with these steps only if you can’t enable integration using the tools provided by AWS Health\.For more information, see [this note](orgs_integrate_services.md#important-note-about-integration)\.   
+We strongly recommend that whenever possible, you use the AWS Health console or tools to enable integration with Organizations\. This lets AWS Health perform any configuration that it requires, such as creating resources needed by the service\. Proceed with these steps only if you can’t enable integration using the tools provided by AWS Health\. For more information, see [this note](orgs_integrate_services.md#important-note-about-integration)\.   
 If you enable trusted access by using the AWS Health console or tools then you don’t need to complete these steps\.
 
 **To enable trusted access using the AWS Health console**  
-You can disable trusted access with one of the following options:
-
 You can enable trusted access by using AWS Health and one of the following options:
 + Use the AWS Health console\. For more information, see [Organizational view \(console\) ](https://docs.aws.amazon.com/health/latest/ug/enable-organizational-view-in-health-console.html) in the *AWS Health User Guide*\. 
 + Use the AWS CLI\. For more information, see [Organizational view \(CLI\) ](https://docs.aws.amazon.com/health/latest/ug/enable-organizational-view-from-aws-command-line.html) in the *AWS Health User Guide*\. 

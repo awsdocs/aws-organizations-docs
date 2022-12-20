@@ -64,3 +64,31 @@ You can use the following AWS CLI commands or API operations to disable trusted 
 + AWS API: [DisableAWSServiceAccess](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DisableAWSServiceAccess.html)
 
 ------
+
+## Enabling a delegated administrator account for Trusted Advisor<a name="integrate-enable-da-ta"></a>
+
+When you designate a member account to be a delegated administrator for the organization, users and roles from the designated account can manage the AWS account metadata for other member accounts in the organization\. If you don't enable a delegated admin account, then these tasks can be performed only by the organization's management account\. This helps you to separate management of the organization from management of your account details\.
+
+**Minimum permissions**  
+Only an IAM user or role in the Organizations management account can configure a member account as a delegated administrator for Trusted Advisor in the organization
+
+For instruction about enabling a delegated administrator account for Trusted Advisor, see [Register delegated administrators](https://docs.aws.amazon.com/awssupport/latest/user/trusted-advisor-priority.html#register-delegated-administrators) in the *AWS Support User Guide*\.
+
+------
+#### [ AWS CLI, AWS API ]
+
+If you want to configure a delegated administrator account using the AWS CLI or one of the AWS SDKs, you can use the following commands:
++ AWS CLI: 
+
+  ```
+  $  aws organizations register-delegated-administrator \
+      --account-id 123456789012 \
+      --service-principal reporting.trustedadvisor.amazonaws.com
+  ```
++ AWS SDK: Call the Organizations `RegisterDelegatedAdministrator` operation and the member account's ID number and identify the account service `principal account.amazonaws.com` as parameters\. 
+
+------
+
+## Disabling a delegated administrator for Trusted Advisor<a name="integrate-disable-da-ta"></a>
+
+You can remove the delegated administrator using either the Trusted Advisor console, or by using the the Organizations `DeregisterDelegatedAdministrator` CLI or SDK operation\. For information on how to disable the delegated admin Trusted Advisor account using the Trusted Advisor console, see [Deregister delegated administrators](https://docs.aws.amazon.com/awssupport/latest/user/trusted-advisor-priority.html#deregister-delegated-administrators) in the *AWS Support user guide*\.

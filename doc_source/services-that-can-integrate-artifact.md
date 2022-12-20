@@ -11,6 +11,10 @@ Use the following information to help you integrate AWS Artifact with AWS Organi
 The following [service\-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html) is automatically created in your organization's management account when you enable trusted access\. This role allows AWS Artifact to perform supported operations within your organization's accounts in your organization\.
 
 You can delete or modify this role only if you disable trusted access between AWS Artifact and Organizations, or if you remove the member account from the organization\.
+
+Although you can delete or modify this role if you remove the member account from the organization, we do not recommend it\. 
+
+Modifying the role is discouraged because it can lead to security issues such as the cross\-service confused deputy\. To learn more about protection against confused deputy, see [Cross\-service deputy prevention](https://docs.aws.amazon.com/artifact/latest/ug/security-iam.html#confused-deputy) in the *AWS Artifact User Guide*\. 
 + `AWSArtifactAccountSync`
 
 ## Service principals used by the service\-linked roles<a name="integrate-enable-svcprin-artifact"></a>
@@ -31,7 +35,7 @@ You can enable trusted access by using either the AWS Organizations console, by 
 
 **To enable trusted service access using the Organizations console**
 
-1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
+1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\.
 
 1. On the **[Services](https://console.aws.amazon.com/organizations/v2/home/services)** page, find the row for **AWS Artifact**, choose the service’s name, and then choose **Enable trusted access**\.
 
@@ -77,7 +81,7 @@ You can disable trusted access by using either the AWS Organizations console, by
 
 **To disable trusted service access using the Organizations console**
 
-1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
+1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\.
 
 1. On the **[Services](https://console.aws.amazon.com/organizations/v2/home/services)** page, find the row for **AWS Artifact** and then choose the service’s name\.
 

@@ -6,8 +6,8 @@
 
 This SCP denies access to any operations outside of the specified Regions\. Replace `eu-central-1` and `eu-west-1` with the AWS Regions you want to use\. It provides exemptions for operations in approved global services\. This example also shows how to exempt requests made by either of two specified administrator roles\. 
 
-**Important**  
-If you use AWS Control Tower in your organization, we recommend that you do not use this example policy\. AWS Control Tower works across AWS Regions in a way that is not compatible with this example policy\.
+**Note**  
+To use the Region deny SCP with AWS Control Tower, see [ Deny access to AWS based on the requested AWS Region](#example-scp-deny-region)\.
 
 This policy uses the `Deny` effect to deny access to all requests for operations that don't target one of the two approved regions \(`eu-central-1` and `eu-west-1`\)\. The [NotAction](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_notaction.html) element enables you to list services whose operations \(or individual operations\) are exempted from this restriction\. Because global services have endpoints that are physically hosted by the `us-east-1` Region , they must be exempted in this way\. With an SCP structured this way, requests made to global services in the `us-east-1` Region are allowed if the requested service is included in the `NotAction` element\. Any other requests to services in the `us-east-1` Region are denied by this example policy\.
 
@@ -16,7 +16,7 @@ This policy uses the `Deny` effect to deny access to all requests for operations
 You can view the[ service last accessed data in the IAM console](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html) to determine what global services your organization uses\. The **Access Advisor** tab on the details page for an IAM user, group, or role displays the AWS services that have been used by that entity, sorted by most recent access\. 
 
 **Considerations**  
-AWS KMS and AWS Certificate Manager support Regional endpoints\. However, if you want to use them with a global service such as Amazon CloudFront you must include them in the global service exclusion list in the following example SCP\. A global service like AWS CloudFormation typically requires access to AWS KMS and ACM in the same region, which for a global service is the US East \(N\. Virginia\) Region \(`us-east-1`\)\.
+AWS KMS and AWS Certificate Manager support Regional endpoints\. However, if you want to use them with a global service such as Amazon CloudFront you must include them in the global service exclusion list in the following example SCP\. A global service like Amazon CloudFront typically requires access to AWS KMS and ACM in the same region, which for a global service is the US East \(N\. Virginia\) Region \(`us-east-1`\)\.
 By default, AWS STS is a global service and must be included in the global service exclusion list\. However, you can enable AWS STS to use Region endpoints instead of a single global endpoint\. If you do this, you can remove STS from the global service exemption list in the following example SCP\. For more information see [Managing AWS STS in an AWS Region](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html)\.
 
 ```
@@ -206,7 +206,7 @@ The following policy restricts all access to the specified actions for the [root
 
 ## Prevent member accounts from leaving the organization<a name="example-scp-leave-org"></a>
 
-The following policy prevents that administrators of member accounts from removing their accounts from the organization by blocking the use of the `LeaveOrganization` API operation\.
+The following policy blocks use of the `LeaveOrganization` API operation so that administrators of member accounts can't remove their accounts from the organization\.
 
 ```
 {

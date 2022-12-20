@@ -103,7 +103,7 @@ For more information about the ARNs for various resources, see [Resources Define
 You can use the `Condition` element of a policy statement to further limit the circumstances where the policy statement matches\.
 
 **Example: Granting permissions to enable trusted access to one specified service**  
-The following statement shows how you can restrict the ability to enable trusted access to only those services that you specify\. If the user tries to call the API with a different service principal than the one for AWS Single Sign\-On, this policy doesn't match and the request is denied:
+The following statement shows how you can restrict the ability to enable trusted access to only those services that you specify\. If the user tries to call the API with a different service principal than the one for AWS IAM Identity Center \(successor to AWS Single Sign\-On\), this policy doesn't match and the request is denied:
 
 ```
 {

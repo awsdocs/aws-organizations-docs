@@ -4,13 +4,13 @@
 *****Copyright &copy; Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
 
 -----
-Amazon's trademarks and trade dress may not be used in 
-     connection with any product or service that is not Amazon's, 
-     in any manner that is likely to cause confusion among customers, 
-     or in any manner that disparages or discredits Amazon. All other 
-     trademarks not owned by Amazon are the property of their respective
-     owners, who may or may not be affiliated with, connected to, or 
-     sponsored by Amazon.
+Amazon's trademarks and trade dress may not be used in
+connection with any product or service that is not Amazon's,
+in any manner that is likely to cause confusion among customers,
+or in any manner that disparages or discredits Amazon. All other
+trademarks not owned by Amazon are the property of their respective
+owners, who may or may not be affiliated with, connected to, or
+sponsored by Amazon.
 
 -----
 ## Contents
@@ -31,7 +31,10 @@ Amazon's trademarks and trade dress may not be used in
 + [Managing the AWS accounts in your organization](orgs_manage_accounts.md)
    + [Inviting an AWS account to join your organization](orgs_manage_accounts_invites.md)
    + [Creating an AWS account in your organization](orgs_manage_accounts_create.md)
+   + [Updating alternate contacts in your organization](orgs_manage_accounts_update_contacts.md)
+   + [Updating primary contact information in your organization](orgs_manage_accounts_update_contacts_primary.md)
    + [Accessing and administering the member accounts in your organization](orgs_manage_accounts_access.md)
+   + [Exporting all AWS account details for your organization](orgs_manage_accounts_export.md)
    + [Removing a member account from your organization](orgs_manage_accounts_remove.md)
    + [Closing an AWS account](orgs_manage_accounts_close.md)
 + [Managing organizational units (OUs)](orgs_manage_ous.md)
@@ -41,7 +44,11 @@ Amazon's trademarks and trade dress may not be used in
    + [Understanding policy inheritance](orgs_manage_policies_inheritance.md)
       + [Inheritance for service control policies](orgs_manage_policies_inheritance_auth.md)
       + [Policy syntax and inheritance for management policy types](orgs_manage_policies_inheritance_mgmt.md)
-   + [Service control policies](orgs_manage_policies_scps.md)
+   + [Delegated administrator for AWS Organizations](orgs_delegate_policies.md)
+      + [Example resource-based delegation policies](orgs_manage_policies_delegate_examples.md)
+         + [Example: View organization, OUs, accounts, and policies](orgs_delegate_policies_example_view_accts_orgs.md)
+         + [Example: Consolidated permissions to manage an organization's backup policies](orgs_delegate_policies_example_consolidate_permissions.md)
+   + [Service control policies (SCPs)](orgs_manage_policies_scps.md)
       + [Creating, updating, and deleting service control policies](orgs_manage_policies_scps_create.md)
       + [Attaching and detaching service control policies](orgs_manage_policies_scps_attach.md)
       + [Strategies for using SCPs](orgs_manage_policies_scps_strategies.md)
@@ -82,6 +89,7 @@ Amazon's trademarks and trade dress may not be used in
 + [Tagging AWS Organizations resources](orgs_tagging.md)
 + [Using AWS Organizations with other AWS services](orgs_integrate_services.md)
    + [AWS services that you can use with AWS Organizations](orgs_integrate_services_list.md)
+      + [AWS Account Management and AWS Organizations](services-that-can-integrate-account.md)
       + [AWS Artifact and AWS Organizations](services-that-can-integrate-artifact.md)
       + [AWS Audit Manager and AWS Organizations](services-that-can-integrate-audit-manager.md)
       + [AWS Backup and AWS Organizations](services-that-can-integrate-backup.md)
@@ -89,22 +97,29 @@ Amazon's trademarks and trade dress may not be used in
       + [AWS CloudTrail and AWS Organizations](services-that-can-integrate-cloudtrail.md)
       + [AWS Compute Optimizer and AWS Organizations](services-that-can-integrate-compute-optimizer.md)
       + [AWS Config and AWS Organizations](services-that-can-integrate-config.md)
+      + [AWS Control Tower and AWS Organizations](services-that-can-integrate-CTower.md)
+      + [Amazon Detective and AWS Organizations](services-that-can-integrate-detective.md)
+      + [Amazon DevOps Guru and AWS Organizations](services-that-can-integrate-devops.md)
       + [AWS Directory Service and AWS Organizations](services-that-can-integrate-directory-service.md)
       + [AWS Firewall Manager and AWS Organizations](services-that-can-integrate-fms.md)
       + [Amazon GuardDuty and AWS Organizations](services-that-can-integrate-guardduty.md)
       + [AWS Health and AWS Organizations](services-that-can-integrate-health.md)
+      + [Amazon Inspector and AWS Organizations](services-that-can-integrate-inspector2.md)
       + [AWS License Manager and AWS Organizations](services-that-can-integrate-license-manager.md)
       + [Amazon Macie and AWS Organizations](services-that-can-integrate-macie.md)
       + [AWS Marketplace and AWS Organizations](services-that-can-integrate-marketplace.md)
+      + [AWS Network Manager and AWS Organizations](services-that-can-integrate-network-manager.md)
       + [AWS Resource Access Manager and AWS Organizations](services-that-can-integrate-ram.md)
       + [AWS Security Hub and AWS Organizations](services-that-can-integrate-securityhub.md)
       + [Amazon S3 Storage Lens and AWS Organizations](services-that-can-integrate-s3lens.md)
       + [AWS Service Catalog and AWS Organizations](services-that-can-integrate-servicecatalog.md)
       + [Service Quotas and AWS Organizations](services-that-can-integrate-servicequotas.md)
-      + [AWS Single Sign-On and AWS Organizations](services-that-can-integrate-sso.md)
+      + [AWS IAM Identity Center (successor to AWS Single Sign-On) and AWS Organizations](services-that-can-integrate-sso.md)
       + [AWS Systems Manager and AWS Organizations](services-that-can-integrate-ssm.md)
       + [Tag policies and AWS Organizations](services-that-can-integrate-tag-policies.md)
       + [AWS Trusted Advisor and AWS Organizations](services-that-can-integrate-ta.md)
+      + [AWS Well-Architected Tool and AWS Organizations](services-that-can-integrate-wat.md)
+      + [Amazon VPC IP Address Manager (IPAM) and AWS Organizations](services-that-can-integrate-ipam.md)
 + [Security in AWS Organizations](security.md)
    + [AWS Identity and Access Management and AWS Organizations](orgs_security_iam.md)
       + [Managing access permissions for your AWS organization](orgs_permissions_overview.md)

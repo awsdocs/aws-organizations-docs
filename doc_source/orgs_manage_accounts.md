@@ -2,8 +2,10 @@
 
 An organization is a collection of AWS accounts that you manage together\. You can perform the following tasks to manage the accounts that are part of your organization:
 + [View details of the accounts in your organization](orgs_manage_org_details.md#orgs_view_account)\. You can see the account's unique ID number, its Amazon Resource Name \(ARN\), and the policies that are attached to it\.
++ [Export a list of all AWS accounts in your organization](orgs_manage_accounts_export.md)\. You can download a \.csv file that contains account details for every account within your organization\.
 + [Invite existing AWS accounts to join your organization](orgs_manage_accounts_invites.md)\. Create invitations, manage invitations that you have created, and accept or decline invitations\.
 + [Create an AWS account as part of your organization](orgs_manage_accounts_create.md)\. Create and access an AWS account that is automatically part of your organization\.
++ [Update alternate contacts in your organization](orgs_manage_accounts_update_contacts.md)\. Update alternate contacts for your AWS accounts in your organization\.
 + [Remove an AWS account from your organization](orgs_manage_accounts_remove.md)\. As an administrator in the management account, remove member accounts that you no longer want to manage from your organization\. As an administrator of a member account, remove your account from its organization\. If the management account has attached a policy to your member account, you could be blocked from removing your account\. 
 + [Delete \(or close\) an AWS account](orgs_manage_accounts_close.md)\. When you no longer need an AWS account, you can close the account to prevent any usage or accrual of charges\.
 

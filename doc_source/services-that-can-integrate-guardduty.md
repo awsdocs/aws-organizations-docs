@@ -1,10 +1,10 @@
 # Amazon GuardDuty and AWS Organizations<a name="services-that-can-integrate-guardduty"></a>
 
-Amazon GuardDuty is a continuous security monitoring service that analyzes and processes a variety data sources, using threat intelligence feeds and machine learning to identify unexpected and potentially unauthorized and malicious activity within your AWS environment\. This can include issues like escalations of privileges, uses of exposed credentials, or communication with malicious IP addresses, URLs, or domains\. 
+Amazon GuardDuty is a continuous security monitoring service that analyzes and processes a variety data sources, using threat intelligence feeds and machine learning to identify unexpected and potentially unauthorized and malicious activity within your AWS environment\. This can include issues like escalations of privileges, uses of exposed credentials, communication with malicious IP addresses, URLs, or domains, or presence of malware on your Amazon Elastic Compute Cloud instances and container workloads\. 
 
 You can help simplify management of GuardDuty by using Organizations to manage GuardDuty across all of the accounts in your organization\.
 
-For more information, see [Managing GuardDuty accounts with AWS Organizations](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_organizations.htm) in the *Amazon GuardDuty User Guide*
+For more information, see [Managing GuardDuty accounts with AWS Organizations](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_organizations.html) in the *Amazon GuardDuty User Guide*
 
 Use the following information to help you integrate Amazon GuardDuty with AWS Organizations\.
 
@@ -12,15 +12,13 @@ Use the following information to help you integrate Amazon GuardDuty with AWS Or
 
 ## Service\-linked roles created when you enable integration<a name="integrate-enable-slr-guardduty"></a>
 
-The following [service\-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html) is automatically created in your organization's management account when you enable trusted access\. This role allows GuardDuty to perform supported operations within your organization's accounts in your organization\.
-
-You can delete or modify this role only if you disable trusted access between GuardDuty and Organizations, or if you remove the member account from the organization\.
-+ `AWSServiceRoleForAmazonGuardDuty`
+ The following service\-linked roles are automatically created in your organization's management account when you enable trusted access\. These roles allow GuardDuty to perform supported operations within your organization's accounts in your organization\. You can delete a role only if you disable trusted access between GuardDuty and Organizations, or if you remove the member account from the organization\.
++ The `AWSServiceRoleForAmazonGuardDuty` service\-linked role is automatically created in accounts that have integrated GuardDuty with Organizations\. For more information, see [Managing GuardDuty accounts with Organizations](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_organizations.html) in the *Amazon GuardDuty User Guide*
++ The `AmazonGuardDutyMalwareProtectionServiceRolePolicy` service\-linked role is automatically created in accounts that have enabled GuardDuty Malware Protection\. For more information, see [Service\-linked role permissions for GuardDuty Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/slr-permissions-malware-protection.html) in the *Amazon GuardDuty User Guide*
 
 ## Service principals used by the service\-linked roles<a name="integrate-enable-svcprin-guardduty"></a>
-
-The service\-linked role in the previous section can be assumed only by the service principals authorized by the trust relationships defined for the role\. The service\-linked roles used by GuardDuty grant access to the following service principals:
-+ `guardduty.amazonaws.com`
++ `guardduty.amazonaws.com`, used by the `AWSServiceRoleForAmazonGuardDuty` service\-linked role\.
++ `malware-protection.guardduty.amazonaws.com`, used by the `AmazonGuardDutyMalwareProtectionServiceRolePolicy` service\-linked role\.
 
 ## Enabling trusted access with GuardDuty<a name="integrate-enable-ta-guardduty"></a>
 

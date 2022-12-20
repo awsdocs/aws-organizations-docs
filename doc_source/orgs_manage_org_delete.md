@@ -9,7 +9,7 @@ If you closed a member account before you remove it from the organization, it en
 
 When you remove the management account from an organization by deleting the organization, it can affect the account in the following ways:
 + The account is responsible for paying only its own charges and is no longer responsible for the charges incurred by any other account\.
-+ Integration with other services might be disabled\. For example, AWS Single Sign\-On requires an organization to operate, so if you remove an account from an organization that supports AWS SSO, the users in that account can no longer use that service\.
++ Integration with other services might be disabled\. For example, AWS IAM Identity Center \(successor to AWS Single Sign\-On\) requires an organization to operate, so if you remove an account from an organization that supports IAM Identity Center, the users in that account can no longer use that service\.
 
 The management account of an organization is never affected by service control policies \(SCPs\), so there is no change in permissions after SCPs are no longer available\.
 
@@ -23,7 +23,7 @@ To delete an organization, you must sign in as an IAM user or role in the manage
 
 **To remove the management account from an organization and delete the organization**
 
-1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
+1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\.
 
 1. Before you can delete the organization, you must first remove all accounts from the organization\. For more information, see [Removing a member account from your organization](orgs_manage_accounts_remove.md)\.
 

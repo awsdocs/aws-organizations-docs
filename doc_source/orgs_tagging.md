@@ -28,7 +28,7 @@ You can remove tags from a resource by specifying the keys to remove by using th
 
 ## Using tags<a name="use-tags"></a>
 
-Tags help you to organize your resources by enabling you to group them by things by whatever categories are useful to you\. For example, you can assign a "Department" tag that tracks the owning department\. You can assign an "Environment" tag to track whether a given resource is part of your alpha, beta, gamma, or production environments\.  
+Tags help you to organize your resources by enabling you to group them by things by whatever categories are useful to you\. For example, you can assign a "Department" tag that tracks the owning department\. You can assign an "Environment" tag to track whether a given resource is part of your alpha, beta, gamma, or production environments\. Tags can help you to [control who can access and manage the components that make up your organization](orgs_tagging_abac.md)\. 
 + You can [enforce tagging standards on your resources by using tag policies](orgs_manage_policies_tag-policies.md)\.
 + Tags can help you to [control who can access and manage the components that make up your organization](orgs_tagging_abac.md)\. 
 
@@ -73,7 +73,7 @@ To remove tags from resources in your organization, you need the following permi
 
 **To add, update, or remove tags for an existing resource**
 
-1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
+1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\.
 
 1. Navigate to and choose the account, Root, OU, or policy, and click on its name to open its detail page\.
 

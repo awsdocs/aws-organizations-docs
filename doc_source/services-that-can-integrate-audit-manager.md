@@ -33,7 +33,7 @@ Audit Manager requires trusted access to AWS Organizations before you can design
 You can enable trusted access using either the AWS Audit Manager console or the AWS Organizations console\.
 
 **Important**  
-We strongly recommend that whenever possible, you use the AWS Audit Manager console or tools to enable integration with Organizations\. This lets AWS Audit Manager perform any configuration that it requires, such as creating resources needed by the service\. Proceed with these steps only if you can’t enable integration using the tools provided by AWS Audit Manager\.For more information, see [this note](orgs_integrate_services.md#important-note-about-integration)\.   
+We strongly recommend that whenever possible, you use the AWS Audit Manager console or tools to enable integration with Organizations\. This lets AWS Audit Manager perform any configuration that it requires, such as creating resources needed by the service\. Proceed with these steps only if you can’t enable integration using the tools provided by AWS Audit Manager\. For more information, see [this note](orgs_integrate_services.md#important-note-about-integration)\.   
 If you enable trusted access by using the AWS Audit Manager console or tools then you don’t need to complete these steps\.
 
 **To enable trusted access using the Audit Manager console**  

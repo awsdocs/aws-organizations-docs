@@ -11,6 +11,7 @@ Use the following information to help you integrate AWS Config with AWS Organiza
 ## Service\-linked roles created when you enable integration<a name="integrate-enable-slr-config"></a>
 
 The following [service\-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html) is created in your organization's accounts when you enable trusted access\. This role allows AWS Config to perform supported operations within the accounts in your organization\. 
++ `AWSServiceRoleForConfig`
 
 This role is created when you enable AWS Config in your organization by creating a multi\-account aggregator\. AWS Config asks you to select or create a role and for you to provide the name\. There is no automatically generated name\.
 
@@ -23,7 +24,7 @@ For information about the permissions needed to enable trusted access, see [Perm
 You can enable trusted access using either the AWS Config console or the AWS Organizations console\.
 
 **Important**  
-We strongly recommend that whenever possible, you use the AWS Config console or tools to enable integration with Organizations\. This lets AWS Config perform any configuration that it requires, such as creating resources needed by the service\. Proceed with these steps only if you can’t enable integration using the tools provided by AWS Config\.For more information, see [this note](orgs_integrate_services.md#important-note-about-integration)\.   
+We strongly recommend that whenever possible, you use the AWS Config console or tools to enable integration with Organizations\. This lets AWS Config perform any configuration that it requires, such as creating resources needed by the service\. Proceed with these steps only if you can’t enable integration using the tools provided by AWS Config\. For more information, see [this note](orgs_integrate_services.md#important-note-about-integration)\.   
 If you enable trusted access by using the AWS Config console or tools then you don’t need to complete these steps\.
 
 **To enable trusted access using the AWS Config console**  
@@ -36,7 +37,7 @@ You can enable trusted access by using either the AWS Organizations console, by 
 
 **To enable trusted service access using the Organizations console**
 
-1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\. 
+1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2)\. You must sign in as an IAM user, assume an IAM role, or sign in as the root user \([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)\) in the organization’s management account\.
 
 1. On the **[Services](https://console.aws.amazon.com/organizations/v2/home/services)** page, find the row for **AWS Config**, choose the service’s name, and then choose **Enable trusted access**\.
 

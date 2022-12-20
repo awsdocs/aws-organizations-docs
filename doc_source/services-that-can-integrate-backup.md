@@ -21,7 +21,7 @@ For information about the permissions needed to enable trusted access, see [Perm
 You can enable trusted access using either the AWS Backup console or the AWS Organizations console\.
 
 **Important**  
-We strongly recommend that whenever possible, you use the AWS Backup console or tools to enable integration with Organizations\. This lets AWS Backup perform any configuration that it requires, such as creating resources needed by the service\. Proceed with these steps only if you can’t enable integration using the tools provided by AWS Backup\.For more information, see [this note](orgs_integrate_services.md#important-note-about-integration)\.   
+We strongly recommend that whenever possible, you use the AWS Backup console or tools to enable integration with Organizations\. This lets AWS Backup perform any configuration that it requires, such as creating resources needed by the service\. Proceed with these steps only if you can’t enable integration using the tools provided by AWS Backup\. For more information, see [this note](orgs_integrate_services.md#important-note-about-integration)\.   
 If you enable trusted access by using the AWS Backup console or tools then you don’t need to complete these steps\.
 
 To enabled trusted access using AWS Backup, see [Enabling backup in multiple AWS accounts](https://docs.aws.amazon.com/aws-backup/latest/devguide/manage-cross-account.html#enable-xaccount-management) in the *AWS Backup Developer Guide*\.

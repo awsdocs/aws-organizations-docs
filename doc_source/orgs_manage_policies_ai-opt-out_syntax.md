@@ -60,7 +60,13 @@ AI services opt\-out policy syntax includes the following elements:
   + A *service name key* that identifies an AWS AI service\. The following key names are valid values for this field:
     + **`default`** – represents **all** currently available AI services and implicitly and automatically includes any AI services that might be added in the future\.
     + `codeguruprofiler`
+    + `codewhisperer`
     + `comprehend`
+    + `connectamd`
+    + `connectoptimization`
+    + `contactlens`
+    + `frauddetector`
+    + `guardduty`
     + `lex`
     + `polly`
     + `rekognition`
