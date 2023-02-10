@@ -60,6 +60,7 @@ By default, AWS STS is a global service and must be included in the global servi
                 "shield:*",
                 "sts:*",
                 "support:*",
+                "supportplans:*",
                 "trustedadvisor:*",
                 "waf-regional:*",
                 "waf:*",
