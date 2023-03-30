@@ -33,7 +33,7 @@ When you register a member account as a delegated administrator, the following a
 ## Service principals used by the service\-linked roles<a name="integrate-enable-svcprin-network-manager"></a>
 
 The service\-linked roles can only be assumed by the service principals authorized by the trust relationships defined for the role\. 
-+ For the `AWSServiceRoleForNetworkManager service-linked` role, `networkmanager.amazon.aws.com` is the only service principal that has access\. 
++ For the `AWSServiceRoleForNetworkManager service-linked` role, `networkmanager.amazonaws.com` is the only service principal that has access\. 
 + For the `AWSServiceRoleForCloudFormationStackSetsOrgMember` service\-linked role, `member.org.stacksets.cloudformation.amazonaws.com` is the only service principal that has access\. 
 + For the `AWSServiceRoleForCloudFormationStackSetsOrgAdmin` service\-linked role, `stacksets.cloudformation.amazonaws.com` is the only service principal that has access\. 
 + For the `AWSServiceRoleForCloudWatchCrossAccount` service\-linked role, `cloudwatch-crossaccount.amazonaws.com` is the only service principal that has access\. 
