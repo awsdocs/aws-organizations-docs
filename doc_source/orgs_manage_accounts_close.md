@@ -89,7 +89,7 @@ You can create an IAM policy that denies closing accounts in either of two ways:
 
 #### Prevent accounts with tag from getting closed<a name="example_policy_tag_close_account"></a>
 
-You can attach the following policy to an identity in your management account\. This policy prevents principals in the management account from closing any member account that is tagged with the `aws:ResourceTag` tag global condition key, the `AccountType` key and the `Critical` tag value\.
+You can attach the following policy to an identity in your management account\. This prevents each principal in the management account with the policy attached from closing any member account that is tagged with the `aws:ResourceTag` tag global condition key, the `AccountType` key and the `Critical` tag value\.
 
 ```
 {
@@ -110,7 +110,7 @@ You can attach the following policy to an identity in your management account\. 
 
 #### Prevent accounts listed in this policy from getting closed<a name="example_policy_prevent_close_account_arn"></a>
 
-You can attach the following policy to an identity in your management account\. This policy prevents principals in the management account from closing accounts explicitly specified in the `Resource` element\. 
+You can attach the following policy to an identity in your management account\. This prevents each principal in the management account with the policy attached from closing accounts explicitly specified in the `Resource` element\. 
 
 ```
 {
