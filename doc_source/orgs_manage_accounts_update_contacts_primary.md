@@ -1,3 +1,0 @@
-# Updating primary contact information in your organization<a name="orgs_manage_accounts_update_contacts_primary"></a>
-
-You can update primary contact information for accounts within your organization using the AWS Organizations console, or programmatically using the AWS CLI or AWS SDKs\. To learn how to update primary contact information, see [Accessing or updating the primary account contact](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact.html#manage-acct-update-contact-alternate-edit.html) in the * AWS Account Management Reference*\.
